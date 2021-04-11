@@ -4,6 +4,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RetiledSearch.MainWindow"
-        Title="RetiledSearch">
-    Welcome to Avalonia!
+        Title="RetiledSearchPrototype">
+	<StackPanel>
+	<Label>Enter text and click Search</Label>
+
+		<TextBox></TextBox>
+
+		<Button>
+			<TextBlock>Search</TextBlock>
+		</Button>
+	</StackPanel>
+		
 </Window>
