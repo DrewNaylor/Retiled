@@ -10,9 +10,9 @@
 	<StackPanel Width="480">
 	<Label>Enter text and click Search</Label>
 
-		<TextBox></TextBox>
+		<TextBox x:Name="SearchBox"></TextBox>
 
-		<Button>
+		<Button Click="DoSearch()">
 			<TextBlock>Search</TextBlock>
 		</Button>
 	</StackPanel>
