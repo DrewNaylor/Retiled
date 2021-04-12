@@ -4,8 +4,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
         x:Class="RetiledSearch.MainWindow"
-        Title="RetiledSearchPrototype">
-	<StackPanel>
+        Title="RetiledSearchPrototype"
+		Width="480"
+		MinWidth="480">
+	<StackPanel Width="480">
 	<Label>Enter text and click Search</Label>
 
 		<TextBox></TextBox>
