@@ -4,7 +4,9 @@ Public Class Class1
 
     Public Shared Sub BeginSearch(SearchTerm As String)
         If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
-
+            Dim SearchRunner As New ProcessStartInfo
+            SearchRunner.FileName = "https://bing.com/search?q=" & SearchTerm
+            SearchRunner.UseShellExecute = True
         End If
     End Sub
 
