@@ -14,19 +14,19 @@ namespace RetiledSearch.ViewModels
             // Define ProcessStartInfo.
             var SearchRunner = new ProcessStartInfo
             {
-                FileName = "https://bing.com/search?q=" & SearchTerm,
+                FileName = "https://bing.com/search?q=" + SearchTerm,
                 UseShellExecute=true
             };
 
             Process.Start(SearchRunner);
         }
 
-        private string _SearchTerm;
+        private string? _SearchTerm;
 
         public string SearchTerm
         {
             get { return _SearchTerm; }
-
+            set { _SearchTerm = value; }
         }
 
     }
