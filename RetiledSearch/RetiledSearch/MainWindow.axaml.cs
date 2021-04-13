@@ -19,9 +19,9 @@ namespace RetiledSearch
             AvaloniaXamlLoader.Load(this);
         }
 
-        private static void DoSearch()
+        public void DoSearch()
         {
-            System.Diagnostics.Process.Start("https://bing.com/search?q=" & MainWindow.SearchBox.Text);
+            System.Diagnostics.Process.Start("https://bing.com/search?q=" & SearchBox.Text);
         }
     }
 }

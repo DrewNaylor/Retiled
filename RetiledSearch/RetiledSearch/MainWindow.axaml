@@ -12,7 +12,7 @@
 
 		<TextBox x:Name="SearchBox"></TextBox>
 
-		<Button Content="Search"  Click="DoSearch()"/>
+		<Button Content="Search" Command="{Binding DoSearch}"/>
 	</StackPanel>
 		
 </Window>
