@@ -14,4 +14,7 @@
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libRetiledSearch\libRetiledSearch.vbproj" />
+  </ItemGroup>
 </Project>
