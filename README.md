@@ -4,5 +4,15 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 
 >This project (Retiled) is Copyright (C) 2021 Drew Naylor and is licensed under the Apache License 2.0.<br>
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
+Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br>
 Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five). Anything else that's used in the future will be added to this list.
+
+## Screenshots
+Below are some prototype screenshots in case you want to see how things are going so far.
+
+Screenshot of the search app prototype in Linux Mint:<br>
+![](/docs/images/search-prototype.png?raw=true)<br>
+<br>
+Screenshot of the search app but without the border:<br>
+![](/docs/images/search-prototype-no-border.png?raw=true)
