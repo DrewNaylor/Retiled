@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace RetiledSearch
+namespace RetiledSearch.Views
 {
     public class MainWindow : Window
     {
@@ -17,11 +17,6 @@ namespace RetiledSearch
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-        }
-
-        public void DoSearch()
-        {
-            System.Diagnostics.Process.Start("https://bing.com/search?q=" & SearchBox.Text);
         }
     }
 }

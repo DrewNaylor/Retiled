@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RetiledSearch.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+        x:Class="RetiledSearch.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RetiledSearchPrototype"
+		Width="480"
+		MinWidth="480">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<StackPanel Width="480">
+		<Label Content="Enter text and click Search" />
+		<TextBox></TextBox>
+			<Button Content="Search" Command="{Binding DoSearch}" />
+
+
+		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+	</StackPanel>
+
+</Window>
