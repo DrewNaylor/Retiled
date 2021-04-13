@@ -25,7 +25,7 @@ namespace RetiledSearch.ViewModels
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                Process.Start("xdg-open", "https://bing.com/search?q=" + @"""" + SearchTerm + @"""");
+                Process.Start("xdg-open", "https://bing.com/search?q=" + "'" + SearchTerm + "'");
             }
         }
 
