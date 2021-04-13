@@ -19,9 +19,6 @@
 		<TextBox Text="{Binding SearchTerm}"></TextBox>
 		<Button x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
 
-
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
 	</StackPanel>
 
 </Window>
