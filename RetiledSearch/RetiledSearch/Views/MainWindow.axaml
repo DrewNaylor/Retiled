@@ -16,8 +16,8 @@
 
 	<StackPanel Width="480">
 		<Label Content="Enter text and click Search" />
-		<TextBox></TextBox>
-			<Button Content="Search" Command="{Binding DoSearch}" />
+		<TextBox Text="{Binding SearchTerm}"></TextBox>
+		<Button x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
 
 
 		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
