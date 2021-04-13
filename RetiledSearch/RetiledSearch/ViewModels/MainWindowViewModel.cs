@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace RetiledSearch.ViewModels
@@ -10,7 +11,14 @@ namespace RetiledSearch.ViewModels
 
         public void DoSearch()
         {
-            System.Diagnostics.Process.Start("https://bing.com/search?q=test");
+            // Define ProcessStartInfo.
+            var SearchRunner = new ProcessStartInfo
+            {
+                FileName = "https://bing.com/search?q=test",
+                UseShellExecute=true
+            };
+
+            Process.Start(SearchRunner);
         }
 
     }
