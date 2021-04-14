@@ -4,6 +4,7 @@ Public Class Class1
 
     Public Shared Sub BeginSearch(SearchTerm As String)
         If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
+            ' Create a process thing for running on Windows.
             Dim SearchRunner As New ProcessStartInfo
             SearchRunner.FileName = "https://bing.com/search?q=" & SearchTerm
             SearchRunner.UseShellExecute = True
@@ -11,6 +12,7 @@ Public Class Class1
             Process.Start(SearchRunner)
 
         ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
+            ' Do a search on Linux.
             Dim SearchTermFixer As String = "https://bing.com/search?q=" & SearchTerm.Replace(" ", "%20")
             Process.Start("xdg-open", """" & SearchTermFixer & """")
         End If
