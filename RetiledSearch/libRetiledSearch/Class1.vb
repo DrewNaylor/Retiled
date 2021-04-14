@@ -7,6 +7,11 @@ Public Class Class1
             Dim SearchRunner As New ProcessStartInfo
             SearchRunner.FileName = "https://bing.com/search?q=" & SearchTerm
             SearchRunner.UseShellExecute = True
+
+            Process.Start(SearchRunner)
+
+        ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
+            Process.Start("xdg-open", "'https://bing.com/search?q=" & SearchTerm & "'")
         End If
     End Sub
 
