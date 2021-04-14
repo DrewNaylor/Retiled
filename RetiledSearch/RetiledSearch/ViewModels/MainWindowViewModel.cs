@@ -12,22 +12,8 @@ namespace RetiledSearch.ViewModels
 
         public void DoSearch()
         {
-            libRetiledSearch.Class1.BeginSearch(SearchTerm);
-            // Define ProcessStartInfo.
-            //if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            //    {
-            //    var SearchRunner = new ProcessStartInfo
-            //    {
-            //        FileName = "https://bing.com/search?q=" + SearchTerm,
-            //        UseShellExecute = true
-            //    };
-
-            //    Process.Start(SearchRunner);
-            //}
-            //else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            //{
-            //    Process.Start("xdg-open", "'https://bing.com/search?q=" + SearchTerm.Replace(" ", "%20") + "'");
-            //}
+            // Pass the search stuff to the library.
+            libRetiledSearch.SearchTools.BeginSearch(SearchTerm);
         }
 
         private string? _SearchTerm;
