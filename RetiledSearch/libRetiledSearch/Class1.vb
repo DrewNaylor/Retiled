@@ -11,7 +11,7 @@ Public Class Class1
             Process.Start(SearchRunner)
 
         ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
-            Process.Start("xdg-open", "'https://bing.com/search?q=" & SearchTerm & "'")
+            Process.Start("xdg-open", ("'https://bing.com/search?q=" & SearchTerm & "'").ToString)
         End If
     End Sub
 
