@@ -11,8 +11,8 @@ Public Class Class1
             Process.Start(SearchRunner)
 
         ElseIf RuntimeInformation.IsOSPlatform(OSPlatform.Linux) Then
-            Dim SearchTermFixer As String = "https://bing.com/search?q={0}" & SearchTerm
-            Process.Start("xdg-open", "'" & SearchTermFixer & "'")
+            Dim SearchTermFixer As String = "https://bing.com/search?q=" & SearchTerm.Replace(" ", "%20")
+            Process.Start("xdg-open", """" & SearchTermFixer & """")
         End If
     End Sub
 
