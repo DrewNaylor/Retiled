@@ -8,6 +8,8 @@ Retiled is not associated with Microsoft in any way, and Microsoft does not endo
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br>
 Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five). Anything else that's used in the future will be added to this list.
 
+**NB:** You may need to install the `ttf-ms-fonts` package (name may vary by distro) so that the proper fonts are available to Avalonia, otherwise it'll crash.
+
 ## Screenshots
 Below are some prototype screenshots in case you want to see how things are going so far.
 
