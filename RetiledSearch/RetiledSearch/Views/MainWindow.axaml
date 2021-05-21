@@ -7,14 +7,13 @@
         x:Class="RetiledSearch.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="RetiledSearchPrototype"
-		Width="480"
-		MinWidth="480">
+		Width="480">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<StackPanel Width="450" HorizontalAlignment="Center">
+	<StackPanel HorizontalAlignment="Center" Margin="15,5,15,0">
 		<Label Content="Enter text and click Search" />
 		<TextBox Text="{Binding SearchTerm}"></TextBox>
 		<Button x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
