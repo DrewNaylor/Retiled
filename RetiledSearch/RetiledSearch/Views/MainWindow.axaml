@@ -13,7 +13,7 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<StackPanel Spacing="2" HorizontalAlignment="Center" Margin="15,5,15,0">
+	<StackPanel Spacing="2" Margin="15,5,15,0">
 		<Label Content="Enter text and click Search" />
 		<TextBox Text="{Binding SearchTerm}"></TextBox>
 		<Button x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
