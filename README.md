@@ -18,3 +18,6 @@ Screenshot of the search app prototype in Linux Mint:<br>
 <br>
 Screenshot of the search app but without the border:<br>
 ![](/docs/images/search-prototype-no-border.png?raw=true)
+<br>
+Screenshot of RetiledStart running on the PinePhone:<br>
+![](/docs/images/retiledstart-running-on-pinephone.png?raw=true)
