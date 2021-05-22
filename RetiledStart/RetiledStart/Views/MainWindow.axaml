@@ -14,12 +14,12 @@
     </Design.DataContext>
 
 	<WrapPanel>
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 	
 	
 	
