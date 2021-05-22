@@ -13,13 +13,13 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<WrapPanel>
-		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="4,4,4,4"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="4,4,4,4"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<WrapPanel Margin="8,20,0,0">
+		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
 	
 	
 	
