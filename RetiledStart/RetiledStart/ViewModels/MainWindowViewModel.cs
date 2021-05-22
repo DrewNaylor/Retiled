@@ -12,5 +12,6 @@ namespace RetiledStart.ViewModels
         // because that's the real version of cobalt to me.
         // #0047ab may be better, as that's what shows up when I type "cobalt" into
         // ColorHexa.
+        // Tested the code from ColorHexa and it looks too dull.
     }
 }
