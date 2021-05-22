@@ -14,12 +14,12 @@
     </Design.DataContext>
 
 	<WrapPanel>
-		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button Content="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Margin="4,4,4,4"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="{Binding Greeting}" Margin="4,4,4,4"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
 	
 	
 	
