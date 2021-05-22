@@ -13,11 +13,11 @@ Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/),
 ## Screenshots
 Below are some prototype screenshots in case you want to see how things are going so far.
 
+Screenshot of RetiledStart running on the PinePhone:<br>
+<img src="/docs/images/retiledstart-running-on-pinephone.png" width="360"><br>
+<br>
 Screenshot of the search app prototype in Linux Mint:<br>
 ![](/docs/images/search-prototype.png?raw=true)<br>
 <br>
 Screenshot of the search app but without the border:<br>
 ![](/docs/images/search-prototype-no-border.png?raw=true)
-<br>
-Screenshot of RetiledStart running on the PinePhone:<br>
-![](/docs/images/retiledstart-running-on-pinephone.png?raw=true)
