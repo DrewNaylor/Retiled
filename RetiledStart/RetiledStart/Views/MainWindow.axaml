@@ -14,31 +14,31 @@
     </Design.DataContext>
 
 	<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
-		<WrapPanel Margin="8,20,0,0">
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
-			<Button Content="{Binding Greeting}" Width="150" Height="150" Margin="2,2,2,2"/>
+		<WrapPanel Margin="8,20,0,8">
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
+			<Button Content="{Binding Greeting}" Background="Blue" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
 
 		</WrapPanel>
 	</ScrollViewer>
