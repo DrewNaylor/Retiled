@@ -27,6 +27,10 @@ Retiled is not associated with Microsoft in any way, and Microsoft does not endo
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br>
 Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five). Anything else that's used in the future will be added to this list.
 
+## Video demos
+
+- [RetiledStart prototype running on the PinePhone](https://youtu.be/NpUnrb1wC_8)
+
 ## Screenshots
 Below are some prototype screenshots in case you want to see how things are going so far.
 
