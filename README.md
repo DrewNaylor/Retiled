@@ -9,6 +9,9 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
     - Would be cool if someone built something similar to Cortana that used an open-source backend, though
   - Currently this is just a textbox and a button that opens Bing with the search term in the default browser
     - Eventually it'll support choosing the default search engine
+  - What would be really neat is if it had support for daily images if the user wants to show them, including but not limited to the Bing Image of the Day
+    - This would just be the US at the beginning because that's what's easiest for me to test, but eventually it would have the option to use any region that has Bing Image of the Day stuff
+    - Not sure if Microsoft would be ok with someone's project having built-in displaying of their images. Probably should have something that either goes to the Bing homepage (or the page of the daily wallpaper source that has image copyright info) or get the image's copyright info from Bing to display it in a popup that shows up when you press the `i` button in the Command Bar. Probably should just have an `i` button that goes to the page with image copyright info.
 - Navigation bar
 - Action Center
 - Status bar
