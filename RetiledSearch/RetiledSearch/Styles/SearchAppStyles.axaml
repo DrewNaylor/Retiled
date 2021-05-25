@@ -11,6 +11,8 @@
 
 	
 	<Style Selector="Button.RetiledFlatButton /template/ ContentPresenter">
+		<!-- This part makes regular rectangular buttons look like
+		the Windows Phone buttons. -->
 		<Setter Property="CornerRadius" Value="0" />
 		<Setter Property="BorderThickness" Value="2" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
@@ -20,11 +22,16 @@
 	</Style>
 
 	<Style Selector="Button.RetiledFlatButton:focus /template/ ContentPresenter">
+		<!-- Changes the button background color to Cobalt when it's
+		pressed. -->
 		<Setter Property="Background" Value="#0050ef"/>
 	</Style>
 
 
 	<Style Selector="TextBox.RetiledFlatTextbox /template/ ContentPresenter">
+		<!-- This style is supposed to make the textboxes look like
+		Windows Phone textboxes, but the CornerRadius doesn't
+		seem to do anything. -->
 		<Setter Property="CornerRadius" Value="0"/>
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
