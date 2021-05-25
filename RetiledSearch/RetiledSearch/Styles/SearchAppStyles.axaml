@@ -67,16 +67,20 @@ all the Retiled programs. -->
 		seem to do anything. -->
 		<Setter Property="CornerRadius" Value="0"/>
 		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Background" Value="Black"/>
-		<Setter Property="BorderBrush" Value="White"/>
+		<!-- WindowSpy says the background for an unfocused
+		textbox is #CCCCCC. I got really close to the closest
+		websafe alternative of #D6D6D6 using "LightGray", so
+		I figured I could just use the same color. -->
+		<Setter Property="Background" Value="#CCCCCC"/>
+		<Setter Property="BorderBrush" Value="#0050ef"/>
 	</Style>
 
-	<Style Selector="TextBox.RetiledFlatTextbox /template/ ContentPresenter">
+	<Style Selector="TextBox.RetiledFlatTextbox">
 		<!-- This style makes the textboxes look a little better. -->
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Left"/>
-		<Setter Property="Background" Value="Black"/>
-		<Setter Property="BorderBrush" Value="White"/>
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="BorderBrush" Value="#0050ef"/>
 	</Style>
 	
 </Styles>
