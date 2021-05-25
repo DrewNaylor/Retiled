@@ -43,8 +43,5 @@ RetiledStart running on the PinePhone:<br>
 RetiledStart with tiles that look like Windows Phone's tiles:<br>
 <img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
 <br>
-Search app prototype in Linux Mint:<br>
+Search app prototype:<br>
 ![](/docs/images/search-prototype.png?raw=true)<br>
-<br>
-Search app but without the border:<br>
-![](/docs/images/search-prototype-no-border.png?raw=true)
