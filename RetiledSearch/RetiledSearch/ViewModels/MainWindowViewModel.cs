@@ -8,8 +8,6 @@ namespace RetiledSearch.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public string Greeting => "Welcome to Avalonia!";
-
         public void DoSearch()
         {
             // Pass the search stuff to the library.
@@ -20,7 +18,16 @@ namespace RetiledSearch.ViewModels
 
         public string SearchTerm
         {
-            get { return _SearchTerm; }
+            get {
+                if (_SearchTerm is null)
+                    // Make sure the search term variable isn't
+                    // null, and if it is, replace it with
+                    // something else.
+                {
+                    _SearchTerm = "enter search term and press search";
+                }
+                return _SearchTerm;
+            }
             set { _SearchTerm = value; }
         }
 
