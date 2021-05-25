@@ -10,7 +10,6 @@
 		Width="480">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledSearch/Styles/SearchAppStyles.axaml"/>
-		<StyleInclude Source="avares://RetiledSearch/Styles/RetiledFlatTextbox.axaml"/>
 	</Window.Styles>
 
     <Design.DataContext>
