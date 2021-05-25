@@ -19,6 +19,10 @@
 		<Setter Property="BorderBrush" Value="White"/>
 	</Style>
 
+	<Style Selector="Button.RetiledFlatButton:focus /template/ ContentPresenter">
+		<Setter Property="Background" Value="#0050ef"/>
+	</Style>
+
 
 	<Style Selector="TextBox.RetiledFlatTextbox /template/ ContentPresenter">
 		<Setter Property="CornerRadius" Value="0"/>
