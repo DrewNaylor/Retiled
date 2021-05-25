@@ -21,9 +21,9 @@
 		<Setter Property="BorderBrush" Value="White"/>
 	</Style>
 
-	<Style Selector="Button.RetiledFlatButton:focus /template/ ContentPresenter">
+	<Style Selector="Button.RetiledFlatButton:pressed /template/ ContentPresenter">
 		<!-- Changes the button background color to Cobalt when it's
-		pressed. -->
+		pressed, which is the same behavior as Windows Phone. -->
 		<Setter Property="Background" Value="#0050ef"/>
 	</Style>
 
