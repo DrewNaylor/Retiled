@@ -2,19 +2,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="20">
-			<Button Content="search" Classes="RetiledFlatButton" Height="35"/>
+			<TextBox Text="Search term" Classes="RetiledFlatTextbox" Height="10" Margin="10"/>
         </Border>
     </Design.PreviewWith>
 
-	
-	<Style Selector="Button.RetiledFlatButton /template/ ContentPresenter">
-		<Setter Property="CornerRadius" Value="0" />
-		<Setter Property="BorderThickness" Value="2" />
+
+	<Style Selector="TextBox.RetiledFlatTextbox /template/ ContentPresenter">
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
 		<Setter Property="Background" Value="Black"/>
 		<Setter Property="BorderBrush" Value="White"/>
 	</Style>
-
-	
 </Styles>

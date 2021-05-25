@@ -8,6 +8,9 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="RetiledSearchPrototype"
 		Width="480">
+	<Window.Styles>
+		<StyleInclude Source="avares://RetiledSearch/Styles/SearchAppStyles.axaml"/>
+		</Window.Styles>
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
@@ -16,7 +19,7 @@
 	<StackPanel Spacing="2" Margin="15,5,15,0">
 		<Label Content="Enter text and click Search" />
 		<TextBox Text="{Binding SearchTerm}"></TextBox>
-		<Button x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
+		<Button Classes="RetiledFlatButton" x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
 
 	</StackPanel>
 
