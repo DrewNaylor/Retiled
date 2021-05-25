@@ -14,5 +14,7 @@
 		<Setter Property="BorderThickness" Value="4" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Background" Value="Black"/>
+		<Setter Property="BorderBrush" Value="White"/>
 	</Style>
 </Styles>
