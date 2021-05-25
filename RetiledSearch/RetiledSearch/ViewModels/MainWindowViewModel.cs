@@ -53,7 +53,7 @@ namespace RetiledSearch.ViewModels
                     // null, and if it is, replace it with
                     // something else.
                 {
-                    _SearchTerm = "enter search term and press search";
+                    _SearchTerm = "";
                 }
                 return _SearchTerm;
             }
