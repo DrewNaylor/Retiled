@@ -9,7 +9,9 @@
     <!-- Set Defaults -->
     <Setter Property="Template">
       <ControlTemplate>
-        <TextBlock Text="Templated Control" />
+        <Button Width="150" Height="150">
+			
+		</Button>
       </ControlTemplate>
     </Setter>
   </Style>
