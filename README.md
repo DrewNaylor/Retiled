@@ -43,5 +43,8 @@ RetiledStart running on the PinePhone, less blurry than it is in person:<br>
 RetiledStart in a three-column view:<br>
 <img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
 <br>
+Simulated PinePhone Xwayland three-column view with 100x100 tiles:<br>
+<img src="/docs/images/simulated-three-column-view-on-a-pinephone.png" width="360"><br>
+<br>
 Search app prototype:<br>
 ![](/docs/images/search-prototype.png?raw=true)<br>
