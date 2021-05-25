@@ -82,6 +82,10 @@ all the Retiled programs. -->
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="White"/>
 		<Setter Property="BorderBrush" Value="#0050ef"/>
+		<!-- Setting the margin to 0 prevents the textbox from
+		changing its size, which is good because that makes it
+		behave more like Windows Phone. -->
+		<Setter Property="Margin" Value="0"/>
 	</Style>
 
 	<Style Selector="TextBox.RetiledFlatTextbox">
@@ -99,6 +103,11 @@ all the Retiled programs. -->
 		<Setter Property="SelectionBrush" Value="#0050ef"/>
 		<!-- Insertion point color. -->
 		<Setter Property="CaretBrush" Value="Black"/>
+	</Style>
+	
+	<Style Selector="TextBox.RetiledFlatTextbox#PART_Watermark">
+		<!-- The default watermark opacity isn't quite enough. -->
+		<Setter Property="Opacity" Value="1"/>
 	</Style>
 		
 	
