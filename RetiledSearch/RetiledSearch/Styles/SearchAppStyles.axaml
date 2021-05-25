@@ -97,6 +97,8 @@ all the Retiled programs. -->
 		finding out the available properties:
 		https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Controls/TextBox.xaml -->
 		<Setter Property="SelectionBrush" Value="#0050ef"/>
+		<!-- Insertion point color. -->
+		<Setter Property="CaretBrush" Value="Black"/>
 	</Style>
 		
 	
