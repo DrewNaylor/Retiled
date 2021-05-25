@@ -4,14 +4,15 @@
         <Border Padding="20">
 			<WrapPanel>
             <TextBox Classes="RetiledFlatTextbox" Width="100" Height="10" Margin="10"/>
-			<Button Classes="RetiledFlatButton" Width="50" Height="30"/>
+			<Button Content="button" Classes="RetiledFlatButton" Width="80" Height="35"/>
 				</WrapPanel>
         </Border>
     </Design.PreviewWith>
 
 	<Style Selector="Button.RetiledFlatButton /template/ ContentPresenter">
 		<Setter Property="CornerRadius" Value="0" />
-		<Setter Property="BorderThickness" Value="2" />
-		<Setter Property="VerticalContentAlignment" Value="Bottom" />
+		<Setter Property="BorderThickness" Value="4" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
 	</Style>
 </Styles>
