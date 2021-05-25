@@ -11,7 +11,7 @@
 
 	<Style Selector="Button.RetiledFlatButton /template/ ContentPresenter">
 		<Setter Property="CornerRadius" Value="0" />
-		<Setter Property="BorderThickness" Value="4" />
+		<Setter Property="BorderThickness" Value="2" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Center"/>
 		<Setter Property="Background" Value="Black"/>
