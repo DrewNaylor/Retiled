@@ -10,7 +10,8 @@
 		Width="480">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledSearch/Styles/SearchAppStyles.axaml"/>
-		</Window.Styles>
+		<StyleInclude Source="avares://RetiledSearch/Styles/RetiledFlatTextbox.axaml"/>
+	</Window.Styles>
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
@@ -18,7 +19,7 @@
 
 	<StackPanel Spacing="2" Margin="15,5,15,0">
 		<Label Content="Enter text and click Search" />
-		<TextBox Text="{Binding SearchTerm}"></TextBox>
+		<TextBox Classes="RetiledFlatTextbox" Text="{Binding SearchTerm}"></TextBox>
 		<Button Classes="RetiledFlatButton" x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
 
 	</StackPanel>
