@@ -66,12 +66,22 @@ all the Retiled programs. -->
 		Windows Phone textboxes, but the CornerRadius doesn't
 		seem to do anything. -->
 		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="BorderThickness" Value="0" />
 		<!-- WindowSpy says the background for an unfocused
 		textbox is #CCCCCC. I got really close to the closest
 		websafe alternative of #D6D6D6 using "LightGray", so
 		I figured I could just use the same color. -->
 		<Setter Property="Background" Value="#CCCCCC"/>
+		<Setter Property="BorderBrush" Value="#0050ef"/>
+	</Style>
+
+	<Style Selector="TextBox.RetiledFlatTextbox:focus /template/ Border">
+		<!-- Change the style when the textbox is focused.
+		I'd prefer to have the border go inside the textbox
+		like Windows Phone, but I don't really know how to do
+		that yet. -->
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Background" Value="White"/>
 		<Setter Property="BorderBrush" Value="#0050ef"/>
 	</Style>
 
