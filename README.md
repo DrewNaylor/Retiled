@@ -40,7 +40,7 @@ Below are some prototype screenshots in case you want to see how things are goin
 RetiledStart running on the PinePhone:<br>
 <img src="/docs/images/retiledstart-running-on-pinephone.png" width="360"><br>
 <br>
-RetiledStart with tiles that look like Windows Phone's tiles:<br>
+RetiledStart in a three-column view:<br>
 <img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
 <br>
 Search app prototype:<br>
