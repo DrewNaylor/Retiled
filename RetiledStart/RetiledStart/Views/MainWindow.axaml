@@ -13,10 +13,6 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<Style Selector="Button.StartTile /template/ ContentPresenter">
-		<Setter Property="CornerRadius" Value="0" />
-	</Style>
-
 	<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
 		<WrapPanel Margin="0,10" HorizontalAlignment="Center">
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="2,2,2,2">
