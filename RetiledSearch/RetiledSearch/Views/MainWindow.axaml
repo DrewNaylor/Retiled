@@ -45,7 +45,7 @@ respective people and companies/organizations.
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<StackPanel Spacing="4" Margin="10,10,10,0">
+	<StackPanel Spacing="4" Margin="10,30,10,0">
 		<TextBox Watermark="enter a search term here" Classes="RetiledFlatTextbox" Text="{Binding SearchTerm}"></TextBox>
 		<Button Classes="RetiledFlatButton" x:Name="SearchBox" Content="search" Command="{Binding DoSearch}" />
 
