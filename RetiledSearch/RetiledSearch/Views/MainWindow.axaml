@@ -16,10 +16,9 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<StackPanel Spacing="2" Margin="15,5,15,0">
-		<Label Content="Enter text and click Search" />
+	<StackPanel Spacing="4" Margin="10,10,10,0">
 		<TextBox Classes="RetiledFlatTextbox" Text="{Binding SearchTerm}"></TextBox>
-		<Button Classes="RetiledFlatButton" x:Name="SearchBox" Content="Search" Command="{Binding DoSearch}" />
+		<Button Classes="RetiledFlatButton" x:Name="SearchBox" Content="search" Command="{Binding DoSearch}" />
 
 	</StackPanel>
 
