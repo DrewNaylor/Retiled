@@ -1,0 +1,17 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+			<WrapPanel>
+            <TextBox Classes="RetiledFlatTextbox" Width="100" Height="10" Margin="10"/>
+			<Button Classes="RetiledFlatButton" Width="50" Height="30"/>
+				</WrapPanel>
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="Button.RetiledFlatButton /template/ ContentPresenter">
+		<Setter Property="CornerRadius" Value="0" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="VerticalContentAlignment" Value="Bottom" />
+	</Style>
+</Styles>
