@@ -13,10 +13,14 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
+	<Style Selector="Button.StartTile /template/ ContentPresenter">
+		<Setter Property="CornerRadius" Value="0" />
+	</Style>
+
 	<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
 		<WrapPanel Margin="0,10" HorizontalAlignment="Center">
-			<Button Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="2,2,2,2">
-				<Button.Template>
+			<Button Classes="Tile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="2,2,2,2">
+				<!--<Button.Template>
 					<ControlTemplate>
 						<ContentPresenter x:Name="PART_ContentPresenter"
 										  Background="{TemplateBinding Background}"
@@ -29,9 +33,9 @@
                                           VerticalContentAlignment="Bottom"
 										  CornerRadius="0"></ContentPresenter>
 						</ControlTemplate>
-					<!-- Button template base from here:
-					https://github.com/AvaloniaUI/Avalonia/issues/5003 -->
-					</Button.Template>
+					--><!-- Button template base from here:
+					https://github.com/AvaloniaUI/Avalonia/issues/5003 --><!--
+					</Button.Template>-->
 			</Button>
 			<Button Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
 			<Button Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="2,2,2,2"/>
