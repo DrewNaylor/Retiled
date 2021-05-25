@@ -61,12 +61,18 @@ all the Retiled programs. -->
 	</Style>
 
 
-	<Style Selector="TextBox.RetiledFlatTextbox /template/ ContentPresenter">
+	<Style Selector="TextBox.RetiledFlatTextbox /template/ Border">
 		<!-- This style is supposed to make the textboxes look like
 		Windows Phone textboxes, but the CornerRadius doesn't
 		seem to do anything. -->
 		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Background" Value="Black"/>
+		<Setter Property="BorderBrush" Value="White"/>
+	</Style>
+
+	<Style Selector="TextBox.RetiledFlatTextbox /template/ ContentPresenter">
+		<!-- This style makes the textboxes look a little better. -->
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Left"/>
 		<Setter Property="Background" Value="Black"/>
