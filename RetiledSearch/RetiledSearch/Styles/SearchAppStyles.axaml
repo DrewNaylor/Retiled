@@ -62,9 +62,8 @@ all the Retiled programs. -->
 
 
 	<Style Selector="TextBox.RetiledFlatTextbox /template/ Border">
-		<!-- This style is supposed to make the textboxes look like
-		Windows Phone textboxes, but the CornerRadius doesn't
-		seem to do anything. -->
+		<!-- This style makes the textbox borders look like
+		Windows Phone textboxes. -->
 		<Setter Property="CornerRadius" Value="0"/>
 		<Setter Property="BorderThickness" Value="0" />
 		<!-- WindowSpy says the background for an unfocused
@@ -90,7 +89,15 @@ all the Retiled programs. -->
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Left"/>
 		<Setter Property="Foreground" Value="Black"/>
-		<Setter Property="BorderBrush" Value="#0050ef"/>
+		<!-- SelectionForegroundBrush is the text color when
+		it's being selected. -->
+		<Setter Property="SelectionForegroundBrush" Value="White"/>
+		<!-- SelectionBrush is the highlight color. 
+		Avalonia's Fluent theme file is really useful for
+		finding out the available properties:
+		https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Controls/TextBox.xaml -->
+		<Setter Property="SelectionBrush" Value="#0050ef"/>
 	</Style>
+		
 	
 </Styles>
