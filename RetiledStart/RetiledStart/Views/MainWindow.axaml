@@ -19,7 +19,7 @@
 
 	<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
 		<WrapPanel Margin="0,10" HorizontalAlignment="Center">
-			<Button Classes="Tile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="2,2,2,2">
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="2,2,2,2">
 				<!--<Button.Template>
 					<ControlTemplate>
 						<ContentPresenter x:Name="PART_ContentPresenter"
