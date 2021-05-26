@@ -16,6 +16,17 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Action Center
 - Status bar
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
+- WP8.1-style animations (8.1's animations were the best in any version I've used; 8.0's animations made me sick to my stomach after not using it for a long time)
+
+There are also some "wishlist" features that I really want but might be too complicated to do.
+- Lock screen
+  - Tapping it makes the entire thing go up and bounce a few times before landing. If you have a PIN code active, it shows the unlock area, otherwise it just shows what's active.
+  - You don't have to press a button after typing in your pin, as it just automatically unlocks if the combination is correct (will be more difficult than the bounce animation, and not even sure if it'll work or be secure and fast)
+  - Not exactly sure how this would work in a way that's like the other mobile Linux lockscreens like the one in Plasma Mobile. That's the main thing preventing it from existing besides the fact that .NET/Avalonia apps take a while to start on the PinePhone, so that'll be not fun. Hopefully it'll run stuff faster soon
+- Keyboard since that keyboard was the best in 8.x
+  - Basic typing shouldn't be that bad, but having it not interfere too much with what's on screen may be tough
+  - The suggestions would be difficult to do when it comes to actually predicting text, but showing the text should be fine
+  - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
 
 Development is mainly being done using the PinePhone, so that'll be the main supported device. For now it's in the prototype stage as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux.
 
@@ -31,12 +42,20 @@ Retiled is not associated with Microsoft in any way, and Microsoft does not endo
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br>
 Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five). Anything else that's used in the future will be added to this list.
 
+## Building and running
+
+This section will be filled out later, but basically just do `dotnet build (project).sln` and to run do `dotnet (project name in Debug\net5.0).dll` if on Linux, or use Visual Studio on Windows if you have it (never used the `dotnet` CLI on Windows, but I imagine it's similar, except you can just run the EXE rather than the DLL.
+
+- RetiledStart
+  - To build, run `dotnet build 
+- RetiledSearch
+
 ## Video demos
 
 - [RetiledStart prototype running on the PinePhone](https://youtu.be/NpUnrb1wC_8)
 
 ## Screenshots
-Below are some prototype screenshots in case you want to see how things are going so far.
+Below are some prototype screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot.
 
 RetiledStart running on the PinePhone, less blurry than it is in person:<br>
 <img src="/docs/images/retiledstart-running-on-pinephone.png" width="360"><br>
