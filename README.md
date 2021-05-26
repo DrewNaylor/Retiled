@@ -16,6 +16,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Action Center
 - Status bar
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
+- WP8.1-style animations (8.1's animations were the best in any version I've used; 8.0's animations made me sick to my stomach after not using it for a long time)
 
 There are also some "wishlist" features that I really want but might be too complicated to do.
 - Lock screen
