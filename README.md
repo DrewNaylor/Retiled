@@ -17,6 +17,16 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Status bar
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
 
+There are also some "wishlist" features that I really want but might be too complicated to do.
+- Lock screen
+  - Tapping it makes the entire thing go up and bounce a few times before landing. If you have a PIN code active, it shows the unlock area, otherwise it just shows what's active.
+  - You don't have to press a button after typing in your pin, as it just automatically unlocks if the combination is correct (will be more difficult than the bounce animation, and not even sure if it'll work or be secure and fast)
+  - Not exactly sure how this would work in a way that's like the other mobile Linux lockscreens like the one in Plasma Mobile. That's the main thing preventing it from existing besides the fact that .NET/Avalonia apps take a while to start on the PinePhone, so that'll be not fun. Hopefully it'll run stuff faster soon
+- Keyboard since that keyboard was the best in 8.x
+  - Basic typing shouldn't be that bad, but having it not interfere too much with what's on screen may be tough
+  - The suggestions would be difficult to do when it comes to actually predicting text, but showing the text should be fine
+  - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
+
 Development is mainly being done using the PinePhone, so that'll be the main supported device. For now it's in the prototype stage as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux.
 
 ## Notes
