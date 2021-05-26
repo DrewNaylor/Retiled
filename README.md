@@ -15,6 +15,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Navigation bar
 - Action Center
 - Status bar
+- Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
 
 Development is mainly being done using the PinePhone, so that'll be the main supported device. For now it's in the prototype stage as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux.
 
