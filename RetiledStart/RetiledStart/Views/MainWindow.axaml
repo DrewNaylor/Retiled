@@ -50,6 +50,18 @@ respective people and companies/organizations.
 
 	<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
 		<WrapPanel Margin="0,10" HorizontalAlignment="Center">
+			<!-- Tiles on the 4-inch WVGA Windows Phone 8.1 Update 1 emulator
+			 are the following sizes at 100% scale (width x height):
+			 Small tiles: 66x66
+			 Medium tiles: 144x144
+			 Wide tiles: 300x144
+			 
+			 Margins are 12 pixels between tiles, or 6 pixels
+			 on each side of a tile for a nice grid. This
+			 margin also extends to the edge of the display on
+			 the left and right. However, there's another margin
+			 above the tiles, which can be changed by modifying the
+			 WrapPanel's margin. -->
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
