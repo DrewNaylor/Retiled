@@ -32,12 +32,12 @@ respective people and companies/organizations.
         xmlns:vm="using:RetiledStart.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="854"
+        mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
         x:Class="RetiledStart.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="RetiledStartPrototype"
         Width="480"
-		Height="854">
+		Height="800">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledStart/Styles/StartTile.axaml" />
 	<!-- This page helped me get the styles in here:
@@ -71,30 +71,30 @@ respective people and companies/organizations.
 			 the left and right. However, there's another margin
 			 above the tiles, which can be changed by modifying the
 			 WrapPanel's margin. -->
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
-			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="144" Height="144" Margin="6"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="390" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
+			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="190" Height="190" Margin="5"/>
 
 		</WrapPanel>
 	</ScrollViewer>
