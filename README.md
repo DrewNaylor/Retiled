@@ -36,7 +36,7 @@ Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/),
 - [RetiledStart prototype running on the PinePhone](https://youtu.be/NpUnrb1wC_8)
 
 ## Screenshots
-Below are some prototype screenshots in case you want to see how things are going so far.
+Below are some prototype screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot.
 
 RetiledStart running on the PinePhone, less blurry than it is in person:<br>
 <img src="/docs/images/retiledstart-running-on-pinephone.png" width="360"><br>
