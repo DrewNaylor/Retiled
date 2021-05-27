@@ -44,9 +44,12 @@ There are also some "wishlist" features that I really want but might be too comp
   - Basic typing shouldn't be that bad, but having it not interfere too much with what's on screen may be tough, plus it needs multiple language support
   - Swiping to type would be helpful but may be difficult to implement. If it is implemented, it should display the current result in the suggestion bar as you swipe.
   - The suggestions would be difficult to do when it comes to actually predicting text, but showing the text should be fine. It's important to remember that there are a whole bunch of suggestions (at least 10 usually), and that the list scrolls sideways.
+  - Words that aren't recognized can be added to the dictionary by selecting them and pressing "+word".
   - The keyboard had a `paste` button at the very left part of the suggestion bar, so that needs to be added as well
   - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
   - May as well add the text navigation "stick" that Windows 10 Mobile had, since it's one of the few good things that version did. This will be one of the few features from W10M.
+- Typing dictionary
+  - There was no way to remove individual words, so there should be a menu that allows selecting user-added words to remove.
 - Text selection that looks and behaves like WP
   - Tap a word once to select it, and drag the corners to change the selection
   - Surprisingly enough, Plasma Mobile has floating cut/copy/paste buttons that go above the selection, but they aren't quite enough, so I think a hybrid of iOS, Plasma Mobile, and Windows Phone would be the best thing. It would look like the WP buttons where icons are in circles, but there's a button for `cut` like Plasma Mobile and another button for `select all` like iOS because it's useful.
