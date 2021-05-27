@@ -1,6 +1,6 @@
 # Retiled
 
-An attempt at creating a "desktop" environment mainly for Linux phones and tablets that's similar in function to some parts of Microsoft's Windows Phone 8.x, primarily these features:
+An attempt at creating a "desktop" environment mainly for Linux phones and tablets that's similar in function to some parts of Microsoft's Windows Phone 8.x, primarily these features and behaviors:
 - Start screen
   - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts to display "live" data
   - There's also the app list to the right of the tiles, and the search box there along with the letter categorization are both essential to Windows Phone and Windows Phone-like environments
@@ -14,11 +14,16 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
     - This would just be the US at the beginning because that's what's easiest for me to test, but eventually it would have the option to use any region that has Bing Image of the Day stuff
     - Not sure if Microsoft would be ok with someone's project having built-in displaying of their images. Probably should have something that either goes to the Bing homepage (or the page of the daily wallpaper source that has image copyright info) or get the image's copyright info from Bing to display it in a popup that shows up when you press the `i` button in the Command Bar. Probably should just have an `i` button that goes to the page with image copyright info.
 - Navigation bar
+  - Navigation bar always stays on the physical bottom of the phone, unlike what Android does with its software buttons.
+  - Software WP navigation bars rotate the icons to the left or the right when the screen is rotated, but some people might not like that so there needs to be a way to lock them in the vertical rotation.
 - Action Center
 - Status bar
+  - Status bar always stays on the physical top of the phone, unlike iOS. This means the Action Center is opened horizontally when the phone is in landscape mode.
+  - Stuff in the status bar rotates according to the phone's rotation and takes up more horizontal space when it's on the side.
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
 - WP8.1-style animations (8.1's animations were the best in any version I've used; 8.0's animations made me sick to my stomach after not using it for a long time)
-- A window manager may need to be built to hold the navigation bar and status bar and to display the multitasking menu. Not sure exactly where the "Loading..." and "Resuming..." messages would go, but they should be in this project somewhere if it makes sense.
+- A window manager may need to be built to hold the navigation bar and status bar and to display the multitasking menu. Hopefully it won't be needed and just a session file and a pre-existing window manager that opens stuff fullscreen will work, but I doubt it because the status bar and navigation bar need to be in a specific place. Not sure exactly where the "Loading..." and "Resuming..." messages would go, but they should be in this project somewhere if it makes sense.
+- The screen never goes upside down, unlike Android. A way for the user to allow it may be useful if they like that feature.
 
 There are also some "wishlist" features that I really want but might be too complicated to do.
 - Lock screen
