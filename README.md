@@ -31,6 +31,7 @@ There are also some "wishlist" features that I really want but might be too comp
   - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
 - Text selection that looks and behaves like WP
   - Tap a word once to select it, and drag the corners to change the selection
+  - Surprisingly enough, Plasma Mobile has floating cut/copy/paste buttons that go above the selection, but they aren't quite enough, so I think a hybrid of iOS, Plasma Mobile, and Windows Phone would be the best thing. It would look like the WP buttons where icons are in circles, but there's a button for `cut` like Plasma Mobile and another button for `select all` like iOS because it's useful.
 - Firefox theme and customizations to make it look like IE Mobile
   - Some things probably won't be easy/possible, such as a button to show tabs, so it might be more like Windows 8.x's IE when opened from the Start screen. That version just had a tab bar above the address bar and below the controls.
   - This might be the easiest of the wishlist to do, depending on if Mozilla changes stuff in Firefox to not allow something like this.
