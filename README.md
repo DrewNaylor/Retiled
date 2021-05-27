@@ -17,6 +17,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
   - Navigation bar always stays on the physical bottom of the phone, unlike what Android does with its software buttons.
   - Software WP navigation bars rotate the icons to the left or the right when the screen is rotated, but some people might not like that so there needs to be a way to lock them in the vertical rotation.
 - Action Center
+  - See `Status bar` for how the Action Center opens in landscape mode.
 - Status bar
   - Status bar always stays on the physical top of the phone, unlike iOS. This means the Action Center is opened horizontally when the phone is in landscape mode.
   - Stuff in the status bar rotates according to the phone's rotation and takes up more horizontal space when it's on the side.
