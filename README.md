@@ -17,6 +17,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Status bar
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
 - WP8.1-style animations (8.1's animations were the best in any version I've used; 8.0's animations made me sick to my stomach after not using it for a long time)
+- A window manager may need to be built to hold the navigation bar and status bar and to display the multitasking menu. Not sure exactly where the "Loading..." and "Resuming..." messages would go, but they should be in this project somewhere if it makes sense.
 
 There are also some "wishlist" features that I really want but might be too complicated to do.
 - Lock screen
@@ -24,10 +25,16 @@ There are also some "wishlist" features that I really want but might be too comp
   - You didn't have to press a button after typing in your pin, as it just automatically unlocked if the combination was correct (will be more difficult than the bounce animation, and not even sure if it'll work or be secure and fast)
   - Not exactly sure how this would work in a way that's like the other mobile Linux lockscreens like the one in Plasma Mobile. That's the main thing preventing it from existing besides the fact that .NET/Avalonia apps take a while to start on the PinePhone, so that'll be not fun. Hopefully it'll run stuff faster soon.
 - Keyboard since that keyboard was the best in 8.x
-  - Basic typing shouldn't be that bad, but having it not interfere too much with what's on screen may be tough
+  - Basic typing shouldn't be that bad, but having it not interfere too much with what's on screen may be tough, plus it needs multiple language support
   - The suggestions would be difficult to do when it comes to actually predicting text, but showing the text should be fine
   - The keyboard had a `paste` button at the very left part of the suggestion bar, so that needs to be added as well
   - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
+- Text selection that looks and behaves like WP
+  - Tap a word once to select it, and drag the corners to change the selection
+- Firefox theme and customizations to make it look like IE Mobile
+  - Some things probably won't be easy/possible, such as a button to show tabs, so it might be more like Windows 8.x's IE when opened from the Start screen. That version just had a tab bar above the address bar and below the controls.
+  - This might be the easiest of the wishlist to do, depending on if Mozilla changes stuff in Firefox to not allow something like this.
+  - Probably will require making a Windows Phone 8.x GTK theme to make it simple. That in turn may require this project to become GPL'd, which I don't want to have happen but will if it means it'll be successful and work.
 - Volume control UI
   - Not sure how it would behave like WP, but there it would open `Ringer + Notifications` when on the Start screen, and default to `Media + Apps` in apps like Bing Search. Changing different volume settings separately like this would probably take a lot of modifications to system-level stuff.
   - At least there should be a toggle button for vibrate if the volume settings are all together, if there's a way to implement that. Not a fan of having to go into Settings just to turn off vibrate.
