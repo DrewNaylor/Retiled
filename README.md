@@ -4,6 +4,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Start screen
   - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts to display "live" data
   - There's also the app list to the right of the tiles, and the search box there along with the letter categorization are both essential to Windows Phone and Windows Phone-like environments
+  - As one of the few planned features that originated in Windows 10 (I really hope desktop 8.x had this as it'll make me feel better about adding a 10 feature), Live Tiles should have a way to turn them off in case they update too much or the user doesn't like them and prefers to have a static icon.
 - Search app
   - Something like the old Bing search app from WP8.0 rather than Cortana
     - Would be cool if someone built something similar to Cortana that used an open-source backend, though
