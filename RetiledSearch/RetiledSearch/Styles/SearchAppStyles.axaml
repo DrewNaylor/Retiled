@@ -78,8 +78,14 @@ all the Retiled programs. -->
 		<!-- Change the style when the textbox is focused.
 		I'd prefer to have the border go inside the textbox
 		like Windows Phone, but I don't really know how to do
-		that yet. -->
-		<Setter Property="BorderThickness" Value="1" />
+		that yet.
+		It appears that the border thickness on 
+		WP8.1 is more than 1 (maybe 2 or 4?), but if I
+		change it to that, the textbox size changes
+		unless the textbox has a size specified,
+		either by margins or by width and height
+		values. -->
+		<Setter Property="BorderThickness" Value="2" />
 		<Setter Property="Background" Value="White"/>
 		<Setter Property="BorderBrush" Value="#0050ef"/>
 		<!-- Setting the margin to 0 prevents the textbox from
