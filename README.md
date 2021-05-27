@@ -30,6 +30,10 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - The screen never goes upside down, unlike Android. A way for the user to allow it may be useful if they like that feature.
 
 There are also some "wishlist" features that I really want but might be too complicated to do.
+- Tile folders
+  - Not exactly sure how they'd be implemented, but they're useful
+  - They kinda flow out of the small preview grid into their area
+  - Folder labels can be changed.
 - Lock screen
   - Tapping it made the entire thing go up and bounce a few times before landing. If you had a PIN code active, it showed the unlock area, otherwise it just showed what's active.
   - You didn't have to press a button after typing in your pin, as it just automatically unlocked if the combination was correct (will be more difficult than the bounce animation, and not even sure if it'll work or be secure and fast)
