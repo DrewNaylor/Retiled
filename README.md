@@ -4,6 +4,9 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Start screen
   - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts to display "live" data
   - There's also the app list to the right of the tiles, and the search box there along with the letter categorization are both essential to Windows Phone and Windows Phone-like environments
+  - Tiles by default will use the user's Accent Color, but there needs to be options to either use a custom color for a tile, or get the color from the icon. The custom color is a thing in case people don't like the auto-color feature or they're using monochrome icons.
+  - Start screen wallpapers will be handled like WP8.1, where the tiles were fully transparent and the wallpaper was visible behind them. Scrolling would have a parallax effect, so that's required. Maybe some people would want blurred or not-fully-transparent tiles, so that would be something to look into allowing at a much later date. Blurred tiles wouldn't be the default, and the blur intensity would be configurable like KDE. Any other blurring would be handled by third-party themes as I personally don't like blurring, but it might look cool on tiles.
+  - Some Live Tiles should have a way to say they work when the tile is small, like the calendar to show the day. This would be a variable in the file that stores tile location, size, color, etc.
   - As one of the few planned features that originated in Windows 10 (I really hope desktop 8.x had this as it'll make me feel better about adding a 10 feature), Live Tiles should have a way to turn them off in case they update too much or the user doesn't like them and prefers to have a static icon.
 - Search app
   - Something like the old Bing search app from WP8.0 rather than Cortana
