@@ -45,7 +45,9 @@ respective people and companies/organizations.
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<StackPanel Spacing="4" Margin="10,10,10,0">
+	<!-- At 100% scale on the WVGA WP8.1 emulator, the Bing Search
+	app search box has a 24 pixel margin on the left and right. -->
+	<StackPanel Spacing="4" Margin="24,10,24,0">
 		<TextBox Watermark="enter a search term here" Classes="RetiledFlatTextbox" Text="{Binding SearchTerm}"></TextBox>
 		<Button Classes="RetiledFlatButton" x:Name="SearchBox" Content="search" Command="{Binding DoSearch}" />
 
