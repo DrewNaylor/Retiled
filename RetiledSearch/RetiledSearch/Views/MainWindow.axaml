@@ -48,6 +48,7 @@ respective people and companies/organizations.
 	<!-- At 100% scale on the WVGA WP8.1 emulator, the Bing Search
 	app search box has a 24 pixel margin on the left and right. -->
 	<StackPanel Spacing="4" Margin="24,10,24,0">
+		<!-- The Bing Search textbox is 48 pixels tall. -->
 		<TextBox Height="48" Watermark="enter a search term here" Classes="RetiledFlatTextbox" Text="{Binding SearchTerm}"></TextBox>
 		<Button Classes="RetiledFlatButton" x:Name="SearchBox" Content="search" Command="{Binding DoSearch}" />
 
