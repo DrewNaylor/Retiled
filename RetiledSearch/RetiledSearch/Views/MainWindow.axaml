@@ -36,7 +36,8 @@ respective people and companies/organizations.
         x:Class="RetiledSearch.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="RetiledSearchPrototype"
-		Width="480">
+		Width="480"
+		Height="800">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledSearch/Styles/SearchAppStyles.axaml"/>
 	</Window.Styles>
