@@ -31,6 +31,7 @@ There are also some "wishlist" features that I really want but might be too comp
 - Volume control UI
   - Not sure how it would behave like WP, but there it would open `Ringer + Notifications` when on the Start screen, and default to `Media + Apps` in apps like Bing Search. Changing different volume settings separately like this would probably take a lot of modifications to system-level stuff.
   - At least there should be a toggle button for vibrate if the volume settings are all together, if there's a way to implement that. Not a fan of having to go into Settings just to turn off vibrate.
+- If this ever becomes a part of a Linux distro, the shutdown thing will say "goodbye" in lowercase, just like WP. I'd assume this text was translated, so that'll have to be done as well. Maybe it can just be images of text translated for each language.
 
 Development is mainly being done using the PinePhone, so that'll be the main supported device. For now it's in the prototype stage as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux.
 
