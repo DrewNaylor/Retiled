@@ -5,6 +5,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
   - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts to display "live" data
   - There's also the app list to the right of the tiles, and the search box there along with the letter categorization are both essential to Windows Phone and Windows Phone-like environments
   - Tiles by default will use the user's Accent Color, but there needs to be options to either use a custom color for a tile, or get the color from the icon. The custom color is a thing in case people don't like the auto-color feature or they're using monochrome icons.
+  - 8.1 added a three-column view. Experimentation with changing tile sizes shows that 100x100 medium tiles and 210x100 wide tiles looks almost perfect. There would have to be a way to ensure tiles stay where the user originally put them when going into three-tile mode. Additionally, tile fonts and icon sizes need to be adjusted to look right when they're smaller.
   - Start screen wallpapers will be handled like WP8.1, where the tiles were fully transparent and the wallpaper was visible behind them. Scrolling would have a parallax effect, so that's required to be added, but there should be a way to turn it off so the image doesn't move as you scroll. Maybe some people would want blurred or not-fully-transparent tiles, so that would be something to look into allowing at a much later date. Blurred tiles wouldn't be the default, and the blur intensity would be configurable like KDE. Any other blurring would be handled by third-party themes as I personally don't like blurring, but it might look cool on tiles.
   - Some Live Tiles should have a way to say they work when the tile is small, like the calendar to show the day. This would be a variable in the file that stores tile location, size, color, etc.
   - As one of the few planned features that originated in Windows 10 (I really hope desktop 8.x had this as it'll make me feel better about adding a 10 feature), Live Tiles should have a way to turn them off in case they update too much or the user doesn't like them and prefers to have a static icon.
@@ -20,6 +21,12 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
   - Navigation bar always stays on the physical bottom of the phone, unlike what Android does with its software buttons.
   - Software WP navigation bars rotate the icons to the left or the right when the screen is rotated, but some people might not like that so there needs to be a way to lock them in the vertical rotation.
 - Action Center
+  - Long-pressing the quick action buttons at the top will open the relevant page in Settings, which is something I forgot 8.x lacked. (Thanks to TheMobilizer for the suggestion!)
+  - Dismissing notifications
+    - Dismissing a single notification from an app when that app has multiple notifications should only dismiss that one notification. (Again thanks to TheMobilizer for suggesting this!)
+    - When an app only has one notification, the line for the app's name and icon gets dragged slightly behind the notification. This will allow the 8.1-style notification dismissal effect to partially continue to exist unless the app has multiple notifications.
+    - Dragging an app's notifications with two fingers will dismiss all notifications from that app with the same effect as WP8.1 where the two notifications around the first-selected notification take a bit to slide, then the next two, and so on. Pretty sure that gesture dismissed all of them at once in 10, but not having an easy way to dismiss only one app's notifications without sliding over the name and icon row was painful.
+    - Dragging with three fingers will dismiss all notifications, since it could be useful.
   - See `Status bar` for how the Action Center opens in landscape mode.
 - Status bar
   - Status bar always stays on the physical top of the phone, unlike iOS. This means the Action Center is opened horizontally when the phone is in landscape mode.
