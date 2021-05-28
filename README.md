@@ -22,6 +22,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
   - Software WP navigation bars rotate the icons to the left or the right when the screen is rotated, but some people might not like that so there needs to be a way to lock them in the vertical rotation.
 - Action Center
   - Long-pressing the quick action buttons at the top will open the relevant page in Settings, which is something I forgot 8.x lacked. (Thanks to TheMobilizer for the suggestion!)
+  - The quick action button panel will be able to scroll horizontally to hold more buttons. [(issue #10)](https://github.com/DrewNaylor/Retiled/issues/10)
   - Dismissing notifications
     - Dismissing a single notification from an app when that app has multiple notifications should only dismiss that one notification. (Again thanks to TheMobilizer for suggesting this!)
     - When an app only has one notification, the line for the app's name and icon gets dragged slightly behind the notification. This will allow the 8.1-style notification dismissal effect to partially continue to exist unless the app has multiple notifications.
