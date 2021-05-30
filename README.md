@@ -37,6 +37,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
     - Dragging an app's notifications with two fingers will dismiss all notifications from that app with the same effect as WP8.1 where the two notifications around the first-selected notification take a bit to slide, then the next two, and so on. Pretty sure that gesture dismissed all of them at once in 10, but not having an easy way to dismiss only one app's notifications without sliding over the name and icon row was painful.
     - Dragging with three fingers will dismiss all notifications, since it could be useful.
   - See `Status bar` for how the Action Center opens in landscape mode.
+  - Opening Action Center closes the volume control UI. 
 - Status bar
   - Status bar always stays on the physical top of the phone, unlike iOS. This means the Action Center is opened horizontally when the phone is in landscape mode.
   - Stuff in the status bar rotates according to the phone's rotation and takes up more horizontal space when it's on the side.
