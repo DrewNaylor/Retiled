@@ -42,6 +42,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
   - Status bar always stays on the physical top of the phone, unlike iOS. This means the Action Center is opened horizontally when the phone is in landscape mode.
   - Stuff in the status bar rotates according to the phone's rotation and takes up more horizontal space when it's on the side.
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
+- Multitasking view complete with the WP8 GDR 3 "close" button in the top-right corner and 8.1's support for swiping down to close apps.
 - WP8.1-style animations (8.1's animations were the best in any version I've used; 8.0's animations made me sick to my stomach after not using it for a long time)
 - A window manager may need to be built to hold the navigation bar and status bar and to display the multitasking menu. Hopefully it won't be needed and just a session file and a pre-existing window manager that opens stuff fullscreen will work, but I doubt it because the status bar and navigation bar need to be in a specific place. Not sure exactly where the "Loading..." and "Resuming..." messages would go, but they should be in this project somewhere if it makes sense.
 - The screen never goes upside down, unlike Android. A way for the user to allow it may be useful if they like that feature.
