@@ -31,7 +31,7 @@ respective people and companies/organizations.
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="20">
-            <Button Classes="StartTile" Width="144" Height="144" />
+            <Button Classes="StartTile" Width="150" Height="150" />
         </Border>
     </Design.PreviewWith>
 
