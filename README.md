@@ -82,6 +82,8 @@ There are also some "wishlist" features that I really want but might be too comp
   - Maybe it could be part of the status bar and Action Center program so it pops up quickly and can dismiss the Action Center when it's shown (see the Action Center part on how it gets dismissed when opening the volume controls).
   - At least there should be a toggle button for vibrate if the volume settings are all together, if there's a way to implement that. Not a fan of having to go into Settings just to turn off vibrate.
 - If this ever becomes a part of a Linux distro, the shutdown thing will say "goodbye" in lowercase, just like WP. I'd assume this text was translated, so that'll have to be done as well. Maybe it can just be images of text translated for each language.
+- Share sheet
+  - This was a full-screen list of apps (with their icons to the left of their names) that could be shared to, with an entry at the top to go to the Store to get more apps. Since I want Retiled to be package manager/distro-agnostic, this will have to be a setting in the default apps page in Settings.
 
 Development is mainly being done using the PinePhone, so that'll be the main supported device. For now it's in the prototype stage as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux.
 
