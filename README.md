@@ -85,6 +85,10 @@ There are also some "wishlist" features that I really want but might be too comp
 - Share sheet
   - This was a full-screen list of apps (with their icons to the left of their names) that could be shared to, with an entry at the top to go to the Store to get more apps. Since I want Retiled to be package manager/distro-agnostic, this will have to be a setting in the default apps page in Settings.
 
+Besides features that were in WP, some additional features may need to be added for ease of use on a Linux (or perhaps even FreeBSD?) phone:
+- .desktop files editor
+  - Just like the ones available on MATE and Xfce, except with added support for Retiled-specific entries like `X-Retiled-OpaqueTileWithBackgroundSet`, `X-Retiled-NoLiveTileUpdates`, and `X-Retiled-LiveTileWorksWhenSmall`. These names may change.
+
 Development is mainly being done using the PinePhone, so that'll be the main supported device. For now it's in the prototype stage as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux.
 
 ## Notes
