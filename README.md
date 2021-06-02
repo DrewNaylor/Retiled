@@ -77,6 +77,8 @@ There are also some "wishlist" features that I really want but might be too comp
   - Probably will require making a Windows Phone 8.x GTK theme to make it simple. That in turn may require this project to become GPL'd, which I don't want to have happen but will if it means it'll be successful and work.
 - Volume control UI
   - Not sure how it would behave like WP, but there it would open `Ringer + Notifications` when on the Start screen, and default to `Media + Apps` in apps like Bing Search. Changing different volume settings separately like this would probably take a lot of modifications to system-level stuff.
+  - There's a volume slider when it's expanded.
+  - Maybe it could be part of the status bar and Action Center program so it pops up quickly and can dismiss the Action Center when it's shown (see the Action Center part on how it gets dismissed when opening the volume controls).
   - At least there should be a toggle button for vibrate if the volume settings are all together, if there's a way to implement that. Not a fan of having to go into Settings just to turn off vibrate.
 - If this ever becomes a part of a Linux distro, the shutdown thing will say "goodbye" in lowercase, just like WP. I'd assume this text was translated, so that'll have to be done as well. Maybe it can just be images of text translated for each language.
 
