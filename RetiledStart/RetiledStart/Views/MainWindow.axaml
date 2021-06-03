@@ -106,7 +106,9 @@ respective people and companies/organizations.
 					Background="Black"
 					Foreground="White"
 					BorderThickness="2"
-					BorderBrush="White">
+					BorderBrush="White"
+					Padding="0"
+					FontSize="20">
 				<Button.Styles>
 					<Style Selector="Button /template/ ContentPresenter">
 					<Setter Property="CornerRadius" Value="90" />
