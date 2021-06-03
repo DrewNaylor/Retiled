@@ -106,7 +106,13 @@ respective people and companies/organizations.
 					Background="Black"
 					Foreground="White"
 					BorderThickness="2"
-					BorderBrush="White"/>
+					BorderBrush="White">
+				<Button.Styles>
+					<Style Selector="Button /template/ ContentPresenter">
+					<Setter Property="CornerRadius" Value="90" />
+						</Style>
+				</Button.Styles>
+				</Button>
 		</Grid>
 	</ScrollViewer>
 
