@@ -98,7 +98,7 @@ respective people and companies/organizations.
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>-->
 
 			</WrapPanel>
-			<Button Content=">" Grid.Row="1"/>
+			<Button Content="-->" Grid.Row="1"/>
 		</Grid>
 	</ScrollViewer>
 
