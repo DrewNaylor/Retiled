@@ -98,7 +98,7 @@ respective people and companies/organizations.
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>-->
 
 			</WrapPanel>
-			<Button Height="40" Width="40" Content="-->" Grid.Row="1" 
+			<Button Height="35" Width="35" Content="-->" Grid.Row="1" 
 					HorizontalAlignment="Right"
 					HorizontalContentAlignment="Center"
 					VerticalContentAlignment="Center"
@@ -108,9 +108,10 @@ respective people and companies/organizations.
 					BorderThickness="2"
 					BorderBrush="White"
 					Padding="0"
-					FontSize="20">
+					FontSize="15">
 				<Button.Styles>
 					<Style Selector="Button /template/ ContentPresenter">
+						<!-- Set button corner radius so it's a circle. -->
 					<Setter Property="CornerRadius" Value="90" />
 						</Style>
 				</Button.Styles>
