@@ -102,7 +102,11 @@ respective people and companies/organizations.
 					HorizontalAlignment="Right"
 					HorizontalContentAlignment="Center"
 					VerticalContentAlignment="Center"
-					Margin="10"/>
+					Margin="10"
+					Background="Black"
+					Foreground="White"
+					BorderThickness="2"
+					BorderBrush="White"/>
 		</Grid>
 	</ScrollViewer>
 
