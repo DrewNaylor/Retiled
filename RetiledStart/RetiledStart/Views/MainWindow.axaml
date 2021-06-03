@@ -110,7 +110,7 @@ respective people and companies/organizations.
 					BorderThickness="2"
 					BorderBrush="White"
 					Padding="0"
-					FontSize="15">
+					FontSize="20">
 				<Button.Styles>
 					<Style Selector="Button /template/ ContentPresenter">
 						<!-- Set button corner radius so it's a circle. -->
