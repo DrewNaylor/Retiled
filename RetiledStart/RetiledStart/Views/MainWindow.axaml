@@ -102,7 +102,7 @@ respective people and companies/organizations.
 					HorizontalAlignment="Right"
 					HorizontalContentAlignment="Center"
 					VerticalContentAlignment="Center"
-					Margin="0,20,40,30"/>
+					Margin="10"/>
 		</Grid>
 	</ScrollViewer>
 
