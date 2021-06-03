@@ -30,6 +30,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
   - Navigation bar always stays on the physical bottom of the phone, unlike what Android does with its software buttons.
   - Software WP navigation bars rotate the icons to the left or the right when the screen is rotated, but some people might not like that so there needs to be a way to lock them in the vertical rotation.
   - There should be a way to allow people to use their accent color for the navigation bar background color, as that's a feature in a version of 8.1.
+  - The buttons make the phone vibrate on contact, but there should be a way to allow people to turn off the vibration if they don't like it.
 - Action Center
   - Long-pressing the quick action buttons at the top will open the relevant page in Settings, which is something I forgot 8.x lacked. (Thanks to TheMobilizer for the suggestion!)
   - The quick action button panel will be able to scroll horizontally to hold more buttons. [(issue #10)](https://github.com/DrewNaylor/Retiled/issues/10)
