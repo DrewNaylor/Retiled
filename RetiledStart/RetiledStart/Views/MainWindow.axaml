@@ -100,7 +100,7 @@ respective people and companies/organizations.
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>-->
 
 			</WrapPanel>
-			<Button Height="35" Width="35" Content="-->" Grid.Row="1" 
+			<Button Height="30" Width="30" Content="->" Grid.Row="1" 
 					HorizontalAlignment="Right"
 					HorizontalContentAlignment="Center"
 					VerticalContentAlignment="Center"
