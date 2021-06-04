@@ -19,7 +19,7 @@
 		  <!-- Temporarily using "S" instead of a magnifying glass. -->
 	  </Button>
 	  
-	  <ListBox Grid.Column="1" Background="Black">
+	  <ListBox Margin="0,10" VerticalAlignment="Top" Grid.Column="1" Background="Black">
 		  <!-- Temporary All Apps list in a ListBox.
 		  This doesn't look very good, but it's better than
 		  nothing. -->
