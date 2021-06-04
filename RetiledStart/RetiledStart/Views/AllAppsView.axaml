@@ -11,7 +11,7 @@
 		idea of what they look like. -->
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 		</UserControl.Styles>
-  <Grid ColumnDefinitions="30,*">
+  <Grid Margin="0,10" ColumnDefinitions="30,*">
 	  <Button Classes="RetiledRoundButton" HorizontalAlignment="Center"
 			  VerticalAlignment="Top"
 			  Margin="10" 

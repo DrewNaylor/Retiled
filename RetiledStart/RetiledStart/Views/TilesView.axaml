@@ -8,9 +8,9 @@
 		     Height="720">
 
 
-	<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
+	<ScrollViewer Margin="0,10" ScrollViewer.VerticalScrollBarVisibility="Hidden">
 		<Grid RowDefinitions="*,40">
-			<WrapPanel Grid.Row="0" Margin="0,10" HorizontalAlignment="Center">
+			<WrapPanel Grid.Row="0" HorizontalAlignment="Center">
 				<!-- Tile sizes according to Microsoft, a lot of manual
 				testing done by me, and various other pages are as follows:
 				
