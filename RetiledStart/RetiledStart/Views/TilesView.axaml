@@ -11,27 +11,32 @@
 	<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
 		<Grid RowDefinitions="*,40">
 			<WrapPanel Grid.Row="0" Margin="0,10" HorizontalAlignment="Center">
-				<!-- Tiles on the 4-inch WVGA Windows Phone 8.1 Update 1 emulator
-			 are the following sizes (width x height):
+				<!-- Tile sizes according to Microsoft, a lot of manual
+				testing done by me, and various other pages are as follows:
+				
+				Two-column view:
+				Small tiles: 70x70
+			    Medium tiles: 150x150
+			    Wide tiles: 310x150
+				
+				Three-column view:
+				Small tiles: 45x45
+			    Medium tiles: 100x100
+			    Wide tiles: 210x100
 			 
-			 Three-column view at 100% scale:
-			 Small tiles: 66x66
-			 Medium tiles: 144x144
-			 Wide tiles: 300x144
-			 
-			 Two-column view at 90% scale (fit to screen):
-			 Small tiles: 90x90
-			 Medium tiles: 190x190
-			 Wide tiles: 390x190
-			 
-			 Margins at 100% scale are are 12 pixels between tiles,
-			 or 6 pixels on each side of a tile for a nice grid.
-			 At 90% scale they're 10 pixels between tiles,
-			 or 5 pixels on each side.
-			 This margin also extends to the edge of the display on
-			 the left and right. However, there's another margin
-			 above the tiles, which can be changed by modifying the
-			 WrapPanel's margin. -->
+			    Margins are 10 pixels between tiles,
+			    or 5 pixels on each side of a tile for a nice grid.
+			    This margin also extends to the edge of the display on
+			    the left and right. However, there's another margin
+	   		    above the tiles, which can be changed by modifying the
+			    WrapPanel's margin.
+				
+				MSDN page with tile sizes for WP8:
+				https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN 
+				Please note that the official small tile size for WP8
+				is 71x71. Not sure exactly how it ends up lining up with
+				other tiles, but I'm just going to use the Windows 8 size,
+				which is 70x70. -->
 				
 				<!-- IMPORTANT NOTE: Even though the tiles don't look right,
 				bringing the view into the main window applies the styles
