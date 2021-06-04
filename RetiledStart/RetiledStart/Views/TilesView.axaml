@@ -65,7 +65,7 @@
 			<Button Classes="StartTile" Content="{Binding Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>-->
 
 			</WrapPanel>
-			<Button Classes="RoundButton" Height="30" Width="30" Content="->" Grid.Row="1"
+			<Button Classes="RetiledRoundButton" Height="30" Width="30" Content="->" Grid.Row="1"
 					HorizontalAlignment="Right"
 					Margin="0,10,20,20"
 					Foreground="White"
