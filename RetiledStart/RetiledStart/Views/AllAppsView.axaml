@@ -9,7 +9,7 @@
 		idea of what they look like. -->
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 		</UserControl.Styles>
-  <Grid Margin="0,10" ColumnDefinitions="30,*">
+  <Grid Margin="0,10,0,0" ColumnDefinitions="30,*">
 	  <Button Classes="RetiledRoundButton" HorizontalAlignment="Center"
 			  VerticalAlignment="Top"
 			  Margin="10" 
@@ -17,7 +17,8 @@
 		  <!-- Temporarily using "S" instead of a magnifying glass. -->
 	  </Button>
 	  
-	  <ListBox Margin="0,10" VerticalAlignment="Top" Grid.Column="1" Background="Black">
+	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+	  <ItemsControl VerticalAlignment="Top" Background="Black">
 		  <!-- Temporary All Apps list in a ListBox.
 		  This doesn't look very good, but it's better than
 		  nothing. Using an ItemsRepeater would be a good idea.
@@ -30,7 +31,10 @@
 		  scroll the items in the list, too. May need to
 		  forego the ListBox entirely and just use buttons and
 		  an itemsrepeater as the listbox gives items a highlight
-		  thing. Maybe it'll be modifyable. -->
+		  thing. Maybe it'll be modifyable.
+		  
+		  UPDATE: Using an ItemsControl prevents the crashing
+		  issue, and also gets rid of the highlight color. -->
 		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 			      <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
@@ -39,7 +43,194 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </ListBoxItem>
+
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
+		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
 		  
-		  </ListBox>
+		  </ItemsControl>
+		  </ScrollViewer>
   </Grid>
 </UserControl>
