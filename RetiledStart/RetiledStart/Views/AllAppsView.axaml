@@ -17,6 +17,6 @@
 			  Margin="10" 
 			  Grid.Column="0" Width="30" Height="30" Content="S">
 		  <!-- Temporarily using "S" instead of a magnifying glass. -->
-		  </Button>
-	  </Grid>
+	  </Button>
+  </Grid>
 </UserControl>
