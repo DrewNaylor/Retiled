@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace RetiledStart.Views
 {
-    public partial class TilesList : UserControl
+    public partial class TilesView : UserControl
     {
-        public TilesList()
+        public TilesView()
         {
             InitializeComponent();
         }
