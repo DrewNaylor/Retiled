@@ -5,7 +5,8 @@
              mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
              x:Class="RetiledStart.Views.AllAppsView"
 			 Width="360"
-		     Height="720">
+		     Height="720"
+			 ClipToBounds="True">
 	<UserControl.Styles>
 		<!-- Temporarily import styles so that there's an
 		idea of what they look like. -->
