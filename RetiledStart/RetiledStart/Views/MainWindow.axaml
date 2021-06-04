@@ -38,7 +38,8 @@ respective people and companies/organizations.
         Icon="/Assets/avalonia-logo.ico"
         Title="RetiledStartPrototype"
         Width="360"
-		Height="720">
+		Height="720"
+		Content="{Binding content}">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledStart/Styles/StartTile.axaml" />
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
@@ -52,7 +53,9 @@ respective people and companies/organizations.
 
 	<!-- Bring in the tiles view. 
 	This requires the xmlns:views="clr-namespace:RetiledStart.Views"
-	line in the <Window> tag. -->
-	<views:TilesView />
+	line in the <Window> tag.
+	This is being done in the "Content" property above now
+	so it can switch between views. -->
+	<!--<views:TilesView />-->
 
 </Window>

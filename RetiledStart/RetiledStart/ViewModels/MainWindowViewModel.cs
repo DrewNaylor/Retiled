@@ -41,11 +41,6 @@ namespace RetiledStart.ViewModels
 
         ViewModelBase content;
 
-        // Slide over to the All Apps list.
-        private void ShowAllAppsList()
-        {
-
-        }
 
 
         public string Greeting => "cobalt-colored tile";
