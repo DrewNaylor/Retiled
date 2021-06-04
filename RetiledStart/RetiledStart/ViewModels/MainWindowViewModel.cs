@@ -45,7 +45,7 @@ namespace RetiledStart.ViewModels
         public MainWindowViewModel()
         {
             // Set default view model.
-            Content = StartScreenContent = new TilesViewModel();
+            Content = new TilesViewModel();
         }
 
         // Set up the capitalised "Content" thing.
@@ -58,8 +58,6 @@ namespace RetiledStart.ViewModels
             private set => this.RaiseAndSetIfChanged(ref content, value);
         }
 
-        // Set up the Start screen thing.
-        public TilesViewModel StartScreenContent { get; }
 
         // Set up the part that goes to the All Apps list.
         public void ShowAllAppsList()
