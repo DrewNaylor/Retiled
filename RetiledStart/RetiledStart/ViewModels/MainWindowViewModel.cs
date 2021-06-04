@@ -65,6 +65,15 @@ namespace RetiledStart.ViewModels
             Content = new AllAppsViewModel();
         }
 
+        // Temporary code for going back to the tiles.
+        // May be useful to hide this offscreen and allow
+        // it to be run when pressing Escape, so that
+        // the Back button has something to use.
+        public void GoBackToTiles()
+        {
+            Content = new TilesViewModel();
+        }
+
 
         public string Greeting => "cobalt-colored tile";
         // Cobalt was #0050ef according to W3Schools, but it doesn't look quite right
