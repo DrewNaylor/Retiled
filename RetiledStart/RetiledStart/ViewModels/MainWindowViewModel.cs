@@ -64,7 +64,7 @@ namespace RetiledStart.ViewModels
         // Set up the part that goes to the All Apps list.
         public void ShowAllAppsList()
         {
-
+            Content = new RetiledStartScreenViewModel
         }
 
 
