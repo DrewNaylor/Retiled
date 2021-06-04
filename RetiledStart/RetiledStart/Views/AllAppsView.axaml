@@ -24,9 +24,9 @@
 		  This doesn't look very good, but it's better than
 		  nothing. -->
 		  <ListBoxItem>
-			  <StackPanel Orientation="Horizontal" Spacing="10">
-			    <Rectangle Height="24" Width="24" Fill="Blue" />
-			    <TextBlock>firefox</TextBlock>
+			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+			    <Rectangle VerticalAlignment="Center" Height="24" Width="24" Fill="Blue" />
+			    <TextBlock VerticalAlignment="Center">firefox</TextBlock>
 			  </StackPanel>
 		  </ListBoxItem>
 		  
