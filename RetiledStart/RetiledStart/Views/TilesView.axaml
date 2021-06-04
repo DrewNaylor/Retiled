@@ -63,12 +63,12 @@
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
-			<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
-			<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
-			<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
-			<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
-			<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
-			<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+			    <Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
 
 			</WrapPanel>
 			<Button Classes="RetiledRoundButton" Height="30" Width="30" Content="->" Grid.Row="1"
