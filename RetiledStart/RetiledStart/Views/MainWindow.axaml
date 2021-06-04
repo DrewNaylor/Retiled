@@ -39,7 +39,8 @@ respective people and companies/organizations.
         Title="RetiledStartPrototype"
         Width="360"
 		Height="720"
-		Content="{Binding Content}">
+		Content="{Binding Content}"
+		Margin="0,10">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledStart/Styles/StartTile.axaml" />
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
