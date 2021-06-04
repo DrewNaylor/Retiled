@@ -18,5 +18,8 @@
 			  Grid.Column="0" Width="30" Height="30" Content="S">
 		  <!-- Temporarily using "S" instead of a magnifying glass. -->
 	  </Button>
+	  
+	  <ListBox Grid.Column="1" Background="White"/>
+	  <!-- The All Apps list is temporarily white to see how it lines up. -->
   </Grid>
 </UserControl>
