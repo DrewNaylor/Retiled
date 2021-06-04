@@ -73,7 +73,9 @@
 					Command="{Binding $parent[Window].DataContext.ShowAllAppsList}"/>
 			<!-- The button may not look right here, but it will
 			when it's pulled into the main window as the
-			style in applied there. -->
+			style in applied there.
+			For the command, it's binding to the ShowAllAppsList thing
+			in the MainWindowViewModel. -->
 		</Grid>
 	</ScrollViewer>
 	
