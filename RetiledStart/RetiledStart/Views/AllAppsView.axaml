@@ -23,7 +23,10 @@
 		  <!-- Temporary All Apps list in a ListBox.
 		  This doesn't look very good, but it's better than
 		  nothing. -->
-		  <ListBoxItem Content="firefox"/>
+		  <ListBoxItem>
+			  <Rectangle Height="24" Width="24" Fill="Blue" />
+			  </ListBoxItem>
+		  
 		  </ListBox>
   </Grid>
 </UserControl>
