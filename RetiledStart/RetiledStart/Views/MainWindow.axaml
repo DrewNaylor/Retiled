@@ -40,6 +40,8 @@ respective people and companies/organizations.
         Width="360"
 		Height="720"
 		Content="{Binding Content}">
+	<!-- Only set height and width in the main window
+	or the app won't fit the PinePhone's screen properly. -->
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledStart/Styles/StartTile.axaml" />
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
