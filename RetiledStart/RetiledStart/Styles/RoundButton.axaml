@@ -9,7 +9,14 @@
     </Design.PreviewWith>
 
 	<Style Selector="Button.RoundButton /template/ ContentPresenter">
-		<!-- Set button corner radius so it's a circle. -->
+		<!-- Set button corner radius so it's a circle.
+		Copied most of this from the Search app's styles. -->
 		<Setter Property="CornerRadius" Value="90" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Background" Value="Black"/>
+		<Setter Property="BorderBrush" Value="White"/>
+		<Setter Property="Padding" Value="0"/>
 	</Style>
 </Styles>
