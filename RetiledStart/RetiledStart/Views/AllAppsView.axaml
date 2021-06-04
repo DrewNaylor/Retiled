@@ -19,7 +19,11 @@
 		  <!-- Temporarily using "S" instead of a magnifying glass. -->
 	  </Button>
 	  
-	  <ListBox Grid.Column="1" Background="White"/>
-	  <!-- The All Apps list is temporarily white to see how it lines up. -->
+	  <ListBox Grid.Column="1" Background="Black">
+		  <!-- Temporary All Apps list in a ListBox.
+		  This doesn't look very good, but it's better than
+		  nothing. -->
+		  <ListBoxItem Content="firefox"/>
+		  </ListBox>
   </Grid>
 </UserControl>
