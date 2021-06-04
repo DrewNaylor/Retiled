@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetiledStart.ViewModels
 {
-    class AllAppsViewModel
+    class AllAppsViewModel : ViewModelBase
     {
     }
 }
