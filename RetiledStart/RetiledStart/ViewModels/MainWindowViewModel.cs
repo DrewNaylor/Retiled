@@ -42,6 +42,10 @@ namespace RetiledStart.ViewModels
         ViewModelBase content;
 
         // Make a view model thing.
+        // It would be nice to know
+        // how to make it have a non-null
+        // value when exiting the
+        // constructor.
         public MainWindowViewModel()
         {
             // Set default view model.
