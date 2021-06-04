@@ -20,7 +20,17 @@
 	  <ListBox Margin="0,10" VerticalAlignment="Top" Grid.Column="1" Background="Black">
 		  <!-- Temporary All Apps list in a ListBox.
 		  This doesn't look very good, but it's better than
-		  nothing. -->
+		  nothing. Using an ItemsRepeater would be a good idea.
+		  Additionally, if there are too many items in the list
+		  and you decide to scroll it, some items
+		  aren't correctly positioned and the app locks up. 
+		  The solution to this problem would probably be what
+		  Loon/TweetX does with the Data-something things and
+		  the ItemsRepeater. Hopefully there's also a way to
+		  scroll the items in the list, too. May need to
+		  forego the ListBox entirely and just use buttons and
+		  an itemsrepeater as the listbox gives items a highlight
+		  thing. Maybe it'll be modifyable. -->
 		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 			      <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
