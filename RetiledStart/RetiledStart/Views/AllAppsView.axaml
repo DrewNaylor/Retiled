@@ -6,5 +6,8 @@
              x:Class="RetiledStart.Views.AllAppsView"
 			 Width="360"
 		     Height="720">
-  Welcome to Avalonia!
+  <Grid ColumnDefinitions="30,*">
+	  <Button Width="30" Height="30" Content="S">
+		  </Button>
+	  </Grid>
 </UserControl>
