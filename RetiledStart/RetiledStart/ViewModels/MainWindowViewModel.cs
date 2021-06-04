@@ -35,6 +35,19 @@ namespace RetiledStart.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+
+        // Wire up the All Apps view according to
+        // this tutorial page: https://docs.avaloniaui.net/tutorials/todo-list-app/adding-new-items
+
+        ViewModelBase content;
+
+        // Slide over to the All Apps list.
+        private void ShowAllAppsList()
+        {
+
+        }
+
+
         public string Greeting => "cobalt-colored tile";
         // Cobalt was #0050ef according to W3Schools, but it doesn't look quite right
         // in Avalonia. Not sure how to make it look exactly like it did on my Lumia 822 and 830,
