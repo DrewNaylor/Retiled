@@ -27,6 +27,7 @@
 
 
 
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +46,16 @@ namespace RetiledStart.ViewModels
         {
             // Set default view model.
             Content = RetiledStartScreen = new RetiledStartScreenViewModel();
+        }
+
+        // Set up the capitalised "Content" thing.
+        // Might be a property since it has "get" and "set".
+        public ViewModelBase Content
+        {
+            // Set the capitalised "Content" to the
+            // lowercased "content".
+            get => content;
+            private set => this.RaiseAndSetIfChanged(ref content, value);
         }
 
 
