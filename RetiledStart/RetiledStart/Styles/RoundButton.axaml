@@ -1,0 +1,15 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <Button Classes="RoundButton" Height="30"
+					Width="30"
+					Content="->"/>
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="Button.RoundButton /template/ ContentPresenter">
+		<!-- Set button corner radius so it's a circle. -->
+		<Setter Property="CornerRadius" Value="90" />
+	</Style>
+</Styles>
