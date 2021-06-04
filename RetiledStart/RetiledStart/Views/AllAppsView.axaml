@@ -25,10 +25,10 @@
 		  nothing. -->
 		  <ListBoxItem>
 			  <StackPanel Orientation="Horizontal">
-			  <Rectangle Height="24" Width="24" Fill="Blue" />
-			  <TextBlock>firefox</TextBlock>
-				  </StackPanel>
-			  </ListBoxItem>
+			    <Rectangle Height="24" Width="24" Fill="Blue" />
+			    <TextBlock>firefox</TextBlock>
+			  </StackPanel>
+		  </ListBoxItem>
 		  
 		  </ListBox>
   </Grid>
