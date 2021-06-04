@@ -38,9 +38,14 @@ namespace RetiledStart.ViewModels
 
         // Wire up the All Apps view according to
         // this tutorial page: https://docs.avaloniaui.net/tutorials/todo-list-app/adding-new-items
-
         ViewModelBase content;
 
+        // Make a view model thing.
+        public MainWindowViewModel()
+        {
+            // Set default view model.
+            Content = RetiledStartScreen = new RetiledStartScreenViewModel();
+        }
 
 
         public string Greeting => "cobalt-colored tile";
