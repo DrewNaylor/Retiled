@@ -25,10 +25,10 @@
 		  nothing. -->
 		  <ListBoxItem Height="55" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
-			    <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
-			    <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
-				https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
-				<TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+			      <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+			      <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </ListBoxItem>
 		  
