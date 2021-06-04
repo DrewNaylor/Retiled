@@ -1,0 +1,28 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <Button Classes="RetiledRoundButton" Height="30"
+					Width="30"
+					Content="->"/>
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="Button.RetiledRoundButton /template/ ContentPresenter">
+		<!-- Set button corner radius so it's a circle.
+		Copied most of this from the Search app's styles. -->
+		<Setter Property="CornerRadius" Value="90" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Background" Value="Black"/>
+		<Setter Property="BorderBrush" Value="White"/>
+		<Setter Property="Padding" Value="0"/>
+	</Style>
+
+	<Style Selector="Button.RetiledRoundButton:pressed /template/ ContentPresenter">
+		<!-- Changes the button background color to Cobalt when it's
+		pressed, which is the same behavior as Windows Phone. -->
+		<Setter Property="Background" Value="#0050ef"/>
+	</Style>
+</Styles>

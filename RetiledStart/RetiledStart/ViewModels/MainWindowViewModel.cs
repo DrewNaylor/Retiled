@@ -27,6 +27,7 @@
 
 
 
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -35,6 +36,45 @@ namespace RetiledStart.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+
+        // Wire up the All Apps view according to
+        // this tutorial page: https://docs.avaloniaui.net/tutorials/todo-list-app/adding-new-items
+        ViewModelBase content;
+
+        // Make a view model thing.
+        public MainWindowViewModel()
+        {
+            // Set default view model.
+            Content = new TilesViewModel();
+        }
+
+        // Set up the capitalised "Content" thing.
+        // Might be a property since it has "get" and "set".
+        public ViewModelBase Content
+        {
+            // Set the capitalised "Content" to the
+            // lowercased "content".
+            get => content;
+            private set => this.RaiseAndSetIfChanged(ref content, value);
+        }
+
+
+        // Set up the part that goes to the All Apps list.
+        public void ShowAllAppsList()
+        {
+            Content = new AllAppsViewModel();
+        }
+
+        // Temporary code for going back to the tiles.
+        // May be useful to hide this offscreen and allow
+        // it to be run when pressing Escape, so that
+        // the Back button has something to use.
+        public void GoBackToTiles()
+        {
+            Content = new TilesViewModel();
+        }
+
+
         public string Greeting => "cobalt-colored tile";
         // Cobalt was #0050ef according to W3Schools, but it doesn't look quite right
         // in Avalonia. Not sure how to make it look exactly like it did on my Lumia 822 and 830,

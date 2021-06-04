@@ -1,0 +1,88 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
+             x:Class="RetiledStart.Views.TilesView">
+
+
+	<ScrollViewer Margin="0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+		<Grid RowDefinitions="*,40">
+			<WrapPanel Grid.Row="0" HorizontalAlignment="Center">
+				<!-- Tile sizes according to Microsoft, a lot of manual
+				testing done by me, and various other pages are as follows:
+				
+				Two-column view:
+				Small tiles: 70x70
+			    Medium tiles: 150x150
+			    Wide tiles: 310x150
+				
+				Three-column view:
+				Small tiles: 45x45
+			    Medium tiles: 100x100
+			    Wide tiles: 210x100
+			 
+			    Margins are 10 pixels between tiles,
+			    or 5 pixels on each side of a tile for a nice grid.
+			    This margin also extends to the edge of the display on
+			    the left and right. However, there's another margin
+	   		    above the tiles, which can be changed by modifying the
+			    WrapPanel's margin.
+				
+				MSDN page with tile sizes for WP8:
+				https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN 
+				Please note that the official small tile size for WP8
+				is 71x71. Not sure exactly how it ends up lining up with
+				other tiles, but I'm just going to use the Windows 8 size,
+				which is 70x70. -->
+				
+				<!-- IMPORTANT NOTE: Even though the tiles don't look right,
+				bringing the view into the main window applies the styles
+				and text binding properly.
+				For some reason, the Immediate Window says this when
+				ending the debugging session:
+				[Binding] Error in binding to 'Avalonia.Controls.Button'.'Command': 'Null value in expression '$parent[Window, 0]'.' (Button #7284614)-->
+				
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="310" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="70" Height="70" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+			    <Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+
+			</WrapPanel>
+			<Button Classes="RetiledRoundButton" Height="30" Width="30" Content="->" Grid.Row="1"
+					HorizontalAlignment="Right"
+					Margin="0,10,20,20"
+					Foreground="White"
+					FontSize="20"
+					Command="{Binding $parent[Window].DataContext.ShowAllAppsList}"/>
+			<!-- The button may not look right here, but it will
+			when it's pulled into the main window as the
+			style in applied there.
+			For the command, it's binding to the ShowAllAppsList thing
+			in the MainWindowViewModel. -->
+		</Grid>
+	</ScrollViewer>
+	
+</UserControl>
