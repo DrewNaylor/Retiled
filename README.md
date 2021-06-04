@@ -116,7 +116,8 @@ This section will be filled out later, but basically just do `dotnet build (proj
 
 ## Video demos
 
-- [RetiledStart prototype running on the PinePhone](https://youtu.be/NpUnrb1wC_8)
+- [RetiledStart prototype running on the PinePhone (demo #1)](https://youtu.be/NpUnrb1wC_8)
+- [RetiledStart demo #2: All Apps list prototype + improved tiles](https://youtu.be/GVt1WAN-w04)
 
 ## Screenshots
 Below are some prototype screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot.
