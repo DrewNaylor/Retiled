@@ -6,13 +6,17 @@
              x:Class="RetiledStart.Views.AllAppsView"
 			 Width="360"
 		     Height="720">
+	<UserControl.Styles>
+		<!-- Temporarily import styles so that there's an
+		idea of what they look like. -->
+		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
+		</UserControl.Styles>
   <Grid ColumnDefinitions="30,*">
-	  <Button HorizontalAlignment="Center"
-			  VerticalAlignment="Top" 
-			  VerticalContentAlignment="Center"
-			  HorizontalContentAlignment="Center"
+	  <Button Classes="RoundButton" HorizontalAlignment="Center"
+			  VerticalAlignment="Top"
 			  Margin="10" 
 			  Grid.Column="0" Width="30" Height="30" Content="S">
+		  <!-- Temporarily using "S" instead of a magnifying glass. -->
 		  </Button>
 	  </Grid>
 </UserControl>
