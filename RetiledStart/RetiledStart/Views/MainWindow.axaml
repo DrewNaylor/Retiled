@@ -41,6 +41,7 @@ respective people and companies/organizations.
 		Height="720">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledStart/Styles/StartTile.axaml" />
+		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 	<!-- This page helped me get the styles in here:
 	https://medium.com/swlh/cross-platform-gui-for-dotnet-applications-bbd284709600-->
 	</Window.Styles>
