@@ -58,6 +58,15 @@ namespace RetiledStart.ViewModels
             private set => this.RaiseAndSetIfChanged(ref content, value);
         }
 
+        // Set up the Start screen thing.
+        public RetiledStartScreenViewModel RetiledStartScreen { get; }
+
+        // Set up the part that goes to the All Apps list.
+        public void ShowAllAppsList()
+        {
+
+        }
+
 
         public string Greeting => "cobalt-colored tile";
         // Cobalt was #0050ef according to W3Schools, but it doesn't look quite right
