@@ -55,8 +55,8 @@
 		  Maybe that'll require using buttons. Not sure how
 		  to make the buttons stretch the the side of the
 		  screen, though.-->
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
@@ -64,144 +64,144 @@
 			  </StackPanel>
 		  </Button>
 
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
-			  <StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+			  <StackPanel Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
