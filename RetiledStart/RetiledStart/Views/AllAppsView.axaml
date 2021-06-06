@@ -55,7 +55,7 @@
 		  Maybe that'll require using buttons. Not sure how
 		  to make the buttons stretch the the side of the
 		  screen, though.-->
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 			      <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 			      <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -64,7 +64,7 @@
 			  </StackPanel>
 		  </Button>
 
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -72,7 +72,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -80,7 +80,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -88,7 +88,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -96,7 +96,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -104,7 +104,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -112,7 +112,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -120,7 +120,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -128,7 +128,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -136,7 +136,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -144,7 +144,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -152,7 +152,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -160,7 +160,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -168,7 +168,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -177,7 +177,7 @@
 			  </StackPanel>
 		  </Button>
 
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -185,7 +185,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -193,7 +193,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -201,7 +201,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -209,7 +209,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -217,7 +217,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -225,7 +225,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -233,7 +233,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -241,7 +241,7 @@
 				  <TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Margin="0,5" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+		  <Button Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
 			  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
 				  <Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
