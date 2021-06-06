@@ -1,0 +1,26 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+			<Button Classes="RetiledAllAppsEntry" Height="55" Width="{Binding $parent[Window].Width}" VerticalContentAlignment="Center">
+				<StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Spacing="10">
+					<Rectangle VerticalAlignment="Center" Height="50" Width="50" Fill="#0050ef" />
+					<!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+					<TextBlock VerticalAlignment="Center" FontSize="20">firefox</TextBlock>
+				</StackPanel>
+			</Button>
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="Button.RetiledAllAppsEntry /template/ ContentPresenter">
+		<!-- This part makes regular rectangular buttons look like
+		the Windows Phone buttons. -->
+		<Setter Property="CornerRadius" Value="0" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Background" Value="Black"/>
+		<Setter Property="BorderBrush" Value="White"/>
+	</Style>
+</Styles>
