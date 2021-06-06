@@ -20,6 +20,5 @@
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Background" Value="Black"/>
-		<Setter Property="BorderBrush" Value="White"/>
 	</Style>
 </Styles>
