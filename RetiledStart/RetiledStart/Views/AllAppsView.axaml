@@ -32,8 +32,8 @@
 	  </Button>
 		  </StackPanel>
 	  
-	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-	  <StackPanel VerticalAlignment="Top" Background="Black">
+	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+	  <StackPanel VerticalAlignment="Top" Background="Black" Width="300">
 		  <!-- Temporary All Apps list in a ListBox.
 		  This doesn't look very good, but it's better than
 		  nothing. Using an ItemsRepeater would be a good idea.
