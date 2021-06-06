@@ -31,6 +31,7 @@
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Background" Value="Black"/>
+		<Setter Property="Margin" Value="0,5"/>
 	</Style>
 
 	<Style Selector="StackPanel.RetiledAllAppsEntry_StackPanel /template/ ContentPresenter">
