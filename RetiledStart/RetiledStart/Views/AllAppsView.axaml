@@ -32,7 +32,7 @@
 	  </Button>
 		  </StackPanel>
 	  
-	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 	  <StackPanel VerticalAlignment="Top" Background="Black">
 		  <!-- Temporary All Apps list in a ListBox.
 		  This doesn't look very good, but it's better than
