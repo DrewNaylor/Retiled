@@ -1,0 +1,55 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border>
+			<StackPanel>
+			<Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+				<StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+					<Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
+					<!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+					<TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
+				</StackPanel>
+			</Button>
+
+			<Button Classes="RetiledAllAppsEntry_Button" Height="55" Width="{Binding $parent[Window].Width}">
+				<StackPanel Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
+					<Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
+					<!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
+				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
+					<TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
+				</StackPanel>
+			</Button>
+				</StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="Button.RetiledAllAppsEntry_Button /template/ ContentPresenter">
+		<!-- This part makes regular rectangular buttons look like
+		the Windows Phone buttons. -->
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Background" Value="Black"/>
+	</Style>
+
+	<Style Selector="StackPanel.RetiledAllAppsEntry_StackPanel /template/ ContentPresenter">
+		<!-- This part makes regular rectangular buttons look like
+		the Windows Phone buttons. -->
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="HorizontalAlignment" Value="Left"/>
+	</Style>
+
+	<Style Selector="Rectangle.RetiledAllAppsEntry_Rectangle">
+		<!-- This part makes regular rectangular buttons look like
+		the Windows Phone buttons. -->
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Fill" Value="#0050ef"/>
+	</Style>
+
+	<Style Selector="TextBlock.RetiledAllAppsEntry_TextBlock">
+		<!-- This part makes regular rectangular buttons look like
+		the Windows Phone buttons. -->
+		<Setter Property="VerticalAlignment" Value="Center"/>
+	</Style>
+</Styles>
