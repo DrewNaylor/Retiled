@@ -3,6 +3,7 @@
 An attempt at creating a "desktop" environment mainly for Linux phones and tablets that's similar in function to some parts of Microsoft's Windows Phone 8.x, primarily these features and behaviors:
 - Start screen
   - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts to display "live" data
+  - Basic Live Tiles for apps like the dialer or text message app could be handled by somehow checking to see if there's a notification for that app, and if there is, the number of notifications are put onto the tile. Somehow this number will have to be synced with the notifications so it updates in real-time with new notifications and the user clearing them. Dismissing all the notifications will have to clear the number on the tile.
   - There's also the app list to the right of the tiles, and the search box there along with the letter categorization are both essential to Windows Phone and Windows Phone-like environments
   - Tiles by default will use the user's Accent Color, but there needs to be options to either use a custom color for a tile, or get the color from the icon. The custom color is a thing in case people don't like the auto-color feature or they're using monochrome icons.
   - Medium tiles look good at 150x150 and wide tiles look good at 310x150, but small tiles at 70x70, aside from being decently sized and having correct margins, don't properly fill the wide tile's empty space if there are four of them that should go in a box together. This doesn't even include the fact that small tiles need to have their labels hidden, as that's what WP did. Forcing four small tiles onto the same row looks good, though.
@@ -72,6 +73,8 @@ There are also some "wishlist" features that I really want but might be too comp
   - The keyboard had a `paste` button at the very left part of the suggestion bar, so that needs to be added as well
   - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
   - May as well add the text navigation "stick" that Windows 10 Mobile had, since it's one of the few good things that version did. This will be one of the few features from W10M.
+- Battery Saver app
+  - The only thing that would work for sure would be to get battery status like charge percentage. Maybe TLP has command-line options that can make it conserve more power for Battery Saver.
 - Typing dictionary
   - There was no way to remove individual words, so there should be a menu that allows selecting user-added words to remove.
 - Text selection that looks and behaves like WP
