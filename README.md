@@ -40,11 +40,13 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
     - When an app only has one notification, the line for the app's name and icon gets dragged slightly behind the notification. This will allow the 8.1-style notification dismissal effect to partially continue to exist unless the app has multiple notifications.
     - Dragging an app's notifications with two fingers will dismiss all notifications from that app with the same effect as WP8.1 where the two notifications around the first-selected notification take a bit to slide, then the next two, and so on. Pretty sure that gesture dismissed all of them at once in 10, but not having an easy way to dismiss only one app's notifications without sliding over the name and icon row was painful.
     - Dragging with three fingers will dismiss all notifications, since it could be useful.
+  - Opening Action Center first shows the date, battery percentage, and other details along with the Quick Action buttons before showing the Notifications part, and you can just have the window stop partway down to only show the Quick Actions.
   - See `Status bar` for how the Action Center opens in landscape mode.
   - Opening Action Center closes the volume control UI. 
 - Status bar
   - Status bar always stays on the physical top of the phone, unlike iOS. This means the Action Center is opened horizontally when the phone is in landscape mode.
   - Stuff in the status bar rotates according to the phone's rotation and takes up more horizontal space when it's on the side.
+  - Any unread notifications show a single icon that resembles a newspaper in a slightly-rounded rectangle in the status bar to let you know there's something to look at. This is useful when you miss a notification (possibly by switching apps when it shows up, as happens in iOS for some reason) or you have Quiet Hours turned on. The icon only shows up once (unlike Android where there's an icon for each notification) and goes away when you open the Action Center's Notifications part.
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
 - Multitasking view complete with the WP8 GDR 3 "close" button in the top-right corner and 8.1's support for swiping down to close apps.
 - WP8.1-style animations (8.1's animations were the best in any version I've used; 8.0's animations made me sick to my stomach after not using it for a long time)
