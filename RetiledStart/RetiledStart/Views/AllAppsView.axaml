@@ -55,7 +55,7 @@
 		  Maybe that'll require using buttons. Not sure how
 		  to make the buttons stretch the the side of the
 		  screen, though.-->
-		  <Button Command="{Binding RunFirefox}" Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
+		  <Button Command="{Binding RunApp}" CommandParameter="firefox" Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
 			  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -64,7 +64,7 @@
 			  </StackPanel>
 		  </Button>
 
-		  <Button Padding="0,5" Command="{Binding RunAngelfish}" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
+		  <Button Padding="0,5" Command="{Binding RunApp}" CommandParameter="angelfish" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
 			  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -72,12 +72,12 @@
 				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">angelfish</TextBlock>
 			  </StackPanel>
 		  </Button>
-		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
+		  <Button Padding="0,5" Command="{Binding RunApp}" CommandParameter="nota" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
 			  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
-				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">firefox</TextBlock>
+				  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" FontSize="20">nota</TextBlock>
 			  </StackPanel>
 		  </Button>
 		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
