@@ -23,5 +23,15 @@ namespace RetiledStart.ViewModels
             }
         }
 
+        public void RunAngelfish()
+        {
+            // Placeholder code to run Angelfish for testing.
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                System.Diagnostics.Process.Start(@"/usr/bin/angelfish");
+            }
+        }
+
+
     }
 }
