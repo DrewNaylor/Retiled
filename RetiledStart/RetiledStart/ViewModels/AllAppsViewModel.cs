@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,15 @@ namespace RetiledStart.ViewModels
         public void RunFirefox()
         {
             // Placeholder code to run Firefox for testing.
-            System.Diagnostics.Process.Start(@"C:\Program Files\Mozilla Firefox\firefox.exe");
+            if RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            {
+                System.Diagnostics.Process.Start(@"C:\Program Files\Mozilla Firefox\firefox.exe");
+            }
+            else if RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
+                {
+                System.Diagnostics.Process.Start(@"/usr/bin/firefox");
+            }
+            end if
         }
 
     }
