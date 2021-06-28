@@ -19,7 +19,7 @@ namespace RetiledStart.ViewModels
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                System.Diagnostics.Process.Start(@"/usr/bin/firefox");
+                System.Diagnostics.Process.Start(@"/usr/share/applications/firefox.desktop");
             }
         }
 
