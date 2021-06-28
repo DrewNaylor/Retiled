@@ -13,15 +13,14 @@ namespace RetiledStart.ViewModels
         public void RunFirefox()
         {
             // Placeholder code to run Firefox for testing.
-            if RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 System.Diagnostics.Process.Start(@"C:\Program Files\Mozilla Firefox\firefox.exe");
             }
-            else if RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
-                {
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
                 System.Diagnostics.Process.Start(@"/usr/bin/firefox");
             }
-            end if
         }
 
     }
