@@ -28,7 +28,7 @@ namespace RetiledStart.ViewModels
             // Placeholder code to run Angelfish for testing.
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                libRetiledStart.AppsList.RunApp("/ust/bin/angelfish");
+                libRetiledStart.AppsList.RunApp("/usr/bin/angelfish");
             }
         }
     }
