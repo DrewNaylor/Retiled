@@ -15,11 +15,11 @@ namespace RetiledStart.ViewModels
             // Placeholder code to run Firefox for testing.
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                System.Diagnostics.Process.Start(@"C:\Program Files\Mozilla Firefox\firefox.exe");
+                libRetiledStart.AppsList.RunApp(@"C:\Program Files\Mozilla Firefox\firefox.exe");
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                System.Diagnostics.Process.Start(@"/usr/bin/firefox");
+                libRetiledStart.AppsList.RunApp("/usr/bin/firefox");
             }
         }
 
@@ -28,10 +28,8 @@ namespace RetiledStart.ViewModels
             // Placeholder code to run Angelfish for testing.
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                System.Diagnostics.Process.Start(@"/usr/bin/angelfish");
+                libRetiledStart.AppsList.RunApp("/ust/bin/angelfish");
             }
         }
-
-
     }
 }
