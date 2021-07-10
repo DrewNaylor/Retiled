@@ -44,6 +44,11 @@ namespace RetiledStart.ViewModels
             {
                 libRetiledStart.AppsList.RunApp("/usr/bin/" + ExecFilename);
             }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                libRetiledStart.AppsList.RunApp(ExecFilename);
+            }
+
         }
 
         public void GetDotDesktopFileText()
@@ -70,6 +75,25 @@ namespace RetiledStart.ViewModels
                 return _DotDesktopEntryName;
             }
             set { _DotDesktopEntryName = value; }
+        }
+
+
+        private string? _DotDesktopEntryCommand = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\Internet Explorer.desktop", "Exec");
+
+        public string DotDesktopEntryCommand
+        {
+            get
+            {
+                if (_DotDesktopEntryCommand is null)
+                // Make sure the name variable isn't
+                // null, and if it is, replace it with
+                // something else.
+                {
+                    _DotDesktopEntryCommand = "null";
+                }
+                return _DotDesktopEntryCommand;
+            }
+            set { _DotDesktopEntryCommand = value; }
         }
 
     }
