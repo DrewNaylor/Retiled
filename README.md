@@ -3,6 +3,7 @@
 An attempt at creating a "desktop" environment mainly for Linux phones and tablets that's similar in function to some parts of Microsoft's Windows Phone 8.x, primarily these features and behaviors:
 - Start screen
   - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts to display "live" data
+  - Basic Live Tiles for apps like the dialer or text message app could be handled by somehow checking to see if there's a notification for that app, and if there is, the number of notifications are put onto the tile. Somehow this number will have to be synced with the notifications so it updates in real-time with new notifications and the user clearing them. Dismissing all the notifications will have to clear the number on the tile.
   - There's also the app list to the right of the tiles, and the search box there along with the letter categorization are both essential to Windows Phone and Windows Phone-like environments
   - Tiles by default will use the user's Accent Color, but there needs to be options to either use a custom color for a tile, or get the color from the icon. The custom color is a thing in case people don't like the auto-color feature or they're using monochrome icons.
   - Medium tiles look good at 150x150 and wide tiles look good at 310x150, but small tiles at 70x70, aside from being decently sized and having correct margins, don't properly fill the wide tile's empty space if there are four of them that should go in a box together. This doesn't even include the fact that small tiles need to have their labels hidden, as that's what WP did. Forcing four small tiles onto the same row looks good, though.
@@ -40,11 +41,13 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
     - When an app only has one notification, the line for the app's name and icon gets dragged slightly behind the notification. This will allow the 8.1-style notification dismissal effect to partially continue to exist unless the app has multiple notifications.
     - Dragging an app's notifications with two fingers will dismiss all notifications from that app with the same effect as WP8.1 where the two notifications around the first-selected notification take a bit to slide, then the next two, and so on. Pretty sure that gesture dismissed all of them at once in 10, but not having an easy way to dismiss only one app's notifications without sliding over the name and icon row was painful.
     - Dragging with three fingers will dismiss all notifications, since it could be useful.
+  - Opening Action Center first shows the date, battery percentage, and other details along with the Quick Action buttons before showing the Notifications part, and you can just have the window stop partway down to only show the Quick Actions.
   - See `Status bar` for how the Action Center opens in landscape mode.
   - Opening Action Center closes the volume control UI. 
 - Status bar
   - Status bar always stays on the physical top of the phone, unlike iOS. This means the Action Center is opened horizontally when the phone is in landscape mode.
   - Stuff in the status bar rotates according to the phone's rotation and takes up more horizontal space when it's on the side.
+  - Any unread notifications show a single icon that resembles a newspaper in a slightly-rounded rectangle in the status bar to let you know there's something to look at. This is useful when you miss a notification (possibly by switching apps when it shows up, as happens in iOS for some reason) or you have Quiet Hours turned on. The icon only shows up once (unlike Android where there's an icon for each notification) and goes away when you open the Action Center's Notifications part.
 - Settings that are relevant to a Windows Phone-style UI. Probably will do a Settings app that looks at settings-related .desktop files and add a few of my own menus.
 - Multitasking view complete with the WP8 GDR 3 "close" button in the top-right corner and 8.1's support for swiping down to close apps.
 - WP8.1-style animations (8.1's animations were the best in any version I've used; 8.0's animations made me sick to my stomach after not using it for a long time)
@@ -70,6 +73,8 @@ There are also some "wishlist" features that I really want but might be too comp
   - The keyboard had a `paste` button at the very left part of the suggestion bar, so that needs to be added as well
   - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
   - May as well add the text navigation "stick" that Windows 10 Mobile had, since it's one of the few good things that version did. This will be one of the few features from W10M.
+- Battery Saver app
+  - The only thing that would work for sure would be to get battery status like charge percentage. Maybe TLP has command-line options that can make it conserve more power for Battery Saver.
 - Typing dictionary
   - There was no way to remove individual words, so there should be a menu that allows selecting user-added words to remove.
 - Text selection that looks and behaves like WP

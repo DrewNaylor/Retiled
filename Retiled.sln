@@ -10,7 +10,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetiledSearch", "RetiledSearch\RetiledSearch\RetiledSearch.csproj", "{D78E6E41-76DB-42E2-8814-3B3A291005CE}"
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "libRetiledStart", "RetiledStart\libRetiledStart\libRetiledStart.vbproj", "{A47F905A-8210-4673-921C-DB71B0FAF8BB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
