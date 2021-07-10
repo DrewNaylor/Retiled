@@ -14,4 +14,12 @@
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.6" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.6" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libRetiledStart\libRetiledStart.vbproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="libdotdesktop-standard">
+      <HintPath>..\..\lib\libdotdesktop-standard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
