@@ -51,11 +51,10 @@ namespace RetiledStart.ViewModels
             // Get .desktop file text for displaying on the button.
             // Placeholder for now because I don't know how to
             // decide which .desktop file we should read from yet.
-            DotDesktopEntryName = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\Internet Explorer.desktop", "Name");
         }
 
 
-        private string? _DotDesktopEntryName;
+        private string? _DotDesktopEntryName = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\Internet Explorer.desktop", "Name");
 
         public string DotDesktopEntryName
         {
