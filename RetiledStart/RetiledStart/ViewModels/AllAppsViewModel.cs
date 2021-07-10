@@ -45,12 +45,12 @@ namespace RetiledStart.ViewModels
             }
         }
 
-        public void GetDotDesktopFileText()
+        public static string GetDotDesktopFileText()
         {
             // Get .desktop file text for displaying on the button.
             // Placeholder for now because I don't know how to
             // decide which .desktop file we should read from yet.
-
+            return desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\Internet Explorer.desktop", "Name");
         }
 
     }
