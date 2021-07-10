@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using libdotdesktop_standard;
 
 namespace RetiledStart.ViewModels
 {
@@ -42,6 +43,14 @@ namespace RetiledStart.ViewModels
             {
                 libRetiledStart.AppsList.RunApp("/usr/bin/" + ExecFilename);
             }
+        }
+
+        public void GetDotDesktopFileText()
+        {
+            // Get .desktop file text for displaying on the button.
+            // Placeholder for now because I don't know how to
+            // decide which .desktop file we should read from yet.
+
         }
 
     }
