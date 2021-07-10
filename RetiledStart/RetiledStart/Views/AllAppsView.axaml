@@ -85,7 +85,7 @@
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 				  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 				  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
-				  <TextBlock Text="{Binding GetDotDesktopFileText}" Classes="RetiledAllAppsEntry_TextBlock" FontSize="20" />
+				  <TextBlock Text="{Binding DotDesktopEntryName}" Classes="RetiledAllAppsEntry_TextBlock" FontSize="20" />
 			  </StackPanel>
 		  </Button>
 		  <Button Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">

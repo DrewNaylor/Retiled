@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -45,12 +46,31 @@ namespace RetiledStart.ViewModels
             }
         }
 
-        public static string GetDotDesktopFileText()
+        public void GetDotDesktopFileText()
         {
             // Get .desktop file text for displaying on the button.
             // Placeholder for now because I don't know how to
             // decide which .desktop file we should read from yet.
-            return desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\Internet Explorer.desktop", "Name");
+            DotDesktopEntryName = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\Internet Explorer.desktop", "Name");
+        }
+
+
+        private string? _DotDesktopEntryName;
+
+        public string DotDesktopEntryName
+        {
+            get
+            {
+                if (_DotDesktopEntryName is null)
+                // Make sure the name variable isn't
+                // null, and if it is, replace it with
+                // something else.
+                {
+                    _DotDesktopEntryName = "null";
+                }
+                return _DotDesktopEntryName;
+            }
+            set { _DotDesktopEntryName = value; }
         }
 
     }
