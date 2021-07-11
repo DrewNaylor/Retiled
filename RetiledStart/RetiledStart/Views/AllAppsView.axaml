@@ -36,7 +36,7 @@
 
 		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
 						 Background="Black"
-						 HorizontalAlignment="Left" VerticalAlignment="Top" MaxWidth="500" Width="310">
+						 HorizontalAlignment="Left" VerticalAlignment="Top">
 			  <ItemsRepeater.Layout>
 				  <StackLayout Spacing="0" Orientation="Vertical"/>
 			  </ItemsRepeater.Layout>
@@ -52,14 +52,13 @@
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
-										 Text="{Binding}" FontSize="20"/>
+										 Text="{Binding}" TextTrimming="CharacterEllipsis" FontSize="20"/>
 						  </StackPanel>
 					  </Button>
 				  </DataTemplate>
 			  </ItemsRepeater.ItemTemplate>
 		  </ItemsRepeater>
-	  </ScrollViewer>
-						  
+	  </ScrollViewer>		  
 						  
 	  <!--<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Width="310">
 		  --><!-- Temporary All Apps list in a ListBox.
