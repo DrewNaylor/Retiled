@@ -49,7 +49,7 @@
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
-										 Text="{Binding Source=$parent[ItemsRepeater].DataContext.GetText}" FontSize="20"/>
+										 Text="{Binding}" FontSize="20"/>
 						  </StackPanel>
 					  </Button>
 				  </DataTemplate>
