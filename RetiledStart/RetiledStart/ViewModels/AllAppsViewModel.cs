@@ -80,7 +80,7 @@ namespace RetiledStart.ViewModels
         }
 
 
-        private string? _DotDesktopEntryCommand = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\PowerShell.desktop", "Exec");
+        private string? _DotDesktopEntryCommand = null;
 
         public string DotDesktopEntryCommand
         {
