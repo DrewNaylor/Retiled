@@ -40,7 +40,7 @@
 			  </ItemsRepeater.Layout>
 		      <ItemsRepeater.ItemTemplate>
 				  <DataTemplate>
-					  <Button Command="{Binding RunApp}" CommandParameter="firefox" Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
+					  <Button Command="{Binding RunApp}" CommandParameter="{Binding DotDesktopEntryCommand}" Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
 						  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 							  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
