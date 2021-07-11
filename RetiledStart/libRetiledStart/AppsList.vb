@@ -22,7 +22,7 @@ Public Class AppsList
             DotDesktopFilesPath = "C:\Users\Drew\Desktop"
         End If
 
-        For Each DotDesktopFile As String In FileIO.FileSystem.GetDirectories(DotDesktopFilesPath)
+        For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             ' Check if the file ends with .desktop.
             If DotDesktopFile.EndsWith(".desktop") Then
                 ' Add the file to the list.
