@@ -38,6 +38,9 @@
 			  <ItemsRepeater.Layout>
 				  <StackLayout Spacing="0" Orientation="Vertical"/>
 			  </ItemsRepeater.Layout>
+		      <ItemsRepeater.ItemTemplate>
+				  <DataTemplate>
+					  <Button Command="{Binding RunApp}" CommandParameter="firefox" Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
 		  
 	  <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Width="310">
 		  <!-- Temporary All Apps list in a ListBox.
