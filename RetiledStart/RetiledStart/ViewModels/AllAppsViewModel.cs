@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using libdotdesktop_standard;
+using ReactiveUI;
 
 namespace RetiledStart.ViewModels
 {
@@ -105,18 +106,8 @@ namespace RetiledStart.ViewModels
 
         public ObservableCollection<string> AllAppsListItems
         {
-            get
-            {
-                if (_AllAppsListItems is null)
-                // Make sure the exec variable isn't
-                // null, and if it is, replace it with
-                // something else.
-                {
-                    _AllAppsListItems = "null";
-                }
-                return _AllAppsListItems;
-            }
-            set { _AllAppsListItems = value; }
+            get => _AllAppsListItems;
+            set => this.RaiseAndSetIfChanged(ref _AllAppsListItems, value);
         }
 
 
