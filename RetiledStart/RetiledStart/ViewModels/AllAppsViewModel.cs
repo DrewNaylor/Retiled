@@ -39,9 +39,6 @@ namespace RetiledStart.ViewModels
         public void RunApp(string ExecFilename)
         {
             // Send it to the other code.
-            // The code for Firefox on Windows
-            // isn't in here anymore because I want
-            // to simplify development for now.
                 Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Name"));
                 libRetiledStart.AppsList.RunApp(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
 
