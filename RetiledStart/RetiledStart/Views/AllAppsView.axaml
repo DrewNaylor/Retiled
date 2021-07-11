@@ -34,7 +34,8 @@
 	  
 	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}">
+		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}" HorizontalAlignment="Left" VerticalAlignment="Top" 
+						 Background="Black" Width="310">
 			  <ItemsRepeater.Layout>
 				  <StackLayout Spacing="0" Orientation="Vertical"/>
 			  </ItemsRepeater.Layout>
