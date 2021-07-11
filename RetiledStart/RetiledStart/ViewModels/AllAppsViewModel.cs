@@ -61,7 +61,7 @@ namespace RetiledStart.ViewModels
         }
 
 
-        private string? _DotDesktopEntryName = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\PowerShell.desktop", "Name");
+        private string? _DotDesktopEntryName = null;
 
         public string DotDesktopEntryName
         {
