@@ -48,7 +48,7 @@ namespace RetiledStart.ViewModels
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
+                Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Name"));
                 libRetiledStart.AppsList.RunApp(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
             }
 
