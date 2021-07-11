@@ -59,7 +59,7 @@ namespace RetiledStart.ViewModels
         }
 
 
-        private string? _DotDesktopEntryName = desktopEntryStuff.getInfo("/usr/share/applications/org.kde.kclock.desktop", "Name");
+        private string? _DotDesktopEntryName = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\PowerShell.desktop", "Name");
 
         public string DotDesktopEntryName
         {
@@ -78,7 +78,7 @@ namespace RetiledStart.ViewModels
         }
 
 
-        private string? _DotDesktopEntryCommand = desktopEntryStuff.getInfo("/usr/share/applications/org.kde.kclock.desktop", "Exec");
+        private string? _DotDesktopEntryCommand = desktopEntryStuff.getInfo(@"C:\Users\Drew\Desktop\PowerShell.desktop", "Exec");
 
         public string DotDesktopEntryCommand
         {
