@@ -113,7 +113,8 @@ namespace RetiledStart.ViewModels
 
         public ObservableCollection<string> GetDotDesktopFiles()
         {
-            private ObservableCollection<string> DotDesktopFiles;
+
+            return libRetiledStart.AppsList.GetDotDesktopFiles();
             
         }
 
