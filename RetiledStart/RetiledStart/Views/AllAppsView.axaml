@@ -34,7 +34,7 @@
 	  
 	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-		  <ItemsRepeater Items="C:\Users\Drew\Desktop\PowerShell.desktop">
+		  <ItemsRepeater Items="{Binding AllAppsListItems}">
 			  <ItemsRepeater.Layout>
 				  <StackLayout Spacing="0" Orientation="Vertical"/>
 			  </ItemsRepeater.Layout>

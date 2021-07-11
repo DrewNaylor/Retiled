@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -85,7 +86,7 @@ namespace RetiledStart.ViewModels
             get
             {
                 if (_DotDesktopEntryCommand is null)
-                // Make sure the name variable isn't
+                // Make sure the exec variable isn't
                 // null, and if it is, replace it with
                 // something else.
                 {
@@ -95,6 +96,29 @@ namespace RetiledStart.ViewModels
             }
             set { _DotDesktopEntryCommand = value; }
         }
+
+        // Couldn't figure out how to do this, so I based
+        // this code off this SO answer:
+        // https://stackoverflow.com/a/64552332
+
+        private ObservableCollection<String> _AllAppsListItems = new ObservableCollection<string>(new string[] { @"C:\Users\Drew\Desktop\PowerShell.desktop" });
+
+        public List AllAppsListItems
+        {
+            get
+            {
+                if (_AllAppsListItems is null)
+                // Make sure the exec variable isn't
+                // null, and if it is, replace it with
+                // something else.
+                {
+                    _AllAppsListItems = "null";
+                }
+                return _AllAppsListItems;
+            }
+            set { _AllAppsListItems = value; }
+        }
+
 
     }
 }
