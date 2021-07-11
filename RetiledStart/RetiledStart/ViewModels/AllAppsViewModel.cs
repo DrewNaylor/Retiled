@@ -101,9 +101,9 @@ namespace RetiledStart.ViewModels
         // this code off this SO answer:
         // https://stackoverflow.com/a/64552332
 
-        private ObservableCollection<String> _AllAppsListItems = new ObservableCollection<string>(new string[] { @"C:\Users\Drew\Desktop\PowerShell.desktop" });
+        private ObservableCollection<string> _AllAppsListItems = new ObservableCollection<string>(new string[] { @"C:\Users\Drew\Desktop\PowerShell.desktop" });
 
-        public List AllAppsListItems
+        public ObservableCollection<string> AllAppsListItems
         {
             get
             {
