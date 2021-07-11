@@ -52,7 +52,7 @@
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
-										 Text="{Binding Path=., Converter=StaticResource DotDesktopEntryNameConverter, ConverterParameter=.}" TextTrimming="CharacterEllipsis" FontSize="20"/>
+										 Text="{Binding}" TextTrimming="CharacterEllipsis" FontSize="20"/>
 							  <!-- A converter is necessary to get the text from the file. 
 							  https://stackoverflow.com/a/11104834
 							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0 -->

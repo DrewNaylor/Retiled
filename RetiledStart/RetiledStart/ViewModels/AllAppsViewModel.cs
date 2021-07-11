@@ -42,15 +42,8 @@ namespace RetiledStart.ViewModels
             // The code for Firefox on Windows
             // isn't in here anymore because I want
             // to simplify development for now.
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                libRetiledStart.AppsList.RunApp("/usr/bin/" + ExecFilename);
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
                 Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Name"));
                 libRetiledStart.AppsList.RunApp(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
-            }
 
         }
 
