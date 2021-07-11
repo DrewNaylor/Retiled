@@ -33,6 +33,12 @@
 		  </StackPanel>
 	  
 	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+
+		  <ItemsRepeater Items="{Binding AllAppsListItems}">
+			  <ItemsRepeater.Layout>
+				  <StackLayout Spacing="0" Orientation="Vertical"/>
+			  </ItemsRepeater.Layout>
+		  
 	  <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Width="310">
 		  <!-- Temporary All Apps list in a ListBox.
 		  This doesn't look very good, but it's better than
@@ -55,6 +61,8 @@
 		  Maybe that'll require using buttons. Not sure how
 		  to make the buttons stretch the the side of the
 		  screen, though.-->
+		  
+		  
 		  <Button Command="{Binding RunApp}" CommandParameter="firefox" Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" Width="{Binding $parent[Window].Width}">
 			  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 				  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
