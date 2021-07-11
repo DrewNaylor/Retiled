@@ -32,12 +32,11 @@
 	  </Button>
 		  </StackPanel>
 	  
-	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" 
-					HorizontalScrollBarVisibility="Disabled" Width="{Binding $parent[Window].Width}">
+	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
 		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
 						 Background="Black"
-						 HorizontalAlignment="Left" VerticalAlignment="Top">
+						 HorizontalAlignment="Left" VerticalAlignment="Top" Width="310">
 			  <ItemsRepeater.Layout>
 				  <StackLayout Spacing="0" Orientation="Vertical"/>
 			  </ItemsRepeater.Layout>
