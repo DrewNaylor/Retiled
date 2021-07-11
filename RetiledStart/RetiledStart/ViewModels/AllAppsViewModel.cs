@@ -111,6 +111,12 @@ namespace RetiledStart.ViewModels
             set => this.RaiseAndSetIfChanged(ref _AllAppsListItems, value);
         }
 
+        public ObservableCollection<string> GetDotDesktopFiles()
+        {
+            private ObservableCollection<string> DotDesktopFiles;
+
+        }
+
 
     }
 }
