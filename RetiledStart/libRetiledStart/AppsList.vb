@@ -9,6 +9,9 @@ Public Class AppsList
         ' Gets all .desktop files in /usr/share/applications
         ' on Linux or a pre-determined set on Windows.
 
+        ' Define a collection to use.
+        Dim DotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+
         If OperatingSystem.IsLinux = True Then
             For Each DotDesktopFile As String In FileIO.FileSystem.GetDirectories("/usr/share/applications")
                 ' Check if the file ends with .desktop.
