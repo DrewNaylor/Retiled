@@ -16,7 +16,7 @@ Public Class AppsList
             For Each DotDesktopFile As String In FileIO.FileSystem.GetDirectories("/usr/share/applications")
                 ' Check if the file ends with .desktop.
                 If DotDesktopFile.EndsWith(".desktop") Then
-
+                    DotDesktopFilesList.Add(DotDesktopFile.ToString)
                 End If
             Next
         End If
