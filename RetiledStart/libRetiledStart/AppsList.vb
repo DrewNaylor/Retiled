@@ -11,16 +11,24 @@ Public Class AppsList
 
         ' Define a collection to use.
         Dim DotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        ' Define a path we'll set later.
+        ' We're setting up a fallback, too.
+        Dim DotDesktopFilesPath As String = "/usr/share/applications"
 
         If OperatingSystem.IsLinux = True Then
-            For Each DotDesktopFile As String In FileIO.FileSystem.GetDirectories("/usr/share/applications")
-                ' Check if the file ends with .desktop.
-                If DotDesktopFile.EndsWith(".desktop") Then
-                    ' Add the file to the list.
-                    DotDesktopFilesList.Add(DotDesktopFile.ToString)
-                End If
-            Next
+            DotDesktopFilesPath = "/usr/share/applications"
+
+        ElseIf OperatingSystem.IsWindows = True Then
+            DotDesktopFilesPath = "C:\Users\Drew\Desktop"
         End If
+
+        For Each DotDesktopFile As String In FileIO.FileSystem.GetDirectories(DotDesktopFilesPath)
+            ' Check if the file ends with .desktop.
+            If DotDesktopFile.EndsWith(".desktop") Then
+                ' Add the file to the list.
+                DotDesktopFilesList.Add(DotDesktopFile.ToString)
+            End If
+        Next
 
         ' Return the list.
         Return DotDesktopFilesList
