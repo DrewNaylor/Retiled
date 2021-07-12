@@ -32,10 +32,17 @@
 	  </Button>
 		  </StackPanel>
 
-	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="0,0,5,0">
+	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+		  <!-- This StackPanel ensures the width of the ItemsRepeater is restricted so the
+		  scrollbar will be visible when combined with binding the ItemsRepeater width to
+		  the window's width. -->
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Width="310">
+			<!-- Binding the ItemsRepeater width to the window's width makes sure the scrollbar
+			is visible, as mentioned above. This is binding to Window rather than UserControl, and it
+			seems to work just like it did before using an ItemsRepeater. -->
 		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
 						 Background="Black"
-						 HorizontalAlignment="Left" VerticalAlignment="Top">
+						 HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding $parent[Window].Width}">
 			  <ItemsRepeater.Layout>
 				  <StackLayout Spacing="0" Orientation="Vertical"/>
 			  </ItemsRepeater.Layout>
@@ -46,6 +53,8 @@
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
 					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" CommandParameter="{Binding}"
 							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
+						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
+						  from anyware, rather than just on the text. -->
 						  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 							  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
@@ -60,6 +69,7 @@
 				  </DataTemplate>
 			  </ItemsRepeater.ItemTemplate>
 		  </ItemsRepeater>
+		</StackPanel>
 	  </ScrollViewer>		  
 						  
 	  <!--<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Width="310">
