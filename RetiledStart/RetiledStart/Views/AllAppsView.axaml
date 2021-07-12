@@ -31,9 +31,8 @@
 		  otherwise spacing doesn't look right for both sidebar buttons. -->
 	  </Button>
 		  </StackPanel>
-	  
-	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
+	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="0,0,5,0">
 		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
 						 Background="Black"
 						 HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -46,7 +45,7 @@
 					  "$parent[ItemsRepeater].DataContext."	before your command you want to bind to.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
 					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" CommandParameter="{Binding}"
-							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60">
+							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
 						  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 							  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
