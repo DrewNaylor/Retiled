@@ -7,7 +7,7 @@ Public Class AppsList
 
     Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of String)
         ' Gets all .desktop files in /usr/share/applications
-        ' on Linux or a pre-determined set on Windows.
+        ' on Linux or my desktop on Windows.
 
         ' Define a collection to use.
         Dim DotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
