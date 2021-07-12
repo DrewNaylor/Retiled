@@ -2,7 +2,11 @@ Public Class AppsList
 
     Public Shared Sub RunApp(ExecFilename As String)
         ' Runs what's passed to it.
-        Process.Start(ExecFilename.Replace(" %u", String.Empty))
+        ' Temporary Try/Catch so that it doesn't crash.
+        Try
+            Process.Start(ExecFilename.Replace(" %u", String.Empty))
+        Catch ex As Exception
+        End Try
     End Sub
 
     Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of String)
