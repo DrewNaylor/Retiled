@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using libdotdesktop_standard;
+using ReactiveUI;
 
 namespace RetiledStart.ViewModels
 {
@@ -37,64 +39,31 @@ namespace RetiledStart.ViewModels
         public void RunApp(string ExecFilename)
         {
             // Send it to the other code.
-            // The code for Firefox on Windows
-            // isn't in here anymore because I want
-            // to simplify development for now.
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                libRetiledStart.AppsList.RunApp("/usr/bin/" + ExecFilename);
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                libRetiledStart.AppsList.RunApp(ExecFilename);
-            }
+                Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Name"));
+                libRetiledStart.AppsList.RunApp(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
 
         }
 
-        public void GetDotDesktopFileText()
+        public string GetText(string DotDesktopFilename)
         {
             // Get .desktop file text for displaying on the button.
-            // Placeholder for now because I don't know how to
-            // decide which .desktop file we should read from yet.
+            return desktopEntryStuff.getInfo(DotDesktopFilename, "Name");
         }
 
+        // Couldn't figure out how to do this, so I based
+        // this code off this SO answer:
+        // https://stackoverflow.com/a/64552332
 
-        private string? _DotDesktopEntryName = desktopEntryStuff.getInfo("/usr/share/applications/org.kde.kclock.desktop", "Name");
+        private ObservableCollection<string> _GetDotDesktopFiles = new ObservableCollection<string> (libRetiledStart.AppsList.GetDotDesktopFiles());
 
-        public string DotDesktopEntryName
+        public ObservableCollection<string> GetDotDesktopFiles
         {
-            get
-            {
-                if (_DotDesktopEntryName is null)
-                // Make sure the name variable isn't
-                // null, and if it is, replace it with
-                // something else.
-                {
-                    _DotDesktopEntryName = "null";
-                }
-                return _DotDesktopEntryName;
-            }
-            set { _DotDesktopEntryName = value; }
+            // Get the list of .desktop files.
+            get => _GetDotDesktopFiles;
+            set => this.RaiseAndSetIfChanged(ref _GetDotDesktopFiles, value);
+            
         }
 
-
-        private string? _DotDesktopEntryCommand = desktopEntryStuff.getInfo("/usr/share/applications/org.kde.kclock.desktop", "Exec");
-
-        public string DotDesktopEntryCommand
-        {
-            get
-            {
-                if (_DotDesktopEntryCommand is null)
-                // Make sure the name variable isn't
-                // null, and if it is, replace it with
-                // something else.
-                {
-                    _DotDesktopEntryCommand = "null";
-                }
-                return _DotDesktopEntryCommand;
-            }
-            set { _DotDesktopEntryCommand = value; }
-        }
 
     }
 }
