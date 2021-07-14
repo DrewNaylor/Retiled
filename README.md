@@ -38,7 +38,7 @@ This section will be filled out later, but basically just do `dotnet build (proj
 - [RetiledStart demo #4: Landscape All Apps List](https://youtu.be/FGZ3E5nqb0s)
 
 ## Screenshots
-Below are some prototype screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot.
+Below are some prototype screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot. I might not update the screenshots here very often either, so I'd recommend [following me on Twitter](https://twitter.com/DrewTNaylor) as I'll occasionally post screenshots for the feature I'm working on at the moment. It's not always Retiled screenshots, though.
 
 RetiledStart running on the PinePhone, less blurry than it is in person:<br>
 <img src="/docs/images/retiledstart-running-on-pinephone.png" width="360"><br>
