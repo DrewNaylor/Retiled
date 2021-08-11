@@ -82,6 +82,17 @@ namespace RetiledStart.ViewModels
             }
         }
 
+        // PropertyChanged event handler.
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyCHangedEventHandler handle = PropertyChanged;
+            if (handle != null)
+            {
+                handle(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
     }
 
     // IMultiValueConverter for the app list.
