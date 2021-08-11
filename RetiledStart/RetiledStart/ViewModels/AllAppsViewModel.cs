@@ -83,13 +83,13 @@ namespace RetiledStart.ViewModels
         }
 
         // PropertyChanged event handler.
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {
-            PropertyCHangedEventHandler handle = PropertyChanged;
+            System.ComponentModel.PropertyChangedEventHandler handle = PropertyChanged;
             if (handle != null)
             {
-                handle(this, new PropertyChangedEventArgs(propertyName));
+                handle(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
 
