@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Avalonia.Data.Converters;
 using libdotdesktop_standard;
 using ReactiveUI;
 
@@ -64,6 +65,27 @@ namespace RetiledStart.ViewModels
             
         }
 
+    }
 
+    // IValueConverter for the app list.
+    // Ended up not using IMultiValueConverter because it just didn't
+    // work as I needed it to.
+    // This is from MSDN:
+    // https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/?view=netdesktop-5.0#data-conversion
+
+    public class AppNameConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            string DesktopEntryName = value as string;
+            Debug.WriteLine(DesktopEntryName);
+            Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
+            return desktopEntryStuff.getInfo(DesktopEntryName, "Name");
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return null;
+        }
     }
 }

@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:RetiledStart.ViewModels;assembly=RetiledStart"
              mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
              x:Class="RetiledStart.Views.AllAppsView">
 	<UserControl.Styles>
@@ -9,6 +10,12 @@
 		idea of what they look like. -->
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 		</UserControl.Styles>
+	<UserControl.Resources>
+		<!-- Note: The xmlns:local thing where this is defined
+		needs to be "RetiledStart.ViewModels", or it won't find
+		the converter. -->
+		<local:AppNameConverter x:Key="AppListItemTextConverter"/>
+	</UserControl.Resources>
   <Grid Margin="0,10,0,0" ColumnDefinitions="30,*">
 	  
 	  <StackPanel Margin="10">
@@ -60,7 +67,12 @@
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
-										 Text="{Binding}" TextTrimming="CharacterEllipsis" FontSize="20"/>
+										 TextTrimming="CharacterEllipsis" FontSize="20"
+										 Text="{Binding Converter={StaticResource AppListItemTextConverter}}">
+								  <!-- Figuring this out was a mess, but this SO answer ended
+								  up being super helpful:
+								  https://stackoverflow.com/a/39869384 -->
+							  </TextBlock>
 							  <!-- A converter is necessary to get the text from the file. 
 							  https://stackoverflow.com/a/11104834
 							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0 -->
