@@ -78,6 +78,7 @@ namespace RetiledStart.ViewModels
         public object Convert(IList<object> values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             string? DesktopEntryName = values[0] as string;
+            Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
             return desktopEntryStuff.getInfo(DesktopEntryName, "Name");
         }
 
