@@ -79,7 +79,7 @@ namespace RetiledStart.ViewModels
 
         public object? ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return null;
+            return "null";
         }
     }
 }
