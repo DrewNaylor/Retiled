@@ -72,19 +72,19 @@ namespace RetiledStart.ViewModels
     // to use this.
     // This is from MSDN:
     // https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.imultivalueconverter?view=net-5.0
-    public class AppNameConverter : IMultiValueConverter
+    public class AppNameConverter : IValueConverter
     {
-        public object Convert(IList<object> values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            string? DesktopEntryName = values[0] as string;
-            Debug.WriteLine(values[0] as string);
+            string DesktopEntryName = value as string;
+            Debug.WriteLine(DesktopEntryName);
             Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
             return desktopEntryStuff.getInfo(DesktopEntryName, "Name");
         }
 
-        public object? ConvertBack(IList<object> values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return "null";
+            return null;
         }
     }
 }

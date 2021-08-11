@@ -67,15 +67,16 @@
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
 							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
-										 TextTrimming="CharacterEllipsis" FontSize="20">
-								  <TextBlock.Text>
-									  <!-- We need to use multibinding:
-									  https://www.codearsenal.net/2013/12/wpf-multibinding-example.html -->
-									  <MultiBinding Converter="{StaticResource AppListItemTextConverter}">
-										  <Binding Path="."/>
+										 TextTrimming="CharacterEllipsis" FontSize="20"
+										 Text="{Binding, Converter={StaticResource AppListItemTextConverter},
+										 ConverterParameter={Binding}">
+								  <!--<TextBlock.Text>
+									  --><!-- We need to use multibinding:
+									  https://www.codearsenal.net/2013/12/wpf-multibinding-example.html --><!--
+									  <MultiBinding Converter="{StaticResource AppListItemTextConverter}" Mode="OneWay">
 										  <Binding Path="CommandParameter" RelativeSource="{RelativeSource  AncestorType=Button}"/>
 									  </MultiBinding>
-								  </TextBlock.Text>
+								  </TextBlock.Text>-->
 							  </TextBlock>
 							  <!-- A converter is necessary to get the text from the file. 
 							  https://stackoverflow.com/a/11104834
