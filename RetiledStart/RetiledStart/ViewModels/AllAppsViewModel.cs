@@ -65,34 +65,6 @@ namespace RetiledStart.ViewModels
             
         }
 
-        // Property for storing the current app name.
-        // From here:
-        // https://social.technet.microsoft.com/wiki/contents/articles/30936.wpf-multibinding-and-imultivalueconverter.aspx
-        private string appname;
-        public string AppName
-        {
-            get
-            {
-                return appname;
-            }
-            set
-            {
-                appname = value;
-                OnPropertyChanged("AppName");
-            }
-        }
-
-        // PropertyChanged event handler.
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler handle = PropertyChanged;
-            if (handle != null)
-            {
-                handle(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-
     }
 
     // IMultiValueConverter for the app list.
