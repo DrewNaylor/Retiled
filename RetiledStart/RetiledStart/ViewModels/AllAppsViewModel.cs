@@ -65,6 +65,22 @@ namespace RetiledStart.ViewModels
             
         }
 
+        // Property for storing the current app name.
+        // From here:
+        // https://social.technet.microsoft.com/wiki/contents/articles/30936.wpf-multibinding-and-imultivalueconverter.aspx
+        private string appname;
+        public string AppName
+        {
+            get
+            {
+                return appname;
+            }
+            set
+            {
+                appname = value;
+                OnPropertyChanged("AppName");
+            }
+        }
 
     }
 
