@@ -11,6 +11,9 @@
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 		</UserControl.Styles>
 	<UserControl.Resources>
+		<!-- Note: The xmlns:local thing where this is defined
+		needs to be "RetiledStart.ViewModels", or it won't find
+		the converter. -->
 		<local:AppNameConverter x:Key="AppListItemTextConverter"/>
 	</UserControl.Resources>
   <Grid Margin="0,10,0,0" ColumnDefinitions="30,*">
