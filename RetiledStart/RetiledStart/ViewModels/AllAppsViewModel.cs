@@ -72,6 +72,9 @@ namespace RetiledStart.ViewModels
     // This is from MSDN.
     public class AppListItemTextConverter : IValueConverter
     {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
 
+        }
     }
 }
