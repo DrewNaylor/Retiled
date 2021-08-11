@@ -69,18 +69,13 @@
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
 										 TextTrimming="CharacterEllipsis" FontSize="20"
 										 Text="{Binding Converter={StaticResource AppListItemTextConverter}}">
-								  <!--<TextBlock.Text>
-									  --><!-- We need to use multibinding:
-									  https://www.codearsenal.net/2013/12/wpf-multibinding-example.html --><!--
-									  <MultiBinding Converter="{StaticResource AppListItemTextConverter}" Mode="OneWay">
-										  <Binding Path="CommandParameter" RelativeSource="{RelativeSource  AncestorType=Button}"/>
-									  </MultiBinding>
-								  </TextBlock.Text>-->
+								  <!-- Figuring this out was a mess, but this SO answer ended
+								  up being super helpful:
+								  https://stackoverflow.com/a/39869384 -->
 							  </TextBlock>
 							  <!-- A converter is necessary to get the text from the file. 
 							  https://stackoverflow.com/a/11104834
-							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0
-							  The IValueConverter won't work because it doesn't support binding parameters. -->
+							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0 -->
 						  </StackPanel>
 					  </Button>
 				  </DataTemplate>

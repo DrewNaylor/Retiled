@@ -67,11 +67,12 @@ namespace RetiledStart.ViewModels
 
     }
 
-    // IMultiValueConverter for the app list.
-    // Can't bind with an IValueConverter, so I have
-    // to use this.
+    // IValueConverter for the app list.
+    // Ended up not using IMultiValueConverter because it just didn't
+    // work as I needed it to.
     // This is from MSDN:
-    // https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.imultivalueconverter?view=net-5.0
+    // https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/?view=netdesktop-5.0#data-conversion
+
     public class AppNameConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
