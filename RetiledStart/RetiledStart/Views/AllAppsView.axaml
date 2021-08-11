@@ -68,8 +68,7 @@
 							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
 										 TextTrimming="CharacterEllipsis" FontSize="20"
-										 Text="{Binding, Converter={StaticResource AppListItemTextConverter},
-										 ConverterParameter={Binding}">
+										 Text="{Binding Converter={StaticResource AppListItemTextConverter}}">
 								  <!--<TextBlock.Text>
 									  --><!-- We need to use multibinding:
 									  https://www.codearsenal.net/2013/12/wpf-multibinding-example.html --><!--
