@@ -70,7 +70,7 @@ namespace RetiledStart.ViewModels
 
     // IValueConverter for the app list.
     // This is from MSDN.
-    public class AppListItemTextConverter : IValueConverter
+    public class AppNameConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
