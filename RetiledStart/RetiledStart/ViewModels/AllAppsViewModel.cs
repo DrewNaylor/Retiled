@@ -77,13 +77,13 @@ namespace RetiledStart.ViewModels
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            string DesktopEntryName = value as string;
-            Debug.WriteLine(DesktopEntryName);
-            Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
+            string? DesktopEntryName = value as string;
+            //Debug.WriteLine(DesktopEntryName);
+            //Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
             return desktopEntryStuff.getInfo(DesktopEntryName, "Name");
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object? ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             return null;
         }
