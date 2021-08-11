@@ -72,7 +72,7 @@
 									  <!-- We need to use multibinding:
 									  https://www.codearsenal.net/2013/12/wpf-multibinding-example.html -->
 									  <MultiBinding Converter="{StaticResource AppListItemTextConverter}">
-										  <Binding Source="{Binding}"/>
+										  <Binding Source="{StaticResource Binding}"/>
 									  </MultiBinding>
 								  </TextBlock.Text>
 							  </TextBlock>
