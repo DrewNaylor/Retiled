@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Avalonia.Data.Converters;
 using libdotdesktop_standard;
 using ReactiveUI;
 
@@ -64,6 +65,13 @@ namespace RetiledStart.ViewModels
             
         }
 
+
+    }
+
+    // IValueConverter for the app list.
+    // This is from MSDN.
+    public class AppListItemTextConverter : IValueConverter
+    {
 
     }
 }
