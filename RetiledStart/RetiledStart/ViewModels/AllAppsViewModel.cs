@@ -77,7 +77,8 @@ namespace RetiledStart.ViewModels
     {
         public object Convert(IList<object> values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return desktopEntryStuff.getInfo((string)values[0], "Name");
+            string? DesktopEntryName = values[0] as string;
+            return desktopEntryStuff.getInfo(DesktopEntryName, "Name");
         }
 
         public object? ConvertBack(IList<object> values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
