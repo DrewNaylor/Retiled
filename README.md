@@ -43,11 +43,11 @@ Below are some prototype screenshots in case you want to see how things are goin
 RetiledStart running on the PinePhone, less blurry than it is in person:<br>
 <img src="/docs/images/retiledstart-running-on-pinephone.png" width="360"><br>
 <br>
-RetiledStart in a three-column view:<br>
+Early three-column view:<br>
 <img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
 <br>
-Simulated PinePhone Xwayland three-column view with 100x100 tiles:<br>
-<img src="/docs/images/simulated-three-column-view-on-a-pinephone.png" width="360"><br>
+All Apps List displaying the names that are in each of the .desktop files:<br>
+<img src="/docs/images/retiledstart-allappslist-with-names.png" width="360"><br>
 <br>
 Search app prototype:<br>
 ![](/docs/images/search-prototype.png?raw=true)<br>
