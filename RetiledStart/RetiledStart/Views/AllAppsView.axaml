@@ -73,6 +73,7 @@
 									  https://www.codearsenal.net/2013/12/wpf-multibinding-example.html -->
 									  <MultiBinding Converter="{StaticResource AppListItemTextConverter}">
 										  <Binding Path="."/>
+										  <MultiBinding.ConverterParameter>"{Binding}"</MultiBinding.ConverterParameter>
 									  </MultiBinding>
 								  </TextBlock.Text>
 							  </TextBlock>
