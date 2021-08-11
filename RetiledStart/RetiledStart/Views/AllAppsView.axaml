@@ -72,6 +72,7 @@
 									  <!-- We need to use multibinding:
 									  https://www.codearsenal.net/2013/12/wpf-multibinding-example.html -->
 									  <MultiBinding Converter="{StaticResource AppListItemTextConverter}">
+										  <Binding Path="."/>
 										  <Binding Path="CommandParameter" RelativeSource="{RelativeSource  AncestorType=Button}"/>
 									  </MultiBinding>
 								  </TextBlock.Text>
