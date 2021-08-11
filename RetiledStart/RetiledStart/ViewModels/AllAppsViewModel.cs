@@ -15,32 +15,10 @@ namespace RetiledStart.ViewModels
     class AllAppsViewModel : ViewModelBase
     {
 
-        //public void RunFirefox()
-        //{
-        //    // Placeholder code to run Firefox for testing.
-        //    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        //    {
-        //        libRetiledStart.AppsList.RunApp(@"C:\Program Files\Mozilla Firefox\firefox.exe");
-        //    }
-        //    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-        //    {
-        //        libRetiledStart.AppsList.RunApp("/usr/bin/firefox");
-        //    }
-        //}
-
-        //public void RunAngelfish()
-        //{
-        //    // Placeholder code to run Angelfish for testing.
-        //    if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-        //    {
-        //        libRetiledStart.AppsList.RunApp("/usr/bin/angelfish");
-        //    }
-        //}
-
         public void RunApp(string ExecFilename)
         {
             // Send it to the other code.
-                Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Name"));
+                Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
                 libRetiledStart.AppsList.RunApp(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
 
         }
