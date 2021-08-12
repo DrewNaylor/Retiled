@@ -89,6 +89,10 @@ Public Class AppsList
         ' it should be sorting the list.
         Dim NewDotDesktopNamesList = From Name1 In DotDesktopNamesList Order By Name1 Descending Select Name1
 
+        ' Define a new collection for the files list after
+        ' it's sorted.
+        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+
         ' Return the list.
         Return DotDesktopFilesList
 
