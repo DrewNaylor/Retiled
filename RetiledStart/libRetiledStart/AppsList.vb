@@ -82,6 +82,13 @@ Public Class AppsList
         ' Sort the list of apps according to their Name:
         ' https://stackoverflow.com/a/33970009
 
+        ' Define the current index.
+        Dim CurrentIndex As Integer = 0
+
+        ' Not exactly sure what all of this is doing, but
+        ' it should be sorting the list.
+        Dim NewDotDesktopNamesList = From Name1 In DotDesktopNamesList Order By Name1 Descending Select Name1
+
         ' Return the list.
         Return DotDesktopFilesList
 
