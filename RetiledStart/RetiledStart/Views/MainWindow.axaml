@@ -36,7 +36,7 @@ respective people and companies/organizations.
         mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
         x:Class="RetiledStart.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="RetiledStartPrototype"
+        Title="RetiledStart"
         Width="360"
 		Height="720"
 		Content="{Binding Content}">

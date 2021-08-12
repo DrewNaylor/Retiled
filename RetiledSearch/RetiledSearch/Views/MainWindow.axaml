@@ -35,7 +35,7 @@ respective people and companies/organizations.
         mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
         x:Class="RetiledSearch.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="RetiledSearchPrototype"
+        Title="RetiledSearch"
 		Width="480"
 		Height="800">
 	<Window.Styles>
