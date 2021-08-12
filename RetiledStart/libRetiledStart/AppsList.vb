@@ -92,7 +92,7 @@ Public Class AppsList
         ' https://stackoverflow.com/questions/11735902/sort-a-list-of-object-in-vb-net
         ' This answer in particular might work:
         ' https://stackoverflow.com/a/11736001
-        Dim NewDotDesktopNamesList = DotDesktopFilesList.Sort()
+        DotDesktopFilesList = DotDesktopFilesList.OrderBy(Function(x) x.NameKeyValueProperty).ToList()
 
         ' Define a new collection for the files list after
         ' it's sorted.
