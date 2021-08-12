@@ -61,8 +61,7 @@ Public Class AppsList
             If DotDesktopFile.EndsWith(".desktop") Then
 
                 If Not libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
-                    ' Add the file to the list if they're supposed to
-                    ' be shown.
+                    ' Make sure this .desktop file is supposed to be shown.
                     ' Add its name if it's in the file.
                     If libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
                         DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
@@ -78,40 +77,23 @@ Public Class AppsList
             End If
         Next
 
-        ' Sort the list of apps according to their Name:
-        ' https://stackoverflow.com/a/33970009
-
-        ' Define the current index.
-        Dim CurrentIndex As Integer = 0
-
-        ' Not exactly sure what all of this is doing, but
-        ' it should be sorting the list.
-        ' Found a new way of doing this here:
-        ' https://stackoverflow.com/a/19113072
-        ' Actually, something here may be useful:
+        ' This is where we actually sort the list.
+        ' Stuff here ended up being really useful.
+        ' Didn't know list items could have properties.
+        ' Maybe one of my other programs that uses a List
+        ' could benefit from this.
         ' https://stackoverflow.com/questions/11735902/sort-a-list-of-object-in-vb-net
-        ' This answer in particular might work:
+        ' This answer in particular is what worked I think:
         ' https://stackoverflow.com/a/11736001
         DotDesktopFilesList = DotDesktopFilesList.OrderBy(Function(x) x.NameKeyValueProperty).ToList()
 
-        ' Add all of the items that are file paths to a new ObservableCollection.
+        ' Define a new ObservableCollection that we'll use to copy the file paths into.
         Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
 
+        ' Add all of the items that are file paths to the new ObservableCollection.
         For Each Item In DotDesktopFilesList
             NewDotDesktopFilesList.Add(Item.FileNameProperty)
         Next
-
-        ' Define a new collection for the files list after
-        ' it's sorted.
-        'Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of DotDesktopEntryInAllAppsList)(CType(DotDesktopFilesList, IEnumerable(Of DotDesktopEntryInAllAppsList)))
-
-        '' Add everything in the list to the observable collection.
-        'For i As Integer = 0 To DotDesktopFilesList.Count - 1
-        '    ' This currently just outputs one char, in this case "C".
-        '    NewDotDesktopFilesList.Add(DotDesktopFilesPath(i))
-        'Next
-
-        Debug.WriteLine(DotDesktopFilesList.ToList)
 
         ' Return the collection.
         Return NewDotDesktopFilesList
