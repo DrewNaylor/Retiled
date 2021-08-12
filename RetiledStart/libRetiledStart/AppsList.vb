@@ -99,9 +99,15 @@ Public Class AppsList
         ' Now move things around in the files list.
         ' Some of this was changed to use this answer:
         ' https://stackoverflow.com/a/18189206
+        ' Currently this seems to only sort the 
+        ' filenames, but it's better than nothing.
         For Each Item In NewDotDesktopNamesList
+            ' Define a local index pointing to the 
+            ' index of the item we're looking at.
             Dim LocalIndex As Integer = DotDesktopNamesList.IndexOf(Item)
+            ' Move the item in the files list to the new index.
             DotDesktopFilesList.Move(LocalIndex, MatchedIndex)
+            ' Increment the integer used for the matched index.
             MatchedIndex = MatchedIndex + 1
         Next
 
