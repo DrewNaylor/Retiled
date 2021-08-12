@@ -99,7 +99,7 @@ Public Class AppsList
         Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
 
         ' Add everything in the list to the observable collection.
-        For Each Item As String In DotDesktopFilesList
+        For i As Integer = 0 To DotDesktopFilesList.Count - 1
 
         Next
 
