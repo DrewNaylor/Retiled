@@ -104,6 +104,7 @@ Public Class AppsList
         ' Now move things around in the files list.
         For Each Item In NewDotDesktopNamesList
             MatchedIndex = Array.IndexOf(DotDesktopNamesList, Item)
+            NewDotDesktopFilesList(CurrentIndex) = DotDesktopFilesList(CurrentIndex)
         Next
 
         ' Return the list.
