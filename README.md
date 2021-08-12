@@ -46,8 +46,8 @@ RetiledStart running on the PinePhone, less blurry than it is in person:<br>
 Early three-column view:<br>
 <img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
 <br>
-All Apps List displaying the names that are in each of the .desktop files:<br>
-<img src="/docs/images/retiledstart-allappslist-with-names.png" width="360"><br>
+All Apps List displaying the names that are in each of the .desktop files while being properly sorted:<br>
+<img src="/docs/images/retiledstart-allappslist-with-names-and-sorted.png" width="360"><br>
 <br>
 Search app prototype:<br>
 ![](/docs/images/search-prototype.png?raw=true)<br>
