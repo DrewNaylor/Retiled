@@ -32,12 +32,12 @@ respective people and companies/organizations.
         xmlns:vm="using:RetiledSearch.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+        mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
         x:Class="RetiledSearch.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="RetiledSearch"
-		Width="480"
-		Height="800">
+		Width="360"
+		Height="720">
 	<Window.Styles>
 		<StyleInclude Source="avares://RetiledSearch/Styles/SearchAppStyles.axaml"/>
 	</Window.Styles>
