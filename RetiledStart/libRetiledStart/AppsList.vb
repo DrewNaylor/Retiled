@@ -90,7 +90,9 @@ Public Class AppsList
         ' it should be sorting the list.
         ' Found a new way of doing this here:
         ' https://stackoverflow.com/a/19113072
-        Dim NewDotDesktopNamesList = DotDesktopNamesList.Sort
+        ' Actually, something here may be useful:
+        ' https://stackoverflow.com/questions/11735902/sort-a-list-of-object-in-vb-net
+        Dim NewDotDesktopNamesList = DotDesktopNamesList.Sort()
 
         ' Define a new collection for the files list after
         ' it's sorted.
