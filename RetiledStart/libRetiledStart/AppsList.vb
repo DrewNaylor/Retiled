@@ -105,8 +105,13 @@ Public Class AppsList
             CurrentIndex = CurrentIndex + 1
         Next
 
-        ' Return the list.
-        Return DotDesktopFilesList
+        ' Define a finished collection.
+        Dim CompletedDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+
+
+
+        ' Return the collection.
+        Return CompletedDotDesktopFilesList
 
     End Function
 
