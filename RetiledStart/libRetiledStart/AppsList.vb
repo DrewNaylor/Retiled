@@ -43,9 +43,9 @@ Public Class AppsList
         ' on Linux or my desktop on Windows.
 
         ' Define a collection of filenames to use.
-        Dim DotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        Dim DotDesktopFilesList As List(Of String)
         ' Define a collection to store the "Name" value in each .desktop file.
-        Dim DotDesktopNamesList As New ObjectModel.ObservableCollection(Of String)
+        Dim DotDesktopNamesList As List(Of String)
         ' Define a path we'll set later.
         ' We're setting up a fallback, too.
         Dim DotDesktopFilesPath As String = "/usr/share/applications"
@@ -91,15 +91,10 @@ Public Class AppsList
 
         ' Define a new collection for the files list after
         ' it's sorted.
-        Dim NewDotDesktopFilesList As String()
+        Dim NewDotDesktopFilesList As List(Of String)
 
         ' Define another index that I assume is meant to be matched.
         Dim MatchedIndex As Integer
-
-        ' Now we ReDim the new things.
-        ' Needs an array, so I may need to make this particular one an array
-        ' and feed everything back into the collection.
-        ReDim Preserve NewDotDesktopFilesList(NewDotDesktopNamesList.Count - 1)
 
         ' Now move things around in the files list.
         ' Some of this was changed to use this answer:
