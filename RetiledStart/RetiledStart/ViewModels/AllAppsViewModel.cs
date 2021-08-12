@@ -62,9 +62,9 @@ namespace RetiledStart.ViewModels
         // this code off this SO answer:
         // https://stackoverflow.com/a/64552332
 
-        private ObservableCollection<string> _GetDotDesktopFiles = new ObservableCollection<string> (libRetiledStart.AppsList.GetDotDesktopFiles());
+        private ObservableCollection<libRetiledStart.DotDesktopEntryInAllAppsList> _GetDotDesktopFiles = new ObservableCollection<libRetiledStart.DotDesktopEntryInAllAppsList>(libRetiledStart.AppsList.GetDotDesktopFiles());
 
-        public ObservableCollection<string> GetDotDesktopFiles
+        public ObservableCollection<libRetiledStart.DotDesktopEntryInAllAppsList> GetDotDesktopFiles
         {
             // Get the list of .desktop files.
             get => _GetDotDesktopFiles;
