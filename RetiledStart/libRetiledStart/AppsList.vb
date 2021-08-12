@@ -93,6 +93,9 @@ Public Class AppsList
         ' it's sorted.
         Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
 
+        ' Define another index that I assume is meant to be matched.
+        Dim MatchedIndex As Integer
+
         ' Return the list.
         Return DotDesktopFilesList
 
