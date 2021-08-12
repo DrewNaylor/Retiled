@@ -43,9 +43,9 @@ Public Class AppsList
         ' on Linux or my desktop on Windows.
 
         ' Define a collection of filenames to use.
-        Dim DotDesktopFilesList As List(Of String)
+        Dim DotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
         ' Define a collection to store the "Name" value in each .desktop file.
-        Dim DotDesktopNamesList As List(Of String)
+        Dim DotDesktopNamesList As New ObjectModel.ObservableCollection(Of String)
         ' Define a path we'll set later.
         ' We're setting up a fallback, too.
         Dim DotDesktopFilesPath As String = "/usr/share/applications"
@@ -91,7 +91,7 @@ Public Class AppsList
 
         ' Define a new collection for the files list after
         ' it's sorted.
-        Dim NewDotDesktopFilesList As List(Of String)
+        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
 
         ' Define another index that I assume is meant to be matched.
         Dim MatchedIndex As Integer
@@ -105,13 +105,8 @@ Public Class AppsList
             MatchedIndex = MatchedIndex + 1
         Next
 
-        ' Define a finished collection.
-        Dim CompletedDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
-
-
-
         ' Return the collection.
-        Return CompletedDotDesktopFilesList
+        Return DotDesktopFilesList
 
     End Function
 
