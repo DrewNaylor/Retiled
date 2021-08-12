@@ -44,8 +44,6 @@ Public Class AppsList
 
         ' Define a collection of filenames to use.
         Dim DotDesktopFilesList As New List(Of DotDesktopEntryInAllAppsList)
-        ' Define a collection to store the "Name" value in each .desktop file.
-        Dim DotDesktopNamesList As New List(Of DotDesktopEntryInAllAppsList)
         ' Define a path we'll set later.
         ' We're setting up a fallback, too.
         Dim DotDesktopFilesPath As String = "/usr/share/applications"
