@@ -104,6 +104,8 @@ Public Class AppsList
         '    NewDotDesktopFilesList.Add(DotDesktopFilesPath(i))
         'Next
 
+        Debug.WriteLine(NewDotDesktopFilesList.ToString)
+
         ' Return the collection.
         Return NewDotDesktopFilesList
 
