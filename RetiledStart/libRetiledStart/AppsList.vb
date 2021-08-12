@@ -105,6 +105,7 @@ Public Class AppsList
         For Each Item In NewDotDesktopNamesList
             MatchedIndex = Array.IndexOf(DotDesktopNamesList, Item)
             NewDotDesktopFilesList(CurrentIndex) = DotDesktopFilesList(CurrentIndex)
+            CurrentIndex = CurrentIndex + 1
         Next
 
         ' Return the list.
