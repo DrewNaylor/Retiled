@@ -38,7 +38,7 @@ Public Class AppsList
         End Try
     End Sub
 
-    Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of String)
+    Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of DotDesktopEntryInAllAppsList)
         ' Gets all .desktop files in /usr/share/applications
         ' on Linux or my desktop on Windows.
 
@@ -96,13 +96,13 @@ Public Class AppsList
 
         ' Define a new collection for the files list after
         ' it's sorted.
-        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of DotDesktopEntryInAllAppsList)(CType(DotDesktopFilesList, IEnumerable(Of DotDesktopEntryInAllAppsList)))
 
-        ' Add everything in the list to the observable collection.
-        For i As Integer = 0 To DotDesktopFilesList.Count - 1
-            ' This currently just outputs one char, in this case "C".
-            NewDotDesktopFilesList.Add(DotDesktopFilesPath(i))
-        Next
+        '' Add everything in the list to the observable collection.
+        'For i As Integer = 0 To DotDesktopFilesList.Count - 1
+        '    ' This currently just outputs one char, in this case "C".
+        '    NewDotDesktopFilesList.Add(DotDesktopFilesPath(i))
+        'Next
 
         ' Return the collection.
         Return NewDotDesktopFilesList
