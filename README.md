@@ -24,11 +24,19 @@ Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/),
 
 ## Building and running
 
-This section will be filled out later, but basically just do `dotnet build (project).sln` and to run do `dotnet (project name in Debug\net5.0).dll` if on Linux, or use Visual Studio on Windows if you have it (never used the `dotnet` CLI on Windows, but I imagine it's similar, except you can just run the EXE rather than the DLL.
 
-- RetiledStart
-  - To build, run `dotnet build 
-- RetiledSearch
+- Building
+  - To build, run `dotnet build Retiled.sln`
+  - Please ensure the `dotnet-sdk` is installed first, or building won't work.
+  - On Linux, you may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
+- Running
+  - Windows
+    - To run RetiledStart, run `dotnet "RetiledStart\RetiledStart\bin\Debug\net5.0\RetiledStart.dll"`
+    - To run RetiledSearch, run `dotnet "RetiledSearch\RetiledSearch\bin\Debug\net5.0\RetiledSearch.dll"`
+  - Linux
+    - To run RetiledStart, run `dotnet "RetiledStart/RetiledStart/bin/Debug/net5.0/RetiledStart.dll"`
+    - To run RetiledSearch, run `dotnet "RetiledSearch/RetiledSearch/bin/Debug/net5.0/RetiledSearch.dll"`
+    - You may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
 
 ## Video demos
 
@@ -46,7 +54,7 @@ RetiledStart running on the PinePhone, less blurry than it is in person:<br>
 Early three-column view:<br>
 <img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
 <br>
-All Apps List displaying the names that are in each of the .desktop files while being properly sorted:<br>
+All Apps List displaying the names that are in each of the .desktop files while being properly sorted (sorry about the notification area showing up in the screenshot; the screenshot tool hasn't quite been working correctly lately):<br>
 <img src="/docs/images/retiledstart-allappslist-with-names-and-sorted.png" width="360"><br>
 <br>
 Search app prototype:<br>
