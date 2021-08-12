@@ -100,9 +100,9 @@ Public Class AppsList
         ' Some of this was changed to use this answer:
         ' https://stackoverflow.com/a/18189206
         For Each Item In NewDotDesktopNamesList
-            MatchedIndex = DotDesktopNamesList.IndexOf(Item)
-            NewDotDesktopFilesList(CurrentIndex) = DotDesktopFilesList(CurrentIndex)
-            CurrentIndex = CurrentIndex + 1
+            Dim LocalIndex As Integer = DotDesktopNamesList.IndexOf(Item)
+            DotDesktopFilesList.Move(LocalIndex, MatchedIndex)
+            MatchedIndex = MatchedIndex + 1
         Next
 
         ' Define a finished collection.
