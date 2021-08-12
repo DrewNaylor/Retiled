@@ -22,8 +22,9 @@ These are things that Windows Phone has that Retiled will eventually have. Moved
     - Those that prefer Google Now's assistant could use the unofficial desktop client: https://github.com/Melvin-Abraham/Google-Assistant-Unofficial-Desktop-Client
     - There needs to be a setting for people to choose the default app that runs when you hit the Search button. At the moment, the options would be:
       - RetiledSearch
-      - Almond
-      - Google Assistant Unofficial Desktop Client
+      - Almond (https://almond.stanford.edu/)
+      - Google Assistant Unofficial Desktop Client (https://github.com/melvin-abraham/google-assistant-unofficial-desktop-client)
+      - Carola (So far only understands German, but may as well add it: https://marius.bloggt-in-braunschweig.de/2021/08/06/carola-personal-voice-assistent/)
       - Custom command (textbox where the user can type a command to run when pressing Search; it'll be run with the standard Freedesktop program running thing)
   - Currently this is just a textbox and a button that opens Bing with the search term in the default browser
     - Eventually it'll support choosing the default search engine
