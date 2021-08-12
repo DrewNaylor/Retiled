@@ -60,6 +60,8 @@ Public Class AppsList
             If DotDesktopFile.EndsWith(".desktop") Then
                 ' Add the file to the list if they're supposed to
                 ' be shown.
+                ' Sort the list first, though:
+                ' https://stackoverflow.com/a/33970009
                 If Not libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
                     DotDesktopFilesList.Add(DotDesktopFile.ToString)
                 End If
