@@ -129,6 +129,22 @@ Public Class DotDesktopEntryInAllAppsList
     ' so that sorting the list is easy.
     ' Details:
     ' https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/concepts/linq/how-to-create-a-list-of-items
-    Public Property FileName As String
-    Public Property NameKeyValue As String
+
+    ' Properties:
+    Public Property FileNameProperty As String
+    Public Property NameKeyValueProperty As String
+
+    ' Not exactly sure why this is required.
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(ByVal fileName As String,
+                   ByVal nameKeyValue As String)
+        ' Set the properties to be the parameters.
+        FileNameProperty = fileName
+        NameKeyValueProperty = nameKeyValue
+
+    End Sub
+
 End Class
