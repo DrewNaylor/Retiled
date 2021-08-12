@@ -42,8 +42,10 @@ Public Class AppsList
         ' Gets all .desktop files in /usr/share/applications
         ' on Linux or my desktop on Windows.
 
-        ' Define a collection to use.
+        ' Define a collection of filenames to use.
         Dim DotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        ' Define a collection to store the "Name" value in each .desktop file.
+        Dim DotDesktopNamesList As New ObjectModel.ObservableCollection(Of String)
         ' Define a path we'll set later.
         ' We're setting up a fallback, too.
         Dim DotDesktopFilesPath As String = "/usr/share/applications"
@@ -58,15 +60,58 @@ Public Class AppsList
         For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             ' Check if the file ends with .desktop.
             If DotDesktopFile.EndsWith(".desktop") Then
-                ' Add the file to the list if they're supposed to
-                ' be shown.
+
                 If Not libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
+                    ' Add the file to the list if they're supposed to
+                    ' be shown.
                     DotDesktopFilesList.Add(DotDesktopFile.ToString)
+
+                    ' Add its name if it's in the file.
+                    If libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
+                        DotDesktopNamesList.Add(libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name"))
+                    Else
+                        ' It's not in the file, so add its filename.
+                        DotDesktopNamesList.Add(DotDesktopFile.ToString)
+                    End If
+
                 End If
+
             End If
         Next
 
-        ' Return the list.
+        ' Sort the list of apps according to their Name:
+        ' https://stackoverflow.com/a/33970009
+
+        ' Define the current index.
+        Dim CurrentIndex As Integer = 0
+
+        ' Not exactly sure what all of this is doing, but
+        ' it should be sorting the list.
+        Dim NewDotDesktopNamesList = From Name1 In DotDesktopNamesList Order By Name1 Descending Select Name1
+
+        ' Define a new collection for the files list after
+        ' it's sorted.
+        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+
+        ' Define another index that I assume is meant to be matched.
+        Dim MatchedIndex As Integer
+
+        ' Now move things around in the files list.
+        ' Some of this was changed to use this answer:
+        ' https://stackoverflow.com/a/18189206
+        ' Currently this seems to only sort the 
+        ' filenames, but it's better than nothing.
+        For Each Item In NewDotDesktopNamesList
+            ' Define a local index pointing to the 
+            ' index of the item we're looking at.
+            Dim LocalIndex As Integer = DotDesktopNamesList.IndexOf(Item)
+            ' Move the item in the files list to the new index.
+            DotDesktopFilesList.Move(LocalIndex, MatchedIndex)
+            ' Increment the integer used for the matched index.
+            MatchedIndex = MatchedIndex + 1
+        Next
+
+        ' Return the collection.
         Return DotDesktopFilesList
 
     End Function
