@@ -99,6 +99,11 @@ Public Class AppsList
         ' Now we ReDim the new things.
         ReDim Preserve NewDotDesktopFilesList(NewDotDesktopNamesList.Count - 1)
 
+        ' Now move things around in the files list.
+        For Each Item In NewDotDesktopNamesList
+
+        Next
+
         ' Return the list.
         Return DotDesktopFilesList
 
