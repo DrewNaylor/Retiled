@@ -96,6 +96,9 @@ Public Class AppsList
         ' Define another index that I assume is meant to be matched.
         Dim MatchedIndex As Integer
 
+        ' Now we ReDim the new things.
+        ReDim Preserve NewDotDesktopFilesList(NewDotDesktopNamesList.Count - 1)
+
         ' Return the list.
         Return DotDesktopFilesList
 
