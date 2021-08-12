@@ -54,9 +54,10 @@ respective people and companies/organizations.
 		some reason when we do it here,
 		so we'll say 40.
 		Not sure about the exact font size, but 18 is close enough
-		for now.-->
+		for now. That looks pretty good for the button too, but
+		I'll still have to double-check if it seems close. -->
 		<TextBox Height="40" FontSize="18" Watermark="enter a search term here" Classes="RetiledFlatTextbox" Text="{Binding SearchTerm}"></TextBox>
-		<Button Height="40" Width="90" Classes="RetiledFlatButton" x:Name="SearchBox" Content="search" Command="{Binding DoSearch}" />
+		<Button Height="40" Width="90" FontSize="18" Classes="RetiledFlatButton" x:Name="SearchBox" Content="search" Command="{Binding DoSearch}" />
 
 	</StackPanel>
 
