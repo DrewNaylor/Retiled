@@ -19,7 +19,7 @@ These are things that Windows Phone has that Retiled will eventually have. Moved
   - Something like the old Bing search app from WP8.0 rather than Cortana
     - Would be cool if someone built something similar to Cortana that used an open-source backend, though
     - Almond has stuff like Cortana where you can ask it the weather and stuff, and would probably work well for this: https://flathub.org/apps/details/edu.stanford.Almond
-    - Those that prefer Google Now's assistant could use the unofficial desktop client: https://github.com/Melvin-Abraham/Google-Assistant-Unofficial-Desktop-Client
+    - Those that prefer Google Now's assistant could use the unofficial desktop client as linked below.
     - There needs to be a setting for people to choose the default app that runs when you hit the Search button. At the moment, the options would be:
       - RetiledSearch
       - Almond (https://almond.stanford.edu/)
