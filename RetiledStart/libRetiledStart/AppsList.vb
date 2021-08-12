@@ -54,7 +54,7 @@ Public Class AppsList
             DotDesktopFilesPath = "/usr/share/applications"
 
         ElseIf OperatingSystem.IsWindows = True Then
-            DotDesktopFilesPath = "C:\Users\Drew\Desktop"
+            'DotDesktopFilesPath = "C:\Users\Drew\Desktop"
             DotDesktopFilesPath = "C:\Users\drewn\Desktop"
         End If
 
