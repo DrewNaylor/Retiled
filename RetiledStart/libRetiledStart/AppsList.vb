@@ -65,14 +65,14 @@ Public Class AppsList
                 If Not libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
                     ' Add the file to the list if they're supposed to
                     ' be shown.
-                    DotDesktopFilesList.Add(DotDesktopFile.ToString)
-
                     ' Add its name if it's in the file.
                     If libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
-                        DotDesktopNamesList.Add(libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name"))
+                        DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+                                                                                 libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name")))
                     Else
                         ' It's not in the file, so add its filename.
-                        DotDesktopNamesList.Add(DotDesktopFile.ToString)
+                        DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+                                                                                 DotDesktopFile.ToString))
                     End If
 
                 End If
