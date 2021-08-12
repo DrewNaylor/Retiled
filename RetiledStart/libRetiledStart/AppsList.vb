@@ -92,8 +92,7 @@ Public Class AppsList
         ' https://stackoverflow.com/a/19113072
         ' Actually, something here may be useful:
         ' https://stackoverflow.com/questions/11735902/sort-a-list-of-object-in-vb-net
-        ' Creating a new list of items is here:
-        ' https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/concepts/linq/how-to-create-a-list-of-items
+
         Dim NewDotDesktopNamesList = DotDesktopNamesList.Sort()
 
         ' Define a new collection for the files list after
@@ -122,5 +121,13 @@ Public Class AppsList
         Return DotDesktopFilesList
 
     End Function
+
+End Class
+
+Public Class DotDesktopEntryInAllAppsList
+    ' Adding a new class so we can add them to a list
+    ' so that sorting the list is easy.
+    ' Details:
+    ' https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/concepts/linq/how-to-create-a-list-of-items
 
 End Class
