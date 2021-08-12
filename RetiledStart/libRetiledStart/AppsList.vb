@@ -60,11 +60,22 @@ Public Class AppsList
         For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             ' Check if the file ends with .desktop.
             If DotDesktopFile.EndsWith(".desktop") Then
-                ' Add the file to the list if they're supposed to
-                ' be shown.
+
                 If Not libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
+                    ' Add the file to the list if they're supposed to
+                    ' be shown.
                     DotDesktopFilesList.Add(DotDesktopFile.ToString)
+
+                    ' Add its name if it's in the file.
+                    If libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
+                        DotDesktopNamesList.Add(libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name"))
+                    Else
+                        ' It's not in the file, so add its filename.
+                        DotDesktopNamesList.Add(DotDesktopFile.ToString)
+                    End If
+
                 End If
+
             End If
         Next
 
