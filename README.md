@@ -8,7 +8,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Status bar
 - [And more, with an entire list that was too long for the readme](/docs/eventual-feature-and-behavior-list.md)
 
-Development is mainly being done using the PinePhone, so that'll be the main supported device. For now it's in the prototype stage as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux.
+Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux, though I do know VB.NET, so that helps.
 
 ## Notes
 
