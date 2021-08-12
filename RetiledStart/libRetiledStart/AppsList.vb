@@ -104,7 +104,7 @@ Public Class AppsList
         Next
 
         ' Return the collection.
-        Return DotDesktopFilesList
+        Return NewDotDesktopFilesList
 
     End Function
 
