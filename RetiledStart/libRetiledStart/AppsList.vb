@@ -97,11 +97,13 @@ Public Class AppsList
         Dim MatchedIndex As Integer
 
         ' Now we ReDim the new things.
+        ' Needs an array, so I may need to make this particular one an array
+        ' and feed everything back into the collection.
         ReDim Preserve NewDotDesktopFilesList(NewDotDesktopNamesList.Count - 1)
 
         ' Now move things around in the files list.
         For Each Item In NewDotDesktopNamesList
-
+            MatchedIndex = Array.IndexOf(DotDesktopNamesList, Item)
         Next
 
         ' Return the list.
