@@ -42,8 +42,10 @@ Public Class AppsList
         ' Gets all .desktop files in /usr/share/applications
         ' on Linux or my desktop on Windows.
 
-        ' Define a collection to use.
+        ' Define a collection of filenames to use.
         Dim DotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        ' Define a collection to store the "Name" value in each .desktop file.
+        Dim DotDesktopNamesList As New ObjectModel.ObservableCollection(Of String)
         ' Define a path we'll set later.
         ' We're setting up a fallback, too.
         Dim DotDesktopFilesPath As String = "/usr/share/applications"
