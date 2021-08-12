@@ -91,7 +91,7 @@ Public Class AppsList
 
         ' Define a new collection for the files list after
         ' it's sorted.
-        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        Dim NewDotDesktopFilesList As String()
 
         ' Define another index that I assume is meant to be matched.
         Dim MatchedIndex As Integer
@@ -102,8 +102,10 @@ Public Class AppsList
         ReDim Preserve NewDotDesktopFilesList(NewDotDesktopNamesList.Count - 1)
 
         ' Now move things around in the files list.
+        ' Some of this was changed to use this answer:
+        ' https://stackoverflow.com/a/18189206
         For Each Item In NewDotDesktopNamesList
-            MatchedIndex = Array.IndexOf(DotDesktopNamesList, Item)
+            MatchedIndex = DotDesktopNamesList.IndexOf(Item)
             NewDotDesktopFilesList(CurrentIndex) = DotDesktopFilesList(CurrentIndex)
             CurrentIndex = CurrentIndex + 1
         Next
