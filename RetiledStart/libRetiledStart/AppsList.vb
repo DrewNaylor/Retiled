@@ -100,7 +100,8 @@ Public Class AppsList
 
         ' Add everything in the list to the observable collection.
         For i As Integer = 0 To DotDesktopFilesList.Count - 1
-            NewDotDesktopFilesList.Add(CStr(i))
+            ' This currently just outputs one char, in this case "C".
+            NewDotDesktopFilesList.Add(DotDesktopFilesPath(i))
         Next
 
         ' Return the collection.
