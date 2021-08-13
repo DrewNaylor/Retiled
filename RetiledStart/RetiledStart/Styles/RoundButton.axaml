@@ -32,6 +32,7 @@ respective people and companies/organizations.
     <Design.PreviewWith>
         <Border Padding="20">
             <Button Classes="RetiledRoundButton" Height="30"
+					FontSize="20"
 					Width="30"
 					Content="->"/>
         </Border>
@@ -47,6 +48,9 @@ respective people and companies/organizations.
 		<Setter Property="Background" Value="Black"/>
 		<Setter Property="BorderBrush" Value="White"/>
 		<Setter Property="Padding" Value="0"/>
+		<!-- May as well change this to bold so it matches the
+		WhiteBackgroundOnPress version. -->
+		<Setter Property="TextBlock.FontWeight" Value="Bold"/>
 	</Style>
 
 	<Style Selector="Button.RetiledRoundButton:pressed /template/ ContentPresenter">
