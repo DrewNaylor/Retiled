@@ -36,9 +36,14 @@ respective people and companies/organizations.
     </Design.PreviewWith>
 
 	<Style Selector="Button.StartTile /template/ ContentPresenter">
-		<!-- Make a button that's squared off and
+		<!-- Make a button that's squared off and looks
 		like a tile. -->
 		<Setter Property="CornerRadius" Value="0" />
+		<!-- Set tile color to Cobalt. 
+		This is a placeholder and needs to allow the option to
+		have different colors at runtime. There must be a way
+		to bind to a runtime variable that's stored in a config
+		file. -->
 		<Setter Property="Background" Value="#0050ef" />
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Bottom" />
