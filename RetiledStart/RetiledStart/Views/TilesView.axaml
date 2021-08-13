@@ -100,10 +100,9 @@ respective people and companies/organizations.
 		    	<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
 
 			</WrapPanel>
-			<Button Classes="RetiledRoundButton" Height="30" Width="30" Content="->" Grid.Row="1"
+			<Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" Height="30" Width="30" Content="->" Grid.Row="1"
 					HorizontalAlignment="Right"
 					Margin="0,10,20,20"
-					Foreground="White"
 					FontSize="20"
 					Command="{Binding $parent[Window].DataContext.ShowAllAppsList}"/>
 			<!-- The button may not look right here, but it will

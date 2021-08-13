@@ -38,6 +38,7 @@ respective people and companies/organizations.
 		<!-- Temporarily import styles so that there's an
 		idea of what they look like. -->
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
+		<StyleInclude Source="avares://RetiledStart/Styles/RoundButtonWhiteBackgroundOnPress.axaml" />
 		</UserControl.Styles>
 	<UserControl.Resources>
 		<!-- Note: The xmlns:local thing where this is defined
@@ -49,13 +50,13 @@ respective people and companies/organizations.
 	  
 	  <StackPanel Margin="10">
 		  <!-- Margin has to be in the StackPanel or it looks weird. -->
-	  <Button Classes="RetiledRoundButton" HorizontalAlignment="Center"
+	  <Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" HorizontalAlignment="Center"
 			  VerticalAlignment="Top"
 			  Grid.Column="0" Width="30" Height="30" Content="S">
 		  <!-- Temporarily using "S" instead of a magnifying glass. -->
 	  </Button>
 
-	  <Button Classes="RetiledRoundButton" HorizontalAlignment="Center"
+	  <Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" HorizontalAlignment="Center"
 			  VerticalAlignment="Top"
 			  Margin="10"
 			  Grid.Column="0" Width="30" Height="30" Content="Bk"

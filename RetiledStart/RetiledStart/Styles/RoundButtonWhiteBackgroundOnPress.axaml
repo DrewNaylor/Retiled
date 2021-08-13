@@ -48,6 +48,9 @@ respective people and companies/organizations.
 		<Setter Property="Background" Value="Black"/>
 		<Setter Property="BorderBrush" Value="White"/>
 		<Setter Property="Padding" Value="0"/>
+		<!-- Change the font to bold so it's not thin-looking. This
+		isn't supposed to look like Windows 10 Mobile. 
+		Once a real font is added, this might not be necessary. -->
 		<Setter Property="TextBlock.FontWeight" Value="Bold"/>
 	</Style>
 
