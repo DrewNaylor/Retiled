@@ -76,7 +76,7 @@ respective people and companies/organizations.
 		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Width="50">
 			
 			<!-- Adding an empty panel above the ItemsRepeater will make the top of the All Apps list more like WP. -->
-			<Panel Height="20"/>
+			<Panel Height="15"/>
 			
 			<!-- Binding the ItemsRepeater width to the window's width makes sure the scrollbar
 			is visible, as mentioned above. This is binding to Window rather than UserControl, and it
