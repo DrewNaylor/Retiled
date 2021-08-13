@@ -36,6 +36,8 @@ respective people and companies/organizations.
     </Design.PreviewWith>
 
 	<Style Selector="Button.StartTile /template/ ContentPresenter">
+		<!-- Make a button that's squared off and
+		like a tile. -->
 		<Setter Property="CornerRadius" Value="0" />
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Bottom" />
