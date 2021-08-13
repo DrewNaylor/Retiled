@@ -50,7 +50,8 @@ respective people and companies/organizations.
 		Something to keep in mind is that the high contrast theme put a black
 		box behind the text, so I'll have to figure that out. -->
 		<Setter Property="TextBlock.Foreground" Value="White" />
-		<!-- Set border thickness to 0. High Contrast used a white border,
+		<!-- Set border thickness to 0. High Contrast used a white border in the
+		dark theme and a black border in the light theme,
 		so I'll have to figure out how to set that. -->
 		<Setter Property="BorderThickness" Value="0" />
 		<!-- Put stuff at the bottom. I have to change this to
