@@ -47,6 +47,10 @@ respective people and companies/organizations.
 		<Setter Property="Background" Value="#0050ef" />
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Bottom" />
+		<!-- I think these padding values are really close to WP's values.
+		They were compared to a screenshot using a tile that had the same
+		name. -->
+		<Setter Property="Padding" Value="8,0,0,6" />
 	</Style>
 </Styles>
 
