@@ -43,8 +43,11 @@ respective people and companies/organizations.
 			as well as a WrapPanel containing the tiles. -->
 			<StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
 				
-				<!-- Adding an empty panel above the WrapPanel will make the top of the Start screen more like WP. -->
-				<Panel Height="15"/>
+				<!-- Adding an empty panel above the WrapPanel will make the top of the Start screen more like WP.
+				Based on pixel measurements, the gap should be a height of 37 WPF units (42 pixels)
+				from the top of the display to the tiles when at the top of the Start screen to match WP.
+				My source was a WP8.1 Update 1 720p emulator at 50% scale. -->
+				<Panel Height="37"/>
 				
 			<WrapPanel HorizontalAlignment="Center">
 
