@@ -88,8 +88,8 @@ namespace RetiledStart.ViewModels
             //Debug.WriteLine(DesktopEntryName);
             //Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
             // Check if there's actually a name in the .desktop file.
-            if ()
-            return desktopEntryStuff.getInfo(DesktopEntryName, "Name");
+            // This is using the code in the library to make things easier.
+            return libRetiledStart.AppsList.GetDotDesktopNameKey(DesktopEntryName);
         }
 
         public object? ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

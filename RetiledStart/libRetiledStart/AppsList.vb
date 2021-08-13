@@ -100,7 +100,7 @@ Public Class AppsList
 
     End Function
 
-    Public Function GetDotDesktopNameKey(DotDesktopFile As String) As String
+    Public Shared Function GetDotDesktopNameKey(DotDesktopFile As String) As String
         ' Checks if the .desktop file actually has a "Name" key.
         If desktopEntryStuff.getInfo(DotDesktopFile, "Name") IsNot Nothing Then
             ' Return what's in the "Name" key.
