@@ -26,7 +26,7 @@
 
 
 
-
+Imports libdotdesktop_standard
 Public Class AppsList
 
     Public Shared Sub RunApp(ExecFilename As String)
@@ -60,12 +60,12 @@ Public Class AppsList
             ' Check if the file ends with .desktop.
             If DotDesktopFile.EndsWith(".desktop") Then
 
-                If Not libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
+                If Not desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
                     ' Make sure this .desktop file is supposed to be shown.
                     ' Add its name if it's in the file.
-                    If libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
+                    If desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
                         DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
-                                                                                 libdotdesktop_standard.desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name")))
+                                                                                 desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name")))
                     Else
                         ' It's not in the file, so add its filename.
                         DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
@@ -102,6 +102,18 @@ Public Class AppsList
 
     Public Function GetDotDesktopNameKey(DotDesktopFile As String) As String
         ' Checks if the .desktop file actually has a "Name" key.
+        If desktopEntryStuff.getInfo(DotDesktopFile, "Name") IsNot Nothing Then
+            ' Return what's in the "Name" key.
+            Return desktopEntryStuff.getInfo(DotDesktopFile, "Name")
+        Else
+            ' Return the filename.
+            ' Preferably this wouldn't include the file path,
+            ' but that would require using what dotbakker does
+            ' where a file path is passed in and just the filename
+            ' without the rest of the path is returned
+            ' and it would take a little longer to get working.
+            Return DotDesktopFile
+        End If
     End Function
 
 End Class
