@@ -102,17 +102,21 @@ Public Class AppsList
 
     Public Shared Function GetDotDesktopNameKey(DotDesktopFile As String) As String
         ' Checks if the .desktop file actually has a "Name" key.
-        If desktopEntryStuff.getInfo(DotDesktopFile, "Name") IsNot Nothing Then
-            ' Return what's in the "Name" key.
-            Return desktopEntryStuff.getInfo(DotDesktopFile, "Name")
-        Else
+        If desktopEntryStuff.getInfo(DotDesktopFile, "Name") = String.Empty Then
             ' Return the filename.
             ' Preferably this wouldn't include the file path,
             ' but that would require using what dotbakker does
             ' where a file path is passed in and just the filename
             ' without the rest of the path is returned
             ' and it would take a little longer to get working.
+            ' Had a bit of trouble figuring this out, but it turned out
+            ' that it was returning String.Empty, rather than Nothing.
+            Debug.WriteLine(DotDesktopFile)
             Return DotDesktopFile
+        Else
+            ' Return what's in the "Name" key.
+            Debug.WriteLine(desktopEntryStuff.getInfo(DotDesktopFile, "Name"))
+            Return desktopEntryStuff.getInfo(DotDesktopFile, "Name")
         End If
     End Function
 
