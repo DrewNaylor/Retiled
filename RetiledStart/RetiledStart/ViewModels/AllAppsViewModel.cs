@@ -87,6 +87,8 @@ namespace RetiledStart.ViewModels
             string? DesktopEntryName = value as string;
             //Debug.WriteLine(DesktopEntryName);
             //Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
+            // Check if there's actually a name in the .desktop file.
+            if ()
             return desktopEntryStuff.getInfo(DesktopEntryName, "Name");
         }
 

@@ -52,8 +52,8 @@ Public Class AppsList
             DotDesktopFilesPath = "/usr/share/applications"
 
         ElseIf OperatingSystem.IsWindows = True Then
-            'DotDesktopFilesPath = "C:\Users\Drew\Desktop"
-            DotDesktopFilesPath = "C:\Users\drewn\Desktop"
+            DotDesktopFilesPath = "C:\Users\Drew\Desktop"
+            'DotDesktopFilesPath = "C:\Users\drewn\Desktop"
         End If
 
         For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
@@ -98,6 +98,10 @@ Public Class AppsList
         ' Return the collection.
         Return NewDotDesktopFilesList
 
+    End Function
+
+    Public Function GetDotDesktopNameKey(DotDesktopFile As String) As String
+        ' Checks if the .desktop file actually has a "Name" key.
     End Function
 
 End Class
