@@ -32,7 +32,6 @@ respective people and companies/organizations.
     <Design.PreviewWith>
         <Border Padding="20">
             <Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" Height="30"
-					Foreground="White"
 					FontSize="20"
 					Width="30"
 					Content="->"/>
@@ -49,11 +48,19 @@ respective people and companies/organizations.
 		<Setter Property="Background" Value="Black"/>
 		<Setter Property="BorderBrush" Value="White"/>
 		<Setter Property="Padding" Value="0"/>
+		<Setter Property="TextBlock.FontWeight" Value="Bold"/>
 	</Style>
 
 	<Style Selector="Button.RetiledRoundButton-WhiteBackgroundOnPress:pressed /template/ ContentPresenter">
-		<!-- Changes the button background color to Cobalt when it's
-		pressed, which is the same behavior as Windows Phone. -->
-		<Setter Property="Background" Value="#0050ef"/>
+		<!-- Changes the button background color to white
+		and the font color to black when it's
+		pressed, which is the same behavior as Windows Phone
+		for the All Apps button. -->
+		<Setter Property="Background" Value="White"/>
+		<!-- Found out which property to change thanks to Avalonia's
+		FluentTheme file for buttons:
+		https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Controls/Button.xaml -->
+		<Setter Property="TextBlock.Foreground" Value="Black"/>
 	</Style>
+
 </Styles>
