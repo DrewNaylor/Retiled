@@ -72,7 +72,7 @@ respective people and companies/organizations.
 				ending the debugging session:
 				[Binding] Error in binding to 'Avalonia.Controls.Button'.'Command': 'Null value in expression '$parent[Window, 0]'.' (Button #7284614)-->
 				
-				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Background="#0050ef" Foreground="White" Width="150" Height="150" Margin="5"/>
