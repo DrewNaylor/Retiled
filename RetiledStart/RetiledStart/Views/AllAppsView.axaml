@@ -46,17 +46,17 @@ respective people and companies/organizations.
 		the converter. -->
 		<local:AppNameConverter x:Key="AppListItemTextConverter"/>
 	</UserControl.Resources>
-  <Grid Margin="0,10,0,0" ColumnDefinitions="30,*">
+  <Grid Margin="0" ColumnDefinitions="30,*">
 	  
-	  <StackPanel Margin="10">
+	 <StackPanel Margin="10,20,10,10">
 		  <!-- Margin has to be in the StackPanel or it looks weird. -->
-	  <Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" HorizontalAlignment="Center"
+	    <Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" HorizontalAlignment="Center"
 			  VerticalAlignment="Top"
 			  Grid.Column="0" Width="30" Height="30" Content="S">
 		  <!-- Temporarily using "S" instead of a magnifying glass. -->
-	  </Button>
+	    </Button>
 
-	  <Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" HorizontalAlignment="Center"
+	    <Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" HorizontalAlignment="Center"
 			  VerticalAlignment="Top"
 			  Margin="10"
 			  Grid.Column="0" Width="30" Height="30" Content="Bk"
@@ -66,14 +66,18 @@ respective people and companies/organizations.
 		  Using a left arrow isn't allowed in XAML, so it's just "Bk". -->
 		  <!-- For some reason, the Margin has to be here as well,
 		  otherwise spacing doesn't look right for both sidebar buttons. -->
-	  </Button>
-		  </StackPanel>
+	    </Button>
+	 </StackPanel>
 
 	  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 		  <!-- This StackPanel ensures the width of the ItemsRepeater is restricted so the
 		  scrollbar will be visible when combined with binding the ItemsRepeater width to
 		  the window's width. -->
 		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Width="50">
+			
+			<!-- Adding an empty panel above the ItemsRepeater will make the top of the All Apps list more like WP. -->
+			<Panel Height="20"/>
+			
 			<!-- Binding the ItemsRepeater width to the window's width makes sure the scrollbar
 			is visible, as mentioned above. This is binding to Window rather than UserControl, and it
 			seems to work just like it did before using an ItemsRepeater. -->
