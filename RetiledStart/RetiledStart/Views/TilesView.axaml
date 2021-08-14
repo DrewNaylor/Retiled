@@ -88,6 +88,9 @@ respective people and companies/organizations.
 				<!-- IMPORTANT NOTE 2: Tiles have to have their margin set here
 				rather than in the style, because otherwise it won't apply correctly. -->
 				
+				<!-- Found an interesting question on SO which is kinda trying to do what I'm doing with the tile layout:
+				https://stackoverflow.com/questions/13102716/is-there-a-way-to-display-items-of-varying-width-in-wpf-wrappanel -->
+				
 				<!-- Medium tiles: -->
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
