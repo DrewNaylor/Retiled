@@ -18,4 +18,10 @@
     <PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="0.8.2" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
+
+	<ItemGroup>
+		<!-- If you are targeting 19041 -->
+		<FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.19041.16" />
+		<FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" TargetingPackVersion="10.0.19041.16" />
+	</ItemGroup>
 </Project>
