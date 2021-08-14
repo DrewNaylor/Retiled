@@ -11,6 +11,50 @@
 
         <Grid RowDefinitions="*,40">
 
+            <Grid.Resources>
+                <Style TargetType="Button.StartTile /template/ ContentPresenter">
+                    <!-- Make a button that's squared off and looks
+		like a tile. -->
+                    <Setter Property="CornerRadius" Value="0" />
+                    <!-- Set tile color to Cobalt. 
+		This is a placeholder and needs to allow the option to
+		have different colors at runtime. There must be a way
+		to bind to a runtime variable that's stored in a config
+		file. -->
+                    <Setter Property="Background" Value="#0050ef" />
+                    <!-- Set text color. I tested a few different accent colors,
+		and I don't think any of them used black, even the really light ones.
+		Something to keep in mind is that the high contrast theme put a black
+		box behind the text, so I'll have to figure that out. -->
+                    <Setter Property="TextBlock.Foreground" Value="White" />
+                    <!-- Set border thickness to 0. High Contrast used a white border in the
+		dark theme and a black border in the light theme,
+		so I'll have to figure out how to set that. -->
+                    <Setter Property="BorderThickness" Value="0" />
+                    <!-- Put stuff at the bottom. I have to change this to
+		make it so that icons and other information show up properly
+		and don't get aligned to the bottom. Maybe there should be
+		a style just for the textblock which has its VerticalContentAlignment
+		set to the bottom.
+		
+		Some Live Tiles like Photos has the text above the slideshow,
+		so I need to figure out a way to have the text there and other
+		stuff at the same time. I'll have to add a style for tiles that
+		the user doesn't want to have their names show up as well as when
+		tiles are small, but I'm not sure how images will be displayed.
+		
+		Actually, I think I know how images and stuff could be shown, and
+		there would just be a TextBlock for the app name, a PictureBox for the icon,
+		and whatever way LiveTiles would be displayed, all contained within a panel
+		or something.-->
+                    <Setter Property="VerticalContentAlignment" Value="Bottom" />
+                    <!-- I think these padding values are really close to WP's values.
+		They were compared to a screenshot using a tile that had the same
+		name. -->
+                    <Setter Property="Padding" Value="8,0,0,6" />
+                </Style>
+            </Grid.Resources>
+
             <!-- This StackPanel contains both an empty panel for spacing at the top
 			as well as a WrapPanel containing the tiles. -->
             <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -117,4 +161,5 @@
 			in the MainWindowViewModel. -->
         </Grid>
     </ScrollViewer>
+    
 </Window>
