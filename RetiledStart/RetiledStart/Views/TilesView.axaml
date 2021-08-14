@@ -89,7 +89,9 @@ respective people and companies/organizations.
 				rather than in the style, because otherwise it won't apply correctly. -->
 				
 				<!-- Found an interesting question on SO which is kinda trying to do what I'm doing with the tile layout:
-				https://stackoverflow.com/questions/13102716/is-there-a-way-to-display-items-of-varying-width-in-wpf-wrappanel -->
+				https://stackoverflow.com/questions/13102716/is-there-a-way-to-display-items-of-varying-width-in-wpf-wrappanel
+				StaggeredPanel looks like it may be what I need, but not sure yet:
+				https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/staggeredpanel -->
 				
 				<!-- Medium tiles: -->
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
