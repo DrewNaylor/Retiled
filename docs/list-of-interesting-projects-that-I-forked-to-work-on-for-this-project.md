@@ -9,3 +9,6 @@
 
 4. [compositor.net](https://github.com/DrewNaylor/compositor.net)
 <br>As mentioned above, I'll need something for Retiled to use as a window manager/compositor under Wayland, so this project may help, though it might take some work to get it really usable as it mentions being a barely-function one. Originally forked from [malcolmstill/compositor.net](https://github.com/malcolmstill/compositor.net)
+
+5. [Wayland.NET](https://github.com/DrewNaylor/Wayland.NET)
+<br>Having libwayland bindings for .NET will be useful. Originally forked from [malcolmstill/Wayland.NET](https://github.com/malcolmstill/Wayland.NET)
