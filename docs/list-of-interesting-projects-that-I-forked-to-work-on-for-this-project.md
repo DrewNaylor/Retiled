@@ -14,4 +14,4 @@
 <br>Having libwayland bindings for .NET will be useful. This one is under the BSD 3-Clause License, so I need to check for compatibility, but it should be fine with Apache License 2.0. Not sure about GPL, though. Originally forked from [malcolmstill/Wayland.NET](https://github.com/malcolmstill/Wayland.NET)
 
 6. [X11.Net](https://github.com/DrewNaylor/X11.Net)
-<br>It'll probably be really useful to be able to use X11 stuff from .NET, so I forked this one just in case this one has something I need. Originally forked from [ajnewlands/X11.Net](https://github.com/ajnewlands/X11.Net).
+<br>It'll probably be really useful to be able to use X11 stuff from .NET, so I forked this one just in case this one has something I need. I think it's under the MIT License. Originally forked from [ajnewlands/X11.Net](https://github.com/ajnewlands/X11.Net).
