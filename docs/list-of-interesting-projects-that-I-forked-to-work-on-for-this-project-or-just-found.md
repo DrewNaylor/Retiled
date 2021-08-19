@@ -18,3 +18,6 @@
 
 7. [Cobble](https://github.com/Ceilidh-Team/Cobble)
 <br>I didn't fork this project and probably won't need to unless it doesn't work well enough for my needs, but this may be useful if .NET5/Standard doesn't support MEF plugins. Actually, MEF might exist in .NET 5 as System.Composition: https://weblogs.asp.net/ricardoperes/using-mef-in-net-core. Here's the NuGet page: https://www.nuget.org/packages/System.Composition/. Licensed under the MIT License.
+
+8. [XNB](https://github.com/DrewNaylor/XNB)
+<br>Not sure if I'll fork this project as I don't know if I'll need it, but I think I will fork it anyway for safe keeping. It's an Xcb wrapper for .NET and is under the MIT License. I forked a fork, interestingly enough. Original project since I did fork it: https://github.com/julian-goldsmith/XNB
