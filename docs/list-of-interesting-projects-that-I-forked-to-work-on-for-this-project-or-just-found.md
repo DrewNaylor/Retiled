@@ -17,4 +17,4 @@
 <br>It'll probably be really useful to be able to use X11 stuff from .NET, so I forked this one just in case this one has something I need. I think it's under the MIT License. Originally forked from [ajnewlands/X11.Net](https://github.com/ajnewlands/X11.Net).
 
 7. [Cobble](https://github.com/Ceilidh-Team/Cobble)
-<br>I didn't fork this project and probably won't need to unless it doesn't work well enough for my needs, but this may be useful if .NET5/Standard doesn't support MEF plugins. Licensed under the MIT License.
+<br>I didn't fork this project and probably won't need to unless it doesn't work well enough for my needs, but this may be useful if .NET5/Standard doesn't support MEF plugins. Actually, MEF might exist in .NET 5 as System.Composition: https://weblogs.asp.net/ricardoperes/using-mef-in-net-core. Licensed under the MIT License.
