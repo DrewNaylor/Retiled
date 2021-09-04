@@ -34,21 +34,27 @@ Public Class AppsList
         ' Try/Catch so that it doesn't crash if it can't find the program.
         Try
             ' Clean the Exec key and store it in a string so it's easy to access.
-            Dim CleanedExecKey As String = desktopEntryStuff.cleanExecKey(ExecFilename)
-            Debug.WriteLine(CleanedExecKey)
+            Dim CleanedExecKey As New List(Of String)
+            CleanedExecKey = desktopEntryStuff.cleanExecKey(ExecFilename)
+            Debug.WriteLine(CleanedExecKey(0))
+            Debug.WriteLine(CleanedExecKey(1))
 
-            If CleanedExecKey.StartsWith("gapplication launch") Then
-                ' Some apps such as GNOME Maps uses "gapplication launch" to start apps.
-                ' We need to ensure that's what's actually launched, then have
-                ' the app be passed to it as an argument.
-                ' For some reason, the "launch" isn't being included in the Exec key, so
-                ' it needs to be included manually.
-                ' Actually, the app we want to run isn't being included, so it's not working.
-                Process.Start("gapplication launch", CleanedExecKey.Replace("gapplication launch", String.Empty))
-            Else
+            If CleanedExecKey(1) IsNot Nothing Then
+                'If CleanedExecKey(0) = "gapplication" Then
+                '    ' Some apps such as GNOME Maps uses "gapplication launch" to start apps.
+                '    ' We need to ensure that's what's actually launched, then have
+                '    ' the app be passed to it as an argument.
+                '    ' For some reason, the "launch" isn't being included in the Exec key, so
+                '    ' it needs to be included manually.
+                '    ' Actually, the app we want to run isn't being included, so it's not working.
+                '    Process.Start("gapplication launch", CleanedExecKey(1).Replace("launch", String.Empty))
+                'Else
                 ' This app doesn't want to use "gapplication launch".
-                Process.Start(CleanedExecKey)
+                Process.Start(CleanedExecKey(0), CleanedExecKey(1))
+            Else
+                Process.Start(CleanedExecKey(0))
             End If
+            'End If
         Catch ex As Exception
         End Try
     End Sub
