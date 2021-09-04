@@ -128,11 +128,11 @@ Public Class AppsList
             ' and it would take a little longer to get working.
             ' Had a bit of trouble figuring this out, but it turned out
             ' that it was returning String.Empty, rather than Nothing.
-            Debug.WriteLine(DotDesktopFile)
+            'Debug.WriteLine(DotDesktopFile)
             Return DotDesktopFile
         Else
             ' Return what's in the "Name" key.
-            Debug.WriteLine(desktopEntryStuff.getInfo(DotDesktopFile, "Name"))
+            'Debug.WriteLine(desktopEntryStuff.getInfo(DotDesktopFile, "Name"))
             Return desktopEntryStuff.getInfo(DotDesktopFile, "Name")
         End If
     End Function
