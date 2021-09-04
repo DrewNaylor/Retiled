@@ -31,9 +31,9 @@ Public Class AppsList
 
     Public Shared Sub RunApp(ExecFilename As String)
         ' Runs what's passed to it.
-        ' Temporary Try/Catch so that it doesn't crash.
+        ' Try/Catch so that it doesn't crash if it can't find the program.
         Try
-            Process.Start(ExecFilename.Replace(" %u", String.Empty))
+            Process.Start(desktopEntryStuff.cleanExecKey(ExecFilename))
         Catch ex As Exception
         End Try
     End Sub
