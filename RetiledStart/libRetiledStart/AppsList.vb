@@ -33,13 +33,21 @@ Public Class AppsList
         ' Runs what's passed to it.
         ' Try/Catch so that it doesn't crash if it can't find the program.
         Try
-            If ExecFilename.StartsWith("gapplication launch") Then
+            ' Clean the Exec key and store it in a string so it's easy to access.
+            Dim CleanedExecKey As String = desktopEntryStuff.cleanExecKey(ExecFilename)
+            Debug.WriteLine(CleanedExecKey)
+
+            If CleanedExecKey.StartsWith("gapplication launch") Then
                 ' Some apps such as GNOME Maps uses "gapplication launch" to start apps.
                 ' We need to ensure that's what's actually launched, then have
                 ' the app be passed to it as an argument.
-                Process.Start("gapplication launch", desktopEntryStuff.cleanExecKey(ExecFilename).Replace("gapplication launch", String.Empty))
+                ' For some reason, the "launch" isn't being included in the Exec key, so
+                ' it needs to be included manually.
+                ' Actually, the app we want to run isn't being included, so it's not working.
+                Process.Start("gapplication launch", CleanedExecKey.Replace("gapplication launch", String.Empty))
             Else
-                Process.Start(desktopEntryStuff.cleanExecKey(ExecFilename))
+                ' This app doesn't want to use "gapplication launch".
+                Process.Start(CleanedExecKey)
             End If
         Catch ex As Exception
         End Try

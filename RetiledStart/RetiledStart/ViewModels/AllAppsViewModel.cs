@@ -47,9 +47,11 @@ namespace RetiledStart.ViewModels
         public void RunApp(string ExecFilename)
         {
             // Send it to the other code.
-                Console.WriteLine(ExecFilename);
-                Console.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
-                libRetiledStart.AppsList.RunApp(ExecFilename);
+            Console.WriteLine(ExecFilename);
+            Console.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
+            //Debug.WriteLine(ExecFilename);
+            //Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
+            libRetiledStart.AppsList.RunApp(ExecFilename);
 
         }
 
