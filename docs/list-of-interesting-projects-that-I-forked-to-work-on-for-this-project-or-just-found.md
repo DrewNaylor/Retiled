@@ -1,4 +1,4 @@
-1. [Abanu Desktop](https://github.com/DrewNaylor/abanu)
+1. [WeastroShell](https://github.com/DrewNaylor/weastroshell)
 <br>This may be able to act as a starting point for figuring out how to make a desktop environment with .NET on Linux. This is under the MIT License. Originally forked from [abanu-desktop/abanu](https://github.com/abanu-desktop/abanu).
 
 2. [FancyStaggeredLayout.Avalonia](https://github.com/DrewNaylor/FancyStaggeredLayout.Avalonia)
@@ -21,3 +21,6 @@
 
 8. [XNB](https://github.com/DrewNaylor/XNB)
 <br>Not sure if I'll fork this project as I don't know if I'll need it, but I think I will fork it anyway for safe keeping. It's an Xcb wrapper for .NET and is under the MIT License. I forked a fork, interestingly enough. Original project since I did fork it: https://github.com/julian-goldsmith/XNB
+
+9. [HubTileX](https://github.com/DrewNaylor/HubTileX)
+<br>While this project is for Silverlight, there may be some useful stuff here, such as XAML styles. This one's licensed under the MIT License. Originally forked from https://github.com/saurabhrajguru/HubTileX
