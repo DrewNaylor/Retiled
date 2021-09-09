@@ -95,7 +95,18 @@ respective people and companies/organizations.
 				StaggeredPanel looks like it may be what I need, but not sure yet:
 				https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/staggeredpanel
 				Here's a StaggeredLayout that looks like a StaggeredPanel but has ItemsRepeater support. May need to port it to Avalonia.
-				https://github.com/DL444/DL444.StaggeredLayout -->
+				https://github.com/DL444/DL444.StaggeredLayout
+				I'm working on porting that library to Avalonia, though at the moment I'm not sure how to handle the OnLayoutPropertyChanged events.
+				
+				IMPORTANT NOTE 3: When implementing the StaggeredLayout control, I need to make sure the StaggeredLayout 
+				is wrapped in an ItemsRepeater.Layout, like the example below from the WinUI Sample App:
+				<ScrollViewer>
+					<winui:ItemsRepeater x:Name="StaggeredRepeater" ItemTemplate="{StaticResource StaggeredTemplate}">
+						<winui:ItemsRepeater.Layout>
+							<controls:StaggeredLayout DesiredColumnWidth="250" ColumnSpacing="5" RowSpacing="5"/>
+						</winui:ItemsRepeater.Layout>
+					</winui:ItemsRepeater>
+				</ScrollViewer> -->
 					
 				
 				<!-- Medium tiles: -->
