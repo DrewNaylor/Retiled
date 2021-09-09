@@ -31,6 +31,7 @@ using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using StaggeredLayout.Avalonia;
 
 namespace RetiledStart.ViewModels
 {

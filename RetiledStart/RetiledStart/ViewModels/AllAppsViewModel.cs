@@ -38,6 +38,7 @@ using System.Threading.Tasks;
 using Avalonia.Data.Converters;
 using libdotdesktop_standard;
 using ReactiveUI;
+using StaggeredLayout.Avalonia;
 
 namespace RetiledStart.ViewModels
 {

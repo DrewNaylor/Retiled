@@ -31,8 +31,10 @@ respective people and companies/organizations.
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:staggeredlayout="clr-namespace:StaggeredLayout.Avalonia;assembly=StaggeredLayout.Avalonia"
              mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
              x:Class="RetiledStart.Views.TilesView">
+	<!-- In order to pull in controls from libraries, you need to add the "...;assembly=..." part to the xmlns. -->
 
 
 	<ScrollViewer Margin="0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -94,6 +96,7 @@ respective people and companies/organizations.
 				https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/staggeredpanel
 				Here's a StaggeredLayout that looks like a StaggeredPanel but has ItemsRepeater support. May need to port it to Avalonia.
 				https://github.com/DL444/DL444.StaggeredLayout -->
+					
 				
 				<!-- Medium tiles: -->
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>

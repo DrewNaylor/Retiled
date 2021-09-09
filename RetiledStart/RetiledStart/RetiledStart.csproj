@@ -21,5 +21,8 @@
     <Reference Include="libdotdesktop-standard">
       <HintPath>..\..\lib\libdotdesktop-standard.dll</HintPath>
     </Reference>
+    <Reference Include="StaggeredLayout.Avalonia">
+      <HintPath>..\..\lib\StaggeredLayout.Avalonia.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
