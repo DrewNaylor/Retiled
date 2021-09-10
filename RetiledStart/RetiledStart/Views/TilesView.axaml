@@ -125,8 +125,8 @@ respective people and companies/organizations.
                                      AlignItems="FlexStart"
                                      AlignContent="FlexStart"
                                      Wrap="Wrap"
-                                     ColumnSpacing="5"
-                                     RowSpacing="5" />
+                                     ColumnSpacing="0"
+                                     RowSpacing="0" />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
@@ -139,7 +139,7 @@ respective people and companies/organizations.
 							
 							<!-- <Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}" -->
 							
-							<Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
 								<Button.Styles>
 									<!-- Set up some styles here because I can't easily set them in the other file. -->
