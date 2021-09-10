@@ -131,6 +131,13 @@ respective people and companies/organizations.
 							
 							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
+								<Button.Styles>
+									<!-- Set up some styles here because I can't easily set them in the other file. -->
+									<Style Selector="Button.StartTile:pressed /template/ ContentPresenter">
+										<!-- Keeps the button background the color it's supposed to be. -->
+										<Setter Property="Background" Value="{Binding TileColor}"/>
+									</Style>
+								</Button.Styles>
 								<!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. --><!--
 								<StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
