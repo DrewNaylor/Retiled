@@ -33,6 +33,7 @@ respective people and companies/organizations.
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:staggeredlayout="clr-namespace:FancyStaggeredLayout.Avalonia;assembly=FancyStaggeredLayout.Avalonia"
 			 xmlns:regularstaggeredlayout="clr-namespace:StaggeredLayout.Avalonia;assembly=StaggeredLayout.Avalonia"
+			 xmlns:flexbox="clr-namespace:Avalonia.Flexbox;assembly=Avalonia.Flexbox"
 			 xmlns:tiles="clr-namespace:libRetiledStart;assembly=libRetiledStart"
              mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
              x:Class="RetiledStart.Views.TilesView">
@@ -114,7 +115,10 @@ respective people and companies/organizations.
 				<ItemsRepeater Margin="5,0,0,0" Items="{Binding GetTilesList}" Background="Black">
 					<ItemsRepeater.Layout>
 						<!--<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="70" />-->
-						<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />
+						<!--<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />-->
+						<!-- Testing this FlexLayout library:
+						https://github.com/jp2masa/Avalonia.Flexbox -->
+						<flexbox:FlexLayout />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
