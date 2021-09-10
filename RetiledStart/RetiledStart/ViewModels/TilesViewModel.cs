@@ -33,6 +33,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using libRetiledStart;
 
 namespace RetiledStart.ViewModels
 {
@@ -44,7 +45,7 @@ namespace RetiledStart.ViewModels
         // this code off this SO answer:
         // https://stackoverflow.com/a/64552332
         // Get the tiles list from the library.
-        private ObservableCollection<string> _GetDotDesktopFiles = new ObservableCollection<string>(libRetiledStart.AppsList.GetDotDesktopFiles());
+        private ObservableCollection<StartScreenTileEntry> _GetTilesList = new ObservableCollection<StartScreenTileEntry>(TilesList.GetTilesList());
 
         public ObservableCollection<string> GetDotDesktopFiles
         {
