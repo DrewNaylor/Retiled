@@ -132,6 +132,12 @@ Public Class StartScreenTileEntry
     ' the code for getting app icons is unimplemented.
     Public Property TileImage As String
 
+    ' Required due to "Your custom class must be public and support a default (parameterless) public constructor."
+    ' https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/xaml-and-custom-classes-for-wpf?view=netframeworkdesktop-4.8
+    Public Sub New()
+
+    End Sub
+
     Public Sub New(tileAppNameAreaTextValue As String,
                    tileWidthValue As Integer,
                    tileHeightValue As Integer,
