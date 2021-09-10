@@ -67,6 +67,10 @@ Public Class TilesList
         '    End If
         'Next
 
+        ' Add hardcoded tiles to the list.
+        TilesList.Add(New StartScreenTileEntry())
+
+
         ' This is where we actually sort the list.
         ' Stuff here ended up being really useful.
         ' Didn't know list items could have properties.
@@ -105,7 +109,6 @@ Public Class StartScreenTileEntry
     ' temporarily hard-code tiles like I did
     ' with the All Apps list.
     Public Property FileNameProperty As String
-    Public Property NameKeyValueProperty As String
     ' Tile width and height are self-explanatory.
     Public Property TileWidth As Integer
     Public Property TileHeight As Integer
@@ -127,15 +130,13 @@ Public Class StartScreenTileEntry
     End Sub
 
     Public Sub New(fileName As String,
-                   nameKeyValue As String,
+                   tileAppNameAreaTextValue As String,
                    tileWidthValue As Integer,
                    tileHeightValue As Integer,
-                   tileColorValue As String,
-                   tileAppNameAreaTextValue As String)
+                   tileColorValue As String)
 
         ' Set the properties to be the parameters.
         FileNameProperty = fileName
-        NameKeyValueProperty = nameKeyValue
         TileWidth = tileWidthValue
         TileHeight = tileHeightValue
         TileColor = tileColorValue
