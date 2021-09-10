@@ -121,8 +121,7 @@ respective people and companies/organizations.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
 							<!-- Avalonia allows binding to observables:
 							https://docs.avaloniaui.net/docs/data-binding/binding-to-tasks-and-observables -->
-							<Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" CommandParameter="{Binding}"
-									Padding="0,5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}">
 								<!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. --><!--
