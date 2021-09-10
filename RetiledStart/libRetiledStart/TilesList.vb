@@ -28,7 +28,7 @@
 
 Public Class TilesList
 
-    Public Shared Function GetTilesList() As ObjectModel.ObservableCollection(Of String)
+    Public Shared Function GetTilesList() As ObjectModel.ObservableCollection(Of StartScreenTileEntry)
         ' Gets the list of tiles that should be shown on Start.
         ' Currently has the list of tiles hardcoded.
 
@@ -87,18 +87,18 @@ Public Class TilesList
         ' https://stackoverflow.com/questions/11735902/sort-a-list-of-object-in-vb-net
         ' This answer in particular is what worked I think:
         ' https://stackoverflow.com/a/11736001
-        DotDesktopFilesList = DotDesktopFilesList.OrderBy(Function(x) x.NameKeyValueProperty).ToList()
+        'DotDesktopFilesList = DotDesktopFilesList.OrderBy(Function(x) x.NameKeyValueProperty).ToList()
 
         ' Define a new ObservableCollection that we'll use to copy the file paths into.
-        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        Dim ObservableTilesList As New ObjectModel.ObservableCollection(Of StartScreenTileEntry)
 
         ' Add all of the items that are file paths to the new ObservableCollection.
-        For Each Item In DotDesktopFilesList
-            NewDotDesktopFilesList.Add(Item.FileNameProperty)
+        For Each Item In TilesList
+            ObservableTilesList.Add(Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor)
         Next
 
         ' Return the collection.
-        Return NewDotDesktopFilesList
+        Return ObservableTilesList
 
     End Function
 
@@ -116,7 +116,7 @@ Public Class StartScreenTileEntry
     ' commands for the apps. Actually, I can
     ' temporarily hard-code tiles like I did
     ' with the All Apps list.
-    Public Property FileNameProperty As String
+    'Public Property FileNameProperty As String
     ' Tile width and height are self-explanatory.
     Public Property TileWidth As Integer
     Public Property TileHeight As Integer
