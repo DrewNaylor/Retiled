@@ -69,6 +69,10 @@ Public Class TilesList
 
         ' Add hardcoded tiles to the list.
         TilesList.Add(New StartScreenTileEntry("Firefox", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("Angelfish", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("Index", 310, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("Discover", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("Htop", 70, 70, "#0050ef"))
 
 
         ' This is where we actually sort the list.
