@@ -29,3 +29,29 @@
 Public Class TilesList
 
 End Class
+
+
+Public Class StartScreenTileEntry
+    ' Adding a new class so we can get and store
+    ' information for tiles.
+    ' Details:
+    ' https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/concepts/linq/how-to-create-a-list-of-items
+
+    ' Properties:
+    Public Property FileNameProperty As String
+    Public Property NameKeyValueProperty As String
+
+    ' Not exactly sure why this is required.
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(ByVal fileName As String,
+                   ByVal nameKeyValue As String)
+        ' Set the properties to be the parameters.
+        FileNameProperty = fileName
+        NameKeyValueProperty = nameKeyValue
+
+    End Sub
+
+End Class
