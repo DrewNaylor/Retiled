@@ -137,6 +137,10 @@ respective people and companies/organizations.
 										<!-- Keeps the button background the color it's supposed to be. -->
 										<Setter Property="Background" Value="{Binding TileColor}"/>
 									</Style>
+									<Style Selector="Button.StartTile:pointerover /template/ ContentPresenter">
+										<!-- Keeps the button background the color it's supposed to be. -->
+										<Setter Property="Background" Value="{Binding TileColor}"/>
+									</Style>
 								</Button.Styles>
 								<!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. --><!--

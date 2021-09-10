@@ -76,14 +76,6 @@ respective people and companies/organizations.
 		name. -->
 		<Setter Property="Padding" Value="8,0,0,6" />
 	</Style>
-
-	<Style Selector="Button.StartTile:pressed /template/ ContentPresenter">
-		<!-- Changes the button background color to white
-		and the font color to black when it's
-		pressed, which is the same behavior as Windows Phone
-		for the All Apps button. -->
-		<Setter Property="Background" Value="{Binding Button.StartTile.Background}"/>
-	</Style>
 </Styles>
 
 
