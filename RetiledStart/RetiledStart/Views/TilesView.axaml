@@ -115,9 +115,9 @@ respective people and companies/organizations.
 				This other data templates page looks really useful:
 				https://docs.avaloniaui.net/docs/templates/data-templates -->
 				
-				<ItemsRepeater Margin="5" Items="{Binding GetTilesList}" Background="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Top">
+				<ItemsRepeater Margin="5" Items="{Binding GetTilesList}" Background="Black" VerticalAlignment="Top">
 					<ItemsRepeater.Layout>
-						<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" HorizontalAlignment="Stretch"/>
+						<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" HorizontalAlignment="Left"/>
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
