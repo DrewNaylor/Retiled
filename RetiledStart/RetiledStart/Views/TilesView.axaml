@@ -108,8 +108,10 @@ respective people and companies/organizations.
 					</winui:ItemsRepeater>
 				</ScrollViewer> -->
 					
+				<!-- Set up the ItemsRepeater. -->
 				
-				<!-- Medium tiles: -->
+				
+				<!-- Medium tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
@@ -117,16 +119,16 @@ respective people and companies/organizations.
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				
-				<!-- Wide tile: -->
+				--><!-- Wide tile: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="310" Height="150" Margin="5"/>
 				
-				<!-- More medium tiles: -->
+				--><!-- More medium tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				
-				<!-- Small tiles: -->
+				--><!-- Small tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
@@ -136,14 +138,14 @@ respective people and companies/organizations.
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				
-				<!-- More medium tiles: -->
+				--><!-- More medium tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
-				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>-->
 
 			</WrapPanel>
 				</StackPanel>
