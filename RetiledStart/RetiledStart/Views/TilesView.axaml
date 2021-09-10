@@ -39,20 +39,15 @@ respective people and companies/organizations.
 
 
 	<ScrollViewer Margin="0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-		
-		<Grid RowDefinitions="*,40">
 
-			<!-- This StackPanel contains both an empty panel for spacing at the top
-			as well as a WrapPanel containing the tiles. -->
-			<StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
-				
-				<!-- Adding an empty panel above the WrapPanel will make the top of the Start screen more like WP.
+		<!-- Adding an empty row above the tile grid will make the top of the Start screen more like WP.
 				Based on pixel measurements, the gap should be a height of 37 WPF units (42 pixels)
 				from the top of the display to the tiles when at the top of the Start screen to match WP.
 				My source was a WP8.1 Update 1 720p emulator at 50% scale. -->
-				<Panel Height="37"/>
-				
-			<WrapPanel HorizontalAlignment="Center">
+		<Grid RowDefinitions="37,*,40">
+
+			<!-- Here's the grid for the tiles list. -->
+			<Grid Grid.Row="1">
 
 				<!-- Tile sizes according to Microsoft, a lot of manual
 				testing done by me, and various other pages are as follows:
@@ -200,9 +195,8 @@ respective people and companies/organizations.
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>-->
 
-			</WrapPanel>
-				</StackPanel>
-			<Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" Height="30" Width="30" Content="->" Grid.Row="1"
+			</Grid>
+			<Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" Height="30" Width="30" Content="->" Grid.Row="2"
 					HorizontalAlignment="Right"
 					Margin="0,10,20,20"
 					FontSize="20"
