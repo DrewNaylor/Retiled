@@ -113,7 +113,7 @@ respective people and companies/organizations.
 						 Background="Black"
 						 HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding $parent[Window].Width}">
 					<ItemsRepeater.Layout>
-						<staggeredlayout:StaggeredLayout />
+						<staggeredlayout:StaggeredLayout ColumnSpacing="0" RowSpacing="0" />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<DataTemplate>
