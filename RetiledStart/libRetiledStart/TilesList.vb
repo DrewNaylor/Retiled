@@ -49,7 +49,9 @@ Public Class StartScreenTileEntry
     End Sub
 
     Public Sub New(ByVal fileName As String,
-                   ByVal nameKeyValue As String)
+                   ByVal nameKeyValue As String,
+                   ByVal tileWidthValue As Integer,
+                   ByVal tileHeightValue As Integer)
         ' Set the properties to be the parameters.
         FileNameProperty = fileName
         NameKeyValueProperty = nameKeyValue
