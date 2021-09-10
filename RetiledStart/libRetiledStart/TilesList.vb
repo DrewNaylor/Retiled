@@ -40,6 +40,8 @@ Public Class StartScreenTileEntry
     ' Properties:
     Public Property FileNameProperty As String
     Public Property NameKeyValueProperty As String
+    Public Property TileWidth As Integer
+    Public Property TileHeight As Integer
 
     ' Not exactly sure why this is required.
     Public Sub New()
