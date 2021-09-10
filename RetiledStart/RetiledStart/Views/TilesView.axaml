@@ -114,7 +114,7 @@ respective people and companies/organizations.
 				<ItemsRepeater Margin="5,0,0,0" Items="{Binding GetTilesList}" Background="Black">
 					<ItemsRepeater.Layout>
 						<!--<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="70" />-->
-						<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="310" />
+						<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
