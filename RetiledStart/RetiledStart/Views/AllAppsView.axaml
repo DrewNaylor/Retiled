@@ -81,7 +81,7 @@ respective people and companies/organizations.
 			<!-- Binding the ItemsRepeater width to the window's width makes sure the scrollbar
 			is visible, as mentioned above. This is binding to Window rather than UserControl, and it
 			seems to work just like it did before using an ItemsRepeater. -->
-		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
+		   <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
 						 Background="Black"
 						 HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding $parent[Window].Width}">
 			  <ItemsRepeater.Layout>
