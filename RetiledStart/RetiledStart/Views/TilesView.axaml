@@ -112,12 +112,13 @@ respective people and companies/organizations.
 				<!-- We have to add an xmlns for the tiles class: https://docs.avaloniaui.net/misc/wpf/datatemplates -->
 				
 				<ItemsRepeater Items="{Binding GetTilesList}" Background="Black"
-							   xmlns:tiles="clr-namespace:libRetiledStart.StartScreenTileEntry;assembly=libRetiledStart">
+							   xmlns:tiles="clr-namespace:libRetiledStart;assembly=libRetiledStart">
 					<ItemsRepeater.Layout>
 						<staggeredlayout:StaggeredLayout ColumnSpacing="0" RowSpacing="0" />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
-						<DataTemplate>
+						<!-- I hope this datatype is correct. -->
+						<DataTemplate DataType="tiles:StartScreenTileEntry">
 							<!-- Binding to a command in an ItemsRepeater DataTemplate requires adding
 					  "$parent[ItemsRepeater].DataContext."	before your command you want to bind to.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
