@@ -28,6 +28,68 @@
 
 Public Class TilesList
 
+    Public Shared Function GetTilesList() As ObjectModel.ObservableCollection(Of String)
+        ' Gets all .desktop files in /usr/share/applications
+        ' on Linux or my desktop on Windows.
+
+        ' Define a collection of filenames to use.
+        Dim DotDesktopFilesList As New List(Of DotDesktopEntryInAllAppsList)
+        ' Define a path we'll set later.
+        ' We're setting up a fallback, too.
+        Dim DotDesktopFilesPath As String = "/usr/share/applications"
+
+        If OperatingSystem.IsLinux = True Then
+            DotDesktopFilesPath = "/usr/share/applications"
+
+        ElseIf OperatingSystem.IsWindows = True Then
+            DotDesktopFilesPath = "C:\Users\Drew\Desktop"
+            'DotDesktopFilesPath = "C:\Users\drewn\Desktop"
+        End If
+
+        For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
+            ' Check if the file ends with .desktop.
+            If DotDesktopFile.EndsWith(".desktop") Then
+
+                If Not desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
+                    ' Make sure this .desktop file is supposed to be shown.
+                    ' Add its name if it's in the file.
+                    If desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
+                        DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+                                                                                 desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name")))
+                    Else
+                        ' It's not in the file, so add its filename.
+                        DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+                                                                                 DotDesktopFile.ToString))
+                    End If
+
+                End If
+
+            End If
+        Next
+
+        ' This is where we actually sort the list.
+        ' Stuff here ended up being really useful.
+        ' Didn't know list items could have properties.
+        ' Maybe one of my other programs that uses a List
+        ' could benefit from this.
+        ' https://stackoverflow.com/questions/11735902/sort-a-list-of-object-in-vb-net
+        ' This answer in particular is what worked I think:
+        ' https://stackoverflow.com/a/11736001
+        DotDesktopFilesList = DotDesktopFilesList.OrderBy(Function(x) x.NameKeyValueProperty).ToList()
+
+        ' Define a new ObservableCollection that we'll use to copy the file paths into.
+        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+
+        ' Add all of the items that are file paths to the new ObservableCollection.
+        For Each Item In DotDesktopFilesList
+            NewDotDesktopFilesList.Add(Item.FileNameProperty)
+        Next
+
+        ' Return the collection.
+        Return NewDotDesktopFilesList
+
+    End Function
+
 End Class
 
 
