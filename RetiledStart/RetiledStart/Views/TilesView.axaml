@@ -129,8 +129,8 @@ respective people and companies/organizations.
 							https://docs.avaloniaui.net/docs/data-binding/binding-to-tasks-and-observables -->
 							
 							
-							<Button Margin="5" Classes="StartTile" Height="{Binding tiles:StartScreenTileEntry.TileHeight}" Width="{Binding tiles:StartScreenTileEntry.TileWidth}"
-								Content="{Binding tiles:StartScreenTileEntry.TileAppNameAreaText}">
+							<Button Margin="5" Classes="StartTile" Height="{Binding tiles:TileHeight}" Width="{Binding tiles:TileWidth}"
+								Content="{Binding tiles:TileAppNameAreaText}">
 								<!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. --><!--
 								<StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
