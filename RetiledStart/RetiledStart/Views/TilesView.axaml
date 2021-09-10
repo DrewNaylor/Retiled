@@ -115,9 +115,9 @@ respective people and companies/organizations.
 				This other data templates page looks really useful:
 				https://docs.avaloniaui.net/docs/templates/data-templates -->
 				
-				<ItemsRepeater Items="{Binding GetTilesList}" Background="Black" HorizontalAlignment="Center">
+				<ItemsRepeater Margin="5" Items="{Binding GetTilesList}" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Top">
 					<ItemsRepeater.Layout>
-						<staggeredlayout:StaggeredLayout ColumnSpacing="5" RowSpacing="5" DesiredColumnWidth="150" />
+						<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
@@ -129,7 +129,7 @@ respective people and companies/organizations.
 							https://docs.avaloniaui.net/docs/data-binding/binding-to-tasks-and-observables -->
 							
 							
-							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+							<Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
 								<Button.Styles>
 									<!-- Set up some styles here because I can't easily set them in the other file. -->
