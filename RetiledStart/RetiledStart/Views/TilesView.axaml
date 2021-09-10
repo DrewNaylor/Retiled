@@ -47,7 +47,7 @@ respective people and companies/organizations.
 		<Grid RowDefinitions="37,*,40">
 
 			<!-- Here's the grid for the tiles list. -->
-			<Grid Grid.Row="1" Margin="5">
+			<Grid Grid.Row="1">
 
 				<!-- Tile sizes according to Microsoft, a lot of manual
 				testing done by me, and various other pages are as follows:
@@ -123,8 +123,10 @@ respective people and companies/organizations.
 							<!-- Avalonia allows binding to observables:
 							https://docs.avaloniaui.net/docs/data-binding/binding-to-tasks-and-observables -->
 							
-							<Grid Background="Green">
-							<Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+							<!-- <Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}" -->
+							
+							<Grid Background="Green" Margin="5">
+							<Button Margin="5" Classes="StartTile" Height="70" Width="70"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
 								<Button.Styles>
 									<!-- Set up some styles here because I can't easily set them in the other file. -->
