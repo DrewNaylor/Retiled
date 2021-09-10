@@ -18,11 +18,11 @@
     <ProjectReference Include="..\libRetiledStart\libRetiledStart.vbproj" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FancyStaggeredLayout.Avalonia">
+      <HintPath>..\..\lib\FancyStaggeredLayout.Avalonia.dll</HintPath>
+    </Reference>
     <Reference Include="libdotdesktop-standard">
       <HintPath>..\..\lib\libdotdesktop-standard.dll</HintPath>
-    </Reference>
-    <Reference Include="StaggeredLayout.Avalonia">
-      <HintPath>..\..\lib\StaggeredLayout.Avalonia.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

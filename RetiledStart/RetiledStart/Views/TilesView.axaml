@@ -31,7 +31,7 @@ respective people and companies/organizations.
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:staggeredlayout="clr-namespace:StaggeredLayout.Avalonia;assembly=StaggeredLayout.Avalonia"
+			 xmlns:staggeredlayout="clr-namespace:FancyStaggeredLayout.Avalonia;assembly=FancyStaggeredLayout.Avalonia"
 			 xmlns:tiles="clr-namespace:libRetiledStart;assembly=libRetiledStart"
              mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
              x:Class="RetiledStart.Views.TilesView">
@@ -115,9 +115,9 @@ respective people and companies/organizations.
 				This other data templates page looks really useful:
 				https://docs.avaloniaui.net/docs/templates/data-templates -->
 				
-				<ItemsRepeater Margin="5" Items="{Binding GetTilesList}" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+				<ItemsRepeater Margin="5" Items="{Binding GetTilesList}" Background="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Top">
 					<ItemsRepeater.Layout>
-						<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />
+						<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" HorizontalAlignment="Stretch"/>
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
@@ -129,7 +129,7 @@ respective people and companies/organizations.
 							https://docs.avaloniaui.net/docs/data-binding/binding-to-tasks-and-observables -->
 							
 							
-							<Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
 								<Button.Styles>
 									<!-- Set up some styles here because I can't easily set them in the other file. -->
