@@ -66,6 +66,7 @@ There are also some "wishlist" features that I really want but might be too comp
   - Not exactly sure how they'd be implemented, but they're useful
   - They kinda flow out of the small preview grid into their area
   - Folder labels can be changed.
+  - Actually, maybe Avalonia's `Expander` control would be useful for this. I'll have to figure out a way to eventually show what items are in there from the preview, but before that I'd have to be able to add items to the expander contents. Having the expander control go up could be an early way to handle the ellipsis menu for apps, too.
 - Lock screen
   - Tapping it made the entire thing go up and bounce a few times before landing. If you had a PIN code active, it showed the unlock area, otherwise it just showed what's active.
   - You didn't have to press a button after typing in your pin, as it just automatically unlocked if the combination was correct (will be more difficult than the bounce animation, and not even sure if it'll work or be secure and fast)
