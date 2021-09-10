@@ -42,6 +42,12 @@ Public Class StartScreenTileEntry
     Public Property NameKeyValueProperty As String
     Public Property TileWidth As Integer
     Public Property TileHeight As Integer
+    ' For now we'll store tile colors in strings,
+    ' but this may be changed eventually if the "Color"
+    ' type makes more sense to use. Probably should
+    ' look at what properties MahApps.Metro uses
+    ' for their tiles.
+    Public Property TileColor As String
 
     ' Not exactly sure why this is required.
     Public Sub New()
@@ -51,7 +57,8 @@ Public Class StartScreenTileEntry
     Public Sub New(ByVal fileName As String,
                    ByVal nameKeyValue As String,
                    ByVal tileWidthValue As Integer,
-                   ByVal tileHeightValue As Integer)
+                   ByVal tileHeightValue As Integer,
+                   ByVal tileColorValue As String)
         ' Set the properties to be the parameters.
         FileNameProperty = fileName
         NameKeyValueProperty = nameKeyValue
