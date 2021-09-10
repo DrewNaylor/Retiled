@@ -123,8 +123,8 @@ respective people and companies/organizations.
 							<!-- Avalonia allows binding to observables:
 							https://docs.avaloniaui.net/docs/data-binding/binding-to-tasks-and-observables -->
 							
-							
-							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+							<Grid Background="Green">
+							<Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
 								<Button.Styles>
 									<!-- Set up some styles here because I can't easily set them in the other file. -->
@@ -155,6 +155,7 @@ respective people and companies/organizations.
 							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0 --><!--
 								</StackPanel>-->
 							</Button>
+								</Grid>
 						</DataTemplate>
 					</ItemsRepeater.ItemTemplate>
 				</ItemsRepeater>
