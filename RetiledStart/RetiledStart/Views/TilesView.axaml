@@ -152,23 +152,6 @@ respective people and companies/organizations.
 										<Setter Property="Background" Value="{Binding TileColor}"/>
 									</Style>
 								</Button.Styles>
-								<!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
-						  from anyware, rather than just on the text. --><!--
-								<StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
-									<Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
-									--><!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
-							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN --><!--
-									<TextBlock Classes="RetiledAllAppsEntry_TextBlock"
-											   TextTrimming="CharacterEllipsis" FontSize="20"
-											   Text="{Binding Converter={StaticResource AppListItemTextConverter}}">
-										--><!-- Figuring this out was a mess, but this SO answer ended
-								  up being super helpful:
-								  https://stackoverflow.com/a/39869384 --><!--
-									</TextBlock>
-									--><!-- A converter is necessary to get the text from the file. 
-							  https://stackoverflow.com/a/11104834
-							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0 --><!--
-								</StackPanel>-->
 							</Button>
 						</DataTemplate>
 					</ItemsRepeater.ItemTemplate>
