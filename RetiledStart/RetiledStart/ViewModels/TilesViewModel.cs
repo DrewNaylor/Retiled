@@ -47,7 +47,7 @@ namespace RetiledStart.ViewModels
         // Get the tiles list from the library.
         private ObservableCollection<StartScreenTileEntry> _GetTilesList = new ObservableCollection<StartScreenTileEntry>(TilesList.GetTilesList());
 
-        public ObservableCollection<StartScreenTileEntry> GetDotDesktopFiles
+        public ObservableCollection<StartScreenTileEntry> GetTilesList
         {
             // Get the list of .desktop files.
             get => _GetTilesList;
