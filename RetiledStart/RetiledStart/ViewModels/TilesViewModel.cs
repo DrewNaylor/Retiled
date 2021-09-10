@@ -26,8 +26,10 @@
 
 
 
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,5 +38,21 @@ namespace RetiledStart.ViewModels
 {
     class TilesViewModel : ViewModelBase
     {
+
+
+        // Couldn't figure out how to do this, so I based
+        // this code off this SO answer:
+        // https://stackoverflow.com/a/64552332
+        // Get the tiles list from the library.
+        private ObservableCollection<string> _GetDotDesktopFiles = new ObservableCollection<string>(libRetiledStart.AppsList.GetDotDesktopFiles());
+
+        public ObservableCollection<string> GetDotDesktopFiles
+        {
+            // Get the list of .desktop files.
+            get => _GetDotDesktopFiles;
+            set => this.RaiseAndSetIfChanged(ref _GetDotDesktopFiles, value);
+
+        }
+
     }
 }
