@@ -149,7 +149,8 @@ Public Class DotDesktopEntryInAllAppsList
     Public Property FileNameProperty As String
     Public Property NameKeyValueProperty As String
 
-    ' Not exactly sure why this is required.
+    ' Required due to "Your custom class must be public and support a default (parameterless) public constructor."
+    ' https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/xaml-and-custom-classes-for-wpf?view=netframeworkdesktop-4.8
     Public Sub New()
 
     End Sub

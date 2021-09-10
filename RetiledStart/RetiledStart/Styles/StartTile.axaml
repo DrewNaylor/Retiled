@@ -44,7 +44,7 @@ respective people and companies/organizations.
 		have different colors at runtime. There must be a way
 		to bind to a runtime variable that's stored in a config
 		file. -->
-		<Setter Property="Background" Value="#0050ef" />
+		<!--<Setter Property="Background" Value="#0050ef" />-->
 		<!-- Set text color. I tested a few different accent colors,
 		and I don't think any of them used black, even the really light ones.
 		Something to keep in mind is that the high contrast theme put a black

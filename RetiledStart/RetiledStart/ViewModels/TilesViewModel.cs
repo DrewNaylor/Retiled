@@ -26,15 +26,34 @@
 
 
 
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using libRetiledStart;
 
 namespace RetiledStart.ViewModels
 {
     class TilesViewModel : ViewModelBase
     {
+
+
+        // Couldn't figure out how to do this, so I based
+        // this code off this SO answer:
+        // https://stackoverflow.com/a/64552332
+        // Get the tiles list from the library.
+        private ObservableCollection<StartScreenTileEntry> _GetTilesList = new ObservableCollection<StartScreenTileEntry>(TilesList.GetTilesList());
+
+        public ObservableCollection<StartScreenTileEntry> GetTilesList
+        {
+            // Get the list of .desktop files.
+            get => _GetTilesList;
+            set => this.RaiseAndSetIfChanged(ref _GetTilesList, value);
+
+        }
+
     }
 }

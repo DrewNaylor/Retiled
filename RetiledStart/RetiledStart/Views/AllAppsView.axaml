@@ -81,7 +81,7 @@ respective people and companies/organizations.
 			<!-- Binding the ItemsRepeater width to the window's width makes sure the scrollbar
 			is visible, as mentioned above. This is binding to Window rather than UserControl, and it
 			seems to work just like it did before using an ItemsRepeater. -->
-		  <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
+		   <ItemsRepeater Items="{Binding GetDotDesktopFiles}"
 						 Background="Black"
 						 HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding $parent[Window].Width}">
 			  <ItemsRepeater.Layout>
@@ -109,7 +109,9 @@ respective people and companies/organizations.
 							  </TextBlock>
 							  <!-- A converter is necessary to get the text from the file. 
 							  https://stackoverflow.com/a/11104834
-							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0 -->
+							  https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.data.ivalueconverter?view=winui-3.0
+							  TODO: Figure out a way to not have to use a converter by just having the text
+							  be bound to a property in a custom class like what's done with the tiles. -->
 						  </StackPanel>
 					  </Button>
 				  </DataTemplate>

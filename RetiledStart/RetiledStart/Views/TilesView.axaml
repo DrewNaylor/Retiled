@@ -31,27 +31,25 @@ respective people and companies/organizations.
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:staggeredlayout="clr-namespace:StaggeredLayout.Avalonia;assembly=StaggeredLayout.Avalonia"
+			 xmlns:staggeredlayout="clr-namespace:FancyStaggeredLayout.Avalonia;assembly=FancyStaggeredLayout.Avalonia"
+			 xmlns:regularstaggeredlayout="clr-namespace:StaggeredLayout.Avalonia;assembly=StaggeredLayout.Avalonia"
+			 xmlns:flexbox="clr-namespace:Avalonia.Flexbox;assembly=Avalonia.Flexbox"
+			 xmlns:tiles="clr-namespace:libRetiledStart;assembly=libRetiledStart"
              mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
              x:Class="RetiledStart.Views.TilesView">
 	<!-- In order to pull in controls from libraries, you need to add the "...;assembly=..." part to the xmlns. -->
 
 
 	<ScrollViewer Margin="0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-		
-		<Grid RowDefinitions="*,40">
 
-			<!-- This StackPanel contains both an empty panel for spacing at the top
-			as well as a WrapPanel containing the tiles. -->
-			<StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
-				
-				<!-- Adding an empty panel above the WrapPanel will make the top of the Start screen more like WP.
+		<!-- Adding an empty row above the tile grid will make the top of the Start screen more like WP.
 				Based on pixel measurements, the gap should be a height of 37 WPF units (42 pixels)
 				from the top of the display to the tiles when at the top of the Start screen to match WP.
 				My source was a WP8.1 Update 1 720p emulator at 50% scale. -->
-				<Panel Height="37"/>
-				
-			<WrapPanel HorizontalAlignment="Center">
+		<Grid RowDefinitions="37,*,40">
+
+			<!-- Here's the grid for the tiles list. -->
+			<Grid Grid.Row="1">
 
 				<!-- Tile sizes according to Microsoft, a lot of manual
 				testing done by me, and various other pages are as follows:
@@ -108,8 +106,58 @@ respective people and companies/organizations.
 					</winui:ItemsRepeater>
 				</ScrollViewer> -->
 					
+				<!-- Set up the ItemsRepeater. -->
+				<!-- We have to add an xmlns for the tiles class: https://docs.avaloniaui.net/misc/wpf/datatemplates
+				xmlns items are only allowed in the root to preserve memory.
+				This other data templates page looks really useful:
+				https://docs.avaloniaui.net/docs/templates/data-templates -->
 				
-				<!-- Medium tiles: -->
+				<ItemsRepeater Margin="5,0,0,0" Items="{Binding GetTilesList}" Background="Black">
+					<ItemsRepeater.Layout>
+						<!--<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="70" />-->
+						<!--<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />-->
+						<!-- Testing this FlexLayout library:
+						https://github.com/jp2masa/Avalonia.Flexbox
+						Copied and modified the properties from the sample app. -->
+						
+						<flexbox:FlexLayout Direction="Row"
+                                     JustifyContent="SpaceAround"
+                                     AlignItems="FlexStart"
+                                     AlignContent="FlexStart"
+                                     Wrap="Wrap"
+                                     ColumnSpacing="0"
+                                     RowSpacing="0" />
+					</ItemsRepeater.Layout>
+					<ItemsRepeater.ItemTemplate>
+						<!-- I hope this datatype is correct. -->
+						<DataTemplate DataType="tiles:StartScreenTileEntry">
+							<!-- Binding to a command in an ItemsRepeater DataTemplate requires adding
+					  "$parent[ItemsRepeater].DataContext."	before your command you want to bind to.
+					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
+							<!-- Avalonia allows binding to observables:
+							https://docs.avaloniaui.net/docs/data-binding/binding-to-tasks-and-observables -->
+							
+							<!-- <Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}" -->
+							
+							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
+								<Button.Styles>
+									<!-- Set up some styles here because I can't easily set them in the other file. -->
+									<Style Selector="Button.StartTile:pressed /template/ ContentPresenter">
+										<!-- Keeps the button background the color it's supposed to be. -->
+										<Setter Property="Background" Value="{Binding TileColor}"/>
+									</Style>
+									<Style Selector="Button.StartTile:pointerover /template/ ContentPresenter">
+										<!-- Keeps the button background the color it's supposed to be. -->
+										<Setter Property="Background" Value="{Binding TileColor}"/>
+									</Style>
+								</Button.Styles>
+							</Button>
+						</DataTemplate>
+					</ItemsRepeater.ItemTemplate>
+				</ItemsRepeater>
+				
+				<!-- Medium tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
@@ -117,16 +165,16 @@ respective people and companies/organizations.
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				
-				<!-- Wide tile: -->
+				--><!-- Wide tile: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="310" Height="150" Margin="5"/>
 				
-				<!-- More medium tiles: -->
+				--><!-- More medium tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				
-				<!-- Small tiles: -->
+				--><!-- Small tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
@@ -136,18 +184,17 @@ respective people and companies/organizations.
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="70" Height="70" Margin="5"/>
 				
-				<!-- More medium tiles: -->
+				--><!-- More medium tiles: --><!--
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
 				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
-				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>
+				<Button Classes="StartTile" Content="{Binding $parent[Window].DataContext.Greeting}" Width="150" Height="150" Margin="5"/>-->
 
-			</WrapPanel>
-				</StackPanel>
-			<Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" Height="30" Width="30" Content="->" Grid.Row="1"
+			</Grid>
+			<Button Classes="RetiledRoundButton-WhiteBackgroundOnPress" Height="30" Width="30" Content="->" Grid.Row="2"
 					HorizontalAlignment="Right"
 					Margin="0,10,20,20"
 					FontSize="20"
