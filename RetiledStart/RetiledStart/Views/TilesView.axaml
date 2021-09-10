@@ -130,7 +130,7 @@ respective people and companies/organizations.
 							
 							
 							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
-								Content="{Binding TileAppNameAreaText}">
+								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}">
 								<!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. --><!--
 								<StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">

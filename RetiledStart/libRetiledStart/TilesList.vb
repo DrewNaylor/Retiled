@@ -75,7 +75,7 @@ Public Class TilesList
         TilesList.Add(New StartScreenTileEntry("Htop", 70, 70, "#0050ef"))
         TilesList.Add(New StartScreenTileEntry("airbase-ng", 70, 70, "#0050ef"))
         TilesList.Add(New StartScreenTileEntry("Minecraft", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("Phone", 70, 70, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("Phone", 70, 70, "Red"))
         TilesList.Add(New StartScreenTileEntry("Email", 150, 150, "#0050ef"))
 
 
