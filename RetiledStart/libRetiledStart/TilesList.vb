@@ -38,6 +38,10 @@ Public Class StartScreenTileEntry
     ' https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/concepts/linq/how-to-create-a-list-of-items
 
     ' Properties:
+    ' I'll have to figure out how to implement the
+    ' commands for the apps. Actually, I can
+    ' temporarily hard-code tiles like I did
+    ' with the All Apps list.
     Public Property FileNameProperty As String
     Public Property NameKeyValueProperty As String
     ' Tile width and height are self-explanatory.
