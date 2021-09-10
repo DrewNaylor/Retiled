@@ -117,8 +117,16 @@ respective people and companies/organizations.
 						<!--<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="70" />-->
 						<!--<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />-->
 						<!-- Testing this FlexLayout library:
-						https://github.com/jp2masa/Avalonia.Flexbox -->
-						<flexbox:FlexLayout />
+						https://github.com/jp2masa/Avalonia.Flexbox
+						Copied and modified the properties from the sample app. -->
+						
+						<flexbox:FlexLayout Direction="Row"
+                                     JustifyContent="SpaceAround"
+                                     AlignItems="FlexStart"
+                                     AlignContent="FlexStart"
+                                     Wrap="Wrap"
+                                     ColumnSpacing="5"
+                                     RowSpacing="5" />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
