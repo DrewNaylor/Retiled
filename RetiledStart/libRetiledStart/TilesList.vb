@@ -124,19 +124,16 @@ Public Class StartScreenTileEntry
     ' the code for getting app icons is unimplemented.
     Public Property TileImage As String
 
-    ' Not exactly sure why this is required.
-    Public Sub New()
-
-    End Sub
-
-    Public Sub New(fileName As String,
-                   tileAppNameAreaTextValue As String,
+    Public Sub New(tileAppNameAreaTextValue As String,
                    tileWidthValue As Integer,
                    tileHeightValue As Integer,
                    tileColorValue As String)
 
         ' Set the properties to be the parameters.
-        FileNameProperty = fileName
+        ' Not using the filename for now. If using it
+        ' later, it'll have to be added back in as
+        ' "fileName As String,"
+        'FileNameProperty = fileName
         TileWidth = tileWidthValue
         TileHeight = tileHeightValue
         TileColor = tileColorValue
