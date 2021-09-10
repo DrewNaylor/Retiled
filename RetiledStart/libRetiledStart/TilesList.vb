@@ -94,7 +94,7 @@ Public Class TilesList
 
         ' Add all of the items that are file paths to the new ObservableCollection.
         For Each Item In TilesList
-            ObservableTilesList.Add(Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor)
+            ObservableTilesList.Add(New StartScreenTileEntry(Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor))
         Next
 
         ' Return the collection.
