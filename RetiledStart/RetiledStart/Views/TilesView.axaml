@@ -109,7 +109,7 @@ respective people and companies/organizations.
 				</ScrollViewer> -->
 					
 				<!-- Set up the ItemsRepeater. -->
-				<ItemsRepeater Items="{Binding GetDotDesktopFiles}"
+				<ItemsRepeater Items="{Binding GetTilesList}"
 						 Background="Black"
 						 HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding $parent[Window].Width}">
 					<ItemsRepeater.Layout>
