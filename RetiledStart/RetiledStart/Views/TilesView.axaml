@@ -126,7 +126,7 @@ respective people and companies/organizations.
 						https://blog.jerrynixon.com/2012/08/windows-8-beauty-tip-using.html -->
 						
 						<flexbox:FlexLayout Direction="Row"
-                                     JustifyContent="SpaceAround"
+                                     JustifyContent="FlexStart"
                                      AlignItems="FlexStart"
                                      AlignContent="FlexStart"
                                      Wrap="Wrap"
