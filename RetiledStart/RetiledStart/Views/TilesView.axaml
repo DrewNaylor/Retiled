@@ -118,7 +118,12 @@ respective people and companies/organizations.
 						<!--<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />-->
 						<!-- Testing this FlexLayout library:
 						https://github.com/jp2masa/Avalonia.Flexbox
-						Copied and modified the properties from the sample app. -->
+						Copied and modified the properties from the sample app.
+						This page has really interesting stuff that may actually be useful for what I want to do.
+						It's about how to do a variable sized wrap grid control. Since it's not for Avalonia,
+						either I'll have to port it, or maybe wait to see if there's something that I can use
+						from Avalonia or a project meant for Avalonia.
+						https://blog.jerrynixon.com/2012/08/windows-8-beauty-tip-using.html -->
 						
 						<flexbox:FlexLayout Direction="Row"
                                      JustifyContent="SpaceAround"
