@@ -30,3 +30,6 @@
 
 11. [WoWDatabaseEditor](https://github.com/DrewNaylor/WoWDatabaseEditor)
 <br>What's interesting about this project is [it has an Avalonia GridView control](https://github.com/BAndysc/WoWDatabaseEditor/blob/master/AvaloniaStyles/Controls/GridView.cs) just like the previous project, except it doesn't seem like its main purpose is to be Avalonia-related. This one is licensed under the Unlicense. I decided to fork it to preserve the Avalonia controls just in case. Original source: https://github.com/BAndysc/WoWDatabaseEditor
+
+12. [Avalonia.Flexbox](https://github.com/DrewNaylor/Avalonia.Flexbox)
+<br>I'm trying to use this to get the tiles to display like they do on WP, but it doesn't seem to be working. Licensed under the MIT License. Original code, since I decided to fork it to keep it safe: https://github.com/jp2masa/Avalonia.Flexbox
