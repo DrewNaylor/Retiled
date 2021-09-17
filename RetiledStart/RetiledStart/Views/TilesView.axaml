@@ -114,6 +114,7 @@ respective people and companies/organizations.
 				
 				<ItemsRepeater Items="{Binding GetTilesList}" Background="Black">
 					<ItemsRepeater.Layout>
+						<!-- WrapLayout looks a lot like FlexLayout, except it's not centered on the page. -->
 						<!--<WrapLayout	HorizontalSpacing="10" VerticalSpacing="10" Orientation="Horizontal"/>-->
 						<!--<fancystaggeredlayout:StaggeredLayout RowSpacing="10" ColumnSpacing="10" DesiredColumnWidth="70" />-->
 						<!--<regularstaggeredlayout:StaggeredLayout RowSpacing="10" ColumnSpacing="10" DesiredColumnWidth="150" />-->
