@@ -79,13 +79,20 @@ Public Class AppsList
 
                 If Not desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
                     ' Make sure this .desktop file is supposed to be shown.
-                    ' Add the item.
-                    DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
-                                                                                 DotDesktopFile.ToString,
-                                                                                 DotDesktopFile.ToString))
+                    ' Add the item after making sure the name exists.
+                    If Not desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") = String.Empty Then
+                        DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+                                                                                     desktopEntryStuff.getInfo(
+                                                                                     DotDesktopFile.ToString, "Name"),
+                                                                                     DotDesktopFile.ToString))
+                    Else
+                        DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+                                                                                     DotDesktopFile.ToString,
+                                                                                     DotDesktopFile.ToString))
+                    End If
                 End If
 
-            End If
+                End If
         Next
 
         ' This is where we actually sort the list.
