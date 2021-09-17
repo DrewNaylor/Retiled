@@ -69,14 +69,14 @@ Public Class TilesList
 
         ' Add hardcoded tiles to the list.
         TilesList.Add(New StartScreenTileEntry("/usr/share/applications/firefox.desktop", "Firefox", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/index.desktop", "Index", 310, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/discover.desktop", "Discover", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.index.desktop", "Index", 310, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.discover.desktop", "Discover", 150, 150, "#0050ef"))
         TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/airbase-ng.desktop", "airbase-ng", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/minecraft.desktop", "Minecraft", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/phone.desktop", "Phone", 70, 70, "Red"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/email.desktop", "Email", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.kalk.desktop", "Calculator", 70, 70, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.nota.desktop", "Nota", 70, 70, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.phone.dialer.desktop", "Phone", 70, 70, "Red"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.okular.desktop", "Okular", 150, 150, "#0050ef"))
 
 
         ' This is where we actually sort the list.
