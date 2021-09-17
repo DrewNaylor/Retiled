@@ -67,6 +67,8 @@ namespace RetiledStart.ViewModels
         // this code off this SO answer:
         // https://stackoverflow.com/a/64552332
 
+        // This should help make things responsive:
+        // https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.bindingoperations.enablecollectionsynchronization?view=net-5.0
         private ObservableCollection<DotDesktopEntryInAllAppsList> _GetDotDesktopFiles = new ObservableCollection<DotDesktopEntryInAllAppsList>(AppsList.GetDotDesktopFiles());
 
         public ObservableCollection<DotDesktopEntryInAllAppsList> GetDotDesktopFiles
