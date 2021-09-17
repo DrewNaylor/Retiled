@@ -83,11 +83,9 @@ Public Class AppsList
                     If Not desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") = String.Empty Then
                         DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
                                                                                      desktopEntryStuff.getInfo(
-                                                                                     DotDesktopFile.ToString, "Name"),
-                                                                                     DotDesktopFile.ToString))
+                                                                                     DotDesktopFile.ToString, "Name")))
                     Else
                         DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
-                                                                                     DotDesktopFile.ToString,
                                                                                      DotDesktopFile.ToString))
                     End If
                 End If
@@ -110,8 +108,7 @@ Public Class AppsList
 
         ' Add all of the items that are file paths to the new ObservableCollection.
         For Each Item In DotDesktopFilesList
-            NewDotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(Item.FileNameProperty, Item.NameKeyValueProperty,
-                                                                        Item.ExecKeyValueProperty))
+            NewDotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(Item.FileNameProperty, Item.NameKeyValueProperty))
         Next
 
         ' Return the collection.
@@ -150,7 +147,6 @@ Public Class DotDesktopEntryInAllAppsList
     ' Properties:
     Public Property FileNameProperty As String
     Public Property NameKeyValueProperty As String
-    Public Property ExecKeyValueProperty As String
 
     ' Required due to "Your custom class must be public and support a default (parameterless) public constructor."
     ' https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/xaml-and-custom-classes-for-wpf?view=netframeworkdesktop-4.8
@@ -159,13 +155,10 @@ Public Class DotDesktopEntryInAllAppsList
     End Sub
 
     Public Sub New(fileName As String,
-                   nameKeyValue As String,
-                   execKeyValue As String)
+                   nameKeyValue As String)
         ' Set the properties to be the parameters.
         FileNameProperty = fileName
         NameKeyValueProperty = nameKeyValue
-        ' Add the exec key value, which is just the .desktop file.
-        ExecKeyValueProperty = execKeyValue
 
     End Sub
 

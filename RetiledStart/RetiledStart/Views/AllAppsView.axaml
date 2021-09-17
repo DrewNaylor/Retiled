@@ -88,7 +88,7 @@ respective people and companies/organizations.
 					  "$parent[ItemsRepeater].DataContext."	before your command you want to bind to.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
 					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" 
-							  CommandParameter="{Binding ExecKeyValueProperty}"
+							  CommandParameter="{Binding FileNameProperty}"
 							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
 						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. -->
