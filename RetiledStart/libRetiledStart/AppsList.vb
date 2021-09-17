@@ -55,7 +55,7 @@ Public Class AppsList
         End Try
     End Sub
 
-    Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of String)
+    Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of DotDesktopEntryInAllAppsList)
         ' Gets all .desktop files in /usr/share/applications
         ' on Linux or my desktop on Windows.
 
@@ -69,8 +69,8 @@ Public Class AppsList
             DotDesktopFilesPath = "/usr/share/applications"
 
         ElseIf OperatingSystem.IsWindows = True Then
-            DotDesktopFilesPath = "C:\Users\Drew\Desktop"
-            'DotDesktopFilesPath = "C:\Users\drewn\Desktop"
+            'DotDesktopFilesPath = "C:\Users\Drew\Desktop"
+            DotDesktopFilesPath = "C:\Users\drewn\Desktop"
         End If
 
         For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
@@ -79,19 +79,18 @@ Public Class AppsList
 
                 If Not desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
                     ' Make sure this .desktop file is supposed to be shown.
-                    ' Add its name if it's in the file.
-                    If desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
+                    ' Add the item after making sure the name exists.
+                    If Not desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") = String.Empty Then
                         DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
-                                                                                 desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name")))
+                                                                                     desktopEntryStuff.getInfo(
+                                                                                     DotDesktopFile.ToString, "Name")))
                     Else
-                        ' It's not in the file, so add its filename.
                         DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
-                                                                                 DotDesktopFile.ToString))
+                                                                                     DotDesktopFile.ToString))
                     End If
-
                 End If
 
-            End If
+                End If
         Next
 
         ' This is where we actually sort the list.
@@ -105,11 +104,11 @@ Public Class AppsList
         DotDesktopFilesList = DotDesktopFilesList.OrderBy(Function(x) x.NameKeyValueProperty).ToList()
 
         ' Define a new ObservableCollection that we'll use to copy the file paths into.
-        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of String)
+        Dim NewDotDesktopFilesList As New ObjectModel.ObservableCollection(Of DotDesktopEntryInAllAppsList)
 
         ' Add all of the items that are file paths to the new ObservableCollection.
         For Each Item In DotDesktopFilesList
-            NewDotDesktopFilesList.Add(Item.FileNameProperty)
+            NewDotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(Item.FileNameProperty, Item.NameKeyValueProperty))
         Next
 
         ' Return the collection.
@@ -155,8 +154,8 @@ Public Class DotDesktopEntryInAllAppsList
 
     End Sub
 
-    Public Sub New(ByVal fileName As String,
-                   ByVal nameKeyValue As String)
+    Public Sub New(fileName As String,
+                   nameKeyValue As String)
         ' Set the properties to be the parameters.
         FileNameProperty = fileName
         NameKeyValueProperty = nameKeyValue

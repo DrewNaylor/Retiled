@@ -39,6 +39,7 @@ using Avalonia.Data.Converters;
 using libdotdesktop_standard;
 using ReactiveUI;
 using FancyStaggeredLayout.Avalonia;
+using libRetiledStart;
 
 namespace RetiledStart.ViewModels
 {
@@ -52,7 +53,7 @@ namespace RetiledStart.ViewModels
             //Console.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
             //Debug.WriteLine(ExecFilename);
             //Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
-            libRetiledStart.AppsList.RunApp(ExecFilename);
+            AppsList.RunApp(ExecFilename);
 
         }
 
@@ -66,9 +67,9 @@ namespace RetiledStart.ViewModels
         // this code off this SO answer:
         // https://stackoverflow.com/a/64552332
 
-        private ObservableCollection<string> _GetDotDesktopFiles = new ObservableCollection<string>(libRetiledStart.AppsList.GetDotDesktopFiles());
+        private ObservableCollection<DotDesktopEntryInAllAppsList> _GetDotDesktopFiles = new ObservableCollection<DotDesktopEntryInAllAppsList>(AppsList.GetDotDesktopFiles());
 
-        public ObservableCollection<string> GetDotDesktopFiles
+        public ObservableCollection<DotDesktopEntryInAllAppsList> GetDotDesktopFiles
         {
             // Get the list of .desktop files.
             get => _GetDotDesktopFiles;
@@ -76,29 +77,5 @@ namespace RetiledStart.ViewModels
             
         }
 
-    }
-
-    // IValueConverter for the app list.
-    // Ended up not using IMultiValueConverter because it just didn't
-    // work as I needed it to.
-    // This is from MSDN:
-    // https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/?view=netdesktop-5.0#data-conversion
-
-    public class AppNameConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            string? DesktopEntryName = value as string;
-            //Debug.WriteLine(DesktopEntryName);
-            //Debug.WriteLine(desktopEntryStuff.getInfo(DesktopEntryName, "Name"));
-            // Check if there's actually a name in the .desktop file.
-            // This is using the code in the library to make things easier.
-            return libRetiledStart.AppsList.GetDotDesktopNameKey(DesktopEntryName);
-        }
-
-        public object? ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            return null;
-        }
     }
 }
