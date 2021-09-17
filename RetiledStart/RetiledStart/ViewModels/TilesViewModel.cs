@@ -40,6 +40,15 @@ namespace RetiledStart.ViewModels
     class TilesViewModel : ViewModelBase
     {
 
+        public void RunApp(string ExecFilename)
+        {
+            // Send it to the other code.
+            // We're reusing the code from the All Apps list
+            // to make things simple.
+            AppsList.RunApp(ExecFilename);
+
+        }
+
 
         // Couldn't figure out how to do this, so I based
         // this code off this SO answer:
