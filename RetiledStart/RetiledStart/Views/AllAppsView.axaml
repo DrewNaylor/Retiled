@@ -32,6 +32,7 @@ respective people and companies/organizations.
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:local="clr-namespace:RetiledStart.ViewModels;assembly=RetiledStart"
+			 xmlns:appslist="clr-namespace:libRetiledStart;assembly=libRetiledStart"
              mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="720"
              x:Class="RetiledStart.Views.AllAppsView">
 	<UserControl.Styles>
@@ -40,12 +41,6 @@ respective people and companies/organizations.
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButtonWhiteBackgroundOnPress.axaml" />
 		</UserControl.Styles>
-	<UserControl.Resources>
-		<!-- Note: The xmlns:local thing where this is defined
-		needs to be "RetiledStart.ViewModels", or it won't find
-		the converter. -->
-		<local:AppNameConverter x:Key="AppListItemTextConverter"/>
-	</UserControl.Resources>
   <Grid Margin="0" ColumnDefinitions="30,*">
 	  
 	 <StackPanel Margin="10,20,10,10">
@@ -88,11 +83,12 @@ respective people and companies/organizations.
 				  <StackLayout Spacing="0" Orientation="Vertical"/>
 			  </ItemsRepeater.Layout>
 		      <ItemsRepeater.ItemTemplate>
-				  <DataTemplate>
+				  <DataTemplate DataType="appslist:DotDesktopEntryInAllAppsList">
 					  <!-- Binding to a command in an ItemsRepeater DataTemplate requires adding
 					  "$parent[ItemsRepeater].DataContext."	before your command you want to bind to.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
-					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" CommandParameter="{Binding}"
+					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" 
+							  CommandParameter="{Binding ExecKeyValueProperty}"
 							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
 						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. -->
@@ -102,7 +98,7 @@ respective people and companies/organizations.
 							  https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781198(v=win.10)?redirectedfrom=MSDN -->
 							  <TextBlock Classes="RetiledAllAppsEntry_TextBlock" 
 										 TextTrimming="CharacterEllipsis" FontSize="20"
-										 Text="{Binding Converter={StaticResource AppListItemTextConverter}}">
+										 Text="{Binding NameKeyValueProperty}">
 								  <!-- Figuring this out was a mess, but this SO answer ended
 								  up being super helpful:
 								  https://stackoverflow.com/a/39869384 -->
