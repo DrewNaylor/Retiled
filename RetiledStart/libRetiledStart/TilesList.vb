@@ -68,15 +68,15 @@ Public Class TilesList
         'Next
 
         ' Add hardcoded tiles to the list.
-        TilesList.Add(New StartScreenTileEntry("Firefox", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("Angelfish", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("Index", 310, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("Discover", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("Htop", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("airbase-ng", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("Minecraft", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("Phone", 70, 70, "Red"))
-        TilesList.Add(New StartScreenTileEntry("Email", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/firefox.desktop", "Firefox", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/index.desktop", "Index", 310, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/discover.desktop", "Discover", 150, 150, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", 70, 70, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/airbase-ng.desktop", "airbase-ng", 70, 70, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/minecraft.desktop", "Minecraft", 70, 70, "#0050ef"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/phone.desktop", "Phone", 70, 70, "Red"))
+        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/email.desktop", "Email", 150, 150, "#0050ef"))
 
 
         ' This is where we actually sort the list.
@@ -94,7 +94,7 @@ Public Class TilesList
 
         ' Add all of the items that are file paths to the new ObservableCollection.
         For Each Item In TilesList
-            ObservableTilesList.Add(New StartScreenTileEntry(Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor))
+            ObservableTilesList.Add(New StartScreenTileEntry(Item.TileDotDesktopFile, Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor))
         Next
 
         ' Return the collection.
@@ -116,7 +116,9 @@ Public Class StartScreenTileEntry
     ' commands for the apps. Actually, I can
     ' temporarily hard-code tiles like I did
     ' with the All Apps list.
-    'Public Property FileNameProperty As String
+    ' Property to store the .desktop file path for
+    ' the tiles.
+    Public Property TileDotDesktopFile As String
     ' Tile width and height are self-explanatory.
     Public Property TileWidth As Integer
     Public Property TileHeight As Integer
@@ -138,7 +140,8 @@ Public Class StartScreenTileEntry
 
     End Sub
 
-    Public Sub New(tileAppNameAreaTextValue As String,
+    Public Sub New(tileDotDesktopFileValue As String,
+                   tileAppNameAreaTextValue As String,
                    tileWidthValue As Integer,
                    tileHeightValue As Integer,
                    tileColorValue As String)
@@ -147,7 +150,7 @@ Public Class StartScreenTileEntry
         ' Not using the filename for now. If using it
         ' later, it'll have to be added back in as
         ' "fileName As String,"
-        'FileNameProperty = fileName
+        TileDotDesktopFile = tileDotDesktopFileValue
         TileWidth = tileWidthValue
         TileHeight = tileHeightValue
         TileColor = tileColorValue
