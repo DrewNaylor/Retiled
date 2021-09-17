@@ -112,7 +112,7 @@ respective people and companies/organizations.
 				This other data templates page looks really useful:
 				https://docs.avaloniaui.net/docs/templates/data-templates -->
 				
-				<ItemsRepeater Margin="5,0,0,0" Items="{Binding GetTilesList}" Background="Black">
+				<ItemsRepeater Items="{Binding GetTilesList}" Background="Black">
 					<ItemsRepeater.Layout>
 						<!--<staggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="70" />-->
 						<!--<regularstaggeredlayout:StaggeredLayout RowSpacing="5" ColumnSpacing="5" DesiredColumnWidth="150" />-->
@@ -126,12 +126,12 @@ respective people and companies/organizations.
 						https://blog.jerrynixon.com/2012/08/windows-8-beauty-tip-using.html -->
 						
 						<flexbox:FlexLayout Direction="Row"
-                                     JustifyContent="FlexStart"
+                                     JustifyContent="Center"
                                      AlignItems="FlexStart"
                                      AlignContent="FlexStart"
                                      Wrap="Wrap"
-                                     ColumnSpacing="0"
-                                     RowSpacing="0" />
+                                     ColumnSpacing="10"
+                                     RowSpacing="10" />
 					</ItemsRepeater.Layout>
 					<ItemsRepeater.ItemTemplate>
 						<!-- I hope this datatype is correct. -->
@@ -144,7 +144,7 @@ respective people and companies/organizations.
 							
 							<!-- <Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}" -->
 							
-							<Button Margin="5" Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
+							<Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}"
 									Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}"
 									CommandParameter="{Binding TileDotDesktopFile}">
