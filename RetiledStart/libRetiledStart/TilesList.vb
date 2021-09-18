@@ -66,7 +66,9 @@ Public Class TilesList
             ' Actually, I think I need to deserialize into an array, since
             ' that's what the winget schema uses:
             ' https://raw.githubusercontent.com/microsoft/winget-cli/master/schemas/JSON/manifests/v1.0.0/manifest.installer.1.0.0.json
-            Dim DeserializedItems = YamlDeserializer.Deserialize(YamlDeserializer, List(StartScreenTileEntry))
+            ' This part of the documentation might help to an extent where it talks
+            ' about "!contact": https://github.com/aaubry/YamlDotNet/wiki/Serialization.Deserializer#withtagmappingstring-type
+            Dim DeserializedItems = YamlDeserializer.Deserialize(YamlDeserializer, Array)
 
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget,
