@@ -164,12 +164,14 @@ Public Class StartScreenTileEntry
     ' https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/concepts/linq/how-to-create-a-list-of-items
 
     ' Properties:
-    ' I'll have to figure out how to implement the
-    ' commands for the apps. Actually, I can
-    ' temporarily hard-code tiles like I did
-    ' with the All Apps list.
+    ' Specify an alias for the class based on this code:
+    ' https://stackoverflow.com/a/37809414
+    ' It has to be right above the property it's using.
+    ' I converted the code using the Telerik C# to VB.NET Code Converter:
+    ' https://converter.telerik.com/
     ' Property to store the .desktop file path for
     ' the tiles.
+    <YamlMember(GetType(StartScreenTileEntry), [Alias]:="DotDesktopFilePath")>
     Public Property TileDotDesktopFile As String
     ' Tile width and height are self-explanatory.
     Public Property TileWidth As Integer
