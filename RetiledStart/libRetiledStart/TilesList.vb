@@ -25,7 +25,6 @@
 '   limitations under the License.
 
 
-Imports YamlDotNet.RepresentationModel
 Imports YamlDotNet.Serialization
 
 Public Class TilesList
