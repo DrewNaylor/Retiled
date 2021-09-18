@@ -62,7 +62,7 @@ Public Class TilesList
             ' https://stackoverflow.com/questions/45966647/yaml-object-lists
             ' Deserialize the YAML.
             Dim YamlDeserializer = New DeserializerBuilder().Build()
-            ' Not sure what "res" is short for, but it's from the issue below.
+            ' I have no clue why this isn't working and I can't figure it out.
             Dim DeserializedItems = YamlDeserializer.Deserialize(YamlDeserializer, List(StartScreenTileEntry))
 
             ' Load the file into YamlDotNet to get the tiles.
