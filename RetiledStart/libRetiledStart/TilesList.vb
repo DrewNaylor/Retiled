@@ -52,12 +52,8 @@ Public Class TilesList
 
         ' Get the startlayout.yaml file.
         Using StartLayoutYamlFile As New IO.StreamReader(AppContext.BaseDirectory & "startlayout.yaml")
-            Dim YamlStream As New YamlStream
-            YamlStream.Load(StartLayoutYamlFile)
             Debug.WriteLine(StartLayoutYamlFile.ReadToEnd)
 
-            ' Define the root we're going to loop through.
-            Dim YamlRoot = CType(YamlStream.Documents(0).RootNode, YamlMappingNode)
             ' May need this:
             ' https://stackoverflow.com/questions/45966647/yaml-object-lists
             ' Deserialize the YAML.
@@ -70,7 +66,7 @@ Public Class TilesList
             ' about "!contact": https://github.com/aaubry/YamlDotNet/wiki/Serialization.Deserializer#withtagmappingstring-type
             ' Also, this .NET Fiddle result could be modified to get to what I need,
             ' as the "items" part has a similar layout to my file: https://dotnetfiddle.net/HD2JXM
-            Dim DeserializedItems = YamlDeserializer.Deserialize(Of StartScreenLayout)(CType(YamlStream, YamlDotNet.Core.IParser))
+            Dim DeserializedItems = YamlDeserializer.Deserialize(Of StartScreenLayout)(StartLayoutYamlFile)
 
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget,
@@ -79,13 +75,16 @@ Public Class TilesList
             For Each Entry In StartScreenLayout.TilesList
                 ' Add the item.
                 ' Using Select Case to make it faster than If/Else.
-                Debug.WriteLine(Entry.Value)
+                Debug.WriteLine(Entry.TileDotDesktopFile)
+                Debug.WriteLine(Entry.TileColor)
+                Debug.WriteLine(Entry.TileWidth)
+                Debug.WriteLine(Entry.TileHeight)
 
-                TilesList.Add(New StartScreenTileEntry(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString,
-                                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString, "Name"),
-                                                       CInt(CType(Entry.Value("TileWidth"), YamlScalarNode).Value),
-                                                       CInt(CType(Entry.Value("TileHeight"), YamlScalarNode).Value),
-                                                       CType(Entry.Value("TileColor"), YamlScalarNode).Value.ToString))
+                'TilesList.Add(New StartScreenTileEntry(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString,
+                '                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString, "Name"),
+                '                                       CInt(CType(Entry.Value("TileWidth"), YamlScalarNode).Value),
+                '                                       CInt(CType(Entry.Value("TileHeight"), YamlScalarNode).Value),
+                '                                       CType(Entry.Value("TileColor"), YamlScalarNode).Value.ToString))
             Next
             'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             '    ' Check if the file ends with .desktop.
