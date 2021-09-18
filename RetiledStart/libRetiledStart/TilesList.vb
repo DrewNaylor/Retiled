@@ -63,12 +63,12 @@ Public Class TilesList
             For Each Entry In YamlRoot.Children
                 ' Add the item.
                 ' Using Select Case to make it faster than If/Else.
-
-                TilesList.Add(New StartScreenTileEntry(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value,
-                                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value, "Name"),
-                                                       CType(Entry.Key("TileWidth"), YamlScalarNode).Value,
-                                                       CType(Entry.Key("TileHeight"), YamlScalarNode).Value,
-                                                       CType(Entry.Key("TileColor"), YamlScalarNode).Value))
+                Debug.WriteLine(Entry.Key)
+                'TilesList.Add(New StartScreenTileEntry(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value.ToString,
+                '                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value.ToString, "Name"),
+                '                                       CInt(CType(Entry.Key("TileWidth"), YamlScalarNode).Value),
+                '                                       CInt(CType(Entry.Key("TileHeight"), YamlScalarNode).Value),
+                '                                       CType(Entry.Key("TileColor"), YamlScalarNode).Value.ToString))
             Next
             'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             '    ' Check if the file ends with .desktop.
@@ -144,21 +144,21 @@ Public Class StartScreenTileEntry
     ' with the All Apps list.
     ' Property to store the .desktop file path for
     ' the tiles.
-    Public Property TileDotDesktopFile As YamlNode
+    Public Property TileDotDesktopFile As String
     ' Tile width and height are self-explanatory.
-    Public Property TileWidth As YamlNode
-    Public Property TileHeight As YamlNode
+    Public Property TileWidth As Integer
+    Public Property TileHeight As Integer
     ' For now we'll store tile colors in strings,
     ' but this may be changed eventually if the "Color"
     ' type makes more sense to use. Probably should
     ' look at what properties MahApps.Metro uses
     ' for their tiles.
-    Public Property TileColor As YamlNode
+    Public Property TileColor As String
     ' The text at the bottom of the tile.
-    Public Property TileAppNameAreaText As YamlNode
+    Public Property TileAppNameAreaText As String
     ' Tile image. This isn't used right now as
     ' the code for getting app icons is unimplemented.
-    Public Property TileImage As YamlNode
+    Public Property TileImage As String
 
     ' Required due to "Your custom class must be public and support a default (parameterless) public constructor."
     ' https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/xaml-and-custom-classes-for-wpf?view=netframeworkdesktop-4.8
@@ -166,11 +166,11 @@ Public Class StartScreenTileEntry
 
     End Sub
 
-    Public Sub New(tileDotDesktopFileValue As YamlNode,
-                   tileAppNameAreaTextValue As YamlNode,
-                   tileWidthValue As YamlNode,
-                   tileHeightValue As YamlNode,
-                   tileColorValue As YamlNode)
+    Public Sub New(tileDotDesktopFileValue As String,
+                   tileAppNameAreaTextValue As String,
+                   tileWidthValue As Integer,
+                   tileHeightValue As Integer,
+                   tileColorValue As String)
 
         ' Set the properties to be the parameters.
         ' Not using the filename for now. If using it
