@@ -158,9 +158,11 @@ Public Class StartScreenLayout
     ' Need to have a class to refer to the layout file
     ' when deserializing the tile entries.
     ' Start layout schema version, which starts at 0.1.
+    <YamlMember([Alias]:="StartLayoutSchemaVersion", ApplyNamingConventions:=False)>
     Public Property StartLayoutSchemaVersion As Version
     ' Get a list of the tiles specified in the YAML file.
     ' Forgot to have it be shared.
+    <YamlMember([Alias]:="Tiles", ApplyNamingConventions:=False)>
     Public Property Tiles As List(Of StartScreenTileEntry)
 End Class
 
@@ -179,15 +181,19 @@ Public Class StartScreenTileEntry
     ' https://converter.telerik.com/
     ' Property to store the .desktop file path for
     ' the tiles.
+    <YamlMember([Alias]:="DotDesktopFilePath", ApplyNamingConventions:=False)>
     Public Property DotDesktopFilePath As String
     ' Tile width and height are self-explanatory.
+    <YamlMember([Alias]:="TileWidth", ApplyNamingConventions:=False)>
     Public Property TileWidth As Integer
+    <YamlMember([Alias]:="TileHeight", ApplyNamingConventions:=False)>
     Public Property TileHeight As Integer
     ' For now we'll store tile colors in strings,
     ' but this may be changed eventually if the "Color"
     ' type makes more sense to use. Probably should
     ' look at what properties MahApps.Metro uses
     ' for their tiles.
+    <YamlMember([Alias]:="TileColor", ApplyNamingConventions:=False)>
     Public Property TileColor As String
     ' The text at the bottom of the tile.
     Public Property TileAppNameAreaText As String
