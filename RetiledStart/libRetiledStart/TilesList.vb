@@ -25,6 +25,7 @@
 '   limitations under the License.
 
 
+Imports YamlDotNet
 
 Public Class TilesList
 
@@ -51,6 +52,9 @@ Public Class TilesList
         ' Get the startlayout.yaml file.
         Using StartLayoutYamlFile As New IO.StreamReader(AppContext.BaseDirectory & "startlayout.yaml")
             Debug.WriteLine(StartLayoutYamlFile.ReadToEnd)
+
+            ' Load the file into YamlDotNet to get the tiles.
+
 
             'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             '    ' Check if the file ends with .desktop.
