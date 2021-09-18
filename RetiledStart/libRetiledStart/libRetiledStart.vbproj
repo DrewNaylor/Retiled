@@ -17,6 +17,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="11.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="libdotdesktop-standard">
       <HintPath>..\..\lib\libdotdesktop-standard.dll</HintPath>
     </Reference>
