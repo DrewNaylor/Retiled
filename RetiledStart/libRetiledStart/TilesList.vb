@@ -52,7 +52,7 @@ Public Class TilesList
 
         ' Get the startlayout.yaml file.
         Using StartLayoutYamlFile = New IO.StreamReader(AppContext.BaseDirectory & "startlayout.yaml")
-            Debug.WriteLine(StartLayoutYamlFile.ReadToEnd)
+            'Debug.WriteLine(StartLayoutYamlFile.ReadToEnd)
 
             ' May need this:
             ' https://stackoverflow.com/questions/45966647/yaml-object-lists
@@ -73,6 +73,8 @@ Public Class TilesList
             ' Actually, some of this stuff is based on the YamlDotNet deserialization
             ' into an object graph sample: https://github.com/aaubry/YamlDotNet/wiki/Samples.DeserializeObjectGraph
             Dim LocalStartScreenLayout = YamlDeserializer.Deserialize(Of StartScreenLayout)(StartLayoutYamlFile)
+
+            Debug.WriteLine(LocalStartScreenLayout)
 
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget,
@@ -178,7 +180,6 @@ Public Class StartScreenTileEntry
     ' https://converter.telerik.com/
     ' Property to store the .desktop file path for
     ' the tiles.
-    <YamlMember(GetType(StartScreenTileEntry), [Alias]:="DotDesktopFilePath")>
     Public Property DotDesktopFilePath As String
     ' Tile width and height are self-explanatory.
     Public Property TileWidth As Integer
