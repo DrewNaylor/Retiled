@@ -76,7 +76,7 @@ Public Class TilesList
             ' Mostly basing this code off what I did in guinget,
             ' though I need to use this as well:
             ' https://github.com/aaubry/YamlDotNet/issues/334#issuecomment-421928467
-            For Each Entry In YamlRoot.Children
+            For Each Entry In StartScreenLayout.TilesList
                 ' Add the item.
                 ' Using Select Case to make it faster than If/Else.
                 Debug.WriteLine(Entry.Value)
@@ -153,7 +153,8 @@ Public Class StartScreenLayout
     ' Start layout schema version, which starts at 0.1.
     Public Property StartLayoutSchemaVersion As Version
     ' Get a list of the tiles specified in the YAML file.
-    Public Property TilesList As List(Of StartScreenTileEntry)
+    ' Forgot to have it be shared.
+    Public Shared Property TilesList As List(Of StartScreenTileEntry)
 End Class
 
 
