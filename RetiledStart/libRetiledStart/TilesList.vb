@@ -58,10 +58,12 @@ Public Class TilesList
 
             ' Define the root we're going to loop through.
             Dim YamlRoot = CType(YamlStream.Documents(0).RootNode, YamlMappingNode)
+            ' May need this:
+            ' https://stackoverflow.com/questions/45966647/yaml-object-lists
             ' Deserialize the YAML.
             Dim YamlDeserializer = New DeserializerBuilder().Build()
             ' Not sure what "res" is short for, but it's from the issue below.
-            Dim res = YamlDeserializer.Deserialize(CType(YamlStream, YamlDotNet.Core.IParser))
+            Dim DeserializedItems = YamlDeserializer.Deserialize(YamlDeserializer, List(StartScreenTileEntry))
 
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget,
