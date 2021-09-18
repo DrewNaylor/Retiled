@@ -1,0 +1,74 @@
+﻿# startlayout.yaml - Default tile layout for RetiledStart.
+# Windows Phone and all other related copyrights and trademarks are property
+# of Microsoft Corporation. All rights reserved to Microsoft for Microsoft's 
+# copyrights and trademarks.
+#
+# This file is a part of the Retiled project.
+# Neither Retiled nor Drew Naylor are associated with Microsoft
+# and Microsoft does not endorse Retiled.
+# Any other copyrights and trademarks belong to their
+# respective people and companies/organizations.
+#
+#
+#   Due to this file essentially being a configuration file, this file
+#   may be used in any form for any purpose and is not restricted by
+#   any license. If this paragraph results in this file being incompatible
+#   with the license of a project you'd like to use it with,
+#   then the MIT License applies to this file as follows:
+#
+#      Copyright (C) 2021 Drew Naylor
+# 
+#      Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
+#      documentation files (the “Software”), to deal in the Software without restriction, including without limitation 
+#      the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and 
+#      to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+# 
+#      The above copyright notice and this permission notice shall be included in all copies or substantial portions 
+#      of the Software.
+# 
+#      THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
+#      TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+#      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+#      CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+#      IN THE SOFTWARE.
+#
+
+# This file was partially based on the winget installer manifest spec.
+Tiles:
+- DotDesktopFilePath: "/usr/share/applications/firefox.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 150
+  TileHeight: 150
+- DotDesktopFilePath: "/usr/share/applications/org.kde.angelfish.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 150
+  TileHeight: 150
+- DotDesktopFilePath: "/usr/share/applications/org.kde.index.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 310
+  TileHeight: 150
+- DotDesktopFilePath: "/usr/share/applications/org.kde.discover.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 150
+  TileHeight: 150
+- DotDesktopFilePath: "/usr/share/applications/htop.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 70
+  TileHeight: 70
+- DotDesktopFilePath: "/usr/share/applications/org.kde.kalk.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 70
+  TileHeight: 70
+- DotDesktopFilePath: "/usr/share/applications/org.kde.nota.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 70
+  TileHeight: 70
+- DotDesktopFilePath: "/usr/share/applications/org.kde.phone.dialer.desktop"
+  TileColor: "Red"
+  TileWidth: 70
+  TileHeight: 70
+- DotDesktopFilePath: "/usr/share/applications/org.kde.okular.desktop"
+  TileColor: "#0050ef"
+  TileWidth: 150
+  TileHeight: 150
+StartLayoutSchemaVersion: 0.1
