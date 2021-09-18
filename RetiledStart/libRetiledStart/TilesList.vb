@@ -32,6 +32,8 @@ Public Class TilesList
         ' Gets the list of tiles that should be shown on Start.
         ' Currently has the list of tiles hardcoded.
 
+
+
         ' Define a collection of tiles to use.
         Dim TilesList As New List(Of StartScreenTileEntry)
         ' Define a path we'll set later.
@@ -47,41 +49,41 @@ Public Class TilesList
         'End If
 
         ' Get the startlayout.yaml file.
-        Dim StartLayoutYamlFile As String = AppContext.BaseDirectory
-        Debug.WriteLine(StartLayoutYamlFile.ToString)
+        Using StartLayoutYamlFile As New IO.StreamReader(AppContext.BaseDirectory & "startlayout.yaml")
+            Debug.WriteLine(StartLayoutYamlFile.ReadToEnd)
 
-        'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
-        '    ' Check if the file ends with .desktop.
-        '    If DotDesktopFile.EndsWith(".desktop") Then
+            'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
+            '    ' Check if the file ends with .desktop.
+            '    If DotDesktopFile.EndsWith(".desktop") Then
 
-        '        If Not desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
-        '            ' Make sure this .desktop file is supposed to be shown.
-        '            ' Add its name if it's in the file.
-        '            If desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
-        '                DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
-        '                                                                         desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name")))
-        '            Else
-        '                ' It's not in the file, so add its filename.
-        '                DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
-        '                                                                         DotDesktopFile.ToString))
-        '            End If
+            '        If Not desktopEntryStuff.getInfo(DotDesktopFile, "NoDisplay") = "true" Then
+            '            ' Make sure this .desktop file is supposed to be shown.
+            '            ' Add its name if it's in the file.
+            '            If desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name") IsNot Nothing Then
+            '                DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+            '                                                                         desktopEntryStuff.getInfo(DotDesktopFile.ToString, "Name")))
+            '            Else
+            '                ' It's not in the file, so add its filename.
+            '                DotDesktopFilesList.Add(New DotDesktopEntryInAllAppsList(DotDesktopFile.ToString,
+            '                                                                         DotDesktopFile.ToString))
+            '            End If
 
-        '        End If
+            '        End If
 
-        '    End If
-        'Next
+            '    End If
+            'Next
 
-        ' Add hardcoded tiles to the list.
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/firefox.desktop", "Firefox", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.index.desktop", "Index", 310, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.discover.desktop", "Discover", 150, 150, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.kalk.desktop", "Calculator", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.nota.desktop", "Nota", 70, 70, "#0050ef"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.phone.dialer.desktop", "Phone", 70, 70, "Red"))
-        TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.okular.desktop", "Okular", 150, 150, "#0050ef"))
-
+            ' Add hardcoded tiles to the list.
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/firefox.desktop", "Firefox", 150, 150, "#0050ef"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.index.desktop", "Index", 310, 150, "#0050ef"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.discover.desktop", "Discover", 150, 150, "#0050ef"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", 70, 70, "#0050ef"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.kalk.desktop", "Calculator", 70, 70, "#0050ef"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.nota.desktop", "Nota", 70, 70, "#0050ef"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.phone.dialer.desktop", "Phone", 70, 70, "Red"))
+            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.okular.desktop", "Okular", 150, 150, "#0050ef"))
+        End Using
 
         ' This is where we actually sort the list.
         ' Stuff here ended up being really useful.
@@ -96,13 +98,15 @@ Public Class TilesList
         ' Define a new ObservableCollection that we'll use to copy the file paths into.
         Dim ObservableTilesList As New ObjectModel.ObservableCollection(Of StartScreenTileEntry)
 
-        ' Add all of the items that are file paths to the new ObservableCollection.
-        For Each Item In TilesList
-            ObservableTilesList.Add(New StartScreenTileEntry(Item.TileDotDesktopFile, Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor))
-        Next
+            ' Add all of the items that are file paths to the new ObservableCollection.
+            For Each Item In TilesList
+                ObservableTilesList.Add(New StartScreenTileEntry(Item.TileDotDesktopFile, Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor))
+            Next
 
-        ' Return the collection.
-        Return ObservableTilesList
+
+
+            ' Return the collection.
+            Return ObservableTilesList
 
     End Function
 
