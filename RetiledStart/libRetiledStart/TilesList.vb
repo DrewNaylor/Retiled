@@ -87,6 +87,18 @@ Public Class TilesList
                 Debug.WriteLine(Entry.TileWidth)
                 Debug.WriteLine(Entry.TileHeight)
 
+                ' TODO: Make sure the .desktop files exist, and if they don't,
+                ' just use the path. Preferably this should have tiles fade out,
+                ' but that would take more work. Actually, it would be a good idea
+                ' to allow users to use the "Name" key in the .desktop file by default
+                ' and let them override that value by specifying something in the
+                ' startlayout.yaml file. If the name key in the YAML file is
+                ' empty or missing, then it first falls back to the .desktop file's
+                ' "Name" key, then if that's missing, it falls back to the .desktop file
+                ' path. There should also be an item to allow people to hide the tile text,
+                ' and that'll also have the overriding function, but instead the .desktop
+                ' files will have an "X-Retiled-" property item thing, in case developers
+                ' decide to include support for Retiled.
                 If OperatingSystem.IsLinux = True Then
                     TilesList.Add(New StartScreenTileEntry(Entry.DotDesktopFilePath,
                                                        libdotdesktop_standard.desktopEntryStuff.getInfo(Entry.DotDesktopFilePath, "Name"),
