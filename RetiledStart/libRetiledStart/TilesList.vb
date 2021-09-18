@@ -26,6 +26,7 @@
 
 
 Imports YamlDotNet.RepresentationModel
+Imports YamlDotNet.Serialization
 
 Public Class TilesList
 
@@ -57,18 +58,25 @@ Public Class TilesList
 
             ' Define the root we're going to loop through.
             Dim YamlRoot = CType(YamlStream.Documents(0).RootNode, YamlMappingNode)
+            ' Deserialize the YAML.
+            Dim YamlDeserializer = New DeserializerBuilder().Build()
+            ' Not sure what "res" is short for, but it's from the issue below.
+            Dim res = CType(YamlDeserializer.Deserialize(YamlStream), Dynamic)
 
             ' Load the file into YamlDotNet to get the tiles.
-            ' Mostly basing this code off what I did in guinget.
+            ' Mostly basing this code off what I did in guinget,
+            ' though I need to use this as well:
+            ' https://github.com/aaubry/YamlDotNet/issues/334#issuecomment-421928467
             For Each Entry In YamlRoot.Children
                 ' Add the item.
                 ' Using Select Case to make it faster than If/Else.
-                Debug.WriteLine(Entry.Key)
-                'TilesList.Add(New StartScreenTileEntry(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value.ToString,
-                '                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value.ToString, "Name"),
-                '                                       CInt(CType(Entry.Key("TileWidth"), YamlScalarNode).Value),
-                '                                       CInt(CType(Entry.Key("TileHeight"), YamlScalarNode).Value),
-                '                                       CType(Entry.Key("TileColor"), YamlScalarNode).Value.ToString))
+                Debug.WriteLine(Entry.Value)
+
+                TilesList.Add(New StartScreenTileEntry(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString,
+                                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString, "Name"),
+                                                       CInt(CType(Entry.Value("TileWidth"), YamlScalarNode).Value),
+                                                       CInt(CType(Entry.Value("TileHeight"), YamlScalarNode).Value),
+                                                       CType(Entry.Value("TileColor"), YamlScalarNode).Value.ToString))
             Next
             'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             '    ' Check if the file ends with .desktop.
