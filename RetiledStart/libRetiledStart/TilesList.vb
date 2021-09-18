@@ -51,7 +51,7 @@ Public Class TilesList
         'End If
 
         ' Get the startlayout.yaml file.
-        Using StartLayoutYamlFile As New IO.StreamReader(AppContext.BaseDirectory & "startlayout.yaml")
+        Using StartLayoutYamlFile = New IO.StreamReader(AppContext.BaseDirectory & "startlayout.yaml")
             Debug.WriteLine(StartLayoutYamlFile.ReadToEnd)
 
             ' May need this:
