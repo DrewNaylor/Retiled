@@ -58,9 +58,10 @@ Public Class TilesList
             ' https://stackoverflow.com/questions/45966647/yaml-object-lists
             ' Deserialize the YAML.
             ' As linked below, newer versions of YamlDotNet use a different deserializer thing.
-            Dim YamlDeserializer = New DeserializerBuilder()
-            YamlDeserializer.WithNamingConvention(NamingConventions.CamelCaseNamingConvention.Instance)
-            YamlDeserializer.Build()
+            ' I had to mostly auto-convert the code from the sample using the Telerik converter because it wouldn't build
+            ' and I couldn't figure it out manually.
+            Dim YamlDeserializer = New DeserializerBuilder().WithNamingConvention(NamingConventions.CamelCaseNamingConvention.Instance).Build()
+
             ' I have no clue why this isn't working and I can't figure it out.
             ' Actually, I think I need to deserialize into an array, since
             ' that's what the winget schema uses:
@@ -151,6 +152,7 @@ Public Class TilesList
 
 End Class
 
+
 Public Class StartScreenLayout
     ' Need to have a class to refer to the layout file
     ' when deserializing the tile entries.
@@ -200,10 +202,10 @@ Public Class StartScreenTileEntry
     End Sub
 
     Public Sub New(tileDotDesktopFileValue As String,
-                   tileAppNameAreaTextValue As String,
-                   tileWidthValue As Integer,
-                   tileHeightValue As Integer,
-                   tileColorValue As String)
+                       tileAppNameAreaTextValue As String,
+                       tileWidthValue As Integer,
+                       tileHeightValue As Integer,
+                       tileColorValue As String)
 
         ' Set the properties to be the parameters.
         ' Not using the filename for now. If using it
