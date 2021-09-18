@@ -87,11 +87,19 @@ Public Class TilesList
                 Debug.WriteLine(Entry.TileWidth)
                 Debug.WriteLine(Entry.TileHeight)
 
-                'TilesList.Add(New StartScreenTileEntry(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString,
-                '                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Value("DotDesktopFilePath"), YamlScalarNode).Value.ToString, "Name"),
-                '                                       CInt(CType(Entry.Value("TileWidth"), YamlScalarNode).Value),
-                '                                       CInt(CType(Entry.Value("TileHeight"), YamlScalarNode).Value),
-                '                                       CType(Entry.Value("TileColor"), YamlScalarNode).Value.ToString))
+                If OperatingSystem.IsLinux = True Then
+                    TilesList.Add(New StartScreenTileEntry(Entry.DotDesktopFilePath,
+                                                       libdotdesktop_standard.desktopEntryStuff.getInfo(Entry.DotDesktopFilePath, "Name"),
+                                                       Entry.TileWidth,
+                                                       Entry.TileHeight,
+                                                       Entry.TileColor))
+                Else
+                    TilesList.Add(New StartScreenTileEntry(Entry.DotDesktopFilePath,
+                                                       Entry.DotDesktopFilePath,
+                                                       Entry.TileWidth,
+                                                       Entry.TileHeight,
+                                                       Entry.TileColor))
+                End If
             Next
             'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             '    ' Check if the file ends with .desktop.
