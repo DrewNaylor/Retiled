@@ -25,7 +25,7 @@
 '   limitations under the License.
 
 
-Imports YamlDotNet
+Imports YamlDotNet.RepresentationModel
 
 Public Class TilesList
 
@@ -54,7 +54,7 @@ Public Class TilesList
             Debug.WriteLine(StartLayoutYamlFile.ReadToEnd)
 
             ' Load the file into YamlDotNet to get the tiles.
-
+            YamlDotNet
 
             'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             '    ' Check if the file ends with .desktop.
