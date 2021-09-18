@@ -61,7 +61,7 @@ Public Class TilesList
             ' Deserialize the YAML.
             Dim YamlDeserializer = New DeserializerBuilder().Build()
             ' Not sure what "res" is short for, but it's from the issue below.
-            Dim res = CType(YamlDeserializer.Deserialize(YamlStream), Dynamic)
+            Dim res = YamlDeserializer.Deserialize(CType(YamlStream, YamlDotNet.Core.IParser))
 
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget,
