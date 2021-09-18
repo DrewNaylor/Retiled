@@ -70,7 +70,7 @@ Public Class TilesList
             ' about "!contact": https://github.com/aaubry/YamlDotNet/wiki/Serialization.Deserializer#withtagmappingstring-type
             ' Also, this .NET Fiddle result could be modified to get to what I need,
             ' as the "items" part has a similar layout to my file: https://dotnetfiddle.net/HD2JXM
-            Dim DeserializedItems = YamlDeserializer.Deserialize(YamlDeserializer, Array)
+            Dim DeserializedItems = YamlDeserializer.Deserialize(Of StartScreenLayout)(CType(YamlStream, YamlDotNet.Core.IParser))
 
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget,
