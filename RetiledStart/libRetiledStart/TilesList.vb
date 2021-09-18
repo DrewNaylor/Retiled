@@ -147,6 +147,14 @@ Public Class TilesList
 
 End Class
 
+Public Class StartScreenLayout
+    ' Need to have a class to refer to the layout file
+    ' when deserializing the tile entries.
+    ' Start layout schema version, which starts at 0.1.
+    Public Property StartLayoutSchemaVersion As Version
+
+End Class
+
 
 Public Class StartScreenTileEntry
     ' Adding a new class so we can get and store
