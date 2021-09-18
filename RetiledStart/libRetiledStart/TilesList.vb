@@ -61,7 +61,14 @@ Public Class TilesList
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget.
             For Each Entry In YamlRoot.Children
+                ' Add the item.
+                ' Using Select Case to make it faster than If/Else.
 
+                TilesList.Add(New StartScreenTileEntry(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value,
+                                                       libdotdesktop_standard.desktopEntryStuff.getInfo(CType(Entry.Key("DotDesktopFilePath"), YamlScalarNode).Value, "Name"),
+                                                       CType(Entry.Key("TileWidth"), YamlScalarNode).Value,
+                                                       CType(Entry.Key("TileHeight"), YamlScalarNode).Value,
+                                                       CType(Entry.Key("TileColor"), YamlScalarNode).Value))
             Next
             'For Each DotDesktopFile As String In FileIO.FileSystem.GetFiles(DotDesktopFilesPath)
             '    ' Check if the file ends with .desktop.
@@ -85,15 +92,15 @@ Public Class TilesList
             'Next
 
             ' Add hardcoded tiles to the list.
-            TilesList.Add(New StartScreenTileEntry("/usr/share/applications/firefox.desktop", "Firefox", 150, 150, "#0050ef"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.index.desktop", "Index", 310, 150, "#0050ef"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.discover.desktop", "Discover", 150, 150, "#0050ef"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", 70, 70, "#0050ef"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.kalk.desktop", "Calculator", 70, 70, "#0050ef"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.nota.desktop", "Nota", 70, 70, "#0050ef"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.phone.dialer.desktop", "Phone", 70, 70, "Red"))
-                TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.okular.desktop", "Okular", 150, 150, "#0050ef"))
+            'TilesList.Add(New StartScreenTileEntry("/usr/share/applications/firefox.desktop", "Firefox", 150, 150, "#0050ef"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.index.desktop", "Index", 310, 150, "#0050ef"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.discover.desktop", "Discover", 150, 150, "#0050ef"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", 70, 70, "#0050ef"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.kalk.desktop", "Calculator", 70, 70, "#0050ef"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.nota.desktop", "Nota", 70, 70, "#0050ef"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.phone.dialer.desktop", "Phone", 70, 70, "Red"))
+            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.okular.desktop", "Okular", 150, 150, "#0050ef"))
         End Using
 
         ' This is where we actually sort the list.
@@ -137,21 +144,21 @@ Public Class StartScreenTileEntry
     ' with the All Apps list.
     ' Property to store the .desktop file path for
     ' the tiles.
-    Public Property TileDotDesktopFile As String
+    Public Property TileDotDesktopFile As YamlNode
     ' Tile width and height are self-explanatory.
-    Public Property TileWidth As Integer
-    Public Property TileHeight As Integer
+    Public Property TileWidth As YamlNode
+    Public Property TileHeight As YamlNode
     ' For now we'll store tile colors in strings,
     ' but this may be changed eventually if the "Color"
     ' type makes more sense to use. Probably should
     ' look at what properties MahApps.Metro uses
     ' for their tiles.
-    Public Property TileColor As String
+    Public Property TileColor As YamlNode
     ' The text at the bottom of the tile.
-    Public Property TileAppNameAreaText As String
+    Public Property TileAppNameAreaText As YamlNode
     ' Tile image. This isn't used right now as
     ' the code for getting app icons is unimplemented.
-    Public Property TileImage As String
+    Public Property TileImage As YamlNode
 
     ' Required due to "Your custom class must be public and support a default (parameterless) public constructor."
     ' https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/xaml-and-custom-classes-for-wpf?view=netframeworkdesktop-4.8
@@ -159,11 +166,11 @@ Public Class StartScreenTileEntry
 
     End Sub
 
-    Public Sub New(tileDotDesktopFileValue As String,
-                   tileAppNameAreaTextValue As String,
-                   tileWidthValue As Integer,
-                   tileHeightValue As Integer,
-                   tileColorValue As String)
+    Public Sub New(tileDotDesktopFileValue As YamlNode,
+                   tileAppNameAreaTextValue As YamlNode,
+                   tileWidthValue As YamlNode,
+                   tileHeightValue As YamlNode,
+                   tileColorValue As YamlNode)
 
         ' Set the properties to be the parameters.
         ' Not using the filename for now. If using it
