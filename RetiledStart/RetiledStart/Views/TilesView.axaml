@@ -150,7 +150,7 @@ respective people and companies/organizations.
 							<Button Classes="StartTile" Height="{Binding TileHeight}" Width="{Binding TileWidth}"
 								Content="{Binding TileAppNameAreaText}" Background="{Binding TileColor}"
 									Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}"
-									CommandParameter="{Binding TileDotDesktopFile}">
+									CommandParameter="{Binding DotDesktopFilePath}">
 								<Button.Styles>
 									<!-- Set up some styles here because I can't easily set them in the other file. -->
 									<Style Selector="Button.StartTile:pressed /template/ ContentPresenter">
