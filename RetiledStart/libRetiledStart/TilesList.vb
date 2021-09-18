@@ -57,7 +57,7 @@ Public Class TilesList
             ' May need this:
             ' https://stackoverflow.com/questions/45966647/yaml-object-lists
             ' Deserialize the YAML.
-            Dim YamlDeserializer = New DeserializerBuilder().Build()
+            Dim YamlDeserializer = New Deserializer()
             ' I have no clue why this isn't working and I can't figure it out.
             ' Actually, I think I need to deserialize into an array, since
             ' that's what the winget schema uses:
