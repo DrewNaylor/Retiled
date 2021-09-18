@@ -152,7 +152,8 @@ Public Class StartScreenLayout
     ' when deserializing the tile entries.
     ' Start layout schema version, which starts at 0.1.
     Public Property StartLayoutSchemaVersion As Version
-
+    ' Get a list of the tiles specified in the YAML file.
+    Public Property TilesList As List(Of StartScreenTileEntry)
 End Class
 
 
