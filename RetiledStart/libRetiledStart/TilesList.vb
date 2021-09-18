@@ -78,10 +78,10 @@ Public Class TilesList
             ' Mostly basing this code off what I did in guinget,
             ' though I need to use this as well:
             ' https://github.com/aaubry/YamlDotNet/issues/334#issuecomment-421928467
-            For Each Entry In LocalStartScreenLayout.TilesList
+            For Each Entry In LocalStartScreenLayout.Tiles
                 ' Add the item.
                 ' Using Select Case to make it faster than If/Else.
-                Debug.WriteLine(Entry.TileDotDesktopFile)
+                Debug.WriteLine(Entry.DotDesktopFilePath)
                 Debug.WriteLine(Entry.TileColor)
                 Debug.WriteLine(Entry.TileWidth)
                 Debug.WriteLine(Entry.TileHeight)
@@ -140,7 +140,7 @@ Public Class TilesList
 
         ' Add all of the items that are file paths to the new ObservableCollection.
         For Each Item In TilesList
-            ObservableTilesList.Add(New StartScreenTileEntry(Item.TileDotDesktopFile, Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor))
+            ObservableTilesList.Add(New StartScreenTileEntry(Item.DotDesktopFilePath, Item.TileAppNameAreaText, Item.TileWidth, Item.TileHeight, Item.TileColor))
         Next
 
 
@@ -157,10 +157,10 @@ Public Class StartScreenLayout
     ' Need to have a class to refer to the layout file
     ' when deserializing the tile entries.
     ' Start layout schema version, which starts at 0.1.
-    Public Shared Property StartLayoutSchemaVersion As Version
+    Public Property StartLayoutSchemaVersion As Version
     ' Get a list of the tiles specified in the YAML file.
     ' Forgot to have it be shared.
-    Public Shared Property TilesList As List(Of StartScreenTileEntry)
+    Public Property Tiles As List(Of StartScreenTileEntry)
 End Class
 
 
@@ -179,7 +179,7 @@ Public Class StartScreenTileEntry
     ' Property to store the .desktop file path for
     ' the tiles.
     <YamlMember(GetType(StartScreenTileEntry), [Alias]:="DotDesktopFilePath")>
-    Public Property TileDotDesktopFile As String
+    Public Property DotDesktopFilePath As String
     ' Tile width and height are self-explanatory.
     Public Property TileWidth As Integer
     Public Property TileHeight As Integer
@@ -211,7 +211,7 @@ Public Class StartScreenTileEntry
         ' Not using the filename for now. If using it
         ' later, it'll have to be added back in as
         ' "fileName As String,"
-        TileDotDesktopFile = tileDotDesktopFileValue
+        DotDesktopFilePath = tileDotDesktopFileValue
         TileWidth = tileWidthValue
         TileHeight = tileHeightValue
         TileColor = tileColorValue
