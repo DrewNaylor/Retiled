@@ -68,6 +68,8 @@ Public Class TilesList
             ' https://raw.githubusercontent.com/microsoft/winget-cli/master/schemas/JSON/manifests/v1.0.0/manifest.installer.1.0.0.json
             ' This part of the documentation might help to an extent where it talks
             ' about "!contact": https://github.com/aaubry/YamlDotNet/wiki/Serialization.Deserializer#withtagmappingstring-type
+            ' Also, this .NET Fiddle result could be modified to get to what I need,
+            ' as the "items" part has a similar layout to my file: https://dotnetfiddle.net/HD2JXM
             Dim DeserializedItems = YamlDeserializer.Deserialize(YamlDeserializer, Array)
 
             ' Load the file into YamlDotNet to get the tiles.
