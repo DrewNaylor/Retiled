@@ -57,7 +57,10 @@ Public Class TilesList
             ' May need this:
             ' https://stackoverflow.com/questions/45966647/yaml-object-lists
             ' Deserialize the YAML.
-            Dim YamlDeserializer = New Deserializer()
+            ' As linked below, newer versions of YamlDotNet use a different deserializer thing.
+            Dim YamlDeserializer = New DeserializerBuilder()
+            YamlDeserializer.WithNamingConvention(NamingConventions.CamelCaseNamingConvention.Instance)
+            YamlDeserializer.Build()
             ' I have no clue why this isn't working and I can't figure it out.
             ' Actually, I think I need to deserialize into an array, since
             ' that's what the winget schema uses:
@@ -66,6 +69,8 @@ Public Class TilesList
             ' about "!contact": https://github.com/aaubry/YamlDotNet/wiki/Serialization.Deserializer#withtagmappingstring-type
             ' Also, this .NET Fiddle result could be modified to get to what I need,
             ' as the "items" part has a similar layout to my file: https://dotnetfiddle.net/HD2JXM
+            ' Actually, some of this stuff is based on the YamlDotNet deserialization
+            ' into an object graph sample: https://github.com/aaubry/YamlDotNet/wiki/Samples.DeserializeObjectGraph
             Dim LocalStartScreenLayout = YamlDeserializer.Deserialize(Of StartScreenLayout)(StartLayoutYamlFile)
 
             ' Load the file into YamlDotNet to get the tiles.
@@ -150,7 +155,7 @@ Public Class StartScreenLayout
     ' Need to have a class to refer to the layout file
     ' when deserializing the tile entries.
     ' Start layout schema version, which starts at 0.1.
-    Public Property StartLayoutSchemaVersion As Version
+    Public Shared Property StartLayoutSchemaVersion As Version
     ' Get a list of the tiles specified in the YAML file.
     ' Forgot to have it be shared.
     Public Shared Property TilesList As List(Of StartScreenTileEntry)
