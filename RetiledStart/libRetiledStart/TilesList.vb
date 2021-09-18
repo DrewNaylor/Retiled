@@ -66,13 +66,13 @@ Public Class TilesList
             ' about "!contact": https://github.com/aaubry/YamlDotNet/wiki/Serialization.Deserializer#withtagmappingstring-type
             ' Also, this .NET Fiddle result could be modified to get to what I need,
             ' as the "items" part has a similar layout to my file: https://dotnetfiddle.net/HD2JXM
-            Dim DeserializedItems = YamlDeserializer.Deserialize(Of StartScreenLayout)(StartLayoutYamlFile)
+            Dim LocalStartScreenLayout = YamlDeserializer.Deserialize(Of StartScreenLayout)(StartLayoutYamlFile)
 
             ' Load the file into YamlDotNet to get the tiles.
             ' Mostly basing this code off what I did in guinget,
             ' though I need to use this as well:
             ' https://github.com/aaubry/YamlDotNet/issues/334#issuecomment-421928467
-            For Each Entry In StartScreenLayout.TilesList
+            For Each Entry In LocalStartScreenLayout.TilesList
                 ' Add the item.
                 ' Using Select Case to make it faster than If/Else.
                 Debug.WriteLine(Entry.TileDotDesktopFile)
