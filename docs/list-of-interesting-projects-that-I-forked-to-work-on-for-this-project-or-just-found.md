@@ -39,3 +39,6 @@
 
 14. [DiligentWindows](https://github.com/DrewNaylor/DiligentWindows)
 <br>This project is really cool too, and the controls should come in useful when working on the lock screen and action center. I really like the blurred look of the action center here, so I will probably add an option to allow people to blur their Action Center and show their wallpaper behind the blur. In true Windows Phone style, the blur will stay the same amount and more of the image will be shown as it's dragged down. Maybe it would be a good idea to just save a blurred copy of the Start screen wallpaper when the user checks the box to blur the background to save memory. Actually, maybe that would also be useful for the blurred Start screen image, too. Could also offer to have a different image for the Action Center too, if the user wants. Licensed under the MIT License and from here: https://github.com/ratishphilip/DiligentWindows
+
+15. [FluentAvalonia](https://github.com/DrewNaylor/FluentAvalonia)
+<br>Shouldn't need to use the fork, but I just did anyway for archival. This project has a bunch of controls and stuff ported to Avalonia that may be useful. Licensed under the MIT License and forked from here: https://github.com/amwx/FluentAvalonia
