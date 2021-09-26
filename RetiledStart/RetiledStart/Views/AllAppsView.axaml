@@ -103,7 +103,10 @@ respective people and companies/organizations.
 									  as the main tile for an app.
 									  TODO 2: Figure out how to close the ContextFlyout after using an item.
 									  TODO 3: This flyout isn't accurate, but I need something. Found something that
-									  may help with the darkening: https://stackoverflow.com/questions/62194012/avalonia-ui-pop-up-overlay -->
+									  may help with the darkening: https://stackoverflow.com/questions/62194012/avalonia-ui-pop-up-overlay
+									  TODO 4: I don't know how to make the menus show up on the PinePhone (and other
+									  touchscreen devices) yet. "Holding" may be useful, but I don't know where
+									  to put it: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.uielement.holding?view=winrt-20348-->
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
