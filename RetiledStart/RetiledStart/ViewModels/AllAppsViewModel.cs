@@ -57,6 +57,17 @@ namespace RetiledStart.ViewModels
 
         }
 
+        public void PutStuffInDebugger(string FilenameProperty)
+        {
+            // Send it to the other code.
+            //Console.WriteLine(ExecFilename);
+            //Console.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
+            //Debug.WriteLine(ExecFilename);
+            //Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
+            Debug.WriteLine(FilenameProperty);
+
+        }
+
         public string GetText(string DotDesktopFilename)
         {
             // Get .desktop file text for displaying on the button.
