@@ -49,6 +49,34 @@ namespace RetiledStart.ViewModels
 
         }
 
+        public void UnpinTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-unpinning code.
+            libRetiledStart.TilesList.UnpinTile(FilenameProperty);
+
+        }
+
+        public void ResizeToMediumTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-resizing code.
+            libRetiledStart.TilesList.ResizeTile(FilenameProperty, "medium");
+
+        }
+
+        public void ResizeToWideTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-resizing code.
+            libRetiledStart.TilesList.ResizeTile(FilenameProperty, "wide");
+
+        }
+
+        public void ResizeToSmallTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-resizing code.
+            libRetiledStart.TilesList.ResizeTile(FilenameProperty, "small");
+
+        }
+
 
         // Couldn't figure out how to do this, so I based
         // this code off this SO answer:
