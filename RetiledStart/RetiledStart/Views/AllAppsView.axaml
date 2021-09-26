@@ -95,7 +95,8 @@ respective people and companies/organizations.
 						  <!-- Started trying to figure out contextflyout based on this page:
 						  https://github.com/AvaloniaUI/Avalonia/issues/5172 -->
 						  <Button.ContextFlyout>
-							  <Flyout Placement="Top">
+							  <Flyout Placement="BottomEdgeAlignedLeft" ShowMode="Standard">
+								  <!-- Not sure if those settings do anything. -->
 								  <StackPanel>
 									  <!-- TODO: Check if there's already a tile pinned for this
 									  app and prevent the user from using the MenuItems if that's the case.
@@ -118,7 +119,7 @@ respective people and companies/organizations.
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (small)" />
 								  </StackPanel>
-							  </Flyout>
+								  </Flyout>
 						  </Button.ContextFlyout>
 						  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 							  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
