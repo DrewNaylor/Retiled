@@ -33,6 +33,7 @@ Public Class TilesList
         ' Unpin the tile based on the FilenameProperty.
 
         Debug.WriteLine(".desktop file: " & FilenameProperty)
+        Console.WriteLine(".desktop file: " & FilenameProperty)
     End Sub
 
     Public Shared Sub ResizeTile(FilenameProperty As String, TileSize As String)
@@ -72,8 +73,11 @@ Public Class TilesList
         ' Write the tile data into the startlayout file so it's resized.
         ' TODO: Implement this.
         Debug.WriteLine(".desktop file: " & FilenameProperty)
+        Console.WriteLine(".desktop file: " & FilenameProperty)
         Debug.WriteLine("Width: " & TileWidth)
+        Console.WriteLine("Width: " & TileWidth)
         Debug.WriteLine("Height: " & TileHeight)
+        Console.WriteLine("Height: " & TileHeight)
     End Sub
 
     Public Shared Function GetTilesList() As ObjectModel.ObservableCollection(Of StartScreenTileEntry)
