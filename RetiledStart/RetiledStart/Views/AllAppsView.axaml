@@ -99,7 +99,9 @@ respective people and companies/organizations.
 						  from anyware, rather than just on the text. -->
 						  <!-- Started trying to figure out contextflyout based on this page:
 						  https://github.com/AvaloniaUI/Avalonia/issues/5172
-						  Here's stuff on flyouts from MSDN: https://docs.microsoft.com/en-us/windows/apps/design/controls/menus -->
+						  Here's stuff on flyouts from MSDN: https://docs.microsoft.com/en-us/windows/apps/design/controls/menus 
+						  Here's a thing on ContextFlyouts specifically on MSDN: https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.uielement.contextflyout?view=winui-3.0
+						  That link has code that changes stuff on the target item, so it should help for resizing tiles at runtime. -->
 						  <Button.ContextFlyout>
 							  <Flyout Placement="BottomEdgeAlignedLeft" ShowMode="Standard">
 								  <!-- Not sure if those settings do anything. -->
