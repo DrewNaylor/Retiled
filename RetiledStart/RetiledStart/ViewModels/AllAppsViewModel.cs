@@ -57,14 +57,24 @@ namespace RetiledStart.ViewModels
 
         }
 
-        public void PutStuffInDebugger(string FilenameProperty)
+        public void PinMediumTile(string FilenameProperty)
         {
-            // Send it to the other code.
-            //Console.WriteLine(ExecFilename);
-            //Console.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
-            //Debug.WriteLine(ExecFilename);
-            //Debug.WriteLine(desktopEntryStuff.getInfo(ExecFilename, "Exec"));
-            Debug.WriteLine(FilenameProperty);
+            // Send the .desktop file to the more-general tile-pinning code.
+            libRetiledStart.AppsList.PinTile(FilenameProperty, "medium");
+
+        }
+
+        public void PinWideTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-pinning code.
+            libRetiledStart.AppsList.PinTile(FilenameProperty, "wide");
+
+        }
+
+        public void PinSmallTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-pinning code.
+            libRetiledStart.AppsList.PinTile(FilenameProperty, "small");
 
         }
 
