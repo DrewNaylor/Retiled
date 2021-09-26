@@ -92,7 +92,9 @@ respective people and companies/organizations.
 							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch"
 							  Gestures.RightTapped="ContextFlyout.Show">
 						  <!-- Not sure what I need for the Gestures.RightTapped to make it show the
-						  context flyout. -->
+						  context flyout. 
+						  This might help:
+						  https://github.com/AvaloniaUI/Avalonia/issues/2242 -->
 						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. -->
 						  <!-- Started trying to figure out contextflyout based on this page:
