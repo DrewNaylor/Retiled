@@ -92,6 +92,17 @@ respective people and companies/organizations.
 							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
 						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. -->
+						  <!-- Started trying to figure out contextflyout based on this page:
+						  https://github.com/AvaloniaUI/Avalonia/issues/5172 -->
+						  <Button.ContextFlyout>
+							  <Flyout Placement="Top">
+								  <StackPanel>
+								    <TextBlock Text="pin to start (medium)" />
+									<TextBlock Text="pin to start (wide)" />
+									<TextBlock Text="pin to start (small)" />
+								  </StackPanel>
+							  </Flyout>
+						  </Button.ContextFlyout>
 						  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 							  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
