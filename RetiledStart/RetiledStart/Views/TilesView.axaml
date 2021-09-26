@@ -168,16 +168,16 @@ respective people and companies/organizations.
 											<!-- TODO: Figure out a way to have tiles resize at runtime and move
 											the buttons to the corners of the tiles instead of just a context menu. -->
 											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.UnpinTile}"
-													  CommandParameter="{Binding FileNameProperty}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
 													  Header="unpin tile" />
-											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.ResizeToWideTile}"
-													  CommandParameter="{Binding FileNameProperty}"
+											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.ResizeToMediumTile}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
 													  Header="resize tile (medium)" />
 											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.ResizeToWideTile}"
-													  CommandParameter="{Binding FileNameProperty}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
 													  Header="resize tile (wide)" />
 											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.ResizeToSmallTile}"
-													  CommandParameter="{Binding FileNameProperty}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
 													  Header="resize tile (small)" />
 										</StackPanel>
 									</Flyout>
