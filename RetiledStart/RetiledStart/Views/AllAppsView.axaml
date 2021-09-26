@@ -108,7 +108,9 @@ respective people and companies/organizations.
 									  TODO 4: I don't know how to make the menus show up on the PinePhone (and other
 									  touchscreen devices) yet. "Holding" may be useful, but I don't know where
 									  to put it: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.uielement.holding?view=winrt-20348
-									  More details in Avalonia: https://github.com/AvaloniaUI/Avalonia/issues/6538 -->
+									  More details in Avalonia: https://github.com/AvaloniaUI/Avalonia/issues/6538
+									  Actually, maybe something here might help: https://stackoverflow.com/questions/33051372/how-to-add-listbox-item-contextmenu-in-uwp 
+									  That link mentions the RightTapped event. -->
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
