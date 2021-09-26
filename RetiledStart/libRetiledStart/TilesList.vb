@@ -29,6 +29,45 @@ Imports YamlDotNet.Serialization
 
 Public Class TilesList
 
+    Public Shared Sub ResizeTile(FilenameProperty As String, TileSize As String)
+        ' This code may actually be able to be shared with the pinning code, but
+        ' there may have to be a boolean that determines whether to edit a tile
+        ' or to pin a tile.
+        ' Just pasting the code here for now as a placeholder.
+
+        ' Based on the size of the tile, we'll set different
+        ' values in the startlayout.yaml file.
+        ' Set up variables to store width and height.
+        Dim TileWidth As Integer = 150
+        Dim TileHeight As Integer = 150
+        Select Case TileSize
+            Case "medium"
+                TileWidth = 150
+                TileHeight = 150
+            Case "wide"
+                TileWidth = 310
+                TileHeight = 150
+            Case "small"
+                TileWidth = 70
+                TileHeight = 70
+            Case Else
+                ' If there's something else passed in,
+                ' just set it to medium, which is the default.
+                TileWidth = 150
+                TileHeight = 150
+        End Select
+
+        ' Now we can start reading the startlayout.yaml file to see
+        ' whether it needs to be copied to the user's AppData (or equivalent) folder.
+        ' TODO: Implement this.
+
+        ' Write the tile data into the startlayout file so it's resized.
+        ' TODO: Implement this.
+        Debug.WriteLine(".desktop file: " & FilenameProperty)
+        Debug.WriteLine("Width: " & TileWidth)
+        Debug.WriteLine("Height: " & TileHeight)
+    End Sub
+
     Public Shared Function GetTilesList() As ObjectModel.ObservableCollection(Of StartScreenTileEntry)
         ' Gets the list of tiles that should be shown on Start.
         ' Currently has the list of tiles hardcoded.
