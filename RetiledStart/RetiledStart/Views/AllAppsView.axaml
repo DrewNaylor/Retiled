@@ -98,7 +98,8 @@ respective people and companies/organizations.
 						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. -->
 						  <!-- Started trying to figure out contextflyout based on this page:
-						  https://github.com/AvaloniaUI/Avalonia/issues/5172 -->
+						  https://github.com/AvaloniaUI/Avalonia/issues/5172
+						  Here's stuff on flyouts from MSDN: https://docs.microsoft.com/en-us/windows/apps/design/controls/menus -->
 						  <Button.ContextFlyout>
 							  <Flyout Placement="BottomEdgeAlignedLeft" ShowMode="Standard">
 								  <!-- Not sure if those settings do anything. -->
