@@ -55,6 +55,37 @@ Public Class AppsList
         End Try
     End Sub
 
+    Public Shared Sub PinTile(FilenameProperty As String, TileSize As String)
+        ' Based on the size of the tile, we'll set different
+        ' values in the startlayout.yaml file.
+        ' Set up variables to store width and height.
+        Dim TileWidth As Integer = 150
+        Dim TileHeight As Integer = 150
+        Select Case TileSize
+            Case "medium"
+                TileWidth = 150
+                TileHeight = 150
+            Case "wide"
+                TileWidth = 310
+                TileHeight = 150
+            Case "small"
+                TileWidth = 70
+                TileHeight = 70
+            Case Else
+                ' If there's something else passed in,
+                ' just set it to medium, which is the default.
+                TileWidth = 150
+                TileHeight = 150
+        End Select
+
+        ' Now we can start reading the startlayout.yaml file to see
+        ' whether it needs to be copied to the user's AppData (or equivalent) folder.
+        ' TODO: Implement this.
+
+        ' Write the tile into the startlayout file so it's pinned.
+        ' TODO: Implement this.
+    End Sub
+
     Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of DotDesktopEntryInAllAppsList)
         ' Gets all .desktop files in /usr/share/applications
         ' on Linux or my desktop on Windows.

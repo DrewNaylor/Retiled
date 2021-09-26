@@ -97,6 +97,10 @@ respective people and companies/organizations.
 						  <Button.ContextFlyout>
 							  <Flyout Placement="Top">
 								  <StackPanel>
+									  <!-- TODO: Check if there's already a tile pinned for this
+									  app and prevent the user from using the MenuItems if that's the case.
+									  Not sure how to handle deep-linking tiles to make sure they're not counted
+									  as the main tile for an app. -->
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
