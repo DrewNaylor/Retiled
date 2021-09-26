@@ -101,13 +101,13 @@ respective people and companies/organizations.
 									  app and prevent the user from using the MenuItems if that's the case.
 									  Not sure how to handle deep-linking tiles to make sure they're not counted
 									  as the main tile for an app. -->
-								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
+								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
-									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
+									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinWideTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (wide)" />
-									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
+									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinSmallTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (small)" />
 								  </StackPanel>

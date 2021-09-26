@@ -84,6 +84,9 @@ Public Class AppsList
 
         ' Write the tile into the startlayout file so it's pinned.
         ' TODO: Implement this.
+        Debug.WriteLine(".desktop file: " & FilenameProperty)
+        Debug.WriteLine("Width: " & TileWidth)
+        Debug.WriteLine("Height: " & TileHeight)
     End Sub
 
     Public Shared Function GetDotDesktopFiles() As ObjectModel.ObservableCollection(Of DotDesktopEntryInAllAppsList)
