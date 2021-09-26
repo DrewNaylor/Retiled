@@ -89,7 +89,10 @@ respective people and companies/organizations.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
 					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" 
 							  CommandParameter="{Binding FileNameProperty}"
-							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
+							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch"
+							  Gestures.RightTapped="ContextFlyout.Show">
+						  <!-- Not sure what I need for the Gestures.RightTapped to make it show the
+						  context flyout. -->
 						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. -->
 						  <!-- Started trying to figure out contextflyout based on this page:
@@ -110,7 +113,8 @@ respective people and companies/organizations.
 									  to put it: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.uielement.holding?view=winrt-20348
 									  More details in Avalonia: https://github.com/AvaloniaUI/Avalonia/issues/6538
 									  Actually, maybe something here might help: https://stackoverflow.com/questions/33051372/how-to-add-listbox-item-contextmenu-in-uwp 
-									  That link mentions the RightTapped event. -->
+									  That link mentions the RightTapped event.
+									  Here's some stuff about RightTapped on MSDN: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.uielement.righttapped?view=winrt-20348 -->
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
