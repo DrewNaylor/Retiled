@@ -117,7 +117,8 @@ respective people and companies/organizations.
 									  Actually, maybe something here might help: https://stackoverflow.com/questions/33051372/how-to-add-listbox-item-contextmenu-in-uwp 
 									  That link mentions the RightTapped event.
 									  Here's some stuff about RightTapped on MSDN: https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.uielement.righttapped?view=winui-3.0
-									  May be useful to look at this sample: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/xamlcontextmenu/ -->
+									  May be useful to look at this sample: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/xamlcontextmenu/ 
+									  Or maybe this one: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/contextmenu/ -->
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
