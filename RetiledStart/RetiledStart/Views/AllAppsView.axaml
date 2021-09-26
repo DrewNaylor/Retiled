@@ -98,13 +98,13 @@ respective people and companies/organizations.
 							  <Flyout Placement="Top">
 								  <StackPanel>
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
-											  CommandParameter="{Binding}"
+											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
 									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
-											  CommandParameter="{Binding}"
+											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (wide)" />
 									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
-											  CommandParameter="{Binding}"
+											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (small)" />
 								  </StackPanel>
 							  </Flyout>
