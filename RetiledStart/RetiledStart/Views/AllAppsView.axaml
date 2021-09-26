@@ -101,7 +101,9 @@ respective people and companies/organizations.
 									  app and prevent the user from using the MenuItems if that's the case.
 									  Not sure how to handle deep-linking tiles to make sure they're not counted
 									  as the main tile for an app.
-									  TODO 2: Figure out how to close the ContextFlyout after using an item. -->
+									  TODO 2: Figure out how to close the ContextFlyout after using an item.
+									  TODO 3: This flyout isn't accurate, but I need something. Found something that
+									  may help with the darkening: https://stackoverflow.com/questions/62194012/avalonia-ui-pop-up-overlay -->
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
