@@ -118,7 +118,8 @@ respective people and companies/organizations.
 									  That link mentions the RightTapped event.
 									  Here's some stuff about RightTapped on MSDN: https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.uielement.righttapped?view=winui-3.0
 									  May be useful to look at this sample: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/xamlcontextmenu/ 
-									  Or maybe this one: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/contextmenu/ -->
+									  Or maybe this one: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/contextmenu/ 
+									  Maybe this page will help: https://github.com/microsoft/Windows-universal-samples/blob/main/Samples/XamlContextMenu/shared/Scenario3.xaml -->
 								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
