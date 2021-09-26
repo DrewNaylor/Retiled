@@ -29,10 +29,18 @@ Imports YamlDotNet.Serialization
 
 Public Class TilesList
 
+    Public Shared Sub UnpinTile(FilenameProperty As String)
+        ' Unpin the tile based on the FilenameProperty.
+
+        Debug.WriteLine(".desktop file: " & FilenameProperty)
+    End Sub
+
     Public Shared Sub ResizeTile(FilenameProperty As String, TileSize As String)
         ' This code may actually be able to be shared with the pinning code, but
         ' there may have to be a boolean that determines whether to edit a tile
-        ' or to pin a tile.
+        ' or to pin a tile. Actually, maybe unpinning tiles can be done in the same
+        ' block, though maybe that'll require a "TileEditMode" string to choose between
+        ' pinning, resizing, moving, or unpinning a tile. Not sure how to move tiles yet.
         ' Just pasting the code here for now as a placeholder.
 
         ' Based on the size of the tile, we'll set different
