@@ -97,9 +97,15 @@ respective people and companies/organizations.
 						  <Button.ContextFlyout>
 							  <Flyout Placement="Top">
 								  <StackPanel>
-								    <MenuItem Header="pin to start (medium)" />
-									<MenuItem Header="pin to start (wide)" />
-									<MenuItem Header="pin to start (small)" />
+								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
+											  CommandParameter="{Binding}"
+											  Header="pin to start (medium)" />
+									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
+											  CommandParameter="{Binding}"
+											  Header="pin to start (wide)" />
+									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PutStuffInDebugger}"
+											  CommandParameter="{Binding}"
+											  Header="pin to start (small)" />
 								  </StackPanel>
 							  </Flyout>
 						  </Button.ContextFlyout>
