@@ -42,7 +42,10 @@ respective people and companies/organizations.
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButtonWhiteBackgroundOnPress.axaml" />
 	</UserControl.Styles>
 	<UserControl.Resources>
-		<!-- Using stuff on the UIElement.ContextRequested event from MSDN. -->
+		<!-- Using stuff on the UIElement.ContextRequested event from MSDN.
+		Actually, maybe this code from Avalonia will be what I'll have to use:
+		https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextMenuPage.xaml.cs -->
+		
 		<MenuFlyout x:Key="AllAppsContextMenu">
 			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
@@ -103,7 +106,8 @@ respective people and companies/organizations.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
 					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" 
 							  CommandParameter="{Binding FileNameProperty}"
-							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
+							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch"
+							  ContextRequested="{Binding $parent[ItemsRepeater].DataContext.OpenContextMenu}">
 						  <!-- Not sure what I need for the Gestures.RightTapped to make it show the
 						  context flyout on long-press on a touchscreen in X11. Thought it should just work. 
 						  This might help:
