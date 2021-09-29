@@ -115,10 +115,10 @@ respective people and companies/organizations.
 						  Here's stuff on flyouts from MSDN: https://docs.microsoft.com/en-us/windows/apps/design/controls/menus 
 						  Here's a thing on ContextFlyouts specifically on MSDN: https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.uielement.contextflyout?view=winui-3.0
 						  That link has code that changes stuff on the target item, so it should help for resizing tiles at runtime. -->
-						  <Button.ContextFlyout>
-							  <Flyout Placement="BottomEdgeAlignedLeft" ShowMode="Standard">
+						  <!--<Button.ContextFlyout>
+							  <Flyout Placement="BottomEdgeAlignedLeft" ShowMode="Standard">-->
 								  <!-- Not sure if those settings do anything. -->
-								  <StackPanel>
+								  <!--<StackPanel>-->
 									  <!-- TODO: Check if there's already a tile pinned for this
 									  app and prevent the user from using the MenuItems if that's the case.
 									  Not sure how to handle deep-linking tiles to make sure they're not counted
@@ -136,7 +136,7 @@ respective people and companies/organizations.
 									  May be useful to look at this sample: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/xamlcontextmenu/ 
 									  Or maybe this one: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/contextmenu/ 
 									  Maybe this page will help: https://github.com/microsoft/Windows-universal-samples/blob/main/Samples/XamlContextMenu/shared/Scenario3.xaml -->
-								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
+								    <!--<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (medium)" />
 									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinWideTile}"
@@ -146,8 +146,8 @@ respective people and companies/organizations.
 											  CommandParameter="{Binding FileNameProperty}"
 											  Header="pin to start (small)" />
 								  </StackPanel>
-								  </Flyout>
-						  </Button.ContextFlyout>
+								  </Flyout>-->
+						  <!--</Button.ContextFlyout>-->
 						  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 							  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:
