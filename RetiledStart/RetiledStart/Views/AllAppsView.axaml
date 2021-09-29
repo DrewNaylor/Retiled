@@ -40,7 +40,21 @@ respective people and companies/organizations.
 		idea of what they look like. -->
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButtonWhiteBackgroundOnPress.axaml" />
-		</UserControl.Styles>
+	</UserControl.Styles>
+	<UserControl.Resources>
+		<!-- Using stuff on the UIElement.ContextRequested event from MSDN. -->
+		<MenuFlyout x:Key="AllAppsContextMenu">
+			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
+											  CommandParameter="{Binding FileNameProperty}"
+											  Header="pin to start (medium)" />
+			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinWideTile}"
+					  CommandParameter="{Binding FileNameProperty}"
+					  Header="pin to start (wide)" />
+			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinSmallTile}"
+					  CommandParameter="{Binding FileNameProperty}"
+					  Header="pin to start (small)" />
+		</MenuFlyout>
+	</UserControl.Resources>
   <Grid Margin="0" ColumnDefinitions="30,*">
 	  
 	 <StackPanel Margin="10,20,10,10">
