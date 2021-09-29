@@ -29,6 +29,60 @@ Imports YamlDotNet.Serialization
 
 Public Class TilesList
 
+    Public Shared Sub UnpinTile(FilenameProperty As String)
+        ' Unpin the tile based on the FilenameProperty.
+        ' I don't know how to handle the instance where there are multiple
+        ' tiles of the same .desktop file. That should only be a problem if
+        ' tiles are manually added.
+
+        Debug.WriteLine(".desktop file: " & FilenameProperty)
+        Console.WriteLine(".desktop file: " & FilenameProperty)
+    End Sub
+
+    Public Shared Sub ResizeTile(FilenameProperty As String, TileSize As String)
+        ' This code may actually be able to be shared with the pinning code, but
+        ' there may have to be a boolean that determines whether to edit a tile
+        ' or to pin a tile. Actually, maybe unpinning tiles can be done in the same
+        ' block, though maybe that'll require a "TileEditMode" string to choose between
+        ' pinning, resizing, moving, or unpinning a tile. Not sure how to move tiles yet.
+        ' Just pasting the code here for now as a placeholder.
+
+        ' Based on the size of the tile, we'll set different
+        ' values in the startlayout.yaml file.
+        ' Set up variables to store width and height.
+        Dim TileWidth As Integer = 150
+        Dim TileHeight As Integer = 150
+        Select Case TileSize
+            Case "medium"
+                TileWidth = 150
+                TileHeight = 150
+            Case "wide"
+                TileWidth = 310
+                TileHeight = 150
+            Case "small"
+                TileWidth = 70
+                TileHeight = 70
+            Case Else
+                ' If there's something else passed in,
+                ' just set it to medium, which is the default.
+                TileWidth = 150
+                TileHeight = 150
+        End Select
+
+        ' Now we can start reading the startlayout.yaml file to see
+        ' whether it needs to be copied to the user's AppData (or equivalent) folder.
+        ' TODO: Implement this.
+
+        ' Write the tile data into the startlayout file so it's resized.
+        ' TODO: Implement this.
+        Debug.WriteLine(".desktop file: " & FilenameProperty)
+        Console.WriteLine(".desktop file: " & FilenameProperty)
+        Debug.WriteLine("Width: " & TileWidth)
+        Console.WriteLine("Width: " & TileWidth)
+        Debug.WriteLine("Height: " & TileHeight)
+        Console.WriteLine("Height: " & TileHeight)
+    End Sub
+
     Public Shared Function GetTilesList() As ObjectModel.ObservableCollection(Of StartScreenTileEntry)
         ' Gets the list of tiles that should be shown on Start.
         ' Currently has the list of tiles hardcoded.

@@ -40,7 +40,16 @@ respective people and companies/organizations.
 		idea of what they look like. -->
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButton.axaml" />
 		<StyleInclude Source="avares://RetiledStart/Styles/RoundButtonWhiteBackgroundOnPress.axaml" />
-		</UserControl.Styles>
+	</UserControl.Styles>
+	<UserControl.Resources>
+		<!-- Using stuff on the UIElement.ContextRequested event from MSDN.
+		Actually, maybe this code from Avalonia will be what I'll have to use:
+		https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml.cs
+		Also this, for XAML: https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml
+		Actually, it turns out that the code there doesn't work on the PinePhone. Either I'll have to wait until Avalonia
+		supports long-pressing to open context menus, or I'll have to go to something like QML.NET. Or I could always
+		implement the necessary code into Avalonia, but I don't know how to do it. -->
+	</UserControl.Resources>
   <Grid Margin="0" ColumnDefinitions="30,*">
 	  
 	 <StackPanel Margin="10,20,10,10">
@@ -90,8 +99,50 @@ respective people and companies/organizations.
 					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" 
 							  CommandParameter="{Binding FileNameProperty}"
 							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
+						  <!-- Not sure what I need for the Gestures.RightTapped to make it show the
+						  context flyout on long-press on a touchscreen in X11. Thought it should just work. 
+						  This might help:
+						  https://github.com/AvaloniaUI/Avalonia/issues/2242 -->
 						  <!-- HorizontalAlignment="Stretch" ensures you can click or tap on the buttons
 						  from anyware, rather than just on the text. -->
+						  <!-- Started trying to figure out contextflyout based on this page:
+						  https://github.com/AvaloniaUI/Avalonia/issues/5172
+						  Here's stuff on flyouts from MSDN: https://docs.microsoft.com/en-us/windows/apps/design/controls/menus 
+						  Here's a thing on ContextFlyouts specifically on MSDN: https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.uielement.contextflyout?view=winui-3.0
+						  That link has code that changes stuff on the target item, so it should help for resizing tiles at runtime. -->
+						  <Button.ContextFlyout>
+							  <Flyout Placement="BottomEdgeAlignedLeft" ShowMode="Standard">
+								  <!-- Not sure if those settings do anything. -->
+								  <StackPanel>
+									  <!-- TODO: Check if there's already a tile pinned for this
+									  app and prevent the user from using the MenuItems if that's the case.
+									  Not sure how to handle deep-linking tiles to make sure they're not counted
+									  as the main tile for an app.
+									  TODO 2: Figure out how to close the ContextFlyout after using an item.
+									  TODO 3: This flyout isn't accurate, but I need something. Found something that
+									  may help with the darkening: https://stackoverflow.com/questions/62194012/avalonia-ui-pop-up-overlay
+									  TODO 4: I don't know how to make the menus show up on the PinePhone (and other
+									  touchscreen devices) yet. "Holding" may be useful, but I don't know where
+									  to put it: https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.uielement.holding?view=winrt-20348
+									  More details in Avalonia: https://github.com/AvaloniaUI/Avalonia/issues/6538
+									  Actually, maybe something here might help: https://stackoverflow.com/questions/33051372/how-to-add-listbox-item-contextmenu-in-uwp 
+									  That link mentions the RightTapped event.
+									  Here's some stuff about RightTapped on MSDN: https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.uielement.righttapped?view=winui-3.0
+									  May be useful to look at this sample: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/xamlcontextmenu/ 
+									  Or maybe this one: https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/contextmenu/ 
+									  Maybe this page will help: https://github.com/microsoft/Windows-universal-samples/blob/main/Samples/XamlContextMenu/shared/Scenario3.xaml -->
+								    <MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
+											  CommandParameter="{Binding FileNameProperty}"
+											  Header="pin to start (medium)" />
+									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinWideTile}"
+											  CommandParameter="{Binding FileNameProperty}"
+											  Header="pin to start (wide)" />
+									<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinSmallTile}"
+											  CommandParameter="{Binding FileNameProperty}"
+											  Header="pin to start (small)" />
+								  </StackPanel>
+								  </Flyout>
+						  </Button.ContextFlyout>
 						  <StackPanel Height="55" Margin="0,5" Classes="RetiledAllAppsEntry_StackPanel" Orientation="Horizontal" Spacing="10">
 							  <Rectangle Classes="RetiledAllAppsEntry_Rectangle" Height="50" Width="50"/>
 							  <!-- MSDN says App List icons are 44x44 with 6x6 pixels of padding:

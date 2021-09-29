@@ -57,6 +57,27 @@ namespace RetiledStart.ViewModels
 
         }
 
+        public void PinMediumTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-pinning code.
+            libRetiledStart.AppsList.PinTile(FilenameProperty, "medium");
+
+        }
+
+        public void PinWideTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-pinning code.
+            libRetiledStart.AppsList.PinTile(FilenameProperty, "wide");
+
+        }
+
+        public void PinSmallTile(string FilenameProperty)
+        {
+            // Send the .desktop file to the more-general tile-pinning code.
+            libRetiledStart.AppsList.PinTile(FilenameProperty, "small");
+
+        }
+
         public string GetText(string DotDesktopFilename)
         {
             // Get .desktop file text for displaying on the button.

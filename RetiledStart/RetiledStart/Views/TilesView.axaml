@@ -162,6 +162,26 @@ respective people and companies/organizations.
 										<Setter Property="Background" Value="{Binding TileColor}"/>
 									</Style>
 								</Button.Styles>
+								<Button.ContextFlyout>
+									<Flyout Placement="Top">
+										<StackPanel>
+											<!-- TODO: Figure out a way to have tiles resize at runtime and move
+											the buttons to the corners of the tiles instead of just a context menu. -->
+											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.UnpinTile}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
+													  Header="unpin tile" />
+											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.ResizeToMediumTile}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
+													  Header="resize tile (medium)" />
+											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.ResizeToWideTile}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
+													  Header="resize tile (wide)" />
+											<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.ResizeToSmallTile}"
+													  CommandParameter="{Binding DotDesktopFilePath}"
+													  Header="resize tile (small)" />
+										</StackPanel>
+									</Flyout>
+								</Button.ContextFlyout>
 							</Button>
 						</DataTemplate>
 					</ItemsRepeater.ItemTemplate>
