@@ -45,19 +45,10 @@ respective people and companies/organizations.
 		<!-- Using stuff on the UIElement.ContextRequested event from MSDN.
 		Actually, maybe this code from Avalonia will be what I'll have to use:
 		https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml.cs
-		Also this, for XAML: https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml -->
-		
-		<MenuFlyout x:Key="AllAppsContextMenu">
-			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
-											  CommandParameter="{Binding FileNameProperty}"
-											  Header="pin to start (medium)" />
-			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinWideTile}"
-					  CommandParameter="{Binding FileNameProperty}"
-					  Header="pin to start (wide)" />
-			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinSmallTile}"
-					  CommandParameter="{Binding FileNameProperty}"
-					  Header="pin to start (small)" />
-		</MenuFlyout>
+		Also this, for XAML: https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml
+		Actually, it turns out that the code there doesn't work on the PinePhone. Either I'll have to wait until Avalonia
+		supports long-pressing to open context menus, or I'll have to go to something like QML.NET. Or I could always
+		implement the necessary code into Avalonia, but I don't know how to do it. -->
 	</UserControl.Resources>
   <Grid Margin="0" ColumnDefinitions="30,*">
 	  
@@ -107,8 +98,7 @@ respective people and companies/organizations.
 					  Found this SO answer which helped: https://stackoverflow.com/a/66838883 -->
 					  <Button Command="{Binding $parent[ItemsRepeater].DataContext.RunApp}" 
 							  CommandParameter="{Binding FileNameProperty}"
-							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch"
-							  ContextRequested="{Binding $parent[ItemsRepeater].DataContext.OpenContextMenu}">
+							  Padding="0,5" Classes="RetiledAllAppsEntry_Button" Height="60" HorizontalAlignment="Stretch">
 						  <!-- Not sure what I need for the Gestures.RightTapped to make it show the
 						  context flyout on long-press on a touchscreen in X11. Thought it should just work. 
 						  This might help:
