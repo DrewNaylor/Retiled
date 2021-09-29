@@ -31,6 +31,9 @@ Public Class TilesList
 
     Public Shared Sub UnpinTile(FilenameProperty As String)
         ' Unpin the tile based on the FilenameProperty.
+        ' I don't know how to handle the instance where there are multiple
+        ' tiles of the same .desktop file. That should only be a problem if
+        ' tiles are manually added.
 
         Debug.WriteLine(".desktop file: " & FilenameProperty)
         Console.WriteLine(".desktop file: " & FilenameProperty)
