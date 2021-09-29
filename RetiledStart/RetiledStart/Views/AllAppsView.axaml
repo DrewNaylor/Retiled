@@ -44,7 +44,8 @@ respective people and companies/organizations.
 	<UserControl.Resources>
 		<!-- Using stuff on the UIElement.ContextRequested event from MSDN.
 		Actually, maybe this code from Avalonia will be what I'll have to use:
-		https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml.cs -->
+		https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml.cs
+		Also this, for XAML: https://github.com/AvaloniaUI/Avalonia/blob/master/samples/ControlCatalog/Pages/ContextFlyoutPage.xaml -->
 		
 		<MenuFlyout x:Key="AllAppsContextMenu">
 			<MenuItem Command="{Binding $parent[ItemsRepeater].DataContext.PinMediumTile}"
