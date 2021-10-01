@@ -12,3 +12,6 @@ https://people.debian.org/~mpitt/systemd.conf-2016-graphical-session.pdf
 
 This page of the QML docs may be useful as a way to implement long-pressing buttons and opening context menus:
 https://doc.qt.io/qt-6/qml-qtquick-taphandler.html
+
+Qtile may be useful, as it's a tiling window manager written and configured in Python. Not sure how it would be useful, though. Actually, maybe it won't be useful, as I'd like people to be able to move windows around the screen when docked, so maybe I'll just use Kwin or something Qt-based until I can figure out something better or write something myself. Here's the link, anyway:
+https://github.com/qtile/qtile
