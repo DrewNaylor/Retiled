@@ -112,6 +112,10 @@ ApplicationWindow {
          }
          Button {
             id: searchButton
+			onClicked: {
+				console.log("clicked")
+			
+			}
             
             Layout.leftMargin: 24
             font.pixelSize: 18
