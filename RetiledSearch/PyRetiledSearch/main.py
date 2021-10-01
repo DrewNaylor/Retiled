@@ -8,6 +8,8 @@ from PySide6.QtQml import QQmlApplicationEngine
 
 
 if __name__ == "__main__":
+    # Set the Universal style.
+    sys.argv += ['--style', 'Universal']
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
     engine.load("Main-PyRetiledSearch.qml")
