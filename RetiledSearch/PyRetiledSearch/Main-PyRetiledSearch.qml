@@ -37,6 +37,9 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
 
+
+// TODO: Add an About page that says that this app "is powered by Qt, which is used here under the LGPL." I should probably say where to go to get the license, too. Probably should just see what other popular Qt apps do and do something similar. The About page will also have details about this app itself so people know what it is.
+
 ApplicationWindow {
     id: window
     width: 360
