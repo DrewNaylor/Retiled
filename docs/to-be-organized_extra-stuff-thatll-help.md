@@ -9,3 +9,6 @@ Not sure how to handle non-SystemD distros yet, but there may be a way and I'll 
 
 Also not sure how to start X11 or Wayland from the service so that the UI is shown. Will have to look into that. Edit: this presentation may help out a bit, not sure:
 https://people.debian.org/~mpitt/systemd.conf-2016-graphical-session.pdf
+
+This page of the QML docs may be useful as a way to implement long-pressing buttons and opening context menus:
+https://doc.qt.io/qt-6/qml-qtquick-taphandler.html
