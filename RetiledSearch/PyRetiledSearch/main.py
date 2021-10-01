@@ -36,6 +36,14 @@ import sys
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtCore import QObject, QUrl, Slot
+
+# Trying to figure out buttons with this:
+# https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
+class SearchCommands(QObject):
+    @Slot(qsTr)
+    def openUrl(self, url):
+        print(url)
 
 
 if __name__ == "__main__":
