@@ -113,7 +113,7 @@ ApplicationWindow {
          Button {
             id: searchButton
 			onClicked: {
-				console.log("clicked")
+				console.log(searchBox.text)
 			
 			}
             
