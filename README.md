@@ -10,9 +10,12 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 
 Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux, though I do know VB.NET, so that helps.
 
-## Notes
+## Required extra packages
 
-**NB:** You may need to install the `ttf-ms-fonts` package (name may vary by distro) so that the proper fonts are available to Avalonia, otherwise it'll crash.
+You may need to install packages through your distro's package manager, and those are as follows, though their names may vary by distro:
+- `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries
+- `pyside6`: Used for the UI of Python/QML-based components of Retiled
+- `ttf-ms-fonts`: Used for the text in Avalonia-based components of Retiled
 
 ## License stuff
 
