@@ -33,6 +33,7 @@
 import os
 from pathlib import Path
 import sys
+import webbrowser
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -42,8 +43,10 @@ from PySide6.QtCore import QObject, Slot
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
 class SearchCommands(QObject):
     @Slot(str)
-    def openUrl(self, url):
-        print(url)
+    def openUrl(self, searchTerm):
+        # Send the user to Bing based on this SO answer:
+		# https://stackoverflow.com/a/31715355
+        webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
 
 
 if __name__ == "__main__":
