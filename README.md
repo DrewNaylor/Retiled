@@ -17,6 +17,7 @@ You may need to install packages through your distro's package manager, and thos
   - `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries; should be Python 3, but I can't remember if the package itself is `python3`, so I'll need to check
   - `pyside6`: Used for the UI of Python/QML-based components of Retiled
   - `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
+  - `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
   - Python.NET: Allows using .NET libraries from .NET; unsure of the exact package name, or if it's in pacman
   - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
 - Avalonia-based components:
