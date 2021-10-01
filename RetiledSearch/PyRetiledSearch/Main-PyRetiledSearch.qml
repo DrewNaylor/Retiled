@@ -36,9 +36,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
-import QtQuick.Window
-// Using Window instead of ApplicationWindow makes the theme white,
-// for some reason.
+
 ApplicationWindow {
     id: window
     width: 360
