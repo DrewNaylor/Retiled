@@ -21,7 +21,7 @@ You may need to install packages through your distro's package manager, and thos
 - Avalonia-based components:
   - `ttf-ms-fonts`: Used for the text in Avalonia-based components of Retiled
 - Most components:
-  - .NET 5: Most components use .NET 5 in some way, so that's also required; not sure what it's called in Arch Linux ARM
+  - .NET 5: Most components use .NET 5 in some way, so that's also required; not sure what it's called in Arch Linux ARM, or if it's even available anymore; may need to manually extract it into the required location after downloading from Microsoft's website
 
 ## License stuff
 
