@@ -14,7 +14,7 @@ Development is mainly being done using the PinePhone, so that'll be the main sup
 
 You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use. The ones that say "via pip" are extra ones that developers will have to install if not on something like the PinePhone, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't in pip.
 - Python/PySide6/QML-based components:
-  - `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries; should be Python 3, but I can't remember if the package itself is `python3`, so I'll need to check
+  - `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries, though some parts may just use Python alone and not use .NET; should be Python 3, but I can't remember if the package itself is `python3`, so I'll need to check
   - `pyside6` (`PySide6` via pip): Used for the UI of Python/QML-based components of Retiled
   - `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
   - `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
