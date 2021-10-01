@@ -12,10 +12,16 @@ Development is mainly being done using the PinePhone, so that'll be the main sup
 
 ## Required extra packages
 
-You may need to install packages through your distro's package manager, and those are as follows, though their names may vary by distro:
-- `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries
-- `pyside6`: Used for the UI of Python/QML-based components of Retiled
-- `ttf-ms-fonts`: Used for the text in Avalonia-based components of Retiled
+You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM use:
+- Python/PySide6/QML-based components:
+  - `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries; should be Python 3, but I can't remember if the package itself is `python3`, so I'll need to check
+  - `pyside6`: Used for the UI of Python/QML-based components of Retiled
+  - `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
+  - Python.NET: Allows using .NET libraries from .NET; unsure of the exact package name, or if it's in pacman
+- Avalonia-based components:
+  - `ttf-ms-fonts`: Used for the text in Avalonia-based components of Retiled
+- Most components:
+  - .NET 5: Most components use .NET 5 in some way, so that's also required; not sure what it's called in Arch Linux ARM
 
 ## License stuff
 
