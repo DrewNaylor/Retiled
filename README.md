@@ -8,7 +8,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Status bar
 - [And more, with an entire list that was too long for the readme](/docs/eventual-feature-and-behavior-list.md)
 
-Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with C#, Avalonia, and .NET 5 on Linux, though I do know VB.NET, so that helps.
+Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with ~~C# and Avalonia~~ (there should be a strikethough there) Python and QML/PySide6, though I do know VB.NET, so that helps if I can figure out how to get Python.NET working on ARM.
 
 ## Required extra packages
 
@@ -31,15 +31,17 @@ You may need to install packages through your distro's package manager, and thos
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br>
-Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five). Anything else that's used in the future will be added to this list.
+Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, QML, PySide6. Anything else that's used in the future will be added to this list.
 
 ## Building and running
 
+These instructions are outdated as I'm working on a Python/QML/PySide6 rewrite, with perhaps some .NET if I can get Python.NET to work on ARM (hopefully I can, because I really don't want to have to rewrite all my code in libRetiledStart to Python).
 
 - Building
   - To build, run `dotnet build Retiled.sln`
   - Please ensure the `dotnet-sdk` is installed first, or building won't work.
   - On Linux, you may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
+  - The Python-based RetiledSearch rewrite (PyRetiledSearch; will be renamed to RetiledSearch once at feature-parity with the original) shouldn't need Python.NET, so you'll just need to install the packages listed above other than Python.NET.
 - Running
   - Windows
     - To run RetiledStart, run `dotnet "RetiledStart\RetiledStart\bin\Debug\net5.0\RetiledStart.dll"`
@@ -48,6 +50,9 @@ Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/),
     - To run RetiledStart, run `dotnet "RetiledStart/RetiledStart/bin/Debug/net5.0/RetiledStart.dll"`
     - To run RetiledSearch, run `dotnet "RetiledSearch/RetiledSearch/bin/Debug/net5.0/RetiledSearch.dll"`
     - You may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
+    - Running Python/QML-based apps requires installing the relevant packages as described in the `Building` section, then for PyRetiledSearch:
+      - `cd` into `Retiled/RetiledSearch/PyRetiledSearch`
+      - Run `python main.py`
 
 ## Video demos
 
