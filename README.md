@@ -41,7 +41,7 @@ These instructions are outdated as I'm working on a Python/QML/PySide6 rewrite, 
   - To build, run `dotnet build Retiled.sln`
   - Please ensure the `dotnet-sdk` is installed first, or building won't work.
   - On Linux, you may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
-  - The Python-based RetiledSearch rewrite (PyRetiledSearch; will be renamed to RetiledSearch once at feature-parity with the original) shouldn't need Python.NET, so you'll just need to install the packages listed above other than Python.NET.
+  - The Python-based RetiledSearch rewrite (PyRetiledSearch; will be renamed to RetiledSearch once at feature-parity with the original) shouldn't need Python.NET, so you'll just need to install the packages listed above other than Python.NET. It's recommended to install everything that says it's installable with pip into a Python virtual environment/venv.
 - Running
   - Windows
     - To run RetiledStart, run `dotnet "RetiledStart\RetiledStart\bin\Debug\net5.0\RetiledStart.dll"`
