@@ -113,7 +113,7 @@ ApplicationWindow {
          Button {
             id: searchButton
 			onClicked: {
-				console.log(searchBox.text)
+				searchClass.openUrl(searchBox.text)
 			
 			}
             

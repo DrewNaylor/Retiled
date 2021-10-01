@@ -36,12 +36,12 @@ import sys
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtCore import QObject, QUrl, Slot
+from PySide6.QtCore import QObject, Slot
 
 # Trying to figure out buttons with this:
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
 class SearchCommands(QObject):
-    @Slot(qsTr)
+    @Slot(str)
     def openUrl(self, url):
         print(url)
 
@@ -50,7 +50,10 @@ if __name__ == "__main__":
     # Set the Universal style.
     sys.argv += ['--style', 'Universal']
     app = QGuiApplication(sys.argv)
+	# Hook up some stuff so I can access the searchClass from QML.
+    searchClass = SearchCommands()
     engine = QQmlApplicationEngine()
+    engine.rootContext().setContextProperty("searchClass", searchClass)
     engine.load("MainWindow.qml")
     if not engine.rootObjects():
         sys.exit(-1)
