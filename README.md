@@ -8,7 +8,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Status bar
 - [And more, with an entire list that was too long for the readme](/docs/eventual-feature-and-behavior-list.md)
 
-Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with ~~C# and Avalonia~~ Python and QML/PySide6, though I do know VB.NET, so that helps if I can figure out how to get Python.NET working on ARM.
+Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with ~~C# and Avalonia~~ Python (currently using 3.9.x) and QML/PySide6, though I do know VB.NET, so that helps if I can figure out how to get Python.NET working on ARM.
 
 ## Required extra packages
 
@@ -18,7 +18,7 @@ You may need to install packages through your distro's package manager, and thos
   - `pyside6` (`PySide6` via pip): Used for the UI of Python/QML-based components of Retiled
   - `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
   - `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
-  - Python.NET (`pythonnet` via pip): Allows using .NET libraries from .NET; unsure of the exact package name, or if it's in pacman
+  - Python.NET (`pythonnet` via pip): Allows using .NET libraries from .NET; unsure of the exact package name, or if it's in pacman; not currently used as it doesn't work with Python 3.9 yet
   - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
 - Avalonia-based components:
   - `ttf-ms-fonts`: Used for the text in Avalonia-based components of Retiled
