@@ -101,7 +101,7 @@ ApplicationWindow {
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
-                        listView.currentIndex = -1
+                        appbarDrawerListView.currentIndex = -1
                         }
                 }
             }
@@ -166,7 +166,7 @@ ApplicationWindow {
         
 
         ListView {
-            id: listView
+            id: appbarDrawerListView
             anchors.fill: parent
             clip: true
             focus: true
@@ -175,9 +175,9 @@ ApplicationWindow {
             delegate: ItemDelegate {
                 width: parent.width
                 text: model.title
-                highlighted: ListView.isCurrentItem
+                highlighted: appbarDrawerListView.isCurrentItem
                 onClicked: {
-                    listView.currentIndex = index
+                    appbarDrawerListView.currentIndex = index
                     stackView.push(model.source)
                     appbarDrawer.close()
                 }
