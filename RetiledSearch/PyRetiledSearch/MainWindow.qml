@@ -116,6 +116,10 @@ ApplicationWindow {
 				searchClass.openUrl(searchBox.text)
 			
 			}
+			// Set the scale here temporarily because the nice animation
+			// doesn't seem to work anymore in Qt6 and I don't know how to
+			// fix it right now.
+			scale: searchButton.down ? 0.98 : 1.0
 			// Set the default state.
             state: "RELEASED"
             Layout.leftMargin: 24
@@ -137,6 +141,10 @@ ApplicationWindow {
                 implicitWidth: 90
                 implicitHeight: 40
                 border.color: "white"
+				// Set the background color for the button here
+				// since the state-changing thing doesn't work
+				// anymore in Qt6. This is temporary if I figure
+				// out how to fix the animation.
 				color: searchButton.down ? "#0050ef" : "transparent"
                 border.width: 2
                 radius: 0
