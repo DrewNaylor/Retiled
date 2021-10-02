@@ -70,6 +70,8 @@ Page {
 		// Gotta set a bunch of properties so the Flickable looks right.
 		// TODO: Change the scrolling so it's more loose and doesn't feel like
 		// it's dragging as much.
+		// TODO 2: Fix "QML Flickable: Binding loop detected for property "contentWidth""
+		// error that shows up on the PinePhone.
 		anchors.left: parent.left
 		anchors.right: parent.right
 		contentWidth: aboutText.width
