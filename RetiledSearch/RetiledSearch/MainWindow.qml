@@ -84,7 +84,7 @@ ApplicationWindow {
 
         transform: Translate {
         // Move the menu to make it look like WP's ellipsis menu opening.
-        y: drawer.position * appBar.height * -5
+        y: appbarDrawer.position * appBar.height * -5
          }
 
         RowLayout {
@@ -114,7 +114,7 @@ ApplicationWindow {
             
                 icon.source: "/images/menu.png"
                 onClicked: {
-                        drawer.open()
+                        appbarDrawer.open()
                 }
             }
 
@@ -132,7 +132,7 @@ ApplicationWindow {
     // TODO 3: Change the app bar icons so they're closer to WP, especially
     // the app bar drawer opening button, as that's more like Windows 10
     // Mobile.
-        id: drawer
+        id: appbarDrawer
         width: window.width
         // Set height to 240 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
@@ -174,7 +174,7 @@ ApplicationWindow {
                 onClicked: {
                     listView.currentIndex = index
                     stackView.push(model.source)
-                    drawer.close()
+                    appbarDrawer.close()
                 }
             }
 
