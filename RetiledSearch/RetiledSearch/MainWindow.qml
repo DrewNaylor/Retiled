@@ -59,8 +59,22 @@ ApplicationWindow {
 		sequences: ["Esc", "Back"]
         enabled: stackView.depth > 1
         onActivated: {
+			
             stackView.pop()
-            appbarDrawerListView.currentIndex = -1
+            
+			if (stackView.depth == 1) {
+						// TODO: Move this to a function, preferably stackView.pop()
+						// if that's defined in this file.
+						// Only hide the back button if we can't
+						// go back any further.
+						// The double-equals is required rather than
+						// a single-equals, as otherwise it'll complain
+						// that depth is read-only and won't just compare.
+						backButton.visible = false
+						// Show the ellipsis button again.
+						appbarEllipsisButton.visible = true
+					}
+			
         }
     }
 	
@@ -69,6 +83,8 @@ ApplicationWindow {
     // I've hooked it up to the app bar drawer so that it's
     // easier to open with the keyboard.
         sequence: "Menu"
+		// Prevent activation when the About window is open.
+		enabled: stackView.depth == 1
         // TODO: It would be useful to have a way to open
         // and close the app bar drawer using the same
         // key. However, this would require a boolean
