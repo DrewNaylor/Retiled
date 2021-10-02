@@ -67,6 +67,7 @@ Page {
 
     }
 	Flickable {
+		// Gotta set a bunch of properties so the Flickable looks right.
 		anchors.left: parent.left
 		anchors.right: parent.right
 		contentWidth: aboutText.width
@@ -75,6 +76,8 @@ Page {
 		height: parent.height
 		clip: true
 		// I mostly copied this from my modified version of the Qml.Net example app.
+		// Code for the About.qml file here:
+		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
         Label {
 			id: aboutText
             anchors.left: parent.left

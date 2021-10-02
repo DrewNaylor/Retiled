@@ -54,7 +54,8 @@ ApplicationWindow {
 	
 	// Bring in the shortcut code for the app bar.
 	// Copied from my modified version of the Qml.Net example app,
-	// but modified for this one.
+	// but modified for this one. Code here:
+	// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/Main.qml
 	Shortcut {
 		sequences: ["Esc", "Back"]
         enabled: stackView.depth > 1
@@ -111,7 +112,6 @@ ApplicationWindow {
             ToolButton {
 			id: backButton
 			visible: false
-            // TODO: Hide the back button until it's needed.
 			// QML with Python requires you use "file:" before
 			// the image path as specified here:
 			// https://stackoverflow.com/a/55515136
@@ -129,12 +129,15 @@ ApplicationWindow {
 						backButton.visible = false
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
+						// TODO: Figure out a way to change the appbar's color
+						// so it looks like the back button is just floating there
+						// rather than being part of the bar.
 					}
                 }
             }
 
             Item {
-            // This empty label is necessary to take up space
+            // This empty item is necessary to take up space
             // and push the back button and ellipsis button to both edges.
             // I guess I could've just tweaked things a bit.
                 Layout.fillWidth: true
@@ -231,6 +234,8 @@ ApplicationWindow {
 		
         spacing: 4
 
+
+// The rest of this isn't from the modified Qml.Net example app, or at least shouldn't be.
          TextField {
             id: searchBox
 			// Allow the user to use the Enter key to search.
