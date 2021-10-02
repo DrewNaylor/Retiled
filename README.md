@@ -41,17 +41,17 @@ These instructions are outdated as I'm working on a Python/QML/PySide6 rewrite, 
   - To build, run `dotnet build Retiled.sln`
   - Please ensure the `dotnet-sdk` is installed first, or building won't work.
   - On Linux, you may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
-  - The Python-based RetiledSearch rewrite (PyRetiledSearch; will be renamed to RetiledSearch once at feature-parity with the original) shouldn't need Python.NET, so you'll just need to install the packages listed above other than Python.NET. It's recommended to install everything that says it's installable with pip into a Python virtual environment/venv.
+  - The Python-based RetiledSearch rewrite shouldn't need Python.NET, so you'll just need to install the packages listed above other than Python.NET. It's recommended to install everything that says it's installable with pip into a Python virtual environment/venv.
 - Running
   - Windows
     - To run RetiledStart, run `dotnet "RetiledStart\RetiledStart\bin\Debug\net5.0\RetiledStart.dll"`
-    - To run RetiledSearch, run `dotnet "RetiledSearch\RetiledSearch\bin\Debug\net5.0\RetiledSearch.dll"`
+    - To run RetiledSearch, ~~run `dotnet "RetiledSearch\RetiledSearch\bin\Debug\net5.0\RetiledSearch.dll"`~~ set up and activate your venv with Python 3.9 and the pip packages listed above, then refer to the line below regarding running Python/QML apps on Linux.
   - Linux
     - To run RetiledStart, run `dotnet "RetiledStart/RetiledStart/bin/Debug/net5.0/RetiledStart.dll"`
-    - To run RetiledSearch, run `dotnet "RetiledSearch/RetiledSearch/bin/Debug/net5.0/RetiledSearch.dll"`
+    - To run RetiledSearch, ~~run `dotnet "RetiledSearch/RetiledSearch/bin/Debug/net5.0/RetiledSearch.dll"`~~ please refer to the line below regarding running Python/QML-based apps.
     - You may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
-    - Running Python/QML-based apps requires installing the relevant packages as described in the `Building` section, then for PyRetiledSearch:
-      - `cd` into `RetiledSearch/PyRetiledSearch`
+    - Running Python/QML-based apps requires installing the relevant packages as described in the `Building` section (desktop Linux can probably use the pip packages), then for RetiledSearch:
+      - `cd` into `RetiledSearch/RetiledSearch`
       - Run `python main.py`
     - If you run the Python/QML-based apps on Phosh without first rebooting after installing the required extra packages, the keyboard may not display the letters properly, and instead show boxes. This doesn't seem to be permanent, as rebooting fixes the issue. **However**, running the Python/QML-based apps after a reboot may have Qt say that it's ignoring Wayland on Gnome, so it'll use Xwayland instead. You'll have to run `QT_QPA_PLATFORM=wayland python main.py` to make it use Wayland. This command will be integrated into a launcher script to make things easy. Additionally, there's a titlebar when running with Wayland under Phosh. I'd like to have it only appear when in docked mode.
 
