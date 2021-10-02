@@ -53,7 +53,7 @@ These instructions are outdated as I'm working on a Python/QML/PySide6 rewrite, 
     - Running Python/QML-based apps requires installing the relevant packages as described in the `Building` section, then for PyRetiledSearch:
       - `cd` into `Retiled/RetiledSearch/PyRetiledSearch`
       - Run `python main.py`
-    - If you run the Python/QML-based apps on Phosh without first rebooting after installing the required extra packages, the keyboard may not display the letters properly, and instead show boxes. This doesn't seem to be permanent, as rebooting fixes the issue. **However**, running the Python/QML-based apps after a reboot may have Qt say that it's ignoring Wayland on Gnome, so it'll use Xwayland instead. You'll have to run `QT_QPA_PLATFORM=wayland python main.py` to make it use Wayland. This command will be integrated into a launcher script to make things easy. Additionally, there's a titlebar when running under Phosh. I'd like to have it only appear when in docked mode.
+    - If you run the Python/QML-based apps on Phosh without first rebooting after installing the required extra packages, the keyboard may not display the letters properly, and instead show boxes. This doesn't seem to be permanent, as rebooting fixes the issue. **However**, running the Python/QML-based apps after a reboot may have Qt say that it's ignoring Wayland on Gnome, so it'll use Xwayland instead. You'll have to run `QT_QPA_PLATFORM=wayland python main.py` to make it use Wayland. This command will be integrated into a launcher script to make things easy. Additionally, there's a titlebar when running with Wayland under Phosh. I'd like to have it only appear when in docked mode.
 
 ## Video demos
 
