@@ -116,7 +116,8 @@ ApplicationWindow {
 				searchClass.openUrl(searchBox.text)
 			
 			}
-            
+			// Set the default state.
+            state: "RELEASED"
             Layout.leftMargin: 24
             font.pixelSize: 18
             text: qsTr("search")
@@ -135,9 +136,8 @@ ApplicationWindow {
                 id: searchButtonBackgroundArea
                 implicitWidth: 90
                 implicitHeight: 40
-                // Set the default state.
-                state: "RELEASED"
                 border.color: "white"
+				color: searchButton.down ? "#0050ef" : "transparent"
                 border.width: 2
                 radius: 0
 
