@@ -219,6 +219,8 @@ ApplicationWindow {
             // I don't know how to get the width to change when the window
             // is resized, so it's hardcoded at 312 for now.
 			anchors.margins: 24
+			anchors.topMargin: 10
+			anchors.top: parent.top
 			anchors.right: parent.right
 			anchors.left: parent.left
             implicitHeight: 40
@@ -228,10 +230,6 @@ ApplicationWindow {
             // since there was no obvious way to figure it out from Avalonia's
             // source.
             placeholderTextColor: searchBox.focus ? "transparent" : "#666666"
-            Layout.leftMargin: 24
-            Layout.topMargin: 10
-            Layout.rightMargin: 24
-            Layout.bottomMargin: 0
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
             font.pixelSize: 18
