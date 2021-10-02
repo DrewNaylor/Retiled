@@ -77,11 +77,116 @@ ApplicationWindow {
         // now and I need to go to bed.
         onActivated: appbarDrawer.open()
     }
+	
+	footer: ToolBar {
 
-    // I'm basically just using this project to
-    // figure out how to port Retiled to QML, then I'll bring in Python
-    // so it doesn't need QML.NET, which doesn't have ARM builds for
-    // the unmanaged library.
+                id: appBar
+
+        transform: Translate {
+        // Move the menu to make it look like WP's ellipsis menu opening.
+        y: drawer.position * appBar.height * -5
+         }
+
+        RowLayout {
+            spacing: 20
+            anchors.fill: parent
+
+
+            ToolButton {
+            // TODO: Hide the back button until it's needed.
+                icon.source: "images/back.png"
+                onClicked: {
+                    if (stackView.depth > 1) {
+                        stackView.pop()
+                        listView.currentIndex = -1
+                        }
+                }
+            }
+
+            Item {
+            // This empty label is necessary to take up space
+            // and push the back button and ellipsis button to both edges.
+            // I guess I could've just tweaked things a bit.
+                Layout.fillWidth: true
+            }
+
+            ToolButton {
+            
+                icon.source: "images/menu.png"
+                onClicked: {
+                        drawer.open()
+                }
+            }
+
+
+        }
+    }
+
+    Drawer {
+    // TODO: Figure out a way to allow the drawer to be closed from any
+    // page and not just from clicking inside the main page or clicking
+    // on any of the items in the drawer.
+    // TODO 2: Figure out how to let the user drag the app bar back down
+    // on both the right and the left side to close the
+    // drawer, like on Windows Phone.
+    // TODO 3: Change the app bar icons so they're closer to WP, especially
+    // the app bar drawer opening button, as that's more like Windows 10
+    // Mobile.
+        id: drawer
+        width: window.width
+        // Set height to 240 so that the app bar always moves out of the way,
+        // even when the window is taller or shorter.
+        height: 240
+        interactive: stackView.depth === 1
+        // Setting edge to Qt.BottomEdge makes the menu
+        // kinda look like WP's ellipsis menu, except it
+        // doesn't yet move the bar up. Maybe a translation
+        // thing will help with that.
+        // Edge documentation:
+        // https://doc.qt.io/qt-5/qml-qtquick-controls2-drawer.html#edge-prop
+        edge: Qt.BottomEdge
+
+
+        // Removing the shadow from the drawer:
+        // https://stackoverflow.com/a/63411102
+        Overlay.modal: Rectangle {
+                  color: "transparent"
+              }
+
+       Rectangle {
+       // You have to set this rectangle's color
+       // or else it'll be white.
+            anchors.fill: parent
+            color: "transparent"
+        
+
+        ListView {
+            id: listView
+            anchors.fill: parent
+            clip: true
+            focus: true
+            currentIndex: -1
+
+            delegate: ItemDelegate {
+                width: parent.width
+                text: model.title
+                highlighted: ListView.isCurrentItem
+                onClicked: {
+                    listView.currentIndex = index
+                    stackView.push(model.source)
+                    drawer.close()
+                }
+            }
+
+            model: ListModel {
+				ListElement { title: "about"; source: "pages/About.qml" }
+            }
+
+            ScrollIndicator.vertical: ScrollIndicator { }
+            }
+        }
+    }
+
     ColumnLayout {
         spacing: 4
         Layout.fillWidth: true
