@@ -115,6 +115,8 @@ ApplicationWindow {
 			// QML with Python requires you use "file:" before
 			// the image path as specified here:
 			// https://stackoverflow.com/a/55515136
+				// TODO: Figure out a way to use SVG files because
+				// this is blurry with HiDPI.
                 icon.source: "file:images/back.png"
                 onClicked: {
                     if (stackView.depth > 1) {
@@ -145,7 +147,13 @@ ApplicationWindow {
 			
             ToolButton {
 				id: appbarEllipsisButton
+				// TODO: Figure out a way to use SVG files because
+				// this is blurry with HiDPI.
                 icon.source: "file:images/menu.png"
+				// For some reason, I can only open the app bar by pulling it
+				// up. Fortunately, you can swipe where you're supposed to be
+				// able to tap the button at. Unfortunately, that may interfere
+				// with other appbar buttons that may be added in the future.
                 onClicked: {
                         appbarDrawer.open()
                 }
