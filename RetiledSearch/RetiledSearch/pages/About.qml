@@ -68,6 +68,8 @@ Page {
     }
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
+		// TODO: Change the scrolling so it's more loose and doesn't feel like
+		// it's dragging as much.
 		anchors.left: parent.left
 		anchors.right: parent.right
 		contentWidth: aboutText.width
