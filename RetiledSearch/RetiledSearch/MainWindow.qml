@@ -275,6 +275,9 @@ ApplicationWindow {
 			// Set the default state.
             state: "RELEASED"
 			anchors.top: searchBox.bottom
+			anchors.margins: 24
+			anchors.topMargin: 4
+			anchors.left: parent.left
             font.pixelSize: 18
             text: qsTr("search")
             // Had to use the contentItem Text thing to change stuff from the "customizing button"
