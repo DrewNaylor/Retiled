@@ -46,6 +46,11 @@ class SearchCommands(QObject):
     def openUrl(self, searchTerm):
         # Send the user to Bing based on this SO answer:
 		# https://stackoverflow.com/a/31715355
+		# TODO: Only do the search if the searchTerm's length is more than 0.
+		# Maybe it would be cool to hide the search button if there's nothing
+		# in the search box, too.
+		# TODO 2: Have the code to do a search be async so it doesn't look
+		# choppy when the user presses the button.
         webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
 
 
