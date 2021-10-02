@@ -1,10 +1,7 @@
-// PyRetiledSearch - Windows Phone 8.0-like Search app for the
-//                   Retiled project. This is a port of the original
-//                   RetiledSearch program to Python, though eventually
-//                   the name will go back to "RetiledSearch" once it's
-//                   done being ported; the "Py" in the name is temporary.
-//                   To view "git blame" on this file before it was moved
-//                   back to Retiled, see here:
+// RetiledSearch - Windows Phone 8.0-like Search app for the
+//                 Retiled project.
+//                 To view "git blame" on this file before it was moved
+//                 back to Retiled, see here:
 //                   https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/retiled-qml-porting-work/src/Features/Main-PyRetiledSearch.qml
 // Copyright (C) 2021 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
