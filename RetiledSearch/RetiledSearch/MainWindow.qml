@@ -201,13 +201,10 @@ ApplicationWindow {
 		
 		id: pane
 		
-    ColumnLayout {
         spacing: 4
-        Layout.fillWidth: true
 
          TextField {
             id: searchBox
-            Layout.fillWidth: true
 			// Allow the user to use the Enter key to search.
 			Keys.onEnterPressed: {
 				searchClass.openUrl(searchBox.text)
@@ -221,7 +218,9 @@ ApplicationWindow {
 			}
             // I don't know how to get the width to change when the window
             // is resized, so it's hardcoded at 312 for now.
-            implicitWidth: 312
+			anchors.margins: 24
+			anchors.right: parent.right
+			anchors.left: parent.left
             implicitHeight: 40
             placeholderText: qsTr("enter a search term here")
             // I think that's a close-enough color to the watermark
@@ -375,7 +374,6 @@ ApplicationWindow {
                 ]
            }
 
-         }
     }
 		}
 	}
