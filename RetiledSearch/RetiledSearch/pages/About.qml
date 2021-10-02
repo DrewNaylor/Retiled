@@ -49,7 +49,7 @@ Page {
                 // spacing for a given app that uses large headers, like
                 // pages in the Settings app.
                 height: 50
-                width: 30
+                width: 25
                 }
 
                 Label {
@@ -69,7 +69,8 @@ Page {
 	
 		// I mostly copied this from my modified version of the Qml.Net example app.
         Label {
-            width: parent.width
+            anchors.left: parent.left
+			anchors.right: parent.right
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 10
