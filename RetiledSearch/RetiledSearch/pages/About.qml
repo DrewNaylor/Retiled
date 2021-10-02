@@ -26,8 +26,47 @@
 
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 Page {
+	
+    header: ToolBar {
+    
+    // Didn't know this is how you set background colors for
+    // controls in QML.
+    // Based on this info here:
+    // https://stackoverflow.com/a/27619649
+    background: Rectangle {
+        color: 'black'
+    }
+
+    RowLayout {
+    anchors.left: parent.left
+
+                Item {
+                // Adding an empty Item to space the header from the left.
+                // TODO: Get this empty item's spacing to be closer to WP's
+                // spacing for a given app that uses large headers, like
+                // pages in the Settings app.
+                height: 50
+                width: 30
+                }
+
+                Label {
+                id: titleLabel
+                text: "about"
+                // Not sure if this is the right font size, but it's closer.
+                font.pixelSize: 50
+                elide: Label.ElideRight
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                Layout.fillWidth: true
+            }
+
+            }
+
+    }
+	
 		// I mostly copied this from my modified version of the Qml.Net example app.
         Label {
             width: parent.width
@@ -40,6 +79,7 @@ Page {
 			"RetiledSearch is powered by Python, as well as Qt6/QML thanks to the PySide6 project. Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here:\n" +
 			"https://www.gnu.org/licenses/lgpl-3.0.en.html \n" +
 			"I'm also supposed to provide a link to the standard GPL:\n" +
-			"https://www.gnu.org/licenses/gpl-3.0.html \n"
+			"https://www.gnu.org/licenses/gpl-3.0.html \n"+
+			"Since the user is expected to install the libraries themselves and I'm not distributing them, I don't think I have to "
     }
 }
