@@ -140,6 +140,8 @@ ApplicationWindow {
         // Set height to 55 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
         height: 55
+		// Not sure what Interactive means, but I'll guess it determines
+		// if you can interact with the app drawer.
         interactive: stackView.depth === 1
         // Setting edge to Qt.BottomEdge makes the menu
         // kinda look like WP's ellipsis menu, except it
@@ -190,6 +192,9 @@ ApplicationWindow {
         }
     }
 
+	StackView {
+		// Set up the stackview to have page navigation.
+		
     ColumnLayout {
         spacing: 4
         Layout.fillWidth: true
@@ -366,5 +371,5 @@ ApplicationWindow {
 
          }
     }
-
+	}
 }
