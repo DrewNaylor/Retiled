@@ -37,6 +37,7 @@ Page {
             text: "RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
 			"Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.\n\n" +
-			"RetiledSearch is powered by Python, as well as Qt6/QML thanks to the PySide6 project, which is available under the LGPLv3."
+			"RetiledSearch is powered by Python, as well as Qt6/QML thanks to the PySide6 project. Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here:\n" +
+			"https://www.gnu.org/licenses/lgpl-3.0.en.html"
     }
 }
