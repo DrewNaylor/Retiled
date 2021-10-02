@@ -73,6 +73,7 @@ Page {
 		contentHeight: aboutText.height
 		width: parent.width
 		height: parent.height
+		clip: true
 		// I mostly copied this from my modified version of the Qml.Net example app.
         Label {
 			id: aboutText
