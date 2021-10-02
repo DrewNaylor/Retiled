@@ -92,7 +92,19 @@ ApplicationWindow {
             anchors.fill: parent
 
 
-
+            ToolButton {
+            // TODO: Hide the back button until it's needed.
+			// QML with Python requires you use "file:" before
+			// the image path as specified here:
+			// https://stackoverflow.com/a/55515136
+                icon.source: "file:images/back.png"
+                onClicked: {
+                    if (stackView.depth > 1) {
+                        stackView.pop()
+                        listView.currentIndex = -1
+                        }
+                }
+            }
 
             Item {
             // This empty label is necessary to take up space
