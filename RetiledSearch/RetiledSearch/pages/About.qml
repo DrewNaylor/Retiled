@@ -82,6 +82,6 @@ Page {
 			"https://www.gnu.org/licenses/lgpl-3.0.en.html \n" +
 			"I'm also supposed to provide a link to the standard GPL:\n" +
 			"https://www.gnu.org/licenses/gpl-3.0.html \n"+
-			"Since the user is expected to install the libraries themselves and I'm not distributing them, I don't think I have to "
+			"Since the user is expected to install the libraries themselves and I'm neither distributing nor modifying them, I don't think I have to provide my own source for Qt6 and PySide6."
     }
 }
