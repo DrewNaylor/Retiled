@@ -93,6 +93,8 @@ ApplicationWindow {
 
 
             ToolButton {
+			id: backButton
+			visible: false
             // TODO: Hide the back button until it's needed.
 			// QML with Python requires you use "file:" before
 			// the image path as specified here:
@@ -102,6 +104,14 @@ ApplicationWindow {
                     if (stackView.depth > 1) {
                         stackView.pop()
                         }
+					if (stackView.depth == 1) {
+						// Only hide the back button if we can't
+						// go back any further.
+						// The double-equals is required rather than
+						// a single-equals, as otherwise it'll complain
+						// that depth is read-only and won't just compare.
+						backButton.visible = false
+					}
                 }
             }
 
@@ -176,6 +186,8 @@ ApplicationWindow {
                 onClicked: {
                     stackView.push(model.source)
                     appbarDrawer.close()
+					// Show the back button to allow navigating back.
+					backButton.visible = true
                 }
             }
 
