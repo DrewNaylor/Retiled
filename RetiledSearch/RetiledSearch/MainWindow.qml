@@ -94,7 +94,10 @@ ApplicationWindow {
 
             ToolButton {
             // TODO: Hide the back button until it's needed.
-                icon.source: "/images/back.png"
+			// QML with Python requires you use "file:" before
+			// the image path as specified here:
+			// https://stackoverflow.com/a/55515136
+                icon.source: "file:images/back.png"
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
@@ -112,7 +115,7 @@ ApplicationWindow {
 
             ToolButton {
             
-                icon.source: "/images/menu.png"
+                icon.source: "file:images/menu.png"
                 onClicked: {
                         appbarDrawer.open()
                 }
