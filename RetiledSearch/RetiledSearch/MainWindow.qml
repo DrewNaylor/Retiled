@@ -111,6 +111,8 @@ ApplicationWindow {
 						// a single-equals, as otherwise it'll complain
 						// that depth is read-only and won't just compare.
 						backButton.visible = false
+						// Show the ellipsis button again.
+						appbarEllipsisButton.visible = true
 					}
                 }
             }
@@ -121,9 +123,9 @@ ApplicationWindow {
             // I guess I could've just tweaked things a bit.
                 Layout.fillWidth: true
             }
-
+			
             ToolButton {
-            
+				id: appbarEllipsisButton
                 icon.source: "file:images/menu.png"
                 onClicked: {
                         appbarDrawer.open()
@@ -188,6 +190,8 @@ ApplicationWindow {
                     appbarDrawer.close()
 					// Show the back button to allow navigating back.
 					backButton.visible = true
+					// Hide the ellipsis button.
+					appbarEllipsisButton.visible = false
                 }
             }
 
