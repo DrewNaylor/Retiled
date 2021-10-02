@@ -196,6 +196,10 @@ ApplicationWindow {
 		// Set up the stackview to have page navigation.
 		id: stackView
 		anchors.fill: parent
+	
+		initialItem: Pane {
+		
+		id: pane
 		
     ColumnLayout {
         spacing: 4
@@ -373,5 +377,6 @@ ApplicationWindow {
 
          }
     }
+		}
 	}
 }
