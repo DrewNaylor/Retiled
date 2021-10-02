@@ -66,9 +66,16 @@ Page {
             }
 
     }
-	
+	Flickable {
+		anchors.left: parent.left
+		anchors.right: parent.right
+		contentWidth: aboutText.width
+		contentHeight: aboutText.height
+		width: parent.width
+		height: parent.height
 		// I mostly copied this from my modified version of the Qml.Net example app.
         Label {
+			id: aboutText
             anchors.left: parent.left
 			anchors.right: parent.right
             wrapMode: Label.Wrap
@@ -85,4 +92,5 @@ Page {
 			"Since the user is expected to install the libraries themselves and I'm neither distributing nor modifying them, I don't think I have to provide my own source for Qt6 and PySide6. However, I will provide a link to the PySide6 project:\n" +
 			"https://code.qt.io/cgit/pyside/pyside-setup.git/about/"
     }
+	}
 }
