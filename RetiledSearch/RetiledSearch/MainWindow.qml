@@ -274,7 +274,7 @@ ApplicationWindow {
 			scale: searchButton.down ? 0.98 : 1.0
 			// Set the default state.
             state: "RELEASED"
-            Layout.leftMargin: 24
+			anchors.top: searchBox.bottom
             font.pixelSize: 18
             text: qsTr("search")
             // Had to use the contentItem Text thing to change stuff from the "customizing button"
