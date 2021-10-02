@@ -65,6 +65,17 @@ ApplicationWindow {
          TextField {
             id: searchBox
             Layout.fillWidth: true
+			// Allow the user to use the Enter key to search.
+			Keys.onEnterPressed: {
+				searchClass.openUrl(searchBox.text)
+			}
+			// We also have to have one for onReturnPressed
+			// because Qt doesn't consider the Return key to
+			// be the same as the Enter key, even though it's
+			// literally labeled as "Enter" on my keyboard.
+			Keys.onReturnPressed: {
+				searchClass.openUrl(searchBox.text)
+			}
             // I don't know how to get the width to change when the window
             // is resized, so it's hardcoded at 312 for now.
             implicitWidth: 312
@@ -116,7 +127,6 @@ ApplicationWindow {
             id: searchButton
 			onClicked: {
 				searchClass.openUrl(searchBox.text)
-			
 			}
 			// Set the scale here temporarily because the nice animation
 			// doesn't seem to work anymore in Qt6 and I don't know how to
