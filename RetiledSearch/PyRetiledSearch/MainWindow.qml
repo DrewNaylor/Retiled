@@ -50,6 +50,8 @@ ApplicationWindow {
     Universal.theme: Universal.Dark
     Universal.accent: '#0050ef'
 	Universal.foreground: 'white'
+	// Fun fact: QML supports setting the background to transparent,
+	// which shows all the other windows behind the app's window as you'd expect.
 	Universal.background: 'black'
 
     // I'm basically just using this project to
