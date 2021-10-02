@@ -23,3 +23,17 @@
 //   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
+
+import QtQuick
+import QtQuick.Controls
+
+Page {
+
+        Label {
+            width: parent.width
+            wrapMode: Label.Wrap
+            horizontalAlignment: Qt.AlignHLeft
+			anchors.margins: 10
+            text: "RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project."
+    }
+}
