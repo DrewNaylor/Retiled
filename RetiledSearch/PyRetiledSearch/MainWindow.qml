@@ -158,8 +158,8 @@ ApplicationWindow {
                 // We're using MultiPointTouchArea to ensure this'll work with touch.
                 MultiPointTouchArea {
                     anchors.fill: parent
-                    onPressed: searchButtonBackgroundArea.state = "PRESSED"
-                    onReleased: searchButtonBackgroundArea.state = "RELEASED"
+                    onPressed: searchButton.state = "PRESSED"
+                    onReleased: searchButton.state = "RELEASED"
                 }
 
                 // Set up the states.
@@ -180,13 +180,13 @@ ApplicationWindow {
                         // and it works.
                         PropertyChanges {target: searchButton; scale: 0.98}
                         // Change the button background to Cobalt when pressed.
-                        PropertyChanges {target: searchButtonBackgroundArea; color: "#0050ef"}
+                        PropertyChanges {target: searchButton; color: "#0050ef"}
                     },
                     // There's supposed to be a comma there.
                     State {
                         name: "RELEASED"
                         PropertyChanges {target: searchButton; scale: 1.0}
-                        PropertyChanges {target: searchButtonBackgroundArea; color: "black"}
+                        PropertyChanges {target: searchButton; color: "black"}
                     }
                 ]
 
@@ -196,14 +196,14 @@ ApplicationWindow {
                         from: "PRESSED"
                         to: "RELEASED"
                         NumberAnimation { target: searchButton; duration: 60}
-                        ColorAnimation { target: searchButtonBackgroundArea; duration: 60}
+                        ColorAnimation { target: searchButton; duration: 60}
                     },
 
                     Transition {
                         from: "RELEASED"
                         to: "PRESSED"
                         NumberAnimation { target: searchButton; duration: 60}
-                        ColorAnimation { target: searchButtonBackgroundArea; duration: 60}
+                        ColorAnimation { target: searchButton; duration: 60}
                     }
                 
                 ]
