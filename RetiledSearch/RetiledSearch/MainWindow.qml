@@ -51,6 +51,18 @@ ApplicationWindow {
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
 	Universal.background: 'black'
+	
+	// Bring in the shortcut code for the app bar.
+	// Copied from my modified version of the Qml.Net example app,
+	// but modified for this one.
+	Shortcut {
+		sequences: ["Esc", "Back"]
+        enabled: stackView.depth > 1
+        onActivated: {
+            stackView.pop()
+            listView.currentIndex = -1
+        }
+    }
 
     // I'm basically just using this project to
     // figure out how to port Retiled to QML, then I'll bring in Python
