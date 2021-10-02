@@ -94,7 +94,7 @@ ApplicationWindow {
 
             ToolButton {
             // TODO: Hide the back button until it's needed.
-                icon.source: "images/back.png"
+                icon.source: "/images/back.png"
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
@@ -112,7 +112,7 @@ ApplicationWindow {
 
             ToolButton {
             
-                icon.source: "images/menu.png"
+                icon.source: "/images/menu.png"
                 onClicked: {
                         drawer.open()
                 }
