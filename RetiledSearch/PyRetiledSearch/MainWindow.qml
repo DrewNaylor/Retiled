@@ -178,7 +178,10 @@ ApplicationWindow {
                 // the accent color in those style qml files based on what's in a config
                 // file. Maybe I can use JS to read that file and get the user's accent color,
                 // though that may not be possible. Hopefully there's something.
-				// TODO: Fix this for PySide6. Maybe I just need to import stuff.
+				// Actually, maybe Python could bind QML properties to the user's accent color
+				// setting in a file.
+				// TODO: Fix this for PySide6/Qt6. For now I'm making the button change
+				// its appearance when it's down, but it's not as smooth as these animations.
                 states: [
                     State {
                         name: "PRESSED"
