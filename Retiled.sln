@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetiledStart", "RetiledStart\RetiledStart\RetiledStart.csproj", "{58661629-0A8E-4719-9F04-331DCEB4B7CB}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "libRetiledSearch", "RetiledSearch\libRetiledSearch\libRetiledSearch.vbproj", "{083B3F62-453D-4D89-8590-7D08ECDA7D0D}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "libRetiledSearch", "RetiledSearch\archive\libRetiledSearch\libRetiledSearch.vbproj", "{083B3F62-453D-4D89-8590-7D08ECDA7D0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetiledSearch", "RetiledSearch\RetiledSearch\RetiledSearch.csproj", "{D78E6E41-76DB-42E2-8814-3B3A291005CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetiledSearch", "RetiledSearch\archive\RetiledSearch\RetiledSearch.csproj", "{D78E6E41-76DB-42E2-8814-3B3A291005CE}"
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "libRetiledStart", "RetiledStart\libRetiledStart\libRetiledStart.vbproj", "{A47F905A-8210-4673-921C-DB71B0FAF8BB}"
 EndProject
