@@ -23,3 +23,19 @@
 //   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
+
+			// The back button needs to be moved here.
+            ToolButton {
+            // TODO: Hide the back button until it's needed.
+			// QML with Python requires you use "file:" before
+			// the image path as specified here:
+			// https://stackoverflow.com/a/55515136
+                icon.source: "file:images/back.png"
+				visibility
+                onClicked: {
+                    if (stackView.depth > 1) {
+                        stackView.pop()
+                        listView.currentIndex = -1
+                        }
+                }
+            }
