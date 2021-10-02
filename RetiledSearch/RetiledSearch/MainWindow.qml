@@ -175,7 +175,6 @@ ApplicationWindow {
             delegate: ItemDelegate {
                 width: parent.width
                 text: model.title
-                highlighted: appbarDrawerListView.isCurrentItem
                 onClicked: {
                     appbarDrawerListView.currentIndex = index
                     stackView.push(model.source)
