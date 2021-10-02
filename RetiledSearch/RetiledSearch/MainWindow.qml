@@ -176,7 +176,6 @@ ApplicationWindow {
                 width: parent.width
                 text: model.title
                 onClicked: {
-                    appbarDrawerListView.currentIndex = index
                     stackView.push(model.source)
                     appbarDrawer.close()
                 }
