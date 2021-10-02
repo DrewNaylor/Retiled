@@ -218,8 +218,8 @@ ApplicationWindow {
 			}
             // I don't know how to get the width to change when the window
             // is resized, so it's hardcoded at 312 for now.
-			anchors.margins: 24
-			anchors.topMargin: 10
+			anchors.margins: 12
+			anchors.topMargin: 5
 			anchors.top: parent.top
 			anchors.right: parent.right
 			anchors.left: parent.left
@@ -275,7 +275,7 @@ ApplicationWindow {
 			// Set the default state.
             state: "RELEASED"
 			anchors.top: searchBox.bottom
-			anchors.margins: 24
+			anchors.margins: 12
 			anchors.topMargin: 4
 			anchors.left: parent.left
             font.pixelSize: 18
