@@ -374,6 +374,7 @@ ApplicationWindow {
                 // though that may not be possible. Hopefully there's something.
 				// Actually, maybe Python could bind QML properties to the user's accent color
 				// setting in a file.
+				// TODO: Fix the button text so it's in the middle vertically and horizontally.
 				// TODO: Fix this for PySide6/Qt6. For now I'm making the button change
 				// its appearance when it's down, but it's not as smooth as these animations.
                 states: [
