@@ -101,7 +101,6 @@ ApplicationWindow {
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
-                        appbarDrawerListView.currentIndex = -1
                         }
                 }
             }
@@ -170,7 +169,6 @@ ApplicationWindow {
             anchors.fill: parent
             clip: true
             focus: true
-            currentIndex: -1
 
             delegate: ItemDelegate {
                 width: parent.width
