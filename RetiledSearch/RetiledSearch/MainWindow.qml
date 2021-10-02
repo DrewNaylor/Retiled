@@ -88,7 +88,7 @@ ApplicationWindow {
          }
 
         RowLayout {
-            spacing: 20
+            spacing: 0
             anchors.fill: parent
 
 
@@ -136,7 +136,7 @@ ApplicationWindow {
         width: window.width
         // Set height to 240 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
-        height: 240
+        height: 55
         interactive: stackView.depth === 1
         // Setting edge to Qt.BottomEdge makes the menu
         // kinda look like WP's ellipsis menu, except it
