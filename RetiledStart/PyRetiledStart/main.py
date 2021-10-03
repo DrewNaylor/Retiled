@@ -41,9 +41,9 @@ from PySide6.QtCore import QObject, Slot
 
 # Trying to figure out buttons with this:
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
-class SearchCommands(QObject):
+class AllAppsListViewModel(QObject):
     @Slot(str)
-    def openUrl(self, searchTerm):
+    def RunApp(self, searchTerm):
         # Send the user to Bing based on this SO answer:
 		# https://stackoverflow.com/a/31715355
 		# TODO: Only do the search if the searchTerm's length is more than 0.
@@ -58,10 +58,10 @@ if __name__ == "__main__":
     # Set the Universal style.
     sys.argv += ['--style', 'Universal']
     app = QGuiApplication(sys.argv)
-	# Hook up some stuff so I can access the searchClass from QML.
-    searchClass = SearchCommands()
+	# Hook up some stuff so I can access the allAppsListViewModel from QML.
+    allAppsListViewModel = AllAppsListViewModel()
     engine = QQmlApplicationEngine()
-    engine.rootContext().setContextProperty("searchClass", searchClass)
+    engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
     engine.load("MainWindow.qml")
     if not engine.rootObjects():
         sys.exit(-1)
