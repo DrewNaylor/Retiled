@@ -31,7 +31,7 @@ import subprocess
 # https://codeigo.com/python/import-class-from-another-file-and-directory
 # I'm also trying to make a thing that'll run apps based on the Python docs:
 # https://docs.python.org/3/library/subprocess.html#popen-constructor
-class AppsList:
+class AppsList(object):
     # We have to do an __init__ thing:
 	# https://careerkarma.com/blog/python-missing-required-positional-argument-self/
     def init(self, ExecFilename):
