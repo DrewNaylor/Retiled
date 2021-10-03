@@ -31,17 +31,20 @@ import subprocess
 # https://codeigo.com/python/import-class-from-another-file-and-directory
 # I'm also trying to make a thing that'll run apps based on the Python docs:
 # https://docs.python.org/3/library/subprocess.html#popen-constructor
-class AppsList(object):
+#class AppsList(object):
     # We have to do an __init__ thing:
 	# https://careerkarma.com/blog/python-missing-required-positional-argument-self/
-    def init(self, ExecFilename):
-        self.ExecFilename = ExecFilename
+    #def init(self, ExecFilename):
+        #self.ExecFilename = ExecFilename
 
-    def RunApp(self):
+# At least this works at all.
+# TODO: Figure out how to use this with a class so that
+# the code can be cleaner.
+def RunApp(ExecFilename):
         # Get the ExecFilename split using shlex.split.
-        args = self.ExecFilename
-        splitargs = shlex.split(args)
+    args = ExecFilename
+    splitargs = shlex.split(args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
 		# if I already do that in my VB.NET library.
-        proc = subprocess.Popen(splitargs)
+    proc = subprocess.Popen(splitargs)

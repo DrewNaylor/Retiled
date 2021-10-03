@@ -33,7 +33,7 @@
 import os
 from pathlib import Path
 import sys
-from libs.libRetiledStartPy.appslist import AppsList
+from libs.libRetiledStartPy.appslist import RunApp
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -46,7 +46,7 @@ class AllAppsListViewModel(QObject):
     def RunApp(self, ViewModelExecFilename):
         # Pass the app's command to the code to actually
         # figure out how to run it.
-        AppsList.RunApp(ViewModelExecFilename)
+        RunApp(ViewModelExecFilename)
 
 #class TilesViewModel(QObject):
     #@Slot(str)
