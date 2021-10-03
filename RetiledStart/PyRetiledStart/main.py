@@ -43,14 +43,18 @@ from PySide6.QtCore import QObject, Slot
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
 class AllAppsListViewModel(QObject):
     @Slot(str)
-    def RunApp(self, searchTerm):
-        # Send the user to Bing based on this SO answer:
-		# https://stackoverflow.com/a/31715355
-		# TODO: Only do the search if the searchTerm's length is more than 0.
-		# Maybe it would be cool to hide the search button if there's nothing
-		# in the search box, too.
-		# TODO 2: Have the code to do a search be async so it doesn't look
-		# choppy when the user presses the button.
+    def RunApp(self, ExecFilename):
+        # Pass the app's command to the code to actually
+        # figure out how to run it.
+        webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
+
+class TilesViewModel(QObject):
+    @Slot(str)
+    def RunApp(self, ExecFilename):
+		# Maybe I should figure out how to combine this
+		# function with the AllAppsListViewModel one
+		# so that there's more code reused. Probably should just
+		# have it be in a GenericAppCode class or something.
         webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
 
 
