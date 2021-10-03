@@ -248,14 +248,14 @@ ApplicationWindow {
             id: searchBox
 			// Allow the user to use the Enter key to search.
 			Keys.onEnterPressed: {
-				searchClass.openUrl(searchBox.text)
+				allAppsListViewModel.RunApp(searchBox.text)
 			}
 			// We also have to have one for onReturnPressed
 			// because Qt doesn't consider the Return key to
 			// be the same as the Enter key, even though it's
 			// literally labeled as "Enter" on my keyboard.
 			Keys.onReturnPressed: {
-				searchClass.openUrl(searchBox.text)
+				allAppsListViewModel.RunApp(searchBox.text)
 			}
             // I don't know how to get the width to change when the window
             // is resized, so it's hardcoded at 312 for now.
