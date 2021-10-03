@@ -4,7 +4,7 @@
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
 # of Microsoft Corporation. All rights reserved.
-'
+#
 # This file is a part of the Retiled project.
 # Neither Retiled nor Drew Naylor are associated with Microsoft
 # and Microsoft does not endorse Retiled.
@@ -23,3 +23,16 @@
 #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
+
+import shlex
+import subprocess
+
+# Trying to create a class and library similar to this one:
+# https://codeigo.com/python/import-class-from-another-file-and-directory
+# I'm also trying to make a thing that'll run apps based on the Python docs:
+# https://docs.python.org/3/library/subprocess.html#popen-constructor
+class AppsList:
+    def RunApp(self, ExecFilename):
+        # Pass the app's command to the code to actually
+        # figure out how to run it.
+        AppsList.RunApp(ExecFilename)
