@@ -39,7 +39,7 @@ class AppsList(object):
 
     def RunApp(self):
         # Get the ExecFilename split using shlex.split.
-        args = str(self.ExecFilename)
+        args = self.ExecFilename
         splitargs = shlex.split(args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
