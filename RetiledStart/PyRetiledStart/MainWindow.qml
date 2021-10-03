@@ -265,7 +265,7 @@ ApplicationWindow {
 			anchors.right: parent.right
 			anchors.left: parent.left
             implicitHeight: 40
-            placeholderText: qsTr("enter a search term here")
+            placeholderText: qsTr("enter a command line here")
             // I think that's a close-enough color to the watermark
             // color used in Avalonia. Had to use Window Spy to figure it out,
             // since there was no obvious way to figure it out from Avalonia's
@@ -307,7 +307,7 @@ ApplicationWindow {
          Button {
             id: searchButton
 			onClicked: {
-				searchClass.openUrl(searchBox.text)
+				allAppsListViewModel.RunApp(searchBox.text)
 			}
 			// Set the scale here temporarily because the nice animation
 			// doesn't seem to work anymore in Qt6 and I don't know how to
@@ -320,7 +320,7 @@ ApplicationWindow {
 			anchors.topMargin: 4
 			anchors.left: parent.left
             font.pixelSize: 18
-            text: qsTr("search")
+            text: qsTr("run")
             // Had to use the contentItem Text thing to change stuff from the "customizing button"
             // page in the QML docs here:
             // https://doc.qt.io/qt-5/qtquickcontrols2-customize.html#customizing-button
@@ -328,7 +328,7 @@ ApplicationWindow {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.pixelSize: 18
-                text: qsTr("search")
+                text: qsTr("run")
                 color: "white"
             }
            // Also need to change the background and border.
