@@ -43,19 +43,21 @@ from PySide6.QtCore import QObject, Slot
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
 class AllAppsListViewModel(QObject):
     @Slot(str)
-    def RunApp(self, ExecFilename):
+    def RunApp(self, ViewModelExecFilename):
         # Pass the app's command to the code to actually
         # figure out how to run it.
-        AppsList.RunApp(ExecFilename)
+        AppsList.RunApp(ViewModelExecFilename)
 
-class TilesViewModel(QObject):
-    @Slot(str)
-    def RunApp(self, ExecFilename):
-		# Maybe I should figure out how to combine this
-		# function with the AllAppsListViewModel one
-		# so that there's more code reused. Probably should just
-		# have it be in a GenericAppCode class or something.
-        webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
+#class TilesViewModel(QObject):
+    #@Slot(str)
+    #def RunApp(self, ExecFilename):
+		## Maybe I should figure out how to combine this
+		## function with the AllAppsListViewModel one
+		## so that there's more code reused. Probably should just
+		## have it be in a GenericAppCode class or something.
+        #args = shlex.split(ExecFilename)
+		## Now run the command.
+        #proc = subprocess.Popen(args)
 
 
 if __name__ == "__main__":

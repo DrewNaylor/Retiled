@@ -32,7 +32,16 @@ import subprocess
 # I'm also trying to make a thing that'll run apps based on the Python docs:
 # https://docs.python.org/3/library/subprocess.html#popen-constructor
 class AppsList:
-    def RunApp(self, ExecFilename):
-        # Pass the app's command to the code to actually
-        # figure out how to run it.
-        AppsList.RunApp(ExecFilename)
+    # We have to do an __init__ thing:
+	# https://careerkarma.com/blog/python-missing-required-positional-argument-self/
+    def init(self, ExecFilename):
+        self.ExecFilename = ExecFilename
+
+    def RunApp(self):
+        # Get the ExecFilename split using shlex.split.
+        args = str(self.ExecFilename)
+        splitargs = shlex.split(args)
+		# Now run the command.
+		# TODO: Ensure the command is wrapped in quotes
+		# if I already do that in my VB.NET library.
+        proc = subprocess.Popen(splitargs)
