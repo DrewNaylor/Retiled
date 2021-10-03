@@ -36,6 +36,11 @@ Public Class AppsList
             ' Clean the Exec key and store it in a string so it's easy to access.
             ' It has to be in a List(Of String) so the command-line arguments
             ' are accessible.
+            ' Note: Python's Popen does just fine with multiple arguments
+            ' when passing the entire command into the shlex.split function,
+            ' then calling the subprocess.Popen function. This means I don't
+            ' need to check if something isn't nothing, and I can instead
+            ' just use the command after cleaning and splitting it.
             Dim CleanedExecKey As New List(Of String)
             CleanedExecKey = desktopEntryStuff.cleanExecKey(ExecFilename)
             'Debug.WriteLine(CleanedExecKey(0))
