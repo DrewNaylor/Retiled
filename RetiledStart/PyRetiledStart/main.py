@@ -33,7 +33,7 @@
 import os
 from pathlib import Path
 import sys
-import webbrowser
+from libs.libRetiledStartPy.appslist import AppsList
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -46,7 +46,7 @@ class AllAppsListViewModel(QObject):
     def RunApp(self, ExecFilename):
         # Pass the app's command to the code to actually
         # figure out how to run it.
-        webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
+        AppsList.RunApp(ExecFilename)
 
 class TilesViewModel(QObject):
     @Slot(str)
