@@ -32,13 +32,18 @@ def getInfo(inputFile, keyToGet, fileName = "", IsCustomKey = False):
 	# only valid .desktop files by using options described
 	# in the Python docs here:
 	# https://docs.python.org/3/library/configparser.html#customizing-parser-behaviour
-	dotDesktopFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False)
+	# Turn off interpolation, too, since that interferes with fields.
+	dotDesktopFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False, interpolation=None)
 	
 	# Now read the file into the dotDesktopFileReader.
 	# Basing this off this page here:
 	# https://www.tutorialspoint.com/how-to-read-a-text-file-in-python
-	# TODO: Ensure backslashes become two backslashes for
-	# debugging on Windows.
+	# I had a TODO here about escaping backslashes, but it just does that.
+	# However, I do have to add one about removing extra quotes around
+	# the file path:
+	# TODO: Remove extra quotes around file paths if that's a problem,
+	# such as when a user pastes in a file that was copied with
+	# "Copy file as path" on Windows.
 	# Actually, configparser has a read_file function:
 	# https://docs.python.org/3/library/configparser.html#configparser.ConfigParser.read_file
 	dotDesktopFile = open(inputFile, "r")
