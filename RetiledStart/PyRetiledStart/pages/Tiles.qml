@@ -96,7 +96,7 @@ Page {
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
-				width: 150
+				width: 310
 				height: 150
 				}
 				Button {
@@ -106,23 +106,23 @@ Page {
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
+				width: 70
+				height: 70
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
+				width: 70
+				height: 70
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
+				width: 70
+				height: 70
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
+				width: 70
+				height: 70
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
