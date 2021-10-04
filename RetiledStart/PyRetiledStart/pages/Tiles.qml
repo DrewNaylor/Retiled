@@ -66,6 +66,8 @@ Page {
 			id: aboutText
             wrapMode: Label.WordWrap
             horizontalAlignment: Qt.AlignHLeft
+			// Set the width so it doesn't go too far over.
+			width: window.width - 20
 			Layout.row: 0
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
