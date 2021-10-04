@@ -60,3 +60,15 @@ def RunApp(DotDesktopFilePath):
 def GetAppName(DotDesktopFilePath):
 	# Gets the app's name using the libdotdesktop_py library.
 	print(desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True))
+	
+def getDotDesktopFiles():
+	# Gets the list of .desktop files and creates a list of objects
+	# of type DotDesktopEntryInAllAppsList that can be put into QML
+	# after being ordered by name. The DotDesktopEntryInAllAppsList
+	# type is a class, and that class has two properties:
+	# FileNameProperty, which is the .desktop file path, and
+	# NameKeyValueProperty, which stores the "Name" key value
+	# to display the app's name in the All Apps list.
+	# The FileNameProperty will be used to launch the apps by
+	# passing it to desktopEntryStuff.getInfo.
+	print("Not yet implemented.")
