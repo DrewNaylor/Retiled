@@ -175,9 +175,9 @@ ApplicationWindow {
     // Mobile.
         id: appbarDrawer
         width: window.width
-        // Set height to 55 so that the app bar always moves out of the way,
+        // Set height to 50 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
-        height: 55
+        height: 50
 		// Not sure what Interactive means, but I'll guess it determines
 		// if you can interact with the app drawer.
         interactive: stackView.depth === 1
