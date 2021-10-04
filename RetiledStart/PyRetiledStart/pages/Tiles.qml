@@ -67,17 +67,21 @@ Page {
 		anchors.left: parent.left
 		anchors.right: parent.right
 		contentWidth: aboutText.width
-		contentHeight: aboutText.height
+		contentHeight: aboutText.height + allAppsButton.height
 		width: parent.width
 		height: parent.height
 		clip: true
 		// I mostly copied this from my modified version of the Qml.Net example app.
 		// Code for the About.qml file here:
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
+		
+		Grid {
+			id: tilePageContentHolder
+		rows: 3
+		columns: 1
+		
         Label {
 			id: aboutText
-            anchors.left: parent.left
-			anchors.right: parent.right
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 10
@@ -106,10 +110,11 @@ Page {
     }
 	
 	Button {
-		anchors.top: aboutText.bottom
+		id: allAppsButton
 		text: qsTr("->")
 		
 	}
+		}
 	
 	}
 }
