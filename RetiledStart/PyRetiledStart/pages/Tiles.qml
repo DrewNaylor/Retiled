@@ -95,8 +95,12 @@ Page {
 				TapHandler {
 					// Add a debugging TapHandler for
 					// long-pressing.
+					acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchScreen
 					onLongPressed: {
 						console.log("We can definitely do this!")
+					}
+					onTapped: {
+						console.log("Tile tapped.")
 					}
 				}
 				}
