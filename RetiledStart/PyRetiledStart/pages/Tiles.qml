@@ -33,9 +33,15 @@ import QtQuick.Layouts
 
 Page {
 	
+	SwipeView {
+		id: startScreenView
+		currentIndex: 0
+		anchors.fill: parent
 
-
-    
+	// Note: You have to use "Item" for each
+	// of the pages in the SwipeView, or it
+	// gets into an endless loop.
+    Item {
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
 		// TODO: Change the scrolling so it's more loose and doesn't feel like
@@ -103,6 +109,22 @@ Page {
 		
 	}
 		}
+	
+	}
+	}
+	
+	Item {
+		
+		Flickable {
+			
+			Label {
+				text: qsTr("All Apps list")
+				
+			}
+			
+		}
+		
+	}
 	
 	}
 }
