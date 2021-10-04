@@ -65,7 +65,7 @@ Page {
 		
         Label {
 			id: aboutText
-            wrapMode: Label.Wrap
+            wrapMode: Label.WordWrap
             horizontalAlignment: Qt.AlignHLeft
 			Layout.row: 0
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
