@@ -98,6 +98,8 @@ Page {
 		// RowLayout, and GridLayout.
 		Layout.alignment: Qt.AlignRight
 		// Open the All Apps list.
+		// I'll use a SwipeView:
+		// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html
 		
 	}
 		}
