@@ -97,6 +97,7 @@ Page {
 		// "Layout" types, like ColumnLayout,
 		// RowLayout, and GridLayout.
 		Layout.alignment: Qt.AlignRight
+		// Open the All Apps list.
 		
 	}
 		}
