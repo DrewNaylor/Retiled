@@ -55,20 +55,17 @@ Page {
 		// Code for the About.qml file here:
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
 		
-		Grid {
+		ColumnLayout {
 			id: tilePageContentHolder
-		rows: 2
-		columns: 1
 		
 		
-		
-        Label {
+		// TextAreas work for this, but not labels.
+        TextArea {
 			id: aboutText
             wrapMode: Label.WordWrap
             horizontalAlignment: Qt.AlignHLeft
 			// Set the width so it doesn't go too far over.
 			width: window.width - 20
-			Layout.row: 0
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
@@ -96,8 +93,10 @@ Page {
 	Button {
 		id: allAppsButton
 		text: qsTr("->")
+		// Layout.alignment only works in QML's
+		// "Layout" types, like ColumnLayout,
+		// RowLayout, and GridLayout.
 		Layout.alignment: Qt.AlignRight
-		Layout.row: 1
 		
 	}
 		}
