@@ -33,31 +33,9 @@ import QtQuick.Layouts
 
 Page {
 	
-    header: ToolBar {
+
+
     
-    // Didn't know this is how you set background colors for
-    // controls in QML.
-    // Based on this info here:
-    // https://stackoverflow.com/a/27619649
-    background: Rectangle {
-        color: 'black'
-    }
-
-    RowLayout {
-    anchors.left: parent.left
-
-                Item {
-                // Adding an empty Item to space the header from the left.
-                // TODO: Get this empty item's spacing to be closer to WP's
-                // spacing for a given app that uses large headers, like
-                // pages in the Settings app.
-                height: 50
-                }
-
-
-            }
-
-    }
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
 		// TODO: Change the scrolling so it's more loose and doesn't feel like
@@ -77,14 +55,17 @@ Page {
 		
 		Grid {
 			id: tilePageContentHolder
-		rows: 3
+		rows: 2
 		columns: 1
+		
+		
 		
         Label {
 			id: aboutText
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 10
+			Layout.topMargin: 37
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
