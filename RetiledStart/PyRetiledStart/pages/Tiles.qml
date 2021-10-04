@@ -33,6 +33,21 @@ import QtQuick.Layouts
 
 Page {
 	
+	
+	Shortcut {
+		sequences: ["Esc", "Back"]
+        onActivated: {
+			
+			// Go back to the tiles list.
+            startScreenView.currentIndex = 0
+			// Also set the flickable's contentY property to 0
+			// so it goes back to the top, like on WP:
+			// https://stackoverflow.com/a/7564705
+			tilesFlickable.contentY = 0
+			
+        }
+    }
+	
 	SwipeView {
 		id: startScreenView
 		currentIndex: 0
@@ -51,6 +66,7 @@ Page {
 		anchors.fill: parent
 		anchors.margins: 10
 		anchors.topMargin: 37
+		id: tilesFlickable
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
 		contentWidth: tilePageContentHolder.width
