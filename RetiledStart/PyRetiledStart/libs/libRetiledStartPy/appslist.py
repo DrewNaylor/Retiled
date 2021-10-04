@@ -26,7 +26,10 @@
 
 import shlex
 import subprocess
-import libdotdesktop_py
+from ..libdotdesktop_py import desktopEntryStuff
+
+# Python allows relative imports as used above:
+# https://stackoverflow.com/a/714647
 
 # Trying to create a class and library similar to this one:
 # https://codeigo.com/python/import-class-from-another-file-and-directory
@@ -52,4 +55,4 @@ def RunApp(ExecFilename):
 
 def GetAppName(DotDesktopFilePath):
 	# Gets the app's name using the libdotdesktop_py library.
-	print(libdotdesktop_py.desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True))
+	print(desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True))

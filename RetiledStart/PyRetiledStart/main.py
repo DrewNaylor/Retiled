@@ -46,7 +46,8 @@ class AllAppsListViewModel(QObject):
     def RunApp(self, ViewModelExecFilename):
         # Pass the app's command to the code to actually
         # figure out how to run it.
-        AppsList.RunApp(ViewModelExecFilename)
+        #AppsList.RunApp(ViewModelExecFilename)
+        AppsList.GetAppName(ViewModelExecFilename)
 
 #class TilesViewModel(QObject):
     #@Slot(str)
