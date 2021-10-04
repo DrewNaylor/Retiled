@@ -104,5 +104,12 @@ Page {
 			"You can access the Retiled source code here:\n" +
 			"https://github.com/DrewNaylor/Retiled"
     }
+	
+	Button {
+		anchors.top: aboutText.bottom
+		text: qsTr("->")
+		
+	}
+	
 	}
 }
