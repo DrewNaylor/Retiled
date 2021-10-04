@@ -1,5 +1,8 @@
-// RetiledSearch - Windows Phone 8.0-like Search app for the
-//                 Retiled project.
+// PyRetiledStart -  Windows Phone 8.x-like Start screen UI for the
+//                   Retiled project. Once this version reaches
+//                   feature-parity with the Avalonia version, "Py"
+//                   will be removed from the name and the original
+//                   will be archived.
 // Copyright (C) 2021 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property

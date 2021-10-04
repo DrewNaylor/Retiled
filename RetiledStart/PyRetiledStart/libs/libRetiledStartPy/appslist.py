@@ -1,5 +1,6 @@
-# libRetiledStart - Utility library for RetiledStart that allows me to
-#                   keep the main code out of the UI code, like MVVM.
+# libRetiledStartPy - Utility library for RetiledStart that allows me to
+#                     keep the main code out of the UI code, like MVVM.
+#                     This is a port of the VB.NET version to Python.
 # Copyright (C) 2021 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
