@@ -154,6 +154,10 @@ Page {
 	Item {
 		
 		Flickable {
+			// The Flickable visibleArea group's properties
+			// are often used to draw a scrollbar, which
+			// will be useful in the All Apps list.
+			// https://doc.qt.io/qt-6/qml-qtquick-flickable.html
 			
 			Label {
 				text: qsTr("All Apps list")
