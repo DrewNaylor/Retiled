@@ -46,7 +46,7 @@ Page {
 		anchors.left: parent.left
 		anchors.right: parent.right
 		contentWidth: aboutText.width
-		contentHeight: aboutText.height
+		contentHeight: aboutText.height + 37
 		width: parent.width
 		height: parent.height
 		clip: true
@@ -70,7 +70,6 @@ Page {
         Label {
 			id: aboutText
             wrapMode: Label.Wrap
-            horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 10
 			anchors.right: parent.right
 			anchors.left: parent.left
