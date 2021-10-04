@@ -92,6 +92,8 @@ Page {
 				text: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
+				// Scale down the button when pressed.
+				scale: down ? 0.98 : 1.0
 				TapHandler {
 					// Add a debugging TapHandler for
 					// long-pressing.
