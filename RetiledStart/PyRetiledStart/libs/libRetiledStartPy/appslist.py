@@ -26,6 +26,7 @@
 
 import shlex
 import subprocess
+import libdotdesktop_py
 
 # Trying to create a class and library similar to this one:
 # https://codeigo.com/python/import-class-from-another-file-and-directory
@@ -42,9 +43,13 @@ import subprocess
 # the code can be cleaner.
 def RunApp(ExecFilename):
         # Get the ExecFilename split using shlex.split.
-    args = ExecFilename
-    splitargs = shlex.split(args)
+	args = ExecFilename
+	splitargs = shlex.split(args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
 		# if I already do that in my VB.NET library.
-    proc = subprocess.Popen(splitargs)
+	proc = subprocess.Popen(splitargs)
+
+def GetAppName(DotDesktopFilePath):
+	# Gets the app's name using the libdotdesktop_py library.
+	print(libdotdesktop_py.desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True))
