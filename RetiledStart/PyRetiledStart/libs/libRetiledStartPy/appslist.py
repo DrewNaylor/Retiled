@@ -44,9 +44,9 @@ from ..libdotdesktop_py import desktopEntryStuff
 # At least this works at all.
 # TODO: Figure out how to use this with a class so that
 # the code can be cleaner.
-def RunApp(ExecFilename):
+def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
-	args = ExecFilename
+	args = desktopEntryStuff.getInfo(DotDesktopFilePath, "Exec", "", True)
 	splitargs = shlex.split(args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
