@@ -74,7 +74,59 @@ Page {
 		// SO example:
 		// https://stackoverflow.com/a/38532138
 		Flow {
+			spacing: 10
 			
+			Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+				Button {
+				text: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				}
+			}
 			
 			
 		}
@@ -116,7 +168,7 @@ Page {
 		// Layout.alignment only works in QML's
 		// "Layout" types, like ColumnLayout,
 		// RowLayout, and GridLayout.
-		Layout.alignment: Qt.AlignRight
+		Layout.alignment: Qt.AlignRight | Qt.AlignBottom
 		// Open the All Apps list.
 		// I'll use a SwipeView:
 		// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html
@@ -126,7 +178,6 @@ Page {
 	}
 		}
 	
-	}
 	}
 	
 	Item {
