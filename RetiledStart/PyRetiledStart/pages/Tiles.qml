@@ -42,8 +42,9 @@ Page {
 		// it's dragging as much.
 		// TODO 2: Fix "QML Flickable: Binding loop detected for property "contentWidth""
 		// error that shows up on the PinePhone.
-		anchors.left: parent.left
-		anchors.right: parent.right
+		anchors.fill: parent
+		anchors.margins: 10
+		anchors.topMargin: 37
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
 		contentWidth: tilePageContentHolder.width
@@ -72,7 +73,6 @@ Page {
 			id: aboutText
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
-			anchors.margins: 10
 			Layout.row: 1
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
