@@ -45,8 +45,8 @@ Page {
 		// error that shows up on the PinePhone.
 		anchors.left: parent.left
 		anchors.right: parent.right
-		contentWidth: aboutText.width
-		contentHeight: aboutText.height + 37
+		contentWidth: parent.width
+		contentHeight: parent.height
 		width: parent.width
 		height: parent.height
 		clip: true
