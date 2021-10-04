@@ -44,8 +44,10 @@ Page {
 		// error that shows up on the PinePhone.
 		anchors.left: parent.left
 		anchors.right: parent.right
-		contentWidth: aboutText.width
-		contentHeight: aboutText.height + allAppsButton.height
+		// Trying to go from this:
+		// https://stackoverflow.com/a/8902014
+		contentWidth: tilePageContentHolder.width
+		contentHeight: tilePageContentHolder.height
 		width: parent.width
 		height: parent.height
 		clip: true
