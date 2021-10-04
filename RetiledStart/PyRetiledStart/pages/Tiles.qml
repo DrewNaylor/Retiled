@@ -92,6 +92,13 @@ Page {
 				text: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
+				TapHandler {
+					// Add a debugging TapHandler for
+					// long-pressing.
+					onLongPressed: {
+						console.log("We can definitely do this!")
+					}
+				}
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
