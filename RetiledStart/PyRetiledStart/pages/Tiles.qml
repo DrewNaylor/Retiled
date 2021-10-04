@@ -58,6 +58,8 @@ Page {
 			
 			width: parent.width
 			height: parent.height
+			anchors.right: parent.right
+			anchors.left: parent.left
 		
 		
 		Item {
@@ -68,10 +70,10 @@ Page {
         Label {
 			id: aboutText
             wrapMode: Label.Wrap
-			width: parent.width
-			height: parent.height
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 10
+			anchors.right: parent.right
+			anchors.left: parent.left
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
