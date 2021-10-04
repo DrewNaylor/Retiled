@@ -55,6 +55,11 @@ Page {
 		// https://stackoverflow.com/a/8902014
 		contentWidth: tilePageContentHolder.width
 		contentHeight: tilePageContentHolder.height
+		// Very important: Lock the flickable to vertical.
+		// I noticed this when I was just trying to find
+		// a way to disengage the flickable if the user
+		// is flicking horizontally in the docs.
+		flickableDirection: Flickable.VerticalFlick
 		width: parent.width
 		height: parent.height
 		// I mostly copied this from my modified version of the Qml.Net example app.
