@@ -94,17 +94,13 @@ Page {
 				height: 150
 				// Scale down the button when pressed.
 				scale: down ? 0.98 : 1.0
-				TapHandler {
-					// Add a debugging TapHandler for
-					// long-pressing.
-					acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchScreen
-					onLongPressed: {
-						console.log("We can definitely do this!")
-					}
-					onTapped: {
-						console.log("Tile tapped.")
-					}
-				}
+				// TapHandler seemed to interfere with how
+				// the button looked when using it, but
+				// there's an onPressAndHold event we can
+				// use instead:
+				// https://stackoverflow.com/a/62000844
+				onPressAndHold: console.log("We can definitely do this!")
+				onClicked: console.log("The future doesn't belong to you!")
 				}
 				Button {
 				text: qsTr("cobalt-colored tile")
