@@ -75,7 +75,8 @@ Page {
 		// https://stackoverflow.com/a/38532138
 		Flow {
 			spacing: 10
-			
+			// Make sure the buttons stay in the tiles area.
+			width: window.width
 			Button {
 				text: qsTr("cobalt-colored tile")
 				width: 150
