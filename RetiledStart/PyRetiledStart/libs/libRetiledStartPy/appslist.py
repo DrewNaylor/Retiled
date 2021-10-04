@@ -51,6 +51,10 @@ def RunApp(DotDesktopFilePath):
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
 		# if I already do that in my VB.NET library.
+		# Actually, I'm not sure if I am, but that version
+		# seems to do just fine when an Exec key lacks quotes
+		# around the first part of the command, unlike this one
+		# which says it can't find the file.
 	proc = subprocess.Popen(splitargs)
 
 def GetAppName(DotDesktopFilePath):
