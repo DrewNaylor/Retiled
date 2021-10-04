@@ -43,7 +43,7 @@ ApplicationWindow {
     width: 360
     height: 720
     visible: true
-    title: qsTr("RetiledSearch")
+    title: qsTr("RetiledStart")
 
     Universal.theme: Universal.Dark
     Universal.accent: '#0050ef'
