@@ -52,19 +52,8 @@ Page {
                 // spacing for a given app that uses large headers, like
                 // pages in the Settings app.
                 height: 50
-                width: 25
                 }
 
-                Label {
-                id: titleLabel
-                text: "about"
-                // Not sure if this is the right font size, but it's closer.
-                font.pixelSize: 50
-                elide: Label.ElideRight
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
-                Layout.fillWidth: true
-            }
 
             }
 
