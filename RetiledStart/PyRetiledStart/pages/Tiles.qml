@@ -58,22 +58,16 @@ Page {
 		
 		Grid {
 			id: tilePageContentHolder
-		rows: 3
+		rows: 2
 		columns: 1
 		
-		Item {
-			
-			height: 37
-			Layout.row: 0
-			
-		}
 		
 		
         Label {
 			id: aboutText
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
-			Layout.row: 1
+			Layout.row: 0
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
@@ -102,7 +96,7 @@ Page {
 		id: allAppsButton
 		text: qsTr("->")
 		Layout.alignment: Qt.AlignRight
-		Layout.row: 2
+		Layout.row: 1
 		
 	}
 		}
