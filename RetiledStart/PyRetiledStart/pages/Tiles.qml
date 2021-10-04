@@ -69,7 +69,6 @@ Page {
 		// error that shows up on the PinePhone.
 		anchors.fill: parent
 		anchors.margins: 10
-		anchors.topMargin: 37
 		id: tilesFlickable
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
@@ -89,7 +88,12 @@ Page {
 		ColumnLayout {
 			id: tilePageContentHolder
 		
-		
+		Item {
+			// Create an empty item so the area above
+			// the tiles works as a scrollable area.
+			height: 37
+			
+		}
 		
 		// We'll use Flow to get the buttons to wrap
 		// to each line. This may not be what I'll
