@@ -101,7 +101,9 @@ ApplicationWindow {
 
         transform: Translate {
         // Move the menu to make it look like WP's ellipsis menu opening.
-        y: appbarDrawer.position * appBar.height * -1
+		// Change "-3" to how far up you want the appbar to move when
+		// opening the ellipsis menu.
+        y: appbarDrawer.position * appBar.height * -3
          }
 
         RowLayout {
@@ -177,7 +179,7 @@ ApplicationWindow {
         width: window.width
         // Set height to 55 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
-        height: 55
+        height: 145
 		// Not sure what Interactive means, but I'll guess it determines
 		// if you can interact with the app drawer.
         interactive: stackView.depth === 1
@@ -224,6 +226,8 @@ ApplicationWindow {
 
             model: ListModel {
 				ListElement { title: "about"; source: "pages/About.qml" }
+				ListElement { title: "tiles"; source: "pages/Tiles.qml" }
+				ListElement { title: "all apps"; source: "pages/AllApps.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
