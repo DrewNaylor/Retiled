@@ -84,6 +84,10 @@ Page {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			// Note: None of the tiles are properly colored
+			// or styled yet. I need to make a style to
+			// apply to them so that a whole bunch of space
+			// doesn't get taken up.
 			Button {
 				text: qsTr("cobalt-colored tile")
 				width: 150
