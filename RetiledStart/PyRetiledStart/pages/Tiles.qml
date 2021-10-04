@@ -106,7 +106,9 @@ Page {
 		// Open the All Apps list.
 		// I'll use a SwipeView:
 		// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html
-		
+		onClicked: {
+			startScreenView.currentIndex = 1
+		}
 	}
 		}
 	
