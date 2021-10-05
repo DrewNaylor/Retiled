@@ -18,3 +18,6 @@ https://github.com/qtile/qtile
 
 Python has a library that's used for reading INI files, so I'll probably be able to just use that if Python.NET doesn't end up supporting Python 3.9 and/or I decide that trying to get both it and  .NET installed and running on phones just isn't worth it. I'll have to limit allowed comment characters and delimiters to be the same as what the desktop entry spec requires. It'll be a good idea to have this code be written in a way that's easy to reuse for other projects, as a library.
 https://docs.python.org/3/library/configparser.html
+
+I'm trying to use multiple .py file for each .qml file like .NET's code behinds, and even though this question and answer involves PyQt5, it may help:
+https://stackoverflow.com/questions/37974446/how-to-architect-a-pyqt5-project-using-qml-with-multiple-python-files
