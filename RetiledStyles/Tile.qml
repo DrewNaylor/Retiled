@@ -43,6 +43,7 @@ ButtonBase {
 	property string tileText: "tile"
 	property int fontSize: 18
 	property string textColor: "white"
+	property string tileBackgroundColor: "#0050ef"
 	
 	// Ok, so it says that it can't assign stuff. I think I need to add properties.
 	
@@ -66,5 +67,11 @@ ButtonBase {
 				clip: true
             }
 	
+	background: Rectangle {
+		// Change tile color and stuff.
+				color: control.tileBackgroundColor
+                border.width: 0
+                radius: 0
+	}
 	
 }
