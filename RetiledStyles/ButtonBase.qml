@@ -35,7 +35,10 @@
 ****************************************************************************/
 
 // RetiledStyles - Windows Phone 8.x-like QML styles for the
-//                 Retiled project.
+//                 Retiled project. Some code was copied from
+//                 the official qtdeclarative repo, which you can
+//                 access a copy of here:
+//                 https://github.com/DrewNaylor/qtdeclarative
 // Modifications to this file are Copyright (C) 2021 Drew Naylor
 // Please refer to The Qt Company's copyrights above
 // for the copyrights to the original file.
@@ -48,7 +51,7 @@
 // You can get a copy of the source from here:
 // https://github.com/DrewNaylor/qtdeclarative
 //
-// This file is a part of the Retiled project.
+// This file is a part of the RetiledStyles project, which is used by Retiled.
 // Neither Retiled nor Drew Naylor are associated with Microsoft
 // and Microsoft does not endorse Retiled.
 // Any other copyrights and trademarks belong to their

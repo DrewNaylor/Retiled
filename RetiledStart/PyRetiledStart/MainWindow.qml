@@ -329,7 +329,6 @@ ApplicationWindow {
             contentItem: Text {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pixelSize: 18
                 text: qsTr("run")
                 color: "white"
             }
