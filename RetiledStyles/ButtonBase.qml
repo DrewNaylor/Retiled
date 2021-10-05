@@ -77,7 +77,7 @@ T.Button {
                              implicitContentHeight + topPadding + bottomPadding)
 
     padding: 8
-    verticalPadding: padding - 4
+    verticalPadding: padding
     spacing: 8
 	
 	// Scale the button down on pressing it.

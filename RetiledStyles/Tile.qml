@@ -45,8 +45,7 @@ ButtonBase {
 	property string textColor: "white"
 	property string tileBackgroundColor: "#0050ef"
 	
-	// Ok, so it says that it can't assign stuff. I think I need to add properties.
-	
+	padding: 0
 	// Override the contentItem using the one from Button.
 	contentItem: Text {
 		// I couldn't figure out why things weren't
