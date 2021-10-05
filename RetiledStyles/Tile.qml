@@ -41,7 +41,7 @@ ButtonBase {
 	
 	// Add properties.
 	property string tileText: "tile"
-	property int fontSize: 18
+	property int fontSize: 16
 	property string textColor: "white"
 	property string tileBackgroundColor: "#0050ef"
 	
