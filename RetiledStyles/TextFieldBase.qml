@@ -78,8 +78,15 @@ T.TextField {
 	// Placeholder text color when focused or unfocused.
 	// I need to figure out how to handle this when the
 	// textfield isn't enabled.
+	// I think that's a close-enough color to the watermark
+    // color used in Avalonia. Had to use Window Spy to figure it out,
+    // since there was no obvious way to figure it out from Avalonia's
+    // source.
 	property string unfocusedPlaceholderTextColor: "#666666"
 	property string focusedPlaceholderTextColor: "transparent"
+	// Set selectByMouse to true, detailed here:
+	// https://stackoverflow.com/a/38882378
+	selectByMouse: true
 	
     implicitWidth: implicitBackgroundWidth + leftInset + rightInset
                    || Math.max(contentWidth, placeholder.implicitWidth) + leftPadding + rightPadding
@@ -116,7 +123,7 @@ T.TextField {
         text: control.placeholderText
         font: control.font
 		// Change the placeholder text color based on focus state.
-        color: control.focus ? control.unfocusedPlaceholderTextColor : control.focusedPlaceholderTextColor
+        color: control.focus ? control.focusedPlaceholderTextColor : control.unfocusedPlaceholderTextColor
         visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
         verticalAlignment: control.verticalAlignment
         elide: Text.ElideRight

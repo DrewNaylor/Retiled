@@ -249,7 +249,7 @@ ApplicationWindow {
 
 
 // The rest of this isn't from the modified Qml.Net example app, or at least shouldn't be.
-         TextField {
+         RetiledStyles.TextFieldBase {
             id: searchBox
 			// Allow the user to use the Enter key to search.
 			Keys.onEnterPressed: {
@@ -271,11 +271,6 @@ ApplicationWindow {
 			anchors.left: parent.left
             implicitHeight: 40
             placeholderText: qsTr("enter a command line here")
-            // I think that's a close-enough color to the watermark
-            // color used in Avalonia. Had to use Window Spy to figure it out,
-            // since there was no obvious way to figure it out from Avalonia's
-            // source.
-            placeholderTextColor: searchBox.focus ? "transparent" : "#666666"
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
             font.pixelSize: 18
@@ -284,27 +279,7 @@ ApplicationWindow {
             // Selections aren't working for some reason, and I thought it
             // was just a selection color issue.
             selectionColor: "#0050ef"
-            // It should be fixed now by using selectByMouse, which is detailed here:
-            // https://stackoverflow.com/a/38882378
-            selectByMouse: true
 
-            // Changing the style for the textbox. Documentation:
-            // https://doc.qt.io/qt-5/qml-qtquick-controls-styles-textfieldstyle.html
-            // Apparently that doesn't work. See here:
-            // https://stackoverflow.com/a/39052406
-                background: Rectangle {
-				// TODO: Figure out why the left and bottom areas of the textbox
-				// highlight aren't the same thickness as the top and right.
-                    radius: 0
-                    border.width: searchBox.focus ? 2 : 0
-                    // Setting the background seems to work well enough,
-                    // but I need to change the placeholder text here so
-                    // it disappears when focused.
-                    // The left is what I want it to be when focused,
-                    // and the right is what it usually is.
-                    border.color: searchBox.focus ? "#0050ef" : "transparent"
-                    color: searchBox.focus ? "white" : "#CCCCCC"
-                }
 
          }
 		 
