@@ -186,6 +186,16 @@ Page {
 		RetiledStyles.RoundButton {
 			id: allAppsButton
 			text: qsTr("->")
+			
+			// Set background color for when pressed.
+			pressedBackgroundColor: "white"
+			// Set text color for when the button is pressed.
+			pressedTextColor: "black"
+			// If necessary, you can also set the default text color.
+			// This is the color that the text color returns to after
+			// un-pressing the button.
+			// defaultTextColor: "white"
+			
 			// Layout.alignment only works in QML's
 			// "Layout" types, like ColumnLayout,
 			// RowLayout, and GridLayout.
@@ -196,7 +206,7 @@ Page {
 			onClicked: {
 				startScreenView.currentIndex = 1
 						}
-				}
+				} // End of the All Apps button.
 
 		Item {
 			// Empty item below the All Apps button

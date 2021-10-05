@@ -42,16 +42,17 @@ RetiledStyles.Button {
 	
 	// Add two properties to change the text color
 	// on being pressed down.
-	property string pressedTextColor: "black"
+	property string pressedTextColor: "white"
 	property string defaultTextColor: "white"
 	
 	// Set button properties.
 	borderRadius: 90
 	
-	// We're defaulting to use white as the pressed
-	// background color as that's what the Start screen
-	// used in the dark theme.
-	pressedBackgroundColor: "white"
+	// We're defaulting to use cobalt as most round
+	// buttons will probably use accent colors.
+	// Round buttons as used on the Start screen will
+	// have to set this to black or white accordingly.
+	pressedBackgroundColor: "#0050ef"
 	
 	// Set the size to be small.
 	buttonWidth: 30
