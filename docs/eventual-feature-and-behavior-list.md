@@ -85,7 +85,8 @@ There are also some "wishlist" features that I really want but might be too comp
   - Swiping to type would be helpful but may be difficult to implement. If it is implemented, it should display the current result in the suggestion bar as you swipe.
   - The suggestions would be difficult to do when it comes to actually predicting text, but showing the text should be fine. It's important to remember that there are a whole bunch of suggestions (at least 10 usually), and that the list scrolls sideways.
   - Words that aren't recognized can be added to the dictionary by selecting them and pressing "+word".
-  - The keyboard had a `paste` button at the very left part of the suggestion bar, so that needs to be added as well
+  - The keyboard had a `paste` button at the very left part of the suggestion bar, so that needs to be added as well. If there's something on the keyboard and you activate a text box of some kind, it'll hide at the left edge showing a small amount of it, then if you tap it, it slides into view by pulling the suggestion bar to the side. If you have nothing on the clipboard, it's greyed out and hides completely, though you can still show it by dragging over.
+  - Selecting a word/group of words then pressing Shift will cause their capitalization change. I need to check this, but I think it was for lowercase: capital, all caps, lowercase; capital: all caps, lowercase, capital; and for all caps: lowercase, capital, all caps.
   - Text-based emoticons are another thing it needs besides multi-language support (this whole thing needs multi-language support, but I don't really know how to do localization even if I did know multiple languages, so hopefully someone who knows how to do that can help with it)
   - May as well add the text navigation "stick" that Windows 10 Mobile had, since it's one of the few good things that version did. This will be one of the few features from W10M.
 - Battery Saver app
