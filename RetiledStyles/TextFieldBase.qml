@@ -68,7 +68,7 @@ import QtQuick.Controls.Universal
 
 T.TextField {
     id: control
-
+	
     implicitWidth: implicitBackgroundWidth + leftInset + rightInset
                    || Math.max(contentWidth, placeholder.implicitWidth) + leftPadding + rightPadding
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
@@ -110,8 +110,12 @@ T.TextField {
     background: Rectangle {
         implicitWidth: 60 // TextControlThemeMinWidth - 4 (border)
         implicitHeight: 28 // TextControlThemeMinHeight - 4 (border)
+		// Change the radius so it's square.
+		radius: 0
 
-        border.width: 2 // TextControlBorderThemeThickness
+		// Keep the border a width of 0 until it's focused,
+		// at which point it's set to 2.
+        border.width: control.focus ? 2 : 0 // TextControlBorderThemeThickness
         border.color: !control.enabled ? control.Universal.baseLowColor :
                        control.activeFocus ? control.Universal.accent :
                        control.hovered ? control.Universal.baseMediumColor : control.Universal.chromeDisabledLowColor
