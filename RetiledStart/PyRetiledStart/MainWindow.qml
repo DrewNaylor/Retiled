@@ -319,9 +319,10 @@ ApplicationWindow {
 			// Pro-tip: set these properties rather than
 			// putting in a contentItem or it'll override
 			// the style's contentItem.
-			textColor: "white"
-			
-			fontSize: 18
+			// I'm not setting them because they're already
+			// set.
+			//textColor: "white"
+			//fontSize: 18
 			
 			// Set the default state.
             state: "RELEASED"

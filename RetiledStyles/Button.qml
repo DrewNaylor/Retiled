@@ -44,6 +44,9 @@ ButtonBase {
 	
 	property int fontSize: 18
 	property string textColor: "white"
+	property string accentColor: "#0050ef"
+	property string unpressedButtonColor: "transparent"
+	property string borderColor: "white"
 	
 	font.pixelSize: control.fontSize
 	
@@ -60,5 +63,22 @@ ButtonBase {
                 text: control.text
                 color: control.textColor
             }
+			
+		// Had to use the contentItem Text thing to change stuff from the "customizing button"
+        // page in the QML docs here:
+        // https://doc.qt.io/qt-5/qtquickcontrols2-customize.html#customizing-button
+        // Also need to change the background and border.
+           background: Rectangle {
+                implicitWidth: 90
+                implicitHeight: 40
+                border.color: control.borderColor
+				// Set the background color for the button here
+				// since the state-changing thing doesn't work
+				// anymore in Qt6. This is temporary if I figure
+				// out how to fix the animation.
+				color: control.down ? control.accentColor : control.unpressedButtonColor
+                border.width: 2
+                radius: 0
+		   }
 	
 }
