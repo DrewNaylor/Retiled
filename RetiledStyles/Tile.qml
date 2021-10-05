@@ -61,6 +61,9 @@ ButtonBase {
                 color: control.textColor
 				// Turn off ellipsis.
 				elide: Text.ElideNone
+				// Ensure that text doesn't just go out of
+				// the tiles.
+				clip: true
             }
 	
 	

@@ -123,7 +123,7 @@ Page {
 			// apply to them so that a whole bunch of space
 			// doesn't get taken up.
 			RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				// TapHandler seemed to interfere with how
@@ -135,47 +135,47 @@ Page {
 				onClicked: console.log("The future doesn't belong to you!")
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 310
 				height: 150
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				}
 				RetiledStyles.Tile {
-				text: qsTr("cobalt-colored tile")
+				tileText: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				}
