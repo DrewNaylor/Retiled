@@ -75,6 +75,11 @@ T.TextField {
 	property string focusedBackgroundColor: "white"
 	// Unfocused textboxes.
 	property string unfocusedBackgroundColor: "#CCCCCC"
+	// Placeholder text color when focused or unfocused.
+	// I need to figure out how to handle this when the
+	// textfield isn't enabled.
+	property string unfocusedPlaceholderTextColor: "#666666"
+	property string focusedPlaceholderTextColor: "transparent"
 	
     implicitWidth: implicitBackgroundWidth + leftInset + rightInset
                    || Math.max(contentWidth, placeholder.implicitWidth) + leftPadding + rightPadding
@@ -93,9 +98,12 @@ T.TextField {
     color: !enabled ? Universal.chromeDisabledLowColor : Universal.foreground
     selectionColor: Universal.accent
     selectedTextColor: Universal.chromeWhiteColor
-    placeholderTextColor: !enabled ? Universal.chromeDisabledLowColor :
-                                     activeFocus ? Universal.chromeBlackMediumLowColor :
-                                                   Universal.baseMediumColor
+	// Not sure if I'm doing this right to allow it to change when
+		// the textbox isn't enabled.
+		// See the property above.
+    //placeholderTextColor: !enabled ? Universal.chromeDisabledLowColor :
+                                     //activeFocus ? Universal.chromeBlackMediumLowColor :
+                                                   //Universal.baseMediumColor
     verticalAlignment: TextInput.AlignVCenter
 
     PlaceholderText {
@@ -107,7 +115,8 @@ T.TextField {
 
         text: control.placeholderText
         font: control.font
-        color: control.placeholderTextColor
+		// Change the placeholder text color based on focus state.
+        color: control.focus ? control.unfocusedPlaceholderTextColor : control.focusedPlaceholderTextColor
         visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
         verticalAlignment: control.verticalAlignment
         elide: Text.ElideRight
