@@ -274,13 +274,6 @@ ApplicationWindow {
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
             font.pixelSize: 18
-            // Text color needs to be set here.
-            color: "black"
-            // Selections aren't working for some reason, and I thought it
-            // was just a selection color issue.
-            selectionColor: "#0050ef"
-
-
          }
 		 
          RetiledStyles.Button {

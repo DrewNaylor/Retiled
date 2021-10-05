@@ -102,7 +102,11 @@ T.TextField {
 
     Universal.theme: activeFocus ? Universal.Light : undefined
 
-    color: !enabled ? Universal.chromeDisabledLowColor : Universal.foreground
+	// For some reason, just changing the theme wasn't enough
+	// to set the text color to black, so I have to do that.
+	color: "black"
+    //color: !enabled ? Universal.chromeDisabledLowColor : Universal.foreground
+	
     selectionColor: Universal.accent
     selectedTextColor: Universal.chromeWhiteColor
 	// Not sure if I'm doing this right to allow it to change when
