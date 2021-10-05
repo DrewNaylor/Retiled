@@ -39,6 +39,11 @@ ButtonBase {
 	// We need to change things to make it into a tile.
 	id: control
 	
+	// Add properties.
+	property string text: "tile"
+	property int fontSize: 18
+	property string textColor: "white"
+	
 	// Ok, so it says that it can't assign stuff. I think I need to add properties.
 	
 	// Override the contentItem using the one from Button.
