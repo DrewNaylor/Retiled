@@ -185,6 +185,7 @@ Page {
 	
 		RetiledStyles.RoundButton {
 			id: allAppsButton
+			// TODO: Replace this with an accurate arrow.
 			text: qsTr("->")
 			
 			// Set background color for when pressed.
