@@ -31,6 +31,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+// Bring in the custom styles.
+import "../RetiledStyles" as RetiledStyles
+
 Page {
 	
 	
