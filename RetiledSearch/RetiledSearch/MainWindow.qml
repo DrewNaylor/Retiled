@@ -33,6 +33,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
+import "../../RetiledStyles" as RetiledStyles
 
 
 // TODO: Add an About page that says that this app "is powered by Qt, which is used here under the LGPL." I should probably say where to go to get the license, too. Probably should just see what other popular Qt apps do and do something similar. The About page will also have details about this app itself so people know what it is.
@@ -304,118 +305,38 @@ ApplicationWindow {
                 }
 
          }
-         Button {
+         RetiledStyles.Button {
             id: searchButton
 			onClicked: {
 				searchClass.openUrl(searchBox.text)
 			}
-			// Set the scale here temporarily because the nice animation
-			// doesn't seem to work anymore in Qt6 and I don't know how to
-			// fix it right now.
-			scale: searchButton.down ? 0.98 : 1.0
-			// Set the default state.
-            state: "RELEASED"
+			
+			// Pro-tip: set these properties rather than
+			// putting in a contentItem or it'll override
+			// the style's contentItem.
+			// I'm not setting them because they're already
+			// set.
+			//fontSize: 18
+			//textColor: "white"
+			//pressedBackgroundColor: "#0050ef"
+			//unpressedBackgroundColor: "transparent"
+			//borderColor: "white"
+			//borderWidth: 2
+			//borderRadius: 0
+			
+			// However, I will set these properties.
+			buttonWidth: 90
+			buttonHeight: 40
+			
+			// Set margins and anchors.
 			anchors.top: searchBox.bottom
 			anchors.margins: 12
 			anchors.topMargin: 4
 			anchors.left: parent.left
-            font.pixelSize: 18
+			
+			// Set the text.
             text: qsTr("search")
-            // Had to use the contentItem Text thing to change stuff from the "customizing button"
-            // page in the QML docs here:
-            // https://doc.qt.io/qt-5/qtquickcontrols2-customize.html#customizing-button
-            contentItem: Text {
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pixelSize: 18
-                text: qsTr("search")
-                color: "white"
-            }
-           // Also need to change the background and border.
-           background: Rectangle {
-                id: searchButtonBackgroundArea
-                implicitWidth: 90
-                implicitHeight: 40
-                border.color: "white"
-				// Set the background color for the button here
-				// since the state-changing thing doesn't work
-				// anymore in Qt6. This is temporary if I figure
-				// out how to fix the animation.
-				color: searchButton.down ? "#0050ef" : "transparent"
-                border.width: 2
-                radius: 0
-
-                // I think this is the way I'll rotate and shrink the button
-                // when it's held down:
-                // https://doc.qt.io/qt-5/qml-qtquick-animation.html#running-prop
-                // Better stuff on animations:
-                // https://doc.qt.io/qt-5/qtquick-statesanimations-animations.html
-                // Actually, this is what I needed:
-                // https://doc.qt.io/qt-5/qml-qtquick-scaleanimator.html
-                // Wait, this looks better, but is older so I hope it works:
-                // https://forum.qt.io/topic/2712/animating-button-press
-                // TODO: Figure out how to rotate the button toward where it's
-                // pressed, like on WP. Maybe WinUI code will help me figure it
-                // out for Avalonia, then I'll translate it to QML.
-
-
-                // We're using MultiPointTouchArea to ensure this'll work with touch.
-                MultiPointTouchArea {
-                    anchors.fill: parent
-                    onPressed: searchButton.state = "PRESSED"
-                    onReleased: searchButton.state = "RELEASED"
-                }
-
-                // Set up the states.
-                // TODO: Move all the style and property changes to separate files
-                // so that they can be reused easily. Also, figure out how to change
-                // the accent color in those style qml files based on what's in a config
-                // file. Maybe I can use JS to read that file and get the user's accent color,
-                // though that may not be possible. Hopefully there's something.
-				// Actually, maybe Python could bind QML properties to the user's accent color
-				// setting in a file.
-				// TODO: Fix the button text so it's in the middle vertically and horizontally.
-				// TODO: Fix this for PySide6/Qt6. For now I'm making the button change
-				// its appearance when it's down, but it's not as smooth as these animations.
-                states: [
-                    State {
-                        name: "PRESSED"
-                        // Avalonia used 0.98, and I thought it looked bad in QML,
-                        // but I think it's fine.
-                        // We can actually just scale the whole button down rather than
-                        // the rectangle we're in. Didn't know that, so I decided to see if
-                        // QML allows that because that seems to be what Avalonia does,
-                        // and it works.
-                        PropertyChanges {target: searchButton; scale: 0.98}
-                        // Change the button background to Cobalt when pressed.
-                        PropertyChanges {target: searchButton; color: "#0050ef"}
-                    },
-                    // There's supposed to be a comma there.
-                    State {
-                        name: "RELEASED"
-                        PropertyChanges {target: searchButton; scale: 1.0}
-                        PropertyChanges {target: searchButton; color: "black"}
-                    }
-                ]
-
-                // Set up the transitions.
-                transitions: [
-                    Transition {
-                        from: "PRESSED"
-                        to: "RELEASED"
-                        NumberAnimation { target: searchButton; duration: 60}
-                        ColorAnimation { target: searchButton; duration: 60}
-                    },
-
-                    Transition {
-                        from: "RELEASED"
-                        to: "PRESSED"
-                        NumberAnimation { target: searchButton; duration: 60}
-                        ColorAnimation { target: searchButton; duration: 60}
-                    }
-                
-                ]
-           }
+            
 
     }
 		}
