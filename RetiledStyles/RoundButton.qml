@@ -48,8 +48,14 @@ RetiledStyles.Button {
 	pressedBackgroundColor: "white"
 	
 	// Set the size to be small.
-	// For some reason, it's not a perfect circle.
 	buttonWidth: 30
 	buttonHeight: 30
+	
+	// Set font size.
+	fontSize: 20
+	
+	// Get rid of padding.
+	padding: 0
+	verticalPadding: 0
 	
 }
