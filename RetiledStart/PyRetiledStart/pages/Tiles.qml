@@ -188,12 +188,20 @@ Page {
 			text: qsTr("->")
 			
 			// Set background color for when pressed.
+			// By default this is cobalt (#0050ef).
+			// This would probably be black in light themes.
 			pressedBackgroundColor: "white"
 			// Set text color for when the button is pressed.
+			// This is white by default, as most round buttons
+			// don't change their text color.
+			// I think this would also have to be white when
+			// using the light theme.
 			pressedTextColor: "black"
 			// If necessary, you can also set the default text color.
 			// This is the color that the text color returns to after
 			// un-pressing the button.
+			// Light themes would have the default text color be black
+			// I think.
 			// defaultTextColor: "white"
 			
 			// Layout.alignment only works in QML's
