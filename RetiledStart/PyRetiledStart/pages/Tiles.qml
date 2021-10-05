@@ -122,12 +122,10 @@ Page {
 			// or styled yet. I need to make a style to
 			// apply to them so that a whole bunch of space
 			// doesn't get taken up.
-			Button {
+			RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
-				// Scale down the button when pressed.
-				scale: down ? 0.98 : 1.0
 				// TapHandler seemed to interfere with how
 				// the button looked when using it, but
 				// there's an onPressAndHold event we can
@@ -136,47 +134,47 @@ Page {
 				onPressAndHold: console.log("We can definitely do this!")
 				onClicked: console.log("The future doesn't belong to you!")
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 310
 				height: 150
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 70
 				height: 70
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
 				}
-				Button {
+				RetiledStyles.Tile {
 				text: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150

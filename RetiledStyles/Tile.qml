@@ -37,8 +37,26 @@ import QtQuick
 
 ButtonBase {
 	// We need to change things to make it into a tile.
+	id: control
 	
+	// Ok, so it says that it can't assign stuff. I think I need to add properties.
 	
+	// Override the contentItem using the one from Button.
+	contentItem: Text {
+		// I couldn't figure out why things weren't
+		// working, but it turns out that you can't
+		// have another contentItem in the button in
+		// the window or it'll override this style's
+		// contentItem.
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignBottom
+				// Make the font bigger.
+                font.pixelSize: control.fontSize
+                text: control.text
+                color: control.textColor
+				// Turn off ellipsis.
+				elide: Text.ElideNone
+            }
 	
 	
 }
