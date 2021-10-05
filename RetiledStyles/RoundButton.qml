@@ -40,6 +40,10 @@ import QtQuick
 RetiledStyles.Button {
 	id: control
 	
+	// Add two properties to change the text color
+	// on being pressed down.
+	property string pressedTextColor: "black"
+	property string defaultTextColor: "white"
 	
 	// Set button properties.
 	borderRadius: 90
@@ -61,5 +65,5 @@ RetiledStyles.Button {
 	verticalPadding: 0
 	
 	// Change text color on down.
-	textColor: control.down ? "black" : "white"
+	textColor: control.down ? control.pressedTextColor : control.defaultTextColor
 }
