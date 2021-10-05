@@ -38,6 +38,8 @@ import "." as RetiledStyles
 import QtQuick
 
 RetiledStyles.Button {
+	id: control
+	
 	
 	// Set button properties.
 	borderRadius: 90
@@ -58,4 +60,6 @@ RetiledStyles.Button {
 	padding: 0
 	verticalPadding: 0
 	
+	// Change text color on down.
+	textColor: control.down ? "black" : "white"
 }
