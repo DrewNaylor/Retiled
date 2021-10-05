@@ -79,6 +79,78 @@ ButtonBase {
 				color: control.down ? control.accentColor : control.unpressedButtonColor
                 border.width: 2
                 radius: 0
+				
+				
+				//// I think this is the way I'll rotate and shrink the button
+                //// when it's held down:
+                //// https://doc.qt.io/qt-5/qml-qtquick-animation.html#running-prop
+                //// Better stuff on animations:
+                //// https://doc.qt.io/qt-5/qtquick-statesanimations-animations.html
+                //// Actually, this is what I needed:
+                //// https://doc.qt.io/qt-5/qml-qtquick-scaleanimator.html
+                //// Wait, this looks better, but is older so I hope it works:
+                //// https://forum.qt.io/topic/2712/animating-button-press
+                //// TODO: Figure out how to rotate the button toward where it's
+                //// pressed, like on WP. Maybe WinUI code will help me figure it
+                //// out for Avalonia, then I'll translate it to QML.
+
+
+                //// We're using MultiPointTouchArea to ensure this'll work with touch.
+                //MultiPointTouchArea {
+                //    anchors.fill: parent
+                 //   onPressed: searchButton.state = "PRESSED"
+                  //  onReleased: searchButton.state = "RELEASED"
+               // }
+
+                //// Set up the states.
+                //// Figure out how to change
+                //// the accent color in those style qml files based on what's in a config
+                //// file. Maybe I can use JS to read that file and get the user's accent color,
+                //// though that may not be possible. Hopefully there's something.
+				//// Actually, maybe Python could bind QML properties to the user's accent color
+				//// setting in a file.
+				//// TODO: Fix the button text so it's in the middle vertically and horizontally.
+				//// TODO: Fix this for PySide6/Qt6. For now I'm making the button change
+				//// its appearance when it's down, but it's not as smooth as these animations.
+              //  states: [
+                    //State {
+                    //    name: "PRESSED"
+                        //// Avalonia used 0.98, and I thought it looked bad in QML,
+                        //// but I think it's fine.
+                        //// We can actually just scale the whole button down rather than
+                        //// the rectangle we're in. Didn't know that, so I decided to see if
+                        //// QML allows that because that seems to be what Avalonia does,
+                        //// and it works.
+                       // PropertyChanges {target: searchButton; scale: 0.98}
+                        // Change the button background to Cobalt when pressed.
+                     //   PropertyChanges {target: searchButton; color: "#0050ef"}
+                   // },
+                    //// There's supposed to be a comma there.
+                 //   State {
+                      //  name: "RELEASED"
+                    //    PropertyChanges {target: searchButton; scale: 1.0}
+                  //      PropertyChanges {target: searchButton; color: "black"}
+                //    }
+              //  ]
+
+                //// Set up the transitions.
+              //  transitions: [
+                  //  Transition {
+                    //    from: "PRESSED"
+                     //   to: "RELEASED"
+                       // NumberAnimation { target: searchButton; duration: 60}
+                     //   ColorAnimation { target: searchButton; duration: 60}
+                   // },
+
+                    //Transition {
+                     //   from: "RELEASED"
+                     //   to: "PRESSED"
+                      //  NumberAnimation { target: searchButton; duration: 60}
+                    //    ColorAnimation { target: searchButton; duration: 60}
+                  //  }
+                
+                //]
+				
 		   }
 	
 }
