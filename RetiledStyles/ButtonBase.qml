@@ -1,9 +1,52 @@
+/****************************************************************************
+**
+** Copyright (C) 2017 The Qt Company Ltd.
+** Contact: http://www.qt.io/licensing/
+**
+** This file is part of the Qt Quick Controls 2 module of the Qt Toolkit.
+**
+** $QT_BEGIN_LICENSE:LGPL3$
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and The Qt Company. For licensing terms
+** and conditions see http://www.qt.io/terms-conditions. For further
+** information use the contact form at http://www.qt.io/contact-us.
+**
+** GNU Lesser General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU Lesser
+** General Public License version 3 as published by the Free Software
+** Foundation and appearing in the file LICENSE.LGPLv3 included in the
+** packaging of this file. Please review the following information to
+** ensure the GNU Lesser General Public License version 3 requirements
+** will be met: https://www.gnu.org/licenses/lgpl.html.
+**
+** GNU General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU
+** General Public License version 2.0 or later as published by the Free
+** Software Foundation and appearing in the file LICENSE.GPL included in
+** the packaging of this file. Please review the following information to
+** ensure the GNU General Public License version 2.0 requirements will be
+** met: http://www.gnu.org/licenses/gpl-2.0.html.
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
 // RetiledStyles - Windows Phone 8.x-like QML styles for the
 //                 Retiled project.
 // Copyright (C) 2021 Drew Naylor
+// Please refer to The Qt Company's copyrights above
+// for the copyrights to the original file.
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
+//
+// This file was modified from the original QtQuick Controls source.
+// In particular, I took code from the Universal style.
+// You can get a copy of the source from here:
+// https://github.com/DrewNaylor/qtdeclarative
 //
 // This file is a part of the Retiled project.
 // Neither Retiled nor Drew Naylor are associated with Microsoft
@@ -12,14 +55,5 @@
 // respective people and companies/organizations.
 //
 //
-//   Licensed under the Apache License, Version 2.0 (the "License");
-//   you may not use this file except in compliance with the License.
-//   You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-//   Unless required by applicable law or agreed to in writing, software
-//   distributed under the License is distributed on an "AS IS" BASIS,
-//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//   See the License for the specific language governing permissions and
-//   limitations under the License.
+//   Please refer to the licensing info above for the licenses this file falls
+//   under.

@@ -109,6 +109,7 @@ Page {
 			"https://www.gnu.org/licenses/gpl-3.0.html \n\n"+
 			"Some files were taken and modified from the Qt6 QtQuick2 source, in particular styles. I'm supposed to provide a way to download Qt's source according to its license, so I hope a fork of the qtdeclarative repo is enough (there are so many repos in the Qt organization account that I didn't know which one to fork, so I figured that the main one my code uses would be a safe bet):\n" +
 			"https://github.com/DrewNaylor/qtdeclarative \n" +
+			"Please be aware that although I kept the original licensing stuff for the styles, Retiled is using them under the LGPLv3.\n\n" +
 			"I will also provide a link to the PySide6 project, though I didn't take or modify any code from it and I'm not distributing any part of it, so I don't think I have to host it myself:\n" +
 			"https://code.qt.io/cgit/pyside/pyside-setup.git/about/ \n\n" +
 			"You can access the Retiled source code here:\n" +
