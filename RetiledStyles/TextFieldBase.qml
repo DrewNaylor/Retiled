@@ -69,6 +69,13 @@ import QtQuick.Controls.Universal
 T.TextField {
     id: control
 	
+	// Define some properties that can be set.
+	// I'll have to check what the background for
+	// textboxes would be in the light theme.
+	property string focusedBackgroundColor: "white"
+	// Unfocused textboxes.
+	property string unfocusedBackgroundColor: "#CCCCCC"
+	
     implicitWidth: implicitBackgroundWidth + leftInset + rightInset
                    || Math.max(contentWidth, placeholder.implicitWidth) + leftPadding + rightPadding
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
@@ -119,6 +126,11 @@ T.TextField {
         border.color: !control.enabled ? control.Universal.baseLowColor :
                        control.activeFocus ? control.Universal.accent :
                        control.hovered ? control.Universal.baseMediumColor : control.Universal.chromeDisabledLowColor
-        color: control.enabled ? control.Universal.background : control.Universal.baseLowColor
+		// TODO: Ensure the textfield has the correct styling when it's not enabled.
+		// Setting the background seems to work well enough,
+        // but I need to change the placeholder text color/visibility so
+        // it disappears when focused.
+		color: control.focus ? control.focusedBackgroundColor : control.unfocusedBackgroundColor
+        //color: control.enabled ? control.Universal.background : control.Universal.baseLowColor
     }
 }

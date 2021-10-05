@@ -302,8 +302,6 @@ ApplicationWindow {
                     // it disappears when focused.
                     // The left is what I want it to be when focused,
                     // and the right is what it usually is.
-                    // TODO: Figure out how to remove focus when the button is
-                    // focused.
                     border.color: searchBox.focus ? "#0050ef" : "transparent"
                     color: searchBox.focus ? "white" : "#CCCCCC"
                 }
