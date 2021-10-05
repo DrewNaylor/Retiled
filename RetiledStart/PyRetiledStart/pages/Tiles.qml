@@ -68,7 +68,6 @@ Page {
 		// TODO 2: Fix "QML Flickable: Binding loop detected for property "contentWidth""
 		// error that shows up on the PinePhone.
 		anchors.fill: parent
-		anchors.margins: 10
 		id: tilesFlickable
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
@@ -84,6 +83,14 @@ Page {
 		// I mostly copied this from my modified version of the Qml.Net example app.
 		// Code for the About.qml file here:
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
+		
+		RowLayout {
+			
+			Item {
+				// Empty item that acts as a margin on the left of the
+				// tiles so it can be scrolled, as margins don't allow scrolling.
+				width: 10
+			}
 		
 		ColumnLayout {
 			id: tilePageContentHolder
@@ -186,10 +193,27 @@ Page {
 			onClicked: {
 				startScreenView.currentIndex = 1
 						}
-				}	
+				}
+
+		Item {
+			// Empty item below the All Apps button
+			// for spacing, as margins don't allow you
+			// to scroll in them.
+			height: 10
+			
+		}
 
 	
-		}
+		} // End of ColumnLayout for the tiles and All Apps button.
+		
+		Item {
+				// Empty item that acts as a margin on the left of the
+				// tiles so it can be scrolled, as margins don't allow scrolling.
+				width: 10
+			}
+		
+		} // End of RowLayout for storing empty items that form the margins on the left and right.
+		
 	}
 	}
 	
