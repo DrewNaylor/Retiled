@@ -40,6 +40,9 @@ import QtQuick
 RetiledStyles.Button {
 	id: control
 	
+	// TODO: Figure out how to properly center buttons.
+	// I may have to change this in ButtonBase.
+	
 	// Add two properties to change the text color
 	// on being pressed down.
 	property string pressedTextColor: "white"
