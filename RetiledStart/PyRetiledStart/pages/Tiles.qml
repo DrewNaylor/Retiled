@@ -183,7 +183,7 @@ Page {
 				}
 			}
 	
-		Button {
+		RetiledStyles.RoundButton {
 			id: allAppsButton
 			text: qsTr("->")
 			// Layout.alignment only works in QML's
