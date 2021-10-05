@@ -32,6 +32,23 @@
 // the style wasn't installed, so I'm just
 // importing everything in this folder
 // until I can figure out a better solution.
-import "."
+// Also qualify the name to ensure there's
+// no clashing with QML.
+import "." as RetiledStyles
 import QtQuick
 
+RetiledStyles.Button {
+	
+	// Set button properties.
+	borderRadius: 90
+	
+	// We're defaulting to use white as the pressed
+	// background color as that's what the Start screen
+	// used in the dark theme.
+	pressedBackgroundColor: "white"
+	
+	// Set the size to be small.
+	buttonWidth: 30
+	buttonHeight: 30
+	
+}
