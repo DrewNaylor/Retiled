@@ -36,7 +36,7 @@
 
 // RetiledStyles - Windows Phone 8.x-like QML styles for the
 //                 Retiled project.
-// Copyright (C) 2021 Drew Naylor
+// Modifications to this file are Copyright (C) 2021 Drew Naylor
 // Please refer to The Qt Company's copyrights above
 // for the copyrights to the original file.
 // (Note that the copyright years include the years left out by the hyphen.)
@@ -44,7 +44,7 @@
 // of Microsoft Corporation. All rights reserved.
 //
 // This file was modified from the original QtQuick Controls source.
-// In particular, I took code from the Universal style.
+// In particular, I took code from the Universal style's "Button.qml" file.
 // You can get a copy of the source from here:
 // https://github.com/DrewNaylor/qtdeclarative
 //
@@ -76,6 +76,9 @@ T.Button {
     padding: 8
     verticalPadding: padding - 4
     spacing: 8
+	
+	// Scale the button down on pressing it.
+	scale: control.down ? 0.98 : 1.0
 
     icon.width: 20
     icon.height: 20
