@@ -321,33 +321,27 @@ ApplicationWindow {
 			// the style's contentItem.
 			// I'm not setting them because they're already
 			// set.
-			//textColor: "white"
 			//fontSize: 18
+			//textColor: "white"
+			//pressedBackgroundColor: "#0050ef"
+			//unpressedBackgroundColor: "transparent"
+			//borderColor: "white"
+			//borderWidth: 2
+			//borderRadius: 0
 			
-			// Set the default state.
-            state: "RELEASED"
+			// However, I will set these properties.
+			buttonWidth: 90
+			buttonHeight: 40
+			
+			// Set margins.
 			anchors.top: searchBox.bottom
 			anchors.margins: 12
 			anchors.topMargin: 4
 			anchors.left: parent.left
+			
+			// Set text.
             text: qsTr("run")
-            // Had to use the contentItem Text thing to change stuff from the "customizing button"
-            // page in the QML docs here:
-            // https://doc.qt.io/qt-5/qtquickcontrols2-customize.html#customizing-button
-           // Also need to change the background and border.
-           background: Rectangle {
-                id: searchButtonBackgroundArea
-                implicitWidth: 90
-                implicitHeight: 40
-                border.color: "white"
-				// Set the background color for the button here
-				// since the state-changing thing doesn't work
-				// anymore in Qt6. This is temporary if I figure
-				// out how to fix the animation.
-				color: searchButton.down ? "#0050ef" : "transparent"
-                border.width: 2
-                radius: 0
-           }
+            
 
     }
 		}

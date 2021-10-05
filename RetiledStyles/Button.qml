@@ -44,15 +44,17 @@ ButtonBase {
 	
 	property int fontSize: 18
 	property string textColor: "white"
-	property string accentColor: "#0050ef"
-	property string unpressedButtonColor: "transparent"
+	property string pressedBackgroundColor: "#0050ef"
+	property string unpressedBackgroundColor: "transparent"
 	property string borderColor: "white"
 	property int borderWidth: 2
 	property int borderRadius: 0
 	property int buttonWidth: 50
 	property int buttonHeight: 35
 	
-	font.pixelSize: control.fontSize
+	
+	//// Set the default state.
+     // state: "RELEASED"
 	
 	contentItem: Text {
 		// I couldn't figure out why things weren't
@@ -80,7 +82,7 @@ ButtonBase {
 				// since the state-changing thing doesn't work
 				// anymore in Qt6. This is temporary if I figure
 				// out how to fix the animation.
-				color: control.down ? control.accentColor : control.unpressedButtonColor
+				color: control.down ? control.pressedBackgroundColor : control.unpressedBackgroundColor
                 border.width: control.borderWidth
                 radius: control.borderRadius
 				
