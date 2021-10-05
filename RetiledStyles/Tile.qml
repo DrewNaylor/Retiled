@@ -34,3 +34,11 @@
 // until I can figure out a better solution.
 import "."
 import QtQuick
+
+ButtonBase {
+	// We need to change things to make it into a tile.
+	
+	
+	
+	
+}
