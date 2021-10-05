@@ -270,7 +270,30 @@ ApplicationWindow {
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
             font.pixelSize: 18
+			
+			// There are some additional properties you can set:
+			// Change the textfield's background color when focused.
+			//   focusedBackgroundColor: "white"
+			// Change the textfield's background color when unfocused.
+			//   unfocusedBackgroundColor: "#CCCCCC"
+			// Set the unfocused placeholder text.
+			// This was as close as I could get to what Avalonia's
+			// placeholder text color was at the opacity I set.
+			//   unfocusedPlaceholderTextColor: "#666666"
+			// Set the focused placeholder text color.
+			// This is mostly used to make it disappear
+			// when focused so it doesn't interfere with
+			// the text.
+			//   focusedPlaceholderTextColor: "transparent"
+			// Additionally, "selectByMouse" is set to true
+			// by default now.
+			// "color" is now also set to "black" so the text shows
+			// up with the white background.
+			// Border width also changes from 0 when unfocused to 2
+			// when focused. There isn't a property to change that yet.
          }
+		 
+		 
          RetiledStyles.Button {
             id: searchButton
 			onClicked: {
