@@ -40,7 +40,7 @@ ButtonBase {
 	id: control
 	
 	// Add properties.
-	property string text: "tile"
+	property string tileText: "tile"
 	property int fontSize: 18
 	property string textColor: "white"
 	
@@ -57,7 +57,7 @@ ButtonBase {
                 verticalAlignment: Text.AlignBottom
 				// Make the font bigger.
                 font.pixelSize: control.fontSize
-                text: control.text
+                text: control.tileText
                 color: control.textColor
 				// Turn off ellipsis.
 				elide: Text.ElideNone
