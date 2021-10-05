@@ -310,15 +310,12 @@ ApplicationWindow {
 
          }
 		 
-         Button {
+         RetiledStyles.Button {
             id: searchButton
 			onClicked: {
 				allAppsListViewModel.RunApp(searchBox.text)
 			}
-			// Set the scale here temporarily because the nice animation
-			// doesn't seem to work anymore in Qt6 and I don't know how to
-			// fix it right now.
-			scale: searchButton.down ? 0.98 : 1.0
+			
 			// Set the default state.
             state: "RELEASED"
 			anchors.top: searchBox.bottom

@@ -78,6 +78,9 @@ T.Button {
     spacing: 8
 	
 	// Scale the button down on pressing it.
+	// This is temporary because the nice animation
+	// doesn't seem to work anymore in Qt6 and I don't know how to
+	// fix it right now.
 	scale: control.down ? 0.98 : 1.0
 
     icon.width: 20

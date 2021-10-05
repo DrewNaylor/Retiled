@@ -24,7 +24,11 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import ButtonBase
+// Tried to do import ButtonBase but QML said
+// the style wasn't installed, so I'm just
+// importing everything in this folder
+// until I can figure out a better solution.
+import "."
 
 // Change the button so it's more like WP.
 // I took these properties from the button
