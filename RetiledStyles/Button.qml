@@ -33,6 +33,7 @@
 // importing everything in this folder
 // until I can figure out a better solution.
 import "."
+import QtQuick
 
 // Change the button so it's more like WP.
 // I took these properties from the button
@@ -41,13 +42,23 @@ ButtonBase {
 	
 	id: control
 	
+	property int fontSize: 18
+	property string textColor: "white"
+	
+	font.pixelSize: control.fontSize
+	
 	contentItem: Text {
+		// I couldn't figure out why things weren't
+		// working, but it turns out that you can't
+		// have another contentItem in the button in
+		// the window or it'll override this style's
+		// contentItem.
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 				// Make the font bigger.
-                font.pixelSize: 18
-                text: qsTr("run")
-                color: "white"
+                font.pixelSize: control.fontSize
+                text: control.text
+                color: control.textColor
             }
 	
 }

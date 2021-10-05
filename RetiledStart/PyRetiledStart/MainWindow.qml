@@ -316,6 +316,13 @@ ApplicationWindow {
 				allAppsListViewModel.RunApp(searchBox.text)
 			}
 			
+			// Pro-tip: set these properties rather than
+			// putting in a contentItem or it'll override
+			// the style's contentItem.
+			textColor: "white"
+			
+			fontSize: 18
+			
 			// Set the default state.
             state: "RELEASED"
 			anchors.top: searchBox.bottom
@@ -326,12 +333,6 @@ ApplicationWindow {
             // Had to use the contentItem Text thing to change stuff from the "customizing button"
             // page in the QML docs here:
             // https://doc.qt.io/qt-5/qtquickcontrols2-customize.html#customizing-button
-            contentItem: Text {
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                text: qsTr("run")
-                color: "white"
-            }
            // Also need to change the background and border.
            background: Rectangle {
                 id: searchButtonBackgroundArea
