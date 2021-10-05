@@ -42,10 +42,22 @@ ButtonBase {
 	
 	id: control
 	
+	// Usually buttons have text, but if they're images,
+	// I'd have to figure something out.
 	property int fontSize: 18
+	// textColor would usually be white, but it can be
+	// changed to black. Actually, maybe adding a way to
+	// automatically set the theme with a boolean would
+	// be useful.
 	property string textColor: "white"
+	// pressedBackgroundColor will usually be the accent color.
 	property string pressedBackgroundColor: "#0050ef"
+	// unpressedBackgroundColor is usually transparent,
+	// but it may be useful to specify a color, such as for
+	// tiles.
 	property string unpressedBackgroundColor: "transparent"
+	// Just like the textColor, borderColor would be black
+	// in the light theme.
 	property string borderColor: "white"
 	property int borderWidth: 2
 	property int borderRadius: 0
