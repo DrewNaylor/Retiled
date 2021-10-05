@@ -45,7 +45,13 @@ ButtonBase {
 	property string textColor: "white"
 	property string tileBackgroundColor: "#0050ef"
 	
-	padding: 0
+	// Set padding values.
+	leftPadding: 8
+	topPadding: 0
+	rightPadding: 0
+	bottomPadding: 6
+	
+	
 	// Override the contentItem using the one from Button.
 	contentItem: Text {
 		// I couldn't figure out why things weren't
