@@ -44,6 +44,11 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			ColumnLayout {
 				
+				// Set margins for the ColumnLayout on the left.
+				Layout.leftMargin: 10
+				Layout.topMargin: 20
+				Layout.rightMargin: 10
+				
 				RetiledStyles.RoundButton {
 					// This is for the search button.
 					text: qsTr("<b>S</b>")
