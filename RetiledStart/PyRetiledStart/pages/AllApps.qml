@@ -45,8 +45,11 @@ import "../../../RetiledStyles" as RetiledStyles
 			ColumnLayout {
 				
 				RetiledStyles.RoundButton {
-					text: qsTr("S")
-				}
+					// This is for the search button.
+					text: qsTr("<b>S</b>")
+					pressedTextColor: "black"
+					pressedBackgroundColor: "white"
+				} // End of the search button.
 				
 			} // End of the ColumnLayout that stores stuff like the Search button.
 			
