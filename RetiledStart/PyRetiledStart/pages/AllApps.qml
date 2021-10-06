@@ -37,14 +37,19 @@ import "../../../RetiledStyles" as RetiledStyles
 
     Item {
 		
-		id: allAppsPage
 		
 		// We need a small area on the left and an infinitely-expanding area on the right.
 		// Wrapping ColumnLayouts inside a RowLayout should work.
 		
 		RowLayout {
 			
+			// Not sure if something from this page will help, but I'm trying:
+			// https://stackoverflow.com/questions/66216383/why-can-i-not-make-a-qml-rowlayout-fill-a-columnlayouts-width
+			anchors.fill: parent
+			
 			ColumnLayout {
+				
+				Layout.alignment: Qt.AlignTop
 				
 				// Set margins for the ColumnLayout on the left.
 				Layout.leftMargin: 10
@@ -56,11 +61,14 @@ import "../../../RetiledStyles" as RetiledStyles
 					text: qsTr("<b>S</b>")
 					pressedTextColor: "black"
 					pressedBackgroundColor: "white"
+					Layout.alignment: Qt.AlignTop
 				} // End of the search button.
 				
 			} // End of the ColumnLayout that stores stuff like the Search button.
 			
 			ColumnLayout { // This stores the flickable for the All Apps list.
+				
+				
 				
 		Flickable {
 			// The Flickable visibleArea group's properties
@@ -85,11 +93,13 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			ColumnLayout {
 				
+				
 			
 			Item {
 				// Spacer item above the All Apps list. Doesn't
 				// seem to do anything with just a label here.
 				height: 15
+				Layout.fillWidth: true
 			} // End of the spacer item above the All Apps list.
 			
 			
@@ -99,7 +109,6 @@ import "../../../RetiledStyles" as RetiledStyles
 				// after resizing the window.
 				// It needs to fill the rest of the area
 				// inside the ColumnLayout that directly contains it.
-				width: allAppsPage.width
 				Layout.fillWidth: true
 				
 			}
