@@ -84,6 +84,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			// in mind. Not sure how to do that.
 			
 			ColumnLayout {
+				
 			
 			Item {
 				// Spacer item above the All Apps list. Doesn't
@@ -94,6 +95,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			Button {
 				text: qsTr("All Apps list")
+				// For some reason, this only works
+				// after resizing the window.
+				// It needs to fill the rest of the area
+				// inside the ColumnLayout that directly contains it.
 				width: allAppsPage.width
 				Layout.fillWidth: true
 				
