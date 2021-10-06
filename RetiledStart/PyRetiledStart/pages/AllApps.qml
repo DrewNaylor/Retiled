@@ -37,6 +37,8 @@ import "../../../RetiledStyles" as RetiledStyles
 
     Item {
 		
+		id: allAppsPage
+		
 		// We need a small area on the left and an infinitely-expanding area on the right.
 		// Wrapping ColumnLayouts inside a RowLayout should work.
 		
@@ -58,8 +60,8 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 			} // End of the ColumnLayout that stores stuff like the Search button.
 			
-			ColumnLayout {
-		
+			ColumnLayout { // This stores the flickable for the All Apps list.
+				
 		Flickable {
 			// The Flickable visibleArea group's properties
 			// are often used to draw a scrollbar, which
@@ -92,7 +94,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			Button {
 				text: qsTr("All Apps list")
-				width: parent.width
+				width: allAppsPage.width
 				Layout.fillWidth: true
 				
 			}
