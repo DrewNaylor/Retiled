@@ -21,3 +21,7 @@ https://docs.python.org/3/library/configparser.html
 
 I'm trying to use multiple .py file for each .qml file like .NET's code behinds, and even though this question and answer involves PyQt5, it may help:
 https://stackoverflow.com/questions/37974446/how-to-architect-a-pyqt5-project-using-qml-with-multiple-python-files
+
+I think I'll have to compile the Python code so it can be installed to a read-only folder, and Cython may help as described at these two pages:
+https://stackoverflow.com/questions/5105482/compile-main-python-program-using-cython/22040484#22040484
+https://stackoverflow.com/questions/11507101/how-to-compile-and-link-multiple-python-modules-or-packages-using-cython
