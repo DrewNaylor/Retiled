@@ -49,6 +49,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			ColumnLayout {
 				
+				// Make sure the buttons are aligned to the top.
 				Layout.alignment: Qt.AlignTop
 				
 				// Set margins for the ColumnLayout on the left.
@@ -61,6 +62,7 @@ import "../../../RetiledStyles" as RetiledStyles
 					text: qsTr("<b>S</b>")
 					pressedTextColor: "black"
 					pressedBackgroundColor: "white"
+					// Make sure the buttons are aligned to the top.
 					Layout.alignment: Qt.AlignTop
 				} // End of the search button.
 				
