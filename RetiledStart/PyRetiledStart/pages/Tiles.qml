@@ -34,6 +34,9 @@ import QtQuick.Layouts
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
 
+// Bring in the All Apps page.
+import "." as RetiledStartPages
+
 Page {
 	
 	
@@ -237,21 +240,8 @@ Page {
 	}
 	}
 	
-	Item {
-		
-		Flickable {
-			// The Flickable visibleArea group's properties
-			// are often used to draw a scrollbar, which
-			// will be useful in the All Apps list.
-			// https://doc.qt.io/qt-6/qml-qtquick-flickable.html
-			
-			Label {
-				text: qsTr("All Apps list")
-				
-			}
-			
-		}
-		
+	RetiledStartPages.AllApps {
+		// The All Apps page has been moved to its own file.
 	}
 	
 }
