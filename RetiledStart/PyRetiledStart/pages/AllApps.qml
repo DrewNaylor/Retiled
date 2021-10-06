@@ -93,9 +93,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the spacer item above the All Apps list.
 			
 			
-			Button {
-				// Suddenly the button's text is blurry.
-				// Not sure why.
+			RetiledStyles.ButtonBase {
 				text: qsTr("All Apps list")
 				// For some reason, this only works
 				// after resizing the window.
