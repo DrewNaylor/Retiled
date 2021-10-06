@@ -81,6 +81,12 @@ import "../../../RetiledStyles" as RetiledStyles
 			// apps though, mostly the ones that weren't built with it
 			// in mind. Not sure how to do that.
 			
+			Item {
+				// Spacer item above the All Apps list. Doesn't
+				// seem to do anything with just a label here.
+				height: 15
+			} // End of the spacer item above the All Apps list.
+			
 			Label {
 				text: qsTr("All Apps list")
 				
