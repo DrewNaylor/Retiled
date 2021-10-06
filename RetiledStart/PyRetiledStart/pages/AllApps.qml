@@ -90,8 +90,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the spacer item above the All Apps list.
 			
 			
-			Label {
+			Button {
 				text: qsTr("All Apps list")
+				width: parent.width
+				Layout.fillWidth: true
 				
 			}
 			} // End of the ColumnLayout that holds the app entries for the All Apps list.
