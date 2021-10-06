@@ -31,6 +31,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+// Bring in the custom styles.
+import "../../../RetiledStyles" as RetiledStyles
+
 
     Item {
 		
@@ -40,6 +43,10 @@ import QtQuick.Layouts
 		RowLayout {
 			
 			ColumnLayout {
+				
+				RetiledStyles.RoundButton {
+					text: qsTr("S")
+				}
 				
 			} // End of the ColumnLayout that stores stuff like the Search button.
 			
