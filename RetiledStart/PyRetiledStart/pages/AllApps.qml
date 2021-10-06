@@ -94,6 +94,8 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			Button {
+				// Suddenly the button's text is blurry.
+				// Not sure why.
 				text: qsTr("All Apps list")
 				// For some reason, this only works
 				// after resizing the window.
