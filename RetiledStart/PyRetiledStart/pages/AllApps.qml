@@ -66,6 +66,21 @@ import "../../../RetiledStyles" as RetiledStyles
 			// will be useful in the All Apps list.
 			// https://doc.qt.io/qt-6/qml-qtquick-flickable.html
 			
+			// Create an empty item above the All Apps list that
+			// looks like a margin but isn't and allows scrolling
+			// within it.
+			// TODO: Figure out how to have the statusbar cover up
+			// items in the All Apps list when you're scrolling, but
+			// be transparent when in the tiles list.
+			// This may require some way for apps to tell the window
+			// manager/Wayland compositor that I'm probably going to
+			// have to develop that the statusbar should look a certain way.
+			// Actually, maybe it would be useful to just bake in a margin
+			// and have the statusbar be transparent. Maybe there should
+			// be a way to ensure it'll be opaque when running certain
+			// apps though, mostly the ones that weren't built with it
+			// in mind. Not sure how to do that.
+			
 			Label {
 				text: qsTr("All Apps list")
 				
