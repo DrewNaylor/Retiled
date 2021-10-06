@@ -35,15 +35,15 @@ import QtQuick.Layouts
     Item {
 		
 		// We need a small area on the left and an infinitely-expanding area on the right.
-		// Wrapping ColumnViews inside a RowView should work.
+		// Wrapping ColumnLayouts inside a RowLayout should work.
 		
-		RowView {
+		RowLayout {
 			
-			ColumnView {
+			ColumnLayout {
 				
-			} // End of the ColumnView that stores stuff like the Search button.
+			} // End of the ColumnLayout that stores stuff like the Search button.
 			
-			ColumnView {
+			ColumnLayout {
 		
 		Flickable {
 			// The Flickable visibleArea group's properties
@@ -58,8 +58,8 @@ import QtQuick.Layouts
 			
 		} // End of the All Apps list flickable.
 		
-			} // End of the All Apps list ColumnView.
+			} // End of the All Apps list ColumnLayout.
 		
-		} // End of the RowView that holds both ColumnViews.
+		} // End of the RowLayout that holds both ColumnLayouts.
 		
 	} // End of the Item that's used to hold the All Apps page.
