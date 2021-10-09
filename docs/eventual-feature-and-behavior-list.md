@@ -3,7 +3,7 @@
 These are things that Windows Phone has that Retiled will eventually have. Moved from the readme because it was taking up too much space.
 
 - Start screen
-  - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts to display "live" data
+  - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts (maybe I could also support Wren scripting, to have multiple options; perhaps adding Lua support as well would be a good idea) to display "live" data
   - Probably should look at the MahApps Metro Tile control, to see if there's anything I can learn from it: https://mahapps.com/docs/controls/tile
   - In addition to the MahApps Tile control, I should look at this one as well to see if there's anything useful even though it's for Silverlight: https://github.com/saurabhrajguru/HubTileX
   - Actually, maybe I should look a lot more at MahApps and what I can bring over to Avalonia as it has very Windows Phone-style controls and control appearances.
