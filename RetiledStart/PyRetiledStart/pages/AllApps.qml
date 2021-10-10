@@ -97,7 +97,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				// https://doc.qt.io/qt-6/qtquick-positioning-layouts.html#column-items
 				// The Flow type is used for the tiles.
 				// Actually, we're trying the ListView again:
-				// https://doc.qt.io/qt-6/qml-qtqml-models-listelement.html
+				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
 				
 				anchors.fill: parent
 			
@@ -127,6 +127,12 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the Button delegate item in the listview.
 			} // End of the Column inside the ListView.
 			} // End of the ListView that holds the app entries for the All Apps list.
+			
+			ListModel {
+				// Create a ListModel for the All Apps list.
+				// Not sure how I'll get stuff into here from Python.
+				
+			}
 			
 		} // End of the All Apps list flickable.
 		
