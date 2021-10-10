@@ -70,7 +70,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			ColumnLayout { // This stores the flickable for the All Apps list.
 				
-		Flickable {
+		//Flickable {
 			// The Flickable visibleArea group's properties
 			// are often used to draw a scrollbar, which
 			// will be useful in the All Apps list.
@@ -99,7 +99,6 @@ import "../../../RetiledStyles" as RetiledStyles
 				// Actually, we're trying the ListView again:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
 				
-				anchors.fill: parent
 			
 			Item {
 				// Spacer item above the All Apps list.
@@ -114,10 +113,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			
-				model: 20
+				model: allAppsListModel
 			delegate: Column {
 				RetiledStyles.ButtonBase {
-				text: qsTr("All Apps list")
+				text: name
 				// For some reason, this only works
 				// after resizing the window.
 				// It needs to fill the rest of the area
@@ -125,16 +124,61 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 				
 			} // End of the Button delegate item in the listview.
-			} // End of the Column inside the ListView.
+			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.
 			
 			ListModel {
 				// Create a ListModel for the All Apps list.
 				// Not sure how I'll get stuff into here from Python.
-				
-			}
+				id: allAppsListModel
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+				ListElement {
+					name: "All Apps list"
+				}
+			} // End of the All Apps list model.
 			
-		} // End of the All Apps list flickable.
+		//} // End of the All Apps list flickable.
 		
 			} // End of the All Apps list ColumnLayout, not to be confused with the one inside the Flickable.
 		
