@@ -32,3 +32,10 @@
 // about missing stuff.
 import "."
 import QtQuick
+
+
+// Change the button to be like the All Apps list buttons on WP.
+ButtonBase {
+	
+	
+} // End of the ButtonBase containing the All Apps list button item.
