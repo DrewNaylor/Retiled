@@ -110,6 +110,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the spacer item above the All Apps list.
 			
 			
+			// Use a Repeater to make things more compact.
+			// https://doc.qt.io/qt-6/qml-qtquick-repeater.html
+			Repeater {
+				model: 20
 			RetiledStyles.ButtonBase {
 				text: qsTr("All Apps list")
 				// For some reason, this only works
@@ -119,7 +123,8 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 				
 			}
-			} // End of the ColumnLayout that holds the app entries for the All Apps list.
+			} // End of the Repeater that holds all the entries in the All Apps list.
+			} // End of the Column that holds the app entries for the All Apps list.
 			
 		} // End of the All Apps list flickable.
 		
