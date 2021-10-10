@@ -57,6 +57,11 @@ RetiledStyles.Button {
 	property string iconBackgroundColor: "#0050ef"
 	
 	contentItem: Text {
+		// Add anchor.
+		anchors.left: Rectangle.right
+		// For some reason, the rectangle is outside the button
+		// and not scaling down, but there's also an extra rectangle
+		// that is scaling down.
 		// QML doesn't seem to like setting alignment using properties.
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
@@ -68,6 +73,8 @@ RetiledStyles.Button {
 			
 	// Add an icon to the item.
 	Rectangle {
+		// Add anchor.
+		anchors.right: contentItem.left
 		// For now, just use a rectangle filled with the user's
 		// accent color, cobalt by default.
 		// Some stuff from here may help a bit, and I'm trying to figure this out from some answers here:
