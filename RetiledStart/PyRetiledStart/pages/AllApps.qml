@@ -91,12 +91,15 @@ import "../../../RetiledStyles" as RetiledStyles
 			// apps though, mostly the ones that weren't built with it
 			// in mind. Not sure how to do that.
 			
-			Column {
+			ListView {
 				
 				// Using the Column item positioner type:
 				// https://doc.qt.io/qt-6/qtquick-positioning-layouts.html#column-items
 				// The Flow type is used for the tiles.
+				// Actually, we're trying the ListView again:
+				// https://doc.qt.io/qt-6/qml-qtqml-models-listelement.html
 				
+				anchors.fill: parent
 			
 			Item {
 				// Spacer item above the All Apps list.
@@ -110,11 +113,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the spacer item above the All Apps list.
 			
 			
-			// Use a Repeater to make things more compact.
-			// https://doc.qt.io/qt-6/qml-qtquick-repeater.html
-			Repeater {
+			
 				model: 20
-			RetiledStyles.ButtonBase {
+			delegate: Column {
+				RetiledStyles.ButtonBase {
 				text: qsTr("All Apps list")
 				// For some reason, this only works
 				// after resizing the window.
@@ -122,9 +124,9 @@ import "../../../RetiledStyles" as RetiledStyles
 				// inside the ColumnLayout that directly contains it.
 				
 				
-			}
-			} // End of the Repeater that holds all the entries in the All Apps list.
-			} // End of the Column that holds the app entries for the All Apps list.
+			} // End of the Button delegate item in the listview.
+			} // End of the Column inside the ListView.
+			} // End of the ListView that holds the app entries for the All Apps list.
 			
 		} // End of the All Apps list flickable.
 		
