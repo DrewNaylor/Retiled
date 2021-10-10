@@ -43,4 +43,46 @@ RetiledStyles.Button {
 	// Set text size.
 	fontSize: 20
 	
+	// Add a property to store text because I
+	// can't just put any property I want into
+	// the button style.
+	property string entryText: ""
+	
+	// Put something in setting text color.
+	// Usually under the dark theme it'll be
+	// white.
+	property string textColor: "white"
+	
+	contentItem: Text {
+		// QML doesn't seem to like setting alignment using properties.
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+				// Make the font bigger.
+                font.pixelSize: fontSize
+                text: entryText
+                color: textColor
+            }
+			
+	// Add an icon to the item.
+	Rectangle {
+		// For now, just use a rectangle filled with the user's
+		// accent color, cobalt by default.
+		// Some stuff from here may help a bit, and I'm trying to figure this out from some answers here:
+		// https://stackoverflow.com/questions/27324318/how-to-make-image-to-fill-qml-controls-button
+		width: 50
+		height: 50
+		
+	}
+	
 } // End of the ButtonBase containing the All Apps list button item.
+
+
+
+
+
+
+
+
+
+
+
