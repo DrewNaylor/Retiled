@@ -43,6 +43,13 @@ RetiledStyles.Button {
 	// Set text size.
 	fontSize: 20
 	
+	// Remove the border.
+	borderWidth: 0
+	
+	// Set the background color when pressing the button to transparent
+	// to get rid of it.
+	pressedBackgroundColor: "transparent"
+	
 	// Add a property to store text because I
 	// can't just put any property I want into
 	// the button style.
