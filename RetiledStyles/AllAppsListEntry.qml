@@ -59,6 +59,9 @@ RetiledStyles.Button {
 	Row {
 		// Fill the button so we can align things properly.
 		anchors.fill: parent
+		// Add spacing between the icon and the text:
+		// https://stackoverflow.com/a/24361104
+		spacing: 10
 		// Add an icon to the item.
 	Rectangle {
 		// For now, just use a rectangle filled with the user's
