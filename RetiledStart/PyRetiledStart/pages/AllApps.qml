@@ -55,7 +55,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				// Set margins for the ColumnLayout on the left.
 				Layout.leftMargin: 10
 				Layout.topMargin: 20
-				Layout.rightMargin: 10
+				Layout.rightMargin: 5
 				
 				RetiledStyles.RoundButton {
 					// This is for the search button.
@@ -69,7 +69,12 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the ColumnLayout that stores stuff like the Search button.
 			
 			ColumnLayout { // This stores the flickable for the All Apps list.
-				
+			// Adding this margin makes the All Apps list look almost
+			// exactly like the Avalonia-based one, except there's 
+			// a gap between the Search button and the items in the list
+			// and I can't figure out what it is. The margin causes empty
+			// space to be added permanently, though.
+				//Layout.topMargin: 15
 		Flickable {
 			// The Flickable visibleArea group's properties
 			// are often used to draw a scrollbar, which
