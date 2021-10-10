@@ -121,7 +121,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 			
 			model: AllAppsListModel {}
-			delegate: Column { RetiledStyles.ButtonBase { 
+			delegate: Column { RetiledStyles.AllAppsListEntry { 
 								text: name
 								// Width of the window - 55 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 55			} // End of the Button delegate item in the listview.

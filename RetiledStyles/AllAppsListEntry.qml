@@ -30,12 +30,17 @@
 
 // Just import everything in this folder so QML doesn't complain
 // about missing stuff.
-import "."
+import "." as RetiledStyles
 import QtQuick
 
 
 // Change the button to be like the All Apps list buttons on WP.
-ButtonBase {
+RetiledStyles.Button {
 	
+	// Set button height.
+	buttonHeight: 60
+	
+	// Set text size.
+	fontSize: 20
 	
 } // End of the ButtonBase containing the All Apps list button item.
