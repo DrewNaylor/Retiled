@@ -99,16 +99,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			// TODO: Figure out why the buttons can't be tapped
 			// at the very right edge of the PinePhone's display when rotated.
 			
-			Item {
-				// Spacer item above the All Apps list.
-				// This doesn't seem to work for some reason,
-				// and the items just go to the top anyway,
-				// even when setting the width.
-				height: 15
-				// Need a width so it pushes the items down.
-				width: 250
-				
-			} // End of the spacer item above the All Apps list.
+			
 			
 			ListView {
 				width: window.width
@@ -127,6 +118,13 @@ import "../../../RetiledStyles" as RetiledStyles
 				// The ListView actually has support for section headers built-in
 				// and detailed at the ListView documentation.
 				
+				header: Item {
+				// Spacer item above the All Apps list.
+				// You have to set this as the ListView's header
+				// in order for it to work.
+				// This is not to be confused with section headers.
+				height: 15
+				} // End of the spacer item above the All Apps list.
 			
 			model: AllAppsListModel {}
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
