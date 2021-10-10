@@ -98,10 +98,9 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			Item {
 				// Spacer item above the All Apps list.
-				// May need to change the height, unless
-				// the button style that I'll customize
-				// for the All Apps list will make it
-				// work.
+				// This doesn't seem to work for some reason,
+				// and the items just go to the top anyway,
+				// even when setting the width.
 				height: 15
 				// Need a width so it pushes the items down.
 				width: 250
