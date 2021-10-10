@@ -36,7 +36,6 @@ import QtQuick.Controls
 ListModel {
 				// Create a ListModel for the All Apps list.
 				// Not sure how I'll get stuff into here from Python.
-				id: allAppsListModel
 				ListElement {
 					name: "All Apps list"
 				}

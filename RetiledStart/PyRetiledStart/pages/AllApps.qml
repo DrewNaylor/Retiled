@@ -70,7 +70,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			ColumnLayout { // This stores the flickable for the All Apps list.
 				
-		//Flickable {
+		Flickable {
 			// The Flickable visibleArea group's properties
 			// are often used to draw a scrollbar, which
 			// will be useful in the All Apps list.
@@ -91,15 +91,6 @@ import "../../../RetiledStyles" as RetiledStyles
 			// apps though, mostly the ones that weren't built with it
 			// in mind. Not sure how to do that.
 			
-			ListView {
-				
-				// Using the Column item positioner type:
-				// https://doc.qt.io/qt-6/qtquick-positioning-layouts.html#column-items
-				// The Flow type is used for the tiles.
-				// Actually, we're trying the ListView again:
-				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
-				
-			
 			Item {
 				// Spacer item above the All Apps list.
 				// May need to change the height, unless
@@ -109,9 +100,17 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: 15
 				// Need a width so it pushes the items down.
 				width: 250
+				
 			} // End of the spacer item above the All Apps list.
 			
-			
+			ListView {
+				
+				// Using the Column item positioner type:
+				// https://doc.qt.io/qt-6/qtquick-positioning-layouts.html#column-items
+				// The Flow type is used for the tiles.
+				// Actually, we're trying the ListView again:
+				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
+				
 			
 				model: AllAppsListModel {}
 			delegate: Column { RetiledStyles.ButtonBase { text: name } // End of the Button delegate item in the listview.
@@ -119,7 +118,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the ListView that holds the app entries for the All Apps list.
 			
 			
-		//} // End of the All Apps list flickable.
+		} // End of the All Apps list flickable.
 		
 			} // End of the All Apps list ColumnLayout, not to be confused with the one inside the Flickable.
 		
