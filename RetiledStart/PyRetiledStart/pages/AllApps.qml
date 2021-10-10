@@ -93,14 +93,19 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			Column {
 				
-				// Trying to use the ListView:
-				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
+				// Using the Column item positioner type:
+				// https://doc.qt.io/qt-6/qtquick-positioning-layouts.html#column-items
+				// The Flow type is used for the tiles.
 				
 			
 			Item {
-				// Spacer item above the All Apps list. Doesn't
-				// seem to do anything with just a label here.
+				// Spacer item above the All Apps list.
+				// May need to change the height, unless
+				// the button style that I'll customize
+				// for the All Apps list will make it
+				// work.
 				height: 15
+				// Need a width so it pushes the items down.
 				width: 250
 			} // End of the spacer item above the All Apps list.
 			
