@@ -1,8 +1,8 @@
-// RetiledSearch - Windows Phone 8.0-like Search app for the
-//                 Retiled project.
-//                 To view "git blame" on this file before it was moved
-//                 back to Retiled, see here:
-//                   https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/retiled-qml-porting-work/src/Features/Main-PyRetiledSearch.qml
+// PyRetiledStart - Windows Phone 8.x-like Start screen UI for the
+//                  Retiled project. Once this app reaches
+//                  feature-parity with the older Avalonia-based
+//                  version, this version will be renamed back to
+//                  "RetiledStart".
 // Copyright (C) 2021 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
@@ -44,7 +44,7 @@ ApplicationWindow {
     width: 360
     height: 720
     visible: true
-    title: qsTr("RetiledSearch")
+    title: qsTr("RetiledStart")
 
     Universal.theme: Universal.Dark
     Universal.accent: '#0050ef'
@@ -102,7 +102,9 @@ ApplicationWindow {
 
         transform: Translate {
         // Move the menu to make it look like WP's ellipsis menu opening.
-        y: appbarDrawer.position * appBar.height * -1
+		// Change "-3" to how far up you want the appbar to move when
+		// opening the ellipsis menu.
+        y: appbarDrawer.position * appBar.height * -3
          }
 
         RowLayout {
@@ -176,9 +178,9 @@ ApplicationWindow {
     // Mobile.
         id: appbarDrawer
         width: window.width
-        // Set height to 50 so that the app bar always moves out of the way,
+        // Set height to 55 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
-        height: 50
+        height: 145
 		// Not sure what Interactive means, but I'll guess it determines
 		// if you can interact with the app drawer.
         interactive: stackView.depth === 1
@@ -225,6 +227,8 @@ ApplicationWindow {
 
             model: ListModel {
 				ListElement { title: "about"; source: "pages/About.qml" }
+				ListElement { title: "tiles"; source: "pages/Tiles.qml" }
+				ListElement { title: "all apps"; source: "pages/AllApps.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
@@ -249,14 +253,14 @@ ApplicationWindow {
             id: searchBox
 			// Allow the user to use the Enter key to search.
 			Keys.onEnterPressed: {
-				searchClass.openUrl(searchBox.text)
+				allAppsListViewModel.RunApp(searchBox.text)
 			}
 			// We also have to have one for onReturnPressed
 			// because Qt doesn't consider the Return key to
 			// be the same as the Enter key, even though it's
 			// literally labeled as "Enter" on my keyboard.
 			Keys.onReturnPressed: {
-				searchClass.openUrl(searchBox.text)
+				allAppsListViewModel.RunApp(searchBox.text)
 			}
             // I don't know how to get the width to change when the window
             // is resized, so it's hardcoded at 312 for now.
@@ -266,38 +270,16 @@ ApplicationWindow {
 			anchors.right: parent.right
 			anchors.left: parent.left
             implicitHeight: 40
-            placeholderText: qsTr("enter a search term here")
+            placeholderText: qsTr("enter a .desktop file path here")
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
             font.pixelSize: 18
-			
-			// There are some additional properties you can set:
-			// Change the textfield's background color when focused.
-			//   focusedBackgroundColor: "white"
-			// Change the textfield's background color when unfocused.
-			//   unfocusedBackgroundColor: "#CCCCCC"
-			// Set the unfocused placeholder text.
-			// This was as close as I could get to what Avalonia's
-			// placeholder text color was at the opacity I set.
-			//   unfocusedPlaceholderTextColor: "#666666"
-			// Set the focused placeholder text color.
-			// This is mostly used to make it disappear
-			// when focused so it doesn't interfere with
-			// the text.
-			//   focusedPlaceholderTextColor: "transparent"
-			// Additionally, "selectByMouse" is set to true
-			// by default now.
-			// "color" is now also set to "black" so the text shows
-			// up with the white background.
-			// Border width also changes from 0 when unfocused to 2
-			// when focused. There isn't a property to change that yet.
          }
-		 
 		 
          RetiledStyles.Button {
             id: searchButton
 			onClicked: {
-				searchClass.openUrl(searchBox.text)
+				allAppsListViewModel.RunApp(searchBox.text)
 			}
 			
 			// Pro-tip: set these properties rather than
@@ -317,14 +299,14 @@ ApplicationWindow {
 			buttonWidth: 90
 			buttonHeight: 40
 			
-			// Set margins and anchors.
+			// Set margins.
 			anchors.top: searchBox.bottom
 			anchors.margins: 12
 			anchors.topMargin: 4
 			anchors.left: parent.left
 			
-			// Set the text.
-            text: qsTr("search")
+			// Set text.
+            text: qsTr("run")
             
 
     }

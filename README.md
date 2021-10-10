@@ -28,9 +28,11 @@ You may need to install packages through your distro's package manager, and thos
 ## License stuff
 
 >This project (Retiled) is Copyright (C) 2021 Drew Naylor and is licensed under the Apache License 2.0.<br>
+Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative<br><br>
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
-Any other copyrights and trademarks belong to their respective people and companies/organizations.<br>
+Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd.<br>
+Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
 Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6. Anything else that's used in the future will be added to this list.
 
 ## Building and running
