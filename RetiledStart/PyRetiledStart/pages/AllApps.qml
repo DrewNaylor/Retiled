@@ -130,8 +130,8 @@ import "../../../RetiledStyles" as RetiledStyles
 			model: AllAppsListModel {}
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
 								entryText: name
-								// Width of the window - 55 ends up with buttons that fill the width like they're supposed to.
-								width: window.width - 55			} // End of the Button delegate item in the listview.
+								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
+								width: window.width - 50			} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.
 			
