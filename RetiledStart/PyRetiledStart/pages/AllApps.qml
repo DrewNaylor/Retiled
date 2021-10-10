@@ -113,70 +113,11 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			
-				model: allAppsListModel
-			delegate: Column {
-				RetiledStyles.ButtonBase {
-				text: name
-				// For some reason, this only works
-				// after resizing the window.
-				// It needs to fill the rest of the area
-				// inside the ColumnLayout that directly contains it.
-				
-				
-			} // End of the Button delegate item in the listview.
+				model: AllAppsListModel {}
+			delegate: Column { RetiledStyles.ButtonBase { text: name } // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.
 			
-			ListModel {
-				// Create a ListModel for the All Apps list.
-				// Not sure how I'll get stuff into here from Python.
-				id: allAppsListModel
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-				ListElement {
-					name: "All Apps list"
-				}
-			} // End of the All Apps list model.
 			
 		//} // End of the All Apps list flickable.
 		
