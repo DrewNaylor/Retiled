@@ -104,7 +104,12 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the spacer item above the All Apps list.
 			
 			ListView {
-				
+				width: 300
+				// Not setting the height results in only one
+				// item appearing.
+				height: window.height
+				// Clip the ListView or things don't scroll correctly.
+				clip: true
 				// Using the Column item positioner type:
 				// https://doc.qt.io/qt-6/qtquick-positioning-layouts.html#column-items
 				// The Flow type is used for the tiles.
