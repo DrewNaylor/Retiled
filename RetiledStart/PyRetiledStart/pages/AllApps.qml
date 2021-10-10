@@ -120,11 +120,12 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: window.height - 45
 				// Clip the ListView or things don't scroll correctly.
 				clip: true
-				// Using the Column item positioner type:
-				// https://doc.qt.io/qt-6/qtquick-positioning-layouts.html#column-items
-				// The Flow type is used for the tiles.
-				// Actually, we're trying the ListView again:
+				// We're using the ListView:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
+				// TODO: Add section headers that the user can click/tap on to get a
+				// jump list to go to any part of the list with a specific letter.
+				// The ListView actually has support for section headers built-in
+				// and detailed at the ListView documentation.
 				
 			
 			model: AllAppsListModel {}
