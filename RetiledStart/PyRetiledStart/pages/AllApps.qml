@@ -107,7 +107,10 @@ import "../../../RetiledStyles" as RetiledStyles
 				width: 300
 				// Not setting the height results in only one
 				// item appearing.
-				height: window.height
+				// I don't know if the height should be window.height.
+				// "- 45" is just to have all the items show while there's
+				// an appbar.
+				height: window.height - 45
 				// Clip the ListView or things don't scroll correctly.
 				clip: true
 				// Using the Column item positioner type:
