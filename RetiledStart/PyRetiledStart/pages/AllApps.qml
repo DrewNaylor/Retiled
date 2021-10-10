@@ -104,7 +104,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the spacer item above the All Apps list.
 			
 			ListView {
-				width: 300
+				width: window.width
 				// Not setting the height results in only one
 				// item appearing.
 				// I don't know if the height should be window.height.
@@ -121,7 +121,10 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 			
 			model: AllAppsListModel {}
-			delegate: Column { RetiledStyles.ButtonBase { text: name } // End of the Button delegate item in the listview.
+			delegate: Column { RetiledStyles.ButtonBase { 
+								text: name
+								// Width of the window - 55 ends up with buttons that fill the width like they're supposed to.
+								width: window.width - 55			} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.
 			
