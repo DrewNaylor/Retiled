@@ -270,7 +270,7 @@ ApplicationWindow {
 			anchors.right: parent.right
 			anchors.left: parent.left
             implicitHeight: 40
-            placeholderText: qsTr("enter a command line here")
+            placeholderText: qsTr("enter a .desktop file path here")
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
             font.pixelSize: 18
