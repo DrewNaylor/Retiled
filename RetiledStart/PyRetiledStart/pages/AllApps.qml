@@ -112,7 +112,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
 				
 			
-				model: AllAppsListModel {}
+			model: AllAppsListModel {}
 			delegate: Column { RetiledStyles.ButtonBase { text: name } // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.
