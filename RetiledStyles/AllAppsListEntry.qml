@@ -57,7 +57,8 @@ RetiledStyles.Button {
 	property string iconBackgroundColor: "#0050ef"
 	
 	Row {
-		
+		// Fill the button so we can align things properly.
+		anchors.fill: parent
 		// Add an icon to the item.
 	Rectangle {
 		// For now, just use a rectangle filled with the user's
@@ -67,6 +68,12 @@ RetiledStyles.Button {
 		width: 50
 		height: 50
 		color: iconBackgroundColor
+		// Align the icon area to the top and bottom so it's stretched.
+		anchors.top: parent.top
+		anchors.bottom: parent.bottom
+		// A margin needs to be added to ensure it's the right size.
+		anchors.topMargin: 5
+		anchors.bottomMargin: 5
 	}
 	
 	Text {
