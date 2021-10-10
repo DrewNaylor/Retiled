@@ -116,7 +116,8 @@ import "../../../RetiledStyles" as RetiledStyles
 				// TODO: Add section headers that the user can click/tap on to get a
 				// jump list to go to any part of the list with a specific letter.
 				// The ListView actually has support for section headers built-in
-				// and detailed at the ListView documentation.
+				// and detailed at the ListView documentation:
+				// https://doc.qt.io/qt-6/qml-qtquick-listview.html#section-prop
 				
 				header: Item {
 				// Spacer item above the All Apps list.
