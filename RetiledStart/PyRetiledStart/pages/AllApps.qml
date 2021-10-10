@@ -91,19 +91,17 @@ import "../../../RetiledStyles" as RetiledStyles
 			// apps though, mostly the ones that weren't built with it
 			// in mind. Not sure how to do that.
 			
-			ListView {
+			Column {
 				
 				// Trying to use the ListView:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
-				width: parent.width
+				
 			
 			Item {
 				// Spacer item above the All Apps list. Doesn't
 				// seem to do anything with just a label here.
 				height: 15
-				anchors.top: parent.top
-				anchors.right: parent.right
-				anchors.left: parent.left
+				width: 250
 			} // End of the spacer item above the All Apps list.
 			
 			
@@ -113,8 +111,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				// after resizing the window.
 				// It needs to fill the rest of the area
 				// inside the ColumnLayout that directly contains it.
-				anchors.right: parent.right
-				anchors.left: parent.left
+				
 				
 			}
 			} // End of the ColumnLayout that holds the app entries for the All Apps list.
