@@ -53,6 +53,9 @@ RetiledStyles.Button {
 	// white.
 	property string textColor: "white"
 	
+	// Have a property for the icon background color.
+	property string iconBackgroundColor: "#0050ef"
+	
 	contentItem: Text {
 		// QML doesn't seem to like setting alignment using properties.
                 horizontalAlignment: Text.AlignLeft
@@ -71,7 +74,7 @@ RetiledStyles.Button {
 		// https://stackoverflow.com/questions/27324318/how-to-make-image-to-fill-qml-controls-button
 		width: 50
 		height: 50
-		
+		color: iconBackgroundColor
 	}
 	
 } // End of the ButtonBase containing the All Apps list button item.
