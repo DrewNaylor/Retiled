@@ -28,3 +28,6 @@ https://stackoverflow.com/questions/11507101/how-to-compile-and-link-multiple-py
 
 Here's a whole list of different types of tiles that are supported by Windows 8.x and Windows Phone 8.x, and this list may help add support for different tile templates/layouts:
 https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh761491(v=win.10)
+
+Never thought about short names for tiles, but MSDN mentions how you can add one in case the app's main display name would be too long for the tile. This would probably be handled with an `X-Retiled-ShortName` field:
+https://docs.microsoft.com/en-us/windows/apps/design/shell/tiles-and-notifications/creating-tiles
