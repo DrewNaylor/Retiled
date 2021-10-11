@@ -25,3 +25,6 @@ https://stackoverflow.com/questions/37974446/how-to-architect-a-pyqt5-project-us
 I think I'll have to compile the Python code so it can be installed to a read-only folder, and Cython may help as described at these two pages:
 https://stackoverflow.com/questions/5105482/compile-main-python-program-using-cython/22040484#22040484
 https://stackoverflow.com/questions/11507101/how-to-compile-and-link-multiple-python-modules-or-packages-using-cython
+
+Here's a whole list of different types of tiles that are supported by Windows 8.x and Windows Phone 8.x, and this list may help add support for different tile templates/layouts:
+https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh761491(v=win.10)
