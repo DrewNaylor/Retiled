@@ -46,6 +46,9 @@ These are things that Windows Phone has that Retiled will eventually have. Moved
   - Software WP navigation bars rotate the icons to the left or the right when the screen is rotated, but some people might not like that so there needs to be a way to lock them in the vertical rotation.
   - There should be a way to allow people to use their accent color for the navigation bar background color, as that's a feature in a version of 8.1.
   - The buttons make the phone vibrate on contact, but there should be a way to allow people to turn off the vibration if they don't like it.
+  - Not sure what Windows Phone officially used, but the emulator used the `Escape` key as a keyboard shortcut for the Back button as I found in #4.
+  - Long-pressing the `Escape` key when using the emulator opens the multitasking area, but that may conflict with apps listening for `Escape` to go back, so I may need to send `Alt+Tab` instead. Whatever I'm using to do multitasking will have to handle `Alt+Tab` to open a view where the user can select the window they want, or close ones they want to close.
+  - I may use the Maliit framework to send the `Escape` key to apps, which is also described in #4.
 - Action Center
   - Long-pressing the quick action buttons at the top will open the relevant page in Settings, which is something I forgot 8.x lacked. (Thanks to TheMobilizer for the suggestion!)
   - The quick action button panel will be able to scroll horizontally to hold more buttons. [(issue #10)](https://github.com/DrewNaylor/Retiled/issues/10)
@@ -84,6 +87,7 @@ There are also some "wishlist" features that I really want but might be too comp
   - Just remembered that WP8.x allowed people to use the Bing Image of the Day as their lockscreen, so I should offer that as an option. Since not everyone likes their devices contacting Bing or Microsoft (or maybe they just want to use something other than Bing Image of the Day), I'll have to allow people to use other sources for daily images.
   - I think the lockscreen was supposed to fade in from black, but it only did that a few times over the years. I'd like to have an option to show a fade-in animation.
 - Keyboard since that keyboard was the best in 8.x
+  - Probably will end up using the Maliit keyboard at least at first, but I need to figure out how to create fully-custom themes. These items below may need to be implemented as plugins for the Maliit keyboard somehow.
   - Basic typing shouldn't be that bad, but having it not interfere too much with what's on screen may be tough, plus it needs multiple language support
   - Swiping to type would be helpful but may be difficult to implement. If it is implemented, it should display the current result in the suggestion bar as you swipe.
   - The suggestions would be difficult to do when it comes to actually predicting text, but showing the text should be fine. It's important to remember that there are a whole bunch of suggestions (at least 10 usually), and that the list scrolls sideways.
