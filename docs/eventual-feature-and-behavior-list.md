@@ -49,6 +49,7 @@ These are things that Windows Phone has that Retiled will eventually have. Moved
   - Not sure what Windows Phone officially used, but the emulator used the `Escape` key as a keyboard shortcut for the Back button as I found in #4.
   - Long-pressing the `Escape` key when using the emulator opens the multitasking area, but that may conflict with apps listening for `Escape` to go back, so I may need to send `Alt+Tab` instead. Whatever I'm using to do multitasking will have to handle `Alt+Tab` to open a view where the user can select the window they want, or close ones they want to close.
   - I may use the Maliit framework to send the `Escape` key to apps, which is also described in #4.
+  - Hopefully the Maliit keyboard dismisses itself when pressing `Escape` and prevents the app from getting the signal.
 - Action Center
   - Long-pressing the quick action buttons at the top will open the relevant page in Settings, which is something I forgot 8.x lacked. (Thanks to TheMobilizer for the suggestion!)
   - The quick action button panel will be able to scroll horizontally to hold more buttons. [(issue #10)](https://github.com/DrewNaylor/Retiled/issues/10)
