@@ -119,6 +119,10 @@ There are also some "wishlist" features that I really want but might be too comp
   - There has to be a way to prevent the screen from locking if you're pressing the volume up key at the same time as the power button.
   - This would probably need a daemon running in the background listening for the key combination, and maybe it'll also handle individual volume up/down and lock presses.
   - Actually taking the screenshot could be handled by something like `grim` or another program that takes screenshots.
+- Options to allow the user to choose their default launcher if they don't want to use RetiledStart.
+  - Basically the same as allowing them to change their default Search app, but more unique, I guess, because neither Phosh nor Plasma Mobile support the feature, even though Android does.
+  - Maybe someone could make one that looks more like Zune or Windows Mobile 6.x (or older) if they wanted to use those UIs. Perhaps there are some that would prefer even a Windows Phone 7.x or Windows 10 Mobile Start screen or a fork of RetiledStart that has different features.
+  - I'd have to figure out an API for custom launchers/Start replacements to plug into the Start button on the navigation bar so that they can do whatever they want when they're open. For example, they can go back to the top of the tiles list when the user is in the All Apps list, or they can just do nothing.
 
 Besides features that were in WP, some additional features may need to be added for ease of use on a Linux (or perhaps even FreeBSD?) phone:
 - .desktop files editor
