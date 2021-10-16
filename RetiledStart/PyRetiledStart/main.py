@@ -42,41 +42,46 @@ from PySide6.QtCore import QObject, Slot
 # Trying to figure out buttons with this:
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
 class AllAppsListViewModel(QObject):
-    @Slot(str)
-    def RunApp(self, ViewModelExecFilename):
-        # Pass the app's command to the code to actually
-        # figure out how to run it.
-        AppsList.RunApp(ViewModelExecFilename)
-        #AppsList.GetAppName(ViewModelExecFilename)
+	@Slot(str)
+	def RunApp(self, ViewModelExecFilename):
+		# Pass the app's command to the code to actually
+		# figure out how to run it.
+		AppsList.RunApp(ViewModelExecFilename)
+		#AppsList.GetAppName(ViewModelExecFilename)
 	
-    # Slots still need to exist when using PySide.
-    @Slot()
-    def getDotDesktopFiles(self):
-	    # Get the .desktop files list.
-        AppsList.getDotDesktopFiles()
+	# Slots still need to exist when using PySide.
+	@Slot()
+	def getDotDesktopFiles(self):
+		# Get the .desktop files list.
+		AppsList.getDotDesktopFiles()
+		
+	@Slot(str)
+	def GetDesktopEntryNameKey(self, DotDesktopFile):
+		# Get and return the .desktop file's Name key value.
+		return AppsList.GetAppName(DotDesktopFile)
 
 #class TilesViewModel(QObject):
-    #@Slot(str)
-    #def RunApp(self, ExecFilename):
+	#@Slot(str)
+	#def RunApp(self, ExecFilename):
 		## Maybe I should figure out how to combine this
 		## function with the AllAppsListViewModel one
 		## so that there's more code reused. Probably should just
 		## have it be in a GenericAppCode class or something.
-        #args = shlex.split(ExecFilename)
+		#args = shlex.split(ExecFilename)
 		## Now run the command.
-        #proc = subprocess.Popen(args)
+		#proc = subprocess.Popen(args)
 
 
 if __name__ == "__main__":
-    # Set the Universal style.
-    sys.argv += ['--style', 'Universal']
-    app = QGuiApplication(sys.argv)
+	# Set the Universal style.
+	sys.argv += ['--style', 'Universal']
+	app = QGuiApplication(sys.argv)
 	# Hook up some stuff so I can access the allAppsListViewModel from QML.
-    allAppsListViewModel = AllAppsListViewModel()
-    engine = QQmlApplicationEngine()
-    engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
-    #engine.load("MainWindow.qml")
-    engine.load("pages/Tiles.qml")
-    if not engine.rootObjects():
-        sys.exit(-1)
-    sys.exit(app.exec())
+	allAppsListViewModel = AllAppsListViewModel()
+	engine = QQmlApplicationEngine()
+	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
+	#engine.load("MainWindow.qml")
+	engine.load("pages/Tiles.qml")
+	if not engine.rootObjects():
+		sys.exit(-1)
+	sys.exit(app.exec())

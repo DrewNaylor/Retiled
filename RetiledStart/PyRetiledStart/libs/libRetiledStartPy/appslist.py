@@ -63,7 +63,7 @@ def RunApp(DotDesktopFilePath):
 
 def GetAppName(DotDesktopFilePath):
 	# Gets the app's name using the libdotdesktop_py library.
-	print(desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True))
+	return desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True)
 	
 def getDotDesktopFiles():
 	# Gets the list of .desktop files and creates a list of objects

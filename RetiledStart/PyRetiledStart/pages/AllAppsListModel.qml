@@ -41,15 +41,15 @@ ListModel {
 				// Some of this may help:
 				// https://doc.qt.io/qt-6/qml-qtqml-models-listmodel.html
 				ListElement {
-					name: "Firefox"
+					name: "firefox.desktop"
 					dotDesktopFile: "firefox.desktop"
 				}
 				ListElement {
-					name: "Angelfish"
+					name: "org.kde.angelfish.desktop"
 					dotDesktopFile: "org.kde.angelfish.desktop"
 				}
 				ListElement {
-					name: "Calculator"
+					name: "org.kde.kalk.desktop"
 					dotDesktopFile: "org.kde.kalk.desktop"
 				}
 				ListElement {
