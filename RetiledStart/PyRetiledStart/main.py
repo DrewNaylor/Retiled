@@ -55,7 +55,9 @@ class AllAppsListViewModel(QObject):
 		# Get the .desktop files list.
 		AppsList.getDotDesktopFiles()
 		
-	@Slot(str)
+	@Slot(str, result=str)
+	# Add the result=str to get the return thing to work:
+	# https://stackoverflow.com/a/36210838
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
 		return AppsList.GetAppName(DotDesktopFile)
