@@ -80,7 +80,9 @@ def getDotDesktopFiles():
 	# Get the list of files from /usr/share/applications:
 	# https://stackoverflow.com/a/3207973
 	DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
-	print(DotDesktopFilesList)
+	# Not sure if splitting this is how to get things into the list.
+	print(shlex.split(DotDesktopFilesList))
+	return shlex.split(DotDesktopFilesList)
 	
 	
 	
