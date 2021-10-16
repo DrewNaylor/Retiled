@@ -28,6 +28,9 @@
 import shlex
 import subprocess
 from ..libdotdesktop_py import desktopEntryStuff
+# Stuff for getting the files from /usr/share/applications.
+from os import listdir
+from os.path import isfile, join
 
 # Python allows relative imports as used above:
 # https://stackoverflow.com/a/714647
