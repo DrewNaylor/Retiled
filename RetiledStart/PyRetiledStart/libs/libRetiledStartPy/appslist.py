@@ -82,6 +82,8 @@ def getDotDesktopFiles():
 	DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
 	# Not sure if splitting this is how to get things into the list.
 	# Wait, no it can't be split because it's a list.
+	# TODO: Make sure that .desktop files are supposed to be shown in the list
+	# before adding them.
 	print(DotDesktopFilesList)
 	return DotDesktopFilesList
 	
