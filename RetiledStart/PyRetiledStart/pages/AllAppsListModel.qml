@@ -41,13 +41,16 @@ ListModel {
 				// Some of this may help:
 				// https://doc.qt.io/qt-6/qml-qtqml-models-listmodel.html
 				ListElement {
-					name: "All Apps list"
+					name: "Firefox"
+					execKey: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "Angelfish"
+					execKey: "org.kde.angelfish.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "Calculator"
+					execKey: "org.kde.kalk.desktop"
 				}
 				ListElement {
 					name: "All Apps list"
