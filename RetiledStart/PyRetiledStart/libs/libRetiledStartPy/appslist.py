@@ -79,4 +79,4 @@ def getDotDesktopFiles():
 	
 	# Get the list of files from /usr/share/applications:
 	# https://stackoverflow.com/a/3207973
-	
+	DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
