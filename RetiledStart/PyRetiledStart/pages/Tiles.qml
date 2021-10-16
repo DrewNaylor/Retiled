@@ -28,8 +28,9 @@
 //   limitations under the License.
 
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Controls.Universal
 
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
@@ -37,7 +38,20 @@ import "../../../RetiledStyles" as RetiledStyles
 // Bring in the All Apps page.
 import "." as RetiledStartPages
 
-Page {
+ApplicationWindow {
+	
+	id: window
+    width: 360
+    height: 720
+    visible: true
+    title: qsTr("RetiledStart")
+
+    Universal.theme: Universal.Dark
+    Universal.accent: '#0050ef'
+	Universal.foreground: 'white'
+	// Fun fact: QML supports setting the background to transparent,
+	// which shows all the other windows behind the app's window as you'd expect.
+	Universal.background: 'black'
 	
 	
 	Shortcut {
