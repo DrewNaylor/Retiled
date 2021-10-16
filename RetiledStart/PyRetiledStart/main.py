@@ -48,6 +48,10 @@ class AllAppsListViewModel(QObject):
         # figure out how to run it.
         AppsList.RunApp(ViewModelExecFilename)
         #AppsList.GetAppName(ViewModelExecFilename)
+	
+    def getDotDesktopFiles(self):
+	    # Get the .desktop files list.
+        AppsList.getDotDesktopFiles()
 
 #class TilesViewModel(QObject):
     #@Slot(str)
