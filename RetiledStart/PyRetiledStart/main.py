@@ -50,8 +50,8 @@ class AllAppsListViewModel(QObject):
 		#AppsList.GetAppName(ViewModelExecFilename)
 	
 	# Slots still need to exist when using PySide.
-	@Slot()
-	def getDotDesktopFiles(self, result=str):
+	@Slot(result=str)
+	def getDotDesktopFiles(self):
 		# Get the .desktop files list.
 		# I'm trying to get the list split into each
 		# All Apps list item.
