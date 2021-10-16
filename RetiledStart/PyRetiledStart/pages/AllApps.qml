@@ -108,7 +108,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				// I don't know if the height should be window.height.
 				// "- 45" is just to have all the items show while there's
 				// an appbar.
-				height: window.height - 45
+				height: window.height
 				// Clip the ListView or things don't scroll correctly.
 				clip: true
 				// We're using the ListView:
