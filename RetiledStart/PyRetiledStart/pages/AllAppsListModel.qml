@@ -40,6 +40,8 @@ ListModel {
 				// https://stackoverflow.com/questions/40642480/how-to-insert-listelement-to-qml-listmodel-from-pyqt5-code
 				// Some of this may help:
 				// https://doc.qt.io/qt-6/qml-qtqml-models-listmodel.html
+				// This other page may help:
+				// https://doc.qt.io/qtforpython/examples/example_declarative__usingmodel.html
 				ListElement {
 					name: "firefox.desktop"
 					dotDesktopFile: "firefox.desktop"

@@ -63,6 +63,13 @@ class AllAppsListViewModel(QObject):
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
 		return AppsList.GetAppName(DotDesktopFile)
+		
+# Trying to create a model using the example of the SQL Conversation Model one:
+# https://doc.qt.io/qtforpython/tutorials/qmlsqlintegration/qmlsqlintegration.html
+# Actually, no. The QAbstractListModel thing here may work better:
+# https://doc.qt.io/qtforpython/examples/example_declarative__usingmodel.html
+class AllAppsListModel()
+
 
 #class TilesViewModel(QObject):
 	#@Slot(str)
