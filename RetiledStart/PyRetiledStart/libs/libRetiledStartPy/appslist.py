@@ -73,3 +73,7 @@ def getDotDesktopFiles():
 	# The FileNameProperty will be used to launch the apps by
 	# passing it to desktopEntryStuff.getInfo.
 	print("Not yet implemented.")
+	
+	# Get the list of files from /usr/share/applications:
+	# https://stackoverflow.com/a/3207973
+	
