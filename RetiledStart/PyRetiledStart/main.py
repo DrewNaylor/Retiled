@@ -76,7 +76,7 @@ if __name__ == "__main__":
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
     #engine.load("MainWindow.qml")
-	engine.load("pages/Tiles.qml")
+    engine.load("pages/Tiles.qml")
     if not engine.rootObjects():
         sys.exit(-1)
     sys.exit(app.exec())
