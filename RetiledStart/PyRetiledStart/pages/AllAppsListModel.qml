@@ -53,216 +53,216 @@ ListModel {
 					dotDesktopFile: "org.kde.kalk.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 				ListElement {
-					name: "All Apps list"
+					name: "firefox.desktop"
 				}
 			} // End of the All Apps list model.
