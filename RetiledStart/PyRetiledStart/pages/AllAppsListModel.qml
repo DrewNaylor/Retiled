@@ -36,6 +36,8 @@ import QtQuick.Controls
 ListModel {
 				// Create a ListModel for the All Apps list.
 				// Not sure how I'll get stuff into here from Python.
+				// Trying to use this to get the list from Python:
+				// https://stackoverflow.com/questions/40642480/how-to-insert-listelement-to-qml-listmodel-from-pyqt5-code
 				ListElement {
 					name: "All Apps list"
 				}
