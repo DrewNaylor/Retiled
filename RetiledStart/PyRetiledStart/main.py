@@ -49,6 +49,8 @@ class AllAppsListViewModel(QObject):
         AppsList.RunApp(ViewModelExecFilename)
         #AppsList.GetAppName(ViewModelExecFilename)
 	
+    # Slots still need to exist when using PySide.
+    @Slot()
     def getDotDesktopFiles(self):
 	    # Get the .desktop files list.
         AppsList.getDotDesktopFiles()
