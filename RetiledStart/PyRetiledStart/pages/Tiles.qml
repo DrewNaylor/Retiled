@@ -141,6 +141,8 @@ Page {
 				tileText: qsTr("cobalt-colored tile")
 				width: 150
 				height: 150
+				// You can access code in the main.py file from QML sub-pages.
+				onClicked: allAppsListViewModel.getDotDesktopFiles()
 				}
 				RetiledStyles.Tile {
 				tileText: qsTr("cobalt-colored tile")
