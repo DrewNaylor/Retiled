@@ -53,7 +53,8 @@ ListModel {
 					dotDesktopFile: "org.kde.kalk.desktop"
 				}
 				ListElement {
-					name: "firefox.desktop"
+					name: "org.gnome.Maps.desktop"
+					dotDesktopFile: "org.gnome.Maps.desktop"
 				}
 				ListElement {
 					name: "firefox.desktop"
