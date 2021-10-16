@@ -309,7 +309,44 @@ ApplicationWindow {
             text: qsTr("run")
             
 
-    }
+    } // End of the run button.
+	
+	
+	RetiledStyles.Button {
+            id: runButton
+			onClicked: {
+				allAppsListViewModel.getDotDesktopFiles()
+			}
+			
+			// Pro-tip: set these properties rather than
+			// putting in a contentItem or it'll override
+			// the style's contentItem.
+			// I'm not setting them because they're already
+			// set.
+			//fontSize: 18
+			//textColor: "white"
+			//pressedBackgroundColor: "#0050ef"
+			//unpressedBackgroundColor: "transparent"
+			//borderColor: "white"
+			//borderWidth: 2
+			//borderRadius: 0
+			
+			// However, I will set these properties.
+			buttonWidth: 200
+			buttonHeight: 40
+			
+			// Set margins.
+			anchors.top: searchButton.bottom
+			anchors.margins: 12
+			anchors.topMargin: 4
+			anchors.left: parent.left
+			
+			// Set text.
+            text: qsTr("get all apps .desktop files list")
+            
+
+    } // End of the get .desktop files button.
+	
 		}
 	}
 }
