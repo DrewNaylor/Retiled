@@ -38,6 +38,8 @@ ListModel {
 				// Not sure how I'll get stuff into here from Python.
 				// Trying to use this to get the list from Python:
 				// https://stackoverflow.com/questions/40642480/how-to-insert-listelement-to-qml-listmodel-from-pyqt5-code
+				// Some of this may help:
+				// https://doc.qt.io/qt-6/qml-qtqml-models-listmodel.html
 				ListElement {
 					name: "All Apps list"
 				}
