@@ -129,7 +129,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			model: AllAppsListModel {}
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
-								entryText: name
+								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
 								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
