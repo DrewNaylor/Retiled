@@ -75,8 +75,15 @@ def getDotDesktopFiles():
 	# to display the app's name in the All Apps list.
 	# The FileNameProperty will be used to launch the apps by
 	# passing it to desktopEntryStuff.getInfo.
-	print("Not yet implemented.")
+	
 	
 	# Get the list of files from /usr/share/applications:
 	# https://stackoverflow.com/a/3207973
 	DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
+	print(DotDesktopFilesList)
+	
+	
+	
+	
+	
+	
