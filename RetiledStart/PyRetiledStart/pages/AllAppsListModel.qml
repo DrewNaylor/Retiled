@@ -42,15 +42,15 @@ ListModel {
 				// https://doc.qt.io/qt-6/qml-qtqml-models-listmodel.html
 				ListElement {
 					name: "Firefox"
-					execKey: "firefox.desktop"
+					dotDesktopFile: "firefox.desktop"
 				}
 				ListElement {
 					name: "Angelfish"
-					execKey: "org.kde.angelfish.desktop"
+					dotDesktopFile: "org.kde.angelfish.desktop"
 				}
 				ListElement {
 					name: "Calculator"
-					execKey: "org.kde.kalk.desktop"
+					dotDesktopFile: "org.kde.kalk.desktop"
 				}
 				ListElement {
 					name: "All Apps list"
