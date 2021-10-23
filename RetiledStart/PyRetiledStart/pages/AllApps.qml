@@ -102,6 +102,8 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			ListView {
+                                // I think this example will help:
+                                // https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/usingmodel
 				width: window.width
 				// Not setting the height results in only one
 				// item appearing.
