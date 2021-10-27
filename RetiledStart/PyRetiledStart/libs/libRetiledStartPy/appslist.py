@@ -89,6 +89,10 @@ class AllAppsListItem(QObject):
 			self._NameKeyValueProperty = NameKeyValueProperty
 			# Send the on changed event signal.
 			OnNameKeyValuePropertyChanged.emit()
+			
+	# Set the properties.
+	FileNameProperty = Property(str, FileNameProperty, SetFileNameProperty, notify=OnFileNamePropertyChanged)
+	NameKeyValueProperty = Property(str, NameKeyValueProperty, SetNameKeyValueProperty, notify=OnNameKeyValuePropertyChanged)
 
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
