@@ -95,7 +95,7 @@ if __name__ == "__main__":
 	#engine.load("MainWindow.qml")
 	# Setup the All Apps List model:
 	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
-	engine.setInintialProperties({"AllAppsListEntries": AllAppsListViewModel.getDotDesktopFiles})
+	engine.setInintialProperties({"allAppsListEntries": AllAppsListViewModel.getDotDesktopFiles})
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
