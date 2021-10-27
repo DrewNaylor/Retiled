@@ -48,6 +48,14 @@ from os.path import isfile, join
 # At least this works at all.
 # TODO: Figure out how to use this with a class so that
 # the code can be cleaner.
+
+# Using this example for the model that's used in the all apps list:
+# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
+class AllAppsListItem(QObject):
+	def __init__(self, FileNameProperty, NameKeyValueProperty, parent=None):
+		# Not sure what the "parent=None" does, but it's in the example.
+		
+
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
 	args = desktopEntryStuff.getInfo(DotDesktopFilePath, "Exec", "", True)
