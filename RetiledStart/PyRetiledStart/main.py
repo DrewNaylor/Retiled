@@ -34,6 +34,7 @@ import os
 from pathlib import Path
 import sys
 from libs.libRetiledStartPy import appslist as AppsList
+from libs.libRetiledStartPy.appslist import AllAppsListItem
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -97,7 +98,8 @@ if __name__ == "__main__":
 	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
 	# Was trying to change it to QQuickView because I thought the QQmlApplicationEngine didn't have
 	# what I needed, but I just made a typo.
-	allAppsListEntries = AllAppsListViewModel.getDotDesktopFiles
+	allAppsListEntries = [AppsList.AllAppsListItem("Firefox", "firefox.desktop"),
+						AppsList.AllAppsListItem("Calculator", "org.kde.kalk.desktop")]
 	engine.setInitialProperties({"allAppsListEntries": allAppsListEntries})
 	engine.load("pages/AllApps.qml")
 	#engine.load("pages/Tiles.qml")
