@@ -52,6 +52,12 @@ from os.path import isfile, join
 # Using this example for the model that's used in the all apps list:
 # https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
 class AllAppsListItem(QObject):
+
+	# Didn't think I needed to add anything related to the changed signals,
+	# but I think I do for setting properties.
+	OnFileNamePropertyChanged = Signal()
+	OnNameKeyValuePropertyChanged = Signal()
+
 	def __init__(self, FileNameProperty, NameKeyValueProperty, parent=None):
 		# Not sure what the "parent=None" does, but it's in the example.
 		# I think this is just to set the variables up:
@@ -68,6 +74,12 @@ class AllAppsListItem(QObject):
 		# name for the application here, unless it needs to sort the
 		# list somewhere else.
 		return self._NameKeyValueProperty
+		
+	# Allow setting the variables.
+	def SetFileNameProperty(self, FileNameProperty):
+		# Make sure the FileNameProperty for this isn't set yet.
+		if FileNameProperty != self._FileNameProperty:
+			
 
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
