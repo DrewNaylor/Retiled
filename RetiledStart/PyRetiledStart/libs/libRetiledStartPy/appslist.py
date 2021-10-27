@@ -58,6 +58,16 @@ class AllAppsListItem(QObject):
 		super().__init__(parent)
 		self._FileNameProperty = FileNameProperty
 		self._NameKeyValueProperty = NameKeyValueProperty
+	
+	# Allow getting the variables.
+	def FileNameProperty(self):
+		return self._FileNameProperty
+	
+	def NameKeyValueProperty(self):
+		# It may be necessary to use the code that gets the
+		# name for the application here, unless it needs to sort the
+		# list somewhere else.
+		return self._NameKeyValueProperty
 
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
