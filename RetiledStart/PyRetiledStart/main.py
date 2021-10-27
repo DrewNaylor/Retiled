@@ -97,8 +97,10 @@ if __name__ == "__main__":
 	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
 	# Was trying to change it to QQuickView because I thought the QQmlApplicationEngine didn't have
 	# what I needed, but I just made a typo.
-	engine.setInitialProperties({"allAppsListEntries": AllAppsListViewModel.getDotDesktopFiles})
-	engine.load("pages/Tiles.qml")
+	allAppsListEntries = AllAppsListViewModel.getDotDesktopFiles
+	engine.setInitialProperties({"allAppsListEntries": allAppsListEntries})
+	engine.load("pages/AllApps.qml")
+	#engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
 	sys.exit(app.exec())
