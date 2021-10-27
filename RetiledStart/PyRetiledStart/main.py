@@ -68,7 +68,7 @@ class AllAppsListViewModel(QObject):
 # https://doc.qt.io/qtforpython/tutorials/qmlsqlintegration/qmlsqlintegration.html
 # Actually, no. The QAbstractListModel thing here may work better:
 # https://doc.qt.io/qtforpython/examples/example_declarative__usingmodel.html
-class AllAppsListModel()
+#class AllAppsListModel()
 
 
 #class TilesViewModel(QObject):
