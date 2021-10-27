@@ -135,10 +135,9 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-			// Note: None of the tiles are properly colored
-			// or styled yet. I need to make a style to
-			// apply to them so that a whole bunch of space
-			// doesn't get taken up.
+			// Might use this example since it includes adding and removing stuff if I can figure out how to make
+			// a different one work for the All Apps list:
+			// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/editingmodel
 			RetiledStyles.Tile {
 				tileText: qsTr("cobalt-colored tile")
 				width: 150
