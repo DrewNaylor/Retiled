@@ -31,6 +31,8 @@ from ..libdotdesktop_py import desktopEntryStuff
 # Stuff for getting the files from /usr/share/applications.
 from os import listdir
 from os.path import isfile, join
+# Need to import some Qt stuff.
+from PySide6.QtCore import QObject, Property, Signal
 
 # Python allows relative imports as used above:
 # https://stackoverflow.com/a/714647
