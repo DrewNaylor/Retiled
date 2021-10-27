@@ -54,7 +54,10 @@ from os.path import isfile, join
 class AllAppsListItem(QObject):
 	def __init__(self, FileNameProperty, NameKeyValueProperty, parent=None):
 		# Not sure what the "parent=None" does, but it's in the example.
-		
+		# I think this is just to set the variables up:
+		super().__init__(parent)
+		self._FileNameProperty = FileNameProperty
+		self._NameKeyValueProperty = NameKeyValueProperty
 
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
