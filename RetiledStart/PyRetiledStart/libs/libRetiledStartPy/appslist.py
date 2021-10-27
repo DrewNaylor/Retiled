@@ -79,7 +79,16 @@ class AllAppsListItem(QObject):
 	def SetFileNameProperty(self, FileNameProperty):
 		# Make sure the FileNameProperty for this isn't set yet.
 		if FileNameProperty != self._FileNameProperty:
+			self._FileNameProperty = FileNameProperty
+			# Send the on changed event signal.
+			OnFileNamePropertyChanged.emit()
 			
+	def SetNameKeyValueProperty(self, NameKeyValueProperty):
+		# Make sure the NameKeyValueProperty for this isn't set yet.
+		if NameKeyValueProperty != self._NameKeyValueProperty:
+			self._NameKeyValueProperty = NameKeyValueProperty
+			# Send the on changed event signal.
+			OnNameKeyValuePropertyChanged.emit()
 
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
