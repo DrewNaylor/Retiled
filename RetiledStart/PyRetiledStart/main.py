@@ -68,7 +68,8 @@ class AllAppsListViewModel(QObject):
 # https://doc.qt.io/qtforpython/tutorials/qmlsqlintegration/qmlsqlintegration.html
 # Actually, no. The QAbstractListModel thing here may work better:
 # https://doc.qt.io/qtforpython/examples/example_declarative__usingmodel.html
-class AllAppsListModel()
+# I just put the thing into the appslist.py file.
+#class AllAppsListModel()
 
 
 #class TilesViewModel(QObject):
@@ -92,6 +93,9 @@ if __name__ == "__main__":
 	engine = QQmlApplicationEngine()
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	#engine.load("MainWindow.qml")
+	# Setup the All Apps List model:
+	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
+	engine.setInintialProperties({"AllAppsListEntries": AllAppsListViewModel.getDotDesktopFiles})
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
