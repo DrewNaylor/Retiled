@@ -134,10 +134,13 @@ import "../../../RetiledStyles" as RetiledStyles
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
 								// Bring in the model stuff using this example:
 								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/view.qml
-								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + allAppsListEntries.modelData.NameKeyValueProperty)
+								// String list model might be simpler for now, but it doesn't seem to work:
+								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/stringlistmodel/view.qml
+								required property string modelData
+								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + allAppsListEntries.modelData)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
-								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + allAppsListEntries.modelData.NameKeyValueProperty)
+								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + allAppsListEntries.modelData)
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.

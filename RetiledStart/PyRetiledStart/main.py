@@ -96,10 +96,11 @@ if __name__ == "__main__":
 	#engine.load("MainWindow.qml")
 	# Setup the All Apps List model:
 	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
+	# Now trying to use the string list model, but it doesn't seem to work, either:
+	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/stringlistmodel/stringlistmodel.py
 	# Was trying to change it to QQuickView because I thought the QQmlApplicationEngine didn't have
 	# what I needed, but I just made a typo.
-	allAppsListEntries = [AppsList.AllAppsListItem("Firefox", "firefox.desktop"),
-						AppsList.AllAppsListItem("Calculator", "org.kde.kalk.desktop")]
+	allAppsListEntries = ["firefox.desktop", "org.kde.kalk.desktop"]
 	engine.setInitialProperties({"allAppsListEntries": allAppsListEntries})
 	engine.load("pages/AllApps.qml")
 	#engine.load("pages/Tiles.qml")
