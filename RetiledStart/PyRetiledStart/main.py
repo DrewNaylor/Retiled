@@ -34,7 +34,6 @@ import os
 from pathlib import Path
 import sys
 from libs.libRetiledStartPy import appslist as AppsList
-from libs.libRetiledStartPy.appslist import AllAppsListItem
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -69,8 +68,7 @@ class AllAppsListViewModel(QObject):
 # https://doc.qt.io/qtforpython/tutorials/qmlsqlintegration/qmlsqlintegration.html
 # Actually, no. The QAbstractListModel thing here may work better:
 # https://doc.qt.io/qtforpython/examples/example_declarative__usingmodel.html
-# I just put the thing into the appslist.py file.
-#class AllAppsListModel()
+class AllAppsListModel()
 
 
 #class TilesViewModel(QObject):
@@ -94,16 +92,7 @@ if __name__ == "__main__":
 	engine = QQmlApplicationEngine()
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	#engine.load("MainWindow.qml")
-	# Setup the All Apps List model:
-	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
-	# Now trying to use the string list model, but it doesn't seem to work, either:
-	# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/stringlistmodel/stringlistmodel.py
-	# Was trying to change it to QQuickView because I thought the QQmlApplicationEngine didn't have
-	# what I needed, but I just made a typo.
-	allAppsListEntries = ["firefox.desktop", "org.kde.kalk.desktop"]
-	engine.setInitialProperties({"allAppsListEntries": allAppsListEntries})
-	engine.load("pages/AllApps.qml")
-	#engine.load("pages/Tiles.qml")
+	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
 	sys.exit(app.exec())

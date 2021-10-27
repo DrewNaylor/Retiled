@@ -102,10 +102,15 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			ListView {
-				// I think this example will help:
-				// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/usingmodel
-				// Actually, I think this one will be fine:
-				// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel
+                                // I think this example will help:
+                                // https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/usingmodel
+								// Or maybe this one:
+								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel
+								// Can't seem to figure out why these don't work.
+								// There are various errors in the terminal about the property not being
+								// available in AllApps.
+								// Maybe the string one will work for now if I can figure out why it doesn't work:
+								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/stringlistmodel/stringlistmodel.py
 				width: window.width
 				// Not setting the height results in only one
 				// item appearing.
@@ -131,17 +136,12 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: 15
 				} // End of the spacer item above the All Apps list.
 			
+			model: AllAppsListModel {}
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
-								// Bring in the model stuff using this example:
-								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/view.qml
-								// String list model might be simpler for now, but it doesn't seem to work:
-								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/stringlistmodel/view.qml
-								required property string modelData
-								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + allAppsListEntries.modelData)
+								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
-								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + allAppsListEntries.modelData)
-								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
+								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.

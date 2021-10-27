@@ -31,8 +31,6 @@ from ..libdotdesktop_py import desktopEntryStuff
 # Stuff for getting the files from /usr/share/applications.
 from os import listdir
 from os.path import isfile, join
-# Need to import some Qt stuff.
-from PySide6.QtCore import QObject, Property, Signal
 
 # Python allows relative imports as used above:
 # https://stackoverflow.com/a/714647
@@ -50,52 +48,6 @@ from PySide6.QtCore import QObject, Property, Signal
 # At least this works at all.
 # TODO: Figure out how to use this with a class so that
 # the code can be cleaner.
-
-# Using this example for the model that's used in the all apps list:
-# https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel/objectlistmodel.py
-class AllAppsListItem(QObject):
-
-	# Didn't think I needed to add anything related to the changed signals,
-	# but I think I do for setting properties.
-	OnFileNamePropertyChanged = Signal()
-	OnNameKeyValuePropertyChanged = Signal()
-
-	def __init__(self, FileNameProperty, NameKeyValueProperty, parent=None):
-		# Not sure what the "parent=None" does, but it's in the example.
-		# I think this is just to set the variables up:
-		super().__init__(parent)
-		self._FileNameProperty = FileNameProperty
-		self._NameKeyValueProperty = NameKeyValueProperty
-	
-	# Allow getting the variables.
-	def FileNameProperty(self):
-		return self._FileNameProperty
-	
-	def NameKeyValueProperty(self):
-		# It may be necessary to use the code that gets the
-		# name for the application here, unless it needs to sort the
-		# list somewhere else.
-		return self._NameKeyValueProperty
-		
-	# Allow setting the variables.
-	def SetFileNameProperty(self, FileNameProperty):
-		# Make sure the FileNameProperty for this isn't set yet.
-		if FileNameProperty != self._FileNameProperty:
-			self._FileNameProperty = FileNameProperty
-			# Send the on changed event signal.
-			OnFileNamePropertyChanged.emit()
-			
-	def SetNameKeyValueProperty(self, NameKeyValueProperty):
-		# Make sure the NameKeyValueProperty for this isn't set yet.
-		if NameKeyValueProperty != self._NameKeyValueProperty:
-			self._NameKeyValueProperty = NameKeyValueProperty
-			# Send the on changed event signal.
-			OnNameKeyValuePropertyChanged.emit()
-			
-	# Set the properties.
-	FileNameProperty = Property(str, FileNameProperty, SetFileNameProperty, notify=OnFileNamePropertyChanged)
-	NameKeyValueProperty = Property(str, NameKeyValueProperty, SetNameKeyValueProperty, notify=OnNameKeyValuePropertyChanged)
-
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
 	args = desktopEntryStuff.getInfo(DotDesktopFilePath, "Exec", "", True)
