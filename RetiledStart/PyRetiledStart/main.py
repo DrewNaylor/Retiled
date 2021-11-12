@@ -79,8 +79,8 @@ class AllAppsListItems(QObject):
 	
 	@Slot(str)
 	def getDotDesktopFilesInList(self):
-		self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
-		#self._model.setStringList(AppsList.getDotDesktopFiles())
+		#self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
+		self._model.setStringList(AppsList.getDotDesktopFiles())
 	
 		
 # Trying to create a model using the example of the SQL Conversation Model one:
