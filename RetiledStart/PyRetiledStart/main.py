@@ -108,7 +108,7 @@ if __name__ == "__main__":
 	# Hook up some stuff so I can access the allAppsListViewModel from QML.
 	allAppsListViewModel = AllAppsListViewModel()
 	engine = QQmlApplicationEngine()
-	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
+	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	#engine.load("MainWindow.qml")
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
