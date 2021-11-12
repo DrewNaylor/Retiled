@@ -127,7 +127,15 @@ def getDotDesktopFiles():
 	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
 	DotDesktopDictionary.sort(key=getKeyForSorting)
 	
-	return DotDesktopFilesList
+	# Put it back into a list because I don't know how to
+	# use dictionaries with QML listview models yet.
+	# Example here:
+	# https://pythonexamples.org/python-dictionary-values-to-list/#4
+	SortedDotDesktopFilesList = []
+	for FilenameKey in DotDesktopDictionary:
+		SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
+	
+	return SortedDotDesktopFilesList
 	
 	
 def getKeyForSorting(key):
