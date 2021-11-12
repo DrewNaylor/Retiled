@@ -46,7 +46,8 @@ class AllAppsListViewModel(QObject):
 	def RunApp(self, ViewModelExecFilename):
 		# Pass the app's command to the code to actually
 		# figure out how to run it.
-		AppsList.RunApp(ViewModelExecFilename)
+		#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+		AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
 		#AppsList.GetAppName(ViewModelExecFilename)
 	
 	# Slots still need to exist when using PySide.
@@ -62,7 +63,8 @@ class AllAppsListViewModel(QObject):
 	# https://stackoverflow.com/a/36210838
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
-		return AppsList.GetAppName(DotDesktopFile)
+		#return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
+		return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
 		
 # This class is for the items in the All Apps list as described in
 # the second half of this answer:
