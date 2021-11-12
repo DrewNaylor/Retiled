@@ -108,7 +108,7 @@ if __name__ == "__main__":
 	app = QGuiApplication(sys.argv)
 	
 	# Define the AllAppsListItems class so I can use it.
-	allAppsListItems = AllAppsListItems()
+	allAppsListItems = AppsList.getDotDesktopFiles()
 	
 	# Hook up some stuff so I can access the allAppsListViewModel from QML.
 	allAppsListViewModel = AllAppsListViewModel()
