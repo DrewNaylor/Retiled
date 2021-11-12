@@ -125,12 +125,15 @@ def getDotDesktopFiles():
 	
 	# Sort the filenames.
 	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
-	DotDesktopFilesList.sort()
+	DotDesktopDictionary.sort(key=getKeyForSorting)
 	
 	return DotDesktopFilesList
 	
 	
-	
+def getKeyForSorting(key):
+	# Example from here:
+	# https://www.w3schools.com/python/ref_list_sort.asp
+	return key["NameKeyValueProperty"]
 	
 	
 	
