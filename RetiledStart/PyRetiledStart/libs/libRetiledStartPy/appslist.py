@@ -29,7 +29,7 @@ import shlex
 import subprocess
 from ..libdotdesktop_py import desktopEntryStuff
 # Stuff for getting the files from /usr/share/applications.
-from os import listdir
+import os
 from os.path import isfile, join
 
 # Python allows relative imports as used above:
@@ -81,6 +81,10 @@ def getDotDesktopFiles():
 	# https://stackoverflow.com/a/3207973
 	#DotDesktopFilesList = [file for file in listdir("C:\\Users\\drewn\Desktop") if isfile(join("C:\\Users\\drewn\Desktop", file))]
 	DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
+	# Only put apps in the list if they're supposed to be shown.
+	# Using the example from this answer:
+	# https://stackoverflow.com/a/51850082
+	DotDesktopRootPath = '/usr/share/applications'
 	# Not sure if splitting this is how to get things into the list.
 	# Wait, no it can't be split because it's a list.
 	# TODO: Make sure that .desktop files are supposed to be shown in the list
