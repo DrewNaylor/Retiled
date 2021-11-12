@@ -64,6 +64,15 @@ class AllAppsListViewModel(QObject):
 		# Get and return the .desktop file's Name key value.
 		return AppsList.GetAppName(DotDesktopFile)
 		
+# This class is for the items in the All Apps list as described in
+# the second half of this answer:
+# https://stackoverflow.com/a/59700406
+class AllAppsListItems(QObject):
+	def __init__(self, parent=None):
+		super()__init__(parent)
+		self._model = QStringListModel()
+		
+		
 # Trying to create a model using the example of the SQL Conversation Model one:
 # https://doc.qt.io/qtforpython/tutorials/qmlsqlintegration/qmlsqlintegration.html
 # Actually, no. The QAbstractListModel thing here may work better:
