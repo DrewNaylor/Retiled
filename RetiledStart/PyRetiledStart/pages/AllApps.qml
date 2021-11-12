@@ -138,7 +138,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: 15
 				} // End of the spacer item above the All Apps list.
 			
-			model: allAppsListViewModel.getDotDesktopFiles
+			model: allAppsListItems.model
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
 								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
