@@ -100,7 +100,9 @@ def getDotDesktopFiles():
 		DotDesktopFilename = os.fsdecode(DotDesktopFile)
 		# Ensure only .desktop files are picked up.
 		if DotDesktopFilename.endswith( (".desktop") ):
-			DotDesktopFilesList.append(DotDesktopFilename)
+			# Make sure the .desktop file doesn't have NoDisplay = true.
+			if not desktopEntryStuff.getInfo(DotDesktopFilename, "NoDisplay", "", True) = true:
+				DotDesktopFilesList.append(DotDesktopFilename)
 	
 	# Not sure if splitting this is how to get things into the list.
 	# Wait, no it can't be split because it's a list.
