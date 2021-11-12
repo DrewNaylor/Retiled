@@ -96,12 +96,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			// apps though, mostly the ones that weren't built with it
 			// in mind. Not sure how to do that.
 			
-			// TODO: Figure out why the buttons can't be tapped
-			// at the very right edge of the PinePhone's display when rotated.
-			
 			
 			
 			ListView {
+                
 				width: window.width
 				// Not setting the height results in only one
 				// item appearing.
@@ -118,6 +116,10 @@ import "../../../RetiledStyles" as RetiledStyles
 				// The ListView actually has support for section headers built-in
 				// and detailed at the ListView documentation:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html#section-prop
+				//
+				// We're currently basing the code for getting the items into the list
+				// off the second part of this answer:
+				// https://stackoverflow.com/a/59700406
 				
 				header: Item {
 				// Spacer item above the All Apps list.
@@ -127,12 +129,15 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: 15
 				} // End of the spacer item above the All Apps list.
 			
-			model: AllAppsListModel {}
+			model: allAppsListItems.model
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
-								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
+								//entryText: model.display
+								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + model.display)
+								//entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
-								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
+								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + model.display)
+								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.
@@ -143,5 +148,8 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the All Apps list ColumnLayout, not to be confused with the one inside the Flickable.
 		
 		} // End of the RowLayout that holds both ColumnLayouts.
+		
+		// Not sure how to make this work correctly.
+		Component.onCompleted: allAppsListItems.getDotDesktopFilesInList()
 		
 	} // End of the Item that's used to hold the All Apps page.

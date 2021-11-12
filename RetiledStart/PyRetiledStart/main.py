@@ -37,7 +37,7 @@ from libs.libRetiledStartPy import appslist as AppsList
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtCore import QObject, Slot
+from PySide6.QtCore import QObject, Slot, Property, QStringListModel
 
 # Trying to figure out buttons with this:
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
@@ -55,7 +55,7 @@ class AllAppsListViewModel(QObject):
 		# Get the .desktop files list.
 		# I'm trying to get the list split into each
 		# All Apps list item.
-		AppsList.getDotDesktopFiles()
+		return AppsList.getDotDesktopFiles()
 		
 	@Slot(str, result=str)
 	# Add the result=str to get the return thing to work:
@@ -63,6 +63,29 @@ class AllAppsListViewModel(QObject):
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
 		return AppsList.GetAppName(DotDesktopFile)
+		
+# This class is for the items in the All Apps list as described in
+# the second half of this answer:
+# https://stackoverflow.com/a/59700406
+class AllAppsListItems(QObject):
+	def __init__(self, parent=None):
+		super().__init__(parent)
+		self._model = QStringListModel()
+	
+	# Just guessing that it's Property instead of pyqtProperty.
+	@Property(QObject, constant=True)
+	def model(self):
+		return self._model
+	
+	# I'm not passing anything to the code, so
+	# this has to be a "Slot()" instead of "Slot(str)".
+	@Slot()
+	def getDotDesktopFilesInList(self):
+		#self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
+		self._model.setStringList(AppsList.getDotDesktopFiles())
+	# TODO: Make sure the items are properly cleaned up so QML doesn't say
+	# that there are null items after closing.
+
 
 #class TilesViewModel(QObject):
 	#@Slot(str)
@@ -80,9 +103,15 @@ if __name__ == "__main__":
 	# Set the Universal style.
 	sys.argv += ['--style', 'Universal']
 	app = QGuiApplication(sys.argv)
+	
+	# Define the AllAppsListItems class so I can use it.
+	allAppsListItems = AllAppsListItems()
+	#allAppsListItems = ['Firefox Launcher.desktop', 'top-exec.desktop']
+	
 	# Hook up some stuff so I can access the allAppsListViewModel from QML.
 	allAppsListViewModel = AllAppsListViewModel()
 	engine = QQmlApplicationEngine()
+	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	#engine.load("MainWindow.qml")
 	engine.load("pages/Tiles.qml")
