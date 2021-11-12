@@ -78,8 +78,9 @@ class AllAppsListItems(QObject):
 		return self._model
 	
 	@Slot(str)
-	def getDotDesktopFilesInList():
-		self._model.setStringList(AppsList.getDotDesktopFiles())
+	def getDotDesktopFilesInList(self):
+		self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
+		#self._model.setStringList(AppsList.getDotDesktopFiles())
 	
 		
 # Trying to create a model using the example of the SQL Conversation Model one:
@@ -113,6 +114,7 @@ if __name__ == "__main__":
 	allAppsListViewModel = AllAppsListViewModel()
 	engine = QQmlApplicationEngine()
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
+	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	#engine.load("MainWindow.qml")
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
