@@ -99,9 +99,6 @@ def getDotDesktopFiles():
 	# Create empty list that will be written to later.
 	DotDesktopFilesList = []
 	
-	# Somehow I need to use a dictionary for this, and this answer seems reasonable:
-	# https://stackoverflow.com/a/31182009
-	
 	# Loop through the files and add them to the list.
 	for DotDesktopFile in os.listdir(FSEncodedFolder):
 		DotDesktopFilename = os.fsdecode(DotDesktopFile)
