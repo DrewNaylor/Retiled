@@ -96,10 +96,6 @@ import "../../../RetiledStyles" as RetiledStyles
 			// apps though, mostly the ones that weren't built with it
 			// in mind. Not sure how to do that.
 			
-			// TODO: Figure out why the buttons can't be tapped
-			// at the very right edge of the PinePhone's display when rotated.
-			// I think this is fixed, but I need to check first.
-			
 			
 			
 			ListView {
