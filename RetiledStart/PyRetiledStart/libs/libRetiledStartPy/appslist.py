@@ -99,6 +99,9 @@ def getDotDesktopFiles():
 	# Create empty list that will be written to later.
 	DotDesktopFilesList = []
 	
+	# Somehow I need to use a dictionary for this, and this answer seems reasonable:
+	# https://stackoverflow.com/a/31182009
+	
 	# Loop through the files and add them to the list.
 	for DotDesktopFile in os.listdir(FSEncodedFolder):
 		DotDesktopFilename = os.fsdecode(DotDesktopFile)
@@ -113,6 +116,15 @@ def getDotDesktopFiles():
 	# TODO: Make sure that .desktop files are supposed to be shown in the list
 	# before adding them.
 	#print(DotDesktopFilesList)
+	
+	# Now we make the .desktop file thing into a dictionary:
+	# https://stackoverflow.com/a/31182009
+	# There has to be a more efficient way to do this.
+	# Define the dictionary.
+	DotDesktopDictionary = []
+	for DotDesktopFileEntry in DotDesktopFilesList:
+		DotDesktopDictionaryEntry = {"FileNameProperty": DotDesktopFileEntry, "NameKeyValueProperty": desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "Name", DotDesktopFileEntry, "", True)}
+		DotDesktopDictionary.append(DotDesktopDictionaryEntry)
 	
 	# Sort the filenames.
 	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
