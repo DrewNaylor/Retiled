@@ -78,7 +78,7 @@ class AllAppsListItems(QObject):
 		return self._model
 	
 	@Slot(str)
-	def getDotDesktopFilesInList(self):
+	def getDotDesktopFilesInList():
 		self._model.setStringList(AppsList.getDotDesktopFiles())
 	
 		
