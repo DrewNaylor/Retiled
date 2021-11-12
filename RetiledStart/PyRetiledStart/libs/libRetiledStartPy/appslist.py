@@ -99,12 +99,18 @@ def getDotDesktopFiles():
 		DotDesktopFilename = os.fsdecode(DotDesktopFile)
 		# Ensure only .desktop files are picked up.
 		if DotDesktopFilename.endswith( ('.desktop') )
+			DotDesktopFilesList.append(DotDesktopFilename)
 	
 	# Not sure if splitting this is how to get things into the list.
 	# Wait, no it can't be split because it's a list.
 	# TODO: Make sure that .desktop files are supposed to be shown in the list
 	# before adding them.
 	#print(DotDesktopFilesList)
+	
+	# Sort the filenames.
+	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
+	DotDesktopFilesList.sort()
+	
 	return DotDesktopFilesList
 	
 	
