@@ -116,7 +116,7 @@ def getDotDesktopFiles():
 	
 	# Sort the filenames.
 	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
-	DotDesktopFilesList.sort(key=desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "Name", DotDesktopFilename, "", True))
+	DotDesktopFilesList.sort()
 	
 	return DotDesktopFilesList
 	
