@@ -140,11 +140,12 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			model: allAppsListItems.model
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
-								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + model.display)
+								entryText: model.display
+								//entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + model.display)
 								//entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
-								onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + model.display)
+								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + model.display)
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
@@ -158,6 +159,6 @@ import "../../../RetiledStyles" as RetiledStyles
 		} // End of the RowLayout that holds both ColumnLayouts.
 		
 		// Not sure how to make this work correctly.
-		Component.onCompleted: allAppsListItems.getDotDesktopFilesInList
+		//Component.onCompleted: allAppsListItems.getDotDesktopFilesInList
 		
 	} // End of the Item that's used to hold the All Apps page.
