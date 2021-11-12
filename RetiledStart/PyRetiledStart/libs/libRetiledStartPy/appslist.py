@@ -118,30 +118,31 @@ def getDotDesktopFiles():
 	# https://stackoverflow.com/a/31182009
 	# There has to be a more efficient way to do this.
 	# Define the dictionary.
-	DotDesktopDictionary = []
-	for DotDesktopFileEntry in DotDesktopFilesList:
-		DotDesktopDictionaryEntry = {"FileNameProperty": DotDesktopFileEntry, "NameKeyValueProperty": desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "Name", DotDesktopFileEntry, "", True)}
-		DotDesktopDictionary.append(DotDesktopDictionaryEntry)
+	#DotDesktopDictionary = []
+	#for DotDesktopFileEntry in DotDesktopFilesList:
+	#	DotDesktopDictionary[DotDesktopFileEntry] = {"FileNameProperty": DotDesktopFileEntry, "NameKeyValueProperty": desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "Name", DotDesktopFileEntry, "", True)}
+	#	DotDesktopDictionary.append(DotDesktopDictionaryEntry)
 	
 	# Sort the filenames.
 	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
-	DotDesktopDictionary.sort(key=getKeyForSorting)
+	DotDesktopFilesList.sort()
+	#DotDesktopDictionary.sort(key=getKeyForSorting)
 	
 	# Put it back into a list because I don't know how to
 	# use dictionaries with QML listview models yet.
 	# Example here:
 	# https://pythonexamples.org/python-dictionary-values-to-list/#4
-	SortedDotDesktopFilesList = []
-	for FilenameKey in DotDesktopDictionary:
-		SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
+	#SortedDotDesktopFilesList = []
+	#for FilenameKey in DotDesktopDictionary:
+	#	SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
 	
-	return SortedDotDesktopFilesList
+	return DotDesktopFilesList
 	
 	
-def getKeyForSorting(key):
+#def getKeyForSorting(key):
 	# Example from here:
 	# https://www.w3schools.com/python/ref_list_sort.asp
-	return key["NameKeyValueProperty"]
+#	return key["NameKeyValueProperty"]
 	
 	
 	
