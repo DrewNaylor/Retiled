@@ -69,7 +69,7 @@ class AllAppsListViewModel(QObject):
 # https://stackoverflow.com/a/59700406
 class AllAppsListItems(QObject):
 	def __init__(self, parent=None):
-		super()__init__(parent)
+		super().__init__(parent)
 		self._model = QStringListModel()
 	
 	# Just guessing that it's Property instead of pyqtProperty.
