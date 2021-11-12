@@ -94,6 +94,12 @@ def getDotDesktopFiles():
 	# Create empty list that will be written to later.
 	DotDesktopFilesList = []
 	
+	# Loop through the files and add them to the list.
+	for DotDesktopFile in os.listdir(FSEncodedFolder):
+		DotDesktopFilename = os.fsdecode(DotDesktopFile)
+		# Ensure only .desktop files are picked up.
+		if DotDesktopFilename.endswith( ('.desktop') )
+	
 	# Not sure if splitting this is how to get things into the list.
 	# Wait, no it can't be split because it's a list.
 	# TODO: Make sure that .desktop files are supposed to be shown in the list
