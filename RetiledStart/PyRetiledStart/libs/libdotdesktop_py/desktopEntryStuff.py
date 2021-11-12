@@ -24,7 +24,7 @@
 
 import configparser
 
-def getInfo(inputFile, keyToGet, fileName = "", IsCustomKey = False):
+def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = False):
 	# fileName and IsCustomKey are both optional.
 	
 	# Create a configparser to read the .desktop files.
@@ -69,5 +69,10 @@ def getInfo(inputFile, keyToGet, fileName = "", IsCustomKey = False):
 		# Return the value of the key specified in keyToGet.
 		# This works, I just have to remember to set IsCustomKey = True
 		# for anything I haven't implemented yet.
-		return dotDesktopFileReader.get('Desktop Entry', keyToGet)
-		
+		# Make sure the key is in the file and return the default
+		# if it's not:
+		# https://stackoverflow.com/a/21057828
+		if dotDesktopFileReader.has_option('Desktop Entry', keyToGet):		
+			return dotDesktopFileReader.get('Desktop Entry', keyToGet)
+		else:
+			return defaultValue

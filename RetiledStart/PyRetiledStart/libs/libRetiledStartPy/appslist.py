@@ -29,7 +29,7 @@ import shlex
 import subprocess
 from ..libdotdesktop_py import desktopEntryStuff
 # Stuff for getting the files from /usr/share/applications.
-from os import listdir
+import os
 from os.path import isfile, join
 
 # Python allows relative imports as used above:
@@ -50,7 +50,7 @@ from os.path import isfile, join
 # the code can be cleaner.
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
-	args = desktopEntryStuff.getInfo(DotDesktopFilePath, "Exec", "", True)
+	args = desktopEntryStuff.getInfo(DotDesktopFilePath, "Exec", "", "", True)
 	splitargs = shlex.split(args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
@@ -63,7 +63,7 @@ def RunApp(DotDesktopFilePath):
 
 def GetAppName(DotDesktopFilePath):
 	# Gets the app's name using the libdotdesktop_py library.
-	return desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True)
+	return desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", DotDesktopFilePath, "", True)
 	
 def getDotDesktopFiles():
 	# Gets the list of .desktop files and creates a list of objects
@@ -80,16 +80,69 @@ def getDotDesktopFiles():
 	# Get the list of files from /usr/share/applications:
 	# https://stackoverflow.com/a/3207973
 	#DotDesktopFilesList = [file for file in listdir("C:\\Users\\drewn\Desktop") if isfile(join("C:\\Users\\drewn\Desktop", file))]
-	DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
+	#DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
+	# Only put apps in the list if they're supposed to be shown.
+	# Using the example from this answer:
+	# https://stackoverflow.com/a/51850082
+	
+	# Specify root path.
+	#DotDesktopRootPath = "C:\\Users\\drewn\Desktop"
+	DotDesktopRootPath = "/usr/share/applications"
+	
+	# Specify the type of slash.
+	slash = "/"
+	#slash = "\\"
+	
+	# Use the filesystem encode thing to get the folder.
+	FSEncodedFolder = os.fsencode(DotDesktopRootPath)
+	
+	# Create empty list that will be written to later.
+	DotDesktopFilesList = []
+	
+	# Loop through the files and add them to the list.
+	for DotDesktopFile in os.listdir(FSEncodedFolder):
+		DotDesktopFilename = os.fsdecode(DotDesktopFile)
+		# Ensure only .desktop files are picked up.
+		if DotDesktopFilename.endswith( (".desktop") ):
+			# Make sure the .desktop file doesn't have NoDisplay = true.
+			if not desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", "false", "", True) == "true":
+				DotDesktopFilesList.append(DotDesktopFilename)
+	
 	# Not sure if splitting this is how to get things into the list.
 	# Wait, no it can't be split because it's a list.
 	# TODO: Make sure that .desktop files are supposed to be shown in the list
 	# before adding them.
 	#print(DotDesktopFilesList)
+	
+	# Now we make the .desktop file thing into a dictionary:
+	# https://stackoverflow.com/a/31182009
+	# There has to be a more efficient way to do this.
+	# Define the dictionary.
+	#DotDesktopDictionary = []
+	#for DotDesktopFileEntry in DotDesktopFilesList:
+	#	DotDesktopDictionary[DotDesktopFileEntry] = {"FileNameProperty": DotDesktopFileEntry, "NameKeyValueProperty": desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "Name", DotDesktopFileEntry, "", True)}
+	#	DotDesktopDictionary.append(DotDesktopDictionaryEntry)
+	
+	# Sort the filenames.
+	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
+	DotDesktopFilesList.sort()
+	#DotDesktopDictionary.sort(key=getKeyForSorting)
+	
+	# Put it back into a list because I don't know how to
+	# use dictionaries with QML listview models yet.
+	# Example here:
+	# https://pythonexamples.org/python-dictionary-values-to-list/#4
+	#SortedDotDesktopFilesList = []
+	#for FilenameKey in DotDesktopDictionary:
+	#	SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
+	
 	return DotDesktopFilesList
 	
 	
-	
+#def getKeyForSorting(key):
+	# Example from here:
+	# https://www.w3schools.com/python/ref_list_sort.asp
+#	return key["NameKeyValueProperty"]
 	
 	
 	
