@@ -89,6 +89,10 @@ def getDotDesktopFiles():
 	#DotDesktopRootPath = "C:\\Users\\drewn\Desktop"
 	DotDesktopRootPath = "/usr/share/applications"
 	
+	# Specify the type of slash.
+	slash = "/"
+	#slash = "\\"
+	
 	# Use the filesystem encode thing to get the folder.
 	FSEncodedFolder = os.fsencode(DotDesktopRootPath)
 	
@@ -101,7 +105,7 @@ def getDotDesktopFiles():
 		# Ensure only .desktop files are picked up.
 		if DotDesktopFilename.endswith( (".desktop") ):
 			# Make sure the .desktop file doesn't have NoDisplay = true.
-			if not desktopEntryStuff.getInfo(DotDesktopFilename, "NoDisplay", "", True) == true:
+			if not desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", "", True) == true:
 				DotDesktopFilesList.append(DotDesktopFilename)
 	
 	# Not sure if splitting this is how to get things into the list.
