@@ -77,7 +77,7 @@ class AllAppsListItems(QObject):
 	def model(self):
 		return self._model
 	
-	@Slot(str)
+	@Slot()
 	def getDotDesktopFilesInList(self):
 		#self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
 		self._model.setStringList(AppsList.getDotDesktopFiles())
@@ -108,7 +108,8 @@ if __name__ == "__main__":
 	app = QGuiApplication(sys.argv)
 	
 	# Define the AllAppsListItems class so I can use it.
-	allAppsListItems = AppsList.getDotDesktopFiles()
+	allAppsListItems = AllAppsListItems()
+	#allAppsListItems = ['Firefox Launcher.desktop', 'top-exec.desktop']
 	
 	# Hook up some stuff so I can access the allAppsListViewModel from QML.
 	allAppsListViewModel = AllAppsListViewModel()

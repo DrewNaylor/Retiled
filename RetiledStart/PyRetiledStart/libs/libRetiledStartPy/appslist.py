@@ -85,7 +85,7 @@ def getDotDesktopFiles():
 	# Wait, no it can't be split because it's a list.
 	# TODO: Make sure that .desktop files are supposed to be shown in the list
 	# before adding them.
-	print(DotDesktopFilesList)
+	#print(DotDesktopFilesList)
 	return DotDesktopFilesList
 	
 	

@@ -159,6 +159,6 @@ import "../../../RetiledStyles" as RetiledStyles
 		} // End of the RowLayout that holds both ColumnLayouts.
 		
 		// Not sure how to make this work correctly.
-		//Component.onCompleted: allAppsListItems.getDotDesktopFilesInList
+		Component.onCompleted: allAppsListItems.getDotDesktopFilesInList()
 		
 	} // End of the Item that's used to hold the All Apps page.
