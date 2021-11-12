@@ -77,17 +77,14 @@ class AllAppsListItems(QObject):
 	def model(self):
 		return self._model
 	
+	# I'm not passing anything to the code, so
+	# this has to be a "Slot()" instead of "Slot(str)".
 	@Slot()
 	def getDotDesktopFilesInList(self):
 		#self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
 		self._model.setStringList(AppsList.getDotDesktopFiles())
-	
-		
-# Trying to create a model using the example of the SQL Conversation Model one:
-# https://doc.qt.io/qtforpython/tutorials/qmlsqlintegration/qmlsqlintegration.html
-# Actually, no. The QAbstractListModel thing here may work better:
-# https://doc.qt.io/qtforpython/examples/example_declarative__usingmodel.html
-#class AllAppsListModel()
+	# TODO: Make sure the items are properly cleaned up so QML doesn't say
+	# that there are null items after closing.
 
 
 #class TilesViewModel(QObject):

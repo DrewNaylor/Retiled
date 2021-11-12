@@ -98,19 +98,12 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			// TODO: Figure out why the buttons can't be tapped
 			// at the very right edge of the PinePhone's display when rotated.
+			// I think this is fixed, but I need to check first.
 			
 			
 			
 			ListView {
-                                // I think this example will help:
-                                // https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/usingmodel
-								// Or maybe this one:
-								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/objectlistmodel
-								// Can't seem to figure out why these don't work.
-								// There are various errors in the terminal about the property not being
-								// available in AllApps.
-								// Maybe the string one will work for now if I can figure out why it doesn't work:
-								// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/stringlistmodel/stringlistmodel.py
+                
 				width: window.width
 				// Not setting the height results in only one
 				// item appearing.
@@ -127,7 +120,9 @@ import "../../../RetiledStyles" as RetiledStyles
 				// The ListView actually has support for section headers built-in
 				// and detailed at the ListView documentation:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html#section-prop
-				// This other answer may help, but I'm not sure yet:
+				//
+				// We're currently basing the code for getting the items into the list
+				// off the second part of this answer:
 				// https://stackoverflow.com/a/59700406
 				
 				header: Item {
