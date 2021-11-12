@@ -127,6 +127,8 @@ import "../../../RetiledStyles" as RetiledStyles
 				// The ListView actually has support for section headers built-in
 				// and detailed at the ListView documentation:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html#section-prop
+				// This other answer may help, but I'm not sure yet:
+				// https://stackoverflow.com/a/59700406
 				
 				header: Item {
 				// Spacer item above the All Apps list.
@@ -136,7 +138,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: 15
 				} // End of the spacer item above the All Apps list.
 			
-			model: AllAppsListModel {}
+			model: allAppsListViewModel.getDotDesktopFiles
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
 								entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.

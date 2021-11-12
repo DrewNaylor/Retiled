@@ -55,7 +55,7 @@ class AllAppsListViewModel(QObject):
 		# Get the .desktop files list.
 		# I'm trying to get the list split into each
 		# All Apps list item.
-		AppsList.getDotDesktopFiles()
+		return AppsList.getDotDesktopFiles()
 		
 	@Slot(str, result=str)
 	# Add the result=str to get the return thing to work:
