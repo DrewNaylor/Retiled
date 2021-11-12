@@ -71,7 +71,16 @@ class AllAppsListItems(QObject):
 	def __init__(self, parent=None):
 		super()__init__(parent)
 		self._model = QStringListModel()
+	
+	# Just guessing that it's Property instead of pyqtProperty.
+	@Property(QObject, constant=True)
+	def model(self):
+		return self._model
+	
+	@Slot(str)
+	def getDotDesktopFilesInList
 		
+	
 		
 # Trying to create a model using the example of the SQL Conversation Model one:
 # https://doc.qt.io/qtforpython/tutorials/qmlsqlintegration/qmlsqlintegration.html
