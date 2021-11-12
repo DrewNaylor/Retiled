@@ -78,8 +78,8 @@ class AllAppsListItems(QObject):
 		return self._model
 	
 	@Slot(str)
-	def getDotDesktopFilesInList
-		
+	def getDotDesktopFilesInList(self):
+		self._model.setStringList(AppsList.getDotDesktopFiles())
 	
 		
 # Trying to create a model using the example of the SQL Conversation Model one:
