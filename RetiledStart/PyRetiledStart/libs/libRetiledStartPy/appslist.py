@@ -105,7 +105,7 @@ def getDotDesktopFiles():
 		# Ensure only .desktop files are picked up.
 		if DotDesktopFilename.endswith( (".desktop") ):
 			# Make sure the .desktop file doesn't have NoDisplay = true.
-			if not desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", "", True) == true:
+			if desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", "", True) == null:
 				DotDesktopFilesList.append(DotDesktopFilename)
 	
 	# Not sure if splitting this is how to get things into the list.
