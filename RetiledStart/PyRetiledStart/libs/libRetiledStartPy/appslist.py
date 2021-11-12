@@ -50,7 +50,7 @@ from os.path import isfile, join
 # the code can be cleaner.
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
-	args = desktopEntryStuff.getInfo(DotDesktopFilePath, "Exec", "", True)
+	args = desktopEntryStuff.getInfo(DotDesktopFilePath, "Exec", "", "", True)
 	splitargs = shlex.split(args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
@@ -63,7 +63,7 @@ def RunApp(DotDesktopFilePath):
 
 def GetAppName(DotDesktopFilePath):
 	# Gets the app's name using the libdotdesktop_py library.
-	return desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", "", True)
+	return desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", DotDesktopFilePath, "", True)
 	
 def getDotDesktopFiles():
 	# Gets the list of .desktop files and creates a list of objects
@@ -105,7 +105,7 @@ def getDotDesktopFiles():
 		# Ensure only .desktop files are picked up.
 		if DotDesktopFilename.endswith( (".desktop") ):
 			# Make sure the .desktop file doesn't have NoDisplay = true.
-			if desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", "", True) == null:
+			if not desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", false, "", True) == true:
 				DotDesktopFilesList.append(DotDesktopFilename)
 	
 	# Not sure if splitting this is how to get things into the list.
