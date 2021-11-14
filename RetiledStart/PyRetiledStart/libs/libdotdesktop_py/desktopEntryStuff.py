@@ -33,7 +33,10 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# in the Python docs here:
 	# https://docs.python.org/3/library/configparser.html#customizing-parser-behaviour
 	# Turn off interpolation, too, since that interferes with fields.
-	dotDesktopFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False, interpolation=None)
+	# "Strict" has to be off as some .desktop files have duplicate keys,
+	# most notably GNOME/Phosh Settings has several "X-Purism-FormFactor"
+	# keys, all with the same values.
+	dotDesktopFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False, interpolation=None, strict=False)
 	
 	# Now read the file into the dotDesktopFileReader.
 	# Basing this off this page here:
