@@ -159,6 +159,11 @@ def getDotDesktopFiles():
 	print("Sorted dictionary:")
 	print(SortedDotDesktopFilesList)
 	
+	# Return a list for now, as using a dictionary may take longer to hook up:
+	# https://www.tutorialspoint.com/How-to-get-a-list-of-all-the-keys-from-a-Python-dictionary
+	# Maybe I can just re-use the old list instead of creating a new one.
+	DotDesktopFilesList = [key for key in SortedDotDesktopFilesList]
+	
 	return DotDesktopFilesList
 	
 	
