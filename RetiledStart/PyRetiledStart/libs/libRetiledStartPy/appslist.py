@@ -135,7 +135,7 @@ def getDotDesktopFiles():
 	# This example may work better:
 	# https://tutorial.eyehunts.com/python/python-add-to-dict-in-a-loop-adding-item-to-dictionary-within-loop-example/
 	SortedDotDesktopFilesList = {}
-	for FilenameKey in DotDesktopDictionary:
+	for i in range(len(DotDesktopFilesList)):
 		SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
 	
 	return DotDesktopFilesList
