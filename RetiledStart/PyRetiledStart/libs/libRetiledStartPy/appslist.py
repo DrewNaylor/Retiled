@@ -135,6 +135,8 @@ def getDotDesktopFiles():
 	# This example may work better:
 	# https://tutorial.eyehunts.com/python/python-add-to-dict-in-a-loop-adding-item-to-dictionary-within-loop-example/
 	SortedDotDesktopFilesList = {}
+	# This is going through the items in the DotDesktopFilesList and adding items to a dictionary by getting the
+	# name from the .desktop file's "Name" key. If the "Name" key doesn't exist, it just uses the filename.
 	for i in range(len(DotDesktopFilesList)):
 		SortedDotDesktopFilesList[DotDesktopFilesList[i]] = desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilesList[i], "Name", DotDesktopFilesList[i], "", True)
 	
