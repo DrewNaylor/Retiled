@@ -137,7 +137,8 @@ def getDotDesktopFiles():
 	SortedDotDesktopFilesList = {}
 	for i in range(len(DotDesktopFilesList)):
 		SortedDotDesktopFilesList[DotDesktopFilesList[i]] = desktopEntryStuff.getInfo(DotDesktopRootPath + slash + i, "Name", i, "", True)
-		SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
+	
+	print(SortedDotDesktopFilesList)
 	
 	return DotDesktopFilesList
 	
