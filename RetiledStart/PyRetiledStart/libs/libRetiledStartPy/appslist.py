@@ -75,12 +75,12 @@ def getDotDesktopFiles():
 	# to display the app's name in the All Apps list.
 	# The FileNameProperty will be used to launch the apps by
 	# passing it to desktopEntryStuff.getInfo.
+	# Note: This description may be outdated as I'm currently
+	# not using properties for the items, and just using a dictionary.
 	
 	
 	# Get the list of files from /usr/share/applications:
 	# https://stackoverflow.com/a/3207973
-	#DotDesktopFilesList = [file for file in listdir("C:\\Users\\drewn\Desktop") if isfile(join("C:\\Users\\drewn\Desktop", file))]
-	#DotDesktopFilesList = [file for file in listdir("/usr/share/applications") if isfile(join("/usr/share/applications", file))]
 	# Only put apps in the list if they're supposed to be shown.
 	# Using the example from this answer:
 	# https://stackoverflow.com/a/51850082
@@ -107,42 +107,35 @@ def getDotDesktopFiles():
 			# Make sure the .desktop file doesn't have NoDisplay = true.
 			if not desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", "false", "", True) == "true":
 				DotDesktopFilesList.append(DotDesktopFilename)
-	
-	# Not sure if splitting this is how to get things into the list.
-	# Wait, no it can't be split because it's a list.
-	# TODO: Make sure that .desktop files are supposed to be shown in the list
-	# before adding them.
-	#print(DotDesktopFilesList)
-	
-	# Now we make the .desktop file thing into a dictionary:
-	# https://stackoverflow.com/a/31182009
-	# There has to be a more efficient way to do this.
-	# Define the dictionary.
-	#DotDesktopDictionary = []
-	#for DotDesktopFileEntry in DotDesktopFilesList:
-	#	DotDesktopDictionary[DotDesktopFileEntry] = {"FileNameProperty": DotDesktopFileEntry, "NameKeyValueProperty": desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "Name", DotDesktopFileEntry, "", True)}
-	#	DotDesktopDictionary.append(DotDesktopDictionaryEntry)
-	
-	# Sort the filenames.
-	# TODO: I need to figure out how to sort the filenames based on the file's "Name" key.
-	DotDesktopFilesList.sort()
-	#DotDesktopDictionary.sort(key=getKeyForSorting)
-	
+
 	# Put it back into a list because I don't know how to
 	# use dictionaries with QML listview models yet.
 	# Example here:
 	# https://pythonexamples.org/python-dictionary-values-to-list/#4
-	#SortedDotDesktopFilesList = []
-	#for FilenameKey in DotDesktopDictionary:
-	#	SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
+	# This example may work better:
+	# https://tutorial.eyehunts.com/python/python-add-to-dict-in-a-loop-adding-item-to-dictionary-within-loop-example/
+	SortedDotDesktopFilesList = {}
+	# This is going through the items in the DotDesktopFilesList and adding items to a dictionary by getting the
+	# name from the .desktop file's "Name" key. If the "Name" key doesn't exist, it just uses the filename.
+	for i in range(len(DotDesktopFilesList)):
+		SortedDotDesktopFilesList[DotDesktopFilesList[i]] = desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilesList[i], "Name", DotDesktopFilesList[i], "", True)
+	
+	# Now we can sort the dictionary by values.
+	# I think the filename sorting above will be
+	# unnecessary with this, and it'll be removed.
+	# Example from here:
+	# https://www.30secondsofcode.org/python/s/sort-dict-by-value
+	# This needs case-folding to ensure things are where they're
+	# supposed to be:
+	# https://stackoverflow.com/a/57923460
+	# Note that the ".casefold()" has to be after the x[1] or it won't work.
+	# Shorter example: "...key = lambda x: x[1].casefold()..."
+	# If it's in the wrong spot, it might say "Error: 'tuple' object has no attribute 'casefold'"
+	SortedDotDesktopFilesList = dict(sorted(SortedDotDesktopFilesList.items(), key = lambda x: x[1].casefold()))
+	
+	# Return a list for now, as using a dictionary may take longer to hook up:
+	# https://www.tutorialspoint.com/How-to-get-a-list-of-all-the-keys-from-a-Python-dictionary
+	# Maybe I can just re-use the old list instead of creating a new one.
+	DotDesktopFilesList = [key for key in SortedDotDesktopFilesList]
 	
 	return DotDesktopFilesList
-	
-	
-#def getKeyForSorting(key):
-	# Example from here:
-	# https://www.w3schools.com/python/ref_list_sort.asp
-#	return key["NameKeyValueProperty"]
-	
-	
-	
