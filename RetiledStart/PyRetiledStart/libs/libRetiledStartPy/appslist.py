@@ -142,6 +142,13 @@ def getDotDesktopFiles():
 	
 	print(SortedDotDesktopFilesList)
 	
+	# Now we can sort the dictionary by values.
+	# I think the filename sorting above will be
+	# unnecessary with this, and it'll be removed.
+	# Example from here:
+	# https://www.30secondsofcode.org/python/s/sort-dict-by-value
+	SortedDotDesktopFilesList = dict(sorted(SortedDotDesktopFilesList.items(), key = lambda x: x[1]))
+	
 	return DotDesktopFilesList
 	
 	
