@@ -132,9 +132,11 @@ def getDotDesktopFiles():
 	# use dictionaries with QML listview models yet.
 	# Example here:
 	# https://pythonexamples.org/python-dictionary-values-to-list/#4
-	#SortedDotDesktopFilesList = []
-	#for FilenameKey in DotDesktopDictionary:
-	#	SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
+	# This example may work better:
+	# https://tutorial.eyehunts.com/python/python-add-to-dict-in-a-loop-adding-item-to-dictionary-within-loop-example/
+	SortedDotDesktopFilesList = {}
+	for FilenameKey in DotDesktopDictionary:
+		SortedDotDesktopFilesList.append(DotDesktopDictionary[FileNameProperty])
 	
 	return DotDesktopFilesList
 	
