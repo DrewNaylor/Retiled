@@ -140,6 +140,7 @@ def getDotDesktopFiles():
 	for i in range(len(DotDesktopFilesList)):
 		SortedDotDesktopFilesList[DotDesktopFilesList[i]] = desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilesList[i], "Name", DotDesktopFilesList[i], "", True)
 	
+	print("Before properly sorting the dictionary:")
 	print(SortedDotDesktopFilesList)
 	
 	# Now we can sort the dictionary by values.
@@ -147,7 +148,16 @@ def getDotDesktopFiles():
 	# unnecessary with this, and it'll be removed.
 	# Example from here:
 	# https://www.30secondsofcode.org/python/s/sort-dict-by-value
-	SortedDotDesktopFilesList = dict(sorted(SortedDotDesktopFilesList.items(), key = lambda x: x[1]))
+	# This needs case-folding to ensure things are where they're
+	# supposed to be:
+	# https://stackoverflow.com/a/57923460
+	# Note that the ".casefold()" has to be after the x[1] or it won't work.
+	# Shorter example: "...key = lambda x: x[1].casefold()..."
+	# If it's in the wrong spot, it might say "Error: 'tuple' object has no attribute 'casefold'"
+	SortedDotDesktopFilesList = dict(sorted(SortedDotDesktopFilesList.items(), key = lambda x: x[1].casefold()))
+	
+	print("Sorted dictionary:")
+	print(SortedDotDesktopFilesList)
 	
 	return DotDesktopFilesList
 	
