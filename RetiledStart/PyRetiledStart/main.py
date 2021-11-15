@@ -48,8 +48,7 @@ class AllAppsListViewModel(QObject):
 		# figure out how to run it.
 		#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
 		AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
-		#AppsList.GetAppName(ViewModelExecFilename)
-	
+		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
 	def getDotDesktopFiles(self):
