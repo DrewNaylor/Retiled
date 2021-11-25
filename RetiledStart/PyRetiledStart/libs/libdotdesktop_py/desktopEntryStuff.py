@@ -94,13 +94,8 @@ def cleanExecKey(inputFile):
 	# .desktop file.
 	
 	# Load exec key.
-	cleanedExecKey = shlex.split(getInfo(inputFile, "Exec", "", "", True))
+	cleanedExecKey = getInfo(inputFile, "Exec", "", "", True)
 	
-	print(cleanedExecKey)
-	
-	# Gotta join the list into a string with spaces.
-	spaces = " "
-	cleanedExecKey = spaces.join(cleanedExecKey)
 	print(cleanedExecKey)
 	
 	# Begin cleaning the key.
