@@ -146,7 +146,7 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# The case-sensitive if statement may need to be cleaned up a bit.
 			
 	# Hold the regex in a string for now:
-	if input.contains(flag):
+	if input.__contains__(flag):
 		tempRegex = "\s+[" + flag + "]\b"
 	
 		if flag.endswith("%"):
