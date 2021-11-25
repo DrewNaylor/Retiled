@@ -124,12 +124,13 @@ def cleanExecKey(inputFile):
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%F", "")
 	
 	# Now back to a list.
-	cleanedExecKey = list(cleanedExecKey)
+	
+	cleanedExecKeyList = list(cleanedExecKey)
 	
 	# TODO: Expand environment variables.
-	print(cleanedExecKey)
+	print(cleanedExecKeyList)
 	# Return the cleaned key.
-	return cleanedExecKey
+	return cleanedExecKeyList
 
 
 
