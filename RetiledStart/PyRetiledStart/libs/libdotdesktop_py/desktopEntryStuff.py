@@ -147,7 +147,7 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 			
 	# Hold the regex in a string for now:
 	if input.__contains__(flag):
-		tempRegex = "\s+" + flag + "\b"
+		tempRegex = r"\s+" + flag + "\b"
 	
 		if flag.endswith("%"):
 		# Check if the flag ends with a percent sign and change
@@ -165,7 +165,7 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# the replacement works.
 		# Info from this page:
 		# https://pynative.com/python-regex-replace-re-sub/
-			regexedString = re.sub(tempRegex, desiredReplacement, input)
+			regexedString = regexThing.sub(desiredReplacement, input)
 			print(regexedString)
 			return regexedString
 		else:
@@ -174,7 +174,7 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# Now for the replacement.
 		# IMPORTANT: You must remember to add the target string so
 		# the replacement works.
-			regexedString = re.sub(tempRegex, desiredReplacement, input)
+			regexedString = regexThing.sub(desiredReplacement, input)
 			print(regexedString)
 			return regexedString
 	else:
