@@ -98,6 +98,11 @@ def cleanExecKey(inputFile):
 	
 	print(cleanedExecKey)
 	
+	# Gotta join the list into a string with spaces.
+	spaces = " "
+	cleanedExecKey = spaces.join(cleanedExecKey)
+	print(cleanedExecKey)
+	
 	# Begin cleaning the key.
 	# %d is deprecated.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%d", "")
@@ -117,6 +122,9 @@ def cleanExecKey(inputFile):
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%U", "")
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%f", "")
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%F", "")
+	
+	# Now back to a list.
+	cleanedExecKey = list(cleanedExecKey)
 	
 	# TODO: Expand environment variables.
 	print(cleanedExecKey)
