@@ -85,7 +85,7 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 			
 			
 			
-def cleanExecKey(inputFile)
+def cleanExecKey(inputFile):
 	# Clean up the exec key by removing flags.
 	# Currently assuming everything is an app,
 	# but support for links and urls will be added,
