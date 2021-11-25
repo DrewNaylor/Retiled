@@ -165,7 +165,8 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# the replacement works.
 		# Info from this page:
 		# https://pynative.com/python-regex-replace-re-sub/
-			regexedString = regexThing.sub(desiredReplacement, input)
+			#regexedString = regexThing.sub(desiredReplacement, input)
+			regexedString = input.replace(flag, desiredReplacement)
 			print(regexedString)
 			return regexedString
 		else:
@@ -174,7 +175,8 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# Now for the replacement.
 		# IMPORTANT: You must remember to add the target string so
 		# the replacement works.
-			regexedString = regexThing.sub(desiredReplacement, input)
+			#regexedString = regexThing.sub(desiredReplacement, input)
+			regexedString = input.replace(flag, desiredReplacement)
 			print(regexedString)
 			return regexedString
 	else:
