@@ -25,7 +25,6 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-import shlex
 import subprocess
 from ..libdotdesktop_py import desktopEntryStuff
 # Stuff for getting the files from /usr/share/applications.
@@ -51,8 +50,6 @@ from os.path import isfile, join
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
 	args = desktopEntryStuff.cleanExecKey(DotDesktopFilePath)
-	print("Unsplit: " + args)
-	splitargs = shlex.split(args)
 	print("Split: " + args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
@@ -61,7 +58,7 @@ def RunApp(DotDesktopFilePath):
 		# seems to do just fine when an Exec key lacks quotes
 		# around the first part of the command, unlike this one
 		# which says it can't find the file.
-	proc = subprocess.Popen(splitargs)
+	proc = subprocess.Popen(args)
 
 def GetAppName(DotDesktopFilePath):
 	# Gets the app's name using the libdotdesktop_py library.
