@@ -93,7 +93,7 @@ def cleanExecKey(inputFile):
 	# .desktop file.
 	
 	# Load exec key.
-	cleanedExecKey = getInfo(inputFile, "Exec", inputFile, "", True)
+	cleanedExecKey = getInfo(inputFile, "Exec", "", "", True)
 	
 	# Begin cleaning the key.
 	# %d is deprecated.
@@ -114,6 +114,8 @@ def cleanExecKey(inputFile):
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%U", "")
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%f", "")
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%F", "")
+	
+	print(cleanedExecKey)
 	
 	# TODO: Expand environment variables.
 	
