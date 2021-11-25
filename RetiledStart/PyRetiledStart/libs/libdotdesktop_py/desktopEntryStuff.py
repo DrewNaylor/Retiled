@@ -22,7 +22,10 @@
 
 
 
+# configparser is used as the .desktop file reader.
 import configparser
+# Regex.
+import re
 
 def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = False):
 	# fileName and IsCustomKey are both optional.
@@ -79,3 +82,82 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 			return dotDesktopFileReader.get('Desktop Entry', keyToGet)
 		else:
 			return defaultValue
+			
+			
+			
+def cleanExecKey(inputFile)
+	# Clean up the exec key by removing flags.
+	# Currently assuming everything is an app,
+	# but support for links and urls will be added,
+	# as will checking to ensure the file is a valid
+	# .desktop file.
+	
+	# Load exec key.
+	cleanedExecKey = getInfo(inputFile, "Exec", inputFile, "", True)
+	
+	# Begin cleaning the key.
+	# %d is deprecated.
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%d", "")
+	# %D is deprecated.
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%D", "")
+	# %n is deprecated.
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%n", "")
+	# %N is deprecated.
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%N", "")
+	# %v is deprecated.
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%v", "")
+	# %m is deprecated.
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%m", "")
+	
+	# Clean up other flags that aren't supported by the Python port.
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%u", "")
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%U", "")
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%f", "")
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%F", "")
+	
+	# TODO: Expand environment variables.
+	
+	# Return the cleaned key.
+	return cleanedExecKey
+
+
+
+def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
+	# Code for replacing flags using regex.
+	# Python docs page:
+	# https://docs.python.org/3/howto/regex.html
+	# This is used when launching apps to clean their Exec keys.
+	# Ported from the VB.NET version.
+	# Original comment:
+		# Replaces flags in the style of %u with a string using regex.
+		# First we need to create a regular expression to match what'll
+		# be replaced.
+		# \s+ is for whitespace before the flag.
+		# \b is for the word border at the end.
+		# This can be used with flags/environment variables
+		# that end with a percent sign.
+		# The case-sensitive if statement may need to be cleaned up a bit.
+			
+	# Hold the regex in a string for now:
+	tempRegex = "\s+" + flag + "\b"
+	
+	if flag.endswith("%"):
+		# Check if the flag ends with a percent sign and change
+		# the regex if necessary so it matches the flag later.
+		# Maybe I should keep the "\s+" part in there.
+		# Noticed that it wasn't in the original code.
+		tempRegex = flag.rstrip("%") + "\b%"
+	
+	if caseSensitive == False:
+		# If case-insensitivity is fine for this
+		# flag, have the regex thing ignore case.
+		regexThing = re.compile(tempRegex, re.IGNORECASE)
+		# Replace the flag.
+		return regexThing.sub(input, desiredReplacement)
+	else:
+		# Otherwise, don't ignore case.
+		regexThing = re.compile(tempRegex)
+		# Now for the replacement.
+		return regexThing.sub(input, desiredReplacement)
+			
+			
