@@ -153,11 +153,11 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# flag, have the regex thing ignore case.
 		regexThing = re.compile(tempRegex, re.IGNORECASE)
 		# Replace the flag.
-		return regexThing.sub(input, desiredReplacement)
+		return list(regexThing.sub(input, desiredReplacement))
 	else:
 		# Otherwise, don't ignore case.
 		regexThing = re.compile(tempRegex)
 		# Now for the replacement.
-		return regexThing.sub(input, desiredReplacement)
+		return list(regexThing.sub(input, desiredReplacement))
 			
 			
