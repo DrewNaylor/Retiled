@@ -26,6 +26,7 @@
 import configparser
 # Regex.
 import re
+import shlex
 
 def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = False):
 	# fileName and IsCustomKey are both optional.
@@ -96,7 +97,7 @@ def cleanExecKey(inputFile):
 	cleanedExecKey = getInfo(inputFile, "Exec", "", "", True)
 	
 	print(cleanedExecKey)
-	print(list(cleanedExecKey))
+	print(shlex.split(cleanedExecKey))
 	
 	# Begin cleaning the key.
 	# %d is deprecated.
