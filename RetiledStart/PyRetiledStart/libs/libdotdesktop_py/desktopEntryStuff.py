@@ -147,7 +147,7 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 			
 	# Hold the regex in a string for now:
 	if input.__contains__(flag):
-		tempRegex = "\s+[" + flag + "]\b"
+		tempRegex = "\s+" + flag + "\b"
 	
 		if flag.endswith("%"):
 		# Check if the flag ends with a percent sign and change
