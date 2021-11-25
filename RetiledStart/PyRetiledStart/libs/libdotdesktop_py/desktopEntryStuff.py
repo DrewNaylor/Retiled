@@ -106,22 +106,32 @@ def cleanExecKey(inputFile):
 	# Begin cleaning the key.
 	# %d is deprecated.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%d", "")
+	print(cleanedExecKey)
 	# %D is deprecated.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%D", "")
+	print(cleanedExecKey)
 	# %n is deprecated.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%n", "")
+	print(cleanedExecKey)
 	# %N is deprecated.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%N", "")
+	print(cleanedExecKey)
 	# %v is deprecated.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%v", "")
+	print(cleanedExecKey)
 	# %m is deprecated.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%m", "")
+	print(cleanedExecKey)
 	
 	# Clean up other flags that aren't supported by the Python port.
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%u", "")
+	print(cleanedExecKey)
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%U", "")
+	print(cleanedExecKey)
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%f", "")
+	print(cleanedExecKey)
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%F", "")
+	print(cleanedExecKey)
 	
 	# Now back to a list.
 	cleanedExecKey = list(cleanedExecKey)
