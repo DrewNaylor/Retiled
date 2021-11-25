@@ -125,7 +125,7 @@ def cleanExecKey(inputFile):
 	
 	# Now back to a list.
 	
-	cleanedExecKeyList = list(cleanedExecKey)
+	cleanedExecKeyList = shlex.split(cleanedExecKey)
 	
 	# TODO: Expand environment variables.
 	print(cleanedExecKeyList)
