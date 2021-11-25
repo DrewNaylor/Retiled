@@ -51,7 +51,9 @@ from os.path import isfile, join
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
 	args = desktopEntryStuff.cleanExecKey(DotDesktopFilePath)
+	print("Unsplit: " + args)
 	splitargs = shlex.split(args)
+	print("Split: " + args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
 		# if I already do that in my VB.NET library.
