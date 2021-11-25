@@ -118,10 +118,14 @@ def cleanExecKey(inputFile):
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%f", "")
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%F", "")
 	
+	# Now back to a list.
+	
+	cleanedExecKeyList = shlex.split(cleanedExecKey)
+	
 	# TODO: Expand environment variables.
-	print(cleanedExecKey)
+	print(cleanedExecKeyList)
 	# Return the cleaned key.
-	return cleanedExecKey
+	return cleanedExecKeyList
 
 
 
