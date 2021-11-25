@@ -94,10 +94,9 @@ def cleanExecKey(inputFile):
 	# .desktop file.
 	
 	# Load exec key.
-	cleanedExecKey = getInfo(inputFile, "Exec", "", "", True)
+	cleanedExecKey = shlex.split(getInfo(inputFile, "Exec", "", "", True))
 	
 	print(cleanedExecKey)
-	print(shlex.split(cleanedExecKey))
 	
 	# Begin cleaning the key.
 	# %d is deprecated.
