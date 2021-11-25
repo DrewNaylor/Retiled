@@ -51,6 +51,7 @@ from os.path import isfile, join
 def RunApp(DotDesktopFilePath):
         # Get the ExecFilename split using shlex.split.
 	args = desktopEntryStuff.cleanExecKey(DotDesktopFilePath)
+	print(args)
 	splitargs = shlex.split(args)
 		# Now run the command.
 		# TODO: Ensure the command is wrapped in quotes
