@@ -146,25 +146,28 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# The case-sensitive if statement may need to be cleaned up a bit.
 			
 	# Hold the regex in a string for now:
-	tempRegex = "\s+[" + flag + "]\b"
+	if input.contains(flag):
+		tempRegex = "\s+[" + flag + "]\b"
 	
-	if flag.endswith("%"):
+		if flag.endswith("%"):
 		# Check if the flag ends with a percent sign and change
 		# the regex if necessary so it matches the flag later.
 		# Maybe I should keep the "\s+" part in there.
 		# Noticed that it wasn't in the original code.
-		tempRegex = flag.rstrip("%") + "\b%"
+			tempRegex = flag.rstrip("%") + "\b%"
 	
-	if caseSensitive == False:
+		if caseSensitive == False:
 		# If case-insensitivity is fine for this
 		# flag, have the regex thing ignore case.
-		regexThing = re.compile(tempRegex, re.IGNORECASE)
+			regexThing = re.compile(tempRegex, re.IGNORECASE)
 		# Replace the flag.
-		return regexThing.sub(input, desiredReplacement)
-	else:
+			return regexThing.sub(input, desiredReplacement)
+		else:
 		# Otherwise, don't ignore case.
-		regexThing = re.compile(tempRegex)
+			regexThing = re.compile(tempRegex)
 		# Now for the replacement.
-		return regexThing.sub(input, desiredReplacement)
+			return regexThing.sub(input, desiredReplacement)
+	else:
+		return input
 			
 			
