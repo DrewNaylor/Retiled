@@ -25,7 +25,9 @@
 # configparser is used as the .desktop file reader.
 import configparser
 # Regex.
-import re
+# Commented out because I couldn't get it to work,
+# so I just used string replacement instead.
+#import re
 import shlex
 
 def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = False):
@@ -96,7 +98,7 @@ def cleanExecKey(inputFile):
 	# Load exec key.
 	cleanedExecKey = getInfo(inputFile, "Exec", "", "", True)
 	
-	print(cleanedExecKey)
+	#print(cleanedExecKey)
 	
 	# Begin cleaning the key.
 	# %d is deprecated.
@@ -123,7 +125,7 @@ def cleanExecKey(inputFile):
 	cleanedExecKeyList = shlex.split(cleanedExecKey)
 	
 	# TODO: Expand environment variables.
-	print(cleanedExecKeyList)
+	#print(cleanedExecKeyList)
 	# Return the cleaned key.
 	return cleanedExecKeyList
 
@@ -135,6 +137,8 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 	# https://docs.python.org/3/howto/regex.html
 	# This is used when launching apps to clean their Exec keys.
 	# Ported from the VB.NET version.
+	# Couldn't get regex to work, so I just used string replacement
+	# instead.
 	# Original comment:
 		# Replaces flags in the style of %u with a string using regex.
 		# First we need to create a regular expression to match what'll
@@ -147,19 +151,19 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 			
 	# Hold the regex in a string for now:
 	if input.__contains__(flag):
-		tempRegex = r"\s+" + flag + "\b"
+		#tempRegex = r"\s+" + flag + "\b"
 	
-		if flag.endswith("%"):
+		#if flag.endswith("%"):
 		# Check if the flag ends with a percent sign and change
 		# the regex if necessary so it matches the flag later.
 		# Maybe I should keep the "\s+" part in there.
 		# Noticed that it wasn't in the original code.
-			tempRegex = flag.rstrip("%") + "\b%"
+			#tempRegex = flag.rstrip("%") + "\b%"
 	
 		if caseSensitive == False:
 		# If case-insensitivity is fine for this
 		# flag, have the regex thing ignore case.
-			regexThing = re.compile(tempRegex, re.IGNORECASE)
+			#regexThing = re.compile(tempRegex, re.IGNORECASE)
 		# Replace the flag.
 		# IMPORTANT: You must remember to add the target string so
 		# the replacement works.
@@ -167,17 +171,17 @@ def regexReplaceFlags(input, flag, desiredReplacement, caseSensitive = True):
 		# https://pynative.com/python-regex-replace-re-sub/
 			#regexedString = regexThing.sub(desiredReplacement, input)
 			regexedString = input.replace(flag, desiredReplacement)
-			print(regexedString)
+			#print(regexedString)
 			return regexedString
 		else:
 		# Otherwise, don't ignore case.
-			regexThing = re.compile(tempRegex)
+			#regexThing = re.compile(tempRegex)
 		# Now for the replacement.
 		# IMPORTANT: You must remember to add the target string so
 		# the replacement works.
 			#regexedString = regexThing.sub(desiredReplacement, input)
 			regexedString = input.replace(flag, desiredReplacement)
-			print(regexedString)
+			#print(regexedString)
 			return regexedString
 	else:
 		return input
