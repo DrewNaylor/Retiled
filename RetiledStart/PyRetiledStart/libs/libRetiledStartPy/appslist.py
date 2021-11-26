@@ -86,6 +86,9 @@ def getDotDesktopFiles():
 	# https://stackoverflow.com/a/51850082
 	
 	# Specify root path.
+	# This is different on Windows for debugging purposes.
+	# Example code for sys.platform:
+	# https://docs.python.org/3/library/sys.html#sys.platform
 	#DotDesktopRootPath = "C:\\Users\\drewn\Desktop"
 	DotDesktopRootPath = "/usr/share/applications"
 	
