@@ -209,7 +209,7 @@ ApplicationWindow {
 					var TilesList = tilesListViewModel.getTilesList()
 					console.log(TilesList)
 					
-					for (i=0; i<TilesList.length; i++){
+					for (var i = 0; i < TilesList.length; i++){
 						console.log(TilesList.DotDesktopPath);
 						console.log(TilesList.TileAppNameAreaText);
 						console.log(TilesList.TileWidth);
