@@ -58,7 +58,7 @@ def getTilesList():
 	# just in case it's different later.
 	jsonTiles = json.dumps(TilesList)
 	
-	print(jsonTiles)
+	#print(jsonTiles)
 	
 	return jsonTiles
 	
