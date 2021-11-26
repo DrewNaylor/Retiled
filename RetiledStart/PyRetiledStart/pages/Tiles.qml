@@ -202,7 +202,7 @@ ApplicationWindow {
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
-					tilesListViewModel.RunApp(execKey)
+					tilesListViewModel.RunApp(execKey);
 				}
 				
 				Component.onCompleted: {
