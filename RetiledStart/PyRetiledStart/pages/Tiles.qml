@@ -225,7 +225,8 @@ ApplicationWindow {
 						
 						// Create the tiles dynamically according to this page:
 						// https://doc.qt.io/qt-6/qtqml-javascript-dynamicobjectcreation.html
-						
+						// TODO: Check if this can be changed to RetiledStyles.Tile.
+						var NewTile = Qt.createComponent("../../../RetiledStyles/Tile.qml");
 						
 					} // End of For loop that loads the tiles.
 					
