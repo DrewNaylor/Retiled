@@ -161,6 +161,7 @@ ApplicationWindow {
 				tileText: qsTr("cobalt-colored tile")
 				width: 310
 				height: 150
+				onClicked: tilesListViewModel.getTilesList()
 				}
 				RetiledStyles.Tile {
 				tileText: qsTr("cobalt-colored tile")
