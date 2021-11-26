@@ -54,8 +54,12 @@ def getTilesList():
 	# Turn the tiles list into JSON.
 	# Example #2 here:
 	# https://pythonexamples.org/python-list-to-json/
+	# Looks the same, but I'm going to do it anyway
+	# just in case it's different later.
+	jsonTiles = json.dumps(TilesList)
 	
-	print(TilesList)
+	print(jsonTiles)
+	
 	
 	
 	
