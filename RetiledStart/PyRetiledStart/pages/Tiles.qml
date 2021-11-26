@@ -200,6 +200,11 @@ ApplicationWindow {
 				height: 150
 				}
 				
+				// Set up the tile click signals.
+				function tileClicked(execKey) {
+					tilesListViewModel.RunApp(execKey)
+				}
+				
 				Component.onCompleted: {
 					
 					// Start looping through the list provided by Python
