@@ -42,14 +42,14 @@ def getTilesList()
 	# Adding dictionaries to list from here:
 	# https://codeigo.com/python/add-dictionary-to-a-list
 	TilesList.append({"DotDesktopPath": "/usr/share/applications/firefox.desktop", "TileAppNameAreaText": "Firefox", "TileWidth": 150, "TileHeight": 150, "TileColor": "#0050ef"})
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.angelfish.desktop", "Angelfish", 150, 150, "#0050ef"))
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.index.desktop", "Index", 310, 150, "#0050ef"))
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.discover.desktop", "Discover", 150, 150, "#0050ef"))
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", 70, 70, "#0050ef"))
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.kalk.desktop", "Calculator", 70, 70, "#0050ef"))
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.nota.desktop", "Nota", 70, 70, "#0050ef"))
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.phone.dialer.desktop", "Phone", 70, 70, "Red"))
-            '    TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.okular.desktop", "Okular", 150, 150, "#0050ef"))
+	TilesList.append({"DotDesktopPath": "/usr/share/applications/org.kde.angelfish.desktop", "TileAppNameAreaText": "Angelfish", "TileWidth": 150, "TileHeight": 150, "TileColor": "#0050ef"})
+	TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.index.desktop", "Index", "TileWidth": 310, "TileHeight": 150, "TileColor": "#0050ef"})
+	TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.discover.desktop", "Discover", "TileWidth": 150, "TileHeight": 150, "TileColor": "#0050ef"})
+	TilesList.Add(New StartScreenTileEntry("/usr/share/applications/htop.desktop", "Htop", "TileWidth": 70, "TileHeight": 70, "TileColor": "#0050ef"})
+	TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.kalk.desktop", "Calculator", "TileWidth": 70, "TileHeight": 70, "TileColor": "#0050ef"})
+	TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.nota.desktop", "Nota", "TileWidth": 70, "TileHeight": 70, "TileColor": "#0050ef"})
+	TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.phone.dialer.desktop", "Phone", "TileWidth": 70, "TileHeight": 70, "TileColor": "Red"})
+	TilesList.Add(New StartScreenTileEntry("/usr/share/applications/org.kde.okular.desktop", "Okular", "TileWidth": 150, "TileHeight": 150, "TileColor": "#0050ef"})
 	
 	
 	
