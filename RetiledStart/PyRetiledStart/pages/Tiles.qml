@@ -51,7 +51,7 @@ ApplicationWindow {
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
-	Universal.background: 'transparent'
+	Universal.background: 'black'
 	
 	
 	Shortcut {
