@@ -111,7 +111,8 @@ ButtonBase {
 				// you can get the styles from C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Design
 				// Here's the link:
 				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff402557(v=vs.105)
-				font.weight: Font.DemiBold
+				//font.weight: Font.DemiBold
+				// Font weight changes don't look that good.
                 text: control.tileText
                 color: control.textColor
 				// Turn off ellipsis.
