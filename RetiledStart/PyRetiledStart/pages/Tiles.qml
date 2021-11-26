@@ -246,7 +246,10 @@ ApplicationWindow {
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-						NewTileObect.onClicked = tilesListViewModel.RunApp(ParsedTilesList[i].DotDesktopPath);
+						NewTileObect.execKey = ParsedTilesList[i].DotDesktopPath;
+						
+						// Connect clicked signal.
+						NewTileObect.clicked.connect(tileClicked);
 						
 					} // End of For loop that loads the tiles.
 					

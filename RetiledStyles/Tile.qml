@@ -47,7 +47,7 @@ ButtonBase {
 	// so that we can add an event handler:
 	// https://stackoverflow.com/a/22605752
 	property string execKey;
-	signal tileClicked(string execKey);
+	signal clicked(string execKey);
 	
 	// Set padding values.
 	leftPadding: 8
