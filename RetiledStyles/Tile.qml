@@ -52,7 +52,7 @@ ButtonBase {
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:
 	// https://stackoverflow.com/a/8430030
-	leftPadding: 10
+	leftPadding: 8
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 6
