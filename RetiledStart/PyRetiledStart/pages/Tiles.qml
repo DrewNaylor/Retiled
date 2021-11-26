@@ -130,6 +130,7 @@ ApplicationWindow {
 		// SO example:
 		// https://stackoverflow.com/a/38532138
 		Flow {
+			id: TilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
 			width: window.width
@@ -221,6 +222,11 @@ ApplicationWindow {
 						console.log(ParsedTilesList[i].TileHeight);
 						console.log(ParsedTilesList[i].TileColor);
 						console.log("------------------------");
+						
+						// Create the tiles dynamically according to this page:
+						// https://doc.qt.io/qt-6/qtqml-javascript-dynamicobjectcreation.html
+						
+						
 					} // End of For loop that loads the tiles.
 					
 					
