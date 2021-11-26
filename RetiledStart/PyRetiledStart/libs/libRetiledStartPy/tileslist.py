@@ -30,7 +30,7 @@
 
 
 
-def getTilesList()
+def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
 	# Currently has the location of the tiles list hardcoded.
 	
