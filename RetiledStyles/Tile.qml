@@ -46,7 +46,7 @@ ButtonBase {
 	// to #990050ef (or anything else with numbers in front of "0050ef"),
 	// you'll get transparent tile backgrounds, with different values
 	// depending on the first two numbers (replacing "99").
-	property string tileBackgroundColor: "#0050ef"
+	property string tileBackgroundColor: "#990050ef"
 	// We have to add a property for the button's exec key
 	// so that we can add an event handler:
 	// https://stackoverflow.com/a/22605752
