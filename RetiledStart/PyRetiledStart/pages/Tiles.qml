@@ -238,6 +238,7 @@ ApplicationWindow {
 						NewTileObect.height = ParsedTilesList[i].TileHeight;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
+						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						NewTileObect.onClicked = tilesListViewModel.RunApp(ParsedTilesList[i].DotDesktopPath);
 						
 					} // End of For loop that loads the tiles.
