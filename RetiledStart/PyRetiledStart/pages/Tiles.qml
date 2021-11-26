@@ -207,16 +207,22 @@ ApplicationWindow {
 					// We're using the last example here, with the books:
 					// https://www.microverse.org/blog/how-to-loop-through-the-array-of-json-objects-in-javascript
 					var TilesList = tilesListViewModel.getTilesList()
-					console.log(TilesList)
+					//console.log(TilesList)
 					
-					for (var i = 0; i < TilesList.length; i++){
-						console.log(TilesList.DotDesktopPath);
-						console.log(TilesList.TileAppNameAreaText);
-						console.log(TilesList.TileWidth);
-						console.log(TilesList.TileHeight);
-						console.log(TilesList.TileColor);
+					// Remember to parse the JSON.
+					// I forgot to do this and couldn't
+					// figure out why it wouldn't work.
+					var ParsedTilesList = JSON.parse(TilesList);
+					
+					for (var i = 0; i < ParsedTilesList.length; i++){
+						console.log(ParsedTilesList[i].DotDesktopPath);
+						console.log(ParsedTilesList[i].TileAppNameAreaText);
+						console.log(ParsedTilesList[i].TileWidth);
+						console.log(ParsedTilesList[i].TileHeight);
+						console.log(ParsedTilesList[i].TileColor);
 						console.log("------------------------");
 					} // End of For loop that loads the tiles.
+					
 					
 				} // Component.onCompleted for the Tiles Flow area.
 				
