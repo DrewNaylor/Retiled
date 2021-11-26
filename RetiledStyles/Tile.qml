@@ -43,12 +43,23 @@ ButtonBase {
 	property int fontSize: 14
 	property string textColor: "white"
 	property string tileBackgroundColor: "#0050ef"
+	// We have to add a property for the button's exec key
+	// so that we can add an event handler:
+	// https://stackoverflow.com/a/22605752
+	property string execKey;
+	signal tileClicked(string execKey);
 	
 	// Set padding values.
 	leftPadding: 8
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 6
+	
+	// Add a mousearea to allow for clicking it.
+	MouseArea {
+		anchors.fill: parent
+		onClicked: parent.clicked(parent.execKey)
+	}
 	
 	
 	// Override the contentItem using the one from Button.
