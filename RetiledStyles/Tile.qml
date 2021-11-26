@@ -52,6 +52,12 @@ ButtonBase {
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:
 	// https://stackoverflow.com/a/8430030
+	// Or maybe it's right, and it's just a font issue.
+	// I looked at Avalonia's default font size for buttons, and
+	// it's 14:
+	// https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Controls/Button.xaml#L24
+	// That line references "ControlContentThemeFontSize", which is defined to be "14" here:
+	// https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/Base.xaml#L17
 	leftPadding: 8
 	topPadding: 0
 	rightPadding: 0
