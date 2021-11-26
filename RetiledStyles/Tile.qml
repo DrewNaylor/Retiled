@@ -59,13 +59,15 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: parent.clicked(parent.execKey)
-		//onPressed: scaleTile()
+		// Scaling the buttons down then back up
+		// is done by setting scale values for both
+		// onPressed and onReleased.
+		// If only one is set, the button won't come
+		// back up and will stay depressed, like me
+		// during most of 2020.
+		onPressed: control.scale = 0.98
+		onReleased: control.scale = 1.0
 	}
-	
-	//function scaleTile(){
-	//	control.scale = control.down ? 0.98 : 1.0;
-	//}
-	
 	
 	// Override the contentItem using the one from Button.
 	contentItem: Text {
