@@ -107,9 +107,11 @@ class TilesListViewModel(QObject):
 		# Example code for sys.platform:
 		# https://docs.python.org/3/library/sys.html#sys.platform
 		if sys.platform.startswith("win32"):
+			#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
 			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
 		else:
-			AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+			AppsList.RunApp(ViewModelExecFilename)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
