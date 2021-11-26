@@ -188,6 +188,7 @@ ApplicationWindow {
 					
 					// We're using the last example here, with the books:
 					// https://www.microverse.org/blog/how-to-loop-through-the-array-of-json-objects-in-javascript
+					// Most of that example was used in the for loop below, but I changed some stuff.
 					var TilesList = tilesListViewModel.getTilesList()
 					//console.log(TilesList)
 					
@@ -204,12 +205,12 @@ ApplicationWindow {
 					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
 					
 					for (var i = 0; i < ParsedTilesList.length; i++){
-						console.log(ParsedTilesList[i].DotDesktopPath);
-						console.log(ParsedTilesList[i].TileAppNameAreaText);
-						console.log(ParsedTilesList[i].TileWidth);
-						console.log(ParsedTilesList[i].TileHeight);
-						console.log(ParsedTilesList[i].TileColor);
-						console.log("------------------------");
+						//console.log(ParsedTilesList[i].DotDesktopPath);
+						//console.log(ParsedTilesList[i].TileAppNameAreaText);
+						//console.log(ParsedTilesList[i].TileWidth);
+						//console.log(ParsedTilesList[i].TileHeight);
+						//console.log(ParsedTilesList[i].TileColor);
+						//console.log("------------------------");
 						
 						// Now create the tile.
 						var NewTileObect = TileComponent.createObject(tilesContainer);
