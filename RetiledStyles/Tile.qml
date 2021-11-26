@@ -88,6 +88,15 @@ ButtonBase {
                 verticalAlignment: Text.AlignBottom
 				// Make the font bigger.
                 font.pixelSize: control.fontSize
+				// Set the font weight:
+				// https://doc.qt.io/qt-5/qml-font.html
+				// Windows Phone 7 used SemiBold, but I hope
+				// DemiBold is close enough:
+				// https://stackoverflow.com/a/8430030
+				// Funny enough, DemiBold is 63, which was
+				// my favorite number in 6th grade due to
+				// Super Mario 63.
+				font.weight: Font.DemiBold
                 text: control.tileText
                 color: control.textColor
 				// Turn off ellipsis.
