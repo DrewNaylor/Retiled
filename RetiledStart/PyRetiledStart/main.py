@@ -47,8 +47,13 @@ class AllAppsListViewModel(QObject):
 	def RunApp(self, ViewModelExecFilename):
 		# Pass the app's command to the code to actually
 		# figure out how to run it.
-		#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-		AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+		# This is different on Windows for debugging purposes.
+		# Example code for sys.platform:
+		# https://docs.python.org/3/library/sys.html#sys.platform
+		if sys.platform.startswith("win32"):
+			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+		else:
+			AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
@@ -56,15 +61,20 @@ class AllAppsListViewModel(QObject):
 		# Get the .desktop files list.
 		# I'm trying to get the list split into each
 		# All Apps list item.
-		return TilesList.getTilesList()
+		return AppsList.getDotDesktopFiles()
 		
 	@Slot(str, result=str)
 	# Add the result=str to get the return thing to work:
 	# https://stackoverflow.com/a/36210838
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
-		#return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
-		return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
+		# This is different on Windows for debugging purposes.
+		# Example code for sys.platform:
+		# https://docs.python.org/3/library/sys.html#sys.platform
+		if sys.platform.startswith("win32"):
+			return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
+		else:
+			return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
 		
 # This class is for the items in the All Apps list as described in
 # the second half of this answer:
@@ -93,8 +103,13 @@ class TilesListViewModel(QObject):
 	def RunApp(self, ViewModelExecFilename):
 		# Pass the app's command to the code to actually
 		# figure out how to run it.
-		#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-		AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+		# This is different on Windows for debugging purposes.
+		# Example code for sys.platform:
+		# https://docs.python.org/3/library/sys.html#sys.platform
+		if sys.platform.startswith("win32"):
+			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+		else:
+			AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
@@ -103,7 +118,7 @@ class TilesListViewModel(QObject):
 		# I'm trying to get a list of dictionaries
 		# in JSON for dynamic object creation
 		# and destruction.
-		return AppsList.getDotDesktopFiles()
+		return TilesList.getTilesList()
 	
 # This class is for the items in the Tiles list.
 # I'm going to have to use JSON somehow, probably.
