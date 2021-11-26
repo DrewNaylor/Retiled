@@ -236,6 +236,9 @@ ApplicationWindow {
 						NewTileObect.tileText = ParsedTilesList[i].TileAppNameAreaText;
 						NewTileObect.width = ParsedTilesList[i].TileWidth;
 						NewTileObect.height = ParsedTilesList[i].TileHeight;
+						// Doesn't quite work on Windows because the hardcoded tile is trying to read
+						// from /usr/share/applications and can't find Firefox.
+						NewTileObect.onClicked = allAppsListViewModel.RunApp(ParsedTilesList[i].DotDesktopPath);
 						
 					} // End of For loop that loads the tiles.
 					
