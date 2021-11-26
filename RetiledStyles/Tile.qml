@@ -96,6 +96,15 @@ ButtonBase {
 				// Funny enough, DemiBold is 63, which was
 				// my favorite number in 6th grade due to
 				// Super Mario 63.
+				// I did find a link to Microsoft's documentation
+				// showing what various measurements for Windows Phone 8
+				// are:
+				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff769552(v=vs.105)
+				// Something else interesting is that Microsoft has a page with the names and
+				// hex values for each of the accent colors. One thing on this page says
+				// you can get the styles from C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Design
+				// Here's the link:
+				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff402557(v=vs.105)
 				font.weight: Font.DemiBold
                 text: control.tileText
                 color: control.textColor
