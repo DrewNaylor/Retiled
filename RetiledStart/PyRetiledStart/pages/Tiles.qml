@@ -215,6 +215,13 @@ ApplicationWindow {
 					// figure out why it wouldn't work.
 					var ParsedTilesList = JSON.parse(TilesList);
 					
+					// Create the tiles dynamically according to this page:
+					// https://doc.qt.io/qt-6/qtqml-javascript-dynamicobjectcreation.html
+					// We're doing this outside the loop, because that's what the docs
+					// did and it's probably faster/less memory-intensive.
+					// TODO: Check if this can be changed to RetiledStyles.Tile.
+					var NewTile = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+					
 					for (var i = 0; i < ParsedTilesList.length; i++){
 						console.log(ParsedTilesList[i].DotDesktopPath);
 						console.log(ParsedTilesList[i].TileAppNameAreaText);
@@ -223,10 +230,7 @@ ApplicationWindow {
 						console.log(ParsedTilesList[i].TileColor);
 						console.log("------------------------");
 						
-						// Create the tiles dynamically according to this page:
-						// https://doc.qt.io/qt-6/qtqml-javascript-dynamicobjectcreation.html
-						// TODO: Check if this can be changed to RetiledStyles.Tile.
-						var NewTile = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+						
 						
 					} // End of For loop that loads the tiles.
 					
