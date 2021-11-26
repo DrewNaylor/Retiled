@@ -210,7 +210,12 @@ ApplicationWindow {
 					console.log(TilesList)
 					
 					for (i=0; i<TilesList.length; i++){
-						
+						console.log(TilesList.DotDesktopPath);
+						console.log(TilesList.TileAppNameAreaText);
+						console.log(TilesList.TileWidth);
+						console.log(TilesList.TileHeight);
+						console.log(TilesList.TileColor);
+						console.log("------------------------");
 					} // End of For loop that loads the tiles.
 					
 				} // Component.onCompleted for the Tiles Flow area.
