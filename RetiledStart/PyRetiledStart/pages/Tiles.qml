@@ -51,6 +51,7 @@ ApplicationWindow {
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
+	// This will probably be useful when working on stuff like the volume controls and Action Center.
 	Universal.background: 'black'
 	
 	
