@@ -60,7 +60,7 @@ def getTilesList():
 	
 	print(jsonTiles)
 	
-	
+	return jsonTiles
 	
 	
 	
