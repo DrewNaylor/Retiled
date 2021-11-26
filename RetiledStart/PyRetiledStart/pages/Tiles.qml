@@ -203,6 +203,8 @@ ApplicationWindow {
 					
 					// Start looping through the list provided by Python
 					// so it can be parsed as JSON.
+					// Console output just in case.
+					console.log(tilesListViewModel.getTilesList())
 					
 				} // Component.onCompleted for the Tiles Flow area.
 				
