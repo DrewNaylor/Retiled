@@ -34,6 +34,7 @@ import os
 from pathlib import Path
 import sys
 from libs.libRetiledStartPy import appslist as AppsList
+from libs.libRetiledStartPy import tileslist as TilesList
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -55,7 +56,7 @@ class AllAppsListViewModel(QObject):
 		# Get the .desktop files list.
 		# I'm trying to get the list split into each
 		# All Apps list item.
-		return AppsList.getDotDesktopFiles()
+		return TilesList.getTilesList()
 		
 	@Slot(str, result=str)
 	# Add the result=str to get the return thing to work:
@@ -69,6 +70,45 @@ class AllAppsListViewModel(QObject):
 # the second half of this answer:
 # https://stackoverflow.com/a/59700406
 class AllAppsListItems(QObject):
+	def __init__(self, parent=None):
+		super().__init__(parent)
+		self._model = QStringListModel()
+	
+	# Just guessing that it's Property instead of pyqtProperty.
+	@Property(QObject, constant=True)
+	def model(self):
+		return self._model
+	
+	# I'm not passing anything to the code, so
+	# this has to be a "Slot()" instead of "Slot(str)".
+	@Slot()
+	def getDotDesktopFilesInList(self):
+		#self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
+		self._model.setStringList(AppsList.getDotDesktopFiles())
+	# TODO: Make sure the items are properly cleaned up so QML doesn't say
+	# that there are null items after closing.
+	
+class TilesListViewModel(QObject):
+	@Slot(str)
+	def RunApp(self, ViewModelExecFilename):
+		# Pass the app's command to the code to actually
+		# figure out how to run it.
+		#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+		AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+		
+	# Slots still need to exist when using PySide.
+	@Slot(result=str)
+	def getTilesList(self):
+		# Get the tiles list.
+		# I'm trying to get a list of dictionaries
+		# in JSON for dynamic object creation
+		# and destruction.
+		return AppsList.getDotDesktopFiles()
+	
+# This class is for the items in the Tiles list.
+# I'm going to have to use JSON somehow, probably.
+# May need to change a lot of this.
+class TilesListItems(QObject):
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self._model = QStringListModel()
