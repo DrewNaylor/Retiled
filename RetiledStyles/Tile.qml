@@ -59,12 +59,12 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: parent.clicked(parent.execKey)
-		onPressed: scaleTile()
+		//onPressed: scaleTile()
 	}
 	
-	function scaleTile(){
-		control.scale = control.down ? 0.98 : 1.0;
-	}
+	//function scaleTile(){
+	//	control.scale = control.down ? 0.98 : 1.0;
+	//}
 	
 	
 	// Override the contentItem using the one from Button.
