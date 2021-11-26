@@ -209,6 +209,10 @@ ApplicationWindow {
 					var TilesList = tilesListViewModel.getTilesList()
 					console.log(TilesList)
 					
+					for (i=0; i<TilesList.length; i++){
+						
+					} // End of For loop that loads the tiles.
+					
 				} // Component.onCompleted for the Tiles Flow area.
 				
 			}
