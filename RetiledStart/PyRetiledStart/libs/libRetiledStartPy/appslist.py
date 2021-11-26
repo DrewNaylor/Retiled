@@ -85,17 +85,17 @@ def getDotDesktopFiles():
 	# Using the example from this answer:
 	# https://stackoverflow.com/a/51850082
 	
-	# Specify root path.
+	# Specify root path and slash.
 	# This is different on Windows for debugging purposes.
 	# Example code for sys.platform:
 	# https://docs.python.org/3/library/sys.html#sys.platform
-	#DotDesktopRootPath = "C:\\Users\\drewn\Desktop"
-	DotDesktopRootPath = "/usr/share/applications"
-	
-	# Specify the type of slash.
-	slash = "/"
-	#slash = "\\"
-	
+	if sys.platform.startswith("win32"):
+		DotDesktopRootPath = "C:\\Users\\drewn\\Desktop"
+		slash = "\\"
+	else:
+		DotDesktopRootPath = "/usr/share/applications"
+		slash = "/"
+		
 	# Use the filesystem encode thing to get the folder.
 	FSEncodedFolder = os.fsencode(DotDesktopRootPath)
 	
