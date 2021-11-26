@@ -59,7 +59,11 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: parent.clicked(parent.execKey)
-		parent.scale: MouseArea.pressed ? 0.98 : 1.0
+		onPressed: scaleTile()
+	}
+	
+	function scaleTile(){
+		control.scale = control.down ? 0.98 : 1.0;
 	}
 	
 	
