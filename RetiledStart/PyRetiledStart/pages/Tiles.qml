@@ -198,6 +198,14 @@ ApplicationWindow {
 				width: 150
 				height: 150
 				}
+				
+				Component.onCompleted: {
+					
+					// Start looping through the list provided by Python
+					// so it can be parsed as JSON.
+					
+				} // Component.onCompleted for the Tiles Flow area.
+				
 			}
 	
 		RetiledStyles.RoundButton {

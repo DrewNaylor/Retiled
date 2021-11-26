@@ -28,7 +28,7 @@
 
 
 
-
+import json
 
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
@@ -50,6 +50,10 @@ def getTilesList():
 	TilesList.append({"DotDesktopPath": "/usr/share/applications/org.kde.nota.desktop",  "TileAppNameAreaText": "Nota", "TileWidth": 70, "TileHeight": 70, "TileColor": "#0050ef"})
 	TilesList.append({"DotDesktopPath": "/usr/share/applications/org.kde.phone.dialer.desktop",  "TileAppNameAreaText": "Phone", "TileWidth": 70, "TileHeight": 70, "TileColor": "Red"})
 	TilesList.append({"DotDesktopPath": "/usr/share/applications/org.kde.okular.desktop",  "TileAppNameAreaText": "Okular", "TileWidth": 150, "TileHeight": 150, "TileColor": "#0050ef"})
+	
+	# Turn the tiles list into JSON.
+	# Example #2 here:
+	# https://pythonexamples.org/python-list-to-json/
 	
 	print(TilesList)
 	
