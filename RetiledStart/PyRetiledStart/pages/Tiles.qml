@@ -130,7 +130,7 @@ ApplicationWindow {
 		// SO example:
 		// https://stackoverflow.com/a/38532138
 		Flow {
-			id: TilesContainer
+			id: tilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
 			width: window.width
@@ -231,8 +231,11 @@ ApplicationWindow {
 						console.log("------------------------");
 						
 						// Now create the tile.
-						var NewTileObect = TileComponent.createObject(TilesContainer);
-						
+						var NewTileObect = TileComponent.createObject(tilesContainer);
+						// Set tile properties.
+						NewTileObect.tileText = ParsedTilesList[i].TileAppNameAreaText;
+						NewTileObect.width = ParsedTilesList[i].TileWidth;
+						NewTileObect.height = ParsedTilesList[i].TileHeight;
 						
 					} // End of For loop that loads the tiles.
 					
