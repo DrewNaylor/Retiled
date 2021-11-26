@@ -36,3 +36,16 @@ def getTilesList()
 	
 	# Define list to store the tiles.
 	TilesList = []
+	
+	# Hard-code the tiles for now to make sure this'll work
+	# without having to do everything first.
+	# Adding dictionaries to list from here:
+	# https://codeigo.com/python/add-dictionary-to-a-list
+	
+	
+	
+	
+	
+	
+	
+	
