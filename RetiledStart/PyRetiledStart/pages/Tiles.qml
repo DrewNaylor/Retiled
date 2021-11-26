@@ -239,6 +239,8 @@ ApplicationWindow {
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
+						// Actually, I think this involves an event handler:
+						// https://stackoverflow.com/a/22605752
 						NewTileObect.onClicked = tilesListViewModel.RunApp(ParsedTilesList[i].DotDesktopPath);
 						
 					} // End of For loop that loads the tiles.
