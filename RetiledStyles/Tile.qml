@@ -56,7 +56,11 @@ ButtonBase {
 	bottomPadding: 6
 	
 	// Add a mousearea to allow for clicking it.
-	control.onClicked: control.clicked(control.execKey)
+	MouseArea {
+		anchors.fill: parent
+		onClicked: parent.clicked(parent.execKey)
+		parent.scale: MouseArea.pressed ? 0.98 : 1.0
+	}
 	
 	
 	// Override the contentItem using the one from Button.
