@@ -220,7 +220,7 @@ ApplicationWindow {
 					// We're doing this outside the loop, because that's what the docs
 					// did and it's probably faster/less memory-intensive.
 					// TODO: Check if this can be changed to RetiledStyles.Tile.
-					var NewTile = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
 					
 					for (var i = 0; i < ParsedTilesList.length; i++){
 						console.log(ParsedTilesList[i].DotDesktopPath);
@@ -230,6 +230,8 @@ ApplicationWindow {
 						console.log(ParsedTilesList[i].TileColor);
 						console.log("------------------------");
 						
+						// Now create the tile.
+						var NewTileObect = TileComponent.createObject(TilesContainer);
 						
 						
 					} // End of For loop that loads the tiles.
