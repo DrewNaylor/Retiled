@@ -68,6 +68,9 @@ RetiledStyles.Button {
 	// Open the context menu.
 	onPressAndHold: allappscontextmenu.open()
 	
+	// Signal and property for the pin to start button.
+	property string dotDesktopFilePath;
+	signal pinToStart(string dotDesktopFilePath);
 	
 	// Adding the context menus:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
@@ -90,6 +93,7 @@ RetiledStyles.Button {
 			ButtonBase {
 				width: parent.width
 				text: qsTr("pin to start")
+				onClicked: parent.pinToStart(parent.dotDesktopFilePath)
 			}
 		}
 	}
