@@ -20,7 +20,7 @@ You may need to install packages through your distro's package manager, and thos
   - `pyside6` (`PySide6` via pip): Used for the UI of Python/QML-based components of Retiled
   - `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
   - `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
-  - `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it): Helps read yaml files, which are used for configuration
+  - `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it; Arch Linux ARM wasn't the latest anyway last I checked, but maybe I can put the latest one in my own repo if that's easy enough): Helps read yaml files, which are used for configuration
   - Python.NET (`pythonnet` via pip): Allows using .NET libraries from .NET; unsure of the exact package name, or if it's in pacman; not currently used as it doesn't work with Python 3.9 yet
   - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
 - Avalonia-based components:
@@ -46,7 +46,7 @@ Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.<br>
 All Rights Reserved.<br>
 Python 3.9 copyrights end.<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
-Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML. Anything else that's used in the future will be added to this list.
+Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro). Anything else that's used in the future will be added to this list.
 
 ## Building and running
 
