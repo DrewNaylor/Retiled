@@ -42,14 +42,69 @@ ButtonBase {
 	property string tileText: "tile"
 	property int fontSize: 14
 	property string textColor: "white"
+	// Fun fact: if you change the color value here
+	// to #990050ef (or anything else with numbers in front of "0050ef"),
+	// you'll get transparent tile backgrounds, with different values
+	// depending on the first two numbers (replacing "99").
+	// This may be useful for customization, if people want W10M-style
+	// semi-transparent tiles.
 	property string tileBackgroundColor: "#0050ef"
+	// We have to add a property for the button's exec key
+	// so that we can add an event handler:
+	// https://stackoverflow.com/a/22605752
+	property string execKey;
+	signal clicked(string execKey);
 	
 	// Set padding values.
+	// These values and the fontSize may be incorrect, at least with WP7:
+	// https://stackoverflow.com/a/8430030
+	// Or maybe it's right, and it's just a font issue.
+	// I looked at Avalonia's default font size for buttons, and
+	// it's 14:
+	// https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Controls/Button.xaml#L24
+	// That line references "ControlContentThemeFontSize", which is defined to be "14" here:
+	// https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/Base.xaml#L17
 	leftPadding: 8
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 6
 	
+	// Add a mousearea to allow for clicking it.
+	MouseArea {
+		anchors.fill: parent
+		onClicked: {
+		parent.clicked(parent.execKey);
+		// Reset the scale to 1.0.
+		// This, along with setting the scale
+		// in various events below, probably
+		// isn't the best way to do this, but
+		// it's approximately the same thing
+		// as before the MouseArea was used.
+		// I'd prefer to just use
+		// control.scale: control.down ? 0.98 : 1.0
+		// but I can't seem to get that to work
+		// with a MouseArea.
+		// TODO: Make this less janky.
+		control.scale = 1.0;
+		
+		}
+		// Scaling the buttons down then back up
+		// is done by setting scale values for both
+		// onPressed and onReleased.
+		// If only one is set, the button won't come
+		// back up and will stay depressed, like me
+		// during most of 2020.
+		// See the comment block above for how we're
+		// setting it back to 1.0 after the clicked
+		// signal is processed.
+		// Also, please fix this. It's really janky,
+		// but at least it's not as janky as it was
+		// before adding onCanceled and resetting
+		// the scale in the click handler.
+		onPressed: control.scale = 0.98
+		onReleased: control.scale = 1.0
+		onCanceled: control.scale = 1.0
+	}
 	
 	// Override the contentItem using the one from Button.
 	contentItem: Text {
@@ -62,6 +117,25 @@ ButtonBase {
                 verticalAlignment: Text.AlignBottom
 				// Make the font bigger.
                 font.pixelSize: control.fontSize
+				// Set the font weight:
+				// https://doc.qt.io/qt-5/qml-font.html
+				// Windows Phone 7 used SemiBold, but I hope
+				// DemiBold is close enough:
+				// https://stackoverflow.com/a/8430030
+				// Funny enough, DemiBold is 63, which was
+				// my favorite number in 6th grade due to
+				// Super Mario 63.
+				// I did find a link to Microsoft's documentation
+				// showing what various measurements for Windows Phone 8
+				// are:
+				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff769552(v=vs.105)
+				// Something else interesting is that Microsoft has a page with the names and
+				// hex values for each of the accent colors. One thing on this page says
+				// you can get the styles from C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Design
+				// Here's the link:
+				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff402557(v=vs.105)
+				//font.weight: Font.DemiBold
+				// Font weight changes don't look that good.
                 text: control.tileText
                 color: control.textColor
 				// Turn off ellipsis.

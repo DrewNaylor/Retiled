@@ -25,11 +25,11 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+import sys
 import subprocess
 from ..libdotdesktop_py import desktopEntryStuff
 # Stuff for getting the files from /usr/share/applications.
 import os
-from os.path import isfile, join
 
 # Python allows relative imports as used above:
 # https://stackoverflow.com/a/714647
@@ -48,7 +48,7 @@ from os.path import isfile, join
 # TODO: Figure out how to use this with a class so that
 # the code can be cleaner.
 def RunApp(DotDesktopFilePath):
-        # Get the ExecFilename split using shlex.split.
+        # Clean the exec key.
 	args = desktopEntryStuff.cleanExecKey(DotDesktopFilePath)
 	#print("Split: ")
 	#print(args)
@@ -85,14 +85,17 @@ def getDotDesktopFiles():
 	# Using the example from this answer:
 	# https://stackoverflow.com/a/51850082
 	
-	# Specify root path.
-	#DotDesktopRootPath = "C:\\Users\\drewn\Desktop"
-	DotDesktopRootPath = "/usr/share/applications"
-	
-	# Specify the type of slash.
-	slash = "/"
-	#slash = "\\"
-	
+	# Specify root path and slash.
+	# This is different on Windows for debugging purposes.
+	# Example code for sys.platform:
+	# https://docs.python.org/3/library/sys.html#sys.platform
+	if sys.platform.startswith("win32"):
+		DotDesktopRootPath = "C:\\Users\\drewn\\Desktop"
+		slash = "\\"
+	else:
+		DotDesktopRootPath = "/usr/share/applications"
+		slash = "/"
+		
 	# Use the filesystem encode thing to get the folder.
 	FSEncodedFolder = os.fsencode(DotDesktopRootPath)
 	

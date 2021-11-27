@@ -34,6 +34,7 @@ import os
 from pathlib import Path
 import sys
 from libs.libRetiledStartPy import appslist as AppsList
+from libs.libRetiledStartPy import tileslist as TilesList
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -46,8 +47,13 @@ class AllAppsListViewModel(QObject):
 	def RunApp(self, ViewModelExecFilename):
 		# Pass the app's command to the code to actually
 		# figure out how to run it.
-		#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-		AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+		# This is different on Windows for debugging purposes.
+		# Example code for sys.platform:
+		# https://docs.python.org/3/library/sys.html#sys.platform
+		if sys.platform.startswith("win32"):
+			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+		else:
+			AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
@@ -62,8 +68,13 @@ class AllAppsListViewModel(QObject):
 	# https://stackoverflow.com/a/36210838
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
-		#return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
-		return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
+		# This is different on Windows for debugging purposes.
+		# Example code for sys.platform:
+		# https://docs.python.org/3/library/sys.html#sys.platform
+		if sys.platform.startswith("win32"):
+			return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
+		else:
+			return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
 		
 # This class is for the items in the All Apps list as described in
 # the second half of this answer:
@@ -86,6 +97,38 @@ class AllAppsListItems(QObject):
 		self._model.setStringList(AppsList.getDotDesktopFiles())
 	# TODO: Make sure the items are properly cleaned up so QML doesn't say
 	# that there are null items after closing.
+	
+class TilesListViewModel(QObject):
+	@Slot(str)
+	def RunApp(self, ViewModelExecFilename):
+		# Pass the app's command to the code to actually
+		# figure out how to run it.
+		# This is different on Windows for debugging purposes.
+		# Example code for sys.platform:
+		# https://docs.python.org/3/library/sys.html#sys.platform
+		if sys.platform.startswith("win32"):
+			# Not sure if this code here is a good idea, as any tiles on Windows
+			# are just going to have the path of the .desktop file, which is how
+			# it works on Linux.
+			# TODO: Figure out how to use the user's own copy of a .desktop
+			# file if it exists instead of the one from /usr/share/applications/,
+			# as this will allow the user to override the .desktop file by
+			# putting one in their home directory.
+			# This needs to be done for both the All Apps list as well as the Tiles.
+			#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+		else:
+			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+			AppsList.RunApp(ViewModelExecFilename)
+		
+	# Slots still need to exist when using PySide.
+	@Slot(result=str)
+	def getTilesList(self):
+		# Get the tiles list.
+		# I'm trying to get a list of dictionaries
+		# in JSON for dynamic object creation
+		# and destruction.
+		return TilesList.getTilesList()
 
 
 #class TilesViewModel(QObject):
@@ -111,9 +154,14 @@ if __name__ == "__main__":
 	
 	# Hook up some stuff so I can access the allAppsListViewModel from QML.
 	allAppsListViewModel = AllAppsListViewModel()
+	
+	# Hook up the tiles list stuff.
+	tilesListViewModel = TilesListViewModel()
+	
 	engine = QQmlApplicationEngine()
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
+	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
 	#engine.load("MainWindow.qml")
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():

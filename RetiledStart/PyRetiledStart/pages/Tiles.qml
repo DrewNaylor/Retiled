@@ -51,6 +51,7 @@ ApplicationWindow {
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
+	// This will probably be useful when working on stuff like the volume controls and Action Center.
 	Universal.background: 'black'
 	
 	
@@ -130,6 +131,7 @@ ApplicationWindow {
 		// SO example:
 		// https://stackoverflow.com/a/38532138
 		Flow {
+			id: tilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
 			width: window.width
@@ -138,65 +140,105 @@ ApplicationWindow {
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
 			// a different one work for the All Apps list:
 			// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/editingmodel
-			RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
-				// TapHandler seemed to interfere with how
-				// the button looked when using it, but
-				// there's an onPressAndHold event we can
-				// use instead:
-				// https://stackoverflow.com/a/62000844
-				onPressAndHold: console.log("We can definitely do this!")
-				onClicked: console.log("The future doesn't belong to you!")
+				//RetiledStyles.Tile {
+				//tileText: qsTr("cobalt-colored tile")
+				//width: 150
+				//height: 150
+				//// TapHandler seemed to interfere with how
+				//// the button looked when using it, but
+				//// there's an onPressAndHold event we can
+				//// use instead:
+				//// https://stackoverflow.com/a/62000844
+				//onPressAndHold: console.log("We can definitely do this!")
+				//onClicked: console.log("The future doesn't belong to you!")
+				//}
+				//RetiledStyles.Tile {
+				//tileText: qsTr("WP8.1 app with a really long name")
+				//width: 150
+				//height: 150
+				//// You can access code in the main.py file from QML sub-pages.
+				//onClicked: allAppsListViewModel.getDotDesktopFiles()
+				//}
+				//RetiledStyles.Tile {
+				//tileText: qsTr("WP8.1 app with a really long name")
+				//width: 310
+				//height: 150
+				//onClicked: tilesListViewModel.getTilesList()
+				//}
+				//RetiledStyles.Tile {
+				//tileText: qsTr("WP8.1 app with a really long name")
+				//width: 150
+				//height: 150
+				//}
+				//RetiledStyles.Tile {
+				//tileText: qsTr("WP8.1 app with a really long name")
+				//width: 70
+				//height: 70
+				//}
+				
+				// Set up the tile click signals.
+				function tileClicked(execKey) {
+					tilesListViewModel.RunApp(execKey);
 				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
-				// You can access code in the main.py file from QML sub-pages.
-				onClicked: allAppsListViewModel.getDotDesktopFiles()
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 310
-				height: 150
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 70
-				height: 70
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 70
-				height: 70
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 70
-				height: 70
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 70
-				height: 70
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
-				}
-				RetiledStyles.Tile {
-				tileText: qsTr("cobalt-colored tile")
-				width: 150
-				height: 150
-				}
+				
+				Component.onCompleted: {
+					
+					// Start looping through the list provided by Python
+					// so it can be parsed as JSON.
+					
+					// We're using the last example here, with the books:
+					// https://www.microverse.org/blog/how-to-loop-through-the-array-of-json-objects-in-javascript
+					// Most of that example was used in the for loop below, but I changed some stuff.
+					var TilesList = tilesListViewModel.getTilesList()
+					//console.log(TilesList)
+					
+					// Remember to parse the JSON.
+					// I forgot to do this and couldn't
+					// figure out why it wouldn't work.
+					var ParsedTilesList = JSON.parse(TilesList);
+					
+					// Create the tiles dynamically according to this page:
+					// https://doc.qt.io/qt-6/qtqml-javascript-dynamicobjectcreation.html
+					// We're doing this outside the loop, because that's what the docs
+					// did and it's probably faster/less memory-intensive.
+					// TODO: Check if this can be changed to RetiledStyles.Tile.
+					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+					
+					for (var i = 0; i < ParsedTilesList.length; i++){
+						//console.log(ParsedTilesList[i].DotDesktopPath);
+						//console.log(ParsedTilesList[i].TileAppNameAreaText);
+						//console.log(ParsedTilesList[i].TileWidth);
+						//console.log(ParsedTilesList[i].TileHeight);
+						//console.log(ParsedTilesList[i].TileColor);
+						//console.log("------------------------");
+						
+						// Now create the tile.
+						// Make sure it's ready first.
+						// TODO: Switch to incubateObject.
+						if (TileComponent.status == Component.Ready) {
+						var NewTileObect = TileComponent.createObject(tilesContainer);
+						// Set tile properties.
+						NewTileObect.tileText = ParsedTilesList[i].TileAppNameAreaText;
+						NewTileObect.width = ParsedTilesList[i].TileWidth;
+						NewTileObect.height = ParsedTilesList[i].TileHeight;
+						NewTileObect.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						// Doesn't quite work on Windows because the hardcoded tile is trying to read
+						// from /usr/share/applications and can't find Firefox.
+						// Turns out it was trying to run Firefox. Not sure how to stop that.
+						// Actually, I think this involves an event handler:
+						// https://stackoverflow.com/a/22605752
+						NewTileObect.execKey = ParsedTilesList[i].DotDesktopPath;
+												
+						// Connect clicked signal.
+						NewTileObect.clicked.connect(tileClicked);
+						
+						} // End of If statement to ensure things are ready.
+						
+					} // End of For loop that loads the tiles.
+					
+					
+				} // Component.onCompleted for the Tiles Flow area.
+				
 			}
 	
 		RetiledStyles.RoundButton {
