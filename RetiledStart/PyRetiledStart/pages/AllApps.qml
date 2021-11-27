@@ -147,7 +147,8 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			// Function for pinning the app to start.
 			function pinToStart(dotDesktopFilePath) {
-					allAppsListViewModel.PinToStart(dotDesktopFilePath);
+					// allAppsListViewModel.PinToStart(dotDesktopFilePath);
+					console.log("ggrg");
 				}
 			
 		} // End of the All Apps list flickable.

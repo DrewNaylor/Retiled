@@ -93,7 +93,7 @@ RetiledStyles.Button {
 			ButtonBase {
 				width: parent.width
 				text: qsTr("pin to start")
-				onClicked: parent.pinToStart(parent.dotDesktopFilePath)
+				onClicked: pinToStart(dotDesktopFilePath)
 			}
 		}
 	}
