@@ -146,7 +146,6 @@ import "../../../RetiledStyles" as RetiledStyles
 			} // End of the ListView that holds the app entries for the All Apps list.
 			
 			
-			
 		} // End of the All Apps list flickable.
 		
 			} // End of the All Apps list ColumnLayout, not to be confused with the one inside the Flickable.

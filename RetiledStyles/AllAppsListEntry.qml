@@ -87,6 +87,14 @@ RetiledStyles.Button {
 		// We have to divide by -2 or it goes
 		// off the right side of the screen.
 		x: (width) / -2
+		// TODO: Ensure the context menu doesn't get its
+		// background pushed away from the button,
+		// which can happen when the user long-presses
+		// on an app at the top of the list.
+		// TODO 2: Prevent the user from scrolling the
+		// All Apps list if they continue to touch
+		// the screen after the context menu opens,
+		// unless that's part of WP. I'll have to check.
 		// We're using the column layout.
 		Column {
 			anchors.fill: parent
