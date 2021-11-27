@@ -39,6 +39,7 @@ RetiledStyles.Button {
 	
 	// Set button height.
 	buttonHeight: 60
+	buttonWidth: parent.width
 	
 	// Set text size.
 	fontSize: 20
@@ -66,6 +67,22 @@ RetiledStyles.Button {
 	
 	// Open the context menu.
 	onPressAndHold: allappscontextmenu.open()
+	
+	
+	// Adding the context menus:
+	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+	Popup {
+		id: allappscontextmenu
+		anchors.centerIn: parent
+		contentWidth: window.width
+		// We're using the column layout.
+		Column {
+			anchors.fill: parent
+			ButtonBase {
+				text: qsTr("pin to start")
+			}
+		}
+	}
 	
 	Row {
 		// Fill the button so we can align things properly.
@@ -103,18 +120,6 @@ RetiledStyles.Button {
 	
 	} // End of the row for the button and text.
 	
-	// Adding the context menus:
-	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
-	Popup {
-		id: allappscontextmenu
-		// We're using the column layout.
-		Column {
-			anchors.fill: parent
-			ButtonBase {
-				text: qsTr("pin to start")
-			}
-		}
-	}
 	
 } // End of the ButtonBase containing the All Apps list button item.
 
