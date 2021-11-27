@@ -98,6 +98,11 @@ class StartScreenTileEntry(object):
 		
 	def yaml(self):
 		return yaml.dump(self.__dict__)
+		
+	@staticmethod
+	def load(data):
+		values = yaml.safe_load(data)
+		return StartScreenTileEntry(values["DotDesktopFilePath"], values["TileWidth"], values["TileHeight"], values["TileColor"])
 
 
 
