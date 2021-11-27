@@ -57,6 +57,9 @@ def getTilesList():
 		
 		# Now we can refer to the items in the file by their names!
 		print(YamlFile.StartLayoutSchemaVersion)
+		# You can now know their names.
+		print(YamlFile.Tiles[0].DotDesktopFilePath)
+		
 		
 		# Get the stuff under Tiles.
 	
