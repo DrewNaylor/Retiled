@@ -250,6 +250,12 @@ ApplicationWindow {
 						// Connect long-press signal.
 						NewTileObject.pressAndHold.connect(tileLongPressed);
 						
+						// Connect unpin signal.
+						NewTileObect.unpinTile.connect(unpinTile);
+						
+						// Connect resize signal.
+						NewTileObect.resizeTile.connect(resizeTile);
+						
 						} // End of If statement to ensure things are ready.
 						
 					} // End of For loop that loads the tiles.
