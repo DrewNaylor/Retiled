@@ -31,6 +31,8 @@ import os
 import json
 from ..pyyaml import yaml
 from yaml.loader import SafeLoader
+from . import appslist as AppsList
+
 
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
@@ -65,7 +67,7 @@ def getTilesList():
 		# https://www.w3schools.com/python/python_lists_loop.asp
 		for i in range(len(YamlFile.Tiles)):
 			print(YamlFile.Tiles[i].TileColor)
-			TilesList.append({"DotDesktopPath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": "Firefox", "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+			TilesList.append({"DotDesktopPath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
 		
 		# Get the stuff under Tiles.
 	
