@@ -87,6 +87,14 @@ RetiledStyles.Button {
 		// We have to divide by -2 or it goes
 		// off the right side of the screen.
 		x: (width) / -2
+		// Move the y position below the button so
+		// it shows what you long-pressed on.
+		// TODO: Fade/darken everything but the button we
+		// long-pressed on into the background, or
+		// whatever WP does.
+		// TODO 2: Move the button that was long-pressed
+		// into the view if it's partially offscreen.
+		y: parent.y + 60
 		// TODO: Ensure the context menu doesn't get its
 		// background pushed away from the button,
 		// which can happen when the user long-presses
