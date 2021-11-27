@@ -125,6 +125,12 @@ class TilesListViewModel(QObject):
 		else:
 			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
 			AppsList.RunApp(ViewModelExecFilename)
+			
+	# Unpin tile.
+	@Slot(str)
+	def UnpinTile(self, dotDesktopFilePath):
+		# Unpins the tile by passing it to the code-behind.
+		print(dotDesktopFilePath)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
