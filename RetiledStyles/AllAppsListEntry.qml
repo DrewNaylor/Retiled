@@ -71,10 +71,17 @@ RetiledStyles.Button {
 	
 	// Adding the context menus:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+	// Here's how to do it dynamically, which might help with
+	// the tiles:
+	// https://stackoverflow.com/a/45052339
 	Popup {
 		id: allappscontextmenu
 		width: window.width
 		contentWidth: window.width
+		modal: true
+		// Center the popup in the window:
+		// https://stackoverflow.com/a/45052225
+		x: (width) / 2
 		// We're using the column layout.
 		Column {
 			anchors.fill: parent
