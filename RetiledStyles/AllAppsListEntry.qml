@@ -73,12 +73,13 @@ RetiledStyles.Button {
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
 	Popup {
 		id: allappscontextmenu
-		anchors.centerIn: parent
+		width: window.width
 		contentWidth: window.width
 		// We're using the column layout.
 		Column {
 			anchors.fill: parent
 			ButtonBase {
+				width: parent.width
 				text: qsTr("pin to start")
 			}
 		}
