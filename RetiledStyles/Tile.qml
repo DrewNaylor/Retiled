@@ -60,7 +60,7 @@ ButtonBase {
 	property string dotDesktopFilePath;
 	property int newTileWidth;
 	property int newTileHeight;
-	property bool showContextMenu = false
+	property bool showContextMenu: false
 	// Signal for opening the context menu.
 	signal pressAndHold(bool showContextMenu);
 	// Signals for unpinning and resizing tiles.
