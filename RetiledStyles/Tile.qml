@@ -60,8 +60,9 @@ ButtonBase {
 	property string dotDesktopFilePath;
 	property int newTileWidth;
 	property int newTileHeight;
+	property bool showContextMenu = false
 	// Signal for opening the context menu.
-	signal pressAndHold(tilemenu);
+	signal pressAndHold(bool showContextMenu);
 	// Signals for unpinning and resizing tiles.
 	signal unpinTile(string dotDesktopFilePath);
 	signal resizeTile(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
@@ -126,6 +127,7 @@ ButtonBase {
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
 	Popup {
 		id: tilemenu
+		visible: showContextMenu
 		// We're using the column layout.
 		Column {
 			anchors.fill: parent

@@ -182,8 +182,10 @@ ApplicationWindow {
 				}
 				
 				// Set up the long-press signal.
-				function tileLongPressed(tilemenu) {
-					tilemenu.open();
+				function tileLongPressed(showContextMenu) {
+					showContextMenu = true;
+					// TODO: There needs to be a way to set it
+					// back to false after closing it.
 				}
 				
 				// Set up the signals for the tile context menu.
@@ -230,7 +232,7 @@ ApplicationWindow {
 						// Now create the tile.
 						// Make sure it's ready first.
 						// TODO: Switch to incubateObject.
-						if (TileComponent.status == Component.Ready) {
+						//if (TileComponent.status == Component.Ready) {
 						var NewTileObect = TileComponent.createObject(tilesContainer);
 						// Set tile properties.
 						NewTileObect.tileText = ParsedTilesList[i].TileAppNameAreaText;
@@ -259,7 +261,7 @@ ApplicationWindow {
 						// Connect resize signal.
 						NewTileObect.resizeTile.connect(resizeTile);
 						
-						} // End of If statement to ensure things are ready.
+						//} // End of If statement to ensure things are ready.
 						
 					} // End of For loop that loads the tiles.
 					
