@@ -57,8 +57,8 @@ RetiledStyles.Button {
 	pressedBackgroundColor: "#0050ef"
 	
 	// Set the size to be small.
-	buttonWidth: 35
-	buttonHeight: 35
+	buttonWidth: 32
+	buttonHeight: 32
 	
 	// Set font size.
 	fontSize: 12
