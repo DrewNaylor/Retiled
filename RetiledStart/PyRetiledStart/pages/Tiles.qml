@@ -213,6 +213,9 @@ ApplicationWindow {
 						//console.log("------------------------");
 						
 						// Now create the tile.
+						// Make sure it's ready first.
+						// TODO: Switch to incubateObject.
+						if (TileComponent.status == Component.Ready) {
 						var NewTileObect = TileComponent.createObject(tilesContainer);
 						// Set tile properties.
 						NewTileObect.tileText = ParsedTilesList[i].TileAppNameAreaText;
@@ -225,9 +228,11 @@ ApplicationWindow {
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
 						NewTileObect.execKey = ParsedTilesList[i].DotDesktopPath;
-						
+												
 						// Connect clicked signal.
 						NewTileObect.clicked.connect(tileClicked);
+						
+						} // End of If statement to ensure things are ready.
 						
 					} // End of For loop that loads the tiles.
 					

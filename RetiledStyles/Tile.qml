@@ -72,15 +72,38 @@ ButtonBase {
 	// Add a mousearea to allow for clicking it.
 	MouseArea {
 		anchors.fill: parent
-		onClicked: parent.clicked(parent.execKey)
+		onClicked: {
+		parent.clicked(parent.execKey);
+		// Reset the scale to 1.0.
+		// This, along with setting the scale
+		// in various events below, probably
+		// isn't the best way to do this, but
+		// it's approximately the same thing
+		// as before the MouseArea was used.
+		// I'd prefer to just use
+		// control.scale: control.down ? 0.98 : 1.0
+		// but I can't seem to get that to work
+		// with a MouseArea.
+		// TODO: Make this less janky.
+		control.scale = 1.0;
+		
+		}
 		// Scaling the buttons down then back up
 		// is done by setting scale values for both
 		// onPressed and onReleased.
 		// If only one is set, the button won't come
 		// back up and will stay depressed, like me
 		// during most of 2020.
+		// See the comment block above for how we're
+		// setting it back to 1.0 after the clicked
+		// signal is processed.
+		// Also, please fix this. It's really janky,
+		// but at least it's not as janky as it was
+		// before adding onCanceled and resetting
+		// the scale in the click handler.
 		onPressed: control.scale = 0.98
 		onReleased: control.scale = 1.0
+		onCanceled: control.scale = 1.0
 	}
 	
 	// Override the contentItem using the one from Button.
