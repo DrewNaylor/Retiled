@@ -81,7 +81,9 @@ RetiledStyles.Button {
 		modal: true
 		// Center the popup in the window:
 		// https://stackoverflow.com/a/45052225
-		x: (width) / 2
+		// We have to divide by -2 or it goes
+		// off the right side of the screen.
+		x: (width) / -2
 		// We're using the column layout.
 		Column {
 			anchors.fill: parent
