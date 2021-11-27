@@ -61,7 +61,7 @@ RetiledStyles.Button {
 	buttonHeight: 30
 	
 	// Set font size.
-	fontSize: 14
+	fontSize: 12
 	
 	// Get rid of padding.
 	padding: 0
