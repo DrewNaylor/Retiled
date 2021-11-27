@@ -138,15 +138,15 @@ ButtonBase {
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")
-				onClicked: parent.resizeTile(parent.dotDesktopFilePath, 150, 150)
+				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
 			}
 			ButtonBase {
 				text: qsTr("resize (small)")
-				onClicked: parent.resizeTile(parent.dotDesktopFilePath, 70, 70)
+				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
 			}
 			ButtonBase {
 				text: qsTr("resize (wide)")
-				onClicked: parent.resizeTile(parent.dotDesktopFilePath, 310, 150)
+				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
 			}
 		}
 	}
