@@ -182,8 +182,9 @@ ApplicationWindow {
 				}
 				
 				// Set up the long-press signal.
-				function tileLongPressed(showContextMenu) {
-					showContextMenu = true;
+				function tileLongPressed() {
+					//showContextMenu = true;
+					console.log("long-pressed");
 					// TODO: There needs to be a way to set it
 					// back to false after closing it.
 				}
@@ -233,33 +234,33 @@ ApplicationWindow {
 						// Make sure it's ready first.
 						// TODO: Switch to incubateObject.
 						//if (TileComponent.status == Component.Ready) {
-						var NewTileObect = TileComponent.createObject(tilesContainer);
+						var NewTileObject = TileComponent.createObject(tilesContainer);
 						// Set tile properties.
-						NewTileObect.tileText = ParsedTilesList[i].TileAppNameAreaText;
-						NewTileObect.width = ParsedTilesList[i].TileWidth;
-						NewTileObect.height = ParsedTilesList[i].TileHeight;
-						NewTileObect.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+						NewTileObject.width = ParsedTilesList[i].TileWidth;
+						NewTileObject.height = ParsedTilesList[i].TileHeight;
+						NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-						NewTileObect.execKey = ParsedTilesList[i].DotDesktopPath;
+						NewTileObject.execKey = ParsedTilesList[i].DotDesktopPath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-						NewTileObect.dotDesktopFilePath = ParsedTilesList[i].DotDesktopPath;
+						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopPath;
 												
 						// Connect clicked signal.
-						NewTileObect.clicked.connect(tileClicked);
+						NewTileObject.clicked.connect(tileClicked);
 						
 						// Connect long-press signal.
 						NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						// Connect unpin signal.
-						NewTileObect.unpinTile.connect(unpinTile);
+						NewTileObject.unpinTile.connect(unpinTile);
 						
 						// Connect resize signal.
-						NewTileObect.resizeTile.connect(resizeTile);
+						NewTileObject.resizeTile.connect(resizeTile);
 						
 						//} // End of If statement to ensure things are ready.
 						
