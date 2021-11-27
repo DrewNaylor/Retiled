@@ -61,9 +61,10 @@ def getTilesList():
 		print(YamlFile.Tiles[0].DotDesktopFilePath)
 		
 		# Loop through the Tiles items and add them to the TilesList.
-		# I think Example 1 will work:
-		# https://pythonexamples.org/python-loop-through-dictionary-values/
-		
+		# We'll use the looping through index numbers example here:
+		# https://www.w3schools.com/python/python_lists_loop.asp
+		for i in range(len(YamlFile.Tiles)):
+			print(YamlFile.Tiles[i].TileColor)
 		
 		# Get the stuff under Tiles.
 	
