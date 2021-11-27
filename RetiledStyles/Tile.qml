@@ -117,10 +117,17 @@ ButtonBase {
 		id: tilemenu
 		// We're using the column layout.
 		ColumnLayout {
+			anchors.fill: parent
 			ButtonBase {
 				text: qsTr("unpin")
+			}
+			ButtonBase {
 				text: qsTr("resize (medium)")
+			}
+			ButtonBase {
 				text: qsTr("resize (small)")
+			}
+			ButtonBase {
 				text: qsTr("resize (wide)")
 			}
 		}
