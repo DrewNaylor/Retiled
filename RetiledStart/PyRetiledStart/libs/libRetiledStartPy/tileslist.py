@@ -53,6 +53,8 @@ def getTilesList():
 	
 		# Load the file into a YAML reader.
 		YamlFile = yaml.load(StartLayoutYamlFile, Loader=SafeLoader)
+		
+		# Get the stuff under Tiles.
 	
 	
 	# Hard-code the tiles for now to make sure this'll work
@@ -81,5 +83,34 @@ def getTilesList():
 	return jsonTiles
 	
 	
-	
+
+
+
+class StartScreenTileEntry(object):
+	# We're creating our own class to use with safe_load:
+	# https://stackoverflow.com/a/2627732
+	# Not sure if this'll work.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
