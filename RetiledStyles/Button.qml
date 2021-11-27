@@ -62,6 +62,10 @@ ButtonBase {
 	property int borderRadius: 0
 	property int buttonWidth: 50
 	property int buttonHeight: 35
+	// Allow other controls to change the padding.
+	// Using the default of 8 from ButtonBase.
+	property int buttonPadding: 8
+	padding: buttonPadding
 	
 	
 	//// Set the default state.

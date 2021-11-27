@@ -64,8 +64,7 @@ RetiledStyles.Button {
 	fontSize: 12
 	
 	// Get rid of padding.
-	padding: 0
-	verticalPadding: 0
+	buttonPadding: 0
 	
 	// Change text color on down.
 	textColor: control.down ? control.pressedTextColor : control.defaultTextColor
