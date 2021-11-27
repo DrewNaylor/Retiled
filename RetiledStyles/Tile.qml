@@ -119,7 +119,7 @@ ButtonBase {
 		
 		// Trying to do a press and hold for the menu.
 		onPressAndHold: {
-			parent.pressAndHold(parent.showContextMenu);
+			tilemenu.open();
 		}
 	}
 	
