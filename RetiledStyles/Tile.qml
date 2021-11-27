@@ -58,8 +58,6 @@ ButtonBase {
 	
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
-	property int newTileWidth;
-	property int newTileHeight;
 	property bool showContextMenu: false
 	// Signal for opening the context menu.
 	signal pressAndHold(bool showContextMenu);

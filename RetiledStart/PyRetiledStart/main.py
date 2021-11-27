@@ -132,6 +132,15 @@ class TilesListViewModel(QObject):
 		# Unpins the tile by passing it to the code-behind.
 		print(dotDesktopFilePath)
 		
+	# Resize tile.
+	# Remember to add arguments for each item into the @Slot().
+	@Slot(str, int, int)
+	def ResizeTile(self, dotDesktopFilePath, newTileWidth, newTileHeight):
+		# Resizes the tile by passing it to the code-behind.
+		print(dotDesktopFilePath)
+		print(newTileWidth)
+		print(newTileHeight)
+		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
 	def getTilesList(self):
