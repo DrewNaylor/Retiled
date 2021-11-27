@@ -30,6 +30,7 @@
 import os
 import json
 from ..pyyaml import yaml
+from yaml.loader import SafeLoader
 
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
