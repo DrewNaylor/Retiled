@@ -75,6 +75,11 @@ class AllAppsListViewModel(QObject):
 			return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
 		else:
 			return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
+	
+	# Pin the app to Start.
+	@Slot(str)
+	def PinToStart(self, dotDesktopFilePath):
+		print(dotDesktopFilePath)
 		
 # This class is for the items in the All Apps list as described in
 # the second half of this answer:
@@ -120,6 +125,21 @@ class TilesListViewModel(QObject):
 		else:
 			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
 			AppsList.RunApp(ViewModelExecFilename)
+			
+	# Unpin tile.
+	@Slot(str)
+	def UnpinTile(self, dotDesktopFilePath):
+		# Unpins the tile by passing it to the code-behind.
+		print(dotDesktopFilePath)
+		
+	# Resize tile.
+	# Remember to add arguments for each item into the @Slot().
+	@Slot(str, int, int)
+	def ResizeTile(self, dotDesktopFilePath, newTileWidth, newTileHeight):
+		# Resizes the tile by passing it to the code-behind.
+		print(dotDesktopFilePath)
+		print(newTileWidth)
+		print(newTileHeight)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)

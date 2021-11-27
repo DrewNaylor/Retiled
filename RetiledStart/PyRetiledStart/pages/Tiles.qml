@@ -181,6 +181,16 @@ ApplicationWindow {
 					tilesListViewModel.RunApp(execKey);
 				}
 				
+				// Set up the signals for the tile context menu.
+				// Unpin tiles.
+				function unpinTile(dotDesktopFilePath) {
+					tilesListViewModel.UnpinTile(dotDesktopFilePath);
+				}
+				// Resize tiles.
+				function resizeTile(dotDesktopFilePath, newTileWidth, newTileHeight) {
+					tilesListViewModel.ResizeTile(dotDesktopFilePath, newTileWidth, newTileHeight);
+				}
+				
 				Component.onCompleted: {
 					
 					// Start looping through the list provided by Python
@@ -215,24 +225,36 @@ ApplicationWindow {
 						// Now create the tile.
 						// Make sure it's ready first.
 						// TODO: Switch to incubateObject.
-						if (TileComponent.status == Component.Ready) {
-						var NewTileObect = TileComponent.createObject(tilesContainer);
+						//if (TileComponent.status == Component.Ready) {
+						var NewTileObject = TileComponent.createObject(tilesContainer);
 						// Set tile properties.
-						NewTileObect.tileText = ParsedTilesList[i].TileAppNameAreaText;
-						NewTileObect.width = ParsedTilesList[i].TileWidth;
-						NewTileObect.height = ParsedTilesList[i].TileHeight;
-						NewTileObect.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+						NewTileObject.width = ParsedTilesList[i].TileWidth;
+						NewTileObject.height = ParsedTilesList[i].TileHeight;
+						NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-						NewTileObect.execKey = ParsedTilesList[i].DotDesktopPath;
+						NewTileObject.execKey = ParsedTilesList[i].DotDesktopPath;
+						
+						// Set the .desktop file path for unpinning or resizing.
+						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopPath;
 												
 						// Connect clicked signal.
-						NewTileObect.clicked.connect(tileClicked);
+						NewTileObject.clicked.connect(tileClicked);
 						
-						} // End of If statement to ensure things are ready.
+						// Connect long-press signal.
+						// NewTileObject.pressAndHold.connect(tileLongPressed);
+						
+						// Connect unpin signal.
+						NewTileObject.unpinTile.connect(unpinTile);
+						
+						// Connect resize signal.
+						NewTileObject.resizeTile.connect(resizeTile);
+						
+						//} // End of If statement to ensure things are ready.
 						
 					} // End of For loop that loads the tiles.
 					
@@ -287,7 +309,7 @@ ApplicationWindow {
 		} // End of ColumnLayout for the tiles and All Apps button.
 		
 		Item {
-				// Empty item that acts as a margin on the left of the
+				// Empty item that acts as a margin on the right of the
 				// tiles so it can be scrolled, as margins don't allow scrolling.
 				width: 10
 			}

@@ -33,6 +33,7 @@
 // until I can figure out a better solution.
 import "."
 import QtQuick
+import QtQuick.Controls
 
 ButtonBase {
 	// We need to change things to make it into a tile.
@@ -54,6 +55,15 @@ ButtonBase {
 	// https://stackoverflow.com/a/22605752
 	property string execKey;
 	signal clicked(string execKey);
+	
+	// Add signals for the context menu.
+	property string dotDesktopFilePath;
+	property bool showContextMenu: false
+	// Signal for opening the context menu.
+	signal pressAndHold(bool showContextMenu);
+	// Signals for unpinning and resizing tiles.
+	signal unpinTile(string dotDesktopFilePath);
+	signal resizeTile(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
 	
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:
@@ -104,6 +114,39 @@ ButtonBase {
 		onPressed: control.scale = 0.98
 		onReleased: control.scale = 1.0
 		onCanceled: control.scale = 1.0
+		
+		// Trying to do a press and hold for the menu.
+		onPressAndHold: {
+			tilemenu.open();
+		}
+	}
+	
+	// Adding the context menus:
+	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+	Popup {
+		id: tilemenu
+		modal: true
+		visible: showContextMenu
+		// We're using the column layout.
+		Column {
+			anchors.fill: parent
+			ButtonBase {
+				text: qsTr("unpin")
+				onClicked: unpinTile(dotDesktopFilePath)
+			}
+			ButtonBase {
+				text: qsTr("resize (medium)")
+				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
+			}
+			ButtonBase {
+				text: qsTr("resize (small)")
+				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
+			}
+			ButtonBase {
+				text: qsTr("resize (wide)")
+				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
+			}
+		}
 	}
 	
 	// Override the contentItem using the one from Button.

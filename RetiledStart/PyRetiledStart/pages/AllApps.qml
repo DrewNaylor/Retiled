@@ -137,6 +137,9 @@ import "../../../RetiledStyles" as RetiledStyles
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
 								onClicked: allAppsListViewModel.RunApp(model.display)
+								// Set pin to start stuff.
+								dotDesktopFilePath: model.display
+								onPinToStart: allAppsListViewModel.PinToStart(model.display)
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.

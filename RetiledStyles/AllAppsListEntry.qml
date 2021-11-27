@@ -31,6 +31,7 @@
 // about missing stuff.
 import "." as RetiledStyles
 import QtQuick
+import QtQuick.Controls
 
 
 // Change the button to be like the All Apps list buttons on WP.
@@ -38,6 +39,7 @@ RetiledStyles.Button {
 	
 	// Set button height.
 	buttonHeight: 60
+	buttonWidth: parent.width
 	
 	// Set text size.
 	fontSize: 20
@@ -62,6 +64,47 @@ RetiledStyles.Button {
 	
 	// Have a property for the icon background color.
 	property string iconBackgroundColor: "#0050ef"
+	
+	// Open the context menu.
+	onPressAndHold: allappscontextmenu.open()
+	
+	// Signal and property for the pin to start button.
+	property string dotDesktopFilePath;
+	signal pinToStart(string dotDesktopFilePath);
+	
+	// Adding the context menus:
+	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+	// Here's how to do it dynamically, which might help with
+	// the tiles:
+	// https://stackoverflow.com/a/45052339
+	Popup {
+		id: allappscontextmenu
+		width: window.width
+		contentWidth: window.width
+		modal: true
+		// Center the popup in the window:
+		// https://stackoverflow.com/a/45052225
+		// We have to divide by -2 or it goes
+		// off the right side of the screen.
+		x: (width) / -2
+		// TODO: Ensure the context menu doesn't get its
+		// background pushed away from the button,
+		// which can happen when the user long-presses
+		// on an app at the top of the list.
+		// TODO 2: Prevent the user from scrolling the
+		// All Apps list if they continue to touch
+		// the screen after the context menu opens,
+		// unless that's part of WP. I'll have to check.
+		// We're using the column layout.
+		Column {
+			anchors.fill: parent
+			ButtonBase {
+				width: parent.width
+				text: qsTr("pin to start")
+				onClicked: pinToStart(dotDesktopFilePath)
+			}
+		}
+	}
 	
 	Row {
 		// Fill the button so we can align things properly.
