@@ -87,24 +87,17 @@ def getTilesList():
 	
 	
 
-class StartScreenLayout(yaml.YAMLObject):
+class StartScreenLayout:
 	# Trying to get all the tile entries
 	# contained into another class so it's
 	# easy to read. Also using the SO link in
 	# the other class below.
 	def __init__(self, Tiles, StartLayoutSchemaVersion):
 		self.Tiles = Tiles
-		self.StartLayoutSchemaVersion = StartLayoutSchemaVersion
+		self.StartLayoutSchemaVersion = raw["StartLayoutSchemaVersion"]
 		
-	def yaml(self):
-		return yaml.dump(self.__dict__)
-		
-	@staticmethod
-	def load(data):
-		values = yaml.safe_load(data)
-		return StartScreenLayout(values["Tiles"], values["StartLayoutSchemaVersion"])
 
-class StartScreenTileEntry(yaml.YAMLObject):
+class StartScreenTileEntry:
 	# We're creating our own class to use with safe_load:
 	# https://stackoverflow.com/a/2627732
 	# Not sure if this'll work.
