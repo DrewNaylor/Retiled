@@ -48,8 +48,7 @@ def getTilesList():
 		# Output the file.
 		print(StartLayoutYamlFile.read())
 	
-		# Here's some stuff on using PyYAML. It might be helpful
-		# even though it's not entirely what I'll use it for:
+		# Here's some stuff on using PyYAML. It's partially being used here:
 		# https://pynative.com/python-yaml/
 	
 		# Load the file into a YAML reader.
