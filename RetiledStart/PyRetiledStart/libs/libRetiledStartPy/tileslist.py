@@ -47,15 +47,15 @@ def getTilesList():
 	
 		# Output the file.
 		#print(StartLayoutYamlFile.read())
-		print(yaml.safe_load(StartLayoutYamlFile))
+		#print(yaml.safe_load(StartLayoutYamlFile))
 	
 		# Here's some stuff on using PyYAML. It's partially being used here:
 		# https://pynative.com/python-yaml/
 	
 		# Load the file into a YAML reader.
-		YamlFile = StartScreenLayout.load(StartLayoutYamlFile.read())
+		YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile.read())
 		
-		print(YamlFile.StartLayoutSchemaVersion)
+		print(YamlFile)
 		
 		# Get the stuff under Tiles.
 	
