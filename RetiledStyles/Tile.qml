@@ -134,7 +134,7 @@ ButtonBase {
 			anchors.fill: parent
 			ButtonBase {
 				text: qsTr("unpin")
-				onClicked: parent.unpinTile(parent.dotDesktopFilePath)
+				onClicked: unpinTile(dotDesktopFilePath)
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")

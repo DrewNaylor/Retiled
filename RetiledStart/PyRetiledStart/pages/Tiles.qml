@@ -181,14 +181,6 @@ ApplicationWindow {
 					tilesListViewModel.RunApp(execKey);
 				}
 				
-				// Set up the long-press signal.
-				function tileLongPressed(showContextMenu) {
-					showContextMenu = true;
-					console.log(showContextMenu);
-					// TODO: There needs to be a way to set it
-					// back to false after closing it.
-				}
-				
 				// Set up the signals for the tile context menu.
 				// Unpin tiles.
 				function unpinTile(dotDesktopFilePath) {
@@ -254,7 +246,7 @@ ApplicationWindow {
 						NewTileObject.clicked.connect(tileClicked);
 						
 						// Connect long-press signal.
-						NewTileObject.pressAndHold.connect(tileLongPressed);
+						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						// Connect unpin signal.
 						NewTileObject.unpinTile.connect(unpinTile);
