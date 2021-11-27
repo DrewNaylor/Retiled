@@ -182,7 +182,7 @@ ApplicationWindow {
 				}
 				
 				// Set up the long-press signal.
-				function tileLongPressed() {
+				function tileLongPressed(showContextMenu) {
 					//showContextMenu = true;
 					console.log("long-pressed");
 					// TODO: There needs to be a way to set it
