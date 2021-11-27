@@ -142,7 +142,6 @@ RetiledStyles.Button {
 	
 	} // End of the row for the button and text.
 	
-	
 } // End of the ButtonBase containing the All Apps list button item.
 
 
