@@ -96,6 +96,20 @@ ApplicationWindow {
         onActivated: appbarDrawer.open()
     }
 	
+		// Use a FontLoader to get the arrow button font:
+		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
+		FontLoader {
+			id: metroFont
+			// This is using the wp-metro font, which you can
+			// find here:
+			// https://github.com/ajtroxell/wp-metro
+			// In case that repo goes down, here's my fork:
+			// https://github.com/DrewNaylor/wp-metro
+			// This font was made by AJ Troxell and is under the SIL OFL 1.1:
+			// http://scripts.sil.org/OFL
+			source: "../../fonts/wp-metro/WP-Metro.ttf"
+		}
+	
 	footer: ToolBar {
 
                 id: appBar
@@ -118,7 +132,8 @@ ApplicationWindow {
 			// https://stackoverflow.com/a/55515136
 				// TODO: Figure out a way to use SVG files because
 				// this is blurry with HiDPI.
-                icon.source: "file:images/back.png"
+                text: "<b>\ue020</b>"
+				font: metroFont.font
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()

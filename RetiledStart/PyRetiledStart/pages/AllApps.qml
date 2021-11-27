@@ -59,9 +59,11 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 				RetiledStyles.RoundButton {
 					// This is for the search button.
-					text: qsTr("<b>S</b>")
+					text: "<b>\ue031</b>"
+					font: metroFont.font
 					pressedTextColor: "black"
 					pressedBackgroundColor: "white"
+					fontSize: 14
 					// Make sure the buttons are aligned to the top.
 					Layout.alignment: Qt.AlignTop
 				} // End of the search button.
