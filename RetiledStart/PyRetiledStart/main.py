@@ -107,6 +107,14 @@ class TilesListViewModel(QObject):
 		# Example code for sys.platform:
 		# https://docs.python.org/3/library/sys.html#sys.platform
 		if sys.platform.startswith("win32"):
+			# Not sure if this code here is a good idea, as any tiles on Windows
+			# are just going to have the path of the .desktop file, which is how
+			# it works on Linux.
+			# TODO: Figure out how to use the user's own copy of a .desktop
+			# file if it exists instead of the one from /usr/share/applications/,
+			# as this will allow the user to override the .desktop file by
+			# putting one in their home directory.
+			# This needs to be done for both the All Apps list as well as the Tiles.
 			#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
 			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
 		else:
