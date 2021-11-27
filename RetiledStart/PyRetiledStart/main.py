@@ -75,6 +75,11 @@ class AllAppsListViewModel(QObject):
 			return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
 		else:
 			return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
+	
+	# Pin the app to Start.
+	@Slot(str)
+	def PinToStart(self, dotDesktopFilePath):
+		print(dotDesktopFilePath)
 		
 # This class is for the items in the All Apps list as described in
 # the second half of this answer:
