@@ -45,6 +45,10 @@ def getTilesList():
 	# Output the file.
 	print(StartLayoutYamlFile.read())
 	
+	# Here's some stuff on using PyYAML. It might be helpful
+	# even though it's not entirely what I'll use it for:
+	# https://pynative.com/python-yaml/
+	
 	# Hard-code the tiles for now to make sure this'll work
 	# without having to do everything first.
 	# Adding dictionaries to list from here:
