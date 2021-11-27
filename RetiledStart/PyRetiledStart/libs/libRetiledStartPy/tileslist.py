@@ -87,14 +87,14 @@ def getTilesList():
 	
 	
 
-class StartScreenLayout:
+class StartScreenLayoutRoot:
 	# Trying to get all the tile entries
 	# contained into another class so it's
 	# easy to read. Also using the SO link in
 	# the other class below.
-	def __init__(self, Tiles, StartLayoutSchemaVersion):
-		self.Tiles = Tiles
-		self.StartLayoutSchemaVersion = raw["StartLayoutSchemaVersion"]
+	def __init__(self, root):
+		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"]) for i in root["Tiles"]]
+		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
 		
 
 class StartScreenTileEntry:
