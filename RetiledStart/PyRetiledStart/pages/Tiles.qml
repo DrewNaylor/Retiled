@@ -280,9 +280,10 @@ ApplicationWindow {
 			// We have to say this is a Unicode font:
 			// https://stackoverflow.com/a/47790127
 			// It's loading a Chinese character, for some reason.
-			font: metroFont.font
+			// Actually, I think that's because it's using the
+			// wrong font, "8514oem" to be exact.
 			text: "\ue021"
-			
+			font: metroFont.font
 			
 			// Set background color for when pressed.
 			// By default this is cobalt (#0050ef).
