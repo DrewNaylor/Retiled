@@ -38,7 +38,7 @@ def getTilesList():
 	TilesList = []
 	
 	# Load the file.
-	StartLayoutYamlFile = open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml")
+	StartLayoutYamlFile = open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r")
 	
 	# Output the file.
 	print(StartLayoutYamlFile)
