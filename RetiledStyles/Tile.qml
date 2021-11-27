@@ -104,6 +104,26 @@ ButtonBase {
 		onPressed: control.scale = 0.98
 		onReleased: control.scale = 1.0
 		onCanceled: control.scale = 1.0
+		
+		// Trying to do a press and hold for the menu.
+		onPressAndHold: {
+			parent.pressAndHold(parent.tilemenu);
+		}
+	}
+	
+	// Adding the context menus:
+	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+	Popup {
+		id: tilemenu
+		// We're using the column layout.
+		ColumnLayout {
+			ButtonBase {
+				text: qsTr("unpin")
+				text: qsTr("resize (medium)")
+				text: qsTr("resize (small)")
+				text: qsTr("resize (wide)")
+			}
+		}
 	}
 	
 	// Override the contentItem using the one from Button.
