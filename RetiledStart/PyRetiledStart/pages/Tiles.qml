@@ -316,7 +316,7 @@ ApplicationWindow {
 		} // End of ColumnLayout for the tiles and All Apps button.
 		
 		Item {
-				// Empty item that acts as a margin on the left of the
+				// Empty item that acts as a margin on the right of the
 				// tiles so it can be scrolled, as margins don't allow scrolling.
 				width: 10
 			}
