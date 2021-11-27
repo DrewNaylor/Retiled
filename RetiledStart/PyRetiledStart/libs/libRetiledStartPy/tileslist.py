@@ -53,7 +53,7 @@ def getTilesList():
 		# https://pynative.com/python-yaml/
 	
 		# Load the file into a YAML reader.
-		YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile.read())
+		YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile.read()))
 		
 		print(YamlFile)
 		
