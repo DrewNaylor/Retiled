@@ -84,12 +84,28 @@ def getTilesList():
 	
 	
 
-
+class StartScreenLayout(object):
+	# Trying to get all the tile entries
+	# contained into another class so it's
+	# easy to read. Also using the SO link in
+	# the other class below.
+	def __init__(self, Tiles, StartLayoutSchemaVersion):
+		self.Tiles = Tiles
+		self.StartLayoutSchemaVersion = StartLayoutSchemaVersion
+		
+	def yaml(self):
+		return yaml.dump(self.__dict__)
+		
+	@staticmethod
+	def load(data):
+		values = yaml.safe_load(data)
+		return StartScreenLayout(values["Tiles"], values["StartLayoutSchemaVersion"])
 
 class StartScreenTileEntry(object):
 	# We're creating our own class to use with safe_load:
 	# https://stackoverflow.com/a/2627732
 	# Not sure if this'll work.
+	# The values here are the same as in the VB.NET version.
 	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileColor):
 		self.DotDesktopFilePath = DotDesktopFilePath
 		self.TileWidth = TileWidth
