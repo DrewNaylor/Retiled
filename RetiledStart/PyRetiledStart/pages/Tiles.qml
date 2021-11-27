@@ -243,6 +243,9 @@ ApplicationWindow {
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
 						NewTileObect.execKey = ParsedTilesList[i].DotDesktopPath;
+						
+						// Set the .desktop file path for unpinning or resizing.
+						NewTileObect.dotDesktopFilePath = ParsedTilesList[i].DotDesktopPath;
 												
 						// Connect clicked signal.
 						NewTileObect.clicked.connect(tileClicked);
