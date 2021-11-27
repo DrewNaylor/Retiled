@@ -40,20 +40,20 @@ def getTilesList():
 	TilesList = []
 	
 	# Load the file.
-	# TODO: Change this to "while", or whatever Python's equivalent
-	# of VB.NET's "Using" is.
+	# TODO: Change to using "with" for the .desktop file reader code.
 	# "encoding='utf-8'" is necessary or Python will give a UnicodeDecodeError as described here:
 	# https://stackoverflow.com/a/42495690
-	StartLayoutYamlFile = open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r", encoding="utf-8")
+	with open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r", encoding="utf-8") as StartLayoutYamlFile:
 	
-	# Output the file.
-	print(StartLayoutYamlFile.read())
+		# Output the file.
+		print(StartLayoutYamlFile.read())
 	
-	# Here's some stuff on using PyYAML. It might be helpful
-	# even though it's not entirely what I'll use it for:
-	# https://pynative.com/python-yaml/
+		# Here's some stuff on using PyYAML. It might be helpful
+		# even though it's not entirely what I'll use it for:
+		# https://pynative.com/python-yaml/
 	
-	# Load the file into a YAML reader.
+		# Load the file into a YAML reader.
+		YamlFile = yaml.load(StartLayoutYamlFile, Loader=SafeLoader)
 	
 	
 	# Hard-code the tiles for now to make sure this'll work
