@@ -33,13 +33,15 @@ from os.path import exists
 
 def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = False):
 	# fileName and IsCustomKey are both optional.
-	print(inputFile)
+
 	# Check if the path exists first to prevent using
 	# extra memory to create the config parser if we don't have to:
 	# https://stackoverflow.com/a/8933290
 	if not exists(inputFile):
 		# Return the path if it doesn't exist, mostly
 		# in the case of getting the name.
+		# TODO: Change this to return different defaults
+		# other than the one for the name.
 		return inputFile
 	else:
 	

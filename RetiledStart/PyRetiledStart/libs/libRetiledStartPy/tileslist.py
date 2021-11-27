@@ -30,7 +30,8 @@
 import os
 import json
 from ..pyyaml import yaml
-from yaml.loader import SafeLoader
+# We have to specify the whole path or it won't work.
+from ..pyyaml.yaml.loader import SafeLoader
 from . import appslist as AppsList
 
 
