@@ -127,6 +127,7 @@ ButtonBase {
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
 	Popup {
 		id: tilemenu
+		modal: true
 		visible: showContextMenu
 		// We're using the column layout.
 		Column {
