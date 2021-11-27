@@ -113,7 +113,7 @@ ButtonBase {
 		
 		// Trying to do a press and hold for the menu.
 		onPressAndHold: {
-			parent.pressAndHold(parent.tilemenu);
+			parent.pressAndHold(parent.execKey, parent.newTileWidth, parent.newTileHeight);
 		}
 	}
 	
