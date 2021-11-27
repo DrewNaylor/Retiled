@@ -263,10 +263,26 @@ ApplicationWindow {
 				
 			}
 	
+		// Use a FontLoader to get the arrow button font:
+		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
+		FontLoader {
+			id: metroFont
+			// This is using the wp-metro font, which you can
+			// find here:
+			// https://github.com/ajtroxell/wp-metro
+			// In case that repo goes down, here's my fork:
+			// https://github.com/DrewNaylor/wp-metro
+			source: "../../../fonts/wp-metro/WP-Metro.ttf"
+		}
+		
 		RetiledStyles.RoundButton {
 			id: allAppsButton
-			// TODO: Replace this with an accurate arrow.
-			text: qsTr("<b>-></b>")
+			// We have to say this is a Unicode font:
+			// https://stackoverflow.com/a/47790127
+			// It's loading a Chinese character, for some reason.
+			font: metroFont.font
+			text: "\ue021"
+			
 			
 			// Set background color for when pressed.
 			// By default this is cobalt (#0050ef).
