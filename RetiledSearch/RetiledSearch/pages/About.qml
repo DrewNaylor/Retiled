@@ -112,6 +112,16 @@ Page {
 			"Please be aware that although I kept the original licensing stuff for the styles, Retiled is using them under the LGPLv3.\n\n" +
 			"I will also provide a link to the PySide6 project, though I didn't take or modify any code from it and I'm not distributing any part of it, so I don't think I have to host it myself:\n" +
 			"https://code.qt.io/cgit/pyside/pyside-setup.git/about/ \n\n" +
+			"Python copyrights are below:\n" +
+			"Copyright (c) 2001-2021 Python Software Foundation.\n" +
+			"All Rights Reserved.\n\n" +
+			"Copyright (c) 2000 BeOpen.com.\n" +
+			"All Rights Reserved.\n\n" +
+			"Copyright (c) 1995-2001 Corporation for National Research Initiatives.\n" +
+			"All Rights Reserved.\n\n" +
+			"Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\n" +
+			"All Rights Reserved.\n\n" +
+			"And that's the end of the Python copyrights, at least for 3.9.\n" +
 			"You can access the Retiled source code here:\n" +
 			"https://github.com/DrewNaylor/Retiled"
     }
