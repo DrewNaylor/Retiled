@@ -60,6 +60,10 @@ def getTilesList():
 		# You can now know their names.
 		print(YamlFile.Tiles[0].DotDesktopFilePath)
 		
+		# Loop through the Tiles items and add them to the TilesList.
+		# I think Example 1 will work:
+		# https://pythonexamples.org/python-loop-through-dictionary-values/
+		
 		
 		# Get the stuff under Tiles.
 	
