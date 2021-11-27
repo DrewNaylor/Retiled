@@ -83,6 +83,8 @@ ButtonBase {
                 font.pixelSize: control.fontSize
                 text: control.text
                 color: control.textColor
+				anchors.verticalCenter: parent.verticalCenter
+				anchors.horizontalCenter: parent.horizontalCenter
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"
