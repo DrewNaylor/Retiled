@@ -98,6 +98,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			
+			
 			ListView {
                 
 				width: window.width
@@ -139,17 +140,13 @@ import "../../../RetiledStyles" as RetiledStyles
 								onClicked: allAppsListViewModel.RunApp(model.display)
 								// Set pin to start stuff.
 								dotDesktopFilePath: model.display
-								onPinToStart: pinToStart(model.display)
+								onPinToStart: allAppsListViewModel.PinToStart(model.display)
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
 			} // End of the ListView that holds the app entries for the All Apps list.
 			
-			// Function for pinning the app to start.
-			function pinToStart(dotDesktopFilePath) {
-					// allAppsListViewModel.PinToStart(dotDesktopFilePath);
-					console.log("ggrg");
-				}
+			
 			
 		} // End of the All Apps list flickable.
 		
