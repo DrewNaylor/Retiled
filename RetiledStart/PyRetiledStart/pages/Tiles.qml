@@ -275,6 +275,11 @@ ApplicationWindow {
 			source: "../../../fonts/wp-metro/WP-Metro.ttf"
 		}
 		
+		Item {
+			// Empty item above All Apps button for spacing.
+			height: 5
+		}
+		
 		RetiledStyles.RoundButton {
 			id: allAppsButton
 			// We have to say this is a Unicode font:
@@ -320,7 +325,7 @@ ApplicationWindow {
 			// Empty item below the All Apps button
 			// for spacing, as margins don't allow you
 			// to scroll in them.
-			height: 10
+			height: 20
 			
 		}
 
