@@ -58,15 +58,15 @@ def getTilesList():
 		YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile))
 		
 		# Now we can refer to the items in the file by their names!
-		print(YamlFile.StartLayoutSchemaVersion)
+		#print(YamlFile.StartLayoutSchemaVersion)
 		# You can now know their names.
-		print(YamlFile.Tiles[0].DotDesktopFilePath)
+		#print(YamlFile.Tiles[0].DotDesktopFilePath)
 		
 		# Loop through the Tiles items and add them to the TilesList.
 		# We'll use the looping through index numbers example here:
 		# https://www.w3schools.com/python/python_lists_loop.asp
 		for i in range(len(YamlFile.Tiles)):
-			print(YamlFile.Tiles[i].TileColor)
+			#print(YamlFile.Tiles[i].TileColor)
 			TilesList.append({"DotDesktopPath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
 		
 		# Get the stuff under Tiles.

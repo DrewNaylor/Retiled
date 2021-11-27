@@ -29,9 +29,19 @@ import configparser
 # so I just used string replacement instead.
 #import re
 import shlex
+from os.path import exists
 
 def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = False):
 	# fileName and IsCustomKey are both optional.
+	print(inputFile)
+	# Check if the path exists first to prevent using
+	# extra memory to create the config parser if we don't have to:
+	# https://stackoverflow.com/a/8933290
+	if not exists(inputFile):
+		# Return the path if it doesn't exist, mostly
+		# in the case of getting the name.
+		return inputFile
+	else:
 	
 	# Create a configparser to read the .desktop files.
 	# We have to change some of the options to work with
@@ -42,7 +52,7 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# "Strict" has to be off as some .desktop files have duplicate keys,
 	# most notably GNOME/Phosh Settings has several "X-Purism-FormFactor"
 	# keys, all with the same values.
-	dotDesktopFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False, interpolation=None, strict=False)
+		dotDesktopFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False, interpolation=None, strict=False)
 	
 	# Now read the file into the dotDesktopFileReader.
 	# Basing this off this page here:
@@ -55,10 +65,10 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# "Copy file as path" on Windows.
 	# Actually, configparser has a read_file function:
 	# https://docs.python.org/3/library/configparser.html#configparser.ConfigParser.read_file
-	dotDesktopFile = open(inputFile, "r")
-	dotDesktopFileReader.read_file(dotDesktopFile)
+		dotDesktopFile = open(inputFile, "r")
+		dotDesktopFileReader.read_file(dotDesktopFile)
 	# We can now close the file since it's in the configparser.
-	dotDesktopFile.close()
+		dotDesktopFile.close()
 	
 	# Now print the sections for debugging.
 	#print(dotDesktopFileReader.sections())
@@ -74,17 +84,17 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# https://stackoverflow.com/a/66877137
 	# For now I'm just using an if statement as detailed here:
 	# https://stackoverflow.com/a/66886730
-	if IsCustomKey == True:
+		if IsCustomKey == True:
 		# Return the value of the key specified in keyToGet.
 		# This works, I just have to remember to set IsCustomKey = True
 		# for anything I haven't implemented yet.
 		# Make sure the key is in the file and return the default
 		# if it's not:
 		# https://stackoverflow.com/a/21057828
-		if dotDesktopFileReader.has_option('Desktop Entry', keyToGet):		
-			return dotDesktopFileReader.get('Desktop Entry', keyToGet)
-		else:
-			return defaultValue
+			if dotDesktopFileReader.has_option('Desktop Entry', keyToGet):		
+				return dotDesktopFileReader.get('Desktop Entry', keyToGet)
+			else:
+				return defaultValue
 			
 			
 			
