@@ -272,6 +272,8 @@ ApplicationWindow {
 			// https://github.com/ajtroxell/wp-metro
 			// In case that repo goes down, here's my fork:
 			// https://github.com/DrewNaylor/wp-metro
+			// This font was made by AJ Troxell and is under the SIL OFL 1.1:
+			// http://scripts.sil.org/OFL
 			source: "../../../fonts/wp-metro/WP-Metro.ttf"
 		}
 		
