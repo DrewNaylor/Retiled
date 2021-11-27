@@ -57,9 +57,10 @@ ButtonBase {
 	signal clicked(string execKey);
 	
 	// Add signals for the context menu.
+	property string dotDesktopFilePath;
 	property int newTileWidth;
 	property int newTileHeight;
-	signal pressAndHold(string execKey, int newTileWidth, int newTileHeight);
+	signal pressAndHold(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
 	
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:
