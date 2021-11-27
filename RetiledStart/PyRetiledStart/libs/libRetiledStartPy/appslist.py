@@ -30,7 +30,6 @@ import subprocess
 from ..libdotdesktop_py import desktopEntryStuff
 # Stuff for getting the files from /usr/share/applications.
 import os
-from os.path import isfile, join
 
 # Python allows relative imports as used above:
 # https://stackoverflow.com/a/714647
@@ -49,7 +48,7 @@ from os.path import isfile, join
 # TODO: Figure out how to use this with a class so that
 # the code can be cleaner.
 def RunApp(DotDesktopFilePath):
-        # Get the ExecFilename split using shlex.split.
+        # Clean the exec key.
 	args = desktopEntryStuff.cleanExecKey(DotDesktopFilePath)
 	#print("Split: ")
 	#print(args)
