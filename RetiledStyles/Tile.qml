@@ -60,7 +60,11 @@ ButtonBase {
 	property string dotDesktopFilePath;
 	property int newTileWidth;
 	property int newTileHeight;
-	signal pressAndHold(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
+	// Signal for opening the context menu.
+	signal pressAndHold(tilemenu);
+	// Signals for unpinning and resizing tiles.
+	signal unpinTile(string dotDesktopFilePath);
+	signal resizeTile(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
 	
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:
@@ -114,7 +118,7 @@ ButtonBase {
 		
 		// Trying to do a press and hold for the menu.
 		onPressAndHold: {
-			parent.pressAndHold(parent.dotDesktopFilePath, parent.newTileWidth, parent.newTileHeight);
+			parent.pressAndHold();
 		}
 	}
 	
