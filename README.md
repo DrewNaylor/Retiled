@@ -20,6 +20,7 @@ You may need to install packages through your distro's package manager, and thos
   - `pyside6` (`PySide6` via pip): Used for the UI of Python/QML-based components of Retiled
   - `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
   - `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
+  - `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it): Helps read yaml files, which are used for configuration
   - Python.NET (`pythonnet` via pip): Allows using .NET libraries from .NET; unsure of the exact package name, or if it's in pacman; not currently used as it doesn't work with Python 3.9 yet
   - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
 - Avalonia-based components:
@@ -33,9 +34,19 @@ You may need to install packages through your distro's package manager, and thos
 Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative<br><br>
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
-Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd.<br>
+Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd.<br><br>
+Python 3.9 copyrights start:<br>
+Copyright (c) 2001-2021 Python Software Foundation.<br>
+All Rights Reserved.<br>
+Copyright (c) 2000 BeOpen.com.<br>
+All Rights Reserved.<br>
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.<br>
+All Rights Reserved.<br>
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.<br>
+All Rights Reserved.<br>
+Python 3.9 copyrights end.<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
-Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6. Anything else that's used in the future will be added to this list.
+Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML. Anything else that's used in the future will be added to this list.
 
 ## Building and running
 
