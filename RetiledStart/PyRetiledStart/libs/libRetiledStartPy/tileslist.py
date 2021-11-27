@@ -38,10 +38,12 @@ def getTilesList():
 	TilesList = []
 	
 	# Load the file.
-	StartLayoutYamlFile = open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r")
+	# "encoding='utf-8'" is necessary or Python will give a UnicodeDecodeError as described here:
+	# https://stackoverflow.com/a/42495690
+	StartLayoutYamlFile = open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r", encoding="utf-8")
 	
 	# Output the file.
-	print(StartLayoutYamlFile)
+	print(StartLayoutYamlFile.read())
 	
 	# Hard-code the tiles for now to make sure this'll work
 	# without having to do everything first.
