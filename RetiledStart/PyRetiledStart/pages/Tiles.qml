@@ -282,6 +282,8 @@ ApplicationWindow {
 			// It's loading a Chinese character, for some reason.
 			// Actually, I think that's because it's using the
 			// wrong font, "8514oem" to be exact.
+			// Seems to work fine on Linux, for some reason.
+			// This is really weird.
 			text: "\ue021"
 			font: metroFont.font
 			
