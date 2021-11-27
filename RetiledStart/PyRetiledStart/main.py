@@ -121,28 +121,6 @@ class TilesListViewModel(QObject):
 		# in JSON for dynamic object creation
 		# and destruction.
 		return TilesList.getTilesList()
-	
-# This class is for the items in the Tiles list.
-# I'm going to have to use JSON somehow, probably.
-# May need to change a lot of this.
-class TilesListItems(QObject):
-	def __init__(self, parent=None):
-		super().__init__(parent)
-		self._model = QStringListModel()
-	
-	# Just guessing that it's Property instead of pyqtProperty.
-	@Property(QObject, constant=True)
-	def model(self):
-		return self._model
-	
-	# I'm not passing anything to the code, so
-	# this has to be a "Slot()" instead of "Slot(str)".
-	@Slot()
-	def getDotDesktopFilesInList(self):
-		#self._model.setStringList(['Firefox Launcher.desktop', 'top-exec.desktop'])
-		self._model.setStringList(AppsList.getDotDesktopFiles())
-	# TODO: Make sure the items are properly cleaned up so QML doesn't say
-	# that there are null items after closing.
 
 
 #class TilesViewModel(QObject):
