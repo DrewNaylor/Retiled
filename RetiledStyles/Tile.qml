@@ -114,7 +114,7 @@ ButtonBase {
 		
 		// Trying to do a press and hold for the menu.
 		onPressAndHold: {
-			parent.pressAndHold(parent.execKey, parent.newTileWidth, parent.newTileHeight);
+			parent.pressAndHold(parent.dotDesktopFilePath, parent.newTileWidth, parent.newTileHeight);
 		}
 	}
 	
@@ -127,6 +127,7 @@ ButtonBase {
 			anchors.fill: parent
 			ButtonBase {
 				text: qsTr("unpin")
+				onClicked: parent.unpinTile(parent.dotDesktopFilePath)
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")
