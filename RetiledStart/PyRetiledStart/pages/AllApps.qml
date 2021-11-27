@@ -98,7 +98,6 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			
-			
 			ListView {
                 
 				width: window.width
