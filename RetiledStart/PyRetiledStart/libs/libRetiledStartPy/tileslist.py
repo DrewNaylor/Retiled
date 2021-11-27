@@ -95,6 +95,9 @@ class StartScreenTileEntry(object):
 		self.TileWidth = TileWidth
 		self.TileHeight = TileHeight
 		self.TileColor = TileColor
+		
+	def yaml(self):
+		return yaml.dump(self.__dict__)
 
 
 
