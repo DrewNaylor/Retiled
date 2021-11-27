@@ -27,7 +27,7 @@
 
 
 
-
+import os
 import json
 
 def getTilesList():
@@ -36,6 +36,12 @@ def getTilesList():
 	
 	# Define list to store the tiles.
 	TilesList = []
+	
+	# Load the file.
+	StartLayoutYamlFile = open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml")
+	
+	# Output the file.
+	print(StartLayoutYamlFile)
 	
 	# Hard-code the tiles for now to make sure this'll work
 	# without having to do everything first.
