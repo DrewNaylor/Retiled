@@ -31,6 +31,7 @@
 // about missing stuff.
 import "." as RetiledStyles
 import QtQuick
+import QtQuick.Controls
 
 
 // Change the button to be like the All Apps list buttons on WP.
@@ -62,6 +63,9 @@ RetiledStyles.Button {
 	
 	// Have a property for the icon background color.
 	property string iconBackgroundColor: "#0050ef"
+	
+	// Open the context menu.
+	onPressAndHold: allappscontextmenu.open()
 	
 	Row {
 		// Fill the button so we can align things properly.
@@ -98,6 +102,19 @@ RetiledStyles.Button {
 			
 	
 	} // End of the row for the button and text.
+	
+	// Adding the context menus:
+	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+	Popup {
+		id: allappscontextmenu
+		// We're using the column layout.
+		Column {
+			anchors.fill: parent
+			ButtonBase {
+				text: qsTr("pin to start")
+			}
+		}
+	}
 	
 } // End of the ButtonBase containing the All Apps list button item.
 

@@ -33,6 +33,7 @@
 // until I can figure out a better solution.
 import "."
 import QtQuick
+import QtQuick.Controls
 
 ButtonBase {
 	// We need to change things to make it into a tile.
@@ -116,7 +117,7 @@ ButtonBase {
 	Popup {
 		id: tilemenu
 		// We're using the column layout.
-		ColumnLayout {
+		Column {
 			anchors.fill: parent
 			ButtonBase {
 				text: qsTr("unpin")
