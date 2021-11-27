@@ -186,7 +186,15 @@ ApplicationWindow {
 					tilemenu.open();
 				}
 				
-				// dotDesktopFilePath, newTileWidth, newTileHeight
+				// Set up the signals for the tile context menu.
+				// Unpin tiles.
+				function unpinTile(dotDesktopFilePath) {
+					tilesListViewModel.UnpinTile(dotDesktopFilePath);
+				}
+				// Resize tiles.
+				function resizeTile(dotDesktopFilePath, newTileWidth, newTileHeight) {
+					tilesListViewModel.ResizeTile(dotDesktopFilePath, newTileWidth, newTileHeight);
+				}
 				
 				Component.onCompleted: {
 					
