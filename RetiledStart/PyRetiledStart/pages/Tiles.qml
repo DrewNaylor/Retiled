@@ -284,7 +284,7 @@ ApplicationWindow {
 			// wrong font, "8514oem" to be exact.
 			// Seems to work fine on Linux, for some reason.
 			// This is really weird.
-			text: "\ue021"
+			text: "<b>\ue021</b>"
 			font: metroFont.font
 			
 			// Set background color for when pressed.
