@@ -109,6 +109,8 @@ class StartScreenTileEntry(yaml.YAMLObject):
 	# https://stackoverflow.com/a/2627732
 	# Not sure if this'll work.
 	# The values here are the same as in the VB.NET version.
+	# Actually, we're now mostly using this answer:
+	# https://stackoverflow.com/a/52581851
 	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileColor):
 		self.DotDesktopFilePath = DotDesktopFilePath
 		self.TileWidth = TileWidth
