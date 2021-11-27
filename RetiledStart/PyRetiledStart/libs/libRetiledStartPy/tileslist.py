@@ -46,13 +46,16 @@ def getTilesList():
 	with open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r", encoding="utf-8") as StartLayoutYamlFile:
 	
 		# Output the file.
-		print(StartLayoutYamlFile.read())
+		#print(StartLayoutYamlFile.read())
+		print(yaml.safe_load(StartLayoutYamlFile))
 	
 		# Here's some stuff on using PyYAML. It's partially being used here:
 		# https://pynative.com/python-yaml/
 	
 		# Load the file into a YAML reader.
-		YamlFile = yaml.load(StartLayoutYamlFile, Loader=SafeLoader)
+		YamlFile = StartScreenLayout.load(StartLayoutYamlFile.read())
+		
+		print(YamlFile.StartLayoutSchemaVersion)
 		
 		# Get the stuff under Tiles.
 	
@@ -84,7 +87,7 @@ def getTilesList():
 	
 	
 
-class StartScreenLayout(object):
+class StartScreenLayout(yaml.YAMLObject):
 	# Trying to get all the tile entries
 	# contained into another class so it's
 	# easy to read. Also using the SO link in
@@ -101,7 +104,7 @@ class StartScreenLayout(object):
 		values = yaml.safe_load(data)
 		return StartScreenLayout(values["Tiles"], values["StartLayoutSchemaVersion"])
 
-class StartScreenTileEntry(object):
+class StartScreenTileEntry(yaml.YAMLObject):
 	# We're creating our own class to use with safe_load:
 	# https://stackoverflow.com/a/2627732
 	# Not sure if this'll work.
