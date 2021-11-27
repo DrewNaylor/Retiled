@@ -90,9 +90,11 @@ class StartScreenTileEntry(object):
 	# We're creating our own class to use with safe_load:
 	# https://stackoverflow.com/a/2627732
 	# Not sure if this'll work.
-
-
-
+	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileColor):
+		self.DotDesktopFilePath = DotDesktopFilePath
+		self.TileWidth = TileWidth
+		self.TileHeight = TileHeight
+		self.TileColor = TileColor
 
 
 
