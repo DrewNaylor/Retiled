@@ -181,6 +181,13 @@ ApplicationWindow {
 					tilesListViewModel.RunApp(execKey);
 				}
 				
+				// Set up the long-press signal.
+				function tileLongPressed(tilemenu) {
+					tilemenu.open();
+				}
+				
+				// dotDesktopFilePath, newTileWidth, newTileHeight
+				
 				Component.onCompleted: {
 					
 					// Start looping through the list provided by Python
@@ -231,6 +238,9 @@ ApplicationWindow {
 												
 						// Connect clicked signal.
 						NewTileObect.clicked.connect(tileClicked);
+						
+						// Connect long-press signal.
+						NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						} // End of If statement to ensure things are ready.
 						
