@@ -164,41 +164,41 @@ ApplicationWindow {
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
 			// a different one work for the All Apps list:
 			// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/editingmodel
-				//RetiledStyles.Tile {
-				//tileText: qsTr("cobalt-colored tile")
-				//width: 150
-				//height: 150
-				//// TapHandler seemed to interfere with how
-				//// the button looked when using it, but
-				//// there's an onPressAndHold event we can
-				//// use instead:
-				//// https://stackoverflow.com/a/62000844
-				//onPressAndHold: console.log("We can definitely do this!")
-				//onClicked: console.log("The future doesn't belong to you!")
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 150
-				//height: 150
-				//// You can access code in the main.py file from QML sub-pages.
-				//onClicked: allAppsListViewModel.getDotDesktopFiles()
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 310
-				//height: 150
-				//onClicked: tilesListViewModel.getTilesList()
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 150
-				//height: 150
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 70
-				//height: 70
-				//}
+				RetiledStyles.Tile {
+				tileText: qsTr("cobalt-colored tile")
+				width: 150
+				height: 150
+				// TapHandler seemed to interfere with how
+				// the button looked when using it, but
+				// there's an onPressAndHold event we can
+				// use instead:
+				// https://stackoverflow.com/a/62000844
+				onPressAndHold: console.log("We can definitely do this!")
+				onClicked: console.log("The future doesn't belong to you!")
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 150
+				height: 150
+				// You can access code in the main.py file from QML sub-pages.
+				onClicked: allAppsListViewModel.getDotDesktopFiles()
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 310
+				height: 150
+				onClicked: tilesListViewModel.getTilesList()
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 150
+				height: 150
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 70
+				height: 70
+				}
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
