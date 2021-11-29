@@ -382,7 +382,7 @@ ApplicationWindow {
 			// an integer, so we have to round down to 25.
 			// Had to change the width above.
 			// 25 was too big.
-			fontSize: 20
+			// I'm just setting this in the Button control file.
             
 
     }
