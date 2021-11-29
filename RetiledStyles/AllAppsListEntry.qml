@@ -109,6 +109,9 @@ RetiledStyles.Button {
 			ButtonBase {
 				width: parent.width
 				text: qsTr("pin to start")
+				// Set font style to opensans.
+				font.family: "Open Sans"
+				font.weight: Font.Normal
 				onClicked: pinToStart(dotDesktopFilePath)
 			}
 		}
@@ -145,6 +148,9 @@ RetiledStyles.Button {
                 font.pixelSize: fontSize
                 text: entryText
                 color: textColor
+				// Set font style to opensans.
+				font.family: "Open Sans"
+				font.weight: Font.Normal
             }
 			
 	
