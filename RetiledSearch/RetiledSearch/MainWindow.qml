@@ -109,6 +109,30 @@ ApplicationWindow {
 			// http://scripts.sil.org/OFL
 			source: "../../fonts/wp-metro/WP-Metro.ttf"
 		}
+		
+			// Load Open Sans Regular for the textbox and other controls
+			// that use Open Sans Regular.
+			// Source for the textbox thing:
+			// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/Microsoft.Phone.Controls.Toolkit.WP8/Themes/Generic.xaml#L1309
+	FontLoader {
+			id: opensansRegular
+			// This is using the Open Sans font, which you can
+			// find here:
+			// https://fonts.google.com/specimen/Open+Sans
+			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
+			// http://www.apache.org/licenses/LICENSE-2.0
+			source: "../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
+		}
+		
+		FontLoader {
+			id: opensansSemiBold
+			// This is using the Open Sans SemiBold font, which you can
+			// find here:
+			// https://fonts.google.com/specimen/Open+Sans
+			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
+			// http://www.apache.org/licenses/LICENSE-2.0
+			source: "../../fonts/open_sans/static/OpenSans/OpenSans-SemiBold.ttf"
+		}
 	
 	footer: ToolBar {
 
@@ -239,6 +263,8 @@ ApplicationWindow {
             }
 
             model: ListModel {
+				// TODO: Check if the font can be changed for this,
+				// and change it to Open Sans.
 				ListElement { title: "about"; source: "pages/About.qml" }
             }
 
@@ -285,6 +311,9 @@ ApplicationWindow {
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
             font.pixelSize: 18
+			// Set font style to opensans.
+			font.family: "Open Sans"
+			font.weight: Font.Normal
 			
 			// There are some additional properties you can set:
 			// Change the textfield's background color when focused.
@@ -312,7 +341,8 @@ ApplicationWindow {
          RetiledStyles.Button {
             id: searchButton
 			onClicked: {
-				searchClass.openUrl(searchBox.text)
+				// searchClass.openUrl(searchBox.text)
+				console.log(font)
 			}
 			
 			// Pro-tip: set these properties rather than
@@ -329,7 +359,7 @@ ApplicationWindow {
 			//borderRadius: 0
 			
 			// However, I will set these properties.
-			buttonWidth: 90
+			buttonWidth: 100
 			buttonHeight: 40
 			
 			// Set margins and anchors.
@@ -340,6 +370,18 @@ ApplicationWindow {
 			
 			// Set the text.
             text: qsTr("search")
+			// Set font style to opensans.
+			// Apparently ButtonBase uses SemiBold:
+			// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/PhoneToolkitSample8/App.xaml#L51
+			// Hope it works, but I can't really tell a difference.
+			font.family: "Open Sans SemiBold"
+			font.weight: Font.DemiBold
+			// Windows Phone uses PhoneFontSizeMediumLarge for ButtonBase,
+			// which is a double and has the value of 25.333.
+			// This is a problem for QML's pixelSize, because that's
+			// an integer, so we have to round down to 25.
+			// Had to change the width above.
+			fontSize: 25
             
 
     }

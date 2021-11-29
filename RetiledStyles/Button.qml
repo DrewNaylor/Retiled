@@ -43,7 +43,13 @@ ButtonBase {
 	
 	// Usually buttons have text, but if they're images,
 	// I'd have to figure something out.
-	property int fontSize: 18
+	// Setting this to 25 because the WP ButtonBase used it:
+	// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/PhoneToolkitSample8/App.xaml#L51
+	// Or at least, I hope it did and the sample is being accurate.
+	// "PhoneFontSizeMediumLarge" is a double at 25.333, but
+	// we need to use an integer:
+	// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff769552(v=vs.105)#font-sizes
+	property int fontSize: 25
 	// textColor would usually be white, but it can be
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
@@ -60,8 +66,9 @@ ButtonBase {
 	property string borderColor: "white"
 	property int borderWidth: 2
 	property int borderRadius: 0
-	property int buttonWidth: 50
-	property int buttonHeight: 35
+	// Change button size to help with the large font.
+	property int buttonWidth: 100
+	property int buttonHeight: 40
 	
 	
 	//// Set the default state.

@@ -125,6 +125,7 @@ T.TextField {
         height: control.height - (control.topPadding + control.bottomPadding)
 
         text: control.placeholderText
+		// TODO: Figure out what font weight WP used for the placeholder text.
         font: control.font
 		// Change the placeholder text color based on focus state.
         color: control.focus ? control.focusedPlaceholderTextColor : control.unfocusedPlaceholderTextColor
