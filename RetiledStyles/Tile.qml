@@ -138,21 +138,25 @@ ButtonBase {
 				// instead of "font: ..." in secondary QML
 				// files, or it doesn't seem to work.
 				font.family: "Open Sans"
+				font.weight: Font.Normal
 				onClicked: unpinTile(dotDesktopFilePath)
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")
 				font.family: "Open Sans"
+				font.weight: Font.Normal
 				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
 			}
 			ButtonBase {
 				text: qsTr("resize (small)")
 				font.family: "Open Sans"
+				font.weight: Font.Normal
 				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
 			}
 			ButtonBase {
 				text: qsTr("resize (wide)")
 				font.family: "Open Sans"
+				font.weight: Font.Normal
 				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
 			}
 		}
@@ -197,6 +201,7 @@ ButtonBase {
 				clip: true
 				// Set font style to opensans.
 				font.family: "Open Sans"
+				font.weight: Font.Normal
             }
 	
 	background: Rectangle {
