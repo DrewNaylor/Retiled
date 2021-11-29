@@ -381,7 +381,8 @@ ApplicationWindow {
 			// This is a problem for QML's pixelSize, because that's
 			// an integer, so we have to round down to 25.
 			// Had to change the width above.
-			fontSize: 25
+			// 25 was too big.
+			fontSize: 20
             
 
     }
