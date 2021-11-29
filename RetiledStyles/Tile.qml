@@ -41,6 +41,7 @@ ButtonBase {
 	
 	// Add properties.
 	property string tileText: "tile"
+	property font tileTextFont;
 	property int fontSize: 14
 	property string textColor: "white"
 	// Fun fact: if you change the color value here
@@ -121,30 +122,6 @@ ButtonBase {
 		}
 	}
 	
-	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
-	// https://stackoverflow.com/a/8430030
-	// It's possible that Windows Phone switched to
-	// a different style of Segoe for its tiles
-	// in WP8, so perhaps the WindowsPhoneToolkit
-	// repo can help:
-	// https://github.com/microsoftarchive/WindowsPhoneToolkit
-	// My fork, in case that one goes down:
-	// https://github.com/DrewNaylor/WindowsPhoneToolkit
-	// Actually, turns out the HubTileSample uses the regular
-	// font style:
-	// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/PhoneToolkitSample/Samples/HubTileSample.xaml#L19
-	// Note: Context menus use SemiLight, which isn't available in Open Sans,
-	// so I'll probably just use Regular for them.
-	FontLoader {
-			id: opensansRegular
-			// This is using the Open Sans font, which you can
-			// find here:
-			// https://fonts.google.com/specimen/Open+Sans
-			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
-			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
-		}
-	
 	// Adding the context menus:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
 	Popup {
@@ -156,18 +133,22 @@ ButtonBase {
 			anchors.fill: parent
 			ButtonBase {
 				text: qsTr("unpin")
+				font: control.tileTextFont
 				onClicked: unpinTile(dotDesktopFilePath)
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")
+				font: control.tileTextFont
 				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
 			}
 			ButtonBase {
 				text: qsTr("resize (small)")
+				font: control.tileTextFont
 				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
 			}
 			ButtonBase {
 				text: qsTr("resize (wide)")
+				font: control.tileTextFont
 				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
 			}
 		}
@@ -210,6 +191,8 @@ ButtonBase {
 				// Ensure that text doesn't just go out of
 				// the tiles.
 				clip: true
+				// Set font style to opensans.
+				font: control.tileTextFont
             }
 	
 	background: Rectangle {
