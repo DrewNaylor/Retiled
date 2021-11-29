@@ -54,17 +54,6 @@ ApplicationWindow {
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
 	Universal.background: 'black'
 	
-	// FontLoader to get the Open Sans SemiBold font for tiles.
-	FontLoader {
-			id: opensansSemiBold
-			// This is using the Open Sans font, which you can
-			// find here:
-			// https://fonts.google.com/specimen/Open+Sans
-			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
-			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../../fonts/open_sans/static/OpenSans/OpenSans-SemiBold.ttf"
-		}
-	
 	
 	Shortcut {
 		sequences: ["Esc", "Back"]
