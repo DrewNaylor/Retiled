@@ -134,22 +134,25 @@ ButtonBase {
 			anchors.fill: parent
 			ButtonBase {
 				text: qsTr("unpin")
-				font: parent.opensansRegular.font
+				// Apparently we have to use "font.family"
+				// instead of "font: ..." in secondary QML
+				// files, or it doesn't seem to work.
+				font.family: "Open Sans"
 				onClicked: unpinTile(dotDesktopFilePath)
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")
-				font: parent.opensansRegular.font
+				font.family: "Open Sans"
 				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
 			}
 			ButtonBase {
 				text: qsTr("resize (small)")
-				font: parent.opensansRegular.font
+				font.family: "Open Sans"
 				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
 			}
 			ButtonBase {
 				text: qsTr("resize (wide)")
-				font: parent.opensansRegular.font
+				font.family: "Open Sans"
 				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
 			}
 		}
@@ -193,7 +196,7 @@ ButtonBase {
 				// the tiles.
 				clip: true
 				// Set font style to opensans.
-				font: parent.opensansRegular.font
+				font.family: "Open Sans"
             }
 	
 	background: Rectangle {
