@@ -76,7 +76,11 @@ ButtonBase {
 	// https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Controls/Button.xaml#L24
 	// That line references "ControlContentThemeFontSize", which is defined to be "14" here:
 	// https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/Base.xaml#L17
-	leftPadding: 8
+	// Changing leftPadding to 7 makes the second "l" in the test string
+	// ("WP8.1 app with a really long name for testing", though I didn't keep the full thing) be in half properly.
+	// I would prefer to use 8, but Open Sans isn't close enough together.
+	// Forking it could improve that.
+	leftPadding: 7
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 6
