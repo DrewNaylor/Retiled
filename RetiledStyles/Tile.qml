@@ -240,6 +240,11 @@ ButtonBase {
 				// I'll keep it for now to make sure things
 				// don't get too out of control.
 				font.letterSpacing: -0.8 * scaleFactor
+				// You know what, I'm just not going to do this
+				// because it'll introduce difficult-to-fix bugs
+				// and inconsistencies.
+				// I wasn't going to do it, but then I went back
+				// and I really don't like how Open Sans looks by default.
             }
 	
 	background: Rectangle {
