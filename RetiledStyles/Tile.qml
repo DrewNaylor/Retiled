@@ -254,7 +254,7 @@ ButtonBase {
 	background: Rectangle {
 		// Change tile color and stuff.
 				color: control.tileBackgroundColor
-                border.width: 5
+                border.width: 0
                 radius: 0
 	}
 	
