@@ -310,7 +310,8 @@ ApplicationWindow {
             placeholderText: qsTr("enter a search term here")
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
-            font.pixelSize: 18
+			// pixelSize isn't device-independent.
+            font.pointSize: 18
 			// Set font style to opensans.
 			font.family: "Open Sans"
 			font.weight: Font.Normal

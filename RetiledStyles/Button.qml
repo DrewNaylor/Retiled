@@ -85,7 +85,8 @@ ButtonBase {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 				// Make the font bigger.
-                font.pixelSize: control.fontSize
+				// pixelSize isn't device-independent.
+                font.pointSize: control.fontSize
                 text: control.text
                 color: control.textColor
 				// Qt's docs say to set the text to the width

@@ -145,7 +145,8 @@ RetiledStyles.Button {
 		// https://stackoverflow.com/a/35800196
 		anchors.verticalCenter: parent.verticalCenter
 				// Make the font bigger.
-                font.pixelSize: fontSize
+				// pixelSize isn't device-independent.
+                font.pointSize: fontSize
                 text: entryText
                 color: textColor
 				// Set font style to opensans.

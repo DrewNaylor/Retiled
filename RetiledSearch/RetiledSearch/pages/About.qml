@@ -56,7 +56,8 @@ Page {
                 id: titleLabel
                 text: "about"
                 // Not sure if this is the right font size, but it's closer.
-                font.pixelSize: 50
+				// pixelSize isn't device-independent.
+                font.pointSize: 50
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
