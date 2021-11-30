@@ -72,6 +72,14 @@ ButtonBase {
 	property int buttonWidth: 100
 	property int buttonHeight: 40
 	
+	// Properties for pixel density:
+	// https://stackoverflow.com/a/38003760
+	// This is what QML told me when I used
+	// console.log(Screen.pixelDensity).
+	property real mylaptopPixelDensity: 4.4709001084468
+	// This is just whatever the device that's running will use.
+	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
+	
 	
 	//// Set the default state.
      // state: "RELEASED"
@@ -81,9 +89,9 @@ ButtonBase {
 		// working, but it turns out that you can't
 		// have another contentItem in the button in
 		// the window or it'll override this style's
-		// contentItem.
+		// // contentItem.
                 horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+                // verticalAlignment: Text.AlignVCenter
 				// Make the font bigger.
 				// pixelSize isn't device-independent.
                 font.pointSize: control.fontSize
@@ -92,8 +100,28 @@ ButtonBase {
 				// Qt's docs say to set the text to the width
 				// of the parent to get proper centered text,
 				// but it doesn'tseem to work.
-				width: parent.width
+				width: buttonWidth
 				height: parent.height
+				// A letter spacing of -0.8 emulates
+				// Segoe WP's letter spacing.
+				// However, it's not perfect as I can't
+				// get the second "l" in "really" to be
+				// in half in a medium tile at the same time
+				// as the entirety of the "o" in "Calculator"
+				// is showing on a small tile.
+				// For some reason, the font spacing is slightly
+				// off on the phone.
+				// I think they're different because this is
+				// based on pixels.
+				// Preferably this would multiply against
+				// the DPI to determine what number should be used.
+				// I think -1.25 is close enough for the PinePhone.
+				// This SO answer shows how to multiply against
+				// pixel density: https://stackoverflow.com/a/38003760
+				// This doesn't help that much, but I think
+				// I'll keep it for now to make sure things
+				// don't get too out of control.
+				font.letterSpacing: -0.8 * scaleFactor
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"
