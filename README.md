@@ -35,6 +35,10 @@ Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most fi
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
 Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd.<br><br>
+Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.<br>
+Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:<br>
+http://scripts.sil.org/OFL.<br>
+You can find links to these fonts in the components list at the end of this "license stuff" block.
 Python 3.9 copyrights start:<br>
 Copyright (c) 2001-2021 Python Software Foundation.<br>
 All Rights Reserved.<br>
@@ -46,7 +50,7 @@ Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.<br>
 All Rights Reserved.<br>
 Python 3.9 copyrights end.<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
-Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro). Anything else that's used in the future will be added to this list.
+Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Open Sans](https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
 
 ## Building and running
 
