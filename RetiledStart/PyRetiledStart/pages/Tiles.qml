@@ -31,6 +31,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
+import Qt5Compat.GraphicalEffects
 
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
@@ -134,6 +135,14 @@ ApplicationWindow {
 					height: window.height
 					width: window.width
 					source: "wallpaper.jpg"
+					visible: false
+				}
+				
+				OpacityMask {
+					anchors.fill: tileWallpaper
+					source: tileWallpaper
+					maskSource: tilesContainer
+					
 				}
 		
 		
