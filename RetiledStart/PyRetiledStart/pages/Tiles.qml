@@ -138,8 +138,8 @@ ApplicationWindow {
 					id: tileWallpaper
 					fillMode: Image.PreserveAspectCrop
 					y: tilesContainer.contentY / -2
-					height: tilesContainer.height
-					width: tilesContainer.width
+					height: window.height
+					width: window.width
 					source: "wallpaper.jpg"
 					
 				}
