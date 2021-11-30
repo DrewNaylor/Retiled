@@ -91,7 +91,11 @@ ButtonBase {
 		// the window or it'll override this style's
 		// // contentItem.
                 horizontalAlignment: Text.AlignHCenter
-                // verticalAlignment: Text.AlignVCenter
+				// It's not perfectly in the vertical center,
+				// but it's close enough I think.
+				// At least the horizontalAlignment works
+				// better when using buttonWidth.
+                verticalAlignment: Text.AlignVCenter
 				// Make the font bigger.
 				// pixelSize isn't device-independent.
                 font.pointSize: control.fontSize
@@ -101,7 +105,7 @@ ButtonBase {
 				// of the parent to get proper centered text,
 				// but it doesn'tseem to work.
 				width: buttonWidth
-				height: parent.height
+				height: buttonHeight
 				// A letter spacing of -0.8 emulates
 				// Segoe WP's letter spacing.
 				// However, it's not perfect as I can't
