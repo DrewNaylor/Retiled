@@ -127,24 +127,7 @@ ApplicationWindow {
 				// in this file:
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
-				Rectangle {
-				color: "transparent"
-				width: 150
-				height: window.height
-				clip: true
-				// This clip may help with some stuff, but I don't know.
 				
-				
-				Image {
-					id: tileWallpaper
-					fillMode: Image.PreserveAspectCrop
-					y: tilesContainer.contentY / -2
-					height: window.height
-					width: window.width
-					source: "wallpaper.jpg"
-				}
-				
-				}
 		
 		
 	Flickable {
@@ -201,7 +184,20 @@ ApplicationWindow {
 				
 		
 		
+				Item {
+					height: window.height
+					width: window.width - 20
+					clip: true
 				
+				Image {
+					id: tileWallpaper
+					fillMode: Image.PreserveAspectCrop
+					y: tilesContainer.contentY / -2
+					height: window.height
+					width: window.width - 20
+					source: "wallpaper.jpg"
+					z: -1
+				}
 					
 				
 			Flow {
@@ -212,6 +208,7 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			
 			
 		
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
@@ -308,8 +305,8 @@ ApplicationWindow {
 						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
 						NewTileObject.width = ParsedTilesList[i].TileWidth;
 						NewTileObject.height = ParsedTilesList[i].TileHeight;
-						// NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
-						NewTileObject.tileBackgroundColor = "transparent";
+						NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						// NewTileObject.tileBackgroundColor = "transparent";
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
@@ -343,7 +340,7 @@ ApplicationWindow {
 				
 			}
 			
-	
+				}
 		// Use a FontLoader to get the arrow button font:
 		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
 		FontLoader {
