@@ -129,8 +129,8 @@ ApplicationWindow {
 				
 				Rectangle {
 				color: "black"
-				width: tilesContainer.width
-				height: tilesContainer.height
+				width: window.width
+				height: window.height
 				
 				
 				
