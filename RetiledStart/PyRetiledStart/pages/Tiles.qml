@@ -121,6 +121,30 @@ ApplicationWindow {
 		// using a nested Flickable, so I may have to do that
 		// if this doesn't work.
 		
+		// Add an image that hopefully can be
+				// scrolled with parallax.
+				// This is a modified version of the image
+				// in this file:
+				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
+				
+				Rectangle {
+				color: "black"
+				width: tilesContainer.width
+				height: tilesContainer.height
+				
+				
+				
+				Image {
+					id: tileWallpaper
+					fillMode: Image.PreserveAspectCrop
+					y: tilesContainer.contentY / -2
+					height: tilesContainer.height
+					width: tilesContainer.width
+					source: "wallpaper.jpg"
+					
+				}
+				
+				}
 		
 		
 	Flickable {
@@ -176,30 +200,7 @@ ApplicationWindow {
 		
 				
 		
-		// Add an image that hopefully can be
-				// scrolled with parallax.
-				// This is a modified version of the image
-				// in this file:
-				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
-				
-				Rectangle {
-				color: "black"
-				width: tilesContainer.width
-				height: tilesContainer.height
-				
-				
-				
-				Image {
-					id: tileWallpaper
-					fillMode: Image.PreserveAspectCrop
-					y: tilesContainer.contentY / -2
-					height: tilesContainer.height
-					width: tilesContainer.width
-					source: "wallpaper.jpg"
-					
-				}
-				
-				}
+		
 				
 					
 				
