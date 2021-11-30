@@ -184,8 +184,8 @@ ApplicationWindow {
 				
 				Rectangle {
 				color: "black"
-				width: window.width
-				height: window.height
+				width: tilesContainer.width
+				height: tilesContainer.height
 				
 				
 				
@@ -193,8 +193,8 @@ ApplicationWindow {
 					id: tileWallpaper
 					fillMode: Image.PreserveAspectFit
 					y: tilesContainer.contentY / -2
-					height: window.height
-					width: window.width
+					height: tilesContainer.height
+					width: tilesContainer.width
 					source: "wallpaper.jpg"
 					
 				}
