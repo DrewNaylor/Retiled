@@ -127,14 +127,6 @@ ApplicationWindow {
 				// in this file:
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
-				Rectangle {
-				color: "transparent"
-				width: 150
-				height: window.height
-				clip: true
-				// This clip may help with some stuff, but I don't know.
-				
-				
 				Image {
 					id: tileWallpaper
 					fillMode: Image.PreserveAspectCrop
@@ -142,8 +134,6 @@ ApplicationWindow {
 					height: window.height
 					width: window.width
 					source: "wallpaper.jpg"
-				}
-				
 				}
 		
 		
