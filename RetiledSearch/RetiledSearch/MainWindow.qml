@@ -277,8 +277,6 @@ ApplicationWindow {
             }
 
             model: ListModel {
-				// TODO: Check if the font can be changed for this,
-				// and change it to Open Sans.
 				ListElement { title: "about"; source: "pages/About.qml" }
             }
 
