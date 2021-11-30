@@ -106,6 +106,14 @@ ApplicationWindow {
 	// of the pages in the SwipeView, or it
 	// gets into an endless loop.
     Item {
+		
+		// Trying to implement parallax scrolling based on
+		// this example:
+		// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
+		// I did read on the Qt forums that someone suggested
+		// using a nested Flickable, so I may have to do that
+		// if this doesn't work.
+		
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
 		// TODO: Change the scrolling so it's more loose and doesn't feel like
