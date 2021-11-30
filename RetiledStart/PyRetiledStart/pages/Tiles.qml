@@ -55,26 +55,7 @@ ApplicationWindow {
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
 	Universal.background: 'black'
 	
-	Flickable {
-	Image {
-					id: tileWallpaper
-					fillMode: Image.PreserveAspectCrop
-					height: tilesContainer.height
-					width: tilesContainer.width
-					x: tilesContainer.x + 15
-					y: tilesContainer.y
-					source: "wallpaper.jpg"
-					// source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
-					visible: false
-				}
-				
-				OpacityMask {
-					anchors.fill: tileWallpaper
-					source: tileWallpaper
-					maskSource: tilesContainer
-					invert: false
-				}
-	}
+
 	
 	
 	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
@@ -149,7 +130,26 @@ ApplicationWindow {
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
 				
-		
+			Flickable {
+	Image {
+					id: tileWallpaper
+					fillMode: Image.PreserveAspectCrop
+					height: tilesContainer.height
+					width: tilesContainer.width
+					x: tilesContainer.x + 15
+					y: tilesContainer.y
+					source: "wallpaper.jpg"
+					// source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
+					visible: false
+				}
+				
+				OpacityMask {
+					anchors.fill: tileWallpaper
+					source: tileWallpaper
+					maskSource: tilesContainer
+					invert: false
+				}
+	}
 		
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
