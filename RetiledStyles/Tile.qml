@@ -254,7 +254,13 @@ ButtonBase {
 	background: Rectangle {
 		// Change tile color and stuff.
 				color: control.tileBackgroundColor
-                border.width: 0
+				// Setting a border width of 5 looks pretty
+				// good when tiles are transparent.
+				// Unfortunately I still can't figure out how
+				// to get it so that you can only see the background
+				// through the tiles.
+                // border.width: 5
+				border.width: 0
                 radius: 0
 	}
 	
