@@ -39,6 +39,16 @@ Page {
     background: Rectangle {
         color: 'black'
     }
+	
+	FontLoader {
+			id: opensansLight
+			// This is using the Open Sans Light font, which you can
+			// find here:
+			// https://fonts.google.com/specimen/Open+Sans
+			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
+			// http://www.apache.org/licenses/LICENSE-2.0
+			source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
+		}
 
     RowLayout {
     anchors.left: parent.left
@@ -58,6 +68,9 @@ Page {
                 // Not sure if this is the right font size, but it's closer.
 				// pixelSize isn't device-independent.
                 font.pointSize: 50
+				// Set font.
+				font.family: "Open Sans Light"
+				font.weight: Font.Light
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
