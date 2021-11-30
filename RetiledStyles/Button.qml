@@ -103,7 +103,7 @@ ButtonBase {
                 color: control.textColor
 				// Qt's docs say to set the text to the width
 				// of the parent to get proper centered text,
-				// but it doesn'tseem to work.
+				// but it doesn't seem to work.
 				width: buttonWidth
 				height: buttonHeight
 				// A letter spacing of -0.8 emulates
