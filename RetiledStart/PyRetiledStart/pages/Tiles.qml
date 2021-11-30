@@ -52,7 +52,7 @@ ApplicationWindow {
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
-	Universal.background: 'transparent'
+	Universal.background: 'black'
 	
 	
 	
@@ -308,8 +308,8 @@ ApplicationWindow {
 						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
 						NewTileObject.width = ParsedTilesList[i].TileWidth;
 						NewTileObject.height = ParsedTilesList[i].TileHeight;
-						// NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
-						NewTileObject.tileBackgroundColor = "transparent";
+						NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						// NewTileObject.tileBackgroundColor = "transparent";
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
