@@ -373,8 +373,8 @@ ApplicationWindow {
 			// Apparently ButtonBase uses SemiBold:
 			// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/PhoneToolkitSample8/App.xaml#L51
 			// Hope it works, but I can't really tell a difference.
-			font.family: "Open Sans SemiBold"
-			font.weight: Font.DemiBold
+			// It actually is noticeable on the PinePhone, but I don't
+			// know if I'll keep it SemiBold in the button template.
 			// Windows Phone uses PhoneFontSizeMediumLarge for ButtonBase,
 			// which is a double and has the value of 25.333.
 			// This is a problem for QML's pixelSize, because that's
