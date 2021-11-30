@@ -142,14 +142,14 @@ Page {
 			"https://code.qt.io/cgit/pyside/pyside-setup.git/about/ \n\n" +
 			"Python copyrights are below:\n" +
 			"Copyright (c) 2001-2021 Python Software Foundation.\n" +
-			"All Rights Reserved.\n\n" +
+			"All Rights Reserved.\n" +
 			"Copyright (c) 2000 BeOpen.com.\n" +
-			"All Rights Reserved.\n\n" +
+			"All Rights Reserved.\n" +
 			"Copyright (c) 1995-2001 Corporation for National Research Initiatives.\n" +
-			"All Rights Reserved.\n\n" +
+			"All Rights Reserved.\n" +
 			"Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\n" +
-			"All Rights Reserved.\n\n" +
-			"And that's the end of the Python copyrights, at least for 3.9.\n" +
+			"All Rights Reserved.\n" +
+			"And that's the end of the Python copyrights, at least for 3.9.\n\n" +
 			"You can access the Retiled source code here:\n" +
 			"https://github.com/DrewNaylor/Retiled"
     }
