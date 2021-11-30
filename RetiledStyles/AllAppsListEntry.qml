@@ -117,6 +117,11 @@ RetiledStyles.Button {
 			RetiledStyles.Button {
 				width: parent.width
 				text: qsTr("pin to start")
+				// TODO: Figure out why the font
+				// on this button looks way more bold
+				// than it does in the search app, even
+				// though the button template uses the
+				// same weight for each.
 				onClicked: pinToStart(dotDesktopFilePath)
 			}
 		}
