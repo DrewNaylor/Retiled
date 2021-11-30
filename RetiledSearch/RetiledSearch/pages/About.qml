@@ -50,13 +50,7 @@ Page {
 			source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
 		}
 		
-		// Properties for pixel density:
-	// https://stackoverflow.com/a/38003760
-	// This is what QML told me when I used
-	// console.log(Screen.pixelDensity).
-	property real mylaptopPixelDensity: 4.4709001084468
-	// This is just whatever the device that's running will use.
-	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
+	
 
     RowLayout {
     anchors.left: parent.left
