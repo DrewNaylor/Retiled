@@ -218,7 +218,9 @@ ButtonBase {
 				// in half in a medium tile at the same time
 				// as the entirety of the "o" in "Calculator"
 				// is showing on a small tile.
-				font.letterSpacing: -0.75
+				// For some reason, the font spacing is slightly
+				// off on the phone.
+				font.letterSpacing: -0.85
             }
 	
 	background: Rectangle {
