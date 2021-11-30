@@ -126,11 +126,11 @@ Page {
 			"WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
 			"See the License for the specific language governing permissions and\n" +
 			"limitations under the License.\n\n" +
-			"RetiledSearch is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n" +
+			"RetiledSearch is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n\n" +
 			"The ''back'' button in this app is provided by the wp-metro font, made by AJ Troxell, licensed under the SIL OFL 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
-			"https://github.com/ajtroxell/wp-metro \n" +
+			"https://github.com/ajtroxell/wp-metro \n\n" +
 			"Text in this app uses Open Sans, designed by Steve Matteson, licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0), and available here:\n"+
-			"https://fonts.google.com/specimen/Open+Sans \n" +
+			"https://fonts.google.com/specimen/Open+Sans \n\n" +
 			"Qt (and I think PySide6 as well, since it's owned by The Qt Company) is copyright The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here:\n" +
 			"https://www.gnu.org/licenses/lgpl-3.0.en.html \n" +
 			"I'm also supposed to provide a link to the standard GPL:\n" +
