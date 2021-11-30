@@ -153,7 +153,8 @@ ButtonBase {
 				text: qsTr("resize (medium)")
 				font.family: "Open Sans"
 				font.weight: Font.Normal
-				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
+				// onClicked: resizeTile(dotDesktopFilePath, 150, 150)
+				onClicked: console.log(font)
 			}
 			ButtonBase {
 				text: qsTr("resize (small)")
