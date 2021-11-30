@@ -88,6 +88,11 @@ ButtonBase {
                 font.pixelSize: control.fontSize
                 text: control.text
                 color: control.textColor
+				// Qt's docs say to set the text to the width
+				// of the parent to get proper centered text,
+				// but it doesn'tseem to work.
+				width: parent.width
+				height: parent.height
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"

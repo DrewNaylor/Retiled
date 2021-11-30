@@ -341,8 +341,7 @@ ApplicationWindow {
          RetiledStyles.Button {
             id: searchButton
 			onClicked: {
-				// searchClass.openUrl(searchBox.text)
-				console.log(font)
+				searchClass.openUrl(searchBox.text)
 			}
 			
 			// Pro-tip: set these properties rather than
