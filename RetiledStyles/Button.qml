@@ -126,6 +126,9 @@ ButtonBase {
 				// I'll keep it for now to make sure things
 				// don't get too out of control.
 				font.letterSpacing: -0.8 * scaleFactor
+				// Set font.
+				font.family: "Open Sans SemiBold"
+				font.weight: Font.DemiBold
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"
