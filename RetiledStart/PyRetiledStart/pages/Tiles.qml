@@ -127,19 +127,20 @@ ApplicationWindow {
 				// in this file:
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
-				Item {
-				width: tilesContainer.width
-				height: tilesContainer.height
+				Rectangle {
+				color: "transparent"
+				width: 150
+				height: window.height
 				clip: true
 				// This clip may help with some stuff, but I don't know.
-				// Now the x and y positions are right behind the tiles.
-				x: tilesContainer.x + 15
-				y: tilesContainer.y
+				
 				
 				Image {
 					id: tileWallpaper
 					fillMode: Image.PreserveAspectCrop
 					y: tilesContainer.contentY / -2
+					height: window.height
+					width: window.width
 					source: "wallpaper.jpg"
 				}
 				
