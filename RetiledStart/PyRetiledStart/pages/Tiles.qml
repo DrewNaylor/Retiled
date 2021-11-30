@@ -156,6 +156,7 @@ ApplicationWindow {
 		}
 		
 		
+		
 		// We'll use Flow to get the buttons to wrap
 		// to each line. This may not be what I'll
 		// always use, though.
@@ -163,15 +164,7 @@ ApplicationWindow {
 		// https://doc.qt.io/qt-6/qml-qtquick-flow.html
 		// SO example:
 		// https://stackoverflow.com/a/38532138
-		Flow {
-			id: tilesContainer
-			spacing: 10
-			// Make sure the buttons stay in the tiles area.
-			width: window.width
-			// Set layout to the center.
-			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-			
-			// Add an image that hopefully can be
+		// Add an image that hopefully can be
 				// scrolled with parallax.
 				// This is a modified version of the image
 				// in this file:
@@ -182,7 +175,19 @@ ApplicationWindow {
 					y: tilesContainer.contentY / -2
 					height: Math.max(tilesContainer.contentHeight, parent.height)
 					source: "wallpaper.jpg"
-				}
+				
+		Flow {
+			
+		
+			
+			id: tilesContainer
+			spacing: 10
+			// Make sure the buttons stay in the tiles area.
+			width: window.width
+			// Set layout to the center.
+			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			
+			
 		
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
 			// a different one work for the All Apps list:
@@ -312,6 +317,8 @@ ApplicationWindow {
 				
 				
 			}
+			
+				}
 	
 		// Use a FontLoader to get the arrow button font:
 		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
