@@ -52,7 +52,9 @@ ApplicationWindow {
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
-	Universal.background: 'black'
+	Universal.background: 'transparent'
+	
+	
 	
 	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
 	// https://stackoverflow.com/a/8430030
@@ -97,6 +99,8 @@ ApplicationWindow {
         }
     }
 	
+	
+	
 	SwipeView {
 		id: startScreenView
 		currentIndex: 0
@@ -105,6 +109,9 @@ ApplicationWindow {
 	// Note: You have to use "Item" for each
 	// of the pages in the SwipeView, or it
 	// gets into an endless loop.
+	
+	
+	
     Item {
 		
 		// Trying to implement parallax scrolling based on
@@ -113,6 +120,8 @@ ApplicationWindow {
 		// I did read on the Qt forums that someone suggested
 		// using a nested Flickable, so I may have to do that
 		// if this doesn't work.
+		
+		
 		
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
@@ -164,21 +173,32 @@ ApplicationWindow {
 		// https://doc.qt.io/qt-6/qml-qtquick-flow.html
 		// SO example:
 		// https://stackoverflow.com/a/38532138
+		
+				
+		
 		// Add an image that hopefully can be
 				// scrolled with parallax.
 				// This is a modified version of the image
 				// in this file:
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
+				
 				Image {
 					id: tileWallpaper
-					fillMode: Image.TileVertically
+					fillMode: Image.PreserveAspectFit
 					y: tilesContainer.contentY / -2
 					height: Math.max(tilesContainer.contentHeight, parent.height)
+					width: parent.width
 					source: "wallpaper.jpg"
+					
+				}
 				
-		Flow {
-			
-		
+				Rectangle {
+					color: "black"
+					width: 50
+					height: 26
+				}
+				
+			Flow {
 			
 			id: tilesContainer
 			spacing: 10
@@ -186,7 +206,6 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-			
 			
 		
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
@@ -318,7 +337,6 @@ ApplicationWindow {
 				
 			}
 			
-				}
 	
 		// Use a FontLoader to get the arrow button font:
 		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
