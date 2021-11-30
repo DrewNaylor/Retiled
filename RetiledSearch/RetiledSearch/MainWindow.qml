@@ -236,6 +236,12 @@ ApplicationWindow {
         // Edge documentation:
         // https://doc.qt.io/qt-5/qml-qtquick-controls2-drawer.html#edge-prop
         edge: Qt.BottomEdge
+		
+		// Set font.
+				font.family: "Open Sans SemiBold"
+				font.weight: Font.DemiBold
+				// TODO: Move letter spacing into the control.
+				font.letterSpacing: -0.8 * scaleFactor
 
 
         // Removing the shadow from the drawer:
