@@ -128,22 +128,7 @@ ApplicationWindow {
 				// in this file:
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
-				Image {
-					id: tileWallpaper
-					fillMode: Image.PreserveAspectCrop
-					y: tilesContainer.contentY / -2
-					height: window.height
-					width: window.width
-					source: "wallpaper.jpg"
-					visible: false
-				}
 				
-				OpacityMask {
-					anchors.fill: tileWallpaper
-					source: tileWallpaper
-					maskSource: tilesContainer
-					
-				}
 		
 		
 	Flickable {
@@ -201,7 +186,22 @@ ApplicationWindow {
 		
 		
 				
+					Image {
+					id: tileWallpaper
+					fillMode: Image.PreserveAspectCrop
+					y: tilesContainer.contentY / -2
+					height: window.height
+					width: window.width
+					source: "wallpaper.jpg"
+					visible: false
+				}
+				
+				OpacityMask {
+					anchors.fill: tileWallpaper
+					source: tileWallpaper
+					maskSource: tilesContainer
 					
+				}
 				
 			Flow {
 			
@@ -211,6 +211,7 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			
 			
 		
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
