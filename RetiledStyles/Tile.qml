@@ -220,7 +220,11 @@ ButtonBase {
 				// is showing on a small tile.
 				// For some reason, the font spacing is slightly
 				// off on the phone.
-				font.letterSpacing: -0.85
+				// I think they're different because this is
+				// based on pixels.
+				// Preferably this would multiply against
+				// the DPI to determine what number should be used.
+				font.letterSpacing: -1
             }
 	
 	background: Rectangle {
