@@ -224,7 +224,7 @@ ButtonBase {
 				// based on pixels.
 				// Preferably this would multiply against
 				// the DPI to determine what number should be used.
-				font.letterSpacing: -1
+				font.letterSpacing: -1.25
             }
 	
 	background: Rectangle {
