@@ -303,6 +303,7 @@ ApplicationWindow {
 					fillMode: Image.TileVertically
 					y: tilesContainer.contentY / -2
 					height: Math.max(tilesContainer.contentHeight, parent.height)
+					source: 
 				}
 				
 			}
