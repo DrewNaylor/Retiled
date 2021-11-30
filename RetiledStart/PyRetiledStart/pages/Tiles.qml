@@ -155,18 +155,6 @@ ApplicationWindow {
 			
 		}
 		
-		// Add an image that hopefully can be
-				// scrolled with parallax.
-				// This is a modified version of the image
-				// in this file:
-				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
-				Image {
-					id: tileWallpaper
-					fillMode: Image.TileVertically
-					y: tilesContainer.contentY / -2
-					height: Math.max(tilesContainer.contentHeight, parent.height)
-					source: "wallpaper.jpg"
-				}
 		
 		// We'll use Flow to get the buttons to wrap
 		// to each line. This may not be what I'll
@@ -182,6 +170,20 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			
+			// Add an image that hopefully can be
+				// scrolled with parallax.
+				// This is a modified version of the image
+				// in this file:
+				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
+				Image {
+					id: tileWallpaper
+					fillMode: Image.TileVertically
+					y: tilesContainer.contentY / -2
+					height: Math.max(tilesContainer.contentHeight, parent.height)
+					source: "wallpaper.jpg"
+				}
+		
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
 			// a different one work for the All Apps list:
 			// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/editingmodel
@@ -276,7 +278,8 @@ ApplicationWindow {
 						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
 						NewTileObject.width = ParsedTilesList[i].TileWidth;
 						NewTileObject.height = ParsedTilesList[i].TileHeight;
-						NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						// NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						NewTileObject.tileBackgroundColor = "transparent";
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
