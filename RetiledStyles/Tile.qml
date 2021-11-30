@@ -155,25 +155,29 @@ ButtonBase {
 				// files, or it doesn't seem to work.
 				font.family: "Open Sans"
 				font.weight: Font.Normal
-				// onClicked: unpinTile(dotDesktopFilePath)
-				onClicked: console.log(Screen.pixelDensity)
+				// TODO: Move letter spacing into the control.
+				font.letterSpacing: -0.8 * scaleFactor
+				onClicked: unpinTile(dotDesktopFilePath)
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")
 				font.family: "Open Sans"
 				font.weight: Font.Normal
+				font.letterSpacing: -0.8 * scaleFactor
 				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
 			}
 			ButtonBase {
 				text: qsTr("resize (small)")
 				font.family: "Open Sans"
 				font.weight: Font.Normal
+				font.letterSpacing: -0.8 * scaleFactor
 				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
 			}
 			ButtonBase {
 				text: qsTr("resize (wide)")
 				font.family: "Open Sans"
 				font.weight: Font.Normal
+				font.letterSpacing: -0.8 * scaleFactor
 				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
 			}
 		}

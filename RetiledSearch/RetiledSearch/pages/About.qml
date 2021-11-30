@@ -49,6 +49,14 @@ Page {
 			// http://www.apache.org/licenses/LICENSE-2.0
 			source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
 		}
+		
+		// Properties for pixel density:
+	// https://stackoverflow.com/a/38003760
+	// This is what QML told me when I used
+	// console.log(Screen.pixelDensity).
+	property real mylaptopPixelDensity: 4.4709001084468
+	// This is just whatever the device that's running will use.
+	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 
     RowLayout {
     anchors.left: parent.left
@@ -71,6 +79,8 @@ Page {
 				// Set font.
 				font.family: "Open Sans Light"
 				font.weight: Font.Light
+				// TODO: Move letter spacing into the control.
+				font.letterSpacing: -0.8 * scaleFactor
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
@@ -106,6 +116,8 @@ Page {
 			// Set font style to opensans.
 				font.family: "Open Sans"
 				font.weight: Font.Normal
+				// TODO: Move letter spacing into the control.
+				font.letterSpacing: -0.8 * scaleFactor
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
