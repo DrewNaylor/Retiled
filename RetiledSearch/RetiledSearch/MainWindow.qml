@@ -299,8 +299,7 @@ ApplicationWindow {
 			Keys.onReturnPressed: {
 				searchClass.openUrl(searchBox.text)
 			}
-            // I don't know how to get the width to change when the window
-            // is resized, so it's hardcoded at 312 for now.
+			// Anchor the search box to the left and right of the window.
 			anchors.margins: 12
 			anchors.topMargin: 5
 			anchors.top: parent.top
@@ -311,7 +310,7 @@ ApplicationWindow {
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
 			// pixelSize isn't device-independent.
-            font.pointSize: 18
+            font.pointSize: 16
 			// Set font style to opensans.
 			font.family: "Open Sans"
 			font.weight: Font.Normal
