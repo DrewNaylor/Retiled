@@ -41,7 +41,8 @@ ButtonBase {
 	
 	// Add properties.
 	property string tileText: "tile"
-	property int fontSize: 14
+	// A fontSize of 12 is pretty close to the real sizing.
+	property int fontSize: 12
 	property string textColor: "white"
 	// Fun fact: if you change the color value here
 	// to #990050ef (or anything else with numbers in front of "0050ef"),
@@ -80,7 +81,10 @@ ButtonBase {
 	// ("WP8.1 app with a really long name for testing", though I didn't keep the full thing) be in half properly.
 	// I would prefer to use 8, but Open Sans isn't close enough together.
 	// Forking it could improve that.
-	leftPadding: 7
+	// Actually, Segoe WP's spacing can be emulated by setting the pixel spacing to -8.
+	// It would still be best to fork Open Sans, though, as that's how it can be fixed
+	// properly, along with fixing the J and Q.
+	leftPadding: 8
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 6
@@ -207,6 +211,14 @@ ButtonBase {
 				// Set font style to opensans.
 				font.family: "Open Sans"
 				font.weight: Font.Normal
+				// A letter spacing of -0.8 emulates
+				// Segoe WP's letter spacing.
+				// However, it's not perfect as I can't
+				// get the second "l" in "really" to be
+				// in half in a medium tile at the same time
+				// as the entirety of the "o" in "Calculator"
+				// is showing on a small tile.
+				font.letterSpacing: -0.8
             }
 	
 	background: Rectangle {
