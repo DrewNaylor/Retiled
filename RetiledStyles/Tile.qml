@@ -89,6 +89,14 @@ ButtonBase {
 	rightPadding: 0
 	bottomPadding: 6
 	
+	// Properties for pixel density:
+	// https://stackoverflow.com/a/38003760
+	// This is what QML told me when I used
+	// console.log(Screen.pixelDensity).
+	property real mylaptopPixelDensity: 4.4709001084468
+	// This is just whatever the device that's running will use.
+	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
+	
 	// Add a mousearea to allow for clicking it.
 	MouseArea {
 		anchors.fill: parent
@@ -147,7 +155,8 @@ ButtonBase {
 				// files, or it doesn't seem to work.
 				font.family: "Open Sans"
 				font.weight: Font.Normal
-				onClicked: unpinTile(dotDesktopFilePath)
+				// onClicked: unpinTile(dotDesktopFilePath)
+				onClicked: console.log(Screen.pixelDensity)
 			}
 			ButtonBase {
 				text: qsTr("resize (medium)")
@@ -227,7 +236,7 @@ ButtonBase {
 				// I think -1.25 is close enough for the PinePhone.
 				// This SO answer shows how to multiply against
 				// pixel density: https://stackoverflow.com/a/38003760
-				font.letterSpacing: -1.25
+				font.letterSpacing: -0.8 * scaleFactor
             }
 	
 	background: Rectangle {
