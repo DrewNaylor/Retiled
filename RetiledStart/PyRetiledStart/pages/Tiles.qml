@@ -182,6 +182,7 @@ ApplicationWindow {
 				// in this file:
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
+				Rectangle {
 				Image {
 					id: tileWallpaper
 					fillMode: Image.PreserveAspectFit
@@ -192,7 +193,7 @@ ApplicationWindow {
 					
 				}
 				
-				Rectangle {
+				
 					color: "black"
 					width: parent.width
 					height: parent.height
