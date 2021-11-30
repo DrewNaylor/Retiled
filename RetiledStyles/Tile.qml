@@ -236,6 +236,9 @@ ButtonBase {
 				// I think -1.25 is close enough for the PinePhone.
 				// This SO answer shows how to multiply against
 				// pixel density: https://stackoverflow.com/a/38003760
+				// This doesn't help that much, but I think
+				// I'll keep it for now to make sure things
+				// don't get too out of control.
 				font.letterSpacing: -0.8 * scaleFactor
             }
 	
