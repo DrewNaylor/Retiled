@@ -194,8 +194,8 @@ ApplicationWindow {
 				
 				Rectangle {
 					color: "black"
-					width: 50
-					height: 26
+					width: parent.width
+					height: parent.height
 				}
 				
 			Flow {
