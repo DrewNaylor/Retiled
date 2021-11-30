@@ -143,6 +143,9 @@ ApplicationWindow {
 					visible: false
 				}
 				
+				// We're using a custom shader:
+				// https://stackoverflow.com/a/39907404
+				
 				OpacityMask {
 					anchors.fill: tileWallpaper
 					source: tileWallpaper
