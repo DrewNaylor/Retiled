@@ -191,7 +191,7 @@ ApplicationWindow {
 				
 				Image {
 					id: tileWallpaper
-					fillMode: Image.PreserveAspectFit
+					fillMode: Image.PreserveAspectCrop
 					y: tilesContainer.contentY / -2
 					height: tilesContainer.height
 					width: tilesContainer.width
