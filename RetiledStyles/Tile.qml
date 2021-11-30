@@ -224,6 +224,9 @@ ButtonBase {
 				// based on pixels.
 				// Preferably this would multiply against
 				// the DPI to determine what number should be used.
+				// I think -1.25 is close enough for the PinePhone.
+				// This SO answer shows how to multiply against
+				// pixel density: https://stackoverflow.com/a/38003760
 				font.letterSpacing: -1.25
             }
 	
