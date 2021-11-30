@@ -155,6 +155,19 @@ ApplicationWindow {
 			
 		}
 		
+		// Add an image that hopefully can be
+				// scrolled with parallax.
+				// This is a modified version of the image
+				// in this file:
+				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
+				Image {
+					id: tileWallpaper
+					fillMode: Image.TileVertically
+					y: tilesContainer.contentY / -2
+					height: Math.max(tilesContainer.contentHeight, parent.height)
+					source: "wallpaper.jpg"
+				}
+		
 		// We'll use Flow to get the buttons to wrap
 		// to each line. This may not be what I'll
 		// always use, though.
@@ -293,18 +306,7 @@ ApplicationWindow {
 					
 				} // Component.onCompleted for the Tiles Flow area.
 				
-				// Add an image that hopefully can be
-				// scrolled with parallax.
-				// This is a modified version of the image
-				// in this file:
-				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
-				Image {
-					id: tileWallpaper
-					fillMode: Image.TileVertically
-					y: tilesContainer.contentY / -2
-					height: Math.max(tilesContainer.contentHeight, parent.height)
-					source: "wallpaper.jpg"
-				}
+				
 				
 			}
 	
