@@ -66,6 +66,10 @@ ButtonBase {
 	// Just like the textColor, borderColor would be black
 	// in the light theme.
 	property string borderColor: "white"
+	// Very rarely, buttons will have a different border color
+	// when pressed. One example of this is the "unpin tile"
+	// button. I still need to check the light theme for this.
+	property string pressedBorderColor: "white"
 	property int borderWidth: 2
 	property int borderRadius: 0
 	// Change button size to help with the large font.
@@ -138,7 +142,7 @@ ButtonBase {
            background: Rectangle {
                 implicitWidth: control.buttonWidth
                 implicitHeight: control.buttonHeight
-                border.color: control.borderColor
+                border.color: control.down ? control.pressedBorderColor : control.borderColor
 				// Set the background color for the button here
 				// since the state-changing thing doesn't work
 				// anymore in Qt6. This is temporary if I figure

@@ -117,7 +117,7 @@ ButtonBase {
 		// it's done in the tile area.
 		z: control.z + 1
 		// Remove the border since the image itself has one.
-		borderWidth: 0
+		borderWidth: 2
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
 		pressedBackgroundColor: "white"
@@ -126,6 +126,8 @@ ButtonBase {
 		// on WP. Thought something looked slightly off.
 		// TODO: Check if this is also black under the light theme.
 		unpressedBackgroundColor: "black"
+		// Also set pressedBorderColor.
+		pressedBorderColor: "black"
 		// TODO: I need to figure out how to make the unpin icon
 		// not show white outside the border. Maybe I need to remove
 		// the circle and just use mine.
