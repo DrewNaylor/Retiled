@@ -89,6 +89,139 @@ ButtonBase {
 	rightPadding: 0
 	bottomPadding: 6
 	
+	// Create a boolean that says whether we're in edit mode or not.
+	// This'll allow people to exit edit mode by tapping the tile.
+	property bool editMode: false
+	
+	RoundButton {
+		id: unpinButton
+		visible: false
+		Image {
+			// It's "pressed", not "down", to change images:
+			// https://stackoverflow.com/a/30092412
+			source: parent.pressed ? "../icons/actions/unpin.svg" : "../icons/actions/unpin_white.svg"
+			anchors.fill: parent
+			fillMode: Image.Stretch
+			// Mipmapping makes it look pretty good.
+			mipmap: true
+		}
+		rotation: 45
+		// Anchor the horizontal and vertical
+		// center to the right and top
+		// respectively so that the unpin
+		// button is in the top-right.
+		anchors.horizontalCenter: control.right
+		anchors.verticalCenter: control.top
+		// Set z value to above the tile so that
+		// tapping the button works even if
+		// it's done in the tile area.
+		z: control.z + 1
+		// Remove the border since the image itself has one.
+		borderWidth: 0
+		// Change the pressed background color.
+		// TODO: Check if it's the same under the light theme.
+		pressedBackgroundColor: "white"
+		onClicked: {
+			// Reset the z-index for the tile and hide the buttons.
+			// NOTE: Unpinning a tile removes the buttons, so this
+			// is ok, unlike when resizing the tile.
+			control.z = control.z - 1;
+			resizeButton.visible = false;
+			unpinButton.visible = false;
+			// Turn off edit mode.
+			editMode = false;
+			// Unpin the tile.
+			unpinTile(dotDesktopFilePath);
+			// Temporary placeholder code that just
+			// sets the tile to be invisible.
+			// TODO: Figure out how to properly remove the tile
+			// since it's dynamically-created.
+			control.visible = false;
+			// TODO 2: Hide the tiles page if none of them are pinned.
+		}
+	}
+	
+	RoundButton {
+		id: resizeButton
+		visible: false
+		text: "<b>\ue021</b>"
+		font: metroFont.font
+		// Anchor the horizontal and vertical
+		// center to the right and bottom
+		// respectively so that the resize
+		// button is in the bottom-right.
+		anchors.horizontalCenter: control.right
+		anchors.verticalCenter: control.bottom
+		// Set z value to above the tile so that
+		// tapping the button works even if
+		// it's done in the tile area.
+		z: control.z + 1
+		// Change the pressed background color.
+		// TODO: Check if it's the same under the light theme.
+		pressedBackgroundColor: "white"
+		// Change pressed text color.
+		// TODO: Check if this is also the same under the light theme.
+		pressedTextColor: "black"
+		onClicked: {
+			// Reset the z-index for the tile and hide the buttons.
+			// TODO: Figure out how to make it so that tapping any other
+			// tile or area on the start screen will hide the
+			// resize button so that the user can
+			// resize multiple times at once.
+			// control.z = control.z - 1;
+			// resizeButton.visible = false;
+			// unpinButton.visible = false;
+			// Actually, we have an edit mode boolean now,
+			// so the buttons can stay on here.
+			// Resize the tile based on its current width.
+			// Using an if statement to determine what to
+			// change the button rotation to:
+			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+			// Use "&&" for "and":
+			// https://stackoverflow.com/a/12364825
+			if ((control.width == 150) && (control.height == 150)) {
+				// If button is medium, resize to small.
+				resizeTile(dotDesktopFilePath, 70, 70);
+				// Visually change the size here.
+				control.width = 70;
+				control.height = 70;
+				// Change the resize button's rotation for the small tile.
+				// 45 points down-right.
+				resizeButton.rotation = 45;
+			} else if ((control.width == 70) && (control.height == 70)) {
+				// If button is small, resize to wide.
+				resizeTile(dotDesktopFilePath, 310, 150);
+				// Visually change the size here.
+				control.width = 310;
+				control.height = 150;
+				// Change the resize button's rotation for the wide tile.
+				// -180 points the arrow backward.
+				resizeButton.rotation = -180;
+			} else if ((control.width == 310) && (control.height == 150)) {
+				// If button is wide, resize to medium.
+				resizeTile(dotDesktopFilePath, 150, 150);
+				// Visually change the size here.
+				control.width = 150;
+				control.height = 150;
+				// Change the resize button's rotation to match
+				// the medium tile's expected resize button rotation.
+				// We're changing it to -135 so it points in the top-left.
+				resizeButton.rotation = -135;
+			} else {
+				// If nothing matches, resize to medium, just
+				// in case.
+				resizeTile(dotDesktopFilePath, 150, 150);
+				// Visually change the size here.
+				control.width = 150;
+				control.height = 150;
+				// Change the resize button's rotation to match
+				// the medium tile's expected resize button rotation.
+				// We're changing it to -135 so it points in the top-left.
+				resizeButton.rotation = -135;
+			}
+		}
+	}
+	
 	// Properties for pixel density:
 	// https://stackoverflow.com/a/38003760
 	// This is what QML told me when I used
@@ -101,20 +234,31 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
-		parent.clicked(parent.execKey);
-		// Reset the scale to 1.0.
-		// This, along with setting the scale
-		// in various events below, probably
-		// isn't the best way to do this, but
-		// it's approximately the same thing
-		// as before the MouseArea was used.
-		// I'd prefer to just use
-		// control.scale: control.down ? 0.98 : 1.0
-		// but I can't seem to get that to work
-		// with a MouseArea.
-		// TODO: Make this less janky.
-		control.scale = 1.0;
-		
+			// Only run the app if edit mode is off.
+			if (editMode == false) {
+				parent.clicked(parent.execKey);
+				// Reset the scale to 1.0.
+				// This, along with setting the scale
+				// in various events below, probably
+				// isn't the best way to do this, but
+				// it's approximately the same thing
+				// as before the MouseArea was used.
+				// I'd prefer to just use
+				// control.scale: control.down ? 0.98 : 1.0
+				// but I can't seem to get that to work
+				// with a MouseArea.
+				// TODO: Make this less janky.
+				control.scale = 1.0;
+			} else if (editMode == true) {
+				// Turn off edit mode if it's on.
+				editMode = false;
+				// Hide the edit mode buttons and reset the tile's
+				// z-index.
+				control.z = control.z - 1;
+				resizeButton.visible = false;
+				unpinButton.visible = false;
+			}
+
 		}
 		// Scaling the buttons down then back up
 		// is done by setting scale values for both
@@ -129,56 +273,64 @@ ButtonBase {
 		// but at least it's not as janky as it was
 		// before adding onCanceled and resetting
 		// the scale in the click handler.
-		onPressed: control.scale = 0.98
+		onPressed: {
+			// Only change the scale if edit mode is off.
+			if (editMode == false) {
+				control.scale = 0.98
+			}
+		}
 		onReleased: control.scale = 1.0
 		onCanceled: control.scale = 1.0
 		
-		// Trying to do a press and hold for the menu.
+		// Trying to do a press and hold for edit mode.
 		onPressAndHold: {
-			tilemenu.open();
-		}
-	}
-	
-	// Adding the context menus:
-	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
-	Popup {
-		id: tilemenu
-		modal: true
-		visible: showContextMenu
-		// We're using the column layout.
-		Column {
-			anchors.fill: parent
-			ButtonBase {
-				text: qsTr("unpin")
-				// Apparently we have to use "font.family"
-				// instead of "font: ..." in secondary QML
-				// files, or it doesn't seem to work.
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: unpinTile(dotDesktopFilePath)
-			}
-			ButtonBase {
-				text: qsTr("resize (medium)")
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
-			}
-			ButtonBase {
-				text: qsTr("resize (small)")
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
-			}
-			ButtonBase {
-				text: qsTr("resize (wide)")
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
+			// TODO: Figure out how to have it enter a
+			// "tile modification" mode so that users can
+			// scroll and tap on different tiles to modify
+			// them instead of having to long-press on each
+			// tile.
+			// This would also allow moving tiles around
+			// if I can figure out how to initiate a grab
+			// and let the user scroll up and down by dragging
+			// the tile.
+			// Pressing a tile, using the back button, or tapping
+			// anywhere outside the resize and unpin buttons
+			// on the start screen will also exit the modification
+			// mode.
+			// Note that you can also just have no tile selected so
+			// they're all in the "background", smaller, and less
+			// visible (darker/dimmer?).
+			// Update: There's an edit mode now, but it only applies
+			// to each tile rather than the entire tile list, so
+			// it's still possible to open an app with tile A while the menu
+			// for tile B is open.
+			control.z = control.z + 1;
+			resizeButton.visible = true;
+			unpinButton.visible = true;
+			// Turn on edit mode.
+			editMode = true;
+			// Rotate the resize button as well.
+			// TODO: Make the rotation into its own function.
+			// NOTE: These values are different from the ones
+			// used when pressing the resize button.
+			if ((control.width == 150) && (control.height == 150)) {
+				// Change the resize button's rotation for the medium tile.
+				// -135 points the arrow in the top-left corner.
+				resizeButton.rotation = -135;
+			} else if ((control.width == 70) && (control.height == 70)) {
+				// Change the resize button's rotation for the small tile.
+				// 45 points the arrow down-right.
+				resizeButton.rotation = 45;
+			} else if ((control.width == 310) && (control.height == 150)) {
+				// Change the resize button's rotation to match
+				// the wide tile's expected resize button rotation.
+				// -180 points to the left.
+				resizeButton.rotation = -180;
+			} else {
+				// Change the resize button's rotation to -135 to match
+				// the wide tile if we don't know what the tile's size is.
+				// We're changing it to -135 so it points in the top-left.
+				resizeButton.rotation = -135;
 			}
 		}
 	}
