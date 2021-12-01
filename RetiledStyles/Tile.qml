@@ -234,30 +234,31 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
-		// Only run the app if edit mode is off.
-		if (editMode == false) {
-			parent.clicked(parent.execKey);
-		} else if (editMode == true) {
+			// Only run the app if edit mode is off.
+			if (editMode == false) {
+				parent.clicked(parent.execKey);
+				// Reset the scale to 1.0.
+				// This, along with setting the scale
+				// in various events below, probably
+				// isn't the best way to do this, but
+				// it's approximately the same thing
+				// as before the MouseArea was used.
+				// I'd prefer to just use
+				// control.scale: control.down ? 0.98 : 1.0
+				// but I can't seem to get that to work
+				// with a MouseArea.
+				// TODO: Make this less janky.
+				control.scale = 1.0;
+			} else if (editMode == true) {
 				// Turn off edit mode if it's on.
-			editMode = false;
-			// Hide the edit mode buttons and reset the tile's
-			// z-index.
-			control.z = control.z - 1;
-			resizeButton.visible = false;
-			unpinButton.visible = false;
-		}
-		// Reset the scale to 1.0.
-		// This, along with setting the scale
-		// in various events below, probably
-		// isn't the best way to do this, but
-		// it's approximately the same thing
-		// as before the MouseArea was used.
-		// I'd prefer to just use
-		// control.scale: control.down ? 0.98 : 1.0
-		// but I can't seem to get that to work
-		// with a MouseArea.
-		// TODO: Make this less janky.
-			control.scale = 1.0;
+				editMode = false;
+				// Hide the edit mode buttons and reset the tile's
+				// z-index.
+				control.z = control.z - 1;
+				resizeButton.visible = false;
+				unpinButton.visible = false;
+			}
+
 		}
 		// Scaling the buttons down then back up
 		// is done by setting scale values for both
