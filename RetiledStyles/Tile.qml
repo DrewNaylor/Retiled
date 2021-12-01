@@ -139,6 +139,12 @@ ButtonBase {
 		}
 	}
 	
+	RoundButton {
+		text: "u"
+		anchors.right: control.right
+		anchors.top: control.top
+	}
+	
 	// Adding the context menus:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
 	Popup {
