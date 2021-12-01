@@ -170,7 +170,7 @@ ButtonBase {
 				control.height = 70;
 				// Change the resize button's rotation as well.
 				// -135 points the arrow in the top-left corner.
-				resizeButton.rotation = -45;
+				resizeButton.rotation = 45;
 			} else if ((control.width == 70) && (control.height == 70)) {
 				// If button is small, resize to wide.
 				resizeTile(dotDesktopFilePath, 310, 150);
