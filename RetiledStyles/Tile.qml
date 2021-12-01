@@ -273,7 +273,12 @@ ButtonBase {
 		// but at least it's not as janky as it was
 		// before adding onCanceled and resetting
 		// the scale in the click handler.
-		onPressed: control.scale = 0.98
+		onPressed: {
+			// Only change the scale if edit mode is off.
+			if (editMode == false) {
+				control.scale = 0.98
+			}
+		}
 		onReleased: control.scale = 1.0
 		onCanceled: control.scale = 1.0
 		
