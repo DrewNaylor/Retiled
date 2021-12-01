@@ -123,6 +123,13 @@ ButtonBase {
 			control.z = control.z - 1;
 			resizeButton.visible = false;
 			unpinButton.visible = false;
+			// Unpin the tile.
+			unpinTile(dotDesktopFilePath);
+			// Temporary placeholder code that just
+			// sets the tile to be invisible.
+			// TODO: Figure out how to properly remove the tile
+			// since it's dynamically-created.
+			control.visible = false;
 		}
 	}
 	
