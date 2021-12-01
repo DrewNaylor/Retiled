@@ -168,7 +168,7 @@ ButtonBase {
 				// Visually change the size here.
 				control.width = 70;
 				control.height = 70;
-				// Change the resize button's rotation as well.
+				// Change the resize button's rotation for the small tile.
 				// -135 points the arrow in the top-left corner.
 				resizeButton.rotation = 45;
 			} else if ((control.width == 70) && (control.height == 70)) {
@@ -177,7 +177,7 @@ ButtonBase {
 				// Visually change the size here.
 				control.width = 310;
 				control.height = 150;
-				// Change the resize button's rotation as well.
+				// Change the resize button's rotation for the wide tile.
 				// -180 points the arrow backward.
 				resizeButton.rotation = -180;
 			} else if ((control.width == 310) && (control.height == 150)) {
@@ -186,7 +186,9 @@ ButtonBase {
 				// Visually change the size here.
 				control.width = 150;
 				control.height = 150;
-				// Change the resize button's rotation as well.
+				// Change the resize button's rotation to match
+				// the medium tile's expected resize button rotation.
+				// We're changing it to -135 so it points in the top-left.
 				resizeButton.rotation = -135;
 			} else {
 				// If nothing matches, resize to medium, just
@@ -195,7 +197,8 @@ ButtonBase {
 				// Visually change the size here.
 				control.width = 150;
 				control.height = 150;
-				// Change the resize button's rotation as well.
+				// Change the resize button's rotation to match
+				// the medium tile's expected resize button rotation.
 				// We're changing it to -135 so it points in the top-left.
 				resizeButton.rotation = -135;
 			}
@@ -267,6 +270,26 @@ ButtonBase {
 			control.z = control.z + 1;
 			resizeButton.visible = true;
 			unpinButton.visible = true;
+			// Rotate the resize button as well.
+			// TODO: Make the rotation into its own function.
+			if ((control.width == 150) && (control.height == 150)) {
+				// Change the resize button's rotation for the small tile.
+				// -135 points the arrow in the top-left corner.
+				resizeButton.rotation = 45;
+			} else if ((control.width == 70) && (control.height == 70)) {
+				// Change the resize button's rotation for the wide tile.
+				// -180 points the arrow backward.
+				resizeButton.rotation = -180;
+			} else if ((control.width == 310) && (control.height == 150)) {
+				// Change the resize button's rotation to match
+				// the medium tile's expected resize button rotation.
+				resizeButton.rotation = -135;
+			} else {
+				// Change the resize button's rotation to -135 to match
+				// the wide tile if we don't know what the tile's size is.
+				// We're changing it to -135 so it points in the top-left.
+				resizeButton.rotation = -135;
+			}
 			// tilemenu.open();
 		}
 	}
