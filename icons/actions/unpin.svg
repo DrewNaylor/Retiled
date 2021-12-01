@@ -19,19 +19,19 @@
    inkscape:export-filename="C:\Users\tejasollie\Desktop\TJ-OpenClipArt 30-1-16\68-Office Stationery\TJ-Openclipart-68-office-stationery-tack-pin-12-5-16.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
-   enable-background="new">
+   style="enable-background:new">
   <defs
      id="defs4">
     <filter
        inkscape:label="Silk Carpet"
        inkscape:menu="Textures"
        inkscape:menu-tooltip="Silk carpet texture, horizontal stripes"
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        id="filter4271"
        height="1.3"
        width="1.3"
-       y="-0.15"
-       x="-0.15">
+       y="-0.15000001"
+       x="-0.15000001">
       <feTurbulence
          baseFrequency="0.1"
          seed="50"
@@ -49,7 +49,8 @@
          scale="20"
          xChannelSelector="G"
          in2="result7"
-         id="feDisplacementMap4277" />
+         id="feDisplacementMap4277"
+         yChannelSelector="A" />
       <feComposite
          result="result2"
          operator="in"
@@ -79,7 +80,9 @@
          in="result4"
          operator="arithmetic"
          result="result91"
-         id="feComposite4287" />
+         id="feComposite4287"
+         k2="0"
+         k4="0" />
       <feBlend
          result="fbSourceGraphic"
          mode="multiply"
@@ -90,7 +93,11 @@
          in="fbSourceGraphic"
          result="result2"
          operator="arithmetic"
-         id="feComposite4291" />
+         id="feComposite4291"
+         k1="0"
+         k2="0"
+         k3="0"
+         k4="0" />
       <feComposite
          in="result2"
          result="result4"
@@ -98,7 +105,9 @@
          k2="2"
          k3="2"
          in2="fbSourceGraphic"
-         id="feComposite4293" />
+         id="feComposite4293"
+         k1="0"
+         k4="0" />
       <feBlend
          mode="screen"
          in="result4"
@@ -115,8 +124,7 @@
          type="turbulence"
          numOctaves="2"
          baseFrequency="0.01 0.11"
-         seed="10"
-         in="fbSourceGraphic" />
+         seed="10" />
       <feColorMatrix
          id="feColorMatrix4333"
          result="result5"
@@ -157,7 +165,9 @@
          k1="1"
          result="result2"
          operator="arithmetic"
-         k2="1" />
+         k2="1"
+         k3="0"
+         k4="0" />
       <feBlend
          id="feBlend4347"
          in2="result4"
@@ -165,11 +175,10 @@
          in="result2" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Lighting"
        id="filter4412">
       <feComponentTransfer
-         in="blur"
          result="component"
          id="feComponentTransfer4414">
         <feFuncR
@@ -200,9 +209,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.32000002"
-     inkscape:cx="1271.3468"
-     inkscape:cy="1076.33"
+     inkscape:zoom="1.2800001"
+     inkscape:cx="879.84759"
+     inkscape:cy="47.419809"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -211,7 +220,8 @@
      inkscape:window-x="585"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     showguides="false" />
+     showguides="false"
+     units="mm" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -220,7 +230,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -230,7 +240,7 @@
      inkscape:label="Layer 1">
     <g
        id="g4196"
-       transform="matrix(0.97024606,0,0,0.97009293,900.97428,238.01978)"
+       transform="matrix(0.96599233,0,0,0.96581162,900.89021,240.88679)"
        style="fill:#000000;fill-opacity:1">
       <path
          style="fill:#000000;fill-opacity:1"
@@ -239,22 +249,21 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="sccscscccccccscccscscssss" />
     </g>
-    <ellipse
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:93.74999699;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+    <circle
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:93.33761597;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path972"
-       ry="842.87781"
-       rx="842.85315"
-       cy="885.81866"
-       cx="885.84448" />
+       cy="885.82672"
+       cx="885.82672"
+       r="839.15796" />
     <path
-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:6.43592501"
-       d="M 77.201811,668.99281 H 654.46193 v 51.46827 c -21.49795,8.46744 -55.55479,38.55639 -60.45418,42.28173 H 77.201811 Z"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:6.40761518"
+       d="M 80.729303,669.95781 H 655.45861 v 51.24112 c -21.4037,8.43007 -55.31123,38.38623 -60.18914,42.09513 H 80.729303 Z"
        id="rect1031"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccc" />
     <path
-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:6.43592501"
-       d="m 1713.8369,668.99283 h -577.2601 v 45.33213 c 21.4979,8.46744 49.9298,44.69253 54.8292,48.41787 h 522.4309 z"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:6.40761518"
+       d="m 1710.1891,669.95783 h -574.7293 v 45.13206 c 21.4037,8.43007 49.7109,44.49529 54.5889,48.20419 h 520.1404 z"
        id="rect1031-2"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccc" />
