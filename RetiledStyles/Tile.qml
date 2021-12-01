@@ -89,6 +89,10 @@ ButtonBase {
 	rightPadding: 0
 	bottomPadding: 6
 	
+	// Create a boolean that says whether we're in edit mode or not.
+	// This'll allow people to exit edit mode by tapping the tile.
+	property bool editMode: false
+	
 	RoundButton {
 		id: unpinButton
 		visible: false
@@ -124,6 +128,8 @@ ButtonBase {
 			control.z = control.z - 1;
 			resizeButton.visible = false;
 			unpinButton.visible = false;
+			// Turn off edit mode.
+			editMode = false;
 			// Unpin the tile.
 			unpinTile(dotDesktopFilePath);
 			// Temporary placeholder code that just
@@ -162,9 +168,11 @@ ButtonBase {
 			// tile or area on the start screen will hide the
 			// resize button so that the user can
 			// resize multiple times at once.
-			control.z = control.z - 1;
-			resizeButton.visible = false;
-			unpinButton.visible = false;
+			// control.z = control.z - 1;
+			// resizeButton.visible = false;
+			// unpinButton.visible = false;
+			// Actually, we have an edit mode boolean now,
+			// so the buttons can stay on here.
 			// Resize the tile based on its current width.
 			// Using an if statement to determine what to
 			// change the button rotation to:
@@ -226,7 +234,18 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
-		parent.clicked(parent.execKey);
+		// Only run the app if edit mode is off.
+		if (editMode == false) {
+			parent.clicked(parent.execKey);
+		} else if (editMode == true) {
+				// Turn off edit mode if it's on.
+			editMode = false;
+			// Hide the edit mode buttons and reset the tile's
+			// z-index.
+			control.z = control.z - 1;
+			resizeButton.visible = false;
+			unpinButton.visible = false;
+		}
 		// Reset the scale to 1.0.
 		// This, along with setting the scale
 		// in various events below, probably
@@ -238,8 +257,7 @@ ButtonBase {
 		// but I can't seem to get that to work
 		// with a MouseArea.
 		// TODO: Make this less janky.
-		control.scale = 1.0;
-		
+			control.scale = 1.0;
 		}
 		// Scaling the buttons down then back up
 		// is done by setting scale values for both
@@ -279,6 +297,8 @@ ButtonBase {
 			control.z = control.z + 1;
 			resizeButton.visible = true;
 			unpinButton.visible = true;
+			// Turn on edit mode.
+			editMode = true;
 			// Rotate the resize button as well.
 			// TODO: Make the rotation into its own function.
 			// NOTE: These values are different from the ones
