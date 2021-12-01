@@ -200,9 +200,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.5600002"
-     inkscape:cx="1098.0622"
-     inkscape:cy="1147.0927"
+     inkscape:zoom="7.2407739"
+     inkscape:cx="1139.4178"
+     inkscape:cy="1124.9957"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -253,9 +253,9 @@
        sodipodi:nodetypes="ccccccc" />
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:4.31178474"
-       d="m 1728.5789,684.90418 h -685.948 v 25.20572 l 16.4553,4.89778 13.3938,5.30795 h 656.0989 z"
+       d="m 1728.5789,684.90418 h -685.948 v 24.10757 c 12.7691,2.14197 27.8241,6.71328 38.3178,11.30388 h 647.6302 z"
        id="rect1031-4"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="cccccc" />
   </g>
 </svg>
