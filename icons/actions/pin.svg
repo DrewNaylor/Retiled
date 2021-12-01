@@ -200,8 +200,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.16000001"
-     inkscape:cx="942.3298"
+     inkscape:zoom="0.22627418"
+     inkscape:cx="1920.0177"
      inkscape:cy="953.74325"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -229,7 +229,7 @@
      inkscape:label="Layer 1">
     <g
        id="g4196"
-       transform="translate(893.82755,177.33055)"
+       transform="translate(893.82755,218.76258)"
        style="fill:#000000;fill-opacity:1">
       <path
          style="fill:#000000;fill-opacity:1"
@@ -238,5 +238,12 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="sccscscccccccscccscscssss" />
     </g>
+    <ellipse
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:34.74270248;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path972"
+       ry="868.86292"
+       rx="868.70038"
+       cy="886.53253"
+       cx="885.96381" />
   </g>
 </svg>
