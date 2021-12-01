@@ -90,7 +90,12 @@ ButtonBase {
 	bottomPadding: 6
 	
 	RoundButton {
-		text: "u"
+		Image {
+			source: "../icons/actions/unpin.svg"
+			anchors.fill: parent
+			fillMode: Image.Stretch
+			mipmap: true
+		}
 		// Anchor the horizontal and vertical
 		// center to the right and top
 		// respectively so that the unpin
