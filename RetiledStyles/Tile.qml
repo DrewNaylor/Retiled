@@ -169,7 +169,7 @@ ButtonBase {
 				control.width = 70;
 				control.height = 70;
 				// Change the resize button's rotation for the small tile.
-				// -135 points the arrow in the top-left corner.
+				// 45 points down-right.
 				resizeButton.rotation = 45;
 			} else if ((control.width == 70) && (control.height == 70)) {
 				// If button is small, resize to wide.
@@ -272,18 +272,21 @@ ButtonBase {
 			unpinButton.visible = true;
 			// Rotate the resize button as well.
 			// TODO: Make the rotation into its own function.
+			// NOTE: These values are different from the ones
+			// used when pressing the resize button.
 			if ((control.width == 150) && (control.height == 150)) {
-				// Change the resize button's rotation for the small tile.
+				// Change the resize button's rotation for the medium tile.
 				// -135 points the arrow in the top-left corner.
-				resizeButton.rotation = 45;
+				resizeButton.rotation = -135;
 			} else if ((control.width == 70) && (control.height == 70)) {
-				// Change the resize button's rotation for the wide tile.
-				// -180 points the arrow backward.
-				resizeButton.rotation = -180;
+				// Change the resize button's rotation for the small tile.
+				// 45 points the arrow down-right.
+				resizeButton.rotation = 45;
 			} else if ((control.width == 310) && (control.height == 150)) {
 				// Change the resize button's rotation to match
-				// the medium tile's expected resize button rotation.
-				resizeButton.rotation = -135;
+				// the wide tile's expected resize button rotation.
+				// -180 points to the left.
+				resizeButton.rotation = -180;
 			} else {
 				// Change the resize button's rotation to -135 to match
 				// the wide tile if we don't know what the tile's size is.
