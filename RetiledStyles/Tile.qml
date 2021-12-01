@@ -91,7 +91,7 @@ ButtonBase {
 	
 	RoundButton {
 		Image {
-			source: "../icons/actions/unpin.svg"
+			source: down ? "../icons/actions/unpin.svg" : "../icons/actions/unpin_white.svg"
 			anchors.fill: parent
 			fillMode: Image.Stretch
 			mipmap: true
@@ -107,6 +107,7 @@ ButtonBase {
 		// tapping the button works even if
 		// it's done in the tile area.
 		z: control.z + 1
+		borderWidth: 0
 	}
 	
 	RoundButton {
