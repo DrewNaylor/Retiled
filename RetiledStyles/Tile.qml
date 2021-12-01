@@ -89,12 +89,22 @@ ButtonBase {
 	rightPadding: 0
 	bottomPadding: 6
 	
-		RoundButton {
+	RoundButton {
 		text: "u"
 		// anchors.right: control.right
 		// anchors.left: control.right
 		anchors.horizontalCenter: control.right
 		anchors.verticalCenter: control.top
+		z: control.z + 1
+	}
+	
+	RoundButton {
+		text: "r"
+		// anchors.right: control.right
+		// anchors.left: control.right
+		anchors.horizontalCenter: control.right
+		anchors.verticalCenter: control.bottom
+		z: control.z + 1
 	}
 	
 	// Properties for pixel density:
