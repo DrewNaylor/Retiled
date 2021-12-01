@@ -202,6 +202,22 @@ ButtonBase {
 		
 		// Trying to do a press and hold for the menu.
 		onPressAndHold: {
+			// TODO: Figure out how to have it enter a
+			// "tile modification" mode so that users can
+			// scroll and tap on different tiles to modify
+			// them instead of having to long-press on each
+			// tile.
+			// This would also allow moving tiles around
+			// if I can figure out how to initiate a grab
+			// and let the user scroll up and down by dragging
+			// the tile.
+			// Pressing a tile, using the back button, or tapping
+			// anywhere outside the resize and unpin buttons
+			// on the start screen will also exit the modification
+			// mode.
+			// Note that you can also just have no tile selected so
+			// they're all in the "background", smaller, and less
+			// visible (darker/dimmer?).
 			control.z = control.z + 1;
 			resizeButton.visible = true;
 			unpinButton.visible = true;
