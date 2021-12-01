@@ -96,6 +96,7 @@ ButtonBase {
 			fillMode: Image.Stretch
 			mipmap: true
 		}
+		rotation: 45
 		// Anchor the horizontal and vertical
 		// center to the right and top
 		// respectively so that the unpin
