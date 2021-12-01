@@ -169,7 +169,7 @@ ButtonBase {
 				control.width = 70;
 				control.height = 70;
 				// Change the resize button's rotation as well.
-				resizeButton.rotation = 135;
+				resizeButton.rotation = -135;
 			} else if ((control.width == 70) && (control.height == 70)) {
 				// If button is small, resize to wide.
 				resizeTile(dotDesktopFilePath, 310, 150);
@@ -177,7 +177,7 @@ ButtonBase {
 				control.width = 310;
 				control.height = 150;
 				// Change the resize button's rotation as well.
-				resizeButton.rotation = 240;
+				resizeButton.rotation = -240;
 			} else if ((control.width == 310) && (control.height == 150)) {
 				// If button is wide, resize to medium.
 				resizeTile(dotDesktopFilePath, 150, 150);
@@ -185,7 +185,7 @@ ButtonBase {
 				control.width = 150;
 				control.height = 150;
 				// Change the resize button's rotation as well.
-				resizeButton.rotation = 45;
+				resizeButton.rotation = -180;
 			} else {
 				// If nothing matches, resize to medium, just
 				// in case.
