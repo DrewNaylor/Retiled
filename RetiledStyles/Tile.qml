@@ -131,6 +131,9 @@ ButtonBase {
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
 		pressedBackgroundColor: "white"
+		// Change pressed text color.
+		// TODO: Check if this is also the same under the light theme.
+		pressedTextColor: "black"
 	}
 	
 	// Properties for pixel density:
