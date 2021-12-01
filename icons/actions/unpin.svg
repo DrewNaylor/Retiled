@@ -252,9 +252,9 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:4.31178474"
-       d="M 43.255859,684.90417 H 729.20386 v 23.33072 l -35.47401,12.08073 H 43.255859 Z"
+       d="M 43.255859,684.90417 H 729.20386 v 25.20572 l -16.45527,4.89778 -13.39374,5.30795 H 43.255859 Z"
        id="rect1031"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="ccccccc" />
   </g>
 </svg>
