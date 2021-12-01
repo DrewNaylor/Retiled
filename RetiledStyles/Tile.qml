@@ -89,6 +89,14 @@ ButtonBase {
 	rightPadding: 0
 	bottomPadding: 6
 	
+		RoundButton {
+		text: "u"
+		// anchors.right: control.right
+		// anchors.left: control.right
+		anchors.horizontalCenter: control.right
+		anchors.verticalCenter: control.top
+	}
+	
 	// Properties for pixel density:
 	// https://stackoverflow.com/a/38003760
 	// This is what QML told me when I used
@@ -139,11 +147,7 @@ ButtonBase {
 		}
 	}
 	
-	RoundButton {
-		text: "u"
-		anchors.right: control.right
-		anchors.top: control.top
-	}
+
 	
 	// Adding the context menus:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
