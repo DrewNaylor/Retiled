@@ -90,6 +90,8 @@ ButtonBase {
 	bottomPadding: 6
 	
 	RoundButton {
+		id: unpinButton
+		visible: false
 		Image {
 			// It's pressed, not down, to change images:
 			// https://stackoverflow.com/a/30092412
@@ -114,9 +116,17 @@ ButtonBase {
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
 		pressedBackgroundColor: "white"
+		onClicked: {
+			// Reset the z-index for the tile and hide the buttons.
+			control.z = control.z - 1;
+			resizeButton.visible = false;
+			unpinButton.visible = false;
+		}
 	}
 	
 	RoundButton {
+		id: resizeButton
+		visible: false
 		text: "r"
 		// Anchor the horizontal and vertical
 		// center to the right and bottom
@@ -134,6 +144,16 @@ ButtonBase {
 		// Change pressed text color.
 		// TODO: Check if this is also the same under the light theme.
 		pressedTextColor: "black"
+		onClicked: {
+			// Reset the z-index for the tile and hide the buttons.
+			// TODO: Figure out how to make it so that tapping any other
+			// tile or area on the start screen will hide the
+			// resize button so that the user can
+			// resize multiple times at once.
+			control.z = control.z - 1;
+			resizeButton.visible = false;
+			unpinButton.visible = false;
+		}
 	}
 	
 	// Properties for pixel density:
@@ -182,7 +202,10 @@ ButtonBase {
 		
 		// Trying to do a press and hold for the menu.
 		onPressAndHold: {
-			tilemenu.open();
+			control.z = control.z + 1;
+			resizeButton.visible = true;
+			unpinButton.visible = true;
+			// tilemenu.open();
 		}
 	}
 	
