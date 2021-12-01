@@ -91,19 +91,29 @@ ButtonBase {
 	
 	RoundButton {
 		text: "u"
-		// anchors.right: control.right
-		// anchors.left: control.right
+		// Anchor the horizontal and vertical
+		// center to the right and top
+		// respectively so that the unpin
+		// button is in the top-right.
 		anchors.horizontalCenter: control.right
 		anchors.verticalCenter: control.top
+		// Set z value to above the tile so that
+		// tapping the button works even if
+		// it's done in the tile area.
 		z: control.z + 1
 	}
 	
 	RoundButton {
 		text: "r"
-		// anchors.right: control.right
-		// anchors.left: control.right
+		// Anchor the horizontal and vertical
+		// center to the right and bottom
+		// respectively so that the resize
+		// button is in the bottom-right.
 		anchors.horizontalCenter: control.right
 		anchors.verticalCenter: control.bottom
+		// Set z value to above the tile so that
+		// tapping the button works even if
+		// it's done in the tile area.
 		z: control.z + 1
 	}
 	
