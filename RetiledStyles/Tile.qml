@@ -91,7 +91,9 @@ ButtonBase {
 	
 	RoundButton {
 		Image {
-			source: down ? "../icons/actions/unpin.svg" : "../icons/actions/unpin_white.svg"
+			// It's pressed, not down, to change images:
+			// https://stackoverflow.com/a/30092412
+			source: parent.pressed ? "../icons/actions/unpin.svg" : "../icons/actions/unpin_white.svg"
 			anchors.fill: parent
 			fillMode: Image.Stretch
 			mipmap: true
