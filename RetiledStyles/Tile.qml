@@ -164,16 +164,28 @@ ButtonBase {
 			if ((control.width == 150) && (control.height == 150)) {
 				// If button is medium, resize to small.
 				resizeTile(dotDesktopFilePath, 70, 70);
+				// Visually change the size here.
+				control.width = 70;
+				control.height = 70;
 			} else if ((control.width == 70) && (control.height == 70)) {
 				// If button is small, resize to wide.
 				resizeTile(dotDesktopFilePath, 310, 150);
+				// Visually change the size here.
+				control.width = 310;
+				control.height = 150;
 			} else if ((control.width == 310) && (control.height == 150)) {
 				// If button is wide, resize to medium.
 				resizeTile(dotDesktopFilePath, 150, 150);
+				// Visually change the size here.
+				control.width = 150;
+				control.height = 150;
 			} else {
 				// If nothing matches, resize to medium, just
 				// in case.
 				resizeTile(dotDesktopFilePath, 150, 150);
+				// Visually change the size here.
+				control.width = 150;
+				control.height = 150;
 			}
 		}
 	}
