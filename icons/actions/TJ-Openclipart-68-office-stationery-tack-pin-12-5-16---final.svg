@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="500mm" height="500mm" viewBox="0 0 1771.6535 1771.6535" id="svg2" version="1.1" inkscape:version="0.91 r13725" sodipodi:docname="TJ-Openclipart-68-office-stationery-tack-pin-12-5-16 - final.svg" inkscape:export-filename="C:\Users\tejasollie\Desktop\TJ-OpenClipArt 30-1-16\68-Office Stationery\TJ-Openclipart-68-office-stationery-tack-pin-12-5-16.png" inkscape:export-xdpi="300" inkscape:export-ydpi="300" enable-background="new">
+  <defs id="defs4">
+    <filter inkscape:label="Silk Carpet" inkscape:menu="Textures" inkscape:menu-tooltip="Silk carpet texture, horizontal stripes" style="color-interpolation-filters:sRGB;" id="filter4271" height="1.3" width="1.3" y="-0.15" x="-0.15">
+      <feTurbulence baseFrequency="0.1" seed="50" numOctaves="5" result="result1" type="fractalNoise" id="feTurbulence4273"/>
+      <feGaussianBlur stdDeviation="4" result="result7" id="feGaussianBlur4275"/>
+      <feDisplacementMap result="result5" in="SourceGraphic" scale="20" xChannelSelector="G" in2="result7" id="feDisplacementMap4277"/>
+      <feComposite result="result2" operator="in" in2="result1" in="result5" id="feComposite4279"/>
+      <feGaussianBlur stdDeviation="1" result="result6" id="feGaussianBlur4281"/>
+      <feSpecularLighting surfaceScale="-3" result="result4" specularConstant="3.5" specularExponent="35" in="result6" id="feSpecularLighting4283">
+        <feDistantLight elevation="45" azimuth="225" id="feDistantLight4285"/>
+      </feSpecularLighting>
+      <feComposite k1="1.7" k3="0.7" in2="result2" in="result4" operator="arithmetic" result="result91" id="feComposite4287"/>
+      <feBlend result="fbSourceGraphic" mode="multiply" in2="result91" id="feBlend4289"/>
+      <feComposite in2="fbSourceGraphic" in="fbSourceGraphic" result="result2" operator="arithmetic" id="feComposite4291"/>
+      <feComposite in="result2" result="result4" operator="arithmetic" k2="2" k3="2" in2="fbSourceGraphic" id="feComposite4293"/>
+      <feBlend mode="screen" in="result4" in2="result4" id="feBlend4295" result="fbSourceGraphic"/>
+      <feColorMatrix result="fbSourceGraphicAlpha" in="fbSourceGraphic" values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0" id="feColorMatrix4329"/>
+      <feTurbulence id="feTurbulence4331" type="turbulence" numOctaves="2" baseFrequency="0.01 0.11" seed="10" in="fbSourceGraphic"/>
+      <feColorMatrix id="feColorMatrix4333" result="result5" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.3 0 "/>
+      <feComposite id="feComposite4335" in2="result5" in="fbSourceGraphic" operator="out"/>
+      <feMorphology id="feMorphology4337" operator="dilate" radius="1.3" result="result3"/>
+      <feTurbulence id="feTurbulence4339" numOctaves="3" baseFrequency="0.08 0.05" type="fractalNoise" seed="7" result="result6"/>
+      <feGaussianBlur id="feGaussianBlur4341" stdDeviation="0.5" result="result7"/>
+      <feDisplacementMap id="feDisplacementMap4343" in2="result7" in="result3" xChannelSelector="R" yChannelSelector="G" scale="3" result="result4"/>
+      <feComposite id="feComposite4345" in2="result4" in="result4" k1="1" result="result2" operator="arithmetic" k2="1"/>
+      <feBlend id="feBlend4347" in2="result4" mode="normal" in="result2"/>
+    </filter>
+    <filter style="color-interpolation-filters:sRGB;" inkscape:label="Lighting" id="filter4412">
+      <feComponentTransfer in="blur" result="component" id="feComponentTransfer4414">
+        <feFuncR type="gamma" amplitude="5.05" exponent="0.989583" offset="0" id="feFuncR4416"/>
+        <feFuncG type="gamma" amplitude="5.05" exponent="0.989583" offset="0" id="feFuncG4418"/>
+        <feFuncB type="gamma" amplitude="5.05" exponent="0.989583" offset="0" id="feFuncB4420"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.16000001" inkscape:cx="-325.83103" inkscape:cy="994.39246" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" inkscape:window-width="1366" inkscape:window-height="664" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1"/>
+  <metadata id="metadata7">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g inkscape:groupmode="layer" id="layer1" inkscape:label="Layer 1">
+    <g id="g4196" transform="translate(987.49901,199.60027)">
+      <path style="fill:#a90000" d="m -118.26364,1449.3513 -16.44054,-79.5748 0.0165,-326.7161 c 0.0132,-261.42674 -0.0586,-326.81796 -0.35949,-327.22608 -0.3531,-0.47892 -10.93529,-0.51456 -173.24975,-0.58383 l -172.87364,-0.0738 114.26506,-167.33019 c 62.84575,-92.03161 114.34581,-167.63159 114.44457,-167.99996 0.30018,-1.11993 0.21519,-271.90836 -0.0856,-272.69946 -0.19725,-0.51879 -1.76235,-1.54023 -5.625,-3.67104 C -312.0261,73.767659 -353.35868,38.711589 -377.47396,2.2900386 -401.64799,-34.220171 -409.69236,-72.203351 -401.63119,-111.7731 c 2.74683,-13.48332 8.31609,-29.65984 14.35287,-41.6895 l 1.51089,-3.0108 285.03348,0.0752 285.03343,0.0752 1.3325,3 c 14.0781,31.69662 18.7044,63.007054 13.7194,92.849974 -6.9133,41.38594 -31.4562,80.09425 -73.9246,116.59146 -18.7857,16.1444 -43.738501,33.2019 -69.502701,47.511376 -4.6874,2.60334 -6.7025,3.87993 -6.821,4.32105 -0.2269,0.84507 -0.216,271.04718 0.011,271.8939 0.099,0.36732 51.598901,75.9673 114.445401,167.99996 l 114.2664,167.33208 -172.8745,0.0738 c -162.315191,0.0693 -172.897451,0.10491 -173.250551,0.58383 -0.30093,0.40812 -0.37278,65.79934 -0.35949,327.22617 l 0.0165,326.7161 -16.44054,79.5748 c -9.04227,43.7661 -16.507999,79.5747 -16.590499,79.5747 -0.0825,0 -7.54824,-35.8086 -16.59051,-79.5747 z" id="path4198" inkscape:connector-curvature="0"/>
+    </g>
+  </g>
+</svg>
