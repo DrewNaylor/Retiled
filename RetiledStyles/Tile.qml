@@ -118,6 +118,8 @@ ButtonBase {
 		pressedBackgroundColor: "white"
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
+			// NOTE: Unpinning a tile removes the buttons, so this
+			// is ok, unlike when resizing the tile.
 			control.z = control.z - 1;
 			resizeButton.visible = false;
 			unpinButton.visible = false;
@@ -153,6 +155,26 @@ ButtonBase {
 			control.z = control.z - 1;
 			resizeButton.visible = false;
 			unpinButton.visible = false;
+			// Resize the tile based on its current width.
+			// Using an if statement to determine what to
+			// change the button rotation to:
+			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+			// Use "&&" for "and":
+			// https://stackoverflow.com/a/12364825
+			if ((control.width == 150) && (control.height == 150)) {
+				// If button is medium, resize to small.
+				resizeTile(dotDesktopFilePath, 70, 70);
+			} else if ((control.width == 70) && (control.height == 70)) {
+				// If button is small, resize to wide.
+				resizeTile(dotDesktopFilePath, 310, 150);
+			} else if ((control.width == 310) && (control.height == 150)) {
+				// If button is wide, resize to medium.
+				resizeTile(dotDesktopFilePath, 150, 150);
+			} else {
+				// If nothing matches, resize to medium, just
+				// in case.
+				resizeTile(dotDesktopFilePath, 150, 150);
+			}
 		}
 	}
 	
