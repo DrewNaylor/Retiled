@@ -93,11 +93,12 @@ ButtonBase {
 		id: unpinButton
 		visible: false
 		Image {
-			// It's pressed, not down, to change images:
+			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
 			source: parent.pressed ? "../icons/actions/unpin.svg" : "../icons/actions/unpin_white.svg"
 			anchors.fill: parent
 			fillMode: Image.Stretch
+			// Mipmapping makes it look pretty good.
 			mipmap: true
 		}
 		rotation: 45
@@ -111,7 +112,7 @@ ButtonBase {
 		// tapping the button works even if
 		// it's done in the tile area.
 		z: control.z + 1
-		// Remove the border.
+		// Remove the border since the image itself has one.
 		borderWidth: 0
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
@@ -130,6 +131,7 @@ ButtonBase {
 			// TODO: Figure out how to properly remove the tile
 			// since it's dynamically-created.
 			control.visible = false;
+			// TODO 2: Hide the tiles page if none of them are pinned.
 		}
 	}
 	
