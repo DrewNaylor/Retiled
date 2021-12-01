@@ -109,7 +109,11 @@ ButtonBase {
 		// tapping the button works even if
 		// it's done in the tile area.
 		z: control.z + 1
+		// Remove the border.
 		borderWidth: 0
+		// Change the pressed background color.
+		// TODO: Check if it's the same under the light theme.
+		pressedBackgroundColor: "white"
 	}
 	
 	RoundButton {
@@ -124,6 +128,9 @@ ButtonBase {
 		// tapping the button works even if
 		// it's done in the tile area.
 		z: control.z + 1
+		// Change the pressed background color.
+		// TODO: Check if it's the same under the light theme.
+		pressedBackgroundColor: "white"
 	}
 	
 	// Properties for pixel density:
