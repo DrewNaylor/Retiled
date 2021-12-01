@@ -282,7 +282,7 @@ ButtonBase {
 		onReleased: control.scale = 1.0
 		onCanceled: control.scale = 1.0
 		
-		// Trying to do a press and hold for the menu.
+		// Trying to do a press and hold for edit mode.
 		onPressAndHold: {
 			// TODO: Figure out how to have it enter a
 			// "tile modification" mode so that users can
@@ -300,6 +300,10 @@ ButtonBase {
 			// Note that you can also just have no tile selected so
 			// they're all in the "background", smaller, and less
 			// visible (darker/dimmer?).
+			// Update: There's an edit mode now, but it only applies
+			// to each tile rather than the entire tile list, so
+			// it's still possible to open an app with tile A while the menu
+			// for tile B is open.
 			control.z = control.z + 1;
 			resizeButton.visible = true;
 			unpinButton.visible = true;
@@ -327,53 +331,6 @@ ButtonBase {
 				// the wide tile if we don't know what the tile's size is.
 				// We're changing it to -135 so it points in the top-left.
 				resizeButton.rotation = -135;
-			}
-			// tilemenu.open();
-		}
-	}
-	
-
-	
-	// Adding the context menus:
-	// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
-	Popup {
-		id: tilemenu
-		modal: true
-		visible: showContextMenu
-		// We're using the column layout.
-		Column {
-			anchors.fill: parent
-			ButtonBase {
-				text: qsTr("unpin")
-				// Apparently we have to use "font.family"
-				// instead of "font: ..." in secondary QML
-				// files, or it doesn't seem to work.
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: unpinTile(dotDesktopFilePath)
-			}
-			ButtonBase {
-				text: qsTr("resize (medium)")
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: resizeTile(dotDesktopFilePath, 150, 150)
-			}
-			ButtonBase {
-				text: qsTr("resize (small)")
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: resizeTile(dotDesktopFilePath, 70, 70)
-			}
-			ButtonBase {
-				text: qsTr("resize (wide)")
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				font.letterSpacing: -0.8 * scaleFactor
-				onClicked: resizeTile(dotDesktopFilePath, 310, 150)
 			}
 		}
 	}
