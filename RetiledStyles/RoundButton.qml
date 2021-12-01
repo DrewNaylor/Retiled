@@ -56,6 +56,10 @@ RetiledStyles.Button {
 	// have to set this to black or white accordingly.
 	pressedBackgroundColor: "#0050ef"
 	
+	// Some round buttons have to have their background
+	// color set too, such as the tile editing ones.
+	// unpressedBackgroundColor: "transparent"
+	
 	// Set the size to be small.
 	buttonWidth: 32
 	buttonHeight: 32

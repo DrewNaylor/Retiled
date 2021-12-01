@@ -121,6 +121,14 @@ ButtonBase {
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
 		pressedBackgroundColor: "white"
+		// Forgot to set the unpressedBackgroundColor
+		// property and that these buttons are opaque
+		// on WP. Thought something looked slightly off.
+		// TODO: Check if this is also black under the light theme.
+		unpressedBackgroundColor: "black"
+		// TODO: I need to figure out how to make the unpin icon
+		// not show white outside the border. Maybe I need to remove
+		// the circle and just use mine.
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// NOTE: Unpinning a tile removes the buttons, so this
@@ -159,6 +167,11 @@ ButtonBase {
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
 		pressedBackgroundColor: "white"
+		// Forgot to set the unpressedBackgroundColor
+		// property and that these buttons are opaque
+		// on WP. Thought something looked slightly off.
+		// TODO: Check if this is also black under the light theme.
+		unpressedBackgroundColor: "black"
 		// Change pressed text color.
 		// TODO: Check if this is also the same under the light theme.
 		pressedTextColor: "black"
