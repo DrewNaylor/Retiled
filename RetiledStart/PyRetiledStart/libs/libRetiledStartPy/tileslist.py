@@ -58,8 +58,8 @@ def saveTilesList(tilesList):
 	# Perhaps this will work better:
 	# https://stackoverflow.com/a/10856270
 	for i in tilesList:
-		tile = TilesDict(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
-		print(tile)
+		tile = StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
+		print(tile.DotDesktopFilePath)
 		# print(i["DotDesktopFilePath"])
 	
 	# Load the tilesList as if it were a yaml file.
@@ -144,12 +144,6 @@ class StartScreenLayoutRoot:
 	def __init__(self, root):
 		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"]) for i in root["Tiles"]]
 		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
-		
-
-class TilesDict:
-	# We need a simpler dictionary for the tiles when saving them.
-	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileColor):
-		self.Tiles = [StartScreenTileEntry(DotDesktopFilePath, TileWidth, TileHeight, TileColor)]
 
 
 
