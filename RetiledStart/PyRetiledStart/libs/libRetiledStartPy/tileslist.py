@@ -59,9 +59,9 @@ def saveTilesList(tilesList):
 	# https://stackoverflow.com/a/10856270
 	for i in tilesList:
 		tile = StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
-		print(tile.DotDesktopFilePath)
+		# print(tile.DotDesktopFilePath)
 		# Add to the TilesListToSave.
-		TilesListToSave.append({tile.DotDesktopFilePath, tile.TileWidth, tile.TileHeight, tile.TileColor})
+		TilesListToSave.append({i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"]})
 		# print(i["DotDesktopFilePath"])
 		
 	print(TilesListToSave)
@@ -69,7 +69,7 @@ def saveTilesList(tilesList):
 	# Load the tilesList as if it were a yaml file.
 	jsonifiedTiles = json.dumps(tilesList)
 	
-	print(jsonifiedTiles)
+	# print(jsonifiedTiles)
 	
 	# Loop through the items in tilesList and add them to TilesListToSave.
 	
