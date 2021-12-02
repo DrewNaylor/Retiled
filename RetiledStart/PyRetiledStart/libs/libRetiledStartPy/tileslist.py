@@ -58,9 +58,9 @@ def saveTilesList(tilesList):
 	# Perhaps this will work better:
 	# https://stackoverflow.com/a/10856270
 	for i in tilesList:
-		# tile = StartScreenTileEntry(tilesList[i]["DotDesktopFilePath"], tilesList[i]["TileWidth"], tilesList[i]["TileHeight"], tilesList[i]["TileColor"])
-		# print(tile.ToDict())
-		print(i["DotDesktopFilePath"])
+		tile = TilesDict(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
+		print(tile)
+		# print(i["DotDesktopFilePath"])
 	
 	# Load the tilesList as if it were a yaml file.
 	jsonifiedTiles = json.dumps(tilesList)
@@ -145,6 +145,13 @@ class StartScreenLayoutRoot:
 		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"]) for i in root["Tiles"]]
 		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
 		
+
+class TilesDict:
+	# We need a simpler dictionary for the tiles when saving them.
+	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileColor):
+		self.Tiles = [StartScreenTileEntry(DotDesktopFilePath, TileWidth, TileHeight, TileColor)]
+
+
 
 class StartScreenTileEntry:
 	# We're creating our own class to use with safe_load:
