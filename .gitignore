@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Python virtual environment.
 env/
+RetiledStart/PyRetiledStart/libs/libRetiledStartPy/startlayout-modified.yaml

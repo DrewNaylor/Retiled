@@ -152,7 +152,6 @@ ButtonBase {
 			// Turn off local edit mode.
 			editMode = false;
 			// Unpin the tile.
-			unpinTile(dotDesktopFilePath);
 			// Temporary placeholder code that just
 			// sets the tile to be invisible.
 			// TODO: Figure out how to properly remove the tile
@@ -207,8 +206,6 @@ ButtonBase {
 			// https://stackoverflow.com/a/12364825
 			if ((control.width == 150) && (control.height == 150)) {
 				// If button is medium, resize to small.
-				resizeTile(dotDesktopFilePath, 70, 70);
-				// Visually change the size here.
 				control.width = 70;
 				control.height = 70;
 				// Change the resize button's rotation for the small tile.
@@ -216,8 +213,6 @@ ButtonBase {
 				resizeButton.rotation = 45;
 			} else if ((control.width == 70) && (control.height == 70)) {
 				// If button is small, resize to wide.
-				resizeTile(dotDesktopFilePath, 310, 150);
-				// Visually change the size here.
 				control.width = 310;
 				control.height = 150;
 				// Change the resize button's rotation for the wide tile.
@@ -225,8 +220,6 @@ ButtonBase {
 				resizeButton.rotation = -180;
 			} else if ((control.width == 310) && (control.height == 150)) {
 				// If button is wide, resize to medium.
-				resizeTile(dotDesktopFilePath, 150, 150);
-				// Visually change the size here.
 				control.width = 150;
 				control.height = 150;
 				// Change the resize button's rotation to match
@@ -236,8 +229,6 @@ ButtonBase {
 			} else {
 				// If nothing matches, resize to medium, just
 				// in case.
-				resizeTile(dotDesktopFilePath, 150, 150);
-				// Visually change the size here.
 				control.width = 150;
 				control.height = 150;
 				// Change the resize button's rotation to match

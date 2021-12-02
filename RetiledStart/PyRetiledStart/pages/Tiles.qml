@@ -243,7 +243,34 @@ ApplicationWindow {
 					// turned off. Likewise, if it's true, it'll be
 					// turned on.
 					globalEditMode = enable;
-				}
+					
+					// Now if global edit mode gets turned off, we
+					// need to save the tile layout.
+					if (globalEditMode == false) {
+						// Create a list of the tiles to send to Python:
+						// https://stackoverflow.com/a/24747608
+						var tilesList = [];
+						// Loop through the tiles and add them to the list
+						// if their visible property is set to "true".
+						for (var i = 0; i < tilesContainer.children.length; i++) {
+							if (tilesContainer.children[i].visible == true) {
+								// Get the properties from the tiles
+								// and add them to the list.
+								var tile = {};
+								tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
+								tile['TileWidth'] = tilesContainer.children[i].width;
+								tile['TileHeight'] = tilesContainer.children[i].height;
+								tile['TileColor'] = tilesContainer.children[i].tileBackgroundColor;
+								// Push the tile to the list.
+								// TODO: Prevent sorting.
+								tilesList.push(tile);
+							} // End of If statement checking if the tile is visible.
+						} // End of loop that goes through the tiles to save.
+						// Send the list of tiles to Python so it can save
+						// changes to the config file and remove any unpinned tiles.
+						tilesListViewModel.SaveTileLayout(tilesList);
+					} // End of the check to see if we're in global edit mode.
+				} // End of the global edit mode toggle function.
 				
 				// Hide the local edit mode controls on the previously-active tile.
 				function hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex) {
@@ -330,10 +357,10 @@ ApplicationWindow {
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-						NewTileObject.execKey = ParsedTilesList[i].DotDesktopPath;
+						NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopPath;
+						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set tile index for the edit mode.
 						NewTileObject.tileIndex = i

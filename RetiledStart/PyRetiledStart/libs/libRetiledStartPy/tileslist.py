@@ -28,6 +28,7 @@
 
 
 import os
+import sys
 import json
 from ..pyyaml import yaml
 # We have to specify the whole path or it won't work.
@@ -35,9 +36,93 @@ from ..pyyaml.yaml.loader import SafeLoader
 from . import appslist as AppsList
 
 
-def getTilesList():
+def saveTilesList(tilesList):
+	# Saves the list of tiles to the config file.
+	# I don't know how to delete sections from the file yet,
+	# so I'm just writing it all back. This might delete comments
+	# unless there's a way to preserve them.
+	# First ensure there are differences between the new tiles
+	# list and the one that's currently saved, so that
+	# unnecessary writes are avoided to prevent damaging
+	# the eMMC on users' phones.
+	# Need to turn off sorting with "sort_keys=False":
+	# https://github.com/yaml/pyyaml/issues/110#issuecomment-500921155
+	
+	# Define a list we'll use to store the dictionary in.
+	TilesListToSave = []
+	
+	# Loop through the list of dictionaries and append to
+	# the list using what's in each dictionary.
+	# Context for how we're getting the items appended:
+	# https://stackoverflow.com/q/37758665
+	# Perhaps this will work better:
+	# https://stackoverflow.com/a/10856270
+	for i in tilesList:
+		# tile = StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
+		# print(tile.DotDesktopFilePath)
+		# Add to the TilesListToSave.
+		# NOTE: QML won't give us integers for tile widths and heights,
+		# so we need to make them into integers in Python.
+		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"]), "TileColor": i["TileColor"]})
+		# print(i["DotDesktopFilePath"])
+		
+	# print(TilesListToSave)
+	
+	# Now we can check if the list is the same as getTilesList().
+	if not json.dumps(TilesListToSave) == getTilesList(False):
+	
+		# Append the start layout schema version.
+		# We need to create a new list first, one that
+		# has both the "Tiles:" thing, too.
+		StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.1}
+	
+		# Load the tilesList as if it were a yaml file.
+		# Be sure to not have it sort the keys:
+		# https://stackoverflow.com/a/55171433
+		yamlifiedTiles = yaml.dump(StartLayoutConfigFile, sort_keys=False)
+	
+		# print(yamlifiedTiles)
+		
+		# We can now save the file:
+		# https://www.w3schools.com/python/python_file_write.asp
+		# We need "w+" to create the file if it doesn't exist:
+		# https://stackoverflow.com/a/2967249
+		# First check which OS we're running on, and set
+		# the storage location appropriately.
+		# Expand the user's home directory:
+		# https://www.tutorialspoint.com/How-to-find-the-real-user-home-directory-using-Python
+		ModifiedStartLayoutYamlBaseFilePath = os.path.expanduser("~") + "/.config/Retiled/RetiledStart/"
+		if sys.platform.startswith("win32"):
+			# Set it to the same directory as the library
+			# if we're running on Windows, because this
+			# makes it easier for development.
+			ModifiedStartLayoutYamlBaseFilePath = os.getcwd() + "/libs/libRetiledStartPy/"
+			
+		# Create the directory if it doesn't exist:
+		# https://www.tutorialspoint.com/How-can-I-create-a-directory-if-it-does-not-exist-using-Python
+		if not os.path.exists(ModifiedStartLayoutYamlBaseFilePath):
+			os.makedirs(ModifiedStartLayoutYamlBaseFilePath)
+		
+		with open(ModifiedStartLayoutYamlBaseFilePath + "startlayout-modified.yaml", "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
+			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
+	
+
+def getTilesList(includeTileAppNameAreaText = True):
 	# Gets the list of tiles that should be shown on Start.
-	# Currently has the location of the tiles list hardcoded.
+	
+	# Check whether the modified tiles list exists, and use
+	# the built-in one if it doesn't.
+	# First set the built-in path.
+	StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml"
+	# Didn't know how to check if a file existed off the top of my head:
+	# https://www.pythontutorial.net/python-basics/python-check-if-file-exists/
+	# We can now check if we're running on Windows.
+	if sys.platform.startswith("win32"):
+		if os.path.exists(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"):
+			StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"
+	else:
+		if os.path.exists(os.path.expanduser("~") + "/.config/Retiled/RetiledStart/startlayout-modified.yaml"):
+			StartLayoutFilePath = os.path.expanduser("~") + "/.config/Retiled/RetiledStart/startlayout-modified.yaml"
 	
 	# Define list to store the tiles.
 	TilesList = []
@@ -46,7 +131,7 @@ def getTilesList():
 	# TODO: Change to using "with" for the .desktop file reader code.
 	# "encoding='utf-8'" is necessary or Python will give a UnicodeDecodeError as described here:
 	# https://stackoverflow.com/a/42495690
-	with open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r", encoding="utf-8") as StartLayoutYamlFile:
+	with open(StartLayoutFilePath, "r", encoding="utf-8") as StartLayoutYamlFile:
 	
 		# Output the file.
 		#print(StartLayoutYamlFile.read())
@@ -68,7 +153,10 @@ def getTilesList():
 		# https://www.w3schools.com/python/python_lists_loop.asp
 		for i in range(len(YamlFile.Tiles)):
 			#print(YamlFile.Tiles[i].TileColor)
-			TilesList.append({"DotDesktopPath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+			if (includeTileAppNameAreaText == False):
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+			else:
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
 		
 		# Get the stuff under Tiles.
 	
@@ -108,7 +196,8 @@ class StartScreenLayoutRoot:
 	def __init__(self, root):
 		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"]) for i in root["Tiles"]]
 		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
-		
+
+
 
 class StartScreenTileEntry:
 	# We're creating our own class to use with safe_load:

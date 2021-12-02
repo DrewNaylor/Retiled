@@ -111,7 +111,7 @@ class TilesListViewModel(QObject):
 		# This is different on Windows for debugging purposes.
 		# Example code for sys.platform:
 		# https://docs.python.org/3/library/sys.html#sys.platform
-		if sys.platform.startswith("win32"):
+		# if sys.platform.startswith("win32"):
 			# Not sure if this code here is a good idea, as any tiles on Windows
 			# are just going to have the path of the .desktop file, which is how
 			# it works on Linux.
@@ -121,25 +121,25 @@ class TilesListViewModel(QObject):
 			# putting one in their home directory.
 			# This needs to be done for both the All Apps list as well as the Tiles.
 			#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-		else:
+		AppsList.RunApp(ViewModelExecFilename)
+		# else:
 			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
-			AppsList.RunApp(ViewModelExecFilename)
-			
-	# Unpin tile.
-	@Slot(str)
-	def UnpinTile(self, dotDesktopFilePath):
-		# Unpins the tile by passing it to the code-behind.
-		print(dotDesktopFilePath)
+		# AppsList.RunApp(ViewModelExecFilename)
+		# I got rid of the if statement because it's basically redundant.
+		# Don't have both of the lines calling the running code uncommented
+		# at the same time like I did, or you'll be confused why it opens
+		# a GUI app twice but not, say, htop or nano.
 		
-	# Resize tile.
-	# Remember to add arguments for each item into the @Slot().
-	@Slot(str, int, int)
-	def ResizeTile(self, dotDesktopFilePath, newTileWidth, newTileHeight):
-		# Resizes the tile by passing it to the code-behind.
-		print(dotDesktopFilePath)
-		print(newTileWidth)
-		print(newTileHeight)
+	# Save the tile layout after exiting global exit mode.
+	# This involves reading JSON as a dictionary and
+	# modifying the startlayout.yaml file after copying
+	# it to the user's home folder if necessary.
+	# The slot has to be a list, otherwise we'll just
+	# get [object, Object] a bunch of times.
+	@Slot(list)
+	def SaveTileLayout(self, tilesList):
+		# Send the tiles list to the JSON processing code.
+		TilesList.saveTilesList(tilesList)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
