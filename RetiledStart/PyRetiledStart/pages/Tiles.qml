@@ -253,8 +253,11 @@ ApplicationWindow {
 						// Loop through the tiles and add them to the list
 						// if their visible property is set to "true".
 						for (var i = 0; i < tilesContainer.children.length; i++) {
-							if (tilesContainer.children[i].visible = true) {
-								
+							if (tilesContainer.children[i].visible == true) {
+								// Get the properties from the tiles
+								// and add them to the list.
+								var tile = {};
+								tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
 							}
 						}
 					}
@@ -345,10 +348,10 @@ ApplicationWindow {
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-						NewTileObject.execKey = ParsedTilesList[i].DotDesktopPath;
+						NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopPath;
+						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set tile index for the edit mode.
 						NewTileObject.tileIndex = i
