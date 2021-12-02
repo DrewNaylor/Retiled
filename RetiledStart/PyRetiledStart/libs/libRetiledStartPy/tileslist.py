@@ -93,7 +93,15 @@ def saveTilesList(tilesList):
 
 def getTilesList(includeTileAppNameAreaText = True):
 	# Gets the list of tiles that should be shown on Start.
-	# Currently has the location of the tiles list hardcoded.
+	
+	# Check whether the modified tiles list exists, and use
+	# the built-in one if it doesn't.
+	# First set the built-in path.
+	StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml"
+	# Didn't know how to check if a file existed off the top of my head:
+	# https://www.pythontutorial.net/python-basics/python-check-if-file-exists/
+	if os.path.exists(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"):
+		StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"
 	
 	# Define list to store the tiles.
 	TilesList = []
@@ -102,7 +110,7 @@ def getTilesList(includeTileAppNameAreaText = True):
 	# TODO: Change to using "with" for the .desktop file reader code.
 	# "encoding='utf-8'" is necessary or Python will give a UnicodeDecodeError as described here:
 	# https://stackoverflow.com/a/42495690
-	with open(os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml", "r", encoding="utf-8") as StartLayoutYamlFile:
+	with open(StartLayoutFilePath, "r", encoding="utf-8") as StartLayoutYamlFile:
 	
 		# Output the file.
 		#print(StartLayoutYamlFile.read())
