@@ -150,7 +150,7 @@ class TilesListViewModel(QObject):
 	@Slot(list)
 	def SaveTileLayout(self, tilesList):
 		# Send the tiles list to the JSON processing code.
-		print(tilesList)
+		TilesList.saveTilesList(tilesList)
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)

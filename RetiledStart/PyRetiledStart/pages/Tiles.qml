@@ -258,11 +258,11 @@ ApplicationWindow {
 								// and add them to the list.
 								var tile = {};
 								tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
-								tile['TileAppNameAreaText'] = tilesContainer.children[i].tileText;
 								tile['TileWidth'] = tilesContainer.children[i].width;
 								tile['TileHeight'] = tilesContainer.children[i].height;
 								tile['TileColor'] = tilesContainer.children[i].tileBackgroundColor;
 								// Push the tile to the list.
+								// TODO: Prevent sorting.
 								tilesList.push(tile);
 							} // End of If statement checking if the tile is visible.
 						} // End of loop that goes through the tiles to save.

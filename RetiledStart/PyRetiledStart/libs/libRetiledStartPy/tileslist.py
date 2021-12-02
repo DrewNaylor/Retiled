@@ -46,6 +46,18 @@ def saveTilesList(tilesList):
 	# the eMMC on users' phones.
 	# Need to turn off sorting with "sort_keys=False":
 	# https://github.com/yaml/pyyaml/issues/110#issuecomment-500921155
+	
+	# Define a list we'll use to store the dictionary in.
+	TilesListToSave = []
+	
+	# Load the tilesList as if it were a yaml file.
+	jsonifiedTiles = json.dumps(tilesList)
+	
+	print(jsonifiedTiles)
+	
+	# Loop through the items in tilesList and add them to TilesListToSave.
+	
+	
 
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
