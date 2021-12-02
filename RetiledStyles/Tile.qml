@@ -74,6 +74,9 @@ ButtonBase {
 	// Signal for hiding the editing controls on the previously-active tile.
 	signal hideEditModeControlsOnPreviousTile(int previousTileInEditingModeIndex);
 	
+	// Signal to set tile opacity when in edit mode or not.
+	signal setTileOpacity();
+	
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:
 	// https://stackoverflow.com/a/8430030

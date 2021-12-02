@@ -268,7 +268,7 @@ ApplicationWindow {
 				function setTileOpacity() {
 					// We need to see if the tile is currently in edit mode.
 					for (var i = 0; i < tilesContainer.children.length; i++) {
-						if (tilesContainer.children[i].editMode == true) {
+						if ((tilesContainer.children[i].editMode == true) || (globalEditMode == false)) {
 							tilesContainer.children[i].opacity = 1.0;
 						} else {
 							tilesContainer.children[i].opacity = 0.5;
@@ -338,6 +338,9 @@ ApplicationWindow {
 						
 						// Connect hideEditModeControlsOnPreviousTile signal.
 						NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+						
+						// Connect the opacity-setter function.
+						NewTileObject.setTileOpacity.connect(setTileOpacity);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
