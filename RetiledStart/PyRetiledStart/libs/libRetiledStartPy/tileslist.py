@@ -37,6 +37,9 @@ from . import appslist as AppsList
 
 def saveTilesList(tilesList):
 	# Saves the list of tiles to the config file.
+	# I don't know how to delete sections from the file yet,
+	# so I'm just writing it all back. This might delete comments
+	# unless there's a way to preserve them.
 
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
