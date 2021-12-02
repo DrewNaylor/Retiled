@@ -47,27 +47,15 @@ def saveTilesList(tilesList):
 	# Need to turn off sorting with "sort_keys=False":
 	# https://github.com/yaml/pyyaml/issues/110#issuecomment-500921155
 	
-	# Loop through the new tiles list and add them to a Python list
-	# so we can compare them easily.
-	# We're defining a list here to store the items in.
+	# Define a list we'll use to store the dictionary in.
 	TilesListToSave = []
 	
-	# Now load the tilesList into the StartScreenLayoutRoot class.
-	YamlFile = StartScreenLayoutRoot(yaml.safe_load(tilesList))
+	# Load the tilesList as if it were a yaml file.
+	yamlifiedTiles = yaml.dump(tilesList)
 	
-	# Before saving, check if the order of this list is the same as what's
-	# already saved.
-	if not (json.dumps(tilesList) == getTilesList()):
+	print(yamlifiedTiles)
 	
-		# Define a list we'll use to store the dictionary in.
-		
-	
-		# Load the tilesList as if it were JSON.
-		jsonifiedTiles = json.dumps(tilesList)
-	
-		print(jsonifiedTiles)
-	
-		# Loop through the items in tilesList and add them to TilesListToSave.
+	# Loop through the items in tilesList and add them to TilesListToSave.
 	
 	
 
