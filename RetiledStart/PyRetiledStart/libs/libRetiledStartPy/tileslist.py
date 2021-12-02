@@ -79,10 +79,16 @@ def saveTilesList(tilesList):
 		# Load the tilesList as if it were a yaml file.
 		# Be sure to not have it sort the keys:
 		# https://stackoverflow.com/a/55171433
-		jsonifiedTiles = yaml.dump(StartLayoutConfigFile, sort_keys=False)
+		yamlifiedTiles = yaml.dump(StartLayoutConfigFile, sort_keys=False)
 	
-		print(jsonifiedTiles)
-	
+		print(yamlifiedTiles)
+		
+		# We can now save the file:
+		# https://www.w3schools.com/python/python_file_write.asp
+		# We need "w+" to create the file if it doesn't exist:
+		# https://stackoverflow.com/a/2967249
+		with open(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml", "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
+			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
 	
 
 def getTilesList(includeTileAppNameAreaText = True):
