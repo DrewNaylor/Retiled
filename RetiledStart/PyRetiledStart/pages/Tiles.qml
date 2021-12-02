@@ -268,9 +268,13 @@ ApplicationWindow {
 				function setTileOpacity() {
 					// We need to see if the tile is currently in edit mode.
 					for (var i = 0; i < tilesContainer.children.length; i++) {
+						// Make sure tiles are set back to 1.0 opacity
+						// when leaving global edit mode, too.
 						if ((tilesContainer.children[i].editMode == true) || (globalEditMode == false)) {
 							tilesContainer.children[i].opacity = 1.0;
 						} else {
+							// When in global edit mode, we have to set all
+							// tiles that aren't in local edit mode to 50% opacity.
 							tilesContainer.children[i].opacity = 0.5;
 						}
 					}
