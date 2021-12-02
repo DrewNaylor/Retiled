@@ -259,6 +259,8 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
+			console.log("editMode: " + editMode);
+			console.log("globalEditMode: " + globalEditMode);
 			// Only run the app if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
 				parent.clicked(parent.execKey);
@@ -292,6 +294,8 @@ ButtonBase {
 				// the edit controls.
 				// TODO: Turn off local edit mode for the tile
 				// previously in edit mode.
+				// For some reason, local edit mode isn't being
+				// turned on properly.
 				editMode == true;
 				// Forgot to show the controls, oops.
 				control.z = control.z + 1;
