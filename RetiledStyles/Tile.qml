@@ -281,6 +281,8 @@ ButtonBase {
 				// the current tile has focus and that's how
 				// global edit mode is turned off.
 				toggleGlobalEditMode(false);
+				// Set tile opacity, too.
+				setTileOpacity();
 				// Hide the edit mode buttons and reset the tile's
 				// z-index.
 				control.z = control.z - 1;
@@ -298,6 +300,8 @@ ButtonBase {
 				control.z = control.z + 1;
 				// Hide the controls on the previously-active tile.
 				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
+				// Set tile opacity, too.
+				setTileOpacity();
 				// Now set the previous tile index.
 				previousTileInEditingModeIndex = tileIndex;
 			}
@@ -357,6 +361,8 @@ ButtonBase {
 			editMode = true;
 			// Turn on global edit mode.
 			toggleGlobalEditMode(true);
+			// Set tile opacity, too.
+			setTileOpacity();
 			// Now set the previous tile index.
 			previousTileInEditingModeIndex = tileIndex;
 			// Rotate the resize button as well.

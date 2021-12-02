@@ -265,7 +265,7 @@ ApplicationWindow {
 				}
 				
 				// Set opacity to 0.5 for tiles not in edit mode.
-				function setTileOpacity(tileIndex) {
+				function setTileOpacity() {
 					// We need to see if the tile is currently in edit mode.
 					for (var i = 0; i < tilesContainer.children.length; i++) {
 						if (tilesContainer.children[i].editMode == true) {
