@@ -303,6 +303,8 @@ ButtonBase {
 				unpinButton.visible = true;
 				// Hide the controls on the previously-active tile.
 				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
+				// Now set the previous tile index.
+				previousTileInEditingModeIndex = tileIndex;
 			}
 			
 			console.log("------------------------");
@@ -362,6 +364,8 @@ ButtonBase {
 			editMode = true;
 			// Turn on global edit mode.
 			toggleGlobalEditMode(true);
+			// Now set the previous tile index.
+			previousTileInEditingModeIndex = tileIndex;
 			// Rotate the resize button as well.
 			// TODO: Make the rotation into its own function.
 			// NOTE: These values are different from the ones
