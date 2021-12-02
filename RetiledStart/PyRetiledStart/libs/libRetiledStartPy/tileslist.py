@@ -44,6 +44,8 @@ def saveTilesList(tilesList):
 	# list and the one that's currently saved, so that
 	# unnecessary writes are avoided to prevent damaging
 	# the eMMC on users' phones.
+	# Need to turn off sorting with "sort_keys=False":
+	# https://github.com/yaml/pyyaml/issues/110#issuecomment-500921155
 
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
