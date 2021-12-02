@@ -146,6 +146,10 @@ class StartScreenTileEntry:
 		self.TileWidth = TileWidth
 		self.TileHeight = TileHeight
 		self.TileColor = TileColor
+		
+	# Add a ToDict method to get this as a dict we can add to a list:
+	# https://stackoverflow.com/a/37758807
+	def ToDict
 
 
 
