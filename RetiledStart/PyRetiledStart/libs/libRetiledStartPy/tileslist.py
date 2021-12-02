@@ -149,7 +149,12 @@ class StartScreenTileEntry:
 		
 	# Add a ToDict method to get this as a dict we can add to a list:
 	# https://stackoverflow.com/a/37758807
-	def ToDict
+	def ToDict(self):
+		tileDict = {}
+		tileDict["DotDesktopFilePath"] = self.DotDesktopFilePath
+		tileDict["TileWidth"] = self.TileWidth
+		tileDict["TileHeight"] = self.TileHeight
+		tileDict["TileColor"] = self.TileColor
 
 
 
