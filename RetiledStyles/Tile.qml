@@ -342,6 +342,8 @@ ButtonBase {
 			unpinButton.visible = true;
 			// Turn on edit mode.
 			editMode = true;
+			// Turn on global edit mode.
+			toggleGlobalEditMode(true);
 			// Rotate the resize button as well.
 			// TODO: Make the rotation into its own function.
 			// NOTE: These values are different from the ones
