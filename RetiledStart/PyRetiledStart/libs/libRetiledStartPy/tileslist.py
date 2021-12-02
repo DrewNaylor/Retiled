@@ -40,6 +40,10 @@ def saveTilesList(tilesList):
 	# I don't know how to delete sections from the file yet,
 	# so I'm just writing it all back. This might delete comments
 	# unless there's a way to preserve them.
+	# First ensure there are differences between the new tiles
+	# list and the one that's currently saved, so that
+	# unnecessary writes are avoided to prevent damaging
+	# the eMMC on users' phones.
 
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
