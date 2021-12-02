@@ -259,8 +259,8 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
-			console.log("editMode: " + editMode);
-			console.log("globalEditMode: " + globalEditMode);
+			console.log("editMode before: " + editMode);
+			console.log("globalEditMode before:" + globalEditMode);
 			// Only run the app if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
 				parent.clicked(parent.execKey);
@@ -304,6 +304,11 @@ ButtonBase {
 				// Hide the controls on the previously-active tile.
 				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
 			}
+			
+			console.log("------------------------");
+			console.log("editMode after: " + editMode);
+			console.log("globalEditMode after: " + globalEditMode);
+			console.log("-------------------------------------------------------------");
 
 		}
 		// Scaling the buttons down then back up
