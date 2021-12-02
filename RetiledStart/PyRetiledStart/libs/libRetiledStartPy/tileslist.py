@@ -53,7 +53,6 @@ def saveTilesList(tilesList):
 	
 	# Loop through the list of dictionaries and append to
 	# the list using what's in each dictionary.
-	# This involves the ToDict method.
 	# Context for how we're getting the items appended:
 	# https://stackoverflow.com/q/37758665
 	# Perhaps this will work better:
@@ -212,15 +211,6 @@ class StartScreenTileEntry:
 		self.TileWidth = TileWidth
 		self.TileHeight = TileHeight
 		self.TileColor = TileColor
-		
-	# Add a ToDict method to get this as a dict we can add to a list:
-	# https://stackoverflow.com/a/37758807
-	def ToDict(self):
-		tileDict = {}
-		tileDict["DotDesktopFilePath"] = self.DotDesktopFilePath
-		tileDict["TileWidth"] = self.TileWidth
-		tileDict["TileHeight"] = self.TileHeight
-		tileDict["TileColor"] = self.TileColor
 
 
 
