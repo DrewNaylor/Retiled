@@ -111,7 +111,7 @@ class TilesListViewModel(QObject):
 		# This is different on Windows for debugging purposes.
 		# Example code for sys.platform:
 		# https://docs.python.org/3/library/sys.html#sys.platform
-		if sys.platform.startswith("win32"):
+		# if sys.platform.startswith("win32"):
 			# Not sure if this code here is a good idea, as any tiles on Windows
 			# are just going to have the path of the .desktop file, which is how
 			# it works on Linux.
@@ -121,10 +121,14 @@ class TilesListViewModel(QObject):
 			# putting one in their home directory.
 			# This needs to be done for both the All Apps list as well as the Tiles.
 			#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-		else:
+		AppsList.RunApp(ViewModelExecFilename)
+		# else:
 			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
-			AppsList.RunApp(ViewModelExecFilename)
+		# AppsList.RunApp(ViewModelExecFilename)
+		# I got rid of the if statement because it's basically redundant.
+		# Don't have both of the lines calling the running code uncommented
+		# at the same time like I did, or you'll be confused why it opens
+		# a GUI app twice but not, say, htop or nano.
 			
 	# Unpin tile.
 	@Slot(str)
