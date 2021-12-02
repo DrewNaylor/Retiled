@@ -247,7 +247,14 @@ ApplicationWindow {
 				
 				// Hide the local edit mode controls on the previously-active tile.
 				function hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex) {
-					console.log(previousTileInEditingModeIndex);
+					// Use the previous tile index to hide the buttons on the previous tile.
+					// The moderator's answer here should work:
+					// https://forum.qt.io/post/234640
+					for (var i = 0; i < tilesContainer.children.length; i++) {
+						if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
+							console.log(tilesContainer.children[i].tileIndex);
+						}
+					}
 				}
 				
 				Component.onCompleted: {
