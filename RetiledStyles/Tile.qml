@@ -312,7 +312,7 @@ ButtonBase {
 		// the scale in the click handler.
 		onPressed: {
 			// Only change the scale if edit mode is off.
-			if (editMode == false) {
+			if ((editMode == false) && (globalEditMode == false)) {
 				control.scale = 0.98
 			}
 		}
