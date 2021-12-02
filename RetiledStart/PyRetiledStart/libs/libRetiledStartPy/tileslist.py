@@ -28,6 +28,7 @@
 
 
 import os
+import sys
 import json
 from ..pyyaml import yaml
 # We have to specify the whole path or it won't work.
@@ -87,7 +88,16 @@ def saveTilesList(tilesList):
 		# https://www.w3schools.com/python/python_file_write.asp
 		# We need "w+" to create the file if it doesn't exist:
 		# https://stackoverflow.com/a/2967249
-		with open(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml", "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
+		# First check which OS we're running on, and set
+		# the storage location appropriately.
+		ModifiedStartLayoutYamlBaseFilePath = "~/.config/Retiled/RetiledStart/"
+		if sys.platform.startswith("win32"):
+			# Set it to the same directory as the library
+			# if we're running on Windows, because this
+			# makes it easier for development.
+			ModifiedStartLayoutYamlBaseFilePath = os.getcwd() + "/libs/libRetiledStartPy/"
+		
+		with open(ModifiedStartLayoutYamlBaseFilePath + "startlayout-modified.yaml", "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
 			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
 	
 
