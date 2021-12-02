@@ -288,6 +288,9 @@ ApplicationWindow {
 						// Set the .desktop file path for unpinning or resizing.
 						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopPath;
 						
+						// Set tile index for the edit mode.
+						NewTileObject.tileIndex = i
+						
 						// Connect clicked signal.
 						NewTileObject.clicked.connect(tileClicked);
 						
