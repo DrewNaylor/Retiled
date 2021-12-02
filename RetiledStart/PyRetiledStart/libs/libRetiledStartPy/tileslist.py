@@ -90,7 +90,9 @@ def saveTilesList(tilesList):
 		# https://stackoverflow.com/a/2967249
 		# First check which OS we're running on, and set
 		# the storage location appropriately.
-		ModifiedStartLayoutYamlBaseFilePath = "~/.config/Retiled/RetiledStart/"
+		# Expand the user's home directory:
+		# https://www.tutorialspoint.com/How-to-find-the-real-user-home-directory-using-Python
+		ModifiedStartLayoutYamlBaseFilePath = os.path.expanduser("~") + "/.config/Retiled/RetiledStart/"
 		if sys.platform.startswith("win32"):
 			# Set it to the same directory as the library
 			# if we're running on Windows, because this
@@ -120,8 +122,8 @@ def getTilesList(includeTileAppNameAreaText = True):
 		if os.path.exists(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"):
 			StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"
 	else:
-		if os.path.exists("~/.config/Retiled/RetiledStart/startlayout-modified.yaml"):
-			StartLayoutFilePath = "~/.config/Retiled/RetiledStart/startlayout-modified.yaml"
+		if os.path.exists(os.path.expanduser("~") + "/.config/Retiled/RetiledStart/startlayout-modified.yaml"):
+			StartLayoutFilePath = os.path.expanduser("~") + "/.config/Retiled/RetiledStart/startlayout-modified.yaml"
 	
 	# Define list to store the tiles.
 	TilesList = []
