@@ -81,7 +81,7 @@ def saveTilesList(tilesList):
 		# https://stackoverflow.com/a/55171433
 		yamlifiedTiles = yaml.dump(StartLayoutConfigFile, sort_keys=False)
 	
-		print(yamlifiedTiles)
+		# print(yamlifiedTiles)
 		
 		# We can now save the file:
 		# https://www.w3schools.com/python/python_file_write.asp

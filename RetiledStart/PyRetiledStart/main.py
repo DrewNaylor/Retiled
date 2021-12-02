@@ -129,21 +129,6 @@ class TilesListViewModel(QObject):
 		# Don't have both of the lines calling the running code uncommented
 		# at the same time like I did, or you'll be confused why it opens
 		# a GUI app twice but not, say, htop or nano.
-			
-	# Unpin tile.
-	@Slot(str)
-	def UnpinTile(self, dotDesktopFilePath):
-		# Unpins the tile by passing it to the code-behind.
-		print(dotDesktopFilePath)
-		
-	# Resize tile.
-	# Remember to add arguments for each item into the @Slot().
-	@Slot(str, int, int)
-	def ResizeTile(self, dotDesktopFilePath, newTileWidth, newTileHeight):
-		# Resizes the tile by passing it to the code-behind.
-		print(dotDesktopFilePath)
-		print(newTileWidth)
-		print(newTileHeight)
 		
 	# Save the tile layout after exiting global exit mode.
 	# This involves reading JSON as a dictionary and
