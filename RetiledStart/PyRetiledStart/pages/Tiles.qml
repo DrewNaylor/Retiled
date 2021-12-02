@@ -264,10 +264,13 @@ ApplicationWindow {
 								tile['TileColor'] = tilesContainer.children[i].tileBackgroundColor;
 								// Push the tile to the list.
 								tilesList.push(tile);
-							}
-						}
-					}
-				}
+							} // End of If statement checking if the tile is visible.
+						} // End of loop that goes through the tiles to save.
+						// Send the list of tiles to Python so it can save
+						// changes to the config file and remove any unpinned tiles.
+						tilesListViewModel.SaveTileLayout(tilesList);
+					} // End of the check to see if we're in global edit mode.
+				} // End of the global edit mode toggle function.
 				
 				// Hide the local edit mode controls on the previously-active tile.
 				function hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex) {
