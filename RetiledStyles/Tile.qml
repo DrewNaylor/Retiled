@@ -71,6 +71,9 @@ ButtonBase {
 	// Signal for turning on or off global edit mode.
 	signal toggleGlobalEditMode(bool enable);
 	
+	// Signal for hiding the editing controls on the previously-active tile.
+	signal hideEditModeControlsOnPreviousTile(int previousTileInEditingModeIndex);
+	
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:
 	// https://stackoverflow.com/a/8430030
@@ -271,7 +274,7 @@ ButtonBase {
 				// with a MouseArea.
 				// TODO: Make this less janky.
 				control.scale = 1.0;
-			} else if (editMode == true) {
+			} else if ((editMode == true) && (globalEditMode = true)) {
 				// Turn off edit mode if it's on.
 				editMode = false;
 				// Also turn off global edit mode, because
@@ -294,6 +297,8 @@ ButtonBase {
 				control.z = control.z + 1;
 				resizeButton.visible = true;
 				unpinButton.visible = true;
+				// Hide the controls on the previously-active tile.
+				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
 			}
 
 		}
