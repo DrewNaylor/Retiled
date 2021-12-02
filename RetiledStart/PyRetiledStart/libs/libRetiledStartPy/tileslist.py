@@ -50,6 +50,12 @@ def saveTilesList(tilesList):
 	# Define a list we'll use to store the dictionary in.
 	TilesListToSave = []
 	
+	# Loop through the list of dictionaries and append to
+	# the list using what's in each dictionary.
+	# This involves the ToDict method.
+	# Context for how we're getting the items appended:
+	# https://stackoverflow.com/q/37758665
+	
 	# Load the tilesList as if it were a yaml file.
 	jsonifiedTiles = json.dumps(tilesList)
 	
