@@ -93,6 +93,10 @@ ButtonBase {
 	// This'll allow people to exit edit mode by tapping the tile.
 	property bool editMode: false
 	
+	// Set tile index for use with global edit mode.
+	// This isn't the tile ID, which is used in the config file.
+	property int tileIndex;
+	
 	RoundButton {
 		id: unpinButton
 		visible: false
