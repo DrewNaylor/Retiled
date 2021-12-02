@@ -96,6 +96,11 @@ def saveTilesList(tilesList):
 			# if we're running on Windows, because this
 			# makes it easier for development.
 			ModifiedStartLayoutYamlBaseFilePath = os.getcwd() + "/libs/libRetiledStartPy/"
+			
+		# Create the directory if it doesn't exist:
+		# https://www.tutorialspoint.com/How-can-I-create-a-directory-if-it-does-not-exist-using-Python
+		if not os.path.exists(ModifiedStartLayoutYamlBaseFilePath):
+			os.makedirs(ModifiedStartLayoutYamlBaseFilePath)
 		
 		with open(ModifiedStartLayoutYamlBaseFilePath + "startlayout-modified.yaml", "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
 			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
