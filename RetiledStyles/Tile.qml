@@ -105,7 +105,7 @@ ButtonBase {
 	
 	RoundButton {
 		id: unpinButton
-		visible: false
+		visible: editMode
 		Image {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
@@ -146,8 +146,6 @@ ButtonBase {
 			// NOTE: Unpinning a tile removes the buttons, so this
 			// is ok, unlike when resizing the tile.
 			control.z = control.z - 1;
-			resizeButton.visible = false;
-			unpinButton.visible = false;
 			// Turn off local edit mode.
 			editMode = false;
 			// Unpin the tile.
@@ -163,7 +161,7 @@ ButtonBase {
 	
 	RoundButton {
 		id: resizeButton
-		visible: false
+		visible: editMode
 		text: "<b>\ue021</b>"
 		font: metroFont.font
 		// Anchor the horizontal and vertical
@@ -286,8 +284,6 @@ ButtonBase {
 				// Hide the edit mode buttons and reset the tile's
 				// z-index.
 				control.z = control.z - 1;
-				resizeButton.visible = false;
-				unpinButton.visible = false;
 				// console.log(previousTileInEditingModeIndex);
 			} else if ((editMode == false) && (globalEditMode == true)) {
 				// If local edit mode is off but global edit mode
@@ -300,8 +296,6 @@ ButtonBase {
 				editMode = true;
 				// Forgot to show the controls, oops.
 				control.z = control.z + 1;
-				resizeButton.visible = true;
-				unpinButton.visible = true;
 				// Hide the controls on the previously-active tile.
 				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
 				// Now set the previous tile index.
@@ -359,8 +353,6 @@ ButtonBase {
 			// it's still possible to open an app with tile A while the menu
 			// for tile B is open.
 			control.z = control.z + 1;
-			resizeButton.visible = true;
-			unpinButton.visible = true;
 			// Turn on edit mode.
 			editMode = true;
 			// Turn on global edit mode.

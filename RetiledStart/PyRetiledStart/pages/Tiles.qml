@@ -259,8 +259,6 @@ ApplicationWindow {
 							// Now hide the buttons and turn edit mode off for that tile.
 							tilesContainer.children[i].editMode = false;
 							tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
-							tilesContainer.children[i].resizeButton.visible = false;
-							tilesContainer.children[i].unpinButton.visible = false;
 						}
 					}
 				}
