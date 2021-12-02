@@ -245,6 +245,11 @@ ApplicationWindow {
 					globalEditMode = enable;
 				}
 				
+				// Hide the local edit mode controls on the previously-active tile.
+				function hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex) {
+					console.log(previousTileInEditingModeIndex);
+				}
+				
 				Component.onCompleted: {
 					
 					// Start looping through the list provided by Python
@@ -304,6 +309,9 @@ ApplicationWindow {
 						
 						// Connect global edit mode toggle.
 						NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+						
+						// Connect hideEditModeControlsOnPreviousTile signal.
+						NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
