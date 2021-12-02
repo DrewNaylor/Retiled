@@ -288,6 +288,7 @@ ButtonBase {
 				control.z = control.z - 1;
 				resizeButton.visible = false;
 				unpinButton.visible = false;
+				console.log(previousTileInEditingModeIndex);
 			} else if ((editMode == false) && (globalEditMode == true)) {
 				// If local edit mode is off but global edit mode
 				// is on, turn on edit mode for this tile and show
