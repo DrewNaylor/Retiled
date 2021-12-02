@@ -272,10 +272,15 @@ ApplicationWindow {
 						// when leaving global edit mode, too.
 						if ((tilesContainer.children[i].editMode == true) || (globalEditMode == false)) {
 							tilesContainer.children[i].opacity = 1.0;
+							// Set scale back to 1.0.
+							tilesContainer.children[i].scale = 1.0;
 						} else {
 							// When in global edit mode, we have to set all
 							// tiles that aren't in local edit mode to 50% opacity.
 							tilesContainer.children[i].opacity = 0.5;
+							// Change scale to 0.9 for all the other tiles
+							// so they look like they're in the background.
+							tilesContainer.children[i].scale = 0.9;
 						}
 					}
 				}
