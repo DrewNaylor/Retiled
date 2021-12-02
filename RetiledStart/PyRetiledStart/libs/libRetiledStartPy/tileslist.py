@@ -55,9 +55,6 @@ def saveTilesList(tilesList):
 	# Now load the tilesList into the StartScreenLayoutRoot class.
 	YamlFile = StartScreenLayoutRoot(yaml.safe_load(tilesList))
 	
-	# Set the StartLayoutSchemaVersion to 0.1.
-	YamlFile.StartLayoutSchemaVersion = 0.1
-	
 	# Before saving, check if the order of this list is the same as what's
 	# already saved.
 	if not (json.dumps(tilesList) == getTilesList()):
@@ -68,7 +65,7 @@ def saveTilesList(tilesList):
 		# Load the tilesList as if it were JSON.
 		jsonifiedTiles = json.dumps(tilesList)
 	
-		# print(jsonifiedTiles)
+		print(jsonifiedTiles)
 	
 		# Loop through the items in tilesList and add them to TilesListToSave.
 	
