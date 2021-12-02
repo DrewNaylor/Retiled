@@ -55,6 +55,8 @@ def saveTilesList(tilesList):
 	# This involves the ToDict method.
 	# Context for how we're getting the items appended:
 	# https://stackoverflow.com/q/37758665
+	for i in range(len(tilesList)):
+		print([i])
 	
 	# Load the tilesList as if it were a yaml file.
 	jsonifiedTiles = json.dumps(tilesList)
