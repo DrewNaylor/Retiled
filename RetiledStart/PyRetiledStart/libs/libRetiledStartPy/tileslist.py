@@ -53,7 +53,7 @@ def saveTilesList(tilesList):
 	# Load the tilesList as if it were a yaml file.
 	yamlifiedTiles = yaml.dump(tilesList)
 	
-	print(jsonifiedTiles)
+	print(yamlifiedTiles)
 	
 	# Loop through the items in tilesList and add them to TilesListToSave.
 	
