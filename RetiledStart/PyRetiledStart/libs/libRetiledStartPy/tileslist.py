@@ -35,6 +35,9 @@ from ..pyyaml.yaml.loader import SafeLoader
 from . import appslist as AppsList
 
 
+def saveTilesList(tilesList):
+	# Saves the list of tiles to the config file.
+
 def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
 	# Currently has the location of the tiles list hardcoded.
