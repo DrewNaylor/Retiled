@@ -246,6 +246,11 @@ ApplicationWindow {
 					
 					// Now if global edit mode gets turned off, we
 					// need to save the tile layout.
+					if (globalEditMode == false) {
+						// Create a list of the tiles to send to Python:
+						// https://stackoverflow.com/a/24747608
+						
+					}
 				}
 				
 				// Hide the local edit mode controls on the previously-active tile.
