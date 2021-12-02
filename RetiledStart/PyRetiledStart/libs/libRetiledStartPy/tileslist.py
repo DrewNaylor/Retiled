@@ -55,8 +55,10 @@ def saveTilesList(tilesList):
 	# This involves the ToDict method.
 	# Context for how we're getting the items appended:
 	# https://stackoverflow.com/q/37758665
+	# Perhaps this will work better:
+	# https://stackoverflow.com/a/10856270
 	for i in range(len(tilesList)):
-		tile = StartScreenTileEntry(tilesList[i]("DotDesktopFilePath"), tilesList[i]("TileWidth"), tilesList[i]("TileHeight"), tilesList[i]("TileColor"))
+		tile = StartScreenTileEntry(tilesList[i]["DotDesktopFilePath"], tilesList[i]["TileWidth"], tilesList[i]["TileHeight"], tilesList[i]["TileColor"])
 		print(tile.ToDict())
 	
 	# Load the tilesList as if it were a yaml file.
