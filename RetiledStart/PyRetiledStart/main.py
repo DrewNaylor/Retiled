@@ -145,7 +145,9 @@ class TilesListViewModel(QObject):
 	# This involves reading JSON as a dictionary and
 	# modifying the startlayout.yaml file after copying
 	# it to the user's home folder if necessary.
-	@Slot(str)
+	# The slot has to be a list, otherwise we'll just
+	# get [object, Object] a bunch of times.
+	@Slot(list)
 	def SaveTileLayout(self, tilesList):
 		# Send the tiles list to the JSON processing code.
 		print(tilesList)
