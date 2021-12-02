@@ -260,8 +260,6 @@ ButtonBase {
 	MouseArea {
 		anchors.fill: parent
 		onClicked: {
-			console.log("editMode before: " + editMode);
-			console.log("globalEditMode before:" + globalEditMode);
 			// Only run the app if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
 				parent.clicked(parent.execKey);
@@ -328,11 +326,6 @@ ButtonBase {
 					}
 			}
 			
-			console.log("------------------------");
-			console.log("editMode after: " + editMode);
-			console.log("globalEditMode after: " + globalEditMode);
-			console.log("-------------------------------------------------------------");
-
 		}
 		// Scaling the buttons down then back up
 		// is done by setting scale values for both

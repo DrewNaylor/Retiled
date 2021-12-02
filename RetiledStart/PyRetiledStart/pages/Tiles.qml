@@ -255,7 +255,6 @@ ApplicationWindow {
 						// and find the tile that has the same tileIndex as the tile
 						// that was previously in editing mode.
 						if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
-							console.log(tilesContainer.children[i].tileIndex);
 							// Now hide the buttons and turn edit mode off for that tile.
 							// The visibility of the edit mode buttons is tied to editMode.
 							tilesContainer.children[i].editMode = false;
