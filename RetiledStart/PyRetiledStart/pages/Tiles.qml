@@ -257,6 +257,7 @@ ApplicationWindow {
 						if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
 							console.log(tilesContainer.children[i].tileIndex);
 							// Now hide the buttons and turn edit mode off for that tile.
+							// The visibility of the edit mode buttons is tied to editMode.
 							tilesContainer.children[i].editMode = false;
 							tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
 						}
