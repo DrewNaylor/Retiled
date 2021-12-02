@@ -60,7 +60,11 @@ def saveTilesList(tilesList):
 	for i in tilesList:
 		tile = StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
 		print(tile.DotDesktopFilePath)
+		# Add to the TilesListToSave.
+		TilesListToSave.append(tile)
 		# print(i["DotDesktopFilePath"])
+		
+	print(TilesListToSave)
 	
 	# Load the tilesList as if it were a yaml file.
 	jsonifiedTiles = json.dumps(tilesList)
