@@ -64,12 +64,17 @@ def saveTilesList(tilesList):
 		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": i["TileWidth"], "TileHeight": i["TileHeight"], "TileColor": i["TileColor"]})
 		# print(i["DotDesktopFilePath"])
 		
-	print(TilesListToSave)
+	# print(TilesListToSave)
+	
+	# Append the start layout schema version.
+	# We need to create a new list first, one that
+	# has both the "Tiles:" thing, too.
+	StartLayoutConfigFile = [{"Tiles": TilesListToSave}, {"StartLayoutSchemaVersion": 1.0}]
 	
 	# Load the tilesList as if it were a yaml file.
-	jsonifiedTiles = json.dumps(tilesList)
+	jsonifiedTiles = yaml.dump(StartLayoutConfigFile)
 	
-	# print(jsonifiedTiles)
+	print(jsonifiedTiles)
 	
 	# Loop through the items in tilesList and add them to TilesListToSave.
 	
