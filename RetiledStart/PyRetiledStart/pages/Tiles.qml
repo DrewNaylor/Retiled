@@ -56,18 +56,25 @@ ApplicationWindow {
 	
 	// Global edit mode property so we can check to see if
 	// edit mode is turned on globally when tapping a tile.
-	// If it is, we'll turn edit mode on for that tile
+	// If it is, we'll turn local edit mode on for that tile
 	// and turn off edit mode for the previous tile.
 	// Note that global edit mode is exited when either
 	// a tile is tapped again in edit mode, or by tapping
 	// anywhere outside the tiles.
 	// This requires looking at the tile that previously had edit mode
-	// in order to remove edit mode from that tile.
+	// in order to remove local edit mode from that tile.
 	// I'll have to use integers for it.
 	// Turning on and off global edit mode will probably use
 	// signals, as it's turned on when long-pressing on
 	// a tile and turned off when tapping a tile.
 	property bool globalEditMode: false
+	
+	// This is the index for the tile that was previously
+	// in editing mode so we can remove the buttons from it.
+	// Set this after turning local edit mode on for a tile.
+	// Also set this to the first tile long-pressed if
+	// global edit mode is off.
+	property int previousTileInEditingModeIndex;
 	
 	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
 	// https://stackoverflow.com/a/8430030
