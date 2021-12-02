@@ -261,6 +261,9 @@ ApplicationWindow {
 								tile['TileAppNameAreaText'] = tilesContainer.children[i].tileText;
 								tile['TileWidth'] = tilesContainer.children[i].width;
 								tile['TileHeight'] = tilesContainer.children[i].height;
+								tile['TileColor'] = tilesContainer.children[i].tileBackgroundColor;
+								// Push the tile to the list.
+								tilesList.push(tile);
 							}
 						}
 					}
