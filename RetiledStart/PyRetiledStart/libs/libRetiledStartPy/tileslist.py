@@ -72,7 +72,9 @@ def saveTilesList(tilesList):
 	StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 1.0}
 	
 	# Load the tilesList as if it were a yaml file.
-	jsonifiedTiles = yaml.dump(StartLayoutConfigFile)
+	# Be sure to not have it sort the keys:
+	# https://stackoverflow.com/a/55171433
+	jsonifiedTiles = yaml.dump(StartLayoutConfigFile, sort_keys=False)
 	
 	print(jsonifiedTiles)
 	
