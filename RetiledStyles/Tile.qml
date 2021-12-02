@@ -274,7 +274,7 @@ ButtonBase {
 				// with a MouseArea.
 				// TODO: Make this less janky.
 				control.scale = 1.0;
-			} else if ((editMode == true) && (globalEditMode = true)) {
+			} else if ((editMode == true) && (globalEditMode == true)) {
 				// Turn off edit mode if it's on.
 				editMode = false;
 				// Also turn off global edit mode, because
