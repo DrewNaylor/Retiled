@@ -110,8 +110,13 @@ def getTilesList(includeTileAppNameAreaText = True):
 	StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml"
 	# Didn't know how to check if a file existed off the top of my head:
 	# https://www.pythontutorial.net/python-basics/python-check-if-file-exists/
-	if os.path.exists(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"):
-		StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"
+	# We can now check if we're running on Windows.
+	if sys.platform.startswith("win32"):
+		if os.path.exists(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"):
+			StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"
+	else:
+		if os.path.exists("~/.config/Retiled/RetiledStart/startlayout-modified.yaml"):
+			StartLayoutFilePath = "~/.config/Retiled/RetiledStart/startlayout-modified.yaml"
 	
 	# Define list to store the tiles.
 	TilesList = []
