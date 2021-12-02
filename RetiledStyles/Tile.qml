@@ -69,7 +69,7 @@ ButtonBase {
 	signal resizeTile(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
 	
 	// Signal for turning on or off global edit mode.
-	signal globalEditModeToggle(bool enable);
+	signal toggleGlobalEditMode(bool enable);
 	
 	// Set padding values.
 	// These values and the fontSize may be incorrect, at least with WP7:

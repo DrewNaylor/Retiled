@@ -237,6 +237,14 @@ ApplicationWindow {
 					tilesListViewModel.ResizeTile(dotDesktopFilePath, newTileWidth, newTileHeight);
 				}
 				
+				// Turn on or off global edit mode.
+				function toggleGlobalEditMode(enable) {
+					// If enable is false, global edit mode will be
+					// turned off. Likewise, if it's true, it'll be
+					// turned on.
+					globalEditMode = enable;
+				}
+				
 				Component.onCompleted: {
 					
 					// Start looping through the list provided by Python
@@ -293,6 +301,9 @@ ApplicationWindow {
 						
 						// Connect clicked signal.
 						NewTileObject.clicked.connect(tileClicked);
+						
+						// Connect global edit mode toggle.
+						NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
