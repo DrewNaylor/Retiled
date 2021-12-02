@@ -69,7 +69,7 @@ def saveTilesList(tilesList):
 	# Append the start layout schema version.
 	# We need to create a new list first, one that
 	# has both the "Tiles:" thing, too.
-	StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 1.0}
+	StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.1}
 	
 	# Load the tilesList as if it were a yaml file.
 	# Be sure to not have it sort the keys:
