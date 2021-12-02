@@ -58,10 +58,10 @@ def saveTilesList(tilesList):
 	# Perhaps this will work better:
 	# https://stackoverflow.com/a/10856270
 	for i in tilesList:
-		tile = StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
+		# tile = StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
 		# print(tile.DotDesktopFilePath)
 		# Add to the TilesListToSave.
-		TilesListToSave.append({i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"]})
+		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": i["TileWidth"], "TileHeight": i["TileHeight"], "TileColor": i["TileColor"]})
 		# print(i["DotDesktopFilePath"])
 		
 	print(TilesListToSave)
