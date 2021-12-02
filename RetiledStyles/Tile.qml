@@ -290,6 +290,10 @@ ButtonBase {
 				// TODO: Turn off local edit mode for the tile
 				// previously in edit mode.
 				editMode == true;
+				// Forgot to show the controls, oops.
+				control.z = control.z + 1;
+				resizeButton.visible = true;
+				unpinButton.visible = true;
 			}
 
 		}
