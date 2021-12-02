@@ -243,6 +243,9 @@ ApplicationWindow {
 					// turned off. Likewise, if it's true, it'll be
 					// turned on.
 					globalEditMode = enable;
+					
+					// Now if global edit mode gets turned off, we
+					// need to save the tile layout.
 				}
 				
 				// Hide the local edit mode controls on the previously-active tile.

@@ -141,6 +141,15 @@ class TilesListViewModel(QObject):
 		print(newTileWidth)
 		print(newTileHeight)
 		
+	# Save the tile layout after exiting global exit mode.
+	# This involves reading JSON as a dictionary and
+	# modifying the startlayout.yaml file after copying
+	# it to the user's home folder if necessary.
+	@Slot(str)
+	def SaveTileLayout(self, tilesList):
+		# Send the tiles list to the JSON processing code.
+		print(tilesList)
+		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)
 	def getTilesList(self):
