@@ -271,7 +271,7 @@ ButtonBase {
 				// with a MouseArea.
 				// TODO: Make this less janky.
 				control.scale = 1.0;
-			} else if (editMode == true) {
+			} else if ((editMode == true) && (globalEditMode == true)) {
 				// Turn off edit mode if it's on.
 				editMode = false;
 				// Also turn off global edit mode, because
@@ -283,6 +283,13 @@ ButtonBase {
 				control.z = control.z - 1;
 				resizeButton.visible = false;
 				unpinButton.visible = false;
+			} else if ((editMode == false) && (globalEditMode == true)) {
+				// If local edit mode is off but global edit mode
+				// is on, turn on edit mode for this tile and show
+				// the edit controls.
+				// TODO: Turn off local edit mode for the tile
+				// previously in edit mode.
+				editMode == true;
 			}
 
 		}
