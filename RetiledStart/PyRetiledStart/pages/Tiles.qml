@@ -251,8 +251,12 @@ ApplicationWindow {
 					// The moderator's answer here should work:
 					// https://forum.qt.io/post/234640
 					for (var i = 0; i < tilesContainer.children.length; i++) {
+						// Loop through the children of the tilesContainer flow
+						// and find the tile that has the same tileIndex as the tile
+						// that was previously in editing mode.
 						if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
 							console.log(tilesContainer.children[i].tileIndex);
+							// Now hide the buttons and turn edit mode off for that tile.
 						}
 					}
 				}
