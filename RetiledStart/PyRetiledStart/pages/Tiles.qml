@@ -249,7 +249,14 @@ ApplicationWindow {
 					if (globalEditMode == false) {
 						// Create a list of the tiles to send to Python:
 						// https://stackoverflow.com/a/24747608
-						
+						var tilesList = [];
+						// Loop through the tiles and add them to the list
+						// if their visible property is set to "true".
+						for (var i = 0; i < tilesContainer.children.length; i++) {
+							if (tilesContainer.children[i].visible = true) {
+								
+							}
+						}
 					}
 				}
 				
