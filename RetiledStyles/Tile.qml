@@ -145,7 +145,7 @@ ButtonBase {
 			control.z = control.z - 1;
 			resizeButton.visible = false;
 			unpinButton.visible = false;
-			// Turn off edit mode.
+			// Turn off local edit mode.
 			editMode = false;
 			// Unpin the tile.
 			unpinTile(dotDesktopFilePath);
@@ -257,7 +257,7 @@ ButtonBase {
 		anchors.fill: parent
 		onClicked: {
 			// Only run the app if edit mode is off.
-			if (editMode == false) {
+			if ((editMode == false) && (globalEditMode == false)) {
 				parent.clicked(parent.execKey);
 				// Reset the scale to 1.0.
 				// This, along with setting the scale
@@ -274,6 +274,10 @@ ButtonBase {
 			} else if (editMode == true) {
 				// Turn off edit mode if it's on.
 				editMode = false;
+				// Also turn off global edit mode, because
+				// the current tile has focus and that's how
+				// global edit mode is turned off.
+				toggleGlobalEditMode(false);
 				// Hide the edit mode buttons and reset the tile's
 				// z-index.
 				control.z = control.z - 1;
