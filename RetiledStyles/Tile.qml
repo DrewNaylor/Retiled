@@ -296,7 +296,7 @@ ButtonBase {
 				// previously in edit mode.
 				// For some reason, local edit mode isn't being
 				// turned on properly.
-				editMode == true;
+				editMode = true;
 				// Forgot to show the controls, oops.
 				control.z = control.z + 1;
 				resizeButton.visible = true;
