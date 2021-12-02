@@ -61,28 +61,31 @@ def saveTilesList(tilesList):
 		# tile = StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"])
 		# print(tile.DotDesktopFilePath)
 		# Add to the TilesListToSave.
-		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": i["TileWidth"], "TileHeight": i["TileHeight"], "TileColor": i["TileColor"]})
+		# NOTE: QML won't give us integers for tile widths and heights,
+		# so we need to make them into integers in Python.
+		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"]), "TileColor": i["TileColor"]})
 		# print(i["DotDesktopFilePath"])
 		
 	# print(TilesListToSave)
 	
-	# Append the start layout schema version.
-	# We need to create a new list first, one that
-	# has both the "Tiles:" thing, too.
-	StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.1}
+	# Now we can check if the list is the same as getTilesList().
+	if not json.dumps(TilesListToSave) == getTilesList(False):
 	
-	# Load the tilesList as if it were a yaml file.
-	# Be sure to not have it sort the keys:
-	# https://stackoverflow.com/a/55171433
-	jsonifiedTiles = yaml.dump(StartLayoutConfigFile, sort_keys=False)
+		# Append the start layout schema version.
+		# We need to create a new list first, one that
+		# has both the "Tiles:" thing, too.
+		StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.1}
 	
-	print(jsonifiedTiles)
+		# Load the tilesList as if it were a yaml file.
+		# Be sure to not have it sort the keys:
+		# https://stackoverflow.com/a/55171433
+		jsonifiedTiles = yaml.dump(StartLayoutConfigFile, sort_keys=False)
 	
-	# Loop through the items in tilesList and add them to TilesListToSave.
+		print(jsonifiedTiles)
 	
 	
 
-def getTilesList():
+def getTilesList(includeTileAppNameAreaText = True):
 	# Gets the list of tiles that should be shown on Start.
 	# Currently has the location of the tiles list hardcoded.
 	
@@ -115,7 +118,10 @@ def getTilesList():
 		# https://www.w3schools.com/python/python_lists_loop.asp
 		for i in range(len(YamlFile.Tiles)):
 			#print(YamlFile.Tiles[i].TileColor)
-			TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+			if (includeTileAppNameAreaText == False):
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+			else:
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
 		
 		# Get the stuff under Tiles.
 	
