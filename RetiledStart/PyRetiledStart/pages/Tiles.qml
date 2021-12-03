@@ -433,7 +433,7 @@ ApplicationWindow {
 					
 				} // Component.onCompleted for the Tiles Flow area.
 				
-			}
+			} // End of the Flow that contains the tiles.
 	
 		// Use a FontLoader to get the arrow button font:
 		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
