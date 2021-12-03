@@ -380,14 +380,19 @@ ApplicationWindow {
 					// figure out why it wouldn't work.
 					var ParsedTilesList = JSON.parse(TilesList);
 					
+					// Make sure the tiles list isn't just an empty list
+					// before we create the tiles list. This allows the user
+					// to just not have tiles if they don't want to.
+					if (ParsedTilesList.length > 0) {
+					
 					// Create the tiles dynamically according to this page:
 					// https://doc.qt.io/qt-6/qtqml-javascript-dynamicobjectcreation.html
 					// We're doing this outside the loop, because that's what the docs
 					// did and it's probably faster/less memory-intensive.
 					// TODO: Check if this can be changed to RetiledStyles.Tile.
-					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+						var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
 					
-					for (var i = 0; i < ParsedTilesList.length; i++){
+						for (var i = 0; i < ParsedTilesList.length; i++){
 						//console.log(ParsedTilesList[i].DotDesktopPath);
 						//console.log(ParsedTilesList[i].TileAppNameAreaText);
 						//console.log(ParsedTilesList[i].TileWidth);
@@ -399,49 +404,57 @@ ApplicationWindow {
 						// Make sure it's ready first.
 						// TODO: Switch to incubateObject.
 						//if (TileComponent.status == Component.Ready) {
-						var NewTileObject = TileComponent.createObject(tilesContainer);
+							var NewTileObject = TileComponent.createObject(tilesContainer);
 						// Increment the tile count.
-						checkPinnedTileCount(1);
+							checkPinnedTileCount(1);
 						// Set tile properties.
-						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
-						NewTileObject.width = ParsedTilesList[i].TileWidth;
-						NewTileObject.height = ParsedTilesList[i].TileHeight;
-						NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+							NewTileObject.width = ParsedTilesList[i].TileWidth;
+							NewTileObject.height = ParsedTilesList[i].TileHeight;
+							NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-						NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set tile index for the edit mode.
-						NewTileObject.tileIndex = i
+							NewTileObject.tileIndex = i
 						
 						// Connect clicked signal.
-						NewTileObject.clicked.connect(tileClicked);
+							NewTileObject.clicked.connect(tileClicked);
 						
 						// Connect global edit mode toggle.
-						NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
 						
 						// Connect hideEditModeControlsOnPreviousTile signal.
-						NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 						
 						// Connect the opacity-setter function.
-						NewTileObject.setTileOpacity.connect(setTileOpacity);
+							NewTileObject.setTileOpacity.connect(setTileOpacity);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						// Connect decrementing the pinned tiles count signal.
-						NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 						
 						//} // End of If statement to ensure things are ready.
 						
-					} // End of For loop that loads the tiles.
-					
+						} // End of For loop that loads the tiles.
+					} else {
+						// We have to add 0 to 0 if there are no tiles to add
+						// so that the whole thing where the tiles list is hidden
+						// happens.
+						// There's an animation that occurs where the page slides over
+						// to the All Apps list, and I'd prefer to turn that off on
+						// startup if possible, but allow it to be used later.
+						checkPinnedTileCount(0);
+					} // End of If statement checking to ensure there are tiles to add.
 					
 				} // Component.onCompleted for the Tiles Flow area.
 				
