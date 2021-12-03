@@ -64,9 +64,9 @@ ButtonBase {
 	property bool showContextMenu: false
 	// Signal for opening the context menu.
 	signal pressAndHold(bool showContextMenu);
-	// Signals for unpinning and resizing tiles.
-	signal unpinTile(string dotDesktopFilePath);
-	signal resizeTile(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
+	// Signal for decrementing the pinned tiles count.
+	// This is used to check whether the tiles page should be hidden.
+	signal decrementPinnedTilesCount(int amountToDecrement);
 	
 	// Signal for turning on or off global edit mode.
 	signal toggleGlobalEditMode(bool enable);
@@ -151,7 +151,9 @@ ButtonBase {
 			control.z = control.z - 1;
 			// Turn off local edit mode.
 			editMode = false;
+			// Decrement the pinned tiles count.
 			// Unpin the tile.
+			decrementPinnedTilesCount(-1);
 			// Temporary placeholder code that just
 			// sets the tile to be invisible.
 			// TODO: Figure out how to properly remove the tile

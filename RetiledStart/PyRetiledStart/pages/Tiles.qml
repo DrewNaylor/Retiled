@@ -422,11 +422,8 @@ ApplicationWindow {
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
-						// Connect unpin signal.
-						NewTileObject.unpinTile.connect(unpinTile);
-						
-						// Connect resize signal.
-						NewTileObject.resizeTile.connect(resizeTile);
+						// Connect decrementing the pinned tiles count signal.
+						NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 						
 						//} // End of If statement to ensure things are ready.
 						
