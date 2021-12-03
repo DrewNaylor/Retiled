@@ -316,6 +316,7 @@ ApplicationWindow {
 							tilesContainer.children[i].scale = 0.9;
 						}
 					}
+				}
 				
 				// Hide or show tiles page based on the current number of tiles.
 				function checkPinnedTileCount(numberToChangePinnedTilesCountBy) {
