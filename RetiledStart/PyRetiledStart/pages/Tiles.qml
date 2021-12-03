@@ -112,6 +112,7 @@ ApplicationWindow {
 	
 	
 	Shortcut {
+		id: backButtonShortcut
 		sequences: ["Esc", "Back"]
         onActivated: {
 			
@@ -339,6 +340,8 @@ ApplicationWindow {
 							startScreenView.currentIndex = 0;
 							// Show the All Apps button again, too.
 							allAppsButton.visible = true;
+							// Reset the Back button/Escape key shortcut.
+							backButtonShortcut.enabled = true;
 						} // End of if statement seeing if the swipeview is currently interactive.
 					} else {
 						// There are either 0 or fewer tiles pinned, so hide the tiles page.
@@ -361,6 +364,8 @@ ApplicationWindow {
 							// until I read it again.
 							// startScreenView.contentItem.highlightMoveDuration = defaultSwipeViewMoveAnimationDuration
 							allAppsButton.visible = false;
+							// Turn off the back button shortcut.
+							backButtonShortcut.enabled = false;
 							// Loop through the tiles list and make sure they're
 							// all hidden, because I was having an issue where
 							// one would remain for some reason.
