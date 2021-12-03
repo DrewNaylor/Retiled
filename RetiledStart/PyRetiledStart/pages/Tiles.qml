@@ -354,8 +354,10 @@ ApplicationWindow {
 							// } else if ((startScreenView.interactive == true) && (startScreenView.currentIndex == 1)) {
 								// // Move to the bottom of the tiles list, as we're pinning a tile:
 								// // https://stackoverflow.com/a/25363306
-								// // The other answer on that page may also help.
-								// tilesFlickable.contentY = tilesFlickable.contentHeight-allAppsButton.height;
+								// // As it turns out, you have to use the flickable's values
+								// // for both contentHeight and height in order for this to work,
+								// // or it won't be the right position.
+								// tilesFlickable.contentY = tilesFlickable.contentHeight-tilesFlickable.height;
 								// startScreenView.currentIndex = 0;
 								// Not sure if this code will help when I'm trying to figure out
 								// moving to the bottom to pin tiles.
