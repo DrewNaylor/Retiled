@@ -521,5 +521,5 @@ ApplicationWindow {
 		// The All Apps page has been moved to its own file.
 	}
 	
-}
-}
+} // End of the swipeview for the Start screen.
+}// End of the window.
