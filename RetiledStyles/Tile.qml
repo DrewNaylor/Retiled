@@ -63,13 +63,13 @@ ButtonBase {
 	property string dotDesktopFilePath;
 	property bool showContextMenu: false
 	// Signal for opening the context menu.
-	signal pressAndHold(bool showContextMenu);
-	// Signals for unpinning and resizing tiles.
-	signal unpinTile(string dotDesktopFilePath);
-	signal resizeTile(string dotDesktopFilePath, int newTileWidth, int newTileHeight);
+	// signal pressAndHold(bool showContextMenu);
+	// Signal for decrementing the pinned tiles count.
+	// This is used to check whether the tiles page should be hidden.
+	signal decrementPinnedTilesCount(int amountToDecrement);
 	
 	// Signal for turning on or off global edit mode.
-	signal toggleGlobalEditMode(bool enable);
+	signal toggleGlobalEditMode(bool enable, bool showAllAppsButtonAndAllowGoingBetweenPages);
 	
 	// Signal for hiding the editing controls on the previously-active tile.
 	signal hideEditModeControlsOnPreviousTile(int previousTileInEditingModeIndex);
@@ -151,7 +151,9 @@ ButtonBase {
 			control.z = control.z - 1;
 			// Turn off local edit mode.
 			editMode = false;
+			// Decrement the pinned tiles count.
 			// Unpin the tile.
+			decrementPinnedTilesCount(-1);
 			// Temporary placeholder code that just
 			// sets the tile to be invisible.
 			// TODO: Figure out how to properly remove the tile
@@ -272,7 +274,7 @@ ButtonBase {
 				// Also turn off global edit mode, because
 				// the current tile has focus and that's how
 				// global edit mode is turned off.
-				toggleGlobalEditMode(false);
+				toggleGlobalEditMode(false, true);
 				// Set tile opacity, too.
 				setTileOpacity();
 				// Hide the edit mode buttons and reset the tile's
@@ -337,8 +339,19 @@ ButtonBase {
 				control.scale = 0.98
 			}
 		}
-		onReleased: control.scale = 1.0
-		onCanceled: control.scale = 1.0
+		
+		onReleased: {
+			// Make sure global edit mode isn't on first.
+			if (globalEditMode == false) {
+				control.scale = 1.0
+			}
+		}
+		onCanceled: {
+			// Make sure global edit mode isn't on first.
+			if (globalEditMode == false) {
+				control.scale = 1.0
+			}
+		}
 		
 		// Trying to do a press and hold for edit mode.
 		onPressAndHold: {
@@ -366,7 +379,7 @@ ButtonBase {
 			// Turn on edit mode.
 			editMode = true;
 			// Turn on global edit mode.
-			toggleGlobalEditMode(true);
+			toggleGlobalEditMode(true, false);
 			// Set tile opacity, too.
 			setTileOpacity();
 			// Now set the previous tile index.

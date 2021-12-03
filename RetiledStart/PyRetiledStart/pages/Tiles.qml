@@ -76,6 +76,16 @@ ApplicationWindow {
 	// global edit mode is off.
 	property int previousTileInEditingModeIndex;
 	
+	// We're using this to keep track of how many tiles
+	// are on Start. Adding a tile increases this number
+	// by 1, and unpinning a tile decreases it by 1.
+	// This is checked every time a tile is pinned or unpinned
+	// to see whether the tiles page should be shown or hidden.
+	property int pinnedTilesCount: 0
+	
+	// Save the default animation time for the swipeview.
+	property int defaultSwipeViewMoveAnimationDuration: startScreenView.contentItem.highlightMoveDuration
+	
 	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
 	// https://stackoverflow.com/a/8430030
 	// It's possible that Windows Phone switched to
@@ -102,6 +112,7 @@ ApplicationWindow {
 	
 	
 	Shortcut {
+		id: backButtonShortcut
 		sequences: ["Esc", "Back"]
         onActivated: {
 			
@@ -115,6 +126,13 @@ ApplicationWindow {
 			// TODO: Figure out how to make this
 			// not conflict with the keyboard shortcut
 			// in the main window's file that goes back.
+			
+			// TODO 2: Figure out how to let this be sent
+			// at any time so that the user can, for example,
+			// swipe over to the All Apps list and immediately
+			// press the Back button so it goes back right away.
+			// I did that sometimes because it was fun, and I want
+			// other people to have that experience available to them.
 			
         }
     }
@@ -227,22 +245,17 @@ ApplicationWindow {
 					tilesListViewModel.RunApp(execKey);
 				}
 				
-				// Set up the signals for the tile context menu.
-				// Unpin tiles.
-				function unpinTile(dotDesktopFilePath) {
-					tilesListViewModel.UnpinTile(dotDesktopFilePath);
-				}
-				// Resize tiles.
-				function resizeTile(dotDesktopFilePath, newTileWidth, newTileHeight) {
-					tilesListViewModel.ResizeTile(dotDesktopFilePath, newTileWidth, newTileHeight);
-				}
-				
 				// Turn on or off global edit mode.
-				function toggleGlobalEditMode(enable) {
+				function toggleGlobalEditMode(enable, showAllAppsButtonAndAllowGoingBetweenPages) {
 					// If enable is false, global edit mode will be
 					// turned off. Likewise, if it's true, it'll be
 					// turned on.
 					globalEditMode = enable;
+					
+					// Hide the All Apps button and don't let the user
+					// open the All Apps list based on showAllAppsButtonAndAllowGoingBetweenPages.
+					allAppsButton.visible = showAllAppsButtonAndAllowGoingBetweenPages;
+					startScreenView.interactive = showAllAppsButtonAndAllowGoingBetweenPages;
 					
 					// Now if global edit mode gets turned off, we
 					// need to save the tile layout.
@@ -288,7 +301,7 @@ ApplicationWindow {
 							tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
 						}
 					}
-				}
+				} // End of the function that hides edit mode controls on the previous tile.
 				
 				// Set opacity to 0.5 for tiles not in edit mode.
 				function setTileOpacity() {
@@ -309,7 +322,93 @@ ApplicationWindow {
 							tilesContainer.children[i].scale = 0.9;
 						}
 					}
-				}
+				} // End of the tile-opacity function.
+				
+				// Hide or show tiles page based on the current number of tiles.
+				function checkPinnedTileCount(numberToChangePinnedTilesCountBy, showAnimation) {
+					// Add the number to change the pinned tiles count by.
+					// This can be positive or negative, as we're using addition.
+					pinnedTilesCount = pinnedTilesCount + numberToChangePinnedTilesCountBy;
+					
+					// TODO: Include this when pinning tiles. Actually, I think what
+					// can be done is that we can get the All Apps button's y-value
+					// and scroll to it to show the newly-added tile. Hopefully that
+					// works.
+					
+					// Check whether the pinnedTilesCount is above 0, and show the pinned
+					// tiles list if it's currently not showing.
+					if (pinnedTilesCount > 0) {
+						// Set the interactivity of the SwipeView back to True
+						// if it's currently false:
+						// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html#interactive-prop
+						// First make sure we're not in global edit mode.
+						if (globalEditMode == false) {
+							if (startScreenView.interactive == false) {
+							// Allow it to be interactive again and switch to it.
+								startScreenView.interactive = true;
+								startScreenView.currentIndex = 0;
+							// Show the All Apps button again, too.
+								allAppsButton.visible = true;
+							// Reset the Back button/Escape key shortcut.
+								backButtonShortcut.enabled = true;
+							// } else if ((startScreenView.interactive == true) && (startScreenView.currentIndex == 1)) {
+								// // Move to the bottom of the tiles list, as we're pinning a tile:
+								// // https://stackoverflow.com/a/25363306
+								// // As it turns out, you have to use the flickable's values
+								// // for both contentHeight and height in order for this to work,
+								// // or it won't be the right position.
+								// tilesFlickable.contentY = tilesFlickable.contentHeight-tilesFlickable.height;
+								// startScreenView.currentIndex = 0;
+								// Not sure if this code will help when I'm trying to figure out
+								// moving to the bottom to pin tiles.
+							} // End of if statement seeing if the swipeview is currently interactive.
+						} // End of global edit mode check.
+					} else {
+						// There are either 0 or fewer tiles pinned, so hide the tiles page.
+						// It's unlikely that there will be fewer than 0 tiles, but
+						// I'm just allowing for the possibility to ensure things don't break.
+						// Also check to see if global edit mode is currently on.
+						if ((startScreenView.interactive == true) || (globalEditMode == true)) {
+							// Prevent interaction with the swipeview,
+							// lock the user to the All Apps list, and
+							// hide the All Apps button.
+							startScreenView.interactive = false;
+							// Turn off the animation so the All Apps list is right there:
+							// https://forum.qt.io/topic/81535/swipeview-page-change-without-animation
+							// Set the animation to 0 if the calling code wants it.
+							// This is the case if no tiles are pinned on startup,
+							// but if they're unpinned at runtime, we need to have
+							// an animation.
+							if (showAnimation == false) {
+								startScreenView.contentItem.highlightMoveDuration = 0
+							}
+							startScreenView.currentIndex = 1;
+							allAppsButton.visible = false;
+							// Turn off the back button shortcut.
+							backButtonShortcut.enabled = false;
+							// Loop through the tiles list and make sure they're
+							// all hidden, because I was having an issue where
+							// one would remain for some reason.
+							for (var i = 0; i < tilesContainer.children.length; i++) {
+								if (tilesContainer.children[i].visible == true) {
+								// Get the properties from the tiles
+								// and add them to the list.
+								tilesContainer.children[i].visible = false;
+								} // End of If statement checking if the tile is visible.
+							} // End of for loop checking if any tiles are visible when they shouldn't be.
+							// Exit global edit mode.
+							// Also don't show the all apps button or let the user go
+							// back to the tiles list.
+							toggleGlobalEditMode(false, false);
+							// Set the animation duration back to the default, since we're
+							// probably already in the all apps list.
+							// Didn't know this is what the original post actually did
+							// until I read it again.
+							// NOTE: You have to wait a little while, or it won't be instant.
+							startScreenView.contentItem.highlightMoveDuration = defaultSwipeViewMoveAnimationDuration
+						} // End of if statement seeing if the swipeview is currently interactive.
+					} // End of if statement checking if the number of pinned tiles is above 0.
+				} // End of function checking the pinned tile count.
 				
 				Component.onCompleted: {
 					
@@ -319,7 +418,7 @@ ApplicationWindow {
 					// We're using the last example here, with the books:
 					// https://www.microverse.org/blog/how-to-loop-through-the-array-of-json-objects-in-javascript
 					// Most of that example was used in the for loop below, but I changed some stuff.
-					var TilesList = tilesListViewModel.getTilesList()
+					var TilesList = tilesListViewModel.getTilesList();
 					//console.log(TilesList)
 					
 					// Remember to parse the JSON.
@@ -327,14 +426,19 @@ ApplicationWindow {
 					// figure out why it wouldn't work.
 					var ParsedTilesList = JSON.parse(TilesList);
 					
+					// Make sure the tiles list isn't just an empty list
+					// before we create the tiles list. This allows the user
+					// to just not have tiles if they don't want to.
+					if (ParsedTilesList.length > 0) {
+					
 					// Create the tiles dynamically according to this page:
 					// https://doc.qt.io/qt-6/qtqml-javascript-dynamicobjectcreation.html
 					// We're doing this outside the loop, because that's what the docs
 					// did and it's probably faster/less memory-intensive.
 					// TODO: Check if this can be changed to RetiledStyles.Tile.
-					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+						var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
 					
-					for (var i = 0; i < ParsedTilesList.length; i++){
+						for (var i = 0; i < ParsedTilesList.length; i++){
 						//console.log(ParsedTilesList[i].DotDesktopPath);
 						//console.log(ParsedTilesList[i].TileAppNameAreaText);
 						//console.log(ParsedTilesList[i].TileWidth);
@@ -346,54 +450,61 @@ ApplicationWindow {
 						// Make sure it's ready first.
 						// TODO: Switch to incubateObject.
 						//if (TileComponent.status == Component.Ready) {
-						var NewTileObject = TileComponent.createObject(tilesContainer);
+							var NewTileObject = TileComponent.createObject(tilesContainer);
+						// Increment the tile count.
+							checkPinnedTileCount(1, true);
 						// Set tile properties.
-						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
-						NewTileObject.width = ParsedTilesList[i].TileWidth;
-						NewTileObject.height = ParsedTilesList[i].TileHeight;
-						NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+							NewTileObject.width = ParsedTilesList[i].TileWidth;
+							NewTileObject.height = ParsedTilesList[i].TileHeight;
+							NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-						NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-						NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set tile index for the edit mode.
-						NewTileObject.tileIndex = i
+							NewTileObject.tileIndex = i
 						
 						// Connect clicked signal.
-						NewTileObject.clicked.connect(tileClicked);
+							NewTileObject.clicked.connect(tileClicked);
 						
 						// Connect global edit mode toggle.
-						NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
 						
 						// Connect hideEditModeControlsOnPreviousTile signal.
-						NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 						
 						// Connect the opacity-setter function.
-						NewTileObject.setTileOpacity.connect(setTileOpacity);
+							NewTileObject.setTileOpacity.connect(setTileOpacity);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
-						// Connect unpin signal.
-						NewTileObject.unpinTile.connect(unpinTile);
-						
-						// Connect resize signal.
-						NewTileObject.resizeTile.connect(resizeTile);
+						// Connect decrementing the pinned tiles count signal.
+							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 						
 						//} // End of If statement to ensure things are ready.
 						
-					} // End of For loop that loads the tiles.
-					
+						} // End of For loop that loads the tiles.
+					} else {
+						// We have to add 0 to 0 if there are no tiles to add
+						// so that the whole thing where the tiles list is hidden
+						// happens.
+						// There's an animation that occurs where the page slides over
+						// to the All Apps list, and I'd prefer to turn that off on
+						// startup if possible, but allow it to be used later.
+						checkPinnedTileCount(0, false);
+					} // End of If statement checking to ensure there are tiles to add.
 					
 				} // Component.onCompleted for the Tiles Flow area.
 				
-			}
+			} // End of the Flow that contains the tiles.
 	
 		// Use a FontLoader to get the arrow button font:
 		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
@@ -474,12 +585,12 @@ ApplicationWindow {
 		
 		} // End of RowLayout for storing empty items that form the margins on the left and right.
 		
-	}
-	}
+	} // End of the flickable for the tiles area, which includes the margins.
+	} // End of the item containing the tiles area.
 	
 	RetiledStartPages.AllApps {
 		// The All Apps page has been moved to its own file.
 	}
 	
-}
-}
+} // End of the swipeview for the Start screen.
+}// End of the window.
