@@ -245,16 +245,6 @@ ApplicationWindow {
 					tilesListViewModel.RunApp(execKey);
 				}
 				
-				// Set up the signals for the tile context menu.
-				// Unpin tiles.
-				function unpinTile(dotDesktopFilePath) {
-					tilesListViewModel.UnpinTile(dotDesktopFilePath);
-				}
-				// Resize tiles.
-				function resizeTile(dotDesktopFilePath, newTileWidth, newTileHeight) {
-					tilesListViewModel.ResizeTile(dotDesktopFilePath, newTileWidth, newTileHeight);
-				}
-				
 				// Turn on or off global edit mode.
 				function toggleGlobalEditMode(enable, showAllAppsButtonAndAllowGoingBetweenPages) {
 					// If enable is false, global edit mode will be
