@@ -351,15 +351,18 @@ ApplicationWindow {
 						// Set the interactivity of the SwipeView back to True
 						// if it's currently false:
 						// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html#interactive-prop
-						if (startScreenView.interactive == false) {
+						// First make sure we're not in global edit mode.
+						if (globalEditMode == false) {
+							if (startScreenView.interactive == false) {
 							// Allow it to be interactive again and switch to it.
-							startScreenView.interactive = true;
-							startScreenView.currentIndex = 0;
+								startScreenView.interactive = true;
+								startScreenView.currentIndex = 0;
 							// Show the All Apps button again, too.
-							allAppsButton.visible = true;
+								allAppsButton.visible = true;
 							// Reset the Back button/Escape key shortcut.
-							backButtonShortcut.enabled = true;
-						} // End of if statement seeing if the swipeview is currently interactive.
+								backButtonShortcut.enabled = true;
+							} // End of if statement seeing if the swipeview is currently interactive.
+						}
 					} else {
 						// There are either 0 or fewer tiles pinned, so hide the tiles page.
 						// It's unlikely that there will be fewer than 0 tiles, but
