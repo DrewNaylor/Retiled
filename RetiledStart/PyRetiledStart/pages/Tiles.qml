@@ -76,6 +76,13 @@ ApplicationWindow {
 	// global edit mode is off.
 	property int previousTileInEditingModeIndex;
 	
+	// We're using this to keep track of how many tiles
+	// are on Start. Adding a tile increases this number
+	// by 1, and unpinning a tile decreases it by 1.
+	// This is checked every time a tile is pinned or unpinned
+	// to see whether the tiles page should be shown or hidden.
+	property int pinnedTilesCount: 0
+	
 	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
 	// https://stackoverflow.com/a/8430030
 	// It's possible that Windows Phone switched to
