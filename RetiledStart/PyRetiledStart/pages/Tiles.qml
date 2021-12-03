@@ -321,7 +321,7 @@ ApplicationWindow {
 				function checkPinnedTileCount(numberToChangePinnedTilesCountBy) {
 					// Add the number to change the pinned tiles count by.
 					// This can be positive or negative, as we're using addition.
-					pinnedTilesCount = pinnedTilesCount + numberToChangePinnedTilesCountBy
+					pinnedTilesCount = pinnedTilesCount + numberToChangePinnedTilesCountBy;
 					
 					// Check whether the pinnedTilesCount is above 0, and show the pinned
 					// tiles list if it's currently not showing.
@@ -359,7 +359,7 @@ ApplicationWindow {
 					// We're using the last example here, with the books:
 					// https://www.microverse.org/blog/how-to-loop-through-the-array-of-json-objects-in-javascript
 					// Most of that example was used in the for loop below, but I changed some stuff.
-					var TilesList = tilesListViewModel.getTilesList()
+					var TilesList = tilesListViewModel.getTilesList();
 					//console.log(TilesList)
 					
 					// Remember to parse the JSON.

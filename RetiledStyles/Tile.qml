@@ -63,7 +63,7 @@ ButtonBase {
 	property string dotDesktopFilePath;
 	property bool showContextMenu: false
 	// Signal for opening the context menu.
-	signal pressAndHold(bool showContextMenu);
+	// signal pressAndHold(bool showContextMenu);
 	// Signal for decrementing the pinned tiles count.
 	// This is used to check whether the tiles page should be hidden.
 	signal decrementPinnedTilesCount(int amountToDecrement);
