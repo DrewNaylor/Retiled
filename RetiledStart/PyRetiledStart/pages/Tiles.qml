@@ -328,6 +328,11 @@ ApplicationWindow {
 					// This can be positive or negative, as we're using addition.
 					pinnedTilesCount = pinnedTilesCount + numberToChangePinnedTilesCountBy;
 					
+					// TODO: Include this when pinning tiles. Actually, I think what
+					// can be done is that we can get the All Apps button's y-value
+					// and scroll to it to show the newly-added tile. Hopefully that
+					// works.
+					
 					// Check whether the pinnedTilesCount is above 0, and show the pinned
 					// tiles list if it's currently not showing.
 					if (pinnedTilesCount > 0) {
