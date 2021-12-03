@@ -83,6 +83,9 @@ ApplicationWindow {
 	// to see whether the tiles page should be shown or hidden.
 	property int pinnedTilesCount: 0
 	
+	// Save the default animation time for the swipeview.
+	property int defaultSwipeViewMoveAnimationDuration: startScreenView.contentItem.highlightMoveDuration
+	
 	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
 	// https://stackoverflow.com/a/8430030
 	// It's possible that Windows Phone switched to
@@ -319,7 +322,7 @@ ApplicationWindow {
 				} // End of the tile-opacity function.
 				
 				// Hide or show tiles page based on the current number of tiles.
-				function checkPinnedTileCount(numberToChangePinnedTilesCountBy) {
+				function checkPinnedTileCount(numberToChangePinnedTilesCountBy, showAnimation) {
 					// Add the number to change the pinned tiles count by.
 					// This can be positive or negative, as we're using addition.
 					pinnedTilesCount = pinnedTilesCount + numberToChangePinnedTilesCountBy;
@@ -346,7 +349,17 @@ ApplicationWindow {
 							// lock the user to the All Apps list, and
 							// hide the All Apps button.
 							startScreenView.interactive = false;
+							// Turn off the animation so the All Apps list is right there:
+							// https://forum.qt.io/topic/81535/swipeview-page-change-without-animation
+							// Set the animation to 0.
+							if (showAnimation == false) {
+								startScreenView.contentItem.highlightMoveDuration = 0
+							}
 							startScreenView.currentIndex = 1;
+							// Set the animation duration back to the default.
+							// Didn't know this is what the original post actually did
+							// until I read it again.
+							// startScreenView.contentItem.highlightMoveDuration = defaultSwipeViewMoveAnimationDuration
 							allAppsButton.visible = false;
 							// Loop through the tiles list and make sure they're
 							// all hidden, because I was having an issue where
@@ -360,6 +373,9 @@ ApplicationWindow {
 							} // End of for loop checking if any tiles are visible when they shouldn't be.
 							// Exit global edit mode.
 							toggleGlobalEditMode(false);
+							// Set the animation duration back to the default, since we're
+							// probably already in the all apps list.
+							startScreenView.contentItem.highlightMoveDuration = defaultSwipeViewMoveAnimationDuration
 						} // End of if statement seeing if the swipeview is currently interactive.
 					} // End of if statement checking if the number of pinned tiles is above 0.
 				} // End of function checking the pinned tile count.
@@ -406,7 +422,7 @@ ApplicationWindow {
 						//if (TileComponent.status == Component.Ready) {
 							var NewTileObject = TileComponent.createObject(tilesContainer);
 						// Increment the tile count.
-							checkPinnedTileCount(1);
+							checkPinnedTileCount(1, true);
 						// Set tile properties.
 							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
@@ -453,7 +469,7 @@ ApplicationWindow {
 						// There's an animation that occurs where the page slides over
 						// to the All Apps list, and I'd prefer to turn that off on
 						// startup if possible, but allow it to be used later.
-						checkPinnedTileCount(0);
+						checkPinnedTileCount(0, false);
 					} // End of If statement checking to ensure there are tiles to add.
 					
 				} // Component.onCompleted for the Tiles Flow area.
