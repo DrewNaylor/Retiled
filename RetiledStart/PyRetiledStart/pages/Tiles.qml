@@ -354,15 +354,14 @@ ApplicationWindow {
 							startScreenView.interactive = false;
 							// Turn off the animation so the All Apps list is right there:
 							// https://forum.qt.io/topic/81535/swipeview-page-change-without-animation
-							// Set the animation to 0.
+							// Set the animation to 0 if the calling code wants it.
+							// This is the case if no tiles are pinned on startup,
+							// but if they're unpinned at runtime, we need to have
+							// an animation.
 							if (showAnimation == false) {
 								startScreenView.contentItem.highlightMoveDuration = 0
 							}
 							startScreenView.currentIndex = 1;
-							// Set the animation duration back to the default.
-							// Didn't know this is what the original post actually did
-							// until I read it again.
-							// startScreenView.contentItem.highlightMoveDuration = defaultSwipeViewMoveAnimationDuration
 							allAppsButton.visible = false;
 							// Turn off the back button shortcut.
 							backButtonShortcut.enabled = false;
@@ -380,6 +379,9 @@ ApplicationWindow {
 							toggleGlobalEditMode(false);
 							// Set the animation duration back to the default, since we're
 							// probably already in the all apps list.
+							// Didn't know this is what the original post actually did
+							// until I read it again.
+							// NOTE: You have to wait a little while, or it won't be instant.
 							startScreenView.contentItem.highlightMoveDuration = defaultSwipeViewMoveAnimationDuration
 						} // End of if statement seeing if the swipeview is currently interactive.
 					} // End of if statement checking if the number of pinned tiles is above 0.
