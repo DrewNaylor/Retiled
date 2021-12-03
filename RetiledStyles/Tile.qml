@@ -69,7 +69,7 @@ ButtonBase {
 	signal decrementPinnedTilesCount(int amountToDecrement);
 	
 	// Signal for turning on or off global edit mode.
-	signal toggleGlobalEditMode(bool enable);
+	signal toggleGlobalEditMode(bool enable, bool showAllAppsButtonAndAllowGoingBetweenPages);
 	
 	// Signal for hiding the editing controls on the previously-active tile.
 	signal hideEditModeControlsOnPreviousTile(int previousTileInEditingModeIndex);
@@ -274,7 +274,7 @@ ButtonBase {
 				// Also turn off global edit mode, because
 				// the current tile has focus and that's how
 				// global edit mode is turned off.
-				toggleGlobalEditMode(false);
+				toggleGlobalEditMode(false, true);
 				// Set tile opacity, too.
 				setTileOpacity();
 				// Hide the edit mode buttons and reset the tile's
@@ -339,6 +339,8 @@ ButtonBase {
 				control.scale = 0.98
 			}
 		}
+		
+		
 		onReleased: control.scale = 1.0
 		onCanceled: control.scale = 1.0
 		
@@ -368,7 +370,7 @@ ButtonBase {
 			// Turn on edit mode.
 			editMode = true;
 			// Turn on global edit mode.
-			toggleGlobalEditMode(true);
+			toggleGlobalEditMode(true, false);
 			// Set tile opacity, too.
 			setTileOpacity();
 			// Now set the previous tile index.

@@ -127,6 +127,13 @@ ApplicationWindow {
 			// not conflict with the keyboard shortcut
 			// in the main window's file that goes back.
 			
+			// TODO 2: Figure out how to let this be sent
+			// at any time so that the user can, for example,
+			// swipe over to the All Apps list and immediately
+			// press the Back button so it goes back right away.
+			// I did that sometimes because it was fun, and I want
+			// other people to have that experience available to them.
+			
         }
     }
 	
@@ -249,18 +256,16 @@ ApplicationWindow {
 				}
 				
 				// Turn on or off global edit mode.
-				function toggleGlobalEditMode(enable) {
+				function toggleGlobalEditMode(enable, showAllAppsButtonAndAllowGoingBetweenPages) {
 					// If enable is false, global edit mode will be
 					// turned off. Likewise, if it's true, it'll be
 					// turned on.
 					globalEditMode = enable;
 					
-					// Set the visibility of the All Apps list button
-					// and the ability to use the swipeview to the
-					// "enable" boolean, too.
-					// We have to use the opposite of enable, actually.
-					allAppsButton.visible = !enable;
-					startScreenView.interactive = !enable;
+					// Hide the All Apps button and don't let the user
+					// open the All Apps list based on showAllAppsButtonAndAllowGoingBetweenPages.
+					allAppsButton.visible = showAllAppsButtonAndAllowGoingBetweenPages;
+					startScreenView.interactive = showAllAppsButtonAndAllowGoingBetweenPages;
 					
 					// Now if global edit mode gets turned off, we
 					// need to save the tile layout.
@@ -388,7 +393,9 @@ ApplicationWindow {
 								} // End of If statement checking if the tile is visible.
 							} // End of for loop checking if any tiles are visible when they shouldn't be.
 							// Exit global edit mode.
-							toggleGlobalEditMode(false);
+							// Also don't show the all apps button or let the user go
+							// back to the tiles list.
+							toggleGlobalEditMode(false, false);
 							// Set the animation duration back to the default, since we're
 							// probably already in the all apps list.
 							// Didn't know this is what the original post actually did
