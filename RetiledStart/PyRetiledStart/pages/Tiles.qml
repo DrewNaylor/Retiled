@@ -255,6 +255,13 @@ ApplicationWindow {
 					// turned on.
 					globalEditMode = enable;
 					
+					// Set the visibility of the All Apps list button
+					// and the ability to use the swipeview to the
+					// "enable" boolean, too.
+					// We have to use the opposite of enable, actually.
+					allAppsButton.visible = !enable;
+					startScreenView.interactive = !enable;
+					
 					// Now if global edit mode gets turned off, we
 					// need to save the tile layout.
 					if (globalEditMode == false) {
