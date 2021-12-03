@@ -348,6 +348,16 @@ ApplicationWindow {
 							startScreenView.interactive = false;
 							startScreenView.currentIndex = 1;
 							allAppsButton.visible = false;
+							// Loop through the tiles list and make sure they're
+							// all hidden, because I was having an issue where
+							// one would remain for some reason.
+							for (var i = 0; i < tilesContainer.children.length; i++) {
+								if (tilesContainer.children[i].visible == true) {
+								// Get the properties from the tiles
+								// and add them to the list.
+								tilesContainer.children[i].visible = false;
+								} // End of If statement checking if the tile is visible.
+							} // End of for loop checking if any tiles are visible when they shouldn't be.
 							// Exit global edit mode.
 							toggleGlobalEditMode(false);
 						} // End of if statement seeing if the swipeview is currently interactive.
