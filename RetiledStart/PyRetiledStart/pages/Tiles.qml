@@ -295,7 +295,7 @@ ApplicationWindow {
 							tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
 						}
 					}
-				}
+				} // End of the function that hides edit mode controls on the previous tile.
 				
 				// Set opacity to 0.5 for tiles not in edit mode.
 				function setTileOpacity() {
@@ -316,7 +316,7 @@ ApplicationWindow {
 							tilesContainer.children[i].scale = 0.9;
 						}
 					}
-				}
+				} // End of the tile-opacity function.
 				
 				// Hide or show tiles page based on the current number of tiles.
 				function checkPinnedTileCount(numberToChangePinnedTilesCountBy) {
