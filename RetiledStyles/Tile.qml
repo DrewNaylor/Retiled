@@ -340,9 +340,18 @@ ButtonBase {
 			}
 		}
 		
-		
-		onReleased: control.scale = 1.0
-		onCanceled: control.scale = 1.0
+		onReleased: {
+			// Make sure global edit mode isn't on first.
+			if (globalEditMode == false) {
+				control.scale = 1.0
+			}
+		}
+		onCanceled: {
+			// Make sure global edit mode isn't on first.
+			if (globalEditMode == false) {
+				control.scale = 1.0
+			}
+		}
 		
 		// Trying to do a press and hold for edit mode.
 		onPressAndHold: {
