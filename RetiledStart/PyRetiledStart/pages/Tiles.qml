@@ -316,6 +316,12 @@ ApplicationWindow {
 							tilesContainer.children[i].scale = 0.9;
 						}
 					}
+				
+				// Hide or show tiles page based on the current number of tiles.
+				function checkPinnedTileCount(numberToChangePinnedTilesCountBy) {
+					// Add the number to change the pinned tiles count by.
+					// This can be positive or negative, as we're using addition.
+					pinnedTilesCount = pinnedTilesCount + numberToChangePinnedTilesCountBy
 				}
 				
 				Component.onCompleted: {
@@ -354,6 +360,8 @@ ApplicationWindow {
 						// TODO: Switch to incubateObject.
 						//if (TileComponent.status == Component.Ready) {
 						var NewTileObject = TileComponent.createObject(tilesContainer);
+						// Increment the tile count.
+						checkPinnedTileCount(1);
 						// Set tile properties.
 						NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
 						NewTileObject.width = ParsedTilesList[i].TileWidth;
