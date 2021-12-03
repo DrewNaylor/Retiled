@@ -51,6 +51,8 @@ def saveTilesList(tilesList):
 	# Define a list we'll use to store the dictionary in.
 	TilesListToSave = []
 	
+	print(tilesList)
+	
 	# Loop through the list of dictionaries and append to
 	# the list using what's in each dictionary.
 	# Context for how we're getting the items appended:

@@ -348,6 +348,8 @@ ApplicationWindow {
 							startScreenView.interactive = false;
 							startScreenView.currentIndex = 1;
 							allAppsButton.visible = false;
+							// Exit global edit mode.
+							toggleGlobalEditMode(false);
 						} // End of if statement seeing if the swipeview is currently interactive.
 					} // End of if statement checking if the number of pinned tiles is above 0.
 				} // End of function checking the pinned tile count.
