@@ -514,8 +514,8 @@ ApplicationWindow {
 		
 		} // End of RowLayout for storing empty items that form the margins on the left and right.
 		
-	}
-	}
+	} // End of the flickable for the tiles area, which includes the margins.
+	} // End of the item containing the tiles area.
 	
 	RetiledStartPages.AllApps {
 		// The All Apps page has been moved to its own file.
