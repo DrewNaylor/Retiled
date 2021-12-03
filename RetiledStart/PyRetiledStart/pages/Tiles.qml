@@ -362,12 +362,13 @@ ApplicationWindow {
 							// Reset the Back button/Escape key shortcut.
 								backButtonShortcut.enabled = true;
 							} // End of if statement seeing if the swipeview is currently interactive.
-						}
+						} // End of global edit mode check.
 					} else {
 						// There are either 0 or fewer tiles pinned, so hide the tiles page.
 						// It's unlikely that there will be fewer than 0 tiles, but
 						// I'm just allowing for the possibility to ensure things don't break.
-						if (startScreenView.interactive == true) {
+						// Also check to see if global edit mode is currently on.
+						if ((startScreenView.interactive == true) || (globalEditMode == true)) {
 							// Prevent interaction with the swipeview,
 							// lock the user to the All Apps list, and
 							// hide the All Apps button.
