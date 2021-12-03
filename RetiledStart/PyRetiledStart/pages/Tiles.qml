@@ -351,6 +351,14 @@ ApplicationWindow {
 								allAppsButton.visible = true;
 							// Reset the Back button/Escape key shortcut.
 								backButtonShortcut.enabled = true;
+							// } else if ((startScreenView.interactive == true) && (startScreenView.currentIndex == 1)) {
+								// // Move to the bottom of the tiles list, as we're pinning a tile:
+								// // https://stackoverflow.com/a/25363306
+								// // The other answer on that page may also help.
+								// tilesFlickable.contentY = tilesFlickable.contentHeight-allAppsButton.height;
+								// startScreenView.currentIndex = 0;
+								// Not sure if this code will help when I'm trying to figure out
+								// moving to the bottom to pin tiles.
 							} // End of if statement seeing if the swipeview is currently interactive.
 						} // End of global edit mode check.
 					} else {
