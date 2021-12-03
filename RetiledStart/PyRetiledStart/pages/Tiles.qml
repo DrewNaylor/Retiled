@@ -322,7 +322,34 @@ ApplicationWindow {
 					// Add the number to change the pinned tiles count by.
 					// This can be positive or negative, as we're using addition.
 					pinnedTilesCount = pinnedTilesCount + numberToChangePinnedTilesCountBy
-				}
+					
+					// Check whether the pinnedTilesCount is above 0, and show the pinned
+					// tiles list if it's currently not showing.
+					if (pinnedTilesCount > 0) {
+						// Set the interactivity of the SwipeView back to True
+						// if it's currently false:
+						// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html#interactive-prop
+						if (startScreenView.interactive == false) {
+							// Allow it to be interactive again and switch to it.
+							startScreenView.interactive = true;
+							startScreenView.currentIndex = 0;
+							// Show the All Apps button again, too.
+							allAppsButton.visible = true;
+						} // End of if statement seeing if the swipeview is currently interactive.
+					} else {
+						// There are either 0 or fewer tiles pinned, so hide the tiles page.
+						// It's unlikely that there will be fewer than 0 tiles, but
+						// I'm just allowing for the possibility to ensure things don't break.
+						if (startScreenView.interactive == false) {
+							// Prevent interaction with the swipeview,
+							// lock the user to the All Apps list, and
+							// hide the All Apps button.
+							startScreenView.interactive = false;
+							startScreenView.currentIndex = 1;
+							allAppsButton.visible = false;
+						} // End of if statement seeing if the swipeview is currently interactive.
+					} // End of if statement checking if the number of pinned tiles is above 0.
+				} // End of function checking the pinned tile count.
 				
 				Component.onCompleted: {
 					
