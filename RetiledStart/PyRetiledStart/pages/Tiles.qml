@@ -277,7 +277,9 @@ ApplicationWindow {
 							NewTileObject.dotDesktopFilePath = dotDesktopFilePath;
 						
 						// Set tile index for the edit mode.
-							NewTileObject.tileIndex = i
+						// We're setting the tile's index to the pinned tiles count
+						// because it was already incremented earlier.
+							NewTileObject.tileIndex = pinnedTilesCount;
 						
 						// Connect clicked signal.
 							NewTileObject.clicked.connect(tileClicked);
