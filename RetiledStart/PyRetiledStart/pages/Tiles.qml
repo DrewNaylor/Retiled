@@ -258,7 +258,7 @@ ApplicationWindow {
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
-							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
 							NewTileObject.height = ParsedTilesList[i].TileHeight;
 							NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
