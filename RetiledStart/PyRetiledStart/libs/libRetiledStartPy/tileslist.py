@@ -51,6 +51,14 @@ def saveTilesList(tilesList):
 	# Define a list we'll use to store the dictionary in.
 	TilesListToSave = []
 	
+	# Set the root path to the .desktop files.
+		# TODO: Figure out how this can be used to get the .desktop
+		# files in the user's home folder.
+	if sys.platform.startswith("win32"):
+		DotDesktopRootPath = "C:\\Users\\drewn\\Desktop\\"
+	else:
+		DotDesktopRootPath = "/usr/share/applications/"
+	
 	# Loop through the list of dictionaries and append to
 	# the list using what's in each dictionary.
 	# Context for how we're getting the items appended:
@@ -63,7 +71,7 @@ def saveTilesList(tilesList):
 		# Add to the TilesListToSave.
 		# NOTE: QML won't give us integers for tile widths and heights,
 		# so we need to make them into integers in Python.
-		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"]), "TileColor": i["TileColor"]})
+		TilesListToSave.append({"DotDesktopFilePath": DotDesktopRootPath + i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"]), "TileColor": i["TileColor"]})
 		# print(i["DotDesktopFilePath"])
 		
 	# print(TilesListToSave)
