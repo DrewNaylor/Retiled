@@ -38,7 +38,8 @@ Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt 
 Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.<br>
 Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:<br>
 http://scripts.sil.org/OFL.<br>
-You can find links to these fonts in the components list at the end of this "license stuff" block.
+You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
+PyYAML is licensed under the MIT License.<br><br>
 Python 3.9 copyrights start:<br>
 Copyright (c) 2001-2021 Python Software Foundation.<br>
 All Rights Reserved.<br>
