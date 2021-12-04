@@ -255,7 +255,7 @@ ApplicationWindow {
 					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
 					
 					var NewTileObject = TileComponent.createObject(tilesContainer);
-						// Increment the tile count.
+						// Increment the tile count and go back to the tiles page.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
@@ -298,6 +298,10 @@ ApplicationWindow {
 						
 						// Connect decrementing the pinned tiles count signal.
 							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+							
+							// Exit global edit mode so we save the newly-pinned tile
+							// to the layout config file.
+							toggleGlobalEditMode(false, true);
 				}
 				
 				// Turn on or off global edit mode.
