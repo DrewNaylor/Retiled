@@ -296,12 +296,14 @@ ApplicationWindow {
 						// Connect decrementing the pinned tiles count signal.
 							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 							
+							// Increment the tile count and go back to the tiles page.
+							checkPinnedTileCount(1, true);
+							
 							// Exit global edit mode so we save the newly-pinned tile
 							// to the layout config file.
 							toggleGlobalEditMode(false, true);
 							
-							// Increment the tile count and go back to the tiles page.
-							checkPinnedTileCount(1, true);
+							
 				}
 				
 				// Turn on or off global edit mode.
