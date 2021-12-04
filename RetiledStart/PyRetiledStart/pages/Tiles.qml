@@ -242,7 +242,8 @@ ApplicationWindow {
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
-					tilesListViewModel.RunApp(execKey);
+					// tilesListViewModel.RunApp(execKey);
+					console.log(execKey);
 				}
 				
 				// Pinning a tile to start.
@@ -270,6 +271,7 @@ ApplicationWindow {
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
+						// For some reason, the entire path isn't being set on Windows.
 							NewTileObject.execKey = dotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
