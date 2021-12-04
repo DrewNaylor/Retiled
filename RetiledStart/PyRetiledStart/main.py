@@ -121,6 +121,7 @@ class TilesListViewModel(QObject):
 			# putting one in their home directory.
 			# This needs to be done for both the All Apps list as well as the Tiles.
 			#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+			# As it turns out, I guess I did need the path on Windows after all, or maybe I didn't.
 		AppsList.RunApp(ViewModelExecFilename)
 		# else:
 			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
