@@ -68,13 +68,10 @@ class AllAppsListViewModel(QObject):
 	# https://stackoverflow.com/a/36210838
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
-		# This is different on Windows for debugging purposes.
-		# Example code for sys.platform:
-		# https://docs.python.org/3/library/sys.html#sys.platform
-		if sys.platform.startswith("win32"):
-			return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
-		else:
-			return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
+		# We're no longer specifying the path here so to
+		# reduce code duplication, as this is also used when
+		# loading the tiles list.
+		return AppsList.GetAppName(DotDesktopFile)
 	
 	# Pin the app to Start.
 	@Slot(str)
@@ -104,32 +101,6 @@ class AllAppsListItems(QObject):
 	# that there are null items after closing.
 	
 class TilesListViewModel(QObject):
-	@Slot(str)
-	def RunApp(self, ViewModelExecFilename):
-		# Pass the app's command to the code to actually
-		# figure out how to run it.
-		# This is different on Windows for debugging purposes.
-		# Example code for sys.platform:
-		# https://docs.python.org/3/library/sys.html#sys.platform
-		# if sys.platform.startswith("win32"):
-			# Not sure if this code here is a good idea, as any tiles on Windows
-			# are just going to have the path of the .desktop file, which is how
-			# it works on Linux.
-			# TODO: Figure out how to use the user's own copy of a .desktop
-			# file if it exists instead of the one from /usr/share/applications/,
-			# as this will allow the user to override the .desktop file by
-			# putting one in their home directory.
-			# This needs to be done for both the All Apps list as well as the Tiles.
-			#AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
-		AppsList.RunApp(ViewModelExecFilename)
-		# else:
-			#AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
-		# AppsList.RunApp(ViewModelExecFilename)
-		# I got rid of the if statement because it's basically redundant.
-		# Don't have both of the lines calling the running code uncommented
-		# at the same time like I did, or you'll be confused why it opens
-		# a GUI app twice but not, say, htop or nano.
-		
 	# Save the tile layout after exiting global exit mode.
 	# This involves reading JSON as a dictionary and
 	# modifying the startlayout.yaml file after copying

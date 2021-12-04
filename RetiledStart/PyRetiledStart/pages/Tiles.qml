@@ -242,7 +242,77 @@ ApplicationWindow {
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
-					tilesListViewModel.RunApp(execKey);
+					allAppsListViewModel.RunApp(execKey);
+					// console.log(execKey);
+				}
+				
+				// Pinning a tile to start.
+				function pinToStart(dotDesktopFilePath) {
+					// Create a new tile using the .desktop file path.
+					// Copied from the other code that adds tiles on
+					// startup because this hasn't been separated yet.
+					// TODO: Put the code to create tiles into its own
+					// function to reduce code duplication.
+					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+					
+					var NewTileObject = TileComponent.createObject(tilesContainer);
+						
+						// Set tile properties.
+							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
+							NewTileObject.width = 150;
+							NewTileObject.height = 150;
+							// TODO: Add another property to tiles so they'll default to
+							// using accent colors unless the boolean to use accent colors
+							// is off, in which case they'll use a specified tile background
+							// color according to the layout config file or the .desktop file.
+							NewTileObject.tileBackgroundColor = "#0050ef";
+						// Doesn't quite work on Windows because the hardcoded tile is trying to read
+						// from /usr/share/applications and can't find Firefox.
+						// Turns out it was trying to run Firefox. Not sure how to stop that.
+						// Actually, I think this involves an event handler:
+						// https://stackoverflow.com/a/22605752
+						// For some reason, the entire path isn't being set on Windows.
+							NewTileObject.execKey = dotDesktopFilePath;
+						
+						// Set the .desktop file path for unpinning or resizing.
+							NewTileObject.dotDesktopFilePath = dotDesktopFilePath;
+						
+						// Set tile index for the edit mode.
+							NewTileObject.tileIndex = pinnedTilesCount + 1;
+						
+						// Connect clicked signal.
+							NewTileObject.clicked.connect(tileClicked);
+						
+						// Connect global edit mode toggle.
+							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+						
+						// Connect hideEditModeControlsOnPreviousTile signal.
+							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+						
+						// Connect the opacity-setter function.
+							NewTileObject.setTileOpacity.connect(setTileOpacity);
+						
+						// Connect long-press signal.
+						// NewTileObject.pressAndHold.connect(tileLongPressed);
+						
+						// Connect decrementing the pinned tiles count signal.
+							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+							
+							// Force the layout of the tiles list:
+							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
+							tilesContainer.forceLayout();
+							
+							// Increment the tile count and go back to the tiles page.
+							checkPinnedTileCount(1, true);
+							
+							// Exit global edit mode so we save the newly-pinned tile
+							// to the layout config file.
+							toggleGlobalEditMode(false, true);
+							
+							// Force the layout of the tiles list:
+							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
+							tilesContainer.forceLayout();
+							
 				}
 				
 				// Turn on or off global edit mode.
@@ -351,14 +421,14 @@ ApplicationWindow {
 								allAppsButton.visible = true;
 							// Reset the Back button/Escape key shortcut.
 								backButtonShortcut.enabled = true;
-							// } else if ((startScreenView.interactive == true) && (startScreenView.currentIndex == 1)) {
-								// // Move to the bottom of the tiles list, as we're pinning a tile:
-								// // https://stackoverflow.com/a/25363306
-								// // As it turns out, you have to use the flickable's values
-								// // for both contentHeight and height in order for this to work,
-								// // or it won't be the right position.
-								// tilesFlickable.contentY = tilesFlickable.contentHeight-tilesFlickable.height;
-								// startScreenView.currentIndex = 0;
+							} else if ((startScreenView.interactive == true) && (startScreenView.currentIndex == 1)) {
+								// Move to the bottom of the tiles list, as we're pinning a tile:
+								// https://stackoverflow.com/a/25363306
+								// As it turns out, you have to use the flickable's values
+								// for both contentHeight and height in order for this to work,
+								// or it won't be the right position.
+								tilesFlickable.contentY = tilesFlickable.contentHeight-tilesFlickable.height;
+								startScreenView.currentIndex = 0;
 								// Not sure if this code will help when I'm trying to figure out
 								// moving to the bottom to pin tiles.
 							} // End of if statement seeing if the swipeview is currently interactive.
