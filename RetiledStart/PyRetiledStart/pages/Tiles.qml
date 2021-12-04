@@ -271,10 +271,10 @@ ApplicationWindow {
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-							NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.execKey = dotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.dotDesktopFilePath = dotDesktopFilePath;
 						
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = i
