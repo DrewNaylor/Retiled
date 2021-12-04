@@ -143,7 +143,6 @@ import "../../../RetiledStyles" as RetiledStyles
 								onPinToStart: {
 									// Visually pin the tile to start, then save the layout.
 									tilesContainer.pinToStart(model.display);
-									console.log(model.display);
 									// allAppsListViewModel.PinToStart(model.display);
 								}
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
