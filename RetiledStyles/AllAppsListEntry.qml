@@ -122,7 +122,11 @@ RetiledStyles.Button {
 				// than it does in the search app, even
 				// though the button template uses the
 				// same weight for each.
-				onClicked: pinToStart(dotDesktopFilePath)
+				onClicked: {
+					// Hide the context menu.
+					allappscontextmenu.visible = false;
+					pinToStart(dotDesktopFilePath);
+				}
 			}
 		}
 	}
