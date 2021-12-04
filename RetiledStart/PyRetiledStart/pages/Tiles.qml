@@ -252,6 +252,46 @@ ApplicationWindow {
 					// startup because this hasn't been separated yet.
 					// TODO: Put the code to create tiles into its own
 					// function to reduce code duplication.
+					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
+					
+					var NewTileObject = TileComponent.createObject(tilesContainer);
+						// Increment the tile count.
+							checkPinnedTileCount(1, true);
+						// Set tile properties.
+							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+							NewTileObject.width = ParsedTilesList[i].TileWidth;
+							NewTileObject.height = ParsedTilesList[i].TileHeight;
+							NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+						// Doesn't quite work on Windows because the hardcoded tile is trying to read
+						// from /usr/share/applications and can't find Firefox.
+						// Turns out it was trying to run Firefox. Not sure how to stop that.
+						// Actually, I think this involves an event handler:
+						// https://stackoverflow.com/a/22605752
+							NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
+						
+						// Set the .desktop file path for unpinning or resizing.
+							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
+						
+						// Set tile index for the edit mode.
+							NewTileObject.tileIndex = i
+						
+						// Connect clicked signal.
+							NewTileObject.clicked.connect(tileClicked);
+						
+						// Connect global edit mode toggle.
+							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+						
+						// Connect hideEditModeControlsOnPreviousTile signal.
+							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+						
+						// Connect the opacity-setter function.
+							NewTileObject.setTileOpacity.connect(setTileOpacity);
+						
+						// Connect long-press signal.
+						// NewTileObject.pressAndHold.connect(tileLongPressed);
+						
+						// Connect decrementing the pinned tiles count signal.
+							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 				}
 				
 				// Turn on or off global edit mode.
