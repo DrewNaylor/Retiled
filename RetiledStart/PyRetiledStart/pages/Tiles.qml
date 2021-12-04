@@ -427,7 +427,11 @@ ApplicationWindow {
 								// As it turns out, you have to use the flickable's values
 								// for both contentHeight and height in order for this to work,
 								// or it won't be the right position.
-								tilesFlickable.contentY = tilesFlickable.contentHeight-tilesFlickable.height;
+								//Actually, returnToBounds() works great when using the y-value from the All Apps button.
+								tilesFlickable.contentY = allAppsButton.y;
+								// Ensure we're in bounds:
+								// https://doc.qt.io/qt-6/qml-qtquick-flickable.html#returnToBounds-method
+								tilesFlickable.returnToBounds();
 								startScreenView.currentIndex = 0;
 								// Not sure if this code will help when I'm trying to figure out
 								// moving to the bottom to pin tiles.
