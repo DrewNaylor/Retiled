@@ -259,9 +259,13 @@ ApplicationWindow {
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
-							NewTileObject.width = ParsedTilesList[i].TileWidth;
-							NewTileObject.height = ParsedTilesList[i].TileHeight;
-							NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+							NewTileObject.width = 150;
+							NewTileObject.height = 150;
+							// TODO: Add another property to tiles so they'll default to
+							// using accent colors unless the boolean to use accent colors
+							// is off, in which case they'll use a specified tile background
+							// color according to the layout config file or the .desktop file.
+							NewTileObject.tileBackgroundColor = "#0050ef";
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
