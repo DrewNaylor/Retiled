@@ -142,7 +142,8 @@ import "../../../RetiledStyles" as RetiledStyles
 								dotDesktopFilePath: model.display
 								onPinToStart: {
 									// Visually pin the tile to start, then save the layout.
-									allAppsListViewModel.PinToStart(model.display);
+									tilesContainer.pinToStart(model.display);
+									// allAppsListViewModel.PinToStart(model.display);
 								}
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
