@@ -63,7 +63,13 @@ def RunApp(DotDesktopFilePath):
 
 def GetAppName(DotDesktopFilePath):
 	# Gets the app's name using the libdotdesktop_py library.
-	return desktopEntryStuff.getInfo(DotDesktopFilePath, "Name", DotDesktopFilePath, "", True)
+	# This is different on Windows for debugging purposes.
+	# Example code for sys.platform:
+	# https://docs.python.org/3/library/sys.html#sys.platform
+	if sys.platform.startswith("win32"):
+		return desktopEntryStuff.getInfo("C:\\Users\\drewn\\Desktop\\" + DotDesktopFilePath, "Name", DotDesktopFilePath, "", True)
+	else:
+		return desktopEntryStuff.getInfo("/usr/share/applications/" + DotDesktopFilePath, "Name", DotDesktopFilePath, "", True)
 	
 def getDotDesktopFiles():
 	# Gets the list of .desktop files and creates a list of objects

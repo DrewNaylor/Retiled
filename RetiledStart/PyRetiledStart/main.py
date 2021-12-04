@@ -68,13 +68,10 @@ class AllAppsListViewModel(QObject):
 	# https://stackoverflow.com/a/36210838
 	def GetDesktopEntryNameKey(self, DotDesktopFile):
 		# Get and return the .desktop file's Name key value.
-		# This is different on Windows for debugging purposes.
-		# Example code for sys.platform:
-		# https://docs.python.org/3/library/sys.html#sys.platform
-		if sys.platform.startswith("win32"):
-			return AppsList.GetAppName("C:\\Users\\drewn\\Desktop\\" + DotDesktopFile)
-		else:
-			return AppsList.GetAppName("/usr/share/applications/" + DotDesktopFile)
+		# We're no longer specifying the path here so to
+		# reduce code duplication, as this is also used when
+		# loading the tiles list.
+		return AppsList.GetAppName(DotDesktopFile)
 	
 	# Pin the app to Start.
 	@Slot(str)
