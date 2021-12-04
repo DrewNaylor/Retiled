@@ -35,39 +35,39 @@
 
 # This file was partially based on the winget installer manifest spec.
 Tiles:
-- DotDesktopFilePath: "/usr/share/applications/firefox.desktop"
+- DotDesktopFilePath: "firefox.desktop"
   TileColor: "#0050ef"
   TileWidth: 150
   TileHeight: 150
-- DotDesktopFilePath: "/usr/share/applications/org.kde.angelfish.desktop"
+- DotDesktopFilePath: "org.kde.angelfish.desktop"
   TileColor: "#0050ef"
   TileWidth: 150
   TileHeight: 150
-- DotDesktopFilePath: "/usr/share/applications/org.kde.index.desktop"
+- DotDesktopFilePath: "org.kde.index.desktop"
   TileColor: "#0050ef"
   TileWidth: 310
   TileHeight: 150
-- DotDesktopFilePath: "/usr/share/applications/org.kde.discover.desktop"
+- DotDesktopFilePath: "org.kde.discover.desktop"
   TileColor: "#0050ef"
   TileWidth: 150
   TileHeight: 150
-- DotDesktopFilePath: "/usr/share/applications/htop.desktop"
+- DotDesktopFilePath: "htop.desktop"
   TileColor: "#0050ef"
   TileWidth: 70
   TileHeight: 70
-- DotDesktopFilePath: "/usr/share/applications/org.kde.kalk.desktop"
+- DotDesktopFilePath: "org.kde.kalk.desktop"
   TileColor: "#0050ef"
   TileWidth: 70
   TileHeight: 70
-- DotDesktopFilePath: "/usr/share/applications/org.kde.nota.desktop"
+- DotDesktopFilePath: "org.kde.nota.desktop"
   TileColor: "#0050ef"
   TileWidth: 70
   TileHeight: 70
-- DotDesktopFilePath: "/usr/share/applications/org.kde.phone.dialer.desktop"
+- DotDesktopFilePath: "org.kde.phone.dialer.desktop"
   TileColor: "Red"
   TileWidth: 70
   TileHeight: 70
-- DotDesktopFilePath: "/usr/share/applications/org.kde.okular.desktop"
+- DotDesktopFilePath: "org.kde.okular.desktop"
   TileColor: "#0050ef"
   TileWidth: 150
   TileHeight: 150
