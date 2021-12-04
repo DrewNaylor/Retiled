@@ -309,6 +309,10 @@ ApplicationWindow {
 							// to the layout config file.
 							toggleGlobalEditMode(false, true);
 							
+							// Force the layout of the tiles list:
+							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
+							tilesContainer.forceLayout();
+							
 				}
 				
 				// Turn on or off global edit mode.
