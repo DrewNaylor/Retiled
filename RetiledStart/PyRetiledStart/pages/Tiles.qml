@@ -245,6 +245,15 @@ ApplicationWindow {
 					tilesListViewModel.RunApp(execKey);
 				}
 				
+				// Pinning a tile to start.
+				function pinToStart(dotDesktopFilePath) {
+					// Create a new tile using the .desktop file path.
+					// Copied from the other code that adds tiles on
+					// startup because this hasn't been separated yet.
+					// TODO: Put the code to create tiles into its own
+					// function to reduce code duplication.
+				}
+				
 				// Turn on or off global edit mode.
 				function toggleGlobalEditMode(enable, showAllAppsButtonAndAllowGoingBetweenPages) {
 					// If enable is false, global edit mode will be
