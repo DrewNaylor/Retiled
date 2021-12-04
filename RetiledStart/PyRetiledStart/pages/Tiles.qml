@@ -242,8 +242,8 @@ ApplicationWindow {
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
-					// tilesListViewModel.RunApp(execKey);
-					console.log(execKey);
+					allAppsListViewModel.RunApp(execKey);
+					// console.log(execKey);
 				}
 				
 				// Pinning a tile to start.
