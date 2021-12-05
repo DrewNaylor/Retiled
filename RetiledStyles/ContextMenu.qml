@@ -79,7 +79,7 @@ T.Popup {
     background: Rectangle {
         color: "white"
         border.color: "black"
-        border.width: 1 // FlyoutBorderThemeThickness
+        border.width: 2 // FlyoutBorderThemeThickness
     }
 
     T.Overlay.modal: Rectangle {
