@@ -114,6 +114,13 @@ RetiledStyles.Button {
 				// font.weight: Font.Normal
 				// onClicked: pinToStart(dotDesktopFilePath)
 			// }
+			
+			// Another spacer item above.
+			Item {
+				height: 5
+				width: parent.width
+			}
+			
 			ContextMenuButton {
 				width: parent.width
 				textColor: "black"
