@@ -98,7 +98,8 @@ T.ItemDelegate {
 
         icon: control.icon
         text: control.text
-        font: control.font
+        font.family: "Open Sans"
+		font.pointSize: 14
         color: Color.transparent(control.Universal.foreground, enabled ? 1.0 : 0.2)
     }
 
