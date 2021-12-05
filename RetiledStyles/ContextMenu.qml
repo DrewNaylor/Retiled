@@ -74,7 +74,7 @@ T.Popup {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              contentHeight + topPadding + bottomPadding)
 
-    padding: 12
+    padding: 0
 
     background: Rectangle {
         color: "white"

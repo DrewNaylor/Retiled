@@ -117,12 +117,12 @@ RetiledStyles.Button {
 			
 			// Another spacer item above.
 			Item {
-				height: 5
-				width: parent.width
+				height: 17
+				width: window.width
 			}
 			
 			ContextMenuButton {
-				width: parent.width
+				width: window.width
 				textColor: "black"
 				borderColor: "transparent"
 				pressedBackgroundColor: "transparent"
@@ -142,8 +142,8 @@ RetiledStyles.Button {
 			// Add a spacer item at the bottom.
 			// Not sure why it's there in WP, but I guess it looks better.
 			Item {
-				height: 50
-				width: parent.width
+				height: 62
+				width: window.width
 			}
 		}
 	}
