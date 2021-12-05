@@ -142,7 +142,7 @@ ApplicationWindow {
 	// This is just whatever the device that's running will use.
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
-	footer: ToolBar {
+	footer: RetiledStyles.AppBar {
 
                 id: appBar
 
@@ -227,7 +227,7 @@ ApplicationWindow {
         width: window.width
         // Set height to 50 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
-        height: 50
+        height: 55
 		// Not sure what Interactive means, but I'll guess it determines
 		// if you can interact with the app drawer.
         interactive: stackView.depth === 1
