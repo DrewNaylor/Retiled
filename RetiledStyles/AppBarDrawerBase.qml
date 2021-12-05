@@ -103,6 +103,10 @@ T.Drawer {
             y: control.edge === Qt.TopEdge ? parent.height - 1 : 0
         }
     }
+	
+	// Not sure where to put this, but I'm trying to get the drawer to tap-open or drag-open
+	// only on the more button and at the far left side. This may help somewhat:
+	// https://stackoverflow.com/a/49494819
 
     T.Overlay.modal: Rectangle {
         color: "transparent"
