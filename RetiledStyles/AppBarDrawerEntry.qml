@@ -82,6 +82,9 @@ T.ItemDelegate {
     padding: 12
     topPadding: padding - 1
     bottomPadding: padding + 1
+	
+	// Scale it down like a button.
+	scale: down ? 0.98 : 1.0
 
     icon.width: 20
     icon.height: 20
@@ -101,8 +104,7 @@ T.ItemDelegate {
 
     background: Rectangle {
         visible: control.down || control.highlighted || control.visualFocus || control.hovered
-        color: control.down ? control.Universal.listMediumColor :
-               control.hovered ? control.Universal.listLowColor : control.Universal.altMediumLowColor
+        color: "transparent"
         Rectangle {
             width: parent.width
             height: parent.height
