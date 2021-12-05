@@ -77,7 +77,7 @@ RetiledStyles.Button {
 	// Here's how to do it dynamically, which might help with
 	// the tiles:
 	// https://stackoverflow.com/a/45052339
-	Popup {
+	ContextMenu {
 		id: allappscontextmenu
 		width: window.width
 		contentWidth: window.width

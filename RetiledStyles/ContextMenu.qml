@@ -77,16 +77,16 @@ T.Popup {
     padding: 12
 
     background: Rectangle {
-        color: control.Universal.chromeMediumLowColor
-        border.color: control.Universal.chromeHighColor
+        color: "white"
+        border.color: "black"
         border.width: 1 // FlyoutBorderThemeThickness
     }
 
     T.Overlay.modal: Rectangle {
-        color: control.Universal.baseLowColor
+        color: "transparent"
     }
 
     T.Overlay.modeless: Rectangle {
-        color: control.Universal.baseLowColor
+        color: "transparent"
     }
 }
