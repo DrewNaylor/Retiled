@@ -34,6 +34,34 @@
 **
 ****************************************************************************/
 
+// RetiledStyles - Windows Phone 8.x-like QML styles for the
+//                 Retiled project. Some code was copied from
+//                 the official qtdeclarative repo, which you can
+//                 access a copy of here:
+//                 https://github.com/DrewNaylor/qtdeclarative
+// Modifications to this file are Copyright (C) 2021 Drew Naylor
+// Please refer to The Qt Company's copyrights above
+// for the copyrights to the original file.
+// (Note that the copyright years include the years left out by the hyphen.)
+// Windows Phone and all other related copyrights and trademarks are property
+// of Microsoft Corporation. All rights reserved.
+//
+// This file was modified from the original QtQuick Controls source.
+// In particular, I took code from the Universal style's "Button.qml" file.
+// You can get a copy of the source from here:
+// https://github.com/DrewNaylor/qtdeclarative
+//
+// This file is a part of the RetiledStyles project, which is used by Retiled.
+// Neither Retiled nor Drew Naylor are associated with Microsoft
+// and Microsoft does not endorse Retiled.
+// Any other copyrights and trademarks belong to their
+// respective people and companies/organizations.
+//
+//
+//   Please refer to the licensing info above for the licenses this file falls
+//   under.
+
+
 import QtQuick
 import QtQuick.Templates as T
 import QtQuick.Controls.Universal
@@ -45,6 +73,9 @@ T.ToolBar {
                             contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              contentHeight + topPadding + bottomPadding)
+
+	// Currently we're not using this file, but it'll be useful
+	// when setting up the light and dark theme changes.
 
     background: Rectangle {
         implicitHeight: 48 // AppBarThemeCompactHeight
