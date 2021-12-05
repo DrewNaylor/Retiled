@@ -193,7 +193,7 @@ ApplicationWindow {
                 Layout.fillWidth: true
             }
 			
-            ToolButton {
+            RetiledStyles.AppBarMoreButton {
 				id: appbarEllipsisButton
 				// TODO: Figure out a way to use SVG files because
 				// this is blurry with HiDPI.

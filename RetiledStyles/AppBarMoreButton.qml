@@ -106,7 +106,7 @@ T.ToolButton {
             width: parent.width
             height: parent.height
             visible: control.down || control.hovered
-            color: control.down ? control.Universal.listMediumColor : control.Universal.listLowColor
+            color: "transparent"
         }
     }
 }
