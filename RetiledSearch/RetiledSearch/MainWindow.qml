@@ -156,7 +156,9 @@ ApplicationWindow {
             anchors.fill: parent
 
 
-            ToolButton {
+            RetiledStyles.AppBarMoreButton {
+			// Usually we won't use the AppBarMoreButton for items here,
+			// but the Back button can't have any visual changes.
 			id: backButton
 			visible: false
 			// QML with Python requires you use "file:" before
