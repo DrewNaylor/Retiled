@@ -85,9 +85,6 @@ T.Drawer {
     leftPadding: control.edge === Qt.RightEdge
     rightPadding: control.edge === Qt.LeftEdge
     bottomPadding: control.edge === Qt.TopEdge
-	
-	// Don't have it drag on the edge, because we're overriding this.
-	dragMargin: 0
 
     enter: Transition { SmoothedAnimation { velocity: 5 } }
     exit: Transition { SmoothedAnimation { velocity: 5 } }
