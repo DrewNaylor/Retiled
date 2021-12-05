@@ -77,7 +77,7 @@ RetiledStyles.Button {
 	// Here's how to do it dynamically, which might help with
 	// the tiles:
 	// https://stackoverflow.com/a/45052339
-	Popup {
+	ContextMenu {
 		id: allappscontextmenu
 		width: window.width
 		contentWidth: window.width
@@ -114,8 +114,18 @@ RetiledStyles.Button {
 				// font.weight: Font.Normal
 				// onClicked: pinToStart(dotDesktopFilePath)
 			// }
-			RetiledStyles.Button {
-				width: parent.width
+			
+			// Another spacer item above.
+			Item {
+				height: 17
+				width: window.width
+			}
+			
+			ContextMenuButton {
+				width: window.width
+				textColor: "black"
+				borderColor: "transparent"
+				pressedBackgroundColor: "transparent"
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
 				// on this button looks way more bold
@@ -127,6 +137,13 @@ RetiledStyles.Button {
 					allappscontextmenu.visible = false;
 					pinToStart(dotDesktopFilePath);
 				}
+			}
+			
+			// Add a spacer item at the bottom.
+			// Not sure why it's there in WP, but I guess it looks better.
+			Item {
+				height: 62
+				width: window.width
 			}
 		}
 	}
