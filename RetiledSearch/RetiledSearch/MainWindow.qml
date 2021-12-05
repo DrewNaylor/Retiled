@@ -142,7 +142,7 @@ ApplicationWindow {
 	// This is just whatever the device that's running will use.
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
-	footer: ToolBar {
+	footer: RetiledStyles.AppBar {
 
                 id: appBar
 
@@ -156,7 +156,9 @@ ApplicationWindow {
             anchors.fill: parent
 
 
-            ToolButton {
+            RetiledStyles.AppBarMoreButton {
+			// Usually we won't use the AppBarMoreButton for items here,
+			// but the Back button can't have any visual changes.
 			id: backButton
 			visible: false
 			// QML with Python requires you use "file:" before
@@ -193,7 +195,7 @@ ApplicationWindow {
                 Layout.fillWidth: true
             }
 			
-            ToolButton {
+            RetiledStyles.AppBarMoreButton {
 				id: appbarEllipsisButton
 				// TODO: Figure out a way to use SVG files because
 				// this is blurry with HiDPI.
@@ -211,7 +213,7 @@ ApplicationWindow {
         }
     }
 
-    Drawer {
+    RetiledStyles.AppBarDrawerBase {
     // TODO: Figure out a way to allow the drawer to be closed from any
     // page and not just from clicking inside the main page or clicking
     // on any of the items in the drawer.
@@ -225,7 +227,7 @@ ApplicationWindow {
         width: window.width
         // Set height to 50 so that the app bar always moves out of the way,
         // even when the window is taller or shorter.
-        height: 50
+        height: 55
 		// Not sure what Interactive means, but I'll guess it determines
 		// if you can interact with the app drawer.
         interactive: stackView.depth === 1
@@ -246,9 +248,7 @@ ApplicationWindow {
 
         // Removing the shadow from the drawer:
         // https://stackoverflow.com/a/63411102
-        Overlay.modal: Rectangle {
-                  color: "transparent"
-              }
+        
 
        Rectangle {
        // You have to set this rectangle's color
@@ -263,7 +263,7 @@ ApplicationWindow {
             clip: true
             focus: true
 
-            delegate: ItemDelegate {
+            delegate: RetiledStyles.AppBarDrawerEntry {
                 width: parent.width
                 text: model.title
                 onClicked: {

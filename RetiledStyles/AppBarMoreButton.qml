@@ -65,29 +65,48 @@
 
 import QtQuick
 import QtQuick.Templates as T
+import QtQuick.Controls.impl
 import QtQuick.Controls.Universal
 
-T.Popup {
+T.ToolButton {
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding)
+                            implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+                             implicitContentHeight + topPadding + bottomPadding)
 
-    padding: 0
+    padding: 6
+    spacing: 8
+
+    icon.width: 20
+    icon.height: 20
+    icon.color: Color.transparent(Universal.foreground, enabled ? 1.0 : 0.2)
+
+    property bool useSystemFocusVisuals: true
+
+    contentItem: IconLabel {
+        spacing: control.spacing
+        mirrored: control.mirrored
+        display: control.display
+
+        icon: control.icon
+        text: control.text
+        font: control.font
+        color: Color.transparent(control.Universal.foreground, enabled ? 1.0 : 0.2)
+    }
 
     background: Rectangle {
-        color: "white"
-        border.color: "black"
-        border.width: 2 // FlyoutBorderThemeThickness
-    }
+        implicitWidth: 68
+        implicitHeight: 48 // AppBarThemeCompactHeight
 
-    T.Overlay.modal: Rectangle {
-        color: "transparent"
-    }
+        color: control.enabled && (control.highlighted || control.checked) ? control.Universal.accent : "transparent"
 
-    T.Overlay.modeless: Rectangle {
-        color: "transparent"
+        Rectangle {
+            width: parent.width
+            height: parent.height
+            visible: control.down || control.hovered
+            color: "transparent"
+        }
     }
 }
