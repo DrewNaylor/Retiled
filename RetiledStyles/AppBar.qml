@@ -40,6 +40,7 @@
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
 // Modifications to this file are Copyright (C) 2021 Drew Naylor
+// and are licensed under the LGPLv3.
 // Please refer to The Qt Company's copyrights above
 // for the copyrights to the original file.
 // (Note that the copyright years include the years left out by the hyphen.)
