@@ -114,7 +114,7 @@ RetiledStyles.Button {
 				// font.weight: Font.Normal
 				// onClicked: pinToStart(dotDesktopFilePath)
 			// }
-			RetiledStyles.Button {
+			ContextMenuButton {
 				width: parent.width
 				textColor: "black"
 				borderColor: "transparent"
