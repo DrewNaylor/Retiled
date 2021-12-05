@@ -211,7 +211,7 @@ ApplicationWindow {
         }
     }
 
-    Drawer {
+    RetiledStyles.AppBarDrawerBase {
     // TODO: Figure out a way to allow the drawer to be closed from any
     // page and not just from clicking inside the main page or clicking
     // on any of the items in the drawer.
@@ -246,9 +246,7 @@ ApplicationWindow {
 
         // Removing the shadow from the drawer:
         // https://stackoverflow.com/a/63411102
-        Overlay.modal: Rectangle {
-                  color: "transparent"
-              }
+        
 
        Rectangle {
        // You have to set this rectangle's color

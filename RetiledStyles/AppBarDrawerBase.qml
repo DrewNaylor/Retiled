@@ -101,10 +101,10 @@ T.Drawer {
     }
 
     T.Overlay.modal: Rectangle {
-        color: control.Universal.baseLowColor
+        color: "transparent"
     }
 
     T.Overlay.modeless: Rectangle {
-        color: control.Universal.baseLowColor
+        color: "transparent"
     }
 }
