@@ -263,7 +263,7 @@ ApplicationWindow {
             clip: true
             focus: true
 
-            delegate: ItemDelegate {
+            delegate: RetiledStyles.AppBarDrawerEntry {
                 width: parent.width
                 text: model.title
                 onClicked: {
