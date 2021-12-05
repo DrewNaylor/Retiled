@@ -131,6 +131,13 @@ RetiledStyles.Button {
 					pinToStart(dotDesktopFilePath);
 				}
 			}
+			
+			// Add a spacer item at the bottom.
+			// Not sure why it's there in WP, but I guess it looks better.
+			Item {
+				height: 50
+				width: parent.width
+			}
 		}
 	}
 	
