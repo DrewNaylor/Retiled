@@ -100,6 +100,8 @@ T.ItemDelegate {
         text: control.text
         font.family: "Open Sans"
 		font.pointSize: 14
+		font.weight: Font.Normal
+		font.letterSpacing: -0.8 * scaleFactor
         color: Color.transparent(control.Universal.foreground, enabled ? 1.0 : 0.2)
     }
 
