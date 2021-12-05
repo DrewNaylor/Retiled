@@ -116,6 +116,9 @@ RetiledStyles.Button {
 			// }
 			RetiledStyles.Button {
 				width: parent.width
+				textColor: "black"
+				borderColor: "transparent"
+				pressedBackgroundColor: "transparent"
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
 				// on this button looks way more bold
