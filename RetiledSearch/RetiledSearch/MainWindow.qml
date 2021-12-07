@@ -208,7 +208,7 @@ ApplicationWindow {
 			anchors.top: parent.top
 			anchors.horizontalCenter: parent.horizontalCenter
 			// Mipmapping makes it look pretty good.
-			// mipmap: true
+			mipmap: true
 		}
 				// For some reason, I can only open the app bar by pulling it
 				// up. Fortunately, you can swipe where you're supposed to be
