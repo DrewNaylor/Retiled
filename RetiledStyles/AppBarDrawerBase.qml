@@ -93,7 +93,10 @@ T.Drawer {
 		// Change the color of the appbar background to be what it should be in dark mode.
 		// Source using a screenshot of the WP Store:
 		// https://stackoverflow.com/questions/19492344/how-to-add-normal-buttons-to-appbar-in-windows-phone-8
-        color: control.Universal.chromeMediumColor
+        // color: control.Universal.chromeMediumColor
+		// #212021 is the hex color code for the dark appbar color
+		// as sampled from a screenshot.
+        color: "#212021"
         Rectangle {
             readonly property bool horizontal: control.edge === Qt.LeftEdge || control.edge === Qt.RightEdge
             width: horizontal ? 1 : parent.width

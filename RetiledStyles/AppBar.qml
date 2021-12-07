@@ -80,6 +80,10 @@ T.ToolBar {
 
     background: Rectangle {
         implicitHeight: 48 // AppBarThemeCompactHeight
-        color: control.Universal.chromeMediumColor
+		// #212021 is the hex color code for the dark appbar color
+		// as sampled from a screenshot.
+		// I should probably figure out how to just change the
+		// Universal theme directly, so I can use values from it.
+        color: "#212021"
     }
 }
