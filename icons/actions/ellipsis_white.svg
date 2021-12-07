@@ -65,21 +65,21 @@
       <circle
          id="circle3352"
          cx="15.647632"
-         cy="28.11042"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.5"
-         r="3.5655" />
+         cy="34.296421"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
+         r="1.78275" />
       <circle
          id="circle3356"
          cx="15.647632"
-         cy="40.447418"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.5"
-         r="3.5655" />
+         cy="40.46492"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
+         r="1.78275" />
       <circle
          id="circle3360"
          cx="15.647632"
-         cy="52.854416"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.5"
-         r="3.5655" />
+         cy="46.668419"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
+         r="1.78275" />
     </g>
   </g>
 </svg>
