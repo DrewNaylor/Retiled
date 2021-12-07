@@ -25,8 +25,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15.839192"
-     inkscape:cx="21.594526"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="36.752844"
      inkscape:cy="9.5216678"
      inkscape:document-units="px"
      inkscape:current-layer="g3370"
@@ -62,24 +62,27 @@
     <g
        id="g3370"
        transform="matrix(0,1.0985164,-1.0985164,0,-150.08677,686.51715)">
-      <circle
-         id="circle3352"
-         cx="16.186438"
-         cy="34.793285"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
-         r="1.5153375" />
-      <circle
-         id="circle3356"
-         cx="16.186438"
-         cy="40.467541"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
-         r="1.5153375" />
-      <circle
-         id="circle3360"
-         cx="16.186438"
-         cy="46.171547"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
-         r="1.5153375" />
+      <g
+         id="g4593">
+        <circle
+           r="1.5153375"
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
+           cy="34.793285"
+           cx="16.186438"
+           id="circle3352" />
+        <circle
+           r="1.5153375"
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
+           cy="40.467541"
+           cx="16.186438"
+           id="circle3356" />
+        <circle
+           r="1.5153375"
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
+           cy="46.171547"
+           cx="16.186438"
+           id="circle3360" />
+      </g>
     </g>
   </g>
 </svg>
