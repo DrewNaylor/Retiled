@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="19.764139mm"
-   height="4.421587mm"
-   viewBox="0 0 70.030417 15.66704"
+   width="3.8827009mm"
+   height="1.1053967mm"
+   viewBox="0 0 13.757602 3.91676"
    id="svg2"
    version="1.1"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="65.028126"
-     inkscape:cy="24.717056"
+     inkscape:cx="3.7659586"
+     inkscape:cy="18.450239"
      inkscape:document-units="px"
      inkscape:current-layer="g3370"
      showgrid="false"
@@ -56,25 +56,28 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(241.44378,-698.60193)">
+     transform="translate(213.30737,-704.47707)">
     <g
        id="g3370"
        transform="matrix(0,1.0985164,-1.0985164,0,-150.08677,686.51715)">
       <circle
          id="circle3352"
-         r="7.131"
+         r="1.78275"
          cx="18.132"
-         cy="33.372391" />
+         cy="46.809845"
+         style="stroke-width:0.25" />
       <circle
          id="circle3356"
-         r="7.131"
+         r="1.78275"
          cx="18.132"
-         cy="51.219002" />
+         cy="51.271496"
+         style="stroke-width:0.25" />
       <circle
          id="circle3360"
-         r="7.131"
+         r="1.78275"
          cx="18.132"
-         cy="69.205605" />
+         cy="55.768147"
+         style="stroke-width:0.25" />
     </g>
   </g>
 </svg>
