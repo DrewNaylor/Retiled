@@ -205,6 +205,10 @@ ApplicationWindow {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
 			source: "../../icons/actions/ellipsis_white.svg"
+			// Set source size so it's crisp:
+			// https://doc.qt.io/qt-5/qml-qtquick-image.html#sourceSize-prop
+			sourceSize.width: 40
+			sourceSize.height: 15
 			anchors.top: parent.top
 			anchors.horizontalCenter: parent.horizontalCenter
 			// Mipmapping makes it look pretty good.
