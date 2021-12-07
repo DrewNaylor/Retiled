@@ -26,20 +26,20 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="60.801657"
+     inkscape:cx="65.028126"
      inkscape:cy="24.717056"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3370"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="958"
+     inkscape:window-height="991"
+     inkscape:window-x="952"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -58,28 +58,23 @@
      id="layer1"
      transform="translate(241.44378,-698.60193)">
     <g
-       transform="matrix(0,0.10548478,-0.10548478,0,-154.4993,718.73724)"
-       id="layer1-7"
-       inkscape:label="Layer 1">
-      <g
-         transform="matrix(10.41398,0,0,10.41398,-305.44776,-41.830991)"
-         id="g3370">
-        <circle
-           cy="26.545"
-           cx="18.132"
-           r="7.131"
-           id="circle3352" />
-        <circle
-           cy="51.219002"
-           cx="18.132"
-           r="7.131"
-           id="circle3356" />
-        <circle
-           cy="76.032997"
-           cx="18.132"
-           r="7.131"
-           id="circle3360" />
-      </g>
+       id="g3370"
+       transform="matrix(0,1.0985164,-1.0985164,0,-150.08677,686.51715)">
+      <circle
+         id="circle3352"
+         r="7.131"
+         cx="18.132"
+         cy="33.372391" />
+      <circle
+         id="circle3356"
+         r="7.131"
+         cx="18.132"
+         cy="51.219002" />
+      <circle
+         id="circle3360"
+         r="7.131"
+         cx="18.132"
+         cy="69.205605" />
     </g>
   </g>
 </svg>
