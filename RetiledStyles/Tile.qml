@@ -377,6 +377,9 @@ ButtonBase {
 			// for tile B is open.
 			control.z = control.z + 1;
 			// If global edit mode is already on, hide the edit controls on the previous tile.
+			// Also make sure we're not editing this tile at the moment.
+			// There may be more stuff to change so that this works more reliably,
+			// but it gets rid of the issue for now.
 			if ((globalEditMode == true) && (editMode == false)) {
 				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
 			}
