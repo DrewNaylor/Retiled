@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="20"
+   height="5"
+   viewBox="0 0 18.75 4.6874999"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="ellipsis_white.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.4"
+     inkscape:cx="11.47154"
+     inkscape:cy="9.5216678"
+     inkscape:document-units="px"
+     inkscape:current-layer="g3370"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="958"
+     inkscape:window-height="991"
+     inkscape:window-x="952"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:pagecheckerboard="true"
+     units="px" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(213.30737,-703.70633)">
+    <g
+       id="g3370"
+       transform="matrix(0,1.0985164,-1.0985164,0,-150.08677,686.51715)">
+      <circle
+         id="circle3352"
+         cx="17.781191"
+         cy="44.537506"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
+         r="1.78275" />
+      <circle
+         id="circle3356"
+         cx="17.781191"
+         cy="48.999157"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
+         r="1.78275" />
+      <circle
+         id="circle3360"
+         cx="17.781191"
+         cy="53.495808"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
+         r="1.78275" />
+    </g>
+  </g>
+</svg>

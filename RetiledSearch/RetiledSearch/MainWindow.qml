@@ -197,9 +197,19 @@ ApplicationWindow {
 			
             RetiledStyles.AppBarMoreButton {
 				id: appbarEllipsisButton
+				width: 20
 				// TODO: Figure out a way to use SVG files because
 				// this is blurry with HiDPI.
-                icon.source: "file:images/menu.png"
+                // icon.source: "../icons/actions/ellipsis_white.svg"
+				Image {
+			// It's "pressed", not "down", to change images:
+			// https://stackoverflow.com/a/30092412
+			source: "../../icons/actions/ellipsis_white.svg"
+			anchors.top: parent.top
+			anchors.horizontalCenter: parent.horizontalCenter
+			// Mipmapping makes it look pretty good.
+			mipmap: true
+		}
 				// For some reason, I can only open the app bar by pulling it
 				// up. Fortunately, you can swipe where you're supposed to be
 				// able to tap the button at. Unfortunately, that may interfere
