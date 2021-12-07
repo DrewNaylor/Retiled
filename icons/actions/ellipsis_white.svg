@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="25"
+   width="40"
    height="15"
-   viewBox="0 0 23.4375 14.0625"
+   viewBox="0 0 37.5 14.0625"
    id="svg2"
    version="1.1"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -65,19 +65,19 @@
       <circle
          id="circle3352"
          cx="16.186438"
-         cy="41.193966"
+         cy="34.793285"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
          r="1.5153375" />
       <circle
          id="circle3356"
          cx="16.186438"
-         cy="46.868221"
+         cy="40.467541"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
          r="1.5153375" />
       <circle
          id="circle3360"
          cx="16.186438"
-         cy="52.572227"
+         cy="46.171547"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.21250001"
          r="1.5153375" />
     </g>
