@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="3.8827009mm"
-   height="1.1053967mm"
-   viewBox="0 0 13.757602 3.91676"
+   width="40"
+   height="15"
+   viewBox="0 0 37.5 14.0625"
    id="svg2"
    version="1.1"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="3.7659586"
-     inkscape:cy="18.450239"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="16.297255"
+     inkscape:cy="9.5216678"
      inkscape:document-units="px"
      inkscape:current-layer="g3370"
      showgrid="false"
@@ -39,7 +39,9 @@
      inkscape:window-height="991"
      inkscape:window-x="952"
      inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     inkscape:pagecheckerboard="true"
+     units="px" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -56,28 +58,32 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(213.30737,-704.47707)">
+     transform="translate(213.30737,-694.33133)">
     <g
        id="g3370"
        transform="matrix(0,1.0985164,-1.0985164,0,-150.08677,686.51715)">
-      <circle
-         id="circle3352"
-         r="1.78275"
-         cx="18.132"
-         cy="46.809845"
-         style="stroke-width:0.25" />
-      <circle
-         id="circle3356"
-         r="1.78275"
-         cx="18.132"
-         cy="51.271496"
-         style="stroke-width:0.25" />
-      <circle
-         id="circle3360"
-         r="1.78275"
-         cx="18.132"
-         cy="55.768147"
-         style="stroke-width:0.25" />
+      <g
+         id="g4593"
+         style="fill:#040404;fill-opacity:1">
+        <circle
+           r="1.5153375"
+           style="fill:#040404;fill-opacity:1;stroke-width:0.21250001"
+           cy="34.793285"
+           cx="16.186438"
+           id="circle3352" />
+        <circle
+           r="1.5153375"
+           style="fill:#040404;fill-opacity:1;stroke-width:0.21250001"
+           cy="40.467541"
+           cx="16.186438"
+           id="circle3356" />
+        <circle
+           r="1.5153375"
+           style="fill:#040404;fill-opacity:1;stroke-width:0.21250001"
+           cy="46.171547"
+           cx="16.186438"
+           id="circle3360" />
+      </g>
     </g>
   </g>
 </svg>
