@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="20"
-   height="5"
-   viewBox="0 0 18.75 4.6874999"
+   width="40"
+   height="10"
+   viewBox="0 0 37.5 9.3749998"
    id="svg2"
    version="1.1"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -25,8 +25,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.4"
-     inkscape:cx="11.47154"
+     inkscape:zoom="15.839192"
+     inkscape:cx="21.594526"
      inkscape:cy="9.5216678"
      inkscape:document-units="px"
      inkscape:current-layer="g3370"
@@ -58,28 +58,28 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(213.30737,-703.70633)">
+     transform="translate(213.30737,-699.01883)">
     <g
        id="g3370"
        transform="matrix(0,1.0985164,-1.0985164,0,-150.08677,686.51715)">
       <circle
          id="circle3352"
-         cx="17.781191"
-         cy="44.537506"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
-         r="1.78275" />
+         cx="15.647632"
+         cy="28.11042"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.5"
+         r="3.5655" />
       <circle
          id="circle3356"
-         cx="17.781191"
-         cy="48.999157"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
-         r="1.78275" />
+         cx="15.647632"
+         cy="40.447418"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.5"
+         r="3.5655" />
       <circle
          id="circle3360"
-         cx="17.781191"
-         cy="53.495808"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
-         r="1.78275" />
+         cx="15.647632"
+         cy="52.854416"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.5"
+         r="3.5655" />
     </g>
   </g>
 </svg>
