@@ -376,6 +376,10 @@ ButtonBase {
 			// it's still possible to open an app with tile A while the menu
 			// for tile B is open.
 			control.z = control.z + 1;
+			// If global edit mode is already on, hide the edit controls on the previous tile.
+			if ((globalEditMode == true) && (editMode == false)) {
+				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
+			}
 			// Turn on edit mode.
 			editMode = true;
 			// Turn on global edit mode.
