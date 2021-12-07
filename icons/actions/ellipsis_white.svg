@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="40"
-   height="10"
-   viewBox="0 0 37.5 9.3749998"
+   height="15"
+   viewBox="0 0 37.5 14.0625"
    id="svg2"
    version="1.1"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -58,25 +58,25 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(213.30737,-699.01883)">
+     transform="translate(213.30737,-694.33133)">
     <g
        id="g3370"
        transform="matrix(0,1.0985164,-1.0985164,0,-150.08677,686.51715)">
       <circle
          id="circle3352"
-         cx="17.354479"
+         cx="16.186438"
          cy="34.296421"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
          r="1.78275" />
       <circle
          id="circle3356"
-         cx="17.354479"
+         cx="16.186438"
          cy="40.46492"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
          r="1.78275" />
       <circle
          id="circle3360"
-         cx="17.354479"
+         cx="16.186438"
          cy="46.668419"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.25"
          r="1.78275" />
