@@ -197,10 +197,8 @@ ApplicationWindow {
 			
             RetiledStyles.AppBarMoreButton {
 				id: appbarEllipsisButton
-				width: 20
-				// TODO: Figure out a way to use SVG files because
-				// this is blurry with HiDPI.
-                // icon.source: "../icons/actions/ellipsis_white.svg"
+				// For some reason, the button width isn't changing.
+				width: 5
 				Image {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
