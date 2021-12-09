@@ -1,8 +1,5 @@
-# PyRetiledStart - Windows Phone 8.x-like Start screen UI for the
-#                  Retiled project. Once this app reaches
-#                  feature-parity with the older Avalonia-based
-#                  version, this version will be renamed back to
-#                  "RetiledStart".
+# RetiledStart - Windows Phone 8.x-like Start screen UI for the
+#                Retiled project.
 # Copyright (C) 2021 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
@@ -121,19 +118,6 @@ class TilesListViewModel(QObject):
 		# and destruction.
 		return TilesList.getTilesList()
 
-
-#class TilesViewModel(QObject):
-	#@Slot(str)
-	#def RunApp(self, ExecFilename):
-		## Maybe I should figure out how to combine this
-		## function with the AllAppsListViewModel one
-		## so that there's more code reused. Probably should just
-		## have it be in a GenericAppCode class or something.
-		#args = shlex.split(ExecFilename)
-		## Now run the command.
-		#proc = subprocess.Popen(args)
-
-
 if __name__ == "__main__":
 	# Set the Universal style.
 	sys.argv += ['--style', 'Universal']
@@ -141,7 +125,6 @@ if __name__ == "__main__":
 	
 	# Define the AllAppsListItems class so I can use it.
 	allAppsListItems = AllAppsListItems()
-	#allAppsListItems = ['Firefox Launcher.desktop', 'top-exec.desktop']
 	
 	# Hook up some stuff so I can access the allAppsListViewModel from QML.
 	allAppsListViewModel = AllAppsListViewModel()
@@ -153,7 +136,6 @@ if __name__ == "__main__":
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
-	#engine.load("MainWindow.qml")
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
