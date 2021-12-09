@@ -19,16 +19,16 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Avalonia.Flexbox">
-      <HintPath>..\..\lib\Avalonia.Flexbox.dll</HintPath>
+      <HintPath>..\..\..\lib\Avalonia.Flexbox.dll</HintPath>
     </Reference>
     <Reference Include="FancyStaggeredLayout.Avalonia">
-      <HintPath>..\..\lib\FancyStaggeredLayout.Avalonia.dll</HintPath>
+      <HintPath>..\..\..\lib\FancyStaggeredLayout.Avalonia.dll</HintPath>
     </Reference>
     <Reference Include="libdotdesktop-standard">
-      <HintPath>..\..\lib\libdotdesktop-standard.dll</HintPath>
+      <HintPath>..\..\..\lib\libdotdesktop-standard.dll</HintPath>
     </Reference>
     <Reference Include="StaggeredLayout.Avalonia">
-      <HintPath>..\..\lib\StaggeredLayout.Avalonia.dll</HintPath>
+      <HintPath>..\..\..\lib\StaggeredLayout.Avalonia.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

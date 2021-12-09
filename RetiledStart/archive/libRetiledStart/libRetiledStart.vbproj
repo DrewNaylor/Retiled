@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <Reference Include="libdotdesktop-standard">
-      <HintPath>..\..\lib\libdotdesktop-standard.dll</HintPath>
+      <HintPath>..\..\..\lib\libdotdesktop-standard.dll</HintPath>
     </Reference>
   </ItemGroup>
 
