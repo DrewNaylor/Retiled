@@ -1,0 +1,46 @@
+Tiles:
+- DotDesktopFilePath: HideSettingsPages Apply.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: HideSettingsPages Verify.desktop
+  TileWidth: 70
+  TileHeight: 70
+  TileColor: '#0050ef'
+- DotDesktopFilePath: top-exec.desktop
+  TileWidth: 310
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: Retiled Search.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: top-exec.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: notepad++.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: notepad++.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: notepad++.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: Retiled Search.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: Firefox Launcher.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: HideSettingsPages Apply.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+StartLayoutSchemaVersion: 0.1
