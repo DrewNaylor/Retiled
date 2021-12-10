@@ -108,8 +108,11 @@ All Apps list item context menu showing the "pin to start" button:<br>
 Early three-column view:<br>
 <img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
 <br>
-All Apps List displaying the names that are in each of the .desktop files while being properly sorted (sorry about the notification area showing up in the screenshot; the screenshot tool hasn't quite been working correctly lately):<br>
-<img src="/docs/images/retiledstart-allappslist-with-names-and-sorted.png" width="360"><br>
+RetiledSearch running on the PinePhone:<br>
+<img src="/docs/images/search-app.jpg" width="290"><br>
 <br>
-Search app prototype:<br>
-![](/docs/images/search-prototype.png?raw=true)<br>
+Appbar menu in the search app showing the "about" button:<br>
+<img src="/docs/images/search-app-appbar.jpg" width="340"><br>
+<br>
+"about" page in the search app:<br>
+<img src="/docs/images/search-app-about.jpg" width="303">
