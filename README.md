@@ -53,10 +53,18 @@ Python 3.9 copyrights end.<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
 Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Open Sans](https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
 
-## Building and running
+## Installation, Uninstallation, Building, and Running
 
 These instructions are outdated as I'm working on a Python/QML/PySide6 rewrite, with perhaps some .NET if I can get Python.NET to work on ARM (hopefully I can, because I really don't want to have to rewrite all my code in libRetiledStart to Python).
 
+- Installation
+  1. Clone the repo using `git clone https://github.com/drewnaylor/retiled`
+  2. `cd` into `retiled/Scripts`
+  3. Run `sh install-retiled.sh`. The Python scripts will be compiled, then you'll be prompted with `sudo` asking your password to install (if you haven't entered it recently).
+  4. You should find the items for Retiled Start and Retiled Search in your app list. If not (can happen with Plasma Mobile, which is the UI that this is recommended to be run using due to also using Qt), you'll need to restart your phone.
+- Uninstallation
+  1. `cd` back into `retiled/Scripts` in the repo you cloned earlier, or clone it again if you deleted it.
+  2. Run `sh uninstall-retiled.sh`. You'll be prompted for your password by `sudo` so that it can delete the files and folders used by Retiled, mainly `/opt/Retiled/*`, `/usr/share/applications/retiledstart.desktop`, and `/usr/share/applications/retiledsearch.desktop`.
 - Building
   - You shouldn't have to build Python scripts, but if you want to, `cd` into `Scripts`, then run `sh build-retiledstart.sh` or `sh build-retiledsearch.sh`, depending on which you want to build.
   - Please ensure Python 3 is installed first, or building (and running) won't work.
