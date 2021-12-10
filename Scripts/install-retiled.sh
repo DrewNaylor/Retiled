@@ -10,14 +10,16 @@ sh ./build-retiledstart.sh
 # https://www.decodingdevops.com/copy-directory-in-linux-recursive-copy-in-linux/
 cd ..
 # Make directories first.
+# We have to use "-p" to make missing intermediate dirs:
+# https://unix.stackexchange.com/a/588680
 # TODO: Make sure they don't exist before creating them.
-mkdir ./test/RetiledStyles/
-mkdir ./test/RetiledSearch/
-mkdir ./test/RetiledStart/
+mkdir -p ./test/RetiledStyles
+mkdir -p ./test/RetiledSearch
+mkdir -p ./test/RetiledStart
 # Now we can copy stuff.
-cp -rv ./RetiledStyles/* ./test/RetiledStyles/
-cp -rv ./RetiledSearch/* ./test/RetiledSearch/
-cp -rv ./RetiledStart/* ./test/RetiledStart/
+cp -rv ./RetiledStyles/* ./test/RetiledStyles
+cp -rv ./RetiledSearch/* ./test/RetiledSearch
+cp -rv ./RetiledStart/* ./test/RetiledStart
 
 # Exit with code 0.
 exit 0
