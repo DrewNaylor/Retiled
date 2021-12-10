@@ -57,6 +57,8 @@ These are things that Windows Phone has that Retiled will eventually have. Moved
   - Long-pressing the `Escape` key when using the emulator opens the multitasking area, but that may conflict with apps listening for `Escape` to go back, so I may need to send `Alt+Tab` instead. Whatever I'm using to do multitasking will have to handle `Alt+Tab` to open a view where the user can select the window they want, or close ones they want to close.
   - I may use the Maliit framework to send the `Escape` key to apps, which is also described in #4.
   - Hopefully the Maliit keyboard dismisses itself when pressing `Escape` and prevents the app from getting the signal.
+  - Something else I might use is evscript, which is a scripting environment for keyboard shortcuts basically: https://github.com/unrelentingtech/evscript
+  - What's cool about evscript is you can just have it run your "key presses" as a command, plus it seems really light. I'd prefer not having to run something when pressing the Back button and just have a library, but hopefully this'll work well enough.
 - Action Center
   - Long-pressing the quick action buttons at the top will open the relevant page in Settings, which is something I forgot 8.x lacked. (Thanks to TheMobilizer for the suggestion!)
   - The quick action button panel will be able to scroll horizontally to hold more buttons. [(issue #10)](https://github.com/DrewNaylor/Retiled/issues/10)
@@ -78,6 +80,7 @@ These are things that Windows Phone has that Retiled will eventually have. Moved
 - A window manager/Wayland compositor may need to be built to hold the navigation bar and status bar and to display the multitasking menu. Hopefully it won't be needed and just a session file and a pre-existing window manager that opens stuff fullscreen will work, but I doubt it because the status bar and navigation bar need to be in a specific place. Not sure exactly where the "Loading..." and "Resuming..." messages would go, but they should be in this project somewhere if it makes sense.
   - For now, Wayfire may work for a lightweight Wayland compositor as it's highly customizable, extensible, and is under the MIT license. This page has the config file options: https://github.com/WayfireWM/wayfire/wiki/Configuration One thing that's really interesting in the example config file is that you can set the launcher, which may help to get things off the ground for me and I may have to fork Wayfire and learn C++ if it ends up working well enough for me to add/change things in its code: https://github.com/WayfireWM/wayfire/blob/master/wayfire.ini
   - Wayfire allows for creating animation plugins. I've described what would need to be done to make the animations feel like WP here: https://github.com/DrewNaylor/Retiled/issues/5
+  - Yeah, I think I'll have to learn C++ to create Wayfire plugins, unless there's a way to do it with Python.
 - The screen never goes upside down, unlike Android. A way for the user to allow it may be useful if they like that feature.
 
 There are also some "wishlist" features that I really want but might be too complicated to do.
