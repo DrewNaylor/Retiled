@@ -15,18 +15,12 @@ Regarding the tags, I'm going to remove the .NET and Avalonia-related ones after
 ## Required extra packages
 
 You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use. The ones that say "via pip" are extra ones that developers will have to install if not on something like the PinePhone, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't in pip.
-- Python/PySide6/QML-based components:
-  - `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries, though some parts may just use Python alone and not use .NET; should be Python 3 (using Python 3.9.x, specifically), but I can't remember if the package itself is `python3`, so I'll need to check
-  - `pyside6` (`PySide6` via pip): Used for the UI of Python/QML-based components of Retiled
-  - `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
-  - `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
-  - `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it; Arch Linux ARM wasn't the latest anyway last I checked, but maybe I can put the latest one in my own repo if that's easy enough): Helps read yaml files, which are used for configuration
-  - Python.NET (`pythonnet` via pip): Allows using .NET libraries from .NET; unsure of the exact package name, or if it's in pacman; not currently used as it doesn't work with Python 3.9 yet
-  - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
-- Avalonia-based components:
-  - `ttf-ms-fonts`: Used for the text in Avalonia-based components of Retiled
-- Most components:
-  - .NET 5: Most components use .NET 5 in some way, so that's also required; not sure what it's called in Arch Linux ARM, or if it's even available anymore; may need to manually extract it into the required location after downloading from Microsoft's website
+- `python`: Used to glue the Python/QML-based components of Retiled to their .NET libraries, though some parts may just use Python alone and not use .NET; should be Python 3 (using Python 3.9.x, specifically), but I can't remember if the package itself is `python3`, so I'll need to check
+- `pyside6` (`PySide6` via pip): Used for the UI of Python/QML-based components of Retiled
+- `qt6-quickcontrols2`: Provides Qt6 QtQuick controls that are used in each component
+- `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
+- `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it; Arch Linux ARM wasn't the latest anyway last I checked, but maybe I can put the latest one in my own repo if that's easy enough): Helps read yaml files, which are used for configuration. You probably won't have to install this yourself, as I just copied the library's files into my repo. The only case where you'll need to install it manually is if my repo doesn't have the proper compiled library for one of the files. In that case, please let me know. I don't feel comfortable just adding binaries from random people to my repo, so a way for me to acquire that binary will be necessary to specify.
+- `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
 
 ## License stuff
 
@@ -55,13 +49,14 @@ Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/),
 
 ## Installation, Uninstallation, Building, and Running
 
-These instructions are outdated as I'm working on a Python/QML/PySide6 rewrite, with perhaps some .NET if I can get Python.NET to work on ARM (hopefully I can, because I really don't want to have to rewrite all my code in libRetiledStart to Python).
+> Please note: You'll have to install the dependencies manually, as they're not integrated into the script yet.
 
 - Installation
-  1. Clone the repo using `git clone https://github.com/drewnaylor/retiled`
-  2. `cd` into `retiled/Scripts`
-  3. Run `sh install-retiled.sh`. The Python scripts will be compiled, then you'll be prompted with `sudo` asking your password to install (if you haven't entered it recently).
-  4. You should find the items for Retiled Start and Retiled Search in your app list. If not (can happen with Plasma Mobile, which is the UI that this is recommended to be run using due to also using Qt), you'll need to restart your phone.
+  1. Install `pyside6`, `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I'd like to add support for postmarketOS, but I haven't tested anything there yet. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
+  2. Clone the repo using `git clone https://github.com/drewnaylor/retiled`
+  3. `cd` into `retiled/Scripts`
+  4. Run `sh install-retiled.sh`. The Python scripts will be compiled, then you'll be prompted with `sudo` asking your password to install (if you haven't entered it recently).
+  5. You should find the items for Retiled Start and Retiled Search in your app list. If not (can happen with Plasma Mobile, which is the UI that this is recommended to be run using due to also using Qt), you'll need to restart your phone.
 - Uninstallation
   1. `cd` back into `retiled/Scripts` in the repo you cloned earlier, or clone it again if you deleted it.
   2. Run `sh uninstall-retiled.sh`. You'll be prompted for your password by `sudo` so that it can delete the files and folders used by Retiled, mainly `/opt/Retiled/*`, `/usr/share/applications/retiledstart.desktop`, and `/usr/share/applications/retiledsearch.desktop`.
