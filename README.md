@@ -77,12 +77,13 @@ These instructions are outdated as I'm working on a Python/QML/PySide6 rewrite, 
     - To run RetiledStart, please refer to the line below regarding running Python/QML-based apps.
     - To run RetiledSearch, please refer to the line below regarding running Python/QML-based apps.
     - You may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
-    - Running Python/QML-based apps requires installing the relevant packages as described in the `Building` section (desktop Linux can probably use the pip packages), then for RetiledSearch:
-      - `cd` into `RetiledSearch/RetiledSearch`
-      - Run `python main.py`
-	RetiledStart:
-	  - `cd` into `RetiledStart/RetiledStart`
-	  - Run `python main.py`
+    - Running Python/QML-based apps requires installing the relevant packages as described in the `Building` section (desktop Linux can probably use the pip packages), then for 
+	  - RetiledSearch:
+        - `cd` into `RetiledSearch/RetiledSearch`
+        - Run `python main.py`
+	  - RetiledStart:
+	    - `cd` into `RetiledStart/RetiledStart`
+	    - Run `python main.py`
     - If you run the Python/QML-based apps on Phosh without first rebooting after installing the required extra packages, the keyboard may not display the letters properly, and instead show boxes. This doesn't seem to be permanent, as rebooting fixes the issue. **However**, running the Python/QML-based apps after a reboot may have Qt say that it's ignoring Wayland on Gnome, so it'll use Xwayland instead. You'll have to run `QT_QPA_PLATFORM=wayland python main.py` to make it use Wayland. This command will be integrated into a launcher script to make things easy. Additionally, there's a titlebar when running with Wayland under Phosh. I'd like to have it only appear when in docked mode, although some apps may be better to have no window borders in docked mode and instead appear next to the panel, like RetiledStart.
 
 ## Video demos
