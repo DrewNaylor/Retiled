@@ -9,8 +9,14 @@ sh ./build-retiledstart.sh
 # We have to do this recursively:
 # https://www.decodingdevops.com/copy-directory-in-linux-recursive-copy-in-linux/
 cd ..
-cp -rv ./RetiledSearch/* ./test/RetiledSearch
+# Make directories first.
+# TODO: Make sure they don't exist before creating them.
+mkdir ./test/RetiledStyles
+mkdir ./test/RetiledSearch
+mkdir ./test/RetiledStart
+# Now we can copy stuff.
 cp -rv ./RetiledStyles/* ./test/RetiledStyles
+cp -rv ./RetiledSearch/* ./test/RetiledSearch
 cp -rv ./RetiledStart/* ./test/RetiledStart
 
 # Exit with code 0.
