@@ -22,6 +22,9 @@ mkdir -p ./test/opt/Retiled/icons
 # Make dirs for the programs themselves.
 mkdir -p ./test/opt/Retiled/RetiledSearch
 mkdir -p ./test/opt/Retiled/RetiledStart
+# Make the directory for the .desktop files.
+# This is only necessary during testing.
+mkdir -p ./test/usr/share/applications
 # Now we can copy stuff.
 # Copy styles dir.
 cp -rv ./RetiledStyles/* ./test/opt/Retiled/RetiledStyles
@@ -32,6 +35,10 @@ cp -rv ./icons/* ./test/opt/Retiled/icons
 # Now copy the programs.
 cp -rv ./RetiledSearch/* ./test/opt/Retiled/RetiledSearch
 cp -rv ./RetiledStart/* ./test/opt/Retiled/RetiledStart
+
+# Copy the .desktop files.
+cp ./retiledsearch.desktop ./test/usr/share/applications/retiledsearch.desktop
+cp ./retiledstart.desktop ./test/usr/share/applications/retiledstart.desktop
 
 # Exit with code 0.
 exit 0
