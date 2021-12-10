@@ -13,11 +13,23 @@ cd ..
 # We have to use "-p" to make missing intermediate dirs:
 # https://unix.stackexchange.com/a/588680
 # TODO: Make sure they don't exist before creating them.
+# Make styles dir.
 mkdir -p ./test/RetiledStyles
+# Make fonts dir.
+mkdir -p ./test/fonts
+# Make icons dir.
+mkdir -p ./test/icons
+# Make dirs for the programs themselves.
 mkdir -p ./test/RetiledSearch
 mkdir -p ./test/RetiledStart
 # Now we can copy stuff.
+# Copy styles dir.
 cp -rv ./RetiledStyles/* ./test/RetiledStyles
+# Copy fonts dir.
+cp -rv ./fonts/* ./test/fonts
+# Copy icons.
+cp -rv ./icons/* ./test/icons
+# Now copy the programs.
 cp -rv ./RetiledSearch/* ./test/RetiledSearch
 cp -rv ./RetiledStart/* ./test/RetiledStart
 
