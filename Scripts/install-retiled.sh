@@ -14,31 +14,32 @@ cd ..
 # https://unix.stackexchange.com/a/588680
 # TODO: Make sure they don't exist before creating them.
 # Make styles dir.
-mkdir -p ./test/opt/Retiled/RetiledStyles
+sudo mkdir -p /opt/Retiled/RetiledStyles
 # Make fonts dir.
-mkdir -p ./test/opt/Retiled/fonts
+sudo mkdir -p /opt/Retiled/fonts
 # Make icons dir.
-mkdir -p ./test/opt/Retiled/icons
+sudo mkdir -p /opt/Retiled/icons
 # Make dirs for the programs themselves.
-mkdir -p ./test/opt/Retiled/RetiledSearch
-mkdir -p ./test/opt/Retiled/RetiledStart
-# Make the directory for the .desktop files.
-# This is only necessary during testing.
-mkdir -p ./test/usr/share/applications
+sudo mkdir -p /opt/Retiled/RetiledSearch
+sudo mkdir -p /opt/Retiled/RetiledStart
 # Now we can copy stuff.
 # Copy styles dir.
-cp -rv ./RetiledStyles/* ./test/opt/Retiled/RetiledStyles
+sudo cp -rv ./RetiledStyles/* /opt/Retiled/RetiledStyles
 # Copy fonts dir.
-cp -rv ./fonts/* ./test/opt/Retiled/fonts
+sudo cp -rv ./fonts/* /opt/Retiled/fonts
 # Copy icons.
-cp -rv ./icons/* ./test/opt/Retiled/icons
+sudo cp -rv ./icons/* /opt/Retiled/icons
 # Now copy the programs.
-cp -rv ./RetiledSearch/* ./test/opt/Retiled/RetiledSearch
-cp -rv ./RetiledStart/* ./test/opt/Retiled/RetiledStart
+sudo cp -rv ./RetiledSearch/* /opt/Retiled/RetiledSearch
+sudo cp -rv ./RetiledStart/* /opt/Retiled/RetiledStart
 
 # Copy the .desktop files.
-cp -v ./Scripts/retiledsearch.desktop ./test/usr/share/applications
-cp -v ./Scripts/retiledstart.desktop ./test/usr/share/applications
+sudo cp -v ./Scripts/retiledsearch.desktop /usr/share/applications
+sudo cp -v ./Scripts/retiledstart.desktop /usr/share/applications
+
+# Copy the scripts to run everything.
+sudo cp -v ./Scripts/run-retiledsearch.sh /opt/Retiled
+sudo cp -v ./Scripts/run-retiledstart.sh /opt/Retiled
 
 # Exit with code 0.
 exit 0

@@ -1,3 +1,3 @@
 #!/bin/sh
-cd ~/retiled-repo/test/opt/Retiled/RetiledStart/RetiledStart
+cd /opt/Retiled/RetiledStart/RetiledStart
 python main.py

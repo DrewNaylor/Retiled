@@ -1,4 +1,4 @@
 [Desktop Entry]
 Name=Retiled Search
 Type=Application
-Exec=
+Exec=sh /opt/Retiled/run-retiledstart.sh
