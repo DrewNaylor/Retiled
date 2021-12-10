@@ -35,40 +35,60 @@
 
 # This file was partially based on the winget installer manifest spec.
 Tiles:
-- DotDesktopFilePath: "firefox.desktop"
-  TileColor: "#0050ef"
+- DotDesktopFilePath: org.kde.phone.dialer.desktop
   TileWidth: 150
   TileHeight: 150
-- DotDesktopFilePath: "org.kde.angelfish.desktop"
-  TileColor: "#0050ef"
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.spacebar.desktop
   TileWidth: 150
   TileHeight: 150
-- DotDesktopFilePath: "org.kde.index.desktop"
-  TileColor: "#0050ef"
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.neochat.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.angelfish.desktop
+  TileWidth: 70
+  TileHeight: 70
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.discover.desktop
+  TileWidth: 70
+  TileHeight: 70
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.phonebook.desktop
+  TileWidth: 70
+  TileHeight: 70
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.index.desktop
+  TileWidth: 70
+  TileHeight: 70
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.koko.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.postmarketos.Megapixels.desktop
+  TileWidth: 150
+  TileHeight: 150
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.kalk.desktop
+  TileWidth: 70
+  TileHeight: 70
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.mobile.qmlkonsole.desktop
+  TileWidth: 70
+  TileHeight: 70
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.kweather.desktop
   TileWidth: 310
   TileHeight: 150
-- DotDesktopFilePath: "org.kde.discover.desktop"
-  TileColor: "#0050ef"
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.calindori.desktop
   TileWidth: 150
   TileHeight: 150
-- DotDesktopFilePath: "htop.desktop"
-  TileColor: "#0050ef"
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: "org.kde.kalk.desktop"
-  TileColor: "#0050ef"
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: "org.kde.nota.desktop"
-  TileColor: "#0050ef"
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: "org.kde.phone.dialer.desktop"
-  TileColor: "Red"
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: "org.kde.okular.desktop"
-  TileColor: "#0050ef"
+  TileColor: '#0050ef'
+- DotDesktopFilePath: org.kde.mobile.plasmasettings.desktop
   TileWidth: 150
   TileHeight: 150
+  TileColor: '#0050ef'
 StartLayoutSchemaVersion: 0.1
