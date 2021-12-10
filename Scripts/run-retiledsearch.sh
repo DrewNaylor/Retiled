@@ -1,3 +1,3 @@
 #!/bin/sh
-cd ~/retiled-repo/RetiledSearch/RetiledSearch
+cd ~/retiled-repo/test/RetiledSearch/RetiledSearch
 python main.py
