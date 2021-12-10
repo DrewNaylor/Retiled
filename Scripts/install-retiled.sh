@@ -14,24 +14,24 @@ cd ..
 # https://unix.stackexchange.com/a/588680
 # TODO: Make sure they don't exist before creating them.
 # Make styles dir.
-mkdir -p ./test/RetiledStyles
+mkdir -p ./test/opt/Retiled/RetiledStyles
 # Make fonts dir.
-mkdir -p ./test/fonts
+mkdir -p ./test/opt/Retiled/fonts
 # Make icons dir.
-mkdir -p ./test/icons
+mkdir -p ./test/opt/Retiled/icons
 # Make dirs for the programs themselves.
-mkdir -p ./test/RetiledSearch
-mkdir -p ./test/RetiledStart
+mkdir -p ./test/opt/Retiled/RetiledSearch
+mkdir -p ./test/opt/Retiled/RetiledStart
 # Now we can copy stuff.
 # Copy styles dir.
-cp -rv ./RetiledStyles/* ./test/RetiledStyles
+cp -rv ./RetiledStyles/* ./test/opt/Retiled/RetiledStyles
 # Copy fonts dir.
-cp -rv ./fonts/* ./test/fonts
+cp -rv ./fonts/* ./test/opt/Retiled/fonts
 # Copy icons.
-cp -rv ./icons/* ./test/icons
+cp -rv ./icons/* ./test/opt/Retiled/icons
 # Now copy the programs.
-cp -rv ./RetiledSearch/* ./test/RetiledSearch
-cp -rv ./RetiledStart/* ./test/RetiledStart
+cp -rv ./RetiledSearch/* ./test/opt/Retiled/RetiledSearch
+cp -rv ./RetiledStart/* ./test/opt/Retiled/RetiledStart
 
 # Exit with code 0.
 exit 0
