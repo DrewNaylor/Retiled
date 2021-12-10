@@ -37,8 +37,8 @@ cp -rv ./RetiledSearch/* ./test/opt/Retiled/RetiledSearch
 cp -rv ./RetiledStart/* ./test/opt/Retiled/RetiledStart
 
 # Copy the .desktop files.
-cp -v .retiledsearch.desktop ./test/usr/share/applications
-cp -v .retiledstart.desktop ./test/usr/share/applications
+cp -v ./Scripts/retiledsearch.desktop ./test/usr/share/applications
+cp -v ./Scripts/retiledstart.desktop ./test/usr/share/applications
 
 # Exit with code 0.
 exit 0
