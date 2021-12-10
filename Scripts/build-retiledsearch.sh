@@ -7,3 +7,6 @@ cd ../RetiledSearch/RetiledSearch
 # https://docs.python.org/3/library/compileall.html
 # https://stackoverflow.com/a/32686745
 python -m compileall -l .
+
+# Exit with code 0.
+exit 0
