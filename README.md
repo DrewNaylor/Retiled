@@ -41,7 +41,9 @@ Copyright (c) 1995-2001 Corporation for National Research Initiatives.<br>
 All Rights Reserved.<br>
 Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.<br>
 All Rights Reserved.<br>
-Python 3.9 copyrights end.<br><br>
+Python 3.9 copyrights end.<br>
+Python is licensed under the PSF License Agreement, which you can find a copy of here:<br>
+https://docs.python.org/3.9/license.html#psf-license<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
 Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Open Sans](https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
 
