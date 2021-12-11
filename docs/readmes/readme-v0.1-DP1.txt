@@ -161,12 +161,11 @@ CONTACT AND COPYRIGHT/LICENSING
 
 Drew's Main Website:      		https://drew-naylor.com/
 Drew's GitHub profile:     		https://github.com/DrewNaylor
-guinget GitHub repository:		https://github.com/DrewNaylor/guinget
-Report a problem:	  			https://github.com/DrewNaylor/guinget/issues/new
-Check for updates:				https://github.com/DrewNaylor/guinget/releases/latest
-guinget documentation:			https://github.com/DrewNaylor/guinget/docs
-guinget website:				https://drew-naylor.com/guinget/
-The website has most of the important documentation presented in a cleaner way than just a list of files, but it's not finished yet.
+Retiled GitHub repository:		https://github.com/DrewNaylor/Retiled
+Report a problem:	  			https://github.com/DrewNaylor/Retiled/issues/new
+Check for updates:				https://github.com/DrewNaylor/Retiled/releases/latest
+guinget documentation:			https://github.com/DrewNaylor/Retiled/docs
+There isn't much in the documentation other than stuff that may be useful and the to-do list/Windows Phone behavior and appearance research.
 
 Email:                    		drewnaylor_apps -AT- outlook.com
 
