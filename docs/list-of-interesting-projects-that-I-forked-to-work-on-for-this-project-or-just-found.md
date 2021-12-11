@@ -45,3 +45,6 @@
 
 16. [emptty](https://github.com/tvrzna/emptty)
 <br>This is a display manager that works in the TTY and uses the MIT License. I'll have to fork it to add fbkeyboard support. Unfortunately, fbkeyboard is GPL, but it's better than no keyboard.
+
+17. [qml-keyboard](https://github.com/MishkaRogachev/qml-keyboard)
+<br>It's a pure-QML keyboard with layouts that are easily changeable by XML files. This could work well for the lock screen. Best part is it's under the LGPL v3. I'll have to update it to Qt6, though.
