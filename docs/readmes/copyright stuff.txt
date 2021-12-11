@@ -2,6 +2,21 @@ Retiled
 Version 0.1 Developer Preview 1
 Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.
 
+Begin boilerplate on the Apache License, Version 2.0:
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+End boilerplate on the Apache License, Version 2.0.
+
+
 Retiled Start is a Windows Phone 8.x-like Start screen UI for the Retiled project.
 Retiled Search is a Windows Phone 8.0-like Search app for the Retiled project.
 
@@ -10,7 +25,7 @@ Retiled is not associated with Microsoft in any way, and Microsoft does not endo
 
 Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative
 
-Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here: https://www.gnu.org/licenses/lgpl-3.0.en.html And the regular GPL: https://www.gnu.org/licenses/gpl-3.0.html
+Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here: https://www.gnu.org/licenses/lgpl-3.0.en.html And the regular GPL: https://www.gnu.org/licenses/gpl-3.0.html Copies of the LGPLv3 and GPLv3 are available in "LICENSE.LGPLv3" and "LICENSE.GPLv3", respectively.
 
 Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.
 Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:
