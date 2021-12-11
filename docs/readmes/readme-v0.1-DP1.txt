@@ -67,6 +67,8 @@ KNOWN ISSUES
 - I still haven't figured out how to get the small tiles to go on both rows beside a medium tile. I have one idea involving the GridLayout/Grid/GridView and having tiles fill rectangles that are fixed sizes but have the tiles change their columnspan and rowspan when being resized or something, but it might not work, and I haven't found anything about masonry layouts in QML as far as I remember.
 - One major issue is that unpinning all the tiles then pinning some more will cause all of them to be underneath the first tile in a column, which may be caused by using a Column layout to hold the tiles and the All Apps button, along with various spacer items. Maybe a Grid layout would fix it, but I want to wait for now. A workaround is to long-press a tile to go into "global edit mode", resize any tile to wide then medium, and exit "global edit mode" (single-tap a tile that has editing buttons on it) so the layout fixes itself.
 - The "pin to start" button in RetiledStart and the "about" button in RetiledSearch's appbar drawer don't have proper spacing on the left.
+- In RetiledStart, the tiles list isn't correctly centered in the page. Tried to fix this, but nothing seemed to work.
+- The unpin icon is slightly too large (issue #76 https://github.com/DrewNaylor/Retiled/issues/76)
 
 Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
 
