@@ -27,33 +27,23 @@ A52924C5065FC796B0B6E16A1FE09B34A2AAF7BAB5308BE26EE6D27AE2B127E6
 GENERAL NOTES
 ~~~~~~~~~~~~~~~~
 
---> Some packages like CrystalDiskMark and LibreOffice may require administrative permissions to install, so you'll have to check the "Elevate winget with UAC" checkbox in the "Apply changes" window's mini-form version of Options accessible from the "Options..." linklabel before confirming changes. Please don't run guinget itself as an administrator for versions 0.1.3 and above.
+--> If you know how to use Windows Phone's Start screen, you can pretty much use RetiledStart.
 
-Sometimes you'll have to update winget's sources as well since winget doesn't like updating its sources while elevated from a non-administrator account, so you can use "Package list>Update winget sources", or run "winget source update".
+--> Some documentation is available online as linked below. Please be aware that it might not be comprehensive.
 
-Some installations of Windows 10 might have issues with elevating winget, so in that case you'll have to hope it automatically elevates package installers, but I've had a problem with that in the past, and I'm not entirely sure how to fix it without just making yourself an Administrator.
+--> There are brief instructions on how to use Retiled available in the "HOW TO USE" section below.
 
---> Before running guinget, please extract the entire archive to an easy-to-access location. It won't work correctly if it's temporarily extracted without its config file ("guinget.exe.config") and helper libraries (everything in the "lib" folder). You don't have to do this if you used the installer.
-
---> Some documentation is available in the "/docs" folder included in this archive, while all of it is available online as linked below. Please be aware that it might not be comprehensive.
-
---> There are brief instructions on how to use guinget available in the "HOW TO USE" section below, with more detailed ones available in the usage guide (https://drew-naylor.com/guinget/How-to-use), in "How to use guinget.html" located in the "/docs" folder, or linked from "Help>How to use guinget".
-
---> Make sure to read the changelog included in this archive. There may be some documentation in this file that's not actually in the /docs (and online) documentation since I have a hard time making good documentation unless I know exactly what to talk about. The changelog does have markdown so that it looks nice on GitHub, but it shouldn't be too intrusive.
+--> Make sure to read the changelog included in this archive. There may be some documentation in this file that's not actually in the /docs documentation since I have a hard time making good documentation unless I know exactly what to talk about. The changelog does have markdown so that it looks nice on GitHub, but it shouldn't be too intrusive.
 
 --> Version 0.1.2 and newer uses .NET Framework 4.8, so you'll have to install that as described in the System Requirements section if it's not already installed on your system. Windows 10 versions 1903 and newer already have this version of the .NET Framework installed, so you don't need to do anything in that case.
 
---> guinget uses YamlDotNet to read package manifests, and its license is available in "LICENSE-YamlDotNet.txt"
+--> Components and their licenses are listed at the bottom of this document.
 
---> Reading SQLite databases is done using Microsoft.Data.Sqlite, which falls under the Apache License 2.0.
-
---> Switching tab control tabs with the mouse scroll wheel is provided by libscrollswitchtabs.
-
---> The source code should be included in this archive in a Zip file called "source-code.zip". Visual Studio 2019 is required to open this project as it uses NuGet packages, and there were changes in the past where older Visual Studio versions can't use newer NuGet packages or something.
+--> The source code should be included in this archive in a Zip file called "source-code.zip". I'm just using Notepad++ for development, so the pyproject files haven't been changed for a long time.
 
 --> If you find any bugs, please report them at the GitHub Issues page linked at the end of this document.
 
---> I am not responsible for any damage using my app may cause.
+--> I am not responsible for any damage using my apps may cause.
 
 ----------------
 KNOWN ISSUES
@@ -70,6 +60,7 @@ KNOWN ISSUES
 - In RetiledStart, the tiles list isn't correctly centered in the page. Tried to fix this, but nothing seemed to work.
 - The unpin icon is slightly too large (issue #76 https://github.com/DrewNaylor/Retiled/issues/76)
 - Currently only .desktop files in "/usr/share/applications" are accessed.
+- The search button in the top-right of the All Apps list is unimplemented, but I kept it there because it would probably look weird without it.
 
 Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
 
@@ -166,6 +157,7 @@ Report a problem:	  			https://github.com/DrewNaylor/Retiled/issues/new
 Check for updates:				https://github.com/DrewNaylor/Retiled/releases/latest
 guinget documentation:			https://github.com/DrewNaylor/Retiled/docs
 There isn't much in the documentation other than stuff that may be useful and the to-do list/Windows Phone behavior and appearance research.
+As a result, the readme may be more useful. You can get to it from the repo link above.
 
 Email:                    		drewnaylor_apps -AT- outlook.com
 
