@@ -112,7 +112,7 @@ To run Retiled, your device requires the following:
   - Not sure if this is installed by default on other distros, or if it's something that GTK ones lack.
   - Also not sure of the package name on non-Ubuntu distros.
 
-- Architectures: x86 (32-bit) and x64 (64-bit). May also work on Windows 10 on ARM as a 32-bit application, though that's untested.
+- Architectures/Systems/Devices: Tested on x86-64 in Windows and aarch64 (ARM 64-bit) on the PinePhone.
 
 - Hardware requirements: 
   - Minimum: At least a 1.2 GHz CPU; 1 GB of RAM or more.
