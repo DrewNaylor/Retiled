@@ -60,6 +60,7 @@ KNOWN ISSUES
 - Currently only .desktop files in "/usr/share/applications" are accessed.
 - The search button in the top-right of the All Apps list is unimplemented, but I kept it there because it would probably look weird without it.
 - Tiles aren't kept into two/three columns on rotating the phone.
+- Nothing checks to ensure a tile isn't pinned before allowing the user to pin it, so you can pin multiple tiles from the same app in the All Apps list until that's fixed.
 
 Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
 
