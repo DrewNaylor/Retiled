@@ -59,7 +59,7 @@ KNOWN ISSUES
 - The unpin icon is slightly too large (issue #76 https://github.com/DrewNaylor/Retiled/issues/76)
 - Currently only .desktop files in "/usr/share/applications" are accessed.
 - The search button in the top-right of the All Apps list is unimplemented, but I kept it there because it would probably look weird without it.
-- Tiles aren't kept into two/three rows on rotating the phone.
+- Tiles aren't kept into two/three columns on rotating the phone.
 
 Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
 
