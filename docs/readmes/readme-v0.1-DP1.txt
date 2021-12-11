@@ -69,6 +69,7 @@ KNOWN ISSUES
 - The "pin to start" button in RetiledStart and the "about" button in RetiledSearch's appbar drawer don't have proper spacing on the left.
 - In RetiledStart, the tiles list isn't correctly centered in the page. Tried to fix this, but nothing seemed to work.
 - The unpin icon is slightly too large (issue #76 https://github.com/DrewNaylor/Retiled/issues/76)
+- Currently only .desktop files in "/usr/share/applications" are accessed.
 
 Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
 
@@ -149,24 +150,10 @@ HOW TO USE
 
 7. Just to make sure no one misses it, you have to save your tile layout/size changes by exiting global edit mode, which is done by tapping a tile that has edit buttons on it. Pinning a tile automatically saves the tile to the config file.
 
-You can also mark packages from the "Selected packages" menu, or by opening the package's combobox/dropdown in the "Action" column (may require a few clicks). This combobox/dropdown can also be activated by moving over to it with the arrow keys and pressing "space", though sometimes I have a bit of issue with this.
+8. With Retiled Search, just tap the textbox and the touch keyboard should show up, allowing you to enter a search term. Pressing "Enter" or tapping "search" will open the Bing search results for the term you entered in your default browser.
 
-Each version of a package is listed as a separate package for now. I want to have it be like Synaptic where you open a different window to choose a different version of a package.
+Tip: Since moving tiles around isn't supported yet, you can manually change which app is assigned to any pinned tile by opening the config file ("~/.config/Retiled/RetiledStart/startlayout-modified.yaml") after doing anything that forces a save (entering global edit mode and resizing a tile from medium to medium won't cause the file to be saved, to reduce eMMC writes; this is also the reason why you have to exit global edit mode for changes to be saved). Once it's open in your text editor, change any of the .desktop filenames to the app you want that tile to be for. Please note that currently only .desktop files in "/usr/share/applications" are accessed.
 
-Search:
-Searching is available, so you can use the search box to make finding packages faster. If you're showing the sidebar, you can double-click or press `Enter` on the `All` item at the top of the search terms list.
-
-You can also search for all packages containing a specific package's ID using `Search for package ID`, either from the package context menu, or from the `Selected packages` menu.
-
-After searching, you can press `Ctrl+F` a second time to focus the package list again.
-
-By default, searches are re-done after updating the package list, although you can turn this off from the `Options` window under `Package list>Search options...`; uncheck `Re-run search after cache update` and click `OK`.
-
-6. Once you've marked your packages, you can apply them by opening the "Apply changes" dialog, either from the toolbar or from the "Package list" menu.
-
-7. guinget supports batch processing, so you can just click the "Confirm changes" button when ready. If you want to process packages one at a time, either press "Enter" or double-click on each package entry in the list when you want to start processing it.
-
-If a package didn't (for example) install the first time, you can reset its status by right-clicking on it, clicking `Reset status for selected package`, change the `Apply changes` options via the linklabel in the bottom-left corner that says, `Options...`, and check the `Elevate winget with UAC` checkbox, then try again.
 
 ----------------------------------
 CONTACT AND COPYRIGHT/LICENSING
