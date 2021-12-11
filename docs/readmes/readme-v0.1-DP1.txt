@@ -172,54 +172,45 @@ Email:                    		drewnaylor_apps -AT- outlook.com
 
 
 
-guinget
-Version 0.3 Beta
-Copyright (C) 2020-2021 Drew Naylor. Licensed under Apache License 2.0.
+Retiled
+Version 0.1 Developer Preview 1
+Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.
+You can find a copy of this license in "LICENSE".
 
-Unofficial GUI for Microsoft's Windows Package Manager (winget).
-Kinda like Synaptic, but for Windows. Not associated with either
-Microsoft or the Synaptic project. Microsoft does not endorse guinget.
-winget is Copyright (c) Microsoft Corporation. All rights reserved.
-
-You can get the source code for guinget from
-https://github.com/DrewNaylor/guinget
-
-libguinget is used for things like loading the package list and uses the Apache License 2.0.
-libguinget Copyright (C) 2020-2021 Drew Naylor.
-
-libscrollswitchtabs is part of the drews-libs project and is used for switching tab control tabs using the mouse scroll wheel, just like in many Linux applications.
-libscrollswitchtabs uses the Apace License 2.0 and you can get its source code here:
-https://github.com/DrewNaylor/drews-libs
-libscrollswitchtabs Copyright (C) 2020 Drew Naylor.
-
-Microsoft.Data.Sqlite is used for loading the package list from an SQLite database and uses the Apache License 2.0. NuGet page for Microsoft.Data.Sqlite:
-https://www.nuget.org/packages/Microsoft.Data.Sqlite/
-Microsoft.Data.Sqlite Copyright (C) Microsoft Corporation. All rights reserved.
-
-YamlDotNet is used to read manifests, which you can get the source code for here:
-https://github.com/aaubry/YamlDotNet
-YamlDotNet falls under the MIT license, which you can read a copy of below the Apache License summary.
-YamlDotNet Copyright (c) 2008, 2009, 2010, 2011, 2012, 2013, 2014 Antoine Aubry and contributors
-
----------------------------------------------------------------
-
-Apache License 2.0 summary as it applies to guinget, libguinget, libscrollswitchtabs, and Microsoft.Data.Sqlite:
+Begin boilerplate on the Apache License, Version 2.0:
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+  http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+End boilerplate on the Apache License, Version 2.0.
 
----------------------------------------------------------------
 
-MIT license as it applies to YamlDotNet:
-Copyright (c) 2008, 2009, 2010, 2011, 2012, 2013, 2014 Antoine Aubry and contributors
+Retiled Start is a Windows Phone 8.x-like Start screen UI for the Retiled project.
+Retiled Search is a Windows Phone 8.0-like Search app for the Retiled project.
+
+Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.
+Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.
+
+Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative
+
+Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here: https://www.gnu.org/licenses/lgpl-3.0.en.html And the regular GPL: https://www.gnu.org/licenses/gpl-3.0.html Copies of the LGPLv3 and GPLv3 are available in "LICENSE.LGPLv3" and "LICENSE.GPLv3", respectively.
+
+Open Sans was designed by Steve Matteson and is used for most of the text in the UI, and is available under the Apache License, Version 2.0. A copy of this license is available in "./fonts/open_sans/LICENSE.txt"
+Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:
+http://scripts.sil.org/OFL. A copy of this license is available in "./fonts/wp-metro/OFL.txt", though this version is just the template version from the OFL website as there was no license file in the wp-metro repo (figured just adding the license would be fine, as the font's readme said it was under that license).
+
+These fonts are linked at the end of the copyright list.
+
+PyYAML is licensed under the MIT License. You can find a copy of its license under "./RetiledStart/RetiledStart/libs/pyyaml/PyYAML-6.0.dist-info/LICENSE", with its text copied below:
+Copyright (c) 2017-2021 Ingy döt Net
+Copyright (c) 2006-2016 Kirill Simonov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -238,3 +229,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+End PyYAML license.
+
+Python 3.9 copyrights start:
+Copyright (c) 2001-2021 Python Software Foundation.
+All Rights Reserved.
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved.
+Python 3.9 copyrights end.
+
+Python is licensed under the PSF License Agreement, which you can find a copy of here:
+https://docs.python.org/3.9/license.html#psf-license
+
+Any other copyrights and trademarks belong to their respective people and companies/organizations.
+
+Components of the Retiled project include Python, Qt, QML, PySide6, PyYAML, wp-metro (https://github.com/ajtroxell/wp-metro), Open Sans (https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
