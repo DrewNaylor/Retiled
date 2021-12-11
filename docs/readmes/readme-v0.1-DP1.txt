@@ -62,7 +62,7 @@ KNOWN ISSUES
 - The only fancy animations that exist are the ones that happen when going to/from the All Apps list via the All Apps button or when unpinning all the tiles/when pinning a tile, respectively.
 - Moving tiles around isn't possible yet, though it should be possible with some work, even though I haven't experimented with it yet.
 - Icons are not yet supported, but I know how to make them work I think, so it shouldn't be too long for them.
-- Changing accent colors requires directly modifying code, mostly QML.
+- Changing accent colors and switching to the light theme requires directly modifying code, mostly QML.
 - The All Apps list doesn't have a scrollbar yet. I was going to add that to this version, but couldn't find anything that work work immediately and I wanted to save it for later so this would be out sooner.
 - I still haven't figured out how to get the small tiles to go on both rows beside a medium tile. I have one idea involving the GridLayout/Grid/GridView and having tiles fill rectangles that are fixed sizes but have the tiles change their columnspan and rowspan when being resized or something, but it might not work, and I haven't found anything about masonry layouts in QML as far as I remember.
 - One major issue is that unpinning all the tiles then pinning some more will cause all of them to be underneath the first tile in a column, which may be caused by using a Column layout to hold the tiles and the All Apps button, along with various spacer items. Maybe a Grid layout would fix it, but I want to wait for now. A workaround is to long-press a tile to go into "global edit mode", resize any tile to wide then medium, and exit "global edit mode" (single-tap a tile that has editing buttons on it) so the layout fixes itself.
