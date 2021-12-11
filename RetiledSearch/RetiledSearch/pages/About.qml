@@ -149,7 +149,9 @@ Page {
 			"All Rights Reserved.\n" +
 			"Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\n" +
 			"All Rights Reserved.\n" +
-			"And that's the end of the Python copyrights, at least for 3.9.\n\n" +
+			"And that's the end of the Python copyrights, at least for 3.9.\n" +
+			"Python is licensed under the PSF License Agreement:\n" +
+			"https://docs.python.org/3.9/license.html#psf-license \n\n" +
 			"You can access the Retiled source code here:\n" +
 			"https://github.com/DrewNaylor/Retiled"
     }
