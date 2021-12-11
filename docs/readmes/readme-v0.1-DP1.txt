@@ -78,20 +78,35 @@ See all known issues: https://github.com/DrewNaylor/Retiled/labels/known%20issue
 SYSTEM REQUIREMENTS
 ~~~~~~~~~~~~~~~~~~~~
 
-To run guinget, your computer requires the following:
+To run Retiled, your device requires the following:
 
-- Microsoft .NET Framework 4.8 https://dotnet.microsoft.com/download/dotnet-framework/net48
-  - Click "Download .NET Framework 4.8 Runtime" under the "Runtime" header on the right near the top. Note that this is the web installer and it'll download its components after it's opened. May take a while to download.
-  - This is only required for Windows versions older than Windows 10 1903, except for Windows 8.0 as it doesn't support that version.
+- Python 3.9 or greater
+  - Python is used to run most of Retiled.
+  - Generally speaking, you should already have Python installed, but if you don't, use one of the following commands without quotes:
+    - Manjaro ARM: "sudo pacman -Syu python"
   
-- winget https://github.com/microsoft/winget-cli/releases/latest
-  - I personally installed from there, but there are other methods you could use instead: https://github.com/microsoft/winget-cli#installing-the-client
+- pyside6
+  - Used for the UI of Python/QML-based components of Retiled.
+  - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
+    - Manjaro ARM: "sudo pacman -Syu pyside6"
   
-- Windows versions: Windows 10 version 1903 or higher recommended.
-  - guinget has only been tested on Windows 10 versions 1803, 1903, 1909, and 2004. Windows 7 SP1, 8.1, and all other versions of Windows 10 are untested although they might work for everything that's not directly reliant on winget, such as installing packages.
-  - As .NET Framework 4.8 doesn't appear to be compatible with Windows 8.0, guinget version 0.1.2 or newer may not work on that version of Windows.
-  - winget requires Windows 10 version 1809 or greater.
-  
+- qt6-declarative
+  - Provides Qt6 QtQuick controls that are used in each component.
+  - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
+    - Manjaro ARM: "sudo pacman -Syu qt6-declarative"
+
+- qt6-wayland
+  - Allows Qt6 apps like the ones included in Retiled to run under Wayland.
+  - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
+    - Manjaro ARM: "sudo pacman -Syu qt6-wayland"
+
+- pyyaml
+  - Helps read yaml files, which are used for configuration.
+  - You probably won't have to install this yourself, as I just copied the library's files into my repo. The only case where you'll need to install it manually is if my repo doesn't have the proper compiled library for one of the files. In that case, please let me know. I don't feel comfortable just adding binaries from random people to my repo, so a way for me to acquire that binary will be necessary to specify.
+  - If you do need pyyaml's compiled binary built for your specific device, you can install it via "pip":
+    - "pip install pyyaml"
+	- After installing, copy the file that starts with "_yaml" from the default location pip installs pyyaml to (usually "/usr/lib/python3.9/site-packages/yaml"), and either paste it in "/opt/Retiled/RetiledStart/RetiledStart/libs/pyyaml/yaml" if you can get root permissions easily, or paste it in "(the folder you downloaded Retiled to)/RetiledStart/RetiledStart/libs/pyyaml/yaml", then run "sh Scripts/install-retiled.sh" again so it can copy the new file you just pasted there. Please note: this manual library installation of running the install script again may not always work, so you may need to copy via the command line as root, though that should be easy.
+
 - Architectures: x86 (32-bit) and x64 (64-bit). May also work on Windows 10 on ARM as a 32-bit application, though that's untested.
 
 - Hardware requirements: 
