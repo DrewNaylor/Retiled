@@ -117,10 +117,17 @@ To run Retiled, your device requires the following:
 - Hardware requirements: 
   - Tested on the 3 GB RAM/32 GB storage PinePhone; other Linux phones may also work if they support Manjaro ARM with Plasma Mobile.
   - It is uncertain whether the 2 GB RAM/16 GB storage PinePhone will work, but it should. I bought the one with higher specs mainly for the dock.
-  
+
+- Operating systems:
+  - Manjaro ARM with Plasma Mobile is officially supported and recommended due to Plasma being Qt-based.
+  - I'd like to also support postmarketOS, but it hasn't been tested there yet.
+  - DanctNIX's Arch Linux ARM should also work due to being semi-upstream from Manjaro ARM (I don't know whether Manjaro ARM uses the regular ALARM or the DanctNIX one), but I haven't tested the Plasma Mobile image with this yet.
+
 - Disk space:
-  - 32-bit: 5 GB space free
-  - 64-bit: 5 GB space free
+  - On Manjaro ARM with Plasma Mobile
+    - Minimum: 250 MB
+    - Recommended: 500 MB
+    - To be safe, probably like 250 MB would be enough to give space at minimum, as PySide6 and qt6-declarative take up a decent amount of space. Calculating how much both of those packages take up shows they're roughly 192 MB, so I increased the number for comfort.
   
 - Note that you might have problems with running this on corporate computers. The ClickOnce security settings are disabled in guinget due to Visual Studio building problems, but VS2019 doesn't seem to have the setting that tends to cause issues anyway. There may also be a warning message on first start about Windows Defender SmartScreen saying it "prevented an unrecognized app from starting. Running this app might put your PC at risk." You can click the "More info" link, then the "Run anyway" button if you want to use it, though this may not be allowed on corporate networks.
 
