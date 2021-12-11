@@ -135,17 +135,19 @@ To run Retiled, your device requires the following:
 HOW TO USE
 ~~~~~~~~~~~~
 
-A more-detailed usage guide is available in "docs/How to use guinget.html".
+1. Extract this archive to a folder. No package currently exists, though I'd like to make one.
 
-1. Extract this archive to a folder. There's an installer available if you want to use one, though it may be easier to run "winget install guinget", with the caveat that the version in winget may be outdated: https://github.com/DrewNaylor/guinget/releases/latest
+2. Open a command shell.
 
-2. Open the file titled "guinget.exe". I recommend making a shortcut to the app on your desktop or taskbar for easy access.
+3. Run "sh Scripts/install-retiled.sh" to begin the installation process. You will be prompted for your password after Python pre-compiles the scripts for installation.
 
-3. Refresh the package list cache using the "Refresh cache" button on the toolbar, choosing "Refresh cache" from the "Package list" menu, or by pressing "Ctrl+R".
+4. Once you type in your password, the installer will create a directory in "/opt/Retiled", then it'll copy the files there and copy the .desktop files to the "/usr/share/applications". This may take a bit, though the pre-compilation may take longer.
 
-4. Wait until the package list cache has been updated and the package details have been loaded. This may take a bit.
+5. Once you return to the prompt, Retiled should be installed, and you can launch Retiled Start and Retiled Search from your mobile environment's apps list. Plasma Mobile might not properly reload and display the new files, so you may have to restart your phone.
 
-5. Mark the packages as you wish by right-clicking or double-clicking on them and selecting what you want them to be marked as using the "Action: (action)" items ("do nothing"/ignore, install, uninstall, or upgrade). For example, to mark a package to install, double-click on it and select "Action: Install".
+6. If running Retiled Start, you can pin apps from the All Apps list by long-pressing on the app's name and tapping "pin to start", resize tiles by long-pressing on a tile then tapping the resize button in the bottom-right corner until you're happy with the size (cycling through medium->small->wide->medium), and unpin tiles by long-pressing on a tile then tapping the unpin button in the top-right corner. Once you long-press a tile, you enter "global edit mode", which allows you to tap other tiles to move the edit buttons to that tile. Exiting global edit mode is done by tapping a tile with edit buttons on it (tiles with edit buttons on them are in "local edit mode"). Exiting global edit mode is required to save your layout changes.
+
+7. Just to make sure no one misses it, you have to save your tile layout/size changes by exiting global edit mode, which is done by tapping a tile that has edit buttons on it. Pinning a tile automatically saves the tile to the config file.
 
 You can also mark packages from the "Selected packages" menu, or by opening the package's combobox/dropdown in the "Action" column (may require a few clicks). This combobox/dropdown can also be activated by moving over to it with the arrow keys and pressing "space", though sometimes I have a bit of issue with this.
 
