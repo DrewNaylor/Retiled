@@ -107,6 +107,11 @@ To run Retiled, your device requires the following:
     - "pip install pyyaml"
     - After installing, copy the file that starts with "_yaml" from the default location pip installs pyyaml to (usually "/usr/lib/python3.9/site-packages/yaml"), and either paste it in "/opt/Retiled/RetiledStart/RetiledStart/libs/pyyaml/yaml" if you can get root permissions easily, or paste it in "(the folder you downloaded Retiled to)/RetiledStart/RetiledStart/libs/pyyaml/yaml", then run "sh Scripts/install-retiled.sh" again so it can copy the new file you just pasted there. Please note: this manual library installation of running the install script again may not always work, so you may need to copy via the command line as root, though that should be easy.
 
+- libopengl0
+  - Required if you want to run stuff on something like Linux Mint Cinnamon, but otherwise not required on Manjaro ARM with Plasma Mobile.
+  - Not sure if this is installed by default on other distros, or if it's something that GTK ones lack.
+  - Also not sure of the package name on non-Ubuntu distros.
+
 - Architectures: x86 (32-bit) and x64 (64-bit). May also work on Windows 10 on ARM as a 32-bit application, though that's untested.
 
 - Hardware requirements: 
