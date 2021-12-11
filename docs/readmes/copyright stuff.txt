@@ -11,23 +11,30 @@ Retiled is not associated with Microsoft in any way, and Microsoft does not endo
 Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative
 
 Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here: https://www.gnu.org/licenses/lgpl-3.0.en.html And the regular GPL: https://www.gnu.org/licenses/gpl-3.0.html
-Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.<br>
-Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:<br>
-http://scripts.sil.org/OFL.<br>
-You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
-PyYAML is licensed under the MIT License.<br><br>
-Python 3.9 copyrights start:<br>
-Copyright (c) 2001-2021 Python Software Foundation.<br>
-All Rights Reserved.<br>
-Copyright (c) 2000 BeOpen.com.<br>
-All Rights Reserved.<br>
-Copyright (c) 1995-2001 Corporation for National Research Initiatives.<br>
-All Rights Reserved.<br>
-Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.<br>
-All Rights Reserved.<br>
-Python 3.9 copyrights end.<br><br>
-Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
-Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Open Sans](https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
+
+Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.
+Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:
+http://scripts.sil.org/OFL.
+
+These fonts are linked at the end of the copyright list.
+
+PyYAML is licensed under the MIT License.
+
+Python 3.9 copyrights start:
+Copyright (c) 2001-2021 Python Software Foundation.
+All Rights Reserved.
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved.
+Python 3.9 copyrights end.
+
+Any other copyrights and trademarks belong to their respective people and companies/organizations.
+
+
+Components of the Retiled project include Python, Qt, QML, PySide6, PyYAML, wp-metro (https://github.com/ajtroxell/wp-metro), Open Sans (https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
 
 "RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
