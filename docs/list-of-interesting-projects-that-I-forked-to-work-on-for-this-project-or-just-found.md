@@ -42,3 +42,6 @@
 
 15. [FluentAvalonia](https://github.com/DrewNaylor/FluentAvalonia)
 <br>Shouldn't need to use the fork, but I just did anyway for archival. This project has a bunch of controls and stuff ported to Avalonia that may be useful. Licensed under the MIT License and forked from here: https://github.com/amwx/FluentAvalonia
+
+16. [emptty](https://github.com/tvrzna/emptty)
+<br>This is a display manager that works in the TTY and uses the MIT License. I'll have to fork it to add fbkeyboard support. Unfortunately, fbkeyboard is GPL, but it's better than no keyboard.
