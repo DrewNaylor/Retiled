@@ -35,8 +35,6 @@ GENERAL NOTES
 
 --> Make sure to read the changelog included in this archive. There may be some documentation in this file that's not actually in the /docs documentation since I have a hard time making good documentation unless I know exactly what to talk about. The changelog does have markdown so that it looks nice on GitHub, but it shouldn't be too intrusive.
 
---> Version 0.1.2 and newer uses .NET Framework 4.8, so you'll have to install that as described in the System Requirements section if it's not already installed on your system. Windows 10 versions 1903 and newer already have this version of the .NET Framework installed, so you don't need to do anything in that case.
-
 --> Components and their licenses are listed at the bottom of this document.
 
 --> The source code should be included in this archive in a Zip file called "source-code.zip". I'm just using Notepad++ for development, so the pyproject files haven't been changed for a long time.
