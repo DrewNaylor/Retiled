@@ -22,9 +22,6 @@ SHA-256 sum for "lib\libscrollswitchtabs.dll" in the archive:
 SHA-256 sum for "lib\YamlDotNet.dll" in the archive:
 A52924C5065FC796B0B6E16A1FE09B34A2AAF7BAB5308BE26EE6D27AE2B127E6
 
-The rest of the libraries in the "lib" folder are from Microsoft.Data.Sqlite and I don't want to list them all:
-https://www.nuget.org/packages/Microsoft.Data.Sqlite/
-
 
 ----------------
 GENERAL NOTES
@@ -62,16 +59,18 @@ Some installations of Windows 10 might have issues with elevating winget, so in 
 KNOWN ISSUES
 ~~~~~~~~~~~~~~~~
 
-- Selecting all packages with Ctrl+A while searching will select every package, even the ones that aren't visible. (issue #13 https://github.com/DrewNaylor/guinget/issues/13)
-- Applying changes with too many packages at once makes guinget lock up. (issue #57 https://github.com/DrewNaylor/guinget/issues/57)
-- When displaying only the latest version of a package, some of them aren't really the latest version as shown in winget. (issue #63 https://github.com/DrewNaylor/guinget/issues/63)
-- The "Action" column shrinks for a second the first time you mark a package in a session. (issue #94 https://github.com/DrewNaylor/guinget/issues/94)
-- Running CMD from guinget on 64-bit Windows causes filesystem redirection to occur, resulting in anything that has to be launched from the "real" System32 not working correctly. (issue #98 https://github.com/DrewNaylor/guinget/issues/98)
-- Shift+clicking makes it show the first-clicked item if the selection goes above the first-selected item. (issue #99 https://github.com/DrewNaylor/guinget/issues/99)
-- If the Apply changes window is too low when you open the mini-form, the mini-form will be offscreen. (issue #101 https://github.com/DrewNaylor/guinget/issues/101)
-- Installing just for your account works, but the uninstaller (using Inno Setup) doesn't seem to properly remove it for some versions of Windows 10. (issue #102 https://github.com/DrewNaylor/guinget/issues/102)
+- The only fancy animations that exist are the ones that happen when going to/from the All Apps list via the All Apps button or when unpinning all the tiles/when pinning a tile, respectively.
+- Moving tiles around isn't possible yet, though it should be possible with some work, even though I haven't experimented with it yet.
+- Icons are not yet supported, but I know how to make them work I think, so it shouldn't be too long for them.
+- Changing accent colors requires directly modifying code, mostly QML.
+- The All Apps list doesn't have a scrollbar yet. I was going to add that to this version, but couldn't find anything that work work immediately and I wanted to save it for later so this would be out sooner.
+- I still haven't figured out how to get the small tiles to go on both rows beside a medium tile. I have one idea involving the GridLayout/Grid/GridView and having tiles fill rectangles that are fixed sizes but have the tiles change their columnspan and rowspan when being resized or something, but it might not work, and I haven't found anything about masonry layouts in QML as far as I remember.
+- One major issue is that unpinning all the tiles then pinning some more will cause all of them to be underneath the first tile in a column, which may be caused by using a Column layout to hold the tiles and the All Apps button, along with various spacer items. Maybe a Grid layout would fix it, but I want to wait for now. A workaround is to long-press a tile to go into "global edit mode", resize any tile to wide then medium, and exit "global edit mode" (single-tap a tile that has editing buttons on it) so the layout fixes itself.
+- The "pin to start" button in RetiledStart and the "about" button in RetiledSearch's appbar drawer don't have proper spacing on the left.
 
-See all known issues: https://github.com/DrewNaylor/guinget/labels/known%20issue
+Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
+
+See all known issues: https://github.com/DrewNaylor/Retiled/labels/known%20issue
 
 --------------------
 SYSTEM REQUIREMENTS
