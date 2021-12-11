@@ -132,6 +132,8 @@ HOW TO USE
 
 3. Run "sh Scripts/install-retiled.sh" to begin the installation process. You will be prompted for your password after Python pre-compiles the scripts for installation.
 
+If you'd like to uninstall Retiled, you can run "sh Scripts/uninstall-retiled.sh" and it'll delete the installed files after asking for your password if it's been long enough. Please be aware that any user-made files in "/opt/Retiled" will be deleted, as that's how the uninstall process works right now. Config files in "~/.config/Retiled" will be kept.
+
 4. Once you type in your password, the installer will create a directory in "/opt/Retiled", then it'll copy the files there and copy the .desktop files to the "/usr/share/applications". This may take a bit, though the pre-compilation may take longer.
 
 5. Once you return to the prompt, Retiled should be installed, and you can launch Retiled Start and Retiled Search from your mobile environment's apps list. Plasma Mobile might not properly reload and display the new files, so you may have to restart your phone.
