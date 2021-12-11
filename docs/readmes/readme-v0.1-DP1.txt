@@ -6,11 +6,9 @@ Retiled -- Version 0.1 Developer Preview 1 -- 12/12/2021 (MM/DD/YYYY).
 If you have any trouble, you might be able to find an answer in the documentation. It's linked at the end of this readme file. If not, you can submit a bug report at the "Report a problem" link at the end of this readme file. Your report will be labeled by the developers accordingly in a reasonable amount of time.
 
 
-You can use Windows PowerShell to confirm the hash of the main guinget EXE file by running
-Get-FileHash .\guinget.exe -Algorithm SHA256 in the folder you extracted the archive to and comparing the output to my sum listed below. HowToGeek has a nice article on this:
-https://www.howtogeek.com/67241/htg-explains-what-are-md5-sha-1-hashes-and-how-do-i-check-them/ , but the Windows section is a bit further down on the page.
-
-The PowerShell method can be used for all files listed below, though you'll have to switch out the filenames.
+You can use sha256sum to confirm the hash of the files by running
+"find . -type f -exec sha256sum {} \;" in the folder you extracted the archive to and comparing the output to my sums listed below. Be sure that you don't copy the quotes. Hopefully this'll work on non-Bash systems, like postmarketOS. I got this command from this Ask Ubuntu answer: https://askubuntu.com/a/486094 . HowToGeek has a nice article on checksums and stuff:
+https://www.howtogeek.com/67241/htg-explains-what-are-md5-sha-1-hashes-and-how-do-i-check-them/ .
 
 SHA-256 sum for "guinget.exe" in the archive:
 FB549A86AE201AB03FE78641FCF0DD469D8286C424BAC7F1B2D3B397F45BDB2E
