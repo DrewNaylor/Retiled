@@ -112,12 +112,11 @@ To run Retiled, your device requires the following:
   - Not sure if this is installed by default on other distros, or if it's something that GTK ones lack.
   - Also not sure of the package name on non-Ubuntu distros.
 
-- Architectures/Systems/Devices: Tested on x86-64 in Windows and aarch64 (ARM 64-bit) on the PinePhone.
+- Architectures: Tested on x86-64 (Intel/AMD 64-bit) and aarch64 (ARM 64-bit).
 
 - Hardware requirements: 
-  - Minimum: At least a 1.2 GHz CPU; 1 GB of RAM or more.
-  - Recommended: At least a 2.5 GHz dual-core CPU; 2 GB of RAM or more.
-  - The recommended may not be enough in some cases to prevent lockups when loading the package list and details, but it should be ok. Performance improvements in guinget v0.3 should prevent most lockups related to loading the package list, though things may still be slow sometimes. Restarting guinget a few times may improve performance as that'll cause .NET Framework to compile it to machine code.
+  - Tested on the 3 GB RAM/32 GB storage PinePhone; other Linux phones may also work if they support Manjaro ARM with Plasma Mobile.
+  - It is uncertain whether the 2 GB RAM/16 GB storage PinePhone will work, but it should. I bought the one with higher specs mainly for the dock.
   
 - Disk space:
   - 32-bit: 5 GB space free
