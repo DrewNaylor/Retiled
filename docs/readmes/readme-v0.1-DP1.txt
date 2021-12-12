@@ -81,6 +81,7 @@ SYSTEM REQUIREMENTS
 
 To run Retiled, your device requires the following:
 
+## Packages
 - Python 3.9 or greater
   - Python is used to run most of Retiled.
   - Generally speaking, you should already have Python installed, but if you don't, use one of the following commands without quotes:
@@ -113,24 +114,24 @@ To run Retiled, your device requires the following:
   - Not sure if this is installed by default on other distros, or if it's something that GTK ones lack.
   - Also not sure of the package name on non-Ubuntu distros.
 
-- Architectures: Tested on x86-64 (Intel/AMD 64-bit) and aarch64 (ARM 64-bit).
+## Architectures
+- Tested on x86-64 (Intel/AMD 64-bit) and aarch64 (ARM 64-bit).
 
-- Hardware requirements: 
-  - Tested on the 3 GB RAM/32 GB storage PinePhone; other Linux phones may also work if they support Manjaro ARM with Plasma Mobile.
-  - It is uncertain whether the 2 GB RAM/16 GB storage PinePhone will work, but it should. I bought the one with higher specs mainly for the dock.
+## Hardware requirements
+- Tested on the 3 GB RAM/32 GB storage PinePhone; other Linux phones may also work if they support Manjaro ARM with Plasma Mobile.
+- It is uncertain whether the 2 GB RAM/16 GB storage PinePhone will work, but it should. I bought the one with higher specs mainly for the dock.
 
-- Operating systems:
-  - Manjaro ARM with Plasma Mobile is officially supported and recommended due to Plasma being Qt-based.
-  - I'd like to also support postmarketOS, but it hasn't been tested there yet.
-  - DanctNIX's Arch Linux ARM should also work due to being semi-upstream from Manjaro ARM (I don't know whether Manjaro ARM uses the regular ALARM or the DanctNIX one), but I haven't tested the Plasma Mobile image with this yet.
-  - Windows support is limited to debugging and you'll have to manually change paths in the code for it to work in case you don't use the same paths I do. Perhaps I should add the sample .desktop files to the repo so things work.
+## Operating systems
+- Manjaro ARM with Plasma Mobile is officially supported and recommended due to Plasma being Qt-based.
+- I'd like to also support postmarketOS, but it hasn't been tested there yet.
+- DanctNIX's Arch Linux ARM should also work due to being semi-upstream from Manjaro ARM (I don't know whether Manjaro ARM uses the regular ALARM or the DanctNIX one), but I haven't tested the Plasma Mobile image with this yet.
+- Windows support is limited to debugging and you'll have to manually change paths in the code for it to work in case you don't use the same paths I do. Perhaps I should add the sample .desktop files to the repo so things work.
 
-- Disk space:
-  - On Manjaro ARM with Plasma Mobile
-    - Minimum: 250 MB
-    - Recommended: 500 MB
-    - To be safe, probably like 250 MB would be enough to give space at minimum, as PySide6 and qt6-declarative take up a decent amount of space. Calculating how much both of those packages take up shows they're roughly 192 MB, so I increased the number for comfort.
-
+## Disk space
+- On Manjaro ARM with Plasma Mobile
+  - Minimum: 250 MB
+  - Recommended: 500 MB
+  - To be safe, probably like 250 MB would be enough to give space at minimum, as PySide6 and qt6-declarative take up a decent amount of space. Calculating how much both of those packages take up shows they're roughly 192 MB, so I increased the number for comfort.
 - Disk space is mostly based on the space that the libraries take up. Retiled itself is quite small, although some config files may take up more space.
 
 ------------
