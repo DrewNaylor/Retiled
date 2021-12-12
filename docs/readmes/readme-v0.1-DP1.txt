@@ -140,7 +140,7 @@ HOW TO USE
 
 1. Extract this archive to a folder. No package currently exists, though I'd like to make one.
 
-2. Open a terminal.
+2. Open a terminal in the root of the newly-extracted archive.
 
 3. Run "sh ./Scripts/install-retiled.sh" to begin the installation process. You will be prompted for your password after Python pre-compiles the scripts for installation.
 
