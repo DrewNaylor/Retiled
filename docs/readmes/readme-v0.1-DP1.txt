@@ -27,7 +27,11 @@ A52924C5065FC796B0B6E16A1FE09B34A2AAF7BAB5308BE26EE6D27AE2B127E6
 GENERAL NOTES
 ~~~~~~~~~~~~~~~~
 
---> If you know how to use Windows Phone's Start screen, you can pretty much use RetiledStart.
+--> If you know how to use Windows Phone's Start screen, you can pretty much use Retiled Start.
+
+--> Retiled Search is kinda like the Bing Search app on WP8.0/8.1 without Cortana, except it opens the search results in your browser and there's no image yet.
+
+--> The default accent color is Cobalt (#0050ef) and the default theme is the dark theme.
 
 --> Some documentation is available online as linked below. Please be aware that it might not be comprehensive.
 
