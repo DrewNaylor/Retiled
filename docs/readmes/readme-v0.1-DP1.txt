@@ -27,9 +27,9 @@ A52924C5065FC796B0B6E16A1FE09B34A2AAF7BAB5308BE26EE6D27AE2B127E6
 GENERAL NOTES
 ~~~~~~~~~~~~~~~~
 
---> If you know how to use Windows Phone's Start screen, you can pretty much use Retiled Start.
+--> If you know how to use Windows Phone's Start screen, you can pretty much use RetiledStart.
 
---> Retiled Search is kinda like the Bing Search app on WP8.0/8.1 without Cortana, except it opens the search results in your browser and there's no image yet.
+--> RetiledSearch is kinda like the Bing Search app on WP8.0/8.1 without Cortana, except it opens the search results in your browser and there's no image yet.
 
 --> The default accent color is Cobalt (#0050ef) and the default theme is the dark theme.
 
@@ -147,15 +147,15 @@ If you'd like to uninstall Retiled, you can run "sh Scripts/uninstall-retiled.sh
 
 4. Once you type in your password, the installer will create a directory in "/opt/Retiled", then it'll copy the main files there, the .desktop files to "/usr/share/applications", and scripts to run things to "/usr/bin". This may take a bit, though the pre-compilation may take longer.
 
-5. Once you return to the prompt, Retiled should be installed, and you can launch Retiled Start and Retiled Search from your mobile environment's apps list. Plasma Mobile might not properly reload and display the new files, so you may have to restart your phone.
+5. Once you return to the prompt, Retiled should be installed, and you can launch RetiledStart and RetiledSearch from your mobile environment's apps list. Plasma Mobile might not properly reload and display the new files, so you may have to restart your phone. You can also run "retiledstart" and "retiledsearch" from the terminal, if you want. That's useful if you're having trouble running them, as any errors or packages that are missing should be displayed.
 
-6. If running Retiled Start, you can pin apps from the All Apps list by long-pressing on the app's name and tapping "pin to start", resize tiles by long-pressing on a tile then tapping the resize button in the bottom-right corner until you're happy with the size (cycling through medium->small->wide->medium), and unpin tiles by long-pressing on a tile then tapping the unpin button in the top-right corner. Once you long-press a tile, you enter "global edit mode", which allows you to tap other tiles to move the edit buttons to that tile. Exiting global edit mode is done by tapping a tile with edit buttons on it (tiles with edit buttons on them are in "local edit mode"). Exiting global edit mode is required to save your layout changes.
+6. If running RetiledStart, you can pin apps from the All Apps list by long-pressing on the app's name and tapping "pin to start", resize tiles by long-pressing on a tile then tapping the resize button in the bottom-right corner until you're happy with the size (cycling through medium->small->wide->medium), and unpin tiles by long-pressing on a tile then tapping the unpin button in the top-right corner. Once you long-press a tile, you enter "global edit mode", which allows you to tap other tiles to move the edit buttons to that tile. Exiting global edit mode is done by tapping a tile with edit buttons on it (tiles with edit buttons on them are in "local edit mode"). Exiting global edit mode is required to save your layout changes.
 
 7. Just to make sure no one misses it, you have to save your tile layout/size changes by exiting global edit mode, which is done by tapping a tile that has edit buttons on it. Pinning a tile automatically saves the tile to the config file.
 
-8. With Retiled Search, just tap the textbox and the touch keyboard should show up, allowing you to enter a search term. Pressing "Enter" or tapping "search" will open the Bing search results for the term you entered in your default browser.
+8. With RetiledSearch, just tap the textbox and the touch keyboard should show up, allowing you to enter a search term. Pressing "Enter" or tapping "search" will open the Bing search results for the term you entered in your default browser.
 
-Tip: Since moving tiles around isn't supported yet, you can manually change which app is assigned to any pinned tile by opening the config file ("~/.config/Retiled/RetiledStart/startlayout-modified.yaml") after doing anything that forces a save (entering global edit mode and resizing a tile from medium to medium won't cause the file to be saved, to reduce eMMC writes; this is also the reason why you have to exit global edit mode for changes to be saved). Once it's open in your text editor, change any of the .desktop filenames to the app you want that tile to be for. Please note that currently only .desktop files in "/usr/share/applications" are accessed. You'll have to restart Retiled Start for your changes to show up.
+Tip: Since moving tiles around isn't supported yet, you can manually change which app is assigned to any pinned tile by opening the config file ("~/.config/Retiled/RetiledStart/startlayout-modified.yaml") after doing anything that forces a save (entering global edit mode and resizing a tile from medium to medium won't cause the file to be saved, to reduce eMMC writes; this is also the reason why you have to exit global edit mode for changes to be saved). Once it's open in your text editor, change any of the .desktop filenames to the app you want that tile to be for. Please note that currently only .desktop files in "/usr/share/applications" are accessed. You'll have to restart RetiledStart for your changes to show up.
 
 
 ----------------------------------
@@ -196,8 +196,8 @@ limitations under the License.
 End boilerplate on the Apache License, Version 2.0.
 
 
-Retiled Start is a Windows Phone 8.x-like Start screen UI for the Retiled project.
-Retiled Search is a Windows Phone 8.0-like Search app for the Retiled project.
+RetiledStart is a Windows Phone 8.x-like Start screen UI for the Retiled project.
+RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.
 
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.
