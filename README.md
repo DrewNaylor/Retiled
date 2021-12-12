@@ -51,6 +51,8 @@ Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/),
 
 > Please note: You'll have to install the dependencies manually, as they're not integrated into the script yet.
 
+> These instructions aren't up to date with the zip file in the releases, so I'd recommend [checking the "how to use" guide](https://github.com/DrewNaylor/Retiled/blob/main/docs/changelogs/v0.1-DP1.md#how-to-use) for installation instructions for released versions. One thing I do need to say to comply with the (L)GPL is that you can replace the files in the `RetiledStyles` directory if you want to use different files than what I provide, either by switching them out of the package then running the install script, or by replacing them as root when installed by changing the files in `/opt/Retiled/RetiledStyles`.
+
 - Installation
   1. Install `pyside6`, `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I'd like to add support for postmarketOS, but I haven't tested anything there yet. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
   2. Clone the repo using `git clone https://github.com/drewnaylor/retiled`
