@@ -75,6 +75,9 @@ ApplicationWindow {
 						backButton.visible = false
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
+						// Set the appbar and its drawer background color to the default.
+						appBar.backgroundColor = "#212021"
+						appbarDrawer.backgroundColor = "#212021"
 					}
 			
         }
@@ -179,6 +182,9 @@ ApplicationWindow {
 						// a single-equals, as otherwise it'll complain
 						// that depth is read-only and won't just compare.
 						backButton.visible = false
+						// Set the appbar and its drawer background color to the default.
+						appBar.backgroundColor = "#212021"
+						appbarDrawer.backgroundColor = "#212021"
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
 						// TODO: Figure out a way to change the appbar's color
@@ -254,10 +260,10 @@ ApplicationWindow {
         edge: Qt.BottomEdge
 		
 		// Set font.
-				font.family: "Open Sans SemiBold"
-				font.weight: Font.DemiBold
-				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
+		font.family: "Open Sans SemiBold"
+		font.weight: Font.DemiBold
+		// TODO: Move letter spacing into the control.
+		font.letterSpacing: -0.8 * scaleFactor
 
 
         // Removing the shadow from the drawer:
@@ -282,9 +288,14 @@ ApplicationWindow {
                 text: model.title
                 onClicked: {
                     stackView.push(model.source)
+					// Set the appbar drawer's color to transparent.
+					appbarDrawer.backgroundColor = "transparent"
+					// Close the appbar drawer.
                     appbarDrawer.close()
 					// Show the back button to allow navigating back.
 					backButton.visible = true
+					// Have the appbar be transparent.
+					appBar.backgroundColor = "transparent"
 					// Hide the ellipsis button.
 					appbarEllipsisButton.visible = false
                 }

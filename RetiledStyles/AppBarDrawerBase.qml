@@ -88,6 +88,9 @@ T.Drawer {
 
     enter: Transition { SmoothedAnimation { velocity: 5 } }
     exit: Transition { SmoothedAnimation { velocity: 5 } }
+	
+	// This allows the app to set the color at runtime.
+	property string backgroundColor: "#212021"
 
     background: Rectangle {
 		// Change the color of the appbar background to be what it should be in dark mode.
@@ -96,7 +99,7 @@ T.Drawer {
         // color: control.Universal.chromeMediumColor
 		// #212021 is the hex color code for the dark appbar color
 		// as sampled from a screenshot.
-        color: "#212021"
+        color: backgroundColor
         Rectangle {
             readonly property bool horizontal: control.edge === Qt.LeftEdge || control.edge === Qt.RightEdge
             width: horizontal ? 1 : parent.width

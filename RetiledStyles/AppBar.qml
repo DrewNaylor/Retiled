@@ -75,15 +75,16 @@ T.ToolBar {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              contentHeight + topPadding + bottomPadding)
 
-	// Currently we're not using this file, but it'll be useful
-	// when setting up the light and dark theme changes.
+	// #212021 is the hex color code for the dark appbar color
+	// as sampled from a screenshot.
+	// I should probably figure out how to just change the
+	// Universal theme directly, so I can use values from it.
+	// We're setting this here so apps using the appbar can set its color.
+	property string backgroundColor: "#212021"
 
     background: Rectangle {
         implicitHeight: 48 // AppBarThemeCompactHeight
-		// #212021 is the hex color code for the dark appbar color
-		// as sampled from a screenshot.
-		// I should probably figure out how to just change the
-		// Universal theme directly, so I can use values from it.
-        color: "#212021"
+		// Set background color.
+        color: backgroundColor
     }
 }
