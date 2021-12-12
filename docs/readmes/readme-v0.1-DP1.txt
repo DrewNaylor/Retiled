@@ -64,6 +64,8 @@ KNOWN ISSUES
 - Another issue is that pinned tiles get added to the left column, and this doesn't stop happening after pinning the second column by resizing any of the tiles like I thought. Not sure how to fix it. Maybe there's some way with the QML Grid/GridView/GridLayout, but I don't know.
 - Tapping an app in the All Apps list then long-pressing it and leaving your finger on the screen when the app is open then closing the app and tapping "pin to start" won't take you back to the tiles list as it's supposed to. I don't know why this happens or how to fix it.
 - Sometimes the tiles list doesn't scroll all the way to the bottom correctly.
+- "Global edit mode" can't be exited by tapping anywhere outside the tiles for now.
+- Some button text, including the All Apps button icon, resize button icon, and the All Apps list search icon are slightly off-position.
 
 Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
 
