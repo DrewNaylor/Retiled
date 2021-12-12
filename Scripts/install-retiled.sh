@@ -4,11 +4,9 @@
 sh ./build-retiledsearch.sh
 sh ./build-retiledstart.sh
 
-# Copy the files to a test directory so we can check this works:
-# https://stackoverflow.com/a/12376647
-# We have to do this recursively:
+# We have to copy dirs recursively:
 # https://www.decodingdevops.com/copy-directory-in-linux-recursive-copy-in-linux/
-cd ..
+
 # Make directories first.
 # We have to use "-p" to make missing intermediate dirs:
 # https://unix.stackexchange.com/a/588680
