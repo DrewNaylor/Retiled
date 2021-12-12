@@ -37,9 +37,13 @@ sudo cp -rv ./RetiledStart/* /opt/Retiled/RetiledStart
 sudo cp -v ./Scripts/retiledsearch.desktop /usr/share/applications
 sudo cp -v ./Scripts/retiledstart.desktop /usr/share/applications
 
+# Mark the scripts as executable.
+chmod +x ./Scripts/run-retiledsearch.sh
+chmod +x ./Scripts/run-retiledstart.sh
+
 # Copy the scripts to run everything.
-sudo cp -v ./Scripts/run-retiledsearch.sh /opt/Retiled
-sudo cp -v ./Scripts/run-retiledstart.sh /opt/Retiled
+sudo cp -v ./Scripts/run-retiledsearch.sh /usr/bin/retiledsearch
+sudo cp -v ./Scripts/run-retiledstart.sh /usr/bin/retiledstart
 
 # Exit with code 0.
 exit 0
