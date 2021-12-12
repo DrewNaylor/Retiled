@@ -1,12 +1,15 @@
 #!/bin/sh
 
+# CD into ./Scripts.
+cd ./Scripts
+
 # Run the build scripts.
 sh ./build-retiledsearch.sh
 sh ./build-retiledstart.sh
 
 # We have to copy dirs recursively:
 # https://www.decodingdevops.com/copy-directory-in-linux-recursive-copy-in-linux/
-
+cd ..
 # Make directories first.
 # We have to use "-p" to make missing intermediate dirs:
 # https://unix.stackexchange.com/a/588680
