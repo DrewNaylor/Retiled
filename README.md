@@ -31,7 +31,8 @@ Open Sans is used for most of the text in the UI and is available under the Apac
 Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:<br>
 http://scripts.sil.org/OFL.<br>
 You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
-PyYAML is licensed under the MIT License.<br><br>
+libdotdesktop_py is Copyright (C) Drew Naylor and is licensed under the Apache License, Version 2.0. This library is from the DotDesktop4Win project.<br>
+PyYAML is licensed under the MIT License and is Copyright (c) 2017-2021 Ingy döt Net and Copyright (c) 2006-2016 Kirill Simonov.<br><br>
 Python 3.9 copyrights start:<br>
 Copyright (c) 2001-2021 Python Software Foundation.<br>
 All Rights Reserved.<br>
@@ -45,7 +46,7 @@ Python 3.9 copyrights end.<br>
 Python is licensed under the PSF License Agreement, which you can find a copy of here:<br>
 https://docs.python.org/3.9/license.html#psf-license<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
-Components of the Retiled project include [AvaloniaUI](https://avaloniaui.net/), [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Open Sans](https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
+Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win](https://github.com/drewnaylor/dotdesktop4win), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Open Sans](https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
 
 ## Installation, Uninstallation, Building, and Running
 
