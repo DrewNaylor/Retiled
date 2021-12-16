@@ -5,6 +5,7 @@ To run Retiled, your device requires the following:
 ## Packages
 - Python 3.9 or greater
   - Python is used to run most of Retiled.
+  - postmarketOS uses `python3` instead of `python`.
   - Generally speaking, you should already have Python installed, but if you don't, use one of the following commands without quotes:
     - Manjaro ARM: "sudo pacman -Syu python"
   
@@ -12,6 +13,7 @@ To run Retiled, your device requires the following:
   - Used for the UI of Python/QML-based components of Retiled.
   - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
     - Manjaro ARM: "sudo pacman -Syu pyside6"
+    - postmarketOS: "sudo apk add py3-pyside6"
   
 - qt6-declarative
   - Provides Qt6 QtQuick controls that are used in each component.
@@ -22,7 +24,7 @@ To run Retiled, your device requires the following:
   - Allows Qt6 apps like the ones included in Retiled to run under Wayland.
   - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
     - Manjaro ARM: "sudo pacman -Syu qt6-wayland"
-
+    - postmarketOS: "sudo apk add qt6-qtwayland"
 - pyyaml
   - Helps read yaml files, which are used for configuration.
   - You probably won't have to install this yourself, as I just copied the library's files into my repo. The only case where you'll need to install it manually is if my repo doesn't have the proper compiled library for one of the files. In that case, please let me know. I don't feel comfortable just adding binaries from random people to my repo, so a way for me to acquire that binary will be necessary to specify.
