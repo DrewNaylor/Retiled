@@ -19,7 +19,8 @@ To run Retiled, your device requires the following:
   - Provides Qt6 QtQuick controls that are used in each component.
   - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
     - Manjaro ARM: "sudo pacman -Syu qt6-declarative"
-
+    - postmarketOS: "sudo apk add qt6-qtdeclarative"
+    - Please note: I may have forgotten to write this one down for postmarketOS before, and I need to ensure this is the right package.
 - qt6-wayland
   - Allows Qt6 apps like the ones included in Retiled to run under Wayland.
   - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
