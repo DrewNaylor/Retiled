@@ -6,7 +6,7 @@ cd ../RetiledSearch/RetiledSearch
 # Start using compileall to build the Python scripts:
 # https://docs.python.org/3/library/compileall.html
 # https://stackoverflow.com/a/32686745
-python3 -m compileall -l .
+python -m compileall -l .
 
 # Go back to the original dir.
 cd ../../Scripts
