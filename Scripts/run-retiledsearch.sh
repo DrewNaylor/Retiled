@@ -1,3 +1,3 @@
 #!/bin/sh
 cd /opt/Retiled/RetiledSearch/RetiledSearch
-python main.py
+python3 main.py
