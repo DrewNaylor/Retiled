@@ -105,6 +105,16 @@ WaylandCompositor {
             visible: true
             width: 1280
             height: 720
+			
+			// This shortcut copied from the pure QML example here:
+			// https://github.com/DrewNaylor/qtwayland/blob/dev/examples/wayland/pure-qml/qml/CompositorScreen.qml
+			// That file is Copyright (C) 2017 The Qt Company Ltd. and is being used under the BSD License as
+			// described above.
+			// Hopefully this'll make testing and using it easier.
+			Shortcut {
+				sequence: "Ctrl+Alt+Backspace"
+				onActivated: Qt.quit()
+			}
 
             Grid {
                 id: grid
