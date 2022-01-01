@@ -42,7 +42,7 @@ class RunAppFromNavbarButton(QObject):
     def runApp(self, appName):
         # We need to run the app if the user taps the Start or Search buttons.
 		# TODO: Change this to open stuff.
-        webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
+        webbrowser.open("https://bing.com/search?q=" + appName, new = 2)
 
 
 if __name__ == "__main__":
