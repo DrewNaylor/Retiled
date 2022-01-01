@@ -66,6 +66,11 @@
 
 
 
+// Do the imports. I don't know if imports count as copyrightable, but just to be
+// safe, some of these are from the overview compositor example's main.qml file:
+// https://github.com/drewnaylor/qtwayland/blob/dev/examples/wayland/overview-compositor/main.qml
+// That file is Copyright (C) 2018 The Qt Company Ltd. and is being used under the BSD License
+// as described above.
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
