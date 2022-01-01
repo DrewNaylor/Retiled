@@ -1,4 +1,10 @@
 # RetiledCompositor - Windows Phone 8.x-like compositor for the Retiled project.
+#                     Some code was copied from
+#                     the official qtwayland repo, which you can
+#                     access a copy of here:
+#                     https://github.com/DrewNaylor/qtwayland
+#                     You can also use that link to access the code for qtwayland
+#                     as required by the GPL.
 # Copyright (C) 2022 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
