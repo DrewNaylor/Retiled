@@ -158,11 +158,31 @@ WaylandCompositor {
             }
 
             Button {
-                anchors.horizontalCenter: parent.horizontalCenter
+				// This button was moved to the left and this change is
+				// under the GPLv3 and Copyright (C) Drew Naylor.
+                anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 text: "Toggle overview";
                 onClicked: grid.overview = !grid.overview
             }
+			
+			
+			// These two buttons were copied and modified from the example buttons.
+			// The changes to these buttons are under the GPLv3 and Copyright (C) Drew Naylor.
+			Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                text: "Start";
+                onClicked: grid.overview = !grid.overview
+            }
+			
+			Button {
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                text: "Search";
+                onClicked: grid.overview = !grid.overview
+            }
+			// End copied and modified buttons.
 
             Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
             Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
