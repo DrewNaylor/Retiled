@@ -46,25 +46,25 @@ from PySide6.QtCore import QObject, Slot
 # Trying to figure out buttons with this:
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
 class RunAppFromNavbarButton(QObject):
-    @Slot(str)
-    def runApp(self, appName):
+	@Slot(str)
+	def runApp(self, appName):
         # We need to run the app if the user taps the Start or Search buttons.
 		# Split the app name from what it needs to be run with.
 		# Kinda copied this from libdotdesktop_py.
 		args = shlex.split(appName)
 		# Copied this from libRetiledStart.
-        proc = subprocess.Popen(args)
+		proc = subprocess.Popen(args)
 
 
 if __name__ == "__main__":
     # Set the Universal style.
-    sys.argv += ['--style', 'Universal']
-    app = QGuiApplication(sys.argv)
+	sys.argv += ['--style', 'Universal']
+	app = QGuiApplication(sys.argv)
 	# Hook up some stuff so I can access the searchClass from QML.
-    runAppFromNavbarButton = RunAppFromNavbarButton()
-    engine = QQmlApplicationEngine()
-    engine.rootContext().setContextProperty("runAppFromNavbarButton", runAppFromNavbarButton)
-    engine.load("MainWindow.qml")
-    if not engine.rootObjects():
-        sys.exit(-1)
-    sys.exit(app.exec())
+	runAppFromNavbarButton = RunAppFromNavbarButton()
+	engine = QQmlApplicationEngine()
+	engine.rootContext().setContextProperty("runAppFromNavbarButton", runAppFromNavbarButton)
+	engine.load("MainWindow.qml")
+	if not engine.rootObjects():
+		sys.exit(-1)
+	sys.exit(app.exec())
