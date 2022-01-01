@@ -49,7 +49,7 @@ class RunAppFromNavbarButton(QObject):
     def runApp(self, appName):
         # We need to run the app if the user taps the Start or Search buttons.
 		# Copied this from libRetiledStart.
-        proc = subprocess.Popen(appName)
+        proc = subprocess.Popen(appName, "-platform wayland")
 
 
 if __name__ == "__main__":
