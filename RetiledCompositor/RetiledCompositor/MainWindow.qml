@@ -85,6 +85,8 @@ import "../../RetiledStyles" as RetiledStyles
 
 // Note: To run this compositor from a TTY, you have to pass "-platform eglfs" to it as specified here:
 // https://stackoverflow.com/a/49079459
+// Other apps would then be run from it by passing "-plaform wayland", though I think the default is what should be
+// used instead, that being wayland-egl.
 
 
 // Literally all this code is just copied from the example linked above in the "copy the imports"
