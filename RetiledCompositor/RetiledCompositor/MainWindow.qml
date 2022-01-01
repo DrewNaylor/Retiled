@@ -83,6 +83,9 @@ import QtQuick.Controls.Universal
 import "../../RetiledStyles" as RetiledStyles
 
 
+// Note: To run this compositor from a TTY, you have to pass "-platform eglfs" to it as specified here:
+// https://stackoverflow.com/a/49079459
+
 
 // Literally all this code is just copied from the example linked above in the "copy the imports"
 // paragraph. It'll be modified to fit my use case, and as a result my changes will fall under the GPLv3.
