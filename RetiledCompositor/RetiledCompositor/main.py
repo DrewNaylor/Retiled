@@ -1,6 +1,5 @@
-# RetiledSearch - Windows Phone 8.0-like Search app for the
-#                 Retiled project.
-# Copyright (C) 2021 Drew Naylor
+# RetiledCompositor - Windows Phone 8.x-like compositor for the Retiled project.
+# Copyright (C) 2022 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
 # of Microsoft Corporation. All rights reserved.
@@ -38,16 +37,11 @@ from PySide6.QtCore import QObject, Slot
 
 # Trying to figure out buttons with this:
 # https://stackoverflow.com/questions/57619227/connect-qml-signal-to-pyside2-slot
-class SearchCommands(QObject):
+class RunAppFromNavbarButton(QObject):
     @Slot(str)
-    def openUrl(self, searchTerm):
-        # Send the user to Bing based on this SO answer:
-		# https://stackoverflow.com/a/31715355
-		# TODO: Only do the search if the searchTerm's length is more than 0.
-		# Maybe it would be cool to hide the search button if there's nothing
-		# in the search box, too.
-		# TODO 2: Have the code to do a search be async so it doesn't look
-		# choppy when the user presses the button.
+    def runApp(self, appName):
+        # We need to run the app if the user taps the Start or Search buttons.
+		# TODO: Change this to open stuff.
         webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
 
 
