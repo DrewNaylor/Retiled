@@ -34,6 +34,7 @@
 
 import os
 import subprocess
+import shlex
 from pathlib import Path
 import sys
 import webbrowser
@@ -48,8 +49,11 @@ class RunAppFromNavbarButton(QObject):
     @Slot(str)
     def runApp(self, appName):
         # We need to run the app if the user taps the Start or Search buttons.
+		# Split the app name from what it needs to be run with.
+		# Kinda copied this from libdotdesktop_py.
+		args = shlex.split(appName)
 		# Copied this from libRetiledStart.
-        proc = subprocess.Popen(appName)
+        proc = subprocess.Popen(args)
 
 
 if __name__ == "__main__":
