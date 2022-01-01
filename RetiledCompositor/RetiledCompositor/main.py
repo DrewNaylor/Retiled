@@ -33,6 +33,7 @@
 
 
 import os
+import subprocess
 from pathlib import Path
 import sys
 import webbrowser
@@ -47,8 +48,8 @@ class RunAppFromNavbarButton(QObject):
     @Slot(str)
     def runApp(self, appName):
         # We need to run the app if the user taps the Start or Search buttons.
-		# TODO: Change this to open stuff.
-        webbrowser.open("https://bing.com/search?q=" + appName, new = 2)
+		# Copied this from libRetiledStart.
+        proc = subprocess.Popen(appName)
 
 
 if __name__ == "__main__":
