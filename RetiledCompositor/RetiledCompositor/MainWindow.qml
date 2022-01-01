@@ -183,14 +183,14 @@ WaylandCompositor {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 text: "Start";
-                onClicked: runAppFromNavbarButton.runApp("python /opt/Retiled/RetiledStart/RetiledStart/main.py -platform wayland")
+                onClicked: runAppFromNavbarButton.runApp("retiledstart")
             }
 			
 			Button {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 text: "Search";
-                onClicked:  runAppFromNavbarButton.runApp("python /opt/Retiled/RetiledSearch/RetiledSearch/main.py -platform wayland")
+                onClicked:  runAppFromNavbarButton.runApp("retiledsearch")
             }
 			// End copied and modified buttons.
 
