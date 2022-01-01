@@ -50,9 +50,9 @@ if __name__ == "__main__":
     sys.argv += ['--style', 'Universal']
     app = QGuiApplication(sys.argv)
 	# Hook up some stuff so I can access the searchClass from QML.
-    searchClass = SearchCommands()
+    runAppFromNavbarButton = RunAppFromNavbarButton()
     engine = QQmlApplicationEngine()
-    engine.rootContext().setContextProperty("searchClass", searchClass)
+    engine.rootContext().setContextProperty("runAppFromNavbarButton", runAppFromNavbarButton)
     engine.load("MainWindow.qml")
     if not engine.rootObjects():
         sys.exit(-1)
