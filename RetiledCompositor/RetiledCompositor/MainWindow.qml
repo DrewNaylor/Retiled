@@ -124,10 +124,7 @@ WaylandCompositor {
                 property int selected: 0
                 property int selectedColumn: selected % columns
                 property int selectedRow: selected / columns
-				// Anchors changed under GPLv3 and change Copyright (C) Drew Naylor.
-                anchors.left: parent.left
-				anchors.top: parent.top
-				anchors.right: parent.right
+				anchors.fill: parent
                 columns: Math.ceil(Math.sqrt(toplevels.count))
                 // ![zoom transform]
                 transform: [
@@ -170,14 +167,15 @@ WaylandCompositor {
                 // ![toplevels repeater]
             }
 
-			// Rectangle added under GPLv3 and change Copyright (C) Drew Naylor.
+			// Rectangle and item added under GPLv3 and change Copyright (C) Drew Naylor.
+			Item {
+				anchors.topMargin: 100
 			Rectangle {
 				id: navBar
 				color: "black"
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
-				anchors.topMargin: 50
 				height: 50
             RetiledStyles.Button {
 				// This button was moved to the left
@@ -207,6 +205,7 @@ WaylandCompositor {
             }
 			// End copied and modified buttons.
 			} // End of rectangle with buttons.
+			} // End of item with a topmargin of 100.
 
             Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
             Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
