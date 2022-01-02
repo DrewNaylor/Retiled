@@ -129,8 +129,8 @@ WaylandCompositor {
                 // ![zoom transform]
                 transform: [
                     Scale {
-                        xScale: grid.overview ? (1.0/grid.columns) : 1
-                        yScale: grid.overview ? (1.0/grid.columns) : 1
+                        xScale: grid.overview ? (2.0/grid.columns) : 2
+                        yScale: grid.overview ? (2.0/grid.columns) : 2
                         Behavior on xScale { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                         Behavior on yScale { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                     },
