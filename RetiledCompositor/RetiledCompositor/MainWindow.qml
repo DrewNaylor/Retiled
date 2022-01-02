@@ -177,9 +177,9 @@ WaylandCompositor {
         }
 		// The rectangle the buttons are inside of was added under the GPLv3
 		// and this change is Copyright (C) Drew Naylor.
-		Rectangle {
-			color: "black"
-			anchors.top: win.bottom
+	//	Rectangle {
+	//		color: "black"
+		//	anchors.top: win.bottom
 		Button {
 				// This button was moved to the left
 				// and had its text changed to "Back". These changes are
@@ -207,7 +207,7 @@ WaylandCompositor {
                 onClicked:  runAppFromNavbarButton.runApp("retiledsearch")
             }
 			// End copied and modified buttons.
-		} // End navbar rectangle.
+		//} // End navbar rectangle.
     }
 
     ListModel { id: toplevels }
