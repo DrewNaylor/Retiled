@@ -167,18 +167,10 @@ WaylandCompositor {
                 // ![toplevels repeater]
             }
 
-		
-
-            Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
-            Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
-            Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
-            Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
-            Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
-        }
 		// The rectangle the buttons are inside of was added under the GPLv3
 		// and this change is Copyright (C) Drew Naylor.
-	//	Rectangle {
-	//		color: "black"
+		Rectangle {
+			color: "black"
 		//	anchors.top: win.bottom
 		Button {
 				// This button was moved to the left
@@ -207,7 +199,15 @@ WaylandCompositor {
                 onClicked:  runAppFromNavbarButton.runApp("retiledsearch")
             }
 			// End copied and modified buttons.
-		//} // End navbar rectangle.
+		} // End navbar rectangle.
+
+            Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
+            Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
+            Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
+            Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
+            Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
+        }
+		
     }
 
     ListModel { id: toplevels }
