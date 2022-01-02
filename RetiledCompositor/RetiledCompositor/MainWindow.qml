@@ -177,7 +177,7 @@ WaylandCompositor {
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
-				anchors.topMargin: 50
+				anchors.topMargin: 100
 				height: 50
             RetiledStyles.Button {
 				// This button was moved to the left
