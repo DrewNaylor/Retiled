@@ -165,9 +165,8 @@ WaylandCompositor {
                     }
                 }
                 // ![toplevels repeater]
-            }
-
-			Rectangle {
+				
+				Rectangle {
 				id: navBar
 				color: "black"
 				anchors.left: parent.left
@@ -202,6 +201,10 @@ WaylandCompositor {
             }
 			// End copied and modified buttons.
 			} // End of rectangle with buttons.
+				
+            }
+
+			
 
             Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
             Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
