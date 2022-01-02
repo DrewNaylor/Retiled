@@ -124,8 +124,12 @@ WaylandCompositor {
                 property int selected: 0
                 property int selectedColumn: selected % columns
                 property int selectedRow: selected / columns
-
-                anchors.fill: parent
+				
+				// Anchors changed under GPLv3 and change Copyright (C) Drew Naylor.
+                anchors.left: parent.left
+				anchors.top: parent.top
+				anchors.right: parent.right
+				anchors.bottom: navBar.top
                 columns: Math.ceil(Math.sqrt(toplevels.count))
                 // ![zoom transform]
                 transform: [
@@ -172,6 +176,7 @@ WaylandCompositor {
 			Rectangle {
 				id: navBar
 				color: "black"
+				anchors.top: grid.bottom
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
