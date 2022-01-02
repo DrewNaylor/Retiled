@@ -124,10 +124,7 @@ WaylandCompositor {
                 property int selected: 0
                 property int selectedColumn: selected % columns
                 property int selectedRow: selected / columns
-				// Anchors changed under GPLv3 and change Copyright (C) Drew Naylor.
-                anchors.left: parent.left
-				anchors.top: parent.top
-				anchors.right: parent.right
+				anchors.fill: parent
                 columns: Math.ceil(Math.sqrt(toplevels.count))
                 // ![zoom transform]
                 transform: [
@@ -171,13 +168,12 @@ WaylandCompositor {
             }
 
 			// Rectangle added under GPLv3 and change Copyright (C) Drew Naylor.
-			Rectangle {
+			footer: Rectangle {
 				id: navBar
 				color: "black"
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
-				anchors.topMargin: 100
 				height: 50
             RetiledStyles.Button {
 				// This button was moved to the left
