@@ -137,7 +137,7 @@ WaylandCompositor {
                     },
                     Translate {
                         x: grid.overview ? 0 : win.width * -grid.selectedColumn
-                        y: grid.overview ? 0 : win.height - 50 * -grid.selectedRow
+                        y: grid.overview ? 0 : win.height * -grid.selectedRow
                         Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                         Behavior on y { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                     }
