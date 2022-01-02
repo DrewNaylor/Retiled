@@ -167,7 +167,17 @@ WaylandCompositor {
                 // ![toplevels repeater]
             }
 
-            Button {
+            
+
+            Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
+            Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
+            Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
+            Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
+            Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
+        }
+		
+		// The navigation bar buttons were moved out of the rest.
+		Button {
 				// This button was moved to the left
 				// and had its text changed to "Back". These changes are
 				// under the GPLv3 and Copyright (C) Drew Naylor.
@@ -194,13 +204,7 @@ WaylandCompositor {
                 onClicked:  runAppFromNavbarButton.runApp("retiledsearch")
             }
 			// End copied and modified buttons.
-
-            Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
-            Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
-            Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
-            Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
-            Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
-        }
+		
     }
 
     ListModel { id: toplevels }
