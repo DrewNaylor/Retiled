@@ -32,7 +32,11 @@ To run Retiled, your device requires the following:
   - If you do need pyyaml's compiled binary built for your specific device, you can install it via "pip":
     - "pip install pyyaml"
     - After installing, copy the file that starts with "_yaml" from the default location pip installs pyyaml to (usually "/usr/lib/python3.9/site-packages/yaml"), and either paste it in "/opt/Retiled/RetiledStart/RetiledStart/libs/pyyaml/yaml" if you can get root permissions easily, or paste it in "(the folder you downloaded Retiled to)/RetiledStart/RetiledStart/libs/pyyaml/yaml", then run "sh Scripts/install-retiled.sh" again so it can copy the new file you just pasted there. Please note: this manual library installation of running the install script again may not always work, so you may need to copy via the command line as root, though that should be easy.
-
+- qt6-svg
+  - Allows SVG images to be displayed in Qt6 apps.
+  - Should be already installed unless you're running a non-Qt environment, such as Xfce.
+  - You can install it using one of these commands:
+    - Manjaro: `sudo pacman -Syu qt6-svg`
 - libopengl0
   - Required if you want to run stuff on something like Linux Mint Cinnamon, but otherwise not required on Manjaro ARM with Plasma Mobile.
   - Not sure if this is installed by default on other distros, or if it's something that GTK ones lack.
