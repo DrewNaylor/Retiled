@@ -167,10 +167,20 @@ WaylandCompositor {
                 // ![toplevels repeater]
             }
 
-		// The rectangle the buttons are inside of was added under the GPLv3
+            
+
+            Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
+            Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
+            Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
+            Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
+            Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
+        }
+		
+		// The navigation bar buttons were moved out of the rest.
+		// The rectangle they're inside of was added under the GPLv3
 		// and this change is Copyright (C) Drew Naylor.
 		Rectangle {
-			color: "black"
+			color: "Black"
 		Button {
 				// This button was moved to the left
 				// and had its text changed to "Back". These changes are
@@ -199,13 +209,6 @@ WaylandCompositor {
             }
 			// End copied and modified buttons.
 		} // End navbar rectangle.
-
-            Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
-            Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
-            Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
-            Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
-            Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
-        }
 		
     }
 
