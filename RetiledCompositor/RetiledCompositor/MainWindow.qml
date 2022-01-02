@@ -168,7 +168,8 @@ WaylandCompositor {
             }
 
             Button {
-				// This button was moved to the left and this change is
+				// This button was moved to the left
+				// and had its text changed to "Back". These changes are
 				// under the GPLv3 and Copyright (C) Drew Naylor.
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
