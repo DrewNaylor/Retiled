@@ -124,8 +124,6 @@ WaylandCompositor {
                 property int selected: 0
                 property int selectedColumn: selected % columns
                 property int selectedRow: selected / columns
-				// Adding bottom padding under GPLv3 and change Copyright (C) Drew Naylor.
-				bottomPadding: 50
 				// Anchors changed under GPLv3 and change Copyright (C) Drew Naylor.
                 anchors.left: parent.left
 				anchors.top: parent.top
@@ -179,6 +177,7 @@ WaylandCompositor {
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
+				anchors.topMargin: 50
 				height: 50
             RetiledStyles.Button {
 				// This button was moved to the left
