@@ -173,7 +173,7 @@ WaylandCompositor {
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
 				height: 50
-            Button {
+            RetiledStyles.Button {
 				// This button was moved to the left
 				// and had its text changed to "Back". These changes are
 				// under the GPLv3 and Copyright (C) Drew Naylor.
@@ -186,14 +186,14 @@ WaylandCompositor {
 			
 			// These two buttons were copied and modified from the example buttons.
 			// The changes to these buttons are under the GPLv3 and Copyright (C) Drew Naylor.
-			Button {
+			RetiledStyles.Button {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 text: "Start";
                 onClicked: runAppFromNavbarButton.runApp("retiledstart")
             }
 			
-			Button {
+			RetiledStyles.Button {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 text: "Search";
