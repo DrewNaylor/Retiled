@@ -103,8 +103,8 @@ WaylandCompositor {
             property int pixelHeight: height * screen.devicePixelRatio
 
             visible: true
-            width: 1280
-            height: 720
+            width: 720
+            height: 1440
 			
 			// This shortcut copied from the pure QML example here:
 			// https://github.com/DrewNaylor/qtwayland/blob/dev/examples/wayland/pure-qml/qml/CompositorScreen.qml
@@ -148,7 +148,7 @@ WaylandCompositor {
                     model: toplevels
                     Item {
                         width: win.width
-                        height: win.height - 50
+                        height: win.height
                         ShellSurfaceItem {
                             anchors.fill: parent
                             shellSurface: xdgSurface
