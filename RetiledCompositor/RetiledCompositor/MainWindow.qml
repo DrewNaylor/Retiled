@@ -177,6 +177,10 @@ WaylandCompositor {
         }
 		
 		// The navigation bar buttons were moved out of the rest.
+		// The rectangle they're inside of was added under the GPLv3
+		// and this change is Copyright (C) Drew Naylor.
+		Rectangle {
+			color: "Black"
 		Button {
 				// This button was moved to the left
 				// and had its text changed to "Back". These changes are
@@ -204,6 +208,7 @@ WaylandCompositor {
                 onClicked:  runAppFromNavbarButton.runApp("retiledsearch")
             }
 			// End copied and modified buttons.
+		} // End navbar rectangle.
 		
     }
 
