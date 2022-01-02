@@ -176,7 +176,6 @@ WaylandCompositor {
 			Rectangle {
 				id: navBar
 				color: "black"
-				anchors.top: grid.bottom
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
