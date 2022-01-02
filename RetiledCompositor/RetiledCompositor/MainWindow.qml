@@ -130,7 +130,6 @@ WaylandCompositor {
                 anchors.left: parent.left
 				anchors.top: parent.top
 				anchors.right: parent.right
-				anchors.bottom: navBar.top
                 columns: Math.ceil(Math.sqrt(toplevels.count))
                 // ![zoom transform]
                 transform: [
