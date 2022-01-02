@@ -124,7 +124,8 @@ WaylandCompositor {
                 property int selected: 0
                 property int selectedColumn: selected % columns
                 property int selectedRow: selected / columns
-				
+				// Changing the background color to Cobalt under GPLv3 and change Copyright (C) Drew Naylor.
+				color: "#0050ef"
 				// Anchors changed under GPLv3 and change Copyright (C) Drew Naylor.
                 anchors.left: parent.left
 				anchors.top: parent.top
