@@ -148,7 +148,7 @@ WaylandCompositor {
                     model: toplevels
                     Item {
                         width: win.width
-                        height: win.height
+                        height: win.height - 50
                         ShellSurfaceItem {
                             anchors.fill: parent
                             shellSurface: xdgSurface
