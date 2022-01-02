@@ -172,7 +172,7 @@ WaylandCompositor {
 				// under the GPLv3 and Copyright (C) Drew Naylor.
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
-                text: "Toggle overview";
+                text: "Back";
                 onClicked: grid.overview = !grid.overview
             }
 			
