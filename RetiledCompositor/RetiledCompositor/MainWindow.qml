@@ -116,8 +116,6 @@ WaylandCompositor {
 				onActivated: Qt.quit()
 			}
 
-			Column {
-
             Grid {
                 id: grid
 
@@ -127,6 +125,7 @@ WaylandCompositor {
                 property int selectedRow: selected / columns
 
                 anchors.fill: parent
+				anchors.bottom: navBar
                 columns: Math.ceil(Math.sqrt(toplevels.count))
                 // ![zoom transform]
                 transform: [
@@ -204,7 +203,6 @@ WaylandCompositor {
             }
 			// End copied and modified buttons.
 			} // End of rectangle with buttons.
-			} // End of the column containing the navbar and the grid.
 
             Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
             Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
