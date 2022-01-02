@@ -96,7 +96,6 @@ import "../../RetiledStyles" as RetiledStyles
 WaylandCompositor {
     WaylandOutput {
         sizeFollowsWindow: true
-		scaleFactor: 2.0
         window: Window {
             id: win
 
@@ -104,6 +103,7 @@ WaylandCompositor {
             property int pixelHeight: height * screen.devicePixelRatio
 
             visible: true
+			// Window size changed under GPLv3 and change Copyright (C) Drew Naylor.
             width: 720
             height: 1440
 			
@@ -149,7 +149,7 @@ WaylandCompositor {
                     model: toplevels
                     Item {
                         width: win.width
-                        height: win.height - 50
+                        height: win.height
                         ShellSurfaceItem {
                             anchors.fill: parent
                             shellSurface: xdgSurface
@@ -168,6 +168,7 @@ WaylandCompositor {
                 // ![toplevels repeater]
             }
 
+			// Rectangle added under GPLv3 and change Copyright (C) Drew Naylor.
 			Rectangle {
 				id: navBar
 				color: "black"
