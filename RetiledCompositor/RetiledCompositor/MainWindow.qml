@@ -137,7 +137,7 @@ WaylandCompositor {
                     },
                     Translate {
                         x: grid.overview ? 0 : win.width * -grid.selectedColumn
-                        y: grid.overview ? 0 : win.height * -grid.selectedRow
+                        y: grid.overview ? 0 : win.height - 50 * -grid.selectedRow
                         Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                         Behavior on y { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                     }
@@ -149,7 +149,7 @@ WaylandCompositor {
                     model: toplevels
                     Item {
                         width: win.width
-                        height: win.height
+                        height: win.height - 50
                         ShellSurfaceItem {
                             anchors.fill: parent
                             shellSurface: xdgSurface
