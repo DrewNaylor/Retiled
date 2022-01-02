@@ -104,7 +104,7 @@ WaylandCompositor {
 
             visible: true
             width: 720
-            height: 1390
+            height: 1440
 			
 			// This shortcut copied from the pure QML example here:
 			// https://github.com/DrewNaylor/qtwayland/blob/dev/examples/wayland/pure-qml/qml/CompositorScreen.qml
