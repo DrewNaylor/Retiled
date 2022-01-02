@@ -125,6 +125,7 @@ WaylandCompositor {
                 property int selectedRow: selected / columns
 
                 anchors.fill: parent
+				anchors.bottom: navBar
                 columns: Math.ceil(Math.sqrt(toplevels.count))
                 // ![zoom transform]
                 transform: [
@@ -168,8 +169,8 @@ WaylandCompositor {
             }
 
 			Rectangle {
+				id: navBar
 				color: "black"
-				anchors.top: grid.bottom
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
