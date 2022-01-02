@@ -125,7 +125,6 @@ WaylandCompositor {
                 property int selectedRow: selected / columns
 
                 anchors.fill: parent
-				anchors.bottom: navBar
                 columns: Math.ceil(Math.sqrt(toplevels.count))
                 // ![zoom transform]
                 transform: [
