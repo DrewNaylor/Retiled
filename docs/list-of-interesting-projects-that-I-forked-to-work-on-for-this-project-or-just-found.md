@@ -48,3 +48,6 @@
 
 17. [qml-keyboard](https://github.com/MishkaRogachev/qml-keyboard)
 <br>It's a pure-QML keyboard with layouts that are easily changeable by XML files. This could work well for the lock screen. Best part is it's under the LGPL v3. I'll have to update it to Qt6, though.
+
+18-20. wlrootsqt, wrapland, and layer-shell-qt
+<br>These three packages are for wrapping Wayland and wlroots stuff for Qt, and they're all at most under the LGPL, with layer-shell-qt also optionally being available under the GPL. Wrapland depends on kwayland, though. qt5-wayland and qt6-wayland are both under the LGPL in the Arch Linux ARM packages, which I'm not sure about.
