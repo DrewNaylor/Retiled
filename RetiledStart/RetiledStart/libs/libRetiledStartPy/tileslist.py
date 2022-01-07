@@ -91,19 +91,21 @@ def saveTilesList(tilesList):
 		# the storage location appropriately.
 		# Expand the user's home directory:
 		# https://www.tutorialspoint.com/How-to-find-the-real-user-home-directory-using-Python
-		ModifiedStartLayoutYamlBaseFilePath = os.path.expanduser("~") + "/.config/Retiled/RetiledStart/"
+		# Using "".join to reduce memory usage, as string concatenation with "+" creates new
+		# strings each time.
+		ModifiedStartLayoutYamlBaseFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledStart/"])
 		if sys.platform.startswith("win32"):
 			# Set it to the same directory as the library
 			# if we're running on Windows, because this
 			# makes it easier for development.
-			ModifiedStartLayoutYamlBaseFilePath = os.getcwd() + "/libs/libRetiledStartPy/"
+			ModifiedStartLayoutYamlBaseFilePath = "".join([os.getcwd(), "/libs/libRetiledStartPy/"])
 			
 		# Create the directory if it doesn't exist:
 		# https://www.tutorialspoint.com/How-can-I-create-a-directory-if-it-does-not-exist-using-Python
 		if not os.path.exists(ModifiedStartLayoutYamlBaseFilePath):
 			os.makedirs(ModifiedStartLayoutYamlBaseFilePath)
 		
-		with open(ModifiedStartLayoutYamlBaseFilePath + "startlayout-modified.yaml", "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
+		with open("".join([ModifiedStartLayoutYamlBaseFilePath, "startlayout-modified.yaml"]), "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
 			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
 	
 
@@ -113,16 +115,16 @@ def getTilesList(includeTileAppNameAreaText = True):
 	# Check whether the modified tiles list exists, and use
 	# the built-in one if it doesn't.
 	# First set the built-in path.
-	StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout.yaml"
+	StartLayoutFilePath = "".join([os.getcwd(), "/libs/libRetiledStartPy/startlayout.yaml"])
 	# Didn't know how to check if a file existed off the top of my head:
 	# https://www.pythontutorial.net/python-basics/python-check-if-file-exists/
 	# We can now check if we're running on Windows.
 	if sys.platform.startswith("win32"):
-		if os.path.exists(os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"):
-			StartLayoutFilePath = os.getcwd() + "/libs/libRetiledStartPy/startlayout-modified.yaml"
+		if os.path.exists("".join([os.getcwd(), "/libs/libRetiledStartPy/startlayout-modified.yaml"])):
+			StartLayoutFilePath = "".join([os.getcwd(), "/libs/libRetiledStartPy/startlayout-modified.yaml"])
 	else:
-		if os.path.exists(os.path.expanduser("~") + "/.config/Retiled/RetiledStart/startlayout-modified.yaml"):
-			StartLayoutFilePath = os.path.expanduser("~") + "/.config/Retiled/RetiledStart/startlayout-modified.yaml"
+		if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledStart/startlayout-modified.yaml"])):
+			StartLayoutFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledStart/startlayout-modified.yaml"])
 	
 	# Define list to store the tiles.
 	TilesList = []

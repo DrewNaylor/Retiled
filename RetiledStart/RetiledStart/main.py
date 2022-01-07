@@ -48,9 +48,9 @@ class AllAppsListViewModel(QObject):
 		# Example code for sys.platform:
 		# https://docs.python.org/3/library/sys.html#sys.platform
 		if sys.platform.startswith("win32"):
-			AppsList.RunApp("C:\\Users\\drewn\\Desktop\\" + ViewModelExecFilename)
+			AppsList.RunApp("".join(["C:\\Users\\drewn\\Desktop\\", ViewModelExecFilename]))
 		else:
-			AppsList.RunApp("/usr/share/applications/" + ViewModelExecFilename)
+			AppsList.RunApp("".join(["/usr/share/applications/", ViewModelExecFilename]))
 		
 	# Slots still need to exist when using PySide.
 	@Slot(result=str)

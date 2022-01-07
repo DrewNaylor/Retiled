@@ -48,7 +48,10 @@ class SearchCommands(QObject):
 		# in the search box, too.
 		# TODO 2: Have the code to do a search be async so it doesn't look
 		# choppy when the user presses the button.
-        webbrowser.open("https://bing.com/search?q=" + searchTerm, new = 2)
+		# Not sure how much memory it'll save, but using "".join()
+		# instead of "+" for concatenation does prevent creating new strings
+		# constantly.
+        webbrowser.open("".join(["https://bing.com/search?q=", searchTerm]), new = 2)
 
 
 if __name__ == "__main__":
