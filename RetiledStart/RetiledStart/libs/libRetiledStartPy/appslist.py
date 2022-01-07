@@ -66,10 +66,14 @@ def GetAppName(DotDesktopFilePath):
 	# This is different on Windows for debugging purposes.
 	# Example code for sys.platform:
 	# https://docs.python.org/3/library/sys.html#sys.platform
+	# You can use "".join() to concatenate strings directly together
+	# with nothing between them, just as you would with "+", except
+	# there's less memory usage since we're not creating strings
+	# constantly.
 	if sys.platform.startswith("win32"):
-		return desktopEntryStuff.getInfo("C:\\Users\\drewn\\Desktop\\" + DotDesktopFilePath, "Name", DotDesktopFilePath, "", True)
+		return desktopEntryStuff.getInfo("".join(["C:\\Users\\drewn\\Desktop\\", DotDesktopFilePath]), "Name", DotDesktopFilePath, "", True)
 	else:
-		return desktopEntryStuff.getInfo("/usr/share/applications/" + DotDesktopFilePath, "Name", DotDesktopFilePath, "", True)
+		return desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFilePath]), "Name", DotDesktopFilePath, "", True)
 	
 def getDotDesktopFiles():
 	# Gets the list of .desktop files and creates a list of objects
@@ -114,7 +118,12 @@ def getDotDesktopFiles():
 		# Ensure only .desktop files are picked up.
 		if DotDesktopFilename.endswith( (".desktop") ):
 			# Make sure the .desktop file doesn't have NoDisplay = true.
-			if not desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilename, "NoDisplay", "false", "", True) == "true":
+			# Concatenate using the ".join" method instead of a "+"
+			# to save memory, as otherwise a new string would be created
+			# every time a string is concatenated with another.
+			# As we're in a loop, that would be a lot of extra memory wasted.
+			# I do the same thing when sorting the list below.
+			if not desktopEntryStuff.getInfo(slash.join([DotDesktopRootPath, DotDesktopFilename]), "NoDisplay", "false", "", True) == "true":
 				DotDesktopFilesList.append(DotDesktopFilename)
 
 	# Put it back into a list because I don't know how to
@@ -127,7 +136,7 @@ def getDotDesktopFiles():
 	# This is going through the items in the DotDesktopFilesList and adding items to a dictionary by getting the
 	# name from the .desktop file's "Name" key. If the "Name" key doesn't exist, it just uses the filename.
 	for i in range(len(DotDesktopFilesList)):
-		SortedDotDesktopFilesList[DotDesktopFilesList[i]] = desktopEntryStuff.getInfo(DotDesktopRootPath + slash + DotDesktopFilesList[i], "Name", DotDesktopFilesList[i], "", True)
+		SortedDotDesktopFilesList[DotDesktopFilesList[i]] = desktopEntryStuff.getInfo(slash.join([DotDesktopRootPath, DotDesktopFilesList[i]]), "Name", DotDesktopFilesList[i], "", True)
 	
 	# Now we can sort the dictionary by values.
 	# I think the filename sorting above will be
