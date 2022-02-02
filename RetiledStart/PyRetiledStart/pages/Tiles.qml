@@ -157,7 +157,7 @@ ApplicationWindow {
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
 		contentWidth: tilesContainer.width + 10 + 20
-		contentHeight: tilesContainer.height + 37 + 20 + 5 + allAppsButton.height
+		contentHeight: tilesContainer.height + 37 + 20 + 15 + allAppsButton.height
 		// Very important: Lock the flickable to vertical.
 		// I noticed this when I was just trying to find
 		// a way to disengage the flickable if the user
@@ -404,7 +404,7 @@ ApplicationWindow {
 		Item {
 			// Empty space to move the All Apps button over to the left a little more.
 			id: spacerMoveAllAppsButtonSlightlyToLeft
-			width: 30
+			width: 55
 			anchors.right: spacerBesideTilesOnRight.left
 		}
 		
