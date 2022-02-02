@@ -382,8 +382,10 @@ ApplicationWindow {
 			// Empty item above All Apps button for spacing.
 			id: spacerBelowTiles
 			height: 5
-			anchors.bottom: allAppsButton.top
 			anchors.top: tilesContainer.bottom
+			anchors.bottom: allAppsButton.top
+			anchors.right: spacerBesideTilesOnRight.left
+			anchors.left: spacerBesideTilesOnLeft.right
 		}
 		
 		RetiledStyles.RoundButton {
@@ -420,7 +422,8 @@ ApplicationWindow {
 			// RowLayout, and GridLayout.
 			//Layout.alignment: Qt.AlignRight | Qt.AlignBottom
 			anchors.right: spacerBesideTilesOnRight.left
-			anchors.bottom: window.bottom
+			anchors.bottom: spacerBelowAllAppsButton.top
+			anchors.top: spacerBelowTiles.bottom
 			// Open the All Apps list.
 			// I'll use a SwipeView:
 			// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html
@@ -436,7 +439,6 @@ ApplicationWindow {
 				id: spacerBelowAllAppsButton
 				width: 10
 				anchors.bottom: window.bottom
-				anchors.top: allAppsButton.bottom
 				anchors.right: spacerBesideTilesOnRight.left
 				anchors.left: spacerBesideTilesOnLeft.right
 			}
@@ -450,6 +452,7 @@ ApplicationWindow {
 			anchors.right: window.right
 			anchors.top: spacerAboveTiles.bottom
 			anchors.left: tilesContainer.right
+			anchors.bottom: spacerBelowAllAppsButton.top
 						
 		}
 	
