@@ -380,7 +380,7 @@ ApplicationWindow {
 			// Empty item above All Apps button for spacing.
 			id: spacerBelowTiles
 			height: 5
-			// anchors.top: tilesContainer.bottom
+			anchors.top: tilesContainer.bottom
 			// anchors.bottom: allAppsButton.top
 			// anchors.right: spacerBesideTilesOnRight.left
 			// anchors.left: spacerBesideTilesOnLeft.right
@@ -447,7 +447,7 @@ ApplicationWindow {
 			//Layout.alignment: Qt.AlignRight | Qt.AlignBottom
 			// anchors.right: spacerBesideTilesOnRight.left
 			// // anchors.bottom: spacerBelowAllAppsButton.top
-			// anchors.top: spacerBelowTiles.bottom
+			anchors.top: spacerBelowTiles.bottom
 			// Open the All Apps list.
 			// I'll use a SwipeView:
 			// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html
