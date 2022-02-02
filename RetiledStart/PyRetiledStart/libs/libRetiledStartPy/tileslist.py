@@ -68,7 +68,7 @@ def getTilesList():
 		# https://www.w3schools.com/python/python_lists_loop.asp
 		for i in range(len(YamlFile.Tiles)):
 			#print(YamlFile.Tiles[i].TileColor)
-			TilesList.append({"DotDesktopPath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+			TilesList.append({"DotDesktopPath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": "transparent"})
 		
 		# Get the stuff under Tiles.
 	

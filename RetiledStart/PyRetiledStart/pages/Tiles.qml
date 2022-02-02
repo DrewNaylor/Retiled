@@ -31,7 +31,6 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
-import Qt5Compat.GraphicalEffects
 
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
@@ -114,7 +113,8 @@ ApplicationWindow {
 	
 	
 	
-    Item {
+    Rectangle {
+		color: "black"
 		
 		// Trying to implement parallax scrolling based on
 		// this example:
@@ -131,6 +131,7 @@ ApplicationWindow {
 				
 				
 			Flickable {
+				
 	Image {
 					id: tileWallpaper
 					fillMode: Image.PreserveAspectCrop
@@ -139,8 +140,9 @@ ApplicationWindow {
 					x: tilesContainer.x + 15
 					y: tilesContainer.y
 					source: "wallpaper.jpg"
-					// source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
-					visible: false
+					//source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
+					visible: true
+					
 				}
 				
 				// We're using a custom shader:
@@ -220,6 +222,7 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			
 			
 		
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
