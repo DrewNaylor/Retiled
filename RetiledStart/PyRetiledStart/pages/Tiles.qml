@@ -132,18 +132,7 @@ ApplicationWindow {
 				
 			Flickable {
 				
-	Image {
-					id: tileWallpaper
-					fillMode: Image.PreserveAspectCrop
-					height: tilesContainer.height
-					width: tilesContainer.width
-					x: tilesContainer.x + 15
-					y: tilesContainer.y
-					source: "wallpaper.jpg"
-					//source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
-					visible: true
-					
-				}
+	
 				
 				// We're using a custom shader:
 				// https://stackoverflow.com/a/39907404
@@ -180,22 +169,31 @@ ApplicationWindow {
 		// Code for the About.qml file here:
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
 		
-		RowLayout {
-			
-			Item {
+		
+		Item {
+			id: tilePageContentHolder
+			anchors.fill: parent
+		
+		
+		Item {
 				// Empty item that acts as a margin on the left of the
 				// tiles so it can be scrolled, as margins don't allow scrolling.
-				width: 10
-			}
-		
-		ColumnLayout {
-			id: tilePageContentHolder
+			id: spacerBesideTilesOnLeft
+			width: 10
+			anchors.left: parent.left
+			anchors.right: tilesContainer.left
+			anchors.top: spacerAboveTiles.bottom
+			anchors.bottom: parent.bottom
+		}
 		
 		Item {
 			// Create an empty item so the area above
 			// the tiles works as a scrollable area.
+			id: spacerAboveTiles
 			height: 37
-			
+			anchors.top: parent.top
+			anchors.left: parent.right
+			anchors.right: parent.right
 		}
 		
 		
@@ -209,7 +207,15 @@ ApplicationWindow {
 		// https://stackoverflow.com/a/38532138
 		
 				
-		
+		// Image {
+					// id: tileWallpaper
+					// fillMode: Image.PreserveAspectCrop
+					// anchors.top: tilesContainer.top
+					// source: "wallpaper.jpg"
+					// //source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
+					// visible: true
+					
+				// }
 		
 				
 					
@@ -221,7 +227,11 @@ ApplicationWindow {
 			// Make sure the buttons stay in the tiles area.
 			width: window.width
 			// Set layout to the center.
-			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			//Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			anchors.top: spacerAboveTiles.bottom
+			anchors.left: spacerBesideTilesOnLeft.right
+			anchors.right: spacerBesideTilesOnRight.left
+			anchors.bottom: spacerBelowTiles.top
 			
 			
 		
@@ -370,7 +380,10 @@ ApplicationWindow {
 		
 		Item {
 			// Empty item above All Apps button for spacing.
+			id: spacerBelowTiles
 			height: 5
+			anchors.bottom: allAppsButton.top
+			anchors.top: tilesContainer.bottom
 		}
 		
 		RetiledStyles.RoundButton {
@@ -405,7 +418,9 @@ ApplicationWindow {
 			// Layout.alignment only works in QML's
 			// "Layout" types, like ColumnLayout,
 			// RowLayout, and GridLayout.
-			Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+			//Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+			anchors.right: spacerBesideTilesOnRight.left
+			anchors.bottom: window.bottom
 			// Open the All Apps list.
 			// I'll use a SwipeView:
 			// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html
@@ -418,20 +433,30 @@ ApplicationWindow {
 			// Empty item below the All Apps button
 			// for spacing, as margins don't allow you
 			// to scroll in them.
-			height: 20
+				id: spacerBelowAllAppsButton
+				width: 10
+				anchors.bottom: window.bottom
+				anchors.top: allAppsButton.bottom
+				anchors.right: spacerBesideTilesOnRight.left
+				anchors.left: spacerBesideTilesOnLeft.right
+			}
 			
+		Item {
+			
+			// Empty item that acts as a margin on the right of the
+			// tiles so it can be scrolled, as margins don't allow scrolling.
+			id: spacerBesideTilesOnRight
+			height: 20
+			anchors.right: window.right
+			anchors.top: spacerAboveTiles.bottom
+			anchors.left: tilesContainer.right
+						
 		}
-
 	
 		} // End of ColumnLayout for the tiles and All Apps button.
 		
-		Item {
-				// Empty item that acts as a margin on the right of the
-				// tiles so it can be scrolled, as margins don't allow scrolling.
-				width: 10
-			}
 		
-		} // End of RowLayout for storing empty items that form the margins on the left and right.
+			
 		
 	}
 	}

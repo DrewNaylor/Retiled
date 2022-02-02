@@ -37,7 +37,7 @@
 Tiles:
 - DotDesktopFilePath: "/usr/share/applications/firefox.desktop"
   TileColor: "#0050ef"
-  TileWidth: 150
+  TileWidth: 310
   TileHeight: 150
 - DotDesktopFilePath: "/usr/share/applications/org.kde.angelfish.desktop"
   TileColor: "#0050ef"
