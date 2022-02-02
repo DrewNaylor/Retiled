@@ -180,10 +180,10 @@ ApplicationWindow {
 				// tiles so it can be scrolled, as margins don't allow scrolling.
 			id: spacerBesideTilesOnLeft
 			width: 10
-			anchors.left: parent.left
-			anchors.right: tilesContainer.left
+			anchors.left: tilesFlickable.left
+			anchors.right: tilePageContentHolder.left
 			anchors.top: spacerAboveTiles.bottom
-			anchors.bottom: parent.bottom
+			anchors.bottom: spacerBelowTiles.top
 		}
 		
 		Item {
@@ -191,9 +191,9 @@ ApplicationWindow {
 			// the tiles works as a scrollable area.
 			id: spacerAboveTiles
 			height: 37
-			anchors.top: parent.top
-			anchors.left: parent.right
-			anchors.right: parent.right
+			anchors.top: tilePageContentHolder.top
+			anchors.left: tilePageContentHolder.left
+			anchors.right: tilePageContentHolder.right
 		}
 		
 		
