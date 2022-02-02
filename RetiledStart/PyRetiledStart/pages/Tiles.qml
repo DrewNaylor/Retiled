@@ -186,7 +186,7 @@ ApplicationWindow {
 			// Create an empty item so the area above
 			// the tiles works as a scrollable area.
 			id: spacerAboveTiles
-			height: 37
+			height: 42
 			anchors.top: parent.top
 			anchors.left: parent.left
 			anchors.right: parent.right
