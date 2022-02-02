@@ -130,21 +130,21 @@ ApplicationWindow {
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
 				
-			Flickable {
+			// Flickable {
 				
 	
 				
-				// We're using a custom shader:
-				// https://stackoverflow.com/a/39907404
+				// // We're using a custom shader:
+				// // https://stackoverflow.com/a/39907404
 				
-				// Rectangle {
-					// id: betterMask
-					// anchors.fill: tileWallpaper
-					// source: tileWallpaper
-					// maskSource: tilesContainer
-					// invert: false
-				// }
-	}
+				// // Rectangle {
+					// // id: betterMask
+					// // anchors.fill: tileWallpaper
+					// // source: tileWallpaper
+					// // maskSource: tilesContainer
+					// // invert: false
+				// // }
+	// }
 		
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
@@ -173,6 +173,8 @@ ApplicationWindow {
 		Item {
 			id: tilePageContentHolder
 			anchors.fill: parent
+			width: parent.width
+			height: parent.height
 		
 		
 		Item {
@@ -226,7 +228,7 @@ ApplicationWindow {
 			id: tilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
-			width: window.width
+			width: tilePageContentHolder.width
 			// Set layout to the center.
 			//Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 			anchors.top: spacerAboveTiles.bottom
@@ -389,6 +391,31 @@ ApplicationWindow {
 			anchors.left: spacerBesideTilesOnLeft.right
 		}
 		
+		Item {
+			// Empty item below the All Apps button
+			// for spacing, as margins don't allow you
+			// to scroll in them.
+				id: spacerBelowAllAppsButton
+				width: 10
+				anchors.top: allAppsButton.bottom
+				anchors.bottom: tilePageContentHolder.bottom
+				anchors.right: spacerBesideTilesOnRight.left
+				anchors.left: spacerBesideTilesOnLeft.right
+			}
+			
+		Item {
+			
+			// Empty item that acts as a margin on the right of the
+			// tiles so it can be scrolled, as margins don't allow scrolling.
+			id: spacerBesideTilesOnRight
+			height: 20
+			anchors.right: tilePageContentHolder.right
+			anchors.top: spacerAboveTiles.bottom
+			anchors.left: tilesContainer.right
+			anchors.bottom: spacerBelowAllAppsButton.top
+						
+		}
+		
 		RetiledStyles.RoundButton {
 			id: allAppsButton
 			// We have to say this is a Unicode font:
@@ -433,30 +460,7 @@ ApplicationWindow {
 						}
 				} // End of the All Apps button.
 
-		Item {
-			// Empty item below the All Apps button
-			// for spacing, as margins don't allow you
-			// to scroll in them.
-				id: spacerBelowAllAppsButton
-				width: 10
-				anchors.top: allAppsButton.bottom
-				anchors.bottom: tilePageContentHolder.bottom
-				anchors.right: spacerBesideTilesOnRight.left
-				anchors.left: spacerBesideTilesOnLeft.right
-			}
-			
-		Item {
-			
-			// Empty item that acts as a margin on the right of the
-			// tiles so it can be scrolled, as margins don't allow scrolling.
-			id: spacerBesideTilesOnRight
-			height: 20
-			anchors.right: tilePageContentHolder.right
-			anchors.top: spacerAboveTiles.bottom
-			anchors.left: tilesContainer.right
-			anchors.bottom: spacerBelowAllAppsButton.top
-						
-		}
+		
 	
 		} // End of ColumnLayout for the tiles and All Apps button.
 		
