@@ -379,7 +379,7 @@ ApplicationWindow {
 		Item {
 			// Empty item above All Apps button for spacing.
 			id: spacerBelowTiles
-			height: 5
+			height: 15
 			anchors.top: tilesContainer.bottom
 			// anchors.bottom: allAppsButton.top
 			anchors.right: spacerBesideTilesOnRight.left
