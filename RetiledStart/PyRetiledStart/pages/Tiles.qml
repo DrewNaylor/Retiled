@@ -386,18 +386,7 @@ ApplicationWindow {
 			// anchors.left: spacerBesideTilesOnLeft.right
 		}
 		
-		Item {
-			// Empty item below the All Apps button
-			// for spacing, as margins don't allow you
-			// to scroll in them.
-				id: spacerBelowAllAppsButton
-				
-				height: 20
-				anchors.top: allAppsButton.bottom
-				anchors.bottom: parent.bottom
-				// anchors.right: spacerBesideTilesOnRight.left
-				// anchors.left: spacerBesideTilesOnLeft.right
-			}
+		
 			
 		Item {
 			
@@ -464,7 +453,18 @@ ApplicationWindow {
 				} // End of the All Apps button.
 
 		
-	
+	Item {
+			// Empty item below the All Apps button
+			// for spacing, as margins don't allow you
+			// to scroll in them.
+				id: spacerBelowAllAppsButton
+				
+				height: 20
+				// anchors.top: allAppsButton.bottom
+				anchors.bottom: window.bottom
+				// anchors.right: spacerBesideTilesOnRight.left
+				// anchors.left: spacerBesideTilesOnLeft.right
+			}
 		
 			
 		
