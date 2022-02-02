@@ -439,7 +439,8 @@ ApplicationWindow {
 			// to scroll in them.
 				id: spacerBelowAllAppsButton
 				width: 10
-				anchors.bottom: window.bottom
+				anchors.top: allAppsButton.bottom
+				anchors.bottom: tilePageContentHolder.bottom
 				anchors.right: spacerBesideTilesOnRight.left
 				anchors.left: spacerBesideTilesOnLeft.right
 			}
@@ -450,7 +451,7 @@ ApplicationWindow {
 			// tiles so it can be scrolled, as margins don't allow scrolling.
 			id: spacerBesideTilesOnRight
 			height: 20
-			anchors.right: window.right
+			anchors.right: tilePageContentHolder.right
 			anchors.top: spacerAboveTiles.bottom
 			anchors.left: tilesContainer.right
 			anchors.bottom: spacerBelowAllAppsButton.top
