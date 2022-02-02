@@ -459,7 +459,7 @@ ApplicationWindow {
 			// to scroll in them.
 				id: spacerBelowAllAppsButton
 				
-				height: 50
+				height: 25
 				anchors.top: allAppsButton.bottom
 				anchors.bottom: window.bottom
 				// anchors.right: spacerBesideTilesOnRight.left
