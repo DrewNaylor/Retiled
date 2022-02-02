@@ -226,7 +226,7 @@ ApplicationWindow {
 			// Set layout to the center.
 			//Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 			anchors.top: spacerAboveTiles.bottom
-			// anchors.left: spacerBesideTilesOnLeft.right
+			anchors.left: spacerBesideTilesOnLeft.right
 			// anchors.right: spacerBesideTilesOnRight.left
 			// anchors.bottom: spacerBelowTiles.top
 			// anchors.horizontalCenter: window.horizontalCenter
