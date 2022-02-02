@@ -405,9 +405,9 @@ ApplicationWindow {
 			// tiles so it can be scrolled, as margins don't allow scrolling.
 			id: spacerBesideTilesOnRight
 			width: 10
-			// anchors.right: tilePageContentHolder.right
-			// anchors.top: spacerAboveTiles.bottom
-			// anchors.left: tilesContainer.right
+			anchors.right: parent.right
+			anchors.top: spacerAboveTiles.bottom
+			anchors.left: tilesContainer.right
 			// anchors.bottom: spacerBelowAllAppsButton.top
 						
 		}
@@ -445,7 +445,7 @@ ApplicationWindow {
 			// "Layout" types, like ColumnLayout,
 			// RowLayout, and GridLayout.
 			//Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-			// anchors.right: spacerBesideTilesOnRight.left
+			anchors.right: spacerBesideTilesOnRight.left
 			// // anchors.bottom: spacerBelowAllAppsButton.top
 			anchors.top: spacerBelowTiles.bottom
 			// Open the All Apps list.
