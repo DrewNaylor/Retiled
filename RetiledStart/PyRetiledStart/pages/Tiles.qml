@@ -172,9 +172,6 @@ ApplicationWindow {
 		
 		Item {
 			id: tilePageContentHolder
-			anchors.fill: parent
-			width: parent.width
-			height: parent.height
 		
 		
 		Item {
