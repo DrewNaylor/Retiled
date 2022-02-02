@@ -156,8 +156,8 @@ ApplicationWindow {
 		id: tilesFlickable
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
-		contentWidth: tilePageContentHolder.width
-		contentHeight: tilePageContentHolder.height
+		contentWidth: tilesContainer.width + 10 + 10
+		contentHeight: tilesContainer.height + 37 + 20 + 5 + allAppsButton.height
 		// Very important: Lock the flickable to vertical.
 		// I noticed this when I was just trying to find
 		// a way to disengage the flickable if the user
@@ -170,19 +170,16 @@ ApplicationWindow {
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
 		
 		
-		Item {
-			id: tilePageContentHolder
-		
 		
 		Item {
 				// Empty item that acts as a margin on the left of the
 				// tiles so it can be scrolled, as margins don't allow scrolling.
 			id: spacerBesideTilesOnLeft
 			width: 10
-			anchors.left: tilePageContentHolder.left
-			anchors.right: tilesContainer.left
-			anchors.top: spacerAboveTiles.bottom
-			anchors.bottom: spacerBelowTiles.top
+			// anchors.left: tilePageContentHolder.left
+			// anchors.right: tilesContainer.left
+			// anchors.top: spacerAboveTiles.bottom
+			// anchors.bottom: spacerBelowTiles.top
 		}
 		
 		Item {
@@ -190,10 +187,10 @@ ApplicationWindow {
 			// the tiles works as a scrollable area.
 			id: spacerAboveTiles
 			height: 37
-			anchors.top: tilePageContentHolder.top
-			anchors.left: tilePageContentHolder.left
-			anchors.right: tilePageContentHolder.right
-			anchors.bottom: tilesContainer.top
+			// anchors.top: tilePageContentHolder.top
+			// anchors.left: tilePageContentHolder.left
+			// anchors.right: tilePageContentHolder.right
+			// anchors.bottom: tilesContainer.top
 		}
 		
 		
@@ -228,11 +225,11 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			//Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-			anchors.top: spacerAboveTiles.bottom
-			anchors.left: spacerBesideTilesOnLeft.right
-			anchors.right: spacerBesideTilesOnRight.left
-			anchors.bottom: spacerBelowTiles.top
-			anchors.horizontalCenter: window.horizontalCenter
+			// anchors.top: spacerAboveTiles.bottom
+			// anchors.left: spacerBesideTilesOnLeft.right
+			// anchors.right: spacerBesideTilesOnRight.left
+			// anchors.bottom: spacerBelowTiles.top
+			// anchors.horizontalCenter: window.horizontalCenter
 			
 			
 		
@@ -384,9 +381,9 @@ ApplicationWindow {
 			id: spacerBelowTiles
 			height: 5
 			// anchors.top: tilesContainer.bottom
-			anchors.bottom: allAppsButton.top
-			anchors.right: spacerBesideTilesOnRight.left
-			anchors.left: spacerBesideTilesOnLeft.right
+			// anchors.bottom: allAppsButton.top
+			// anchors.right: spacerBesideTilesOnRight.left
+			// anchors.left: spacerBesideTilesOnLeft.right
 		}
 		
 		Item {
@@ -396,10 +393,10 @@ ApplicationWindow {
 				id: spacerBelowAllAppsButton
 				
 				height: 20
-				anchors.top: allAppsButton.bottom
-				anchors.bottom: tilePageContentHolder.bottom
-				anchors.right: spacerBesideTilesOnRight.left
-				anchors.left: spacerBesideTilesOnLeft.right
+				// anchors.top: allAppsButton.bottom
+				// anchors.bottom: tilePageContentHolder.bottom
+				// anchors.right: spacerBesideTilesOnRight.left
+				// anchors.left: spacerBesideTilesOnLeft.right
 			}
 			
 		Item {
@@ -408,10 +405,10 @@ ApplicationWindow {
 			// tiles so it can be scrolled, as margins don't allow scrolling.
 			id: spacerBesideTilesOnRight
 			width: 10
-			anchors.right: tilePageContentHolder.right
-			anchors.top: spacerAboveTiles.bottom
-			anchors.left: tilesContainer.right
-			anchors.bottom: spacerBelowAllAppsButton.top
+			// anchors.right: tilePageContentHolder.right
+			// anchors.top: spacerAboveTiles.bottom
+			// anchors.left: tilesContainer.right
+			// anchors.bottom: spacerBelowAllAppsButton.top
 						
 		}
 		
@@ -448,9 +445,9 @@ ApplicationWindow {
 			// "Layout" types, like ColumnLayout,
 			// RowLayout, and GridLayout.
 			//Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-			anchors.right: spacerBesideTilesOnRight.left
-			// anchors.bottom: spacerBelowAllAppsButton.top
-			anchors.top: spacerBelowTiles.bottom
+			// anchors.right: spacerBesideTilesOnRight.left
+			// // anchors.bottom: spacerBelowAllAppsButton.top
+			// anchors.top: spacerBelowTiles.bottom
 			// Open the All Apps list.
 			// I'll use a SwipeView:
 			// https://doc.qt.io/qt-6/qml-qtquick-controls2-swipeview.html
@@ -461,8 +458,6 @@ ApplicationWindow {
 
 		
 	
-		} // End of Rectangle for the tiles and All Apps button.
-		
 		
 			
 		
