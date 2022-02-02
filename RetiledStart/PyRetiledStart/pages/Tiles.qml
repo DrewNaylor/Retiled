@@ -156,7 +156,7 @@ ApplicationWindow {
 		id: tilesFlickable
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
-		contentWidth: tilesContainer.width + 10 + 10
+		contentWidth: tilesContainer.width + 10 + 20
 		contentHeight: tilesContainer.height + 37 + 20 + 5 + allAppsButton.height
 		// Very important: Lock the flickable to vertical.
 		// I noticed this when I was just trying to find
@@ -175,7 +175,7 @@ ApplicationWindow {
 				// Empty item that acts as a margin on the left of the
 				// tiles so it can be scrolled, as margins don't allow scrolling.
 			id: spacerBesideTilesOnLeft
-			width: 10
+			width: 20
 			anchors.left: parent.left
 			// anchors.right: tilesContainer.left
 			// anchors.top: spacerAboveTiles.bottom
