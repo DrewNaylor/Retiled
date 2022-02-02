@@ -382,7 +382,7 @@ ApplicationWindow {
 			height: 5
 			anchors.top: tilesContainer.bottom
 			// anchors.bottom: allAppsButton.top
-			// anchors.right: spacerBesideTilesOnRight.left
+			anchors.right: spacerBesideTilesOnRight.left
 			// anchors.left: spacerBesideTilesOnLeft.right
 		}
 		
@@ -393,8 +393,8 @@ ApplicationWindow {
 				id: spacerBelowAllAppsButton
 				
 				height: 20
-				// anchors.top: allAppsButton.bottom
-				// anchors.bottom: tilePageContentHolder.bottom
+				anchors.top: allAppsButton.bottom
+				anchors.bottom: parent.bottom
 				// anchors.right: spacerBesideTilesOnRight.left
 				// anchors.left: spacerBesideTilesOnLeft.right
 			}
@@ -446,7 +446,7 @@ ApplicationWindow {
 			// RowLayout, and GridLayout.
 			//Layout.alignment: Qt.AlignRight | Qt.AlignBottom
 			anchors.right: spacerBesideTilesOnRight.left
-			// // anchors.bottom: spacerBelowAllAppsButton.top
+			// anchors.bottom: spacerBelowAllAppsButton.top
 			anchors.top: spacerBelowTiles.bottom
 			// Open the All Apps list.
 			// I'll use a SwipeView:
