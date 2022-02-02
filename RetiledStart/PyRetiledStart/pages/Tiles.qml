@@ -404,7 +404,7 @@ ApplicationWindow {
 		Item {
 			// Empty space to move the All Apps button over to the left a little more.
 			id: spacerMoveAllAppsButtonSlightlyToLeft
-			width: 55
+			width: 50
 			anchors.right: spacerBesideTilesOnRight.left
 		}
 		
