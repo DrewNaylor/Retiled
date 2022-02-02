@@ -393,8 +393,9 @@ ApplicationWindow {
 			// for spacing, as margins don't allow you
 			// to scroll in them.
 				id: spacerBelowAllAppsButton
-				width: 10
-				anchors.top: allAppsButton.bottom
+				
+				height: 20
+				// anchors.top: allAppsButton.bottom
 				anchors.bottom: tilePageContentHolder.bottom
 				anchors.right: spacerBesideTilesOnRight.left
 				anchors.left: spacerBesideTilesOnLeft.right
@@ -405,7 +406,7 @@ ApplicationWindow {
 			// Empty item that acts as a margin on the right of the
 			// tiles so it can be scrolled, as margins don't allow scrolling.
 			id: spacerBesideTilesOnRight
-			height: 20
+			width: 10
 			anchors.right: tilePageContentHolder.right
 			anchors.top: spacerAboveTiles.bottom
 			anchors.left: tilesContainer.right
