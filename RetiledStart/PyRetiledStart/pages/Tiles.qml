@@ -228,7 +228,7 @@ ApplicationWindow {
 			id: tilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
-			width: tilePageContentHolder.width
+			width: window.width
 			// Set layout to the center.
 			//Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 			anchors.top: spacerAboveTiles.bottom
