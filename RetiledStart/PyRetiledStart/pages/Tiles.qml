@@ -412,6 +412,13 @@ ApplicationWindow {
 						
 		}
 		
+		Item {
+			// Empty space to move the All Apps button over to the left a little more.
+			id: spacerMoveAllAppsButtonSlightlyToLeft
+			width: 30
+			anchors.right: spacerBesideTilesOnRight.left
+		}
+		
 		RetiledStyles.RoundButton {
 			id: allAppsButton
 			// We have to say this is a Unicode font:
@@ -445,7 +452,7 @@ ApplicationWindow {
 			// "Layout" types, like ColumnLayout,
 			// RowLayout, and GridLayout.
 			//Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-			anchors.right: spacerBesideTilesOnRight.left
+			anchors.right: spacerMoveAllAppsButtonSlightlyToLeft.left
 			// anchors.bottom: spacerBelowAllAppsButton.top
 			anchors.top: spacerBelowTiles.bottom
 			// Open the All Apps list.
