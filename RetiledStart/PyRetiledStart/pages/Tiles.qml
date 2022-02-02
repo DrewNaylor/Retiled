@@ -232,6 +232,7 @@ ApplicationWindow {
 			anchors.left: spacerBesideTilesOnLeft.right
 			anchors.right: spacerBesideTilesOnRight.left
 			anchors.bottom: spacerBelowTiles.top
+			anchors.horizontalCenter: window.horizontalCenter
 			
 			
 		
@@ -382,7 +383,7 @@ ApplicationWindow {
 			// Empty item above All Apps button for spacing.
 			id: spacerBelowTiles
 			height: 5
-			anchors.top: tilesContainer.bottom
+			// anchors.top: tilesContainer.bottom
 			anchors.bottom: allAppsButton.top
 			anchors.right: spacerBesideTilesOnRight.left
 			anchors.left: spacerBesideTilesOnLeft.right
