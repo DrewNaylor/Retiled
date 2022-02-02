@@ -113,8 +113,8 @@ ApplicationWindow {
 	
 	
 	
-    Rectangle {
-		color: "black"
+    Item {
+		// color: "black"
 		
 		// Trying to implement parallax scrolling based on
 		// this example:
@@ -459,7 +459,7 @@ ApplicationWindow {
 
 		
 	
-		} // End of ColumnLayout for the tiles and All Apps button.
+		} // End of Rectangle for the tiles and All Apps button.
 		
 		
 			

@@ -250,10 +250,7 @@ ButtonBase {
 				// I wasn't going to do it, but then I went back
 				// and I really don't like how Open Sans looks by default.
             }
-			
-	ShaderEffect {
 		
-	}
 	
 	background: Rectangle {
 		// Change tile color and stuff.
