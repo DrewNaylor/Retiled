@@ -156,8 +156,8 @@ ApplicationWindow {
 		id: tilesFlickable
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
-		contentWidth: tilesContainer.width + 10 + 20
-		contentHeight: tilesContainer.height + 37 + 20 + 15 + allAppsButton.height
+		contentWidth: tilesContainer.width + spacerBesideTilesOnLeft.width + spacerBesideTilesOnRight.width
+		contentHeight: tilesContainer.height + spacerAboveTiles.height + spacerBelowTiles.height + spacerBelowAllAppsButton.height + allAppsButton.height
 		// Very important: Lock the flickable to vertical.
 		// I noticed this when I was just trying to find
 		// a way to disengage the flickable if the user
