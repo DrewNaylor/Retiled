@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     // Connect the Searcher as a context property.
     engine.rootContext()->setContextProperty("searcher", Searcher);
 
-    const QUrl url(u"qrc:/untitled/main.qml"_qs);
+    const QUrl url(u"qrc:/retiledsearch/MainWindow.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
