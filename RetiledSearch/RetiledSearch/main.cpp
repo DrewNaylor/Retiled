@@ -10,19 +10,21 @@
 int main(int argc, char *argv[])
 {
 
-//    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
-//    std::filesystem::current_path("..");
-//    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
-//    std::filesystem::current_path("..");
-//    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
-//    std::filesystem::current_path("..");
-//    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
-//    std::filesystem::current_path("..");
-//    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
-//    std::filesystem::current_path("..");
-//    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
-//    std::filesystem::current_path("RetiledStyles");
-//    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    QString originalPath = QDir::currentPath();
+
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("RetiledStyles");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
 
     // Create a Searcher to use to run the search.
     // This isn't very good, because this is a pointer
@@ -42,7 +44,10 @@ int main(int argc, char *argv[])
     // Connect the Searcher as a context property.
     engine.rootContext()->setContextProperty("searcher", Searcher);
 
-    const QUrl url("file:///" + QDir::currentPath() + u"/retiledsearch/MainWindow.qml"_qs);
+    // Set a context property for the original path.
+    engine.rootContext()->setContextProperty("originalPath", originalPath);
+
+    const QUrl url("file:///" + originalPath + u"/retiledsearch/MainWindow.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
