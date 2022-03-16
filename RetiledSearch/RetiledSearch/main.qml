@@ -9,7 +9,8 @@ Window {
 
     Button {
         text: "Search Bing for \"Windows Phone\""
-        onClicked: searcher.doSearch("This should work with other terms.")
+        onClicked: console.log(Qt.resolvedUrl("."))
+        //onClicked: searcher.doSearch("This should work with other terms.")
     }
 
 }

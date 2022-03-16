@@ -2,10 +2,21 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "searcher.h"
+#include <QDir>
+#include <QDebug>
+#include <QTextStream>
 
 
 int main(int argc, char *argv[])
 {
+
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
+    std::filesystem::current_path("..");
+    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
 
     // Create a Searcher to use to run the search.
     // This isn't very good, because this is a pointer
