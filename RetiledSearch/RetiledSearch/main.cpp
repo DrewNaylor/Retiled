@@ -44,8 +44,8 @@ int main(int argc, char *argv[])
     // Connect the Searcher as a context property.
     engine.rootContext()->setContextProperty("searcher", Searcher);
 
-    // Set a context property for the original path.
-    engine.rootContext()->setContextProperty("originalPath", originalPath);
+    // Set a context property for the resources path.
+    engine.rootContext()->setContextProperty("resourcesPath", QDir::currentPath());
 
     const QUrl url("file:///" + originalPath + u"/retiledsearch/MainWindow.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
