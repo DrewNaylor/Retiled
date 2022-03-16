@@ -110,7 +110,7 @@ ApplicationWindow {
 			// https://github.com/DrewNaylor/wp-metro
 			// This font was made by AJ Troxell and is under the SIL OFL 1.1:
 			// http://scripts.sil.org/OFL
-			source: "../../fonts/wp-metro/WP-Metro.ttf"
+            source: "../../../../../../fonts/wp-metro/WP-Metro.ttf"
 		}
 		
 			// Load Open Sans Regular for the textbox and other controls
@@ -124,7 +124,7 @@ ApplicationWindow {
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
+            source: "../../../../../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
 		}
 		
 		FontLoader {
@@ -134,7 +134,7 @@ ApplicationWindow {
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../fonts/open_sans/static/OpenSans/OpenSans-SemiBold.ttf"
+            source: "../../../../../../fonts/open_sans/static/OpenSans/OpenSans-SemiBold.ttf"
 		}
 		
 			// Properties for pixel density:
@@ -210,7 +210,7 @@ ApplicationWindow {
 				Image {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
-			source: "../../icons/actions/ellipsis_white.svg"
+            source: "../../../../../../icons/actions/ellipsis_white.svg"
 			// Set source size so it's crisp:
 			// https://doc.qt.io/qt-5/qml-qtquick-image.html#sourceSize-prop
 			sourceSize.width: 40

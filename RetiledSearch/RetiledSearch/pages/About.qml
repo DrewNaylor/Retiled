@@ -47,7 +47,7 @@ Page {
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
+            source: "../../../../../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
 		}
 		
 	

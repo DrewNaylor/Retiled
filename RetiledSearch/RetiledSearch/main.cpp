@@ -23,8 +23,6 @@ int main(int argc, char *argv[])
     qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
     std::filesystem::current_path("..");
     qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
-    std::filesystem::current_path("RetiledStyles");
-    qInfo() << "Current directory:" << QDir::currentPath() << Qt::endl;
 
     // Create a Searcher to use to run the search.
     // This isn't very good, because this is a pointer
@@ -43,9 +41,6 @@ int main(int argc, char *argv[])
 
     // Connect the Searcher as a context property.
     engine.rootContext()->setContextProperty("searcher", Searcher);
-
-    // Set a context property for the resources path.
-    engine.rootContext()->setContextProperty("resourcesPath", QDir::currentPath());
 
     const QUrl url("file:///" + originalPath + u"/retiledsearch/MainWindow.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
