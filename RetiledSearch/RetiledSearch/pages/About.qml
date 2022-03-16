@@ -112,6 +112,9 @@ Page {
             // Set font style to opensans.
             font.family: "Open Sans"
             font.weight: Font.Normal
+            // Not sure why this is necessary when using C++ but not with Python.
+            // Font size will be too small if it's not set to 11.
+            font.pointSize: 11
             // TODO: Move letter spacing into the control.
             font.letterSpacing: -0.8 * scaleFactor
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
