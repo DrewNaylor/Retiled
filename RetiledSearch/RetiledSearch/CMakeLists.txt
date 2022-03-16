@@ -16,7 +16,7 @@ qt_add_executable(retiledsearch
 qt_add_qml_module(retiledsearch
     URI retiledsearch
     VERSION 1.0
-    QML_FILES MainWindow.qml
+    QML_FILES MainWindow.qml;pages/About.qml
 )
 
 target_compile_definitions(retiledsearch
