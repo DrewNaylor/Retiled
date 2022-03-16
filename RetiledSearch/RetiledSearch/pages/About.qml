@@ -26,6 +26,8 @@
 
 import QtQuick
 import QtQuick.Controls
+// Apparently you have to import Universal here, too.
+import QtQuick.Controls.Universal
 import QtQuick.Layouts
 
 Page {
