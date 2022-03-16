@@ -378,7 +378,7 @@ ApplicationWindow {
          RetiledStyles.Button {
             id: searchButton
 			onClicked: {
-				searchClass.openUrl(searchBox.text)
+                searcher.doSearch(searchBox.text)
 			}
 			
 			// Pro-tip: set these properties rather than
