@@ -141,6 +141,10 @@ There are also some "wishlist" features that I really want but might be too comp
   - Basically the same as allowing them to change their default Search app, but more unique, I guess, because neither Phosh nor Plasma Mobile support the feature, even though Android does.
   - Maybe someone could make one that looks more like Zune or Windows Mobile 6.x (or older) if they wanted to use those UIs. Perhaps there are some that would prefer even a Windows Phone 7.x or Windows 10 Mobile Start screen or a fork of RetiledStart that has different features.
   - I'd have to figure out an API for custom launchers/Start replacements to plug into the Start button on the navigation bar so that they can do whatever they want when they're open. For example, they can go back to the top of the tiles list when the user is in the All Apps list, or they can just do nothing.
+- Some sort of a way to deep-link information between apps without just being a pinned tile.
+  - For example, this Mix11 video shows a movie's IMDb page being opened from Bing search results: https://youtu.be/NImj-m2y724
+  - Another easier example would be to display apps of a specific category, such as music or video-related in a hypothetical reimplementation of the music+videos Hub. This is shown in the same video as the IMDb example.
+  - Most of this functionality would rely on app developers implementing the features required (might have to use custom fields in .desktop files) so everything works well together, as it would be impossible for me to tell other people what I want to have happen, particularly at such a large scale.
 
 Besides features that were in WP, some additional features may need to be added for ease of use on a Linux (or perhaps even FreeBSD?) phone:
 - .desktop files editor
