@@ -47,19 +47,24 @@ RetiledStyles.Button {
 	property string toggledOffColor: "#1F1F1F"
 	
 	// Specify whether this button can be toggled.
+	// TODO: Allow multi-state buttons, such as for display brightness.
 	// By default it's a toggle button for testing.
 	property bool canToggle: true
 	// Specify whether the button is currently toggled.
 	property bool isToggled: false
 	
 	// Switch the button between toggled on and off states.
-	onClicked: {
+	// We have to use onReleased because QML doesn't let onClicked
+	// events go as quickly as I want to allow.
+	onReleased: {
 		if ((canToggle == true) && (isToggled == false)) {
 			// Toggle the button on.
 			isToggled = true;
+			//console.log(isToggled);
 		} else if ((canToggle == true) && (isToggled == true)) {
 			// Toggle the button off.
 			isToggled = false;
+			//console.log(isToggled);
 		}
 	}
 }
