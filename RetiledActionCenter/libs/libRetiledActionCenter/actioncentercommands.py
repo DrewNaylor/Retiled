@@ -42,8 +42,16 @@ def runCommand(commandName):
 	# Flashlight commands were taken from this page:
 	# https://xnux.eu/devices/feature/flash-pp.html#toc-pinephone-flash-led
 	if commandName == "flashlight_on":
+		if sys.platform.startswith("win32"):
+			print("running on Windows; this won't work.")
+		else:
+			
 		print("commandName: " + commandName)
 	if commandName == "flashlight_off":
+		if sys.platform.startswith("win32"):
+			print("running on Windows; this won't work.")
+		else:
+			
 		print("commandName: " + commandName)
 
 # def saveTilesList(tilesList):
