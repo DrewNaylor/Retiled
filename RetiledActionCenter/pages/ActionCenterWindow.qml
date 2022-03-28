@@ -103,11 +103,17 @@ ApplicationWindow {
         }
     }
 	
+	// Set up the button command signals.
+	function runCommand(buttonCommand) {
+		actionCenterActionButtonsViewModel.runCommand(buttonCommand);
+	}
+	
 	
 	// Add testing buttons.
 	RetiledStyles.ActionCenterActionButton {
 		actionCenterButtonText: "FLASHLIGHT"
 		buttonCommand: isToggled ? "flashlight_off" : "flashlight_on"
+		onRunCommand: runCommand(buttonCommand)
 	}
 	
 }// End of the window.
