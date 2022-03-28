@@ -1,6 +1,6 @@
-# RetiledStart - Windows Phone 8.x-like Start screen UI for the
-#                Retiled project.
-# Copyright (C) 2021 Drew Naylor
+# RetiledActionCenter - Windows Phone 8.1-like Action Center UI for the
+#                       Retiled project.
+# Copyright (C) 2022 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
 # of Microsoft Corporation. All rights reserved.
