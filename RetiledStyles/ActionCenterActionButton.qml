@@ -35,9 +35,13 @@ import QtQuick.Controls
 RetiledStyles.Button {
 	// Set borderWidth to 0.
 	borderWidth: 0
-	// Unpressed background color will be the accent color,
-	// cobalt by default.
-	unpressedBackgroundColor: "#0050ef"
-	// Add property for toggled-off button.
-	property string toggledOffColor: 
+	// Add property for button color when it's toggled on.
+	// This is the accent color, cobalt by default.
+	property string toggledOnColor: "#0050ef"
+	// Unpressed background color will use the toggledOnColor
+	// to ensure things don't break.
+	unpressedBackgroundColor: toggledOnColor
+	// Add property for toggled-off button color.
+	// This is the same as displayed in the emulator.
+	property string toggledOffColor: "#1F1F1F"
 }
