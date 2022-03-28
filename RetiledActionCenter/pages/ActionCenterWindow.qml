@@ -107,7 +107,7 @@ ApplicationWindow {
 	// Add testing buttons.
 	RetiledStyles.ActionCenterActionButton {
 		actionCenterButtonText: "FLASHLIGHT"
-		buttonCommand: isToggled ? "flashlight_off" : "flashlight_on"
+		buttonCommand: isToggled ? "flashlight_on" : "flashlight_off"
 		// Can't use the JS functions for this, for some reason.
 		onReleased: actionCenterActionButtonsViewModel.runCommand(buttonCommand)
 	}
