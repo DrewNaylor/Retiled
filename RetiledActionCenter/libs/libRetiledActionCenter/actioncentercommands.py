@@ -37,6 +37,11 @@ from ..pyyaml.yaml.loader import SafeLoader
 # The old code is still here but commented out because it may be useful even if it needs
 # to be heavily modified for use with the Action Center buttons.
 
+def runCommand(commandName):
+	# Run a command based on its name.
+	if commandName = "flashlight_on":
+		
+
 # def saveTilesList(tilesList):
 	# # Saves the list of tiles to the config file.
 	# # I don't know how to delete sections from the file yet,
