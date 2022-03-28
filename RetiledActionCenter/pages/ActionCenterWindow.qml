@@ -105,7 +105,7 @@ ApplicationWindow {
 	
 	// Add testing buttons.
 	RetiledStyles.ActionCenterActionButton {
-		
+		actionCenterButtonText: "FLASHLIGHT"
 	}
 	
 }// End of the window.
