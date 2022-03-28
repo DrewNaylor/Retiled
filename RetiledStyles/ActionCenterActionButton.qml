@@ -31,3 +31,13 @@
 import "." as RetiledStyles
 import QtQuick
 import QtQuick.Controls
+
+RetiledStyles.Button {
+	// Set borderWidth to 0.
+	borderWidth: 0
+	// Unpressed background color will be the accent color,
+	// cobalt by default.
+	unpressedBackgroundColor: "#0050ef"
+	// Add property for toggled-off button.
+	property string toggledOffColor: 
+}
