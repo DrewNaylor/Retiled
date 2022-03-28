@@ -40,7 +40,8 @@ RetiledStyles.Button {
 	property string toggledOnColor: "#0050ef"
 	// Unpressed background color will use the toggledOnColor
 	// to ensure things don't break.
-	unpressedBackgroundColor: toggledOnColor
+	unpressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
+	pressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
 	// Add property for toggled-off button color.
 	// This is the same as displayed in the emulator.
 	property string toggledOffColor: "#1F1F1F"
@@ -49,22 +50,16 @@ RetiledStyles.Button {
 	// By default it's a toggle button for testing.
 	property bool canToggle: true
 	// Specify whether the button is currently toggled.
-	property bool isToggled: true
+	property bool isToggled: false
 	
 	// Switch the button between toggled on and off states.
 	onClicked: {
 		if ((canToggle == true) && (isToggled == false)) {
 			// Toggle the button on.
 			isToggled = true;
-			unpressedBackgroundColor = toggledOnColor;
-			// Set the pressed background color too so it doesn't switch.
-			pressedBackgroundColor = toggledOnColor;
 		} else if ((canToggle == true) && (isToggled == true)) {
 			// Toggle the button off.
 			isToggled = false;
-			unpressedBackgroundColor = toggledOffColor;
-			// Set the pressed background color too so it doesn't switch.
-			pressedBackgroundColor = toggledOffColor;
 		}
 	}
 }
