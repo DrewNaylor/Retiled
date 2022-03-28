@@ -101,4 +101,11 @@ ApplicationWindow {
 			
         }
     }
+	
+	
+	// Add testing buttons.
+	RetiledStyles.ActionCenterActionButton {
+		
+	}
+	
 }// End of the window.

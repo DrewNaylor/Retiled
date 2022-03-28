@@ -53,11 +53,11 @@ RetiledStyles.Button {
 	
 	// Switch the button between toggled on and off states.
 	onClicked: {
-		if ((canToggle == true)) && ((isToggled == false)) {
+		if ((canToggle == true) && (isToggled == false)) {
 			// Toggle the button on.
 			isToggled = true;
 			unpressedBackgroundColor = toggledOnColor;
-		} else if ((canToggle == true)) && ((isToggled == true)) {
+		} else if ((canToggle == true) && (isToggled == true)) {
 			// Toggle the button off.
 			isToggled = false;
 			unpressedBackgroundColor = toggledOffColor;
