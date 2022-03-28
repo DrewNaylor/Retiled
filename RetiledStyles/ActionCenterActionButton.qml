@@ -62,7 +62,10 @@ RetiledStyles.Button {
 	property string actionCenterButtonText: "(null)"
 	
 	// Property for storing the command the button can use.
-	property string buttonCommand
+	property string buttonCommand;
+	
+	// Signal for running the button's command.
+	signal runCommand(string buttonCommand);
 	
 	// Switch the button between toggled on and off states.
 	// We have to use onReleased because QML doesn't let onClicked
@@ -77,6 +80,11 @@ RetiledStyles.Button {
 			isToggled = false;
 			//console.log(isToggled);
 		}
+		// Run the command that's supposed to happen when pressing the button.
+		// TODO: Make sure the button has a command, or don't have it run.
+		// TODO 2: Block the button from being used if its command can't be used
+		// right now, but this will probably be somewhere else.
+		runCommand(buttonCommand);
 	}
 	
 	Text {
