@@ -659,9 +659,9 @@ ApplicationWindow {
 	} // End of the flickable for the tiles area, which includes the margins.
 	} // End of the item containing the tiles area.
 	
-	RetiledStartPages.AllApps {
+	//RetiledStartPages.AllApps {
 		// The All Apps page has been moved to its own file.
-	}
+	//}
 	
 } // End of the swipeview for the Start screen.
 }// End of the window.

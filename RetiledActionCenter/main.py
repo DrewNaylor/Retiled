@@ -30,8 +30,8 @@
 import os
 from pathlib import Path
 import sys
-from libs.libRetiledStartPy import appslist as AppsList
-from libs.libRetiledStartPy import tileslist as TilesList
+# from libs.libRetiledStartPy import appslist as AppsList
+# from libs.libRetiledStartPy import tileslist as TilesList
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -136,7 +136,7 @@ if __name__ == "__main__":
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
-	engine.load("pages/Tiles.qml")
+	engine.load("pages/ActionCenterWindow.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
 	sys.exit(app.exec())
