@@ -58,6 +58,9 @@ RetiledStyles.Button {
 	// Specify whether the button is currently toggled.
 	property bool isToggled: false
 	
+	// Property for setting the text on a specific Action Center button.
+	property string actionCenterButtonText: "(null)"
+	
 	// Switch the button between toggled on and off states.
 	// We have to use onReleased because QML doesn't let onClicked
 	// events go as quickly as I want to allow.
@@ -75,7 +78,8 @@ RetiledStyles.Button {
 	
 	Text {
 		font.pointSize: 8
-		text: "FLASHLIGHT"
+		text: actionCenterButtonText
+		//text: "FLASHLIGHT"
 		//text: "ROTATION LOCK"
 		//text: "AIRPLANE\nMODE"
 		color: "white"
