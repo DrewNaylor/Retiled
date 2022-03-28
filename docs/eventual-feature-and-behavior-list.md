@@ -62,6 +62,8 @@ These are things that Windows Phone has that Retiled will eventually have. Moved
   - What's cool about evscript is you can just have it run your "key presses" as a command, plus it seems really light. I'd prefer not having to run something when pressing the Back button and just have a library, but hopefully this'll work well enough.
 - Action Center
   - Long-pressing the quick action buttons at the top will open the relevant page in Settings, which is something I forgot 8.x lacked. (Thanks to TheMobilizer for the suggestion!)
+    - Some Quick Actions won't have a long-press command as it won't make sense for everything.
+    - Brightness will display a slider on long-pressing it, along with a button to go to brightness settings to ensure people can still get more than just a basic slider on long-press.
   - The quick action button panel will be able to scroll horizontally to hold more buttons. [(issue #10)](https://github.com/DrewNaylor/Retiled/issues/10)
   - Dismissing notifications
     - Dismissing a single notification from an app when that app has multiple notifications should only dismiss that one notification. (Again thanks to TheMobilizer for suggesting this!)
