@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <TextBlock FontSize="20">Hello on Windows Phone!</TextBlock>
     </Grid>
 </Page>
