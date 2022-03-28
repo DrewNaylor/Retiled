@@ -107,6 +107,7 @@ ApplicationWindow {
 	// Add testing buttons.
 	RetiledStyles.ActionCenterActionButton {
 		actionCenterButtonText: "FLASHLIGHT"
+		buttonCommand: isToggled ? "flashlight_off" : "flashlight_on"
 	}
 	
 }// End of the window.
