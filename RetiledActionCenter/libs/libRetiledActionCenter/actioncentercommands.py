@@ -39,6 +39,8 @@ from ..pyyaml.yaml.loader import SafeLoader
 
 def runCommand(commandName):
 	# Run a command based on its name.
+	# Flashlight commands were taken from this page:
+	# https://xnux.eu/devices/feature/flash-pp.html#toc-pinephone-flash-led
 	if commandName == "flashlight_on":
 		print("commandName: " + commandName)
 	if commandName == "flashlight_off":
