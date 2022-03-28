@@ -49,7 +49,7 @@ RetiledStyles.Button {
 	// By default it's a toggle button for testing.
 	property bool canToggle: true
 	// Specify whether the button is currently toggled.
-	property bool isToggled: false
+	property bool isToggled: true
 	
 	// Switch the button between toggled on and off states.
 	onClicked: {
@@ -57,10 +57,14 @@ RetiledStyles.Button {
 			// Toggle the button on.
 			isToggled = true;
 			unpressedBackgroundColor = toggledOnColor;
+			// Set the pressed background color too so it doesn't switch.
+			pressedBackgroundColor = toggledOnColor;
 		} else if ((canToggle == true) && (isToggled == true)) {
 			// Toggle the button off.
 			isToggled = false;
 			unpressedBackgroundColor = toggledOffColor;
+			// Set the pressed background color too so it doesn't switch.
+			pressedBackgroundColor = toggledOffColor;
 		}
 	}
 }
