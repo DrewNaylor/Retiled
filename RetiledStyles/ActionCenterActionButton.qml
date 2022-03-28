@@ -72,4 +72,13 @@ RetiledStyles.Button {
 			//console.log(isToggled);
 		}
 	}
+	
+	Text {
+		font.pointSize: 8
+		text: "FLASHLIGHT"
+		//text: "ROTATION LOCK"
+		//text: "AIRPLANE\nMODE"
+		color: "white"
+	}
+	
 }
