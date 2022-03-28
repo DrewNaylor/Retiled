@@ -47,14 +47,16 @@ def runCommand(commandName):
 			print("running on Windows; this won't work.")
 		else:
 			# Turn the flashlight on.
-			subprocess.Popen("echo 1 > /sys/class/leds/white:flash/brightness")
+			# We have to use os.system instead:
+			# https://stackabuse.com/executing-shell-commands-with-python
+			os.system("echo 1 > /sys/class/leds/white:flash/brightness")
 		print("commandName: " + commandName)
 	if commandName == "flashlight_off":
 		if sys.platform.startswith("win32"):
 			print("running on Windows; this won't work.")
 		else:
 			# Turn the flashlight off.
-			subprocess.Popen("echo 0 > /sys/class/leds/white:flash/brightness")
+			os.system("echo 0 > /sys/class/leds/white:flash/brightness")
 		print("commandName: " + commandName)
 
 # def saveTilesList(tilesList):
