@@ -132,19 +132,15 @@ if __name__ == "__main__":
 	sys.argv += ['--style', 'Universal']
 	app = QGuiApplication(sys.argv)
 	
-	# Define the AllAppsListItems class so I can use it.
-	allAppsListItems = AllAppsListItems()
+	# # Define the AllAppsListItems class so I can use it.
+	# allAppsListItems = AllAppsListItems()
 	
-	# Hook up some stuff so I can access the allAppsListViewModel from QML.
-	allAppsListViewModel = AllAppsListViewModel()
-	
-	# Hook up the tiles list stuff.
-	tilesListViewModel = TilesListViewModel()
+	# Hook up some stuff so I can access the ActionCenterActionButtonsViewModel from QML.
+	actionCenterActionButtonsViewModel = ActionCenterActionButtonsViewModel()
 	
 	engine = QQmlApplicationEngine()
-	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
-	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
-	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
+	# engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
+	engine.rootContext().setContextProperty("actionCenterActionButtonsViewModel", actionCenterActionButtonsViewModel)
 	engine.load("pages/ActionCenterWindow.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
