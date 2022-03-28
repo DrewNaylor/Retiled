@@ -44,4 +44,10 @@ RetiledStyles.Button {
 	// Add property for toggled-off button color.
 	// This is the same as displayed in the emulator.
 	property string toggledOffColor: "#1F1F1F"
+	
+	// Specify whether this button can be toggled.
+	// By default it's a toggle button for testing.
+	property bool canToggle: true
+	// Specify whether the button is currently toggled.
+	property bool isToggled: false
 }
