@@ -123,7 +123,7 @@ from PySide6.QtCore import QObject, Slot, Property, QStringListModel
 class ActionCenterActionButtonsViewModel(QObject):
 	# Currently only offers functionality to run commands.
 	# TODO: Load the list of buttons from a config file.
-	@Slot(string)
+	@Slot(str)
 	def runCommand(self, command):
 		# Pass the command to the library so it runs.
 		ActionCenterCommands.runCommand(command)

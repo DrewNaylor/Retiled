@@ -39,9 +39,9 @@ from ..pyyaml.yaml.loader import SafeLoader
 
 def runCommand(commandName):
 	# Run a command based on its name.
-	if commandName = "flashlight_on":
+	if commandName == "flashlight_on":
 		print("commandName: " + commandName)
-	if commandName = "flashlight_off":
+	if commandName == "flashlight_off":
 		print("commandName: " + commandName)
 
 # def saveTilesList(tilesList):

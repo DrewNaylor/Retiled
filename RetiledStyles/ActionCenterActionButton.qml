@@ -61,6 +61,9 @@ RetiledStyles.Button {
 	// Property for setting the text on a specific Action Center button.
 	property string actionCenterButtonText: "(null)"
 	
+	// Property for storing the command the button can use.
+	property string buttonCommand
+	
 	// Switch the button between toggled on and off states.
 	// We have to use onReleased because QML doesn't let onClicked
 	// events go as quickly as I want to allow.
