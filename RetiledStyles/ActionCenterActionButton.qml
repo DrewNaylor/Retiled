@@ -35,6 +35,11 @@ import QtQuick.Controls
 RetiledStyles.Button {
 	// Set borderWidth to 0.
 	borderWidth: 0
+	// Set width and height.
+	// These are roughly what the 720 4.7-inch emulator has at 50% scale.
+	// If these don't feel that good on a phone, they can be changed.
+	buttonWidth: 86
+	buttonHeight: 58
 	// Add property for button color when it's toggled on.
 	// This is the accent color, cobalt by default.
 	property string toggledOnColor: "#0050ef"
