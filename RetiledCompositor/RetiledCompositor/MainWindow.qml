@@ -203,12 +203,13 @@ WaylandCompositor {
             }
 			// End copied and modified buttons.
 			} // End of rectangle with buttons.
-
-            Shortcut { sequence: "space"; onActivated: grid.overview = !grid.overview }
-            Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
-            Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
-            Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
-            Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
+            
+            // Drew Naylor changed the shortcut from "space" to "alt+tab" and commented the rest out.
+            Shortcut { sequence: "alt+tab"; onActivated: grid.overview = !grid.overview }
+            //Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
+            //Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
+            //Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
+            //Shortcut { sequence: "down"; onActivated: grid.selected = Math.min(grid.selected+grid.columns, toplevels.count-1) }
         }
     }
 
