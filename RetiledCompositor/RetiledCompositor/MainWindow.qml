@@ -106,6 +106,8 @@ WaylandCompositor {
 			// Window size changed under GPLv3 and change Copyright (C) Drew Naylor.
             width: 720
             height: 1440
+            // Background color changed to Cobalt by Drew Naylor. This change under GPLv3 and change Copyright (C) Drew Naylor.
+            color: "#0050ef"
 			
 			// This shortcut copied from the pure QML example here:
 			// https://github.com/DrewNaylor/qtwayland/blob/dev/examples/wayland/pure-qml/qml/CompositorScreen.qml
