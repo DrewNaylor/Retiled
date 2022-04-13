@@ -168,7 +168,7 @@ WaylandCompositor {
             }
 
 			// Rectangle added under GPLv3 and change Copyright (C) Drew Naylor.
-			footer: Rectangle {
+			Rectangle {
 				id: navBar
 				color: "black"
 				anchors.left: parent.left
@@ -204,7 +204,7 @@ WaylandCompositor {
 			// End copied and modified buttons.
 			} // End of rectangle with buttons.
             
-            // Drew Naylor changed the shortcut from "space" to "alt+tab" and commented the rest out.
+            // Drew Naylor changed the shortcut from "space" to "alt+tab" and commented the rest out. These changes are under GPLv3 and Copyright (C) Drew Naylor.
             Shortcut { sequence: "alt+tab"; onActivated: grid.overview = !grid.overview }
             //Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
             //Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
