@@ -7,3 +7,5 @@ These are copied from my demo video on the compositor here:
 https://youtube.com/shorts/jURqf86CS0I
 
 The last command is very important, because using `QT_QPA_PLATFORM=eglfs` before the command makes things break.
+
+Type `QT_SCALE_FACTOR=2` before the rest of the command to have everything at 200% scale, which is way easier to use.
