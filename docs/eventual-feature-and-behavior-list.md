@@ -147,6 +147,11 @@ There are also some "wishlist" features that I really want but might be too comp
   - For example, this Mix11 video shows a movie's IMDb page being opened from Bing search results: https://youtu.be/NImj-m2y724
   - Another easier example would be to display apps of a specific category, such as music or video-related in a hypothetical reimplementation of the music+videos Hub. This is shown in the same video as the IMDb example.
   - Most of this functionality would rely on app developers implementing the features required (might have to use custom fields in .desktop files) so everything works well together, as it would be impossible for me to tell other people what I want to have happen, particularly at such a large scale.
+- Tapping the status bar to send a "Return to Top" signal to the currently-active window/surface, like iOS
+  - I use this feature almost all the time on my phone, and I want other people to be able to use it without needing to use iOS
+  - Likely will require a new Wayland protocol unless one already exists (I doubt it)
+  - Apps probably have to opt-in by supporting the Wayland protocol, otherwise things would break
+  - There needs to be some way for an app to know if it can return to top on a specific page or window, as pages without scrollbars can't scroll; some pages may be able to scroll too, but doing so could cause undefined behavior, so apps need to direct the signal to a specific scrollbar on a case-by-case basis
 
 Besides features that were in WP, some additional features may need to be added for ease of use on a Linux (or perhaps even FreeBSD?) phone:
 - .desktop files editor
