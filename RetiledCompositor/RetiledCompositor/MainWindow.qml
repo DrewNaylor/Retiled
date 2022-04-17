@@ -122,7 +122,7 @@ WaylandCompositor {
             Grid {
                 id: grid
 
-                property bool overview: true
+                property bool overview: false
                 property int selected: 0
                 property int selectedColumn: selected % columns
                 property int selectedRow: selected / columns
