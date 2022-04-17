@@ -240,6 +240,10 @@ WaylandCompositor {
     ListModel { id: toplevels }
 
     // ![XdgShell]
+    // TODO: Update this "onToplevelCreated" code for the "xdgSurface" parameter so we don't inject parameters into signal handlers, as doing so is deprecated.
+    // We have to use JS functions instead.
+    // Hopefully the example was updated with this change.
+    // TODO block added by Drew Naylor. Change is under the GPLv3 and Copyright (C) Drew Naylor.
     XdgShell {
         onToplevelCreated: {
             toplevels.append({xdgSurface});
