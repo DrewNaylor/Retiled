@@ -184,7 +184,29 @@ WaylandCompositor {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 text: "Back";
-                onClicked: grid.overview = !grid.overview
+                onPressAndHold: grid.overview = !grid.overview
+                onClicked: {
+                            // Had to figure out which seat was expected by Qt, because
+                            // just typing "sendKeyEvent();" didn't work, and "seat.sendKeyEvent();"
+                            // also didn't work. I guessed that the correct one for situations where
+                            // there is no seat manually set up in the code has to be "defaultSeat.sendKeyEvent();",
+                            // because the pure QML compositor example uses that for the cursor:
+                            // https://github.com/DrewNaylor/qtwayland/blob/ea929b6fa5a90602e6f1fb597e3edfed9e6de3a7/examples/wayland/pure-qml/qml/CompositorScreen.qml#L121
+                            // (linking to my own fork to ensure it stays available)
+                            // Here's info on sendKeyEvent that helped me figure out where to start looking for QML usage (the full details aren't on the main docs page):
+                            // https://github.com/drewnaylor/qtwayland/commit/bd5917025fe7491c9f24e99c20484c7ffce9f172
+                            // (again using my fork)
+                            // And finally, the docs page for WaylandSeat, which contains this function:
+                            // https://doc.qt.io/qt-6.2/qml-qtwayland-compositor-waylandseat.html#sendKeyEvent-method
+                            // Pro tip: the "int qKey" thing just means to use one of the key codes as recognized by Qt, such as "Qt.Key_Escape" or "Qt.Key_B". A full list is available here:
+                            // https://doc.qt.io/qt-6/qt.html#Key-enum
+                            // If there's no app in focus, then the terminal will have a complaint written to it:
+                            // "Cannot send Wayland key event, no keyboard focus, fix the compositor"
+                            // My only problem is that going back to the main page of Start doesn't work if you're doing it during the animation, but that's a problem with RetiledStart I think rather than this code.
+                            // Feel free to use this comment block as documentation if you find it while searching, I'll extract it probably to a blog post or at least a Gist so it's for-sure safe to use without worrying about GPL code.
+                            defaultSeat.sendKeyEvent(Qt.Key_Escape, true);
+                            defaultSeat.sendKeyEvent(Qt.Key_Escape, false);
+                           }
             }
 			
 			
