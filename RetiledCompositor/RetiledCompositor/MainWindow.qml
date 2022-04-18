@@ -184,6 +184,7 @@ WaylandCompositor {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 text: "Back";
+                // Switching to onPressAndHold for going into multitasking was done by Drew Naylor and falls under the GPLv3 and is Copyright (C) Drew Naylor.
                 onPressAndHold: grid.overview = !grid.overview
                 onClicked: {
                             // Had to figure out which seat was expected by Qt, because
@@ -204,13 +205,14 @@ WaylandCompositor {
                             // "Cannot send Wayland key event, no keyboard focus, fix the compositor"
                             // My only problem is that going back to the main page of Start doesn't work if you're doing it during the animation, but that's a problem with RetiledStart I think rather than this code.
                             // Feel free to use this comment block as documentation if you find it while searching, I'll extract it probably to a blog post or at least a Gist so it's for-sure safe to use without worrying about GPL code.
+                            // The original onClicked event was modified by Drew Naylor to instead send the "Escape" key. This change is under the GPLv3 and is Copyright (C) Drew Naylor.
                             defaultSeat.sendKeyEvent(Qt.Key_Escape, true);
                             defaultSeat.sendKeyEvent(Qt.Key_Escape, false);
                            }
             }
 			
 			
-			// These two buttons were copied and modified from the example buttons.
+			// These two buttons were copied and modified from the example button to be moved to the correct places, use the RetiledStyles button style (will be navbar), and now launch their actions.
 			// The changes to these buttons are under the GPLv3 and Copyright (C) Drew Naylor.
 			RetiledStyles.Button {
                 anchors.horizontalCenter: parent.horizontalCenter
