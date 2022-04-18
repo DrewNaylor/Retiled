@@ -13,7 +13,8 @@ Development is mainly being done using the PinePhone, so that'll be the main sup
 ## Required extra packages
 
 You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use. The ones that say "via pip" are extra ones that developers will have to install if not on something like the PinePhone, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't in pip.
-- `python`: Used to run most of Retiled; should be Python 3 (using Python 3.9.x, specifically), but I can't remember if the package itself is `python3`, so I'll need to check
+<br><br>**Note:** I'll have to probably update some items as they may be unclear.
+- `python`: Used to run most of Retiled; should be Python 3 (using Python 3.9.x, specifically, **but my goal is to use the latest version of Python when possible, so it may not be 3.9.x by the time you read this**), but I can't remember if the package itself is `python3`, so I'll need to check
 - `pyside6` (`PySide6` via pip): Used for the UI of Python/QML-based components of Retiled
 - `qt6-declarative` (previously `qt6-quickcontrols2`): Provides Qt6 QtQuick controls that are used in each component
 - `qt6-wayland`: Allows Qt6 apps like the ones included in Retiled to run under Wayland
@@ -23,7 +24,7 @@ You may need to install packages through your distro's package manager, and thos
 
 ## License stuff
 
->This project (Retiled) is Copyright (C) 2021 Drew Naylor and is licensed under the Apache License 2.0.<br>
+>This project (Retiled) is Copyright (C) 2021-2022 Drew Naylor and is licensed under the Apache License 2.0.<br>
 Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative<br>
 Code relating to qtwayland, which is the module used for the project in the RetiledCompositor folder, can be found here: https://github.com/DrewNaylor/qtwayland<br>
 RetiledCompositor is the compositor used for Retiled for such things as the multitasking area and giving a place for the navigation bar, etc., and is sadly licensed under the Gnu GPLv3 due to qtwayland also being under the GPLv3 (I think it's GPLv3+ with the "+" being for any version that's ok'd by the KDE Free Qt Foundation, according to some source files in the repo) now. Any files that do not use GPL'd libraries directly will be licensed under one of these three licenses for as much flexibility as possible: the Apache License, Version 2.0; the BSD License according to what Qt uses in the QML files; or the LGPLv3, which is what the RetiledStyles project's files are under.<br><br>
@@ -55,7 +56,7 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 
 > Please note: You'll have to install the dependencies manually, as they're not integrated into the script yet.
 
-> These instructions aren't up to date with the zip file in the releases, so I'd recommend [checking the "how to use" guide](https://github.com/DrewNaylor/Retiled/blob/main/docs/changelogs/v0.1-DP1.md#how-to-use) for installation instructions for released versions. One thing I do need to say to comply with the (L)GPL is that you can replace the files in the `RetiledStyles` directory if you want to use different files than what I provide, either by switching them out of the package then running the install script, or by replacing them as root when installed by changing the files in `/opt/Retiled/RetiledStyles`.
+> **These instructions aren't up to date with the zip file in the releases**, so I'd recommend [checking the "how to use" guide](https://github.com/DrewNaylor/Retiled/blob/main/docs/changelogs/v0.1-DP1.md#how-to-use) for installation instructions for released versions. One thing I do need to say to comply with the (L)GPL is that you can replace the files in the `RetiledStyles` directory if you want to use different files than what I provide, either by switching them out of the package then running the install script, or by replacing them as root when installed by changing the files in `/opt/Retiled/RetiledStyles`.
 
 - Installation
   1. Install `pyside6`, `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I'd like to add support for postmarketOS, but I haven't tested anything there yet. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
