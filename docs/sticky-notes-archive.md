@@ -25,3 +25,19 @@ Grab the Windows/Meta key when RetiledStart is open and use it to override the n
 Ok, this isn't from a sticky note, but it's relevent to the Cowsay GUI part, so it's going here for now.
 
 I think a basic flipping animation may be able to involve tiles visually shrinking to 0 pixels then growing back to their regular size. The only thing I'm not sure about is I think this will cause issues with the layout because it expects each tile to be an exact size. Hopefully it's simple enough to do 3D rotation in QML.
+
+## Closing the keyboard
+
+Close keyboard with Back button when the keyboard is implemented:
+
+Pseudocode:
+
+```text
+if (keyboard open)
+    close keyboard
+else if (multitasking)
+    exit multitasking
+else
+    send Escape
+end if
+```
