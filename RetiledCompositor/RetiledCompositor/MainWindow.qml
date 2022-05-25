@@ -170,6 +170,12 @@ WaylandCompositor {
 							z: z + 1
 							fontSize: 64
 							borderWidth: 8
+							onClicked: {
+								// When clicked, close the window.
+								// Information from:
+								// https://doc.qt.io/qt-6/qwaylandsurface.html#destroy
+								xdgSurface.destroy(index)
+							}
 						}
                         MouseArea {
                             enabled: grid.overview
