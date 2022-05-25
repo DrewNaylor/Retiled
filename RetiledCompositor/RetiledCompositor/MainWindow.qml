@@ -171,8 +171,8 @@ WaylandCompositor {
 							// Using margins to make the close button not exactly in the corner:
 							// https://asitdhal.medium.com/positioning-with-anchors-in-qml-936183d6c055
 							// Using multiples of 6 for positioning like what's recommended for Windows Phone layouts.
-							anchors.rightMargin: 24
-							anchors.topMargin: 24
+							anchors.rightMargin: 12
+							anchors.topMargin: 12
 							fontSize: 32
 							borderWidth: 4
 							onClicked: {
