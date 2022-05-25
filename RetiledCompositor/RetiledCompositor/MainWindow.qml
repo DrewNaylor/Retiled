@@ -165,9 +165,11 @@ WaylandCompositor {
 							buttonHeight: 128
 							buttonWidth: 128
 							unpressedBackgroundColor: "black"
+							// Ensure the close button is above the area that the user can click
+							// to go back to a window so it's usable.
 							z: z + 1
 							fontSize: 64
-							borderWidth: 4
+							borderWidth: 8
 						}
                         MouseArea {
                             enabled: grid.overview
