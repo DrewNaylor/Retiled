@@ -162,13 +162,13 @@ WaylandCompositor {
 							anchors.top: parent.top
 							text: "X"
 							visible: grid.overview
-							buttonHeight: 128
-							buttonWidth: 128
+							buttonHeight: 64
+							buttonWidth: 64
 							unpressedBackgroundColor: "black"
 							// Ensure the close button is above the area that the user can click
 							// to go back to a window so it's usable.
 							z: 2
-							fontSize: 64
+							fontSize: 32
 							borderWidth: 8
 							onClicked: {
 								// When clicked, close the window.
