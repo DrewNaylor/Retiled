@@ -133,7 +133,7 @@ ButtonBase {
 				// Set font.
 				font.family: "Open Sans SemiBold"
 				font.weight: Font.DemiBold
-				anchors.baselineOffset: 0
+				anchors.baselineOffset: 4
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"
