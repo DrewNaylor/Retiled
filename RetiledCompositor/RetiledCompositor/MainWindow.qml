@@ -169,7 +169,7 @@ WaylandCompositor {
 							// to go back to a window so it's usable.
 							z: 2
 							fontSize: 32
-							borderWidth: 8
+							borderWidth: 4
 							onClicked: {
 								// When clicked, close the window.
 								// Information from:
