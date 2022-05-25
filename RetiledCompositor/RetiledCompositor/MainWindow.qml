@@ -166,6 +166,8 @@ WaylandCompositor {
 							buttonWidth: 128
 							unpressedBackgroundColor: "black"
 							z: z + 1
+							fontSize: 72
+							borderWidth: 4
 						}
                         MouseArea {
                             enabled: grid.overview
