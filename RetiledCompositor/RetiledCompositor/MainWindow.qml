@@ -168,10 +168,10 @@ WaylandCompositor {
 							// Ensure the close button is above the area that the user can click
 							// to go back to a window so it's usable.
 							z: 2
-							// Using offsets to make the close button not exactly in the corner:
+							// Using margins to make the close button not exactly in the corner:
 							// https://asitdhal.medium.com/positioning-with-anchors-in-qml-936183d6c055
-							anchors.verticalCenterOffset: 100
-							anchors.horizontalCenterOffset: 100
+							anchors.rightMargin: 6
+							anchors.topMargin: 6
 							fontSize: 32
 							borderWidth: 4
 							onClicked: {
