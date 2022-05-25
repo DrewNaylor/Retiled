@@ -160,7 +160,7 @@ WaylandCompositor {
 							// Round close button added under GPLv3 and Copyright (C) Drew Naylor.
 							anchors.right: parent.right
 							anchors.top: parent.top
-							text: "X"
+							text: "x"
 							visible: grid.overview
 							buttonHeight: 64
 							buttonWidth: 64
