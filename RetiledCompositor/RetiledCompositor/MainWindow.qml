@@ -174,7 +174,7 @@ WaylandCompositor {
 								// When clicked, close the window.
 								// Information from:
 								// https://doc.qt.io/qt-6/qwaylandsurface.html#destroy
-								toplevels.destroy(index)
+								toplevels.remove(index)
 							}
 						}
                         MouseArea {
