@@ -170,8 +170,8 @@ WaylandCompositor {
 							z: 2
 							// Using offsets to make the close button not exactly in the corner:
 							// https://asitdhal.medium.com/positioning-with-anchors-in-qml-936183d6c055
-							anchors.verticalRightOffset: -6
-							anchors.horizontalRightOffset: -6
+							anchors.verticalCenterOffset: -6
+							anchors.horizontalCenterOffset: -6
 							fontSize: 32
 							borderWidth: 4
 							onClicked: {
