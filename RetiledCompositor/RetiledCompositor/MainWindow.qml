@@ -162,6 +162,9 @@ WaylandCompositor {
 							anchors.top: parent.top
 							text: "X"
 							visible: grid.overview
+							buttonHeight: 128
+							buttonWidth: 128
+							unpressedBackgroundColor: "black"
 						}
                         MouseArea {
                             enabled: grid.overview
