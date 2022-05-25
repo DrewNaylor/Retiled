@@ -156,6 +156,13 @@ WaylandCompositor {
                             shellSurface: xdgSurface
                             onSurfaceDestroyed: toplevels.remove(index)
                         }
+						RetiledStyles.RoundButton {
+							// Round close button added under GPLv3 and Copyright (C) Drew Naylor.
+							anchors.right: parent.right
+							anchors.top: parent.top
+							text: "X"
+							visible: grid.overview
+						}
                         MouseArea {
                             enabled: grid.overview
                             anchors.fill: parent
