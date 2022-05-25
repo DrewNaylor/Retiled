@@ -167,7 +167,7 @@ WaylandCompositor {
 							unpressedBackgroundColor: "black"
 							// Ensure the close button is above the area that the user can click
 							// to go back to a window so it's usable.
-							z: z + 1
+							z: 2
 							fontSize: 64
 							borderWidth: 8
 							onClicked: {
