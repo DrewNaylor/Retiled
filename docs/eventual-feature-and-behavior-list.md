@@ -159,3 +159,25 @@ There are also some "wishlist" features that I really want but might be too comp
 Besides features that were in WP, some additional features may need to be added for ease of use on a Linux (or perhaps even FreeBSD?) phone:
 - .desktop files editor
   - Just like the ones available on MATE and Xfce, except with added support for Retiled-specific entries like `X-Retiled-OpaqueTileWithBackgroundSet`, `X-Retiled-NoLiveTileUpdates`, and `X-Retiled-LiveTileWorksWhenSmall`. These names may change.
+- Autostart scripts support, like KDE
+  - Allows users to easily have stuff run when logging in.
+  - By default, this will have three items:
+    - GNOME Apps Compatibility
+      - Supports GNOME apps so they work as expected under a Qt environment
+    - KDE and Maui Apps Compatibility
+      - Supports KDE and Maui apps so they work under a non-Plasma/Maui Qt environment
+    - Retiled Environment Variables Configutation
+      - Environment variables that Retiled and apps built for it need to function properly at runtime
+      - (this one needs to be hidden and require a hidden checkbox to be checked to allow it to be turned off, but this checkbox will be likely on a subpage or something out of the way; it can be called something like, "Allow important Autorun scripts to be turned off", with a messagebox that warns people doing so will likely cause problems, and asking if they want to allow that anyway; also add a label that says leaving the option on may be dangerous and that turning off important scripts will cause issues)
+  - The first two can each be turned off if anyone doesn't want to have support for GNOME and/or KDE and Maui apps, and this may increase startup speed slightly if I end up having to do a lot of processing in each script.
+  - The third one shouldn't be turned off because bad things will happen and Retiled will break, but there should be a messagebox warning that it's important for Retiled and its components and apps to function properly, and turning it off will break it. There should still be a button that lets people turn it off anyway, along with a checkbox that says, "Yes, I understand this will cause problems". **I need to figure out how to do password popups so that turning off important scripts requires root permissions, as should turning on the option to turn off important scripts.**
+  - In general, scripts can be run at anytime if users click the "Run now" button.
+    - This is useful if someone doesn't want certain scripts to run at startup, but they do want them to run before opening a specific app. Maybe there are compatibility scripts for Waydroid that different people will want to have run at startup and others want it before they run Waydroid, and both may change their minds about whether to have it run at startup or not?
+  - Easily viewing and editing scripts should be allowed
+    - An edited script will have to be placed somewhere in the HOME directory to save changes, and thus that directory must be checked on startup before checking the main Autostart script dir.
+    - Important scripts can't be edited like this and must be edited manually, for security reasons. They will never be loaded from anywhere outside their default directory.
+  - All scripts also have a button to display info from their .desktop file in another page.
+  - There needs to be a way to delete scripts (safety and/or maybe people don't need or want something), including important ones. A message asking if they're sure they want to delete it will be necessary, along with an option to not ask when deleting scripts. Deleting will require a password if it's not an edited one, and people should be asked if they want to delete the unedited script as well. There should be a way to mark a script as "edited", maybe with a SHA256 sum in their .desktop files and a check to see if there's a script with the same name in the place in HOME.
+  - Important scripts have a special flag in their .desktop file that specified them to be important, and thus third-party important scripts can be made. **Please be careful when installing packages, as they may install malicious important scripts**.
+  - The idea for Autostart is directly from KDE. Plasma Mobile seems to have it too, but it doesn't load for me inside Plasma Mobile.
+  - Loading the scripts list will have to be done after the page mostly loads, so that it doesn't slow down initial display of the page. May take a bit to get everything though, so there needs to be a message stating that somewhere and it needs to go away after loading all the scripts.
