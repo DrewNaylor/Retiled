@@ -159,6 +159,7 @@ There are also some "wishlist" features that I really want but might be too comp
 Besides features that were in WP, some additional features may need to be added for ease of use on a Linux (or perhaps even FreeBSD?) phone:
 - .desktop files editor
   - Just like the ones available on MATE and Xfce, except with added support for Retiled-specific entries like `X-Retiled-OpaqueTileWithBackgroundSet`, `X-Retiled-NoLiveTileUpdates`, and `X-Retiled-LiveTileWorksWhenSmall`. These names may change.
+  - Ensure .desktop files that are symlinks get resolved properly. KDE had this bug with Discord as described here: https://bugs.kde.org/show_bug.cgi?id=450727
 - Autostart scripts support, like KDE
   - Allows users to easily have stuff run when logging in.
   - By default, this will have three items:
