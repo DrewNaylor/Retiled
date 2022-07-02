@@ -45,7 +45,10 @@ ApplicationWindow {
     title: qsTr("RetiledActionCenter")
 
     Universal.theme: Universal.Dark
-    Universal.accent: '#0050ef'
+    // Property for setting Accent colors so that Universal.accent
+	// can in turn be set easily at runtime.
+	property string accentColor: '#0050ef'
+    Universal.accent: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
@@ -105,11 +108,21 @@ ApplicationWindow {
 	
 	
 	// Add testing buttons.
-	RetiledStyles.ActionCenterActionButton {
-		actionCenterButtonText: "FLASHLIGHT"
-		buttonCommand: isToggled ? "flashlight_on" : "flashlight_off"
-		// Can't use the JS functions for this, for some reason.
-		onReleased: actionCenterActionButtonsViewModel.runCommand(buttonCommand)
-	}
+	RowLayout {
+		RetiledStyles.ActionCenterActionButton {
+			// Flashlight toggle.
+			actionCenterButtonText: "FLASHLIGHT"
+			buttonCommand: isToggled ? "flashlight_on" : "flashlight_off"
+			// Can't use the JS functions for this, for some reason.
+			onReleased: actionCenterActionButtonsViewModel.runCommand(buttonCommand)
+		}
+		RetiledStyles.ActionCenterActionButton {
+			// Change the Accent color from Cobalt (#0050ef) to Maroon when
+			// toggled on.
+			actionCenterButtonText: "CHANGE ACCENT"
+			buttonCommand: isToggled ? "maroon" : "#0050ef"
+			onReleased: accentColor = buttonCommand
+		}
+	} // End ActionCenter button RowLayout container.
 	
 }// End of the window.

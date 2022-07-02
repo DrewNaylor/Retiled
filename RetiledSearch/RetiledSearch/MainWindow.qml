@@ -44,6 +44,8 @@ ApplicationWindow {
     title: qsTr("RetiledSearch")
 
     Universal.theme: Universal.Dark
+	// Property for setting Accent colors so that Universal.accent
+	// can in turn be set easily at runtime.
 	property string accentColor: '#0050ef'
     Universal.accent: accentColor
 	Universal.foreground: 'white'

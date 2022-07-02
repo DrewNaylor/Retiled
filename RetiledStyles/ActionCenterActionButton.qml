@@ -31,6 +31,7 @@
 import "." as RetiledStyles
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Universal
 
 RetiledStyles.Button {
 	// Set borderWidth to 0.
@@ -41,8 +42,8 @@ RetiledStyles.Button {
 	buttonWidth: 86
 	buttonHeight: 58
 	// Add property for button color when it's toggled on.
-	// This is the accent color, cobalt by default.
-	property string toggledOnColor: "#0050ef"
+	// This is the accent color, cobalt (#0050ef) by default.
+	property string toggledOnColor: Universal.accent
 	// Unpressed background color will use the toggledOnColor
 	// to ensure things don't break.
 	unpressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
@@ -61,11 +62,20 @@ RetiledStyles.Button {
 	// Property for setting the text on a specific Action Center button.
 	property string actionCenterButtonText: "(null)"
 	
+	// Property for setting whether the text should be all-caps or lowercase.
+	// This is for accessibility purposes to help screen readers and should also help anyone that doesn't
+	// like stuff in all-caps because it feels like it's yelling at them.
+	// Currently unused.
+	property bool textIsLowercase: false
+	
 	// Property for storing the command the button can use.
 	property string buttonCommand;
 	
 	// Signal for running the button's command.
 	signal runCommand(string buttonCommand);
+	
+	// Clip the contents of the button so it doesn't go outside its area.
+	clip: true
 	
 	// Switch the button between toggled on and off states.
 	// We have to use onReleased because QML doesn't let onClicked
