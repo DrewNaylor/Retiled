@@ -3,7 +3,7 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2022 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
@@ -35,6 +35,7 @@
 // no clashing with QML.
 import "." as RetiledStyles
 import QtQuick
+import QtQuick.Controls.Universal
 
 RetiledStyles.Button {
 	id: control
@@ -50,11 +51,11 @@ RetiledStyles.Button {
 	// Set button properties.
 	borderRadius: 90
 	
-	// We're defaulting to use cobalt as most round
-	// buttons will probably use accent colors.
+	// We're defaulting to use the accent color as most round
+	// buttons will probably use them.
 	// Round buttons as used on the Start screen will
 	// have to set this to black or white accordingly.
-	pressedBackgroundColor: "#0050ef"
+	pressedBackgroundColor: Universal.accent
 	
 	// Some round buttons have to have their background
 	// color set too, such as the tile editing ones.
