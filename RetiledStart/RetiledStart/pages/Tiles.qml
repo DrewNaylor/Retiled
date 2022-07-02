@@ -1,6 +1,6 @@
 // RetiledStart -  Windows Phone 8.x-like Start screen UI for the
 //                 Retiled project.
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2022 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
@@ -44,7 +44,10 @@ ApplicationWindow {
     title: qsTr("RetiledStart")
 
     Universal.theme: Universal.Dark
-    Universal.accent: '#0050ef'
+    // Property for setting Accent colors so that Universal.accent
+	// can in turn be set easily at runtime.
+	property string accentColor: '#0050ef'
+    Universal.accent: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
@@ -262,7 +265,7 @@ ApplicationWindow {
 							// using accent colors unless the boolean to use accent colors
 							// is off, in which case they'll use a specified tile background
 							// color according to the layout config file or the .desktop file.
-							NewTileObject.tileBackgroundColor = "#0050ef";
+							NewTileObject.tileBackgroundColor = accentColor;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
