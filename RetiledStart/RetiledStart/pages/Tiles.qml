@@ -265,7 +265,7 @@ ApplicationWindow {
 							// using accent colors unless the boolean to use accent colors
 							// is off, in which case they'll use a specified tile background
 							// color according to the layout config file or the .desktop file.
-							NewTileObject.tileBackgroundColor = accentColor;
+							NewTileObject.tileBackgroundColor = Universal.accent;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
@@ -343,7 +343,6 @@ ApplicationWindow {
 								tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
 								tile['TileWidth'] = tilesContainer.children[i].width;
 								tile['TileHeight'] = tilesContainer.children[i].height;
-								tile['TileColor'] = tilesContainer.children[i].tileBackgroundColor;
 								// Push the tile to the list.
 								// TODO: Prevent sorting.
 								tilesList.push(tile);
@@ -531,7 +530,7 @@ ApplicationWindow {
 							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
 							NewTileObject.height = ParsedTilesList[i].TileHeight;
-							NewTileObject.tileBackgroundColor = ParsedTilesList[i].TileColor;
+							NewTileObject.tileBackgroundColor = accentColor;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.

@@ -1,7 +1,7 @@
 # libRetiledStartPy - Utility library for RetiledStart that allows me to
 #                     keep the main code out of the UI code, like MVVM.
 #                     This is a port of the VB.NET version to Python.
-# Copyright (C) 2021 Drew Naylor
+# Copyright (C) 2021-2022 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
 # of Microsoft Corporation. All rights reserved.
@@ -63,7 +63,7 @@ def saveTilesList(tilesList):
 		# Add to the TilesListToSave.
 		# NOTE: QML won't give us integers for tile widths and heights,
 		# so we need to make them into integers in Python.
-		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"]), "TileColor": i["TileColor"]})
+		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"])})
 		# print(i["DotDesktopFilePath"])
 		
 	# print(TilesListToSave)
@@ -74,7 +74,7 @@ def saveTilesList(tilesList):
 		# Append the start layout schema version.
 		# We need to create a new list first, one that
 		# has both the "Tiles:" thing, too.
-		StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.1}
+		StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.2}
 	
 		# Load the tilesList as if it were a yaml file.
 		# Be sure to not have it sort the keys:
@@ -156,9 +156,9 @@ def getTilesList(includeTileAppNameAreaText = True):
 		for i in range(len(YamlFile.Tiles)):
 			#print(YamlFile.Tiles[i].TileColor)
 			if (includeTileAppNameAreaText == False):
-				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
 			else:
-				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileColor": YamlFile.Tiles[i].TileColor})
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
 		
 		# Get the stuff under Tiles.
 	
@@ -196,7 +196,7 @@ class StartScreenLayoutRoot:
 	# easy to read. Also using the SO link in
 	# the other class below.
 	def __init__(self, root):
-		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], i["TileColor"]) for i in root["Tiles"]]
+		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"]) for i in root["Tiles"]]
 		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
 
 
@@ -208,11 +208,10 @@ class StartScreenTileEntry:
 	# The values here are the same as in the VB.NET version.
 	# Actually, we're now mostly using this answer:
 	# https://stackoverflow.com/a/52581851
-	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileColor):
+	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight):
 		self.DotDesktopFilePath = DotDesktopFilePath
 		self.TileWidth = TileWidth
 		self.TileHeight = TileHeight
-		self.TileColor = TileColor
 
 
 

@@ -16,7 +16,7 @@
 #   with the license of a project you'd like to use it with,
 #   then the MIT License applies to this file as follows:
 #
-#      Copyright (C) 2021 Drew Naylor
+#      Copyright (C) 2021-2022 Drew Naylor
 # 
 #      Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 #      documentation files (the “Software”), to deal in the Software without restriction, including without limitation 
@@ -38,57 +38,43 @@ Tiles:
 - DotDesktopFilePath: org.kde.phone.dialer.desktop
   TileWidth: 150
   TileHeight: 150
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.spacebar.desktop
   TileWidth: 150
   TileHeight: 150
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.neochat.desktop
   TileWidth: 150
   TileHeight: 150
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.angelfish.desktop
   TileWidth: 70
   TileHeight: 70
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.discover.desktop
   TileWidth: 70
   TileHeight: 70
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.phonebook.desktop
   TileWidth: 70
   TileHeight: 70
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.index.desktop
   TileWidth: 70
   TileHeight: 70
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.koko.desktop
   TileWidth: 150
   TileHeight: 150
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.postmarketos.Megapixels.desktop
   TileWidth: 150
   TileHeight: 150
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.kalk.desktop
   TileWidth: 70
   TileHeight: 70
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.mobile.qmlkonsole.desktop
   TileWidth: 70
   TileHeight: 70
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.kweather.desktop
   TileWidth: 310
   TileHeight: 150
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.calindori.desktop
   TileWidth: 150
   TileHeight: 150
-  TileColor: '#0050ef'
 - DotDesktopFilePath: org.kde.mobile.plasmasettings.desktop
   TileWidth: 150
   TileHeight: 150
-  TileColor: '#0050ef'
-StartLayoutSchemaVersion: 0.1
+StartLayoutSchemaVersion: 0.2

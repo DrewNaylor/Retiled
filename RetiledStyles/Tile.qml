@@ -3,7 +3,7 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2022 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
@@ -50,7 +50,7 @@ ButtonBase {
 	// depending on the first two numbers (replacing "99").
 	// This may be useful for customization, if people want W10M-style
 	// semi-transparent tiles.
-	property string tileBackgroundColor: "#0050ef"
+	property string tileBackgroundColor: accentColor
 	// We have to add a property for the button's exec key
 	// so that we can add an event handler:
 	// https://stackoverflow.com/a/22605752

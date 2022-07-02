@@ -3,7 +3,7 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2022 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
@@ -32,6 +32,7 @@
 import "." as RetiledStyles
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Universal
 
 
 // Change the button to be like the All Apps list buttons on WP.
@@ -63,7 +64,7 @@ RetiledStyles.Button {
 	property string textColor: "white"
 	
 	// Have a property for the icon background color.
-	property string iconBackgroundColor: "#0050ef"
+	property string iconBackgroundColor: Universal.accent
 	
 	// Open the context menu.
 	onPressAndHold: allappscontextmenu.open()
