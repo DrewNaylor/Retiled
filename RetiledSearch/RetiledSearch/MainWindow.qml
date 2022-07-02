@@ -418,7 +418,7 @@ ApplicationWindow {
 			// I'm just setting this in the Button control file.
             
 
-    }
-		}
-	}
-}
+		} // End of the Search button.
+		} // End of the pane within the StackView for navigation.
+	} // End of the StackView.
+} // End of the ApplicationWindow.
