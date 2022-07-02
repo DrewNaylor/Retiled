@@ -3,7 +3,7 @@
 //                 To view "git blame" on this file before it was moved
 //                 back to Retiled, see here:
 //                   https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/retiled-qml-porting-work/src/Features/Main-PyRetiledSearch.qml
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2022 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
@@ -44,7 +44,8 @@ ApplicationWindow {
     title: qsTr("RetiledSearch")
 
     Universal.theme: Universal.Dark
-    Universal.accent: '#0050ef'
+	property string accentColor: '#0050ef'
+    Universal.accent: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
@@ -419,6 +420,13 @@ ApplicationWindow {
             
 
 		} // End of the Search button.
+		RetiledStyles.Button {
+			visible: false
+			// This button changes the Accent color for the app.
+			onClicked: {
+				accentColor = "Maroon";
+			}
+		}
 		} // End of the pane within the StackView for navigation.
 	} // End of the StackView.
 } // End of the ApplicationWindow.

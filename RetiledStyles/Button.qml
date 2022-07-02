@@ -3,7 +3,7 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2022 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
@@ -33,6 +33,8 @@
 // until I can figure out a better solution.
 import "."
 import QtQuick
+// QtQuick.Controls.Universal is required for Accent color stuff.
+import QtQuick.Controls.Universal
 
 // Change the button so it's more like WP.
 // I took these properties from the button
@@ -58,7 +60,7 @@ ButtonBase {
 	// be useful.
 	property string textColor: "white"
 	// pressedBackgroundColor will usually be the accent color.
-	property string pressedBackgroundColor: "#0050ef"
+	property string pressedBackgroundColor: Universal.accent
 	// unpressedBackgroundColor is usually transparent,
 	// but it may be useful to specify a color, such as for
 	// tiles.
