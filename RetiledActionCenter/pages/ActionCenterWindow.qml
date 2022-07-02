@@ -49,7 +49,7 @@ ApplicationWindow {
 	// can in turn be set easily at runtime.
 	property string accentColor: '#0050ef'
     Universal.accent: accentColor
-	property string oldAccentColor: accentColor
+	property string defaultAccentColor: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
@@ -120,10 +120,11 @@ ApplicationWindow {
 		RetiledStyles.ActionCenterActionButton {
 			// Change the Accent color from Cobalt (#0050ef) to Maroon when
 			// toggled on.
+			// Doesn't quite work correctly if using a different Accent color, so there's
+			// something that needs to be figured out later.
 			actionCenterButtonText: "CHANGE ACCENT"
-			buttonCommand: isToggled ? "maroon" : oldAccentColor
+			buttonCommand: isToggled ? "maroon" : defaultAccentColor
 			onReleased: {
-				oldAccentColor = accentColor;
 				accentColor = buttonCommand;
 				}
 		}
