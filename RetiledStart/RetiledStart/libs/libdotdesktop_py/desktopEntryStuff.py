@@ -67,7 +67,12 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# "Copy file as path" on Windows.
 	# Actually, configparser has a read_file function:
 	# https://docs.python.org/3/library/configparser.html#configparser.ConfigParser.read_file
-		dotDesktopFile = open(inputFile, "r")
+	# For some reason, I had to start specifying the encoding as UTF-8
+	# as of July 2, 2022, at least for Python on Windows. Not sure about
+	# any other platforms. I don't know why it broke suddenly.
+	# More info here:
+	# https://stackoverflow.com/a/42070962
+		dotDesktopFile = open(inputFile, "r", encoding='utf-8')
 		dotDesktopFileReader.read_file(dotDesktopFile)
 	# We can now close the file since it's in the configparser.
 		dotDesktopFile.close()
