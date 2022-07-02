@@ -1,7 +1,7 @@
 # libdotdesktop_py - Get info from .desktop files for the DotDesktop4Win
 # partial implementation of Freedesktop.org's Desktop Entry spec.
 # This is a limited port of libdotdesktop_standard to Python.
-# Copyright (C) 2021 Drew Naylor
+# Copyright (C) 2021-2022 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 #
 # This file is a part of the DotDesktop4Win project.
