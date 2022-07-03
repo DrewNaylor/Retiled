@@ -34,7 +34,7 @@ from libs.libRetiledStartPy import appslist as AppsList
 from libs.libRetiledStartPy import tileslist as TilesList
 
 # Settings file loader.
-from ../../RetiledSettings/libs/libRetiledSettings import settingsReader as settingsReader
+from ....RetiledSettings.libs.libRetiledSettings import settingsReader as settingsReader
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -128,7 +128,7 @@ class ThemeSettingsLoader(QObject):
 	def getThemeSettings(self):
 		# Get the theme settings.
 		# Currently just Accent colors.
-		return settingsReader.getSetting("C:\Users\Drew\Documents\0GitHub\Retiled\RetiledSettings\configs\themes.config", "AccentColor", "#0050ef")
+		return settingsReader.getSetting("C:\\Users\\Drew\\Documents\\0GitHub\\Retiled\\RetiledSettings\\configs\\themes.config", "AccentColor", "#0050ef")
 
 if __name__ == "__main__":
 	# Set the Universal style.
