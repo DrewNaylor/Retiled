@@ -91,8 +91,8 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 		# Make sure the key is in the file and return the default
 		# if it's not:
 		# https://stackoverflow.com/a/21057828
-			if settingsFileReader.has_option('Desktop Entry', keyToGet):		
-				return settingsFileReader.get('Desktop Entry', keyToGet)
+			if settingsFileReader.has_option('ThemeSettings', keyToGet):		
+				return settingsFileReader.get('ThemeSettings', keyToGet)
 			else:
 				return defaultValue
 			
