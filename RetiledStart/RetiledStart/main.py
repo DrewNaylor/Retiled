@@ -129,13 +129,16 @@ class ThemeSettingsLoader(QObject):
 		# Get the theme settings.
 		# Currently just Accent colors.
 		# Set main file path for the config file to get it from the repo, or an install.
-		ThemeSettingsFilePath = "".join([os.getcwd(), "../../RetiledSettings/configs/themes.config"])
+		# The two backslashes at the beginning are required on Windows, or it won't go up.
+		ThemeSettingsFilePath = "".join([os.getcwd(), "\\..\\..\\RetiledSettings\\configs\\themes.config"])
 		
 		if not sys.platform.startswith("win32"):
 			# If not on Windows, check if the config file is in the user's home directory,
 			# and update the path accordingly.
 			if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])):
 				ThemeSettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])
+		
+		#print(ThemeSettingsFilePath)
 		
 		# Return the Accent color.
 		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
