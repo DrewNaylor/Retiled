@@ -51,7 +51,7 @@ ApplicationWindow {
     Universal.accent: accentColor
 	// Currently used for the button to test changing the Accent color
 	// at runtime if a different color besides Cobalt is desired.
-	property string defaultAccentColor: '#0050ef'
+	property string defaultAccentColor: themeSettingsLoader.getThemeSettings()
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
