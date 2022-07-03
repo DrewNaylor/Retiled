@@ -39,6 +39,16 @@ from pathlib import Path
 import sys
 import webbrowser
 
+# Settings file loader.
+# TODO: Switch to a script that can just run the Python 
+# file as a script so that the library doesn't have to
+# be copied into each program and waste space and make
+# updating more confusing.
+# Or actually, maybe I should figure out how to install
+# my own libraries into the system-wide Python installation
+# instead of putting them in each folder.
+from libs.libRetiledSettings import settingsReader as settingsReader
+
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QObject, Slot
@@ -54,15 +64,48 @@ class RunAppFromNavbarButton(QObject):
 		args = shlex.split(appName)
 		# Copied this from libRetiledStart.
 		proc = subprocess.Popen(args)
+		
+class ThemeSettingsLoader(QObject):
+	# Slots still need to exist when using PySide.
+	@Slot(result=str)
+	def getThemeSettings(self):
+		# Get the theme settings.
+		# Currently just Accent colors.
+		# TODO: Switch to a script that can just run the Python 
+		# file as a script so that the library doesn't have to
+		# be copied into each program and waste space and make
+		# updating more confusing.
+		# Set main file path for the config file to get it from the repo, or an install.
+		# The two backslashes at the beginning are required on Windows, or it won't go up.
+		ThemeSettingsFilePath = "".join([os.getcwd(), "\\..\\..\\RetiledSettings\\configs\\themes.config"])
+		
+		if not sys.platform.startswith("win32"):
+			# If not on Windows, check if the config file is in the user's home directory,
+			# and update the path accordingly.
+			if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])):
+				ThemeSettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])
+		
+		#print(ThemeSettingsFilePath)
+		
+		# Return the Accent color.
+		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
 
 
 if __name__ == "__main__":
     # Set the Universal style.
 	sys.argv += ['--style', 'Universal']
 	app = QGuiApplication(sys.argv)
-	# Hook up some stuff so I can access the searchClass from QML.
+	
+	# Hook up some stuff so I can access the runAppFromNavbarButton class from QML.
 	runAppFromNavbarButton = RunAppFromNavbarButton()
+	
+	# Bind the theme settings loader to access it from QML.
+	themeSettingsLoader = ThemeSettingsLoader()
+	
 	engine = QQmlApplicationEngine()
+	# Bind theme settings loader.
+	engine.rootContext().setContextProperty("themeSettingsLoader", themeSettingsLoader)
+	# Bind run app from navbar button.
 	engine.rootContext().setContextProperty("runAppFromNavbarButton", runAppFromNavbarButton)
 	engine.load("MainWindow.qml")
 	if not engine.rootObjects():
