@@ -147,7 +147,7 @@ class ThemeSettingsLoader(QObject):
 		# updating more confusing.
 		# Set main file path for the config file to get it from the repo, or an install.
 		# The two backslashes at the beginning are required on Windows, or it won't go up.
-		ThemeSettingsFilePath = "".join([os.getcwd(), "\\..\\RetiledSettings\\configs\\themes.config"])
+		ThemeSettingsFilePath = "".join([os.getcwd(), "/../../RetiledSettings/configs/themes.config"])
 		
 		if not sys.platform.startswith("win32"):
 			# If not on Windows, check if the config file is in the user's home directory,
