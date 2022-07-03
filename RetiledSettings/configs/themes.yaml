@@ -38,15 +38,21 @@
 
 
 
-#     AccentColor is what's used to highlight the user interface, for example, to show when a button is pressed in,
+#   AccentColor is what's used to highlight the user interface, for example, to show when a button is pressed in,
 # as well as the fill color on most tiles (if they aren't overriding the user's Accent color in their .desktop files).
-#     You can probably use pretty much any hex color code you want here, but named colors have to be spelled correctly.
-#     If something is wrong or missing, it's supposed to be replaced with the default, that being Cobalt ("#0050ef"),
+#   You can probably use pretty much any hex color code you want here, but named colors have to be spelled correctly.
+#   If something is wrong or missing, it's supposed to be replaced with the default, that being Cobalt ("#0050ef"),
 # or whatever color a packager decided should be the default. Right now, there's no easy way to change the default
 # aside from editing the source files.
 AccentColor: "#0050ef"
-# ThemeType is what Windows Phone referred to as "Background" in start+theme settings.
-# By default, the only choices are "light" and "dark".
-# 
+#   ThemeType is what Windows Phone referred to as "Background" in start+theme settings.
+#   By default, the only choices are "light" (mostly white) and "dark" (mostly black), though only "dark" is currently implemented and
+# this setting will be ignored until "light" is available. Changing it now will make your theme "light" when
+# it's implemented.
+#   Other themes (including transparent ones) would have to have support fine-tuned for them,
+# although a simple config file saying what each control should have as a background color should be enough
+# to provide this type of customization. It'll take more effort to provide support for third-party themes, though.
+#   If it turns out to be simple enough to do, there will eventually be support for themes besides the default ones
+# included with Retiled.
 ThemeType: "dark"
 ThemesConfigSchemaVersion: 0.1
