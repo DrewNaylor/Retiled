@@ -82,6 +82,8 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# https://stackoverflow.com/a/66877137
 	# For now I'm just using an if statement as detailed here:
 	# https://stackoverflow.com/a/66886730
+	# TODO: Change to using Python's Select Case statements, it's almost been
+	# a year.
 		if IsCustomKey == True:
 		# Return the value of the key specified in keyToGet.
 		# This works, I just have to remember to set IsCustomKey = True
