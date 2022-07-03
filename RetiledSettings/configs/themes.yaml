@@ -33,48 +33,20 @@
 #      IN THE SOFTWARE.
 #
 
-# This file was partially based on the winget installer manifest spec.
-Tiles:
-- DotDesktopFilePath: org.kde.phone.dialer.desktop
-  TileWidth: 150
-  TileHeight: 150
-- DotDesktopFilePath: org.kde.spacebar.desktop
-  TileWidth: 150
-  TileHeight: 150
-- DotDesktopFilePath: org.kde.neochat.desktop
-  TileWidth: 150
-  TileHeight: 150
-- DotDesktopFilePath: org.kde.angelfish.desktop
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: org.kde.discover.desktop
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: org.kde.phonebook.desktop
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: org.kde.index.desktop
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: org.kde.koko.desktop
-  TileWidth: 150
-  TileHeight: 150
-- DotDesktopFilePath: org.postmarketos.Megapixels.desktop
-  TileWidth: 150
-  TileHeight: 150
-- DotDesktopFilePath: org.kde.kalk.desktop
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: org.kde.mobile.qmlkonsole.desktop
-  TileWidth: 70
-  TileHeight: 70
-- DotDesktopFilePath: org.kde.kweather.desktop
-  TileWidth: 310
-  TileHeight: 150
-- DotDesktopFilePath: org.kde.calindori.desktop
-  TileWidth: 150
-  TileHeight: 150
-- DotDesktopFilePath: org.kde.mobile.plasmasettings.desktop
-  TileWidth: 150
-  TileHeight: 150
+# This file is heavily modified from the startlayout.yaml spec, which was in turn partially based on the winget installer manifest spec.
+
+
+
+
+#     AccentColor is what's used to highlight the user interface, for example, to show when a button is pressed in,
+# as well as the fill color on most tiles (if they aren't overriding the user's Accent color in their .desktop files).
+#     You can probably use pretty much any hex color code you want here, but named colors have to be spelled correctly.
+#     If something is wrong or missing, it's supposed to be replaced with the default, that being Cobalt ("#0050ef"),
+# or whatever color a packager decided should be the default. Right now, there's no easy way to change the default
+# aside from editing the source files.
+AccentColor: "#0050ef"
+# ThemeType is what Windows Phone referred to as "Background" in start+theme settings.
+# By default, the only choices are "light" and "dark".
+# 
+ThemeType: "dark"
 ThemesConfigSchemaVersion: 0.1
