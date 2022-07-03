@@ -144,7 +144,9 @@ if __name__ == "__main__":
 	# Hook up the tiles list stuff.
 	tilesListViewModel = TilesListViewModel()
 	
-	print(ThemeSettingsLoader.getThemeSettings)
+	themeSettingsLoader = ThemeSettingsLoader()
+	
+	print(themeSettingsLoader.getThemeSettings())
 	
 	engine = QQmlApplicationEngine()
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
