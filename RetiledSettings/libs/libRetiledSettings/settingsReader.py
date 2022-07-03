@@ -38,11 +38,9 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# extra memory to create the config parser if we don't have to:
 	# https://stackoverflow.com/a/8933290
 	if not exists(inputFile):
-		# Return the path if it doesn't exist, mostly
-		# in the case of getting the name.
-		# TODO: Change this to return different defaults
-		# other than the one for the name.
-		return inputFile
+		# Return the default value if the file doesn't exist.
+		# This should prevent issues at runtime.
+		return defaultValue
 	else:
 	
 	# Create a configparser to read the .desktop files.
