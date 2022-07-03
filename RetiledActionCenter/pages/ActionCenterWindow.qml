@@ -47,7 +47,7 @@ ApplicationWindow {
     Universal.theme: Universal.Dark
     // Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
-	property string accentColor: '#0050ef'
+	property string accentColor: themeSettingsLoader.getThemeSettings()
     Universal.accent: accentColor
 	// Currently used for the button to test changing the Accent color
 	// at runtime if a different color besides Cobalt is desired.
