@@ -128,7 +128,7 @@ class ThemeSettingsLoader(QObject):
 	def getThemeSettings(self):
 		# Get the theme settings.
 		# Currently just Accent colors.
-		return settingsReader.getSetting()
+		return settingsReader.getSetting("C:\Users\Drew\Documents\0GitHub\Retiled\RetiledSettings\configs\themes.config", "AccentColor", "#0050ef")
 
 if __name__ == "__main__":
 	# Set the Universal style.
@@ -143,6 +143,8 @@ if __name__ == "__main__":
 	
 	# Hook up the tiles list stuff.
 	tilesListViewModel = TilesListViewModel()
+	
+	print(ThemeSettingsLoader.getThemeSettings)
 	
 	engine = QQmlApplicationEngine()
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)

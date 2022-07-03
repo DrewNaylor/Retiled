@@ -31,7 +31,7 @@
 import configparser
 from os.path import exists
 
-def getSetting(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = False):
+def getSetting(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = True):
 	# fileName and IsCustomKey are both optional.
 
 	# Check if the path exists first to prevent using
