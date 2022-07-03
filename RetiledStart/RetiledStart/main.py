@@ -34,6 +34,10 @@ from libs.libRetiledStartPy import appslist as AppsList
 from libs.libRetiledStartPy import tileslist as TilesList
 
 # Settings file loader.
+# TODO: Switch to a script that can just run the Python 
+# file as a script so that the library doesn't have to
+# be copied into each program and waste space and make
+# updating more confusing.
 from libs.libRetiledSettings import settingsReader as settingsReader
 
 from PySide6.QtGui import QGuiApplication
@@ -128,6 +132,10 @@ class ThemeSettingsLoader(QObject):
 	def getThemeSettings(self):
 		# Get the theme settings.
 		# Currently just Accent colors.
+		# TODO: Switch to a script that can just run the Python 
+		# file as a script so that the library doesn't have to
+		# be copied into each program and waste space and make
+		# updating more confusing.
 		# Set main file path for the config file to get it from the repo, or an install.
 		# The two backslashes at the beginning are required on Windows, or it won't go up.
 		ThemeSettingsFilePath = "".join([os.getcwd(), "\\..\\..\\RetiledSettings\\configs\\themes.config"])
