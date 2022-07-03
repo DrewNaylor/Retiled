@@ -33,6 +33,9 @@ import sys
 from libs.libRetiledStartPy import appslist as AppsList
 from libs.libRetiledStartPy import tileslist as TilesList
 
+# Settings file loader.
+from ../../RetiledSettings/libs import settingsReader as settingsReader
+
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QObject, Slot, Property, QStringListModel
@@ -48,7 +51,8 @@ class AllAppsListViewModel(QObject):
 		# Example code for sys.platform:
 		# https://docs.python.org/3/library/sys.html#sys.platform
 		if sys.platform.startswith("win32"):
-			AppsList.RunApp("".join(["C:\\Users\\drewn\\Desktop\\", ViewModelExecFilename]))
+			#AppsList.RunApp("".join(["C:\\Users\\drewn\\Desktop\\", ViewModelExecFilename]))
+			AppsList.RunApp("".join(["C:\\Users\\Drew\\Desktop\\", ViewModelExecFilename]))
 		else:
 			AppsList.RunApp("".join(["/usr/share/applications/", ViewModelExecFilename]))
 		
@@ -117,6 +121,14 @@ class TilesListViewModel(QObject):
 		# in JSON for dynamic object creation
 		# and destruction.
 		return TilesList.getTilesList()
+		
+class ThemeSettingsLoader(QObject):
+	# Slots still need to exist when using PySide.
+	@Slot(result=str)
+	def getThemeSettings(self):
+		# Get the theme settings.
+		# Currently just Accent colors.
+		return settingsReader.getSetting()
 
 if __name__ == "__main__":
 	# Set the Universal style.
