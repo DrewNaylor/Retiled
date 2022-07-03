@@ -144,14 +144,18 @@ if __name__ == "__main__":
 	# Hook up the tiles list stuff.
 	tilesListViewModel = TilesListViewModel()
 	
+	# Bind the theme settings loader to access it from QML.
 	themeSettingsLoader = ThemeSettingsLoader()
 	
-	print(themeSettingsLoader.getThemeSettings())
-	
 	engine = QQmlApplicationEngine()
+	# Theme settings loader binding.
+	engine.rootContext().setContextProperty("themeSettingsLoader", themeSettingsLoader)
+	# All Apps list items and view model.
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
+	# Tiles list view model.
 	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
+	# Load the Tiles.qml page, which acts as the main window.
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)
