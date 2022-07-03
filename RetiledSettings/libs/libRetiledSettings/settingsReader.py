@@ -50,9 +50,9 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# https://docs.python.org/3/library/configparser.html#customizing-parser-behaviour
 	# Turn off interpolation, too, since that interferes with fields.
 	# "Strict" is on because these files shouldn't have multiple keys.
-		dotDesktopFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False, interpolation=None)
+		settingsFileReader = configparser.ConfigParser(delimiters=('='), comment_prefixes=('#'), empty_lines_in_values=False, interpolation=None)
 	
-	# Now read the file into the dotDesktopFileReader.
+	# Now read the file into the settingsFileReader.
 	# Basing this off this page here:
 	# https://www.tutorialspoint.com/how-to-read-a-text-file-in-python
 	# I had a TODO here about escaping backslashes, but it just does that.
@@ -69,12 +69,12 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# More info here:
 	# https://stackoverflow.com/a/42070962
 		dotDesktopFile = open(inputFile, "r", encoding='utf-8')
-		dotDesktopFileReader.read_file(dotDesktopFile)
+		settingsFileReader.read_file(dotDesktopFile)
 	# We can now close the file since it's in the configparser.
 		dotDesktopFile.close()
 	
 	# Now print the sections for debugging.
-	#print(dotDesktopFileReader.sections())
+	#print(settingsFileReader.sections())
 	
 	# We need to specify that we'll use the Desktop Entry section.
 	# Currently I don't know how to check if it exists or not.
@@ -94,8 +94,8 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 		# Make sure the key is in the file and return the default
 		# if it's not:
 		# https://stackoverflow.com/a/21057828
-			if dotDesktopFileReader.has_option('Desktop Entry', keyToGet):		
-				return dotDesktopFileReader.get('Desktop Entry', keyToGet)
+			if settingsFileReader.has_option('Desktop Entry', keyToGet):		
+				return settingsFileReader.get('Desktop Entry', keyToGet)
 			else:
 				return defaultValue
 			
