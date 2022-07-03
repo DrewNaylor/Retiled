@@ -56,11 +56,6 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# Basing this off this page here:
 	# https://www.tutorialspoint.com/how-to-read-a-text-file-in-python
 	# I had a TODO here about escaping backslashes, but it just does that.
-	# However, I do have to add one about removing extra quotes around
-	# the file path:
-	# TODO: Remove extra quotes around file paths if that's a problem,
-	# such as when a user pastes in a file that was copied with
-	# "Copy file as path" on Windows.
 	# Actually, configparser has a read_file function:
 	# https://docs.python.org/3/library/configparser.html#configparser.ConfigParser.read_file
 	# For some reason, I had to start specifying the encoding as UTF-8
@@ -68,10 +63,10 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# any other platforms. I don't know why it broke suddenly.
 	# More info here:
 	# https://stackoverflow.com/a/42070962
-		dotDesktopFile = open(inputFile, "r", encoding='utf-8')
-		settingsFileReader.read_file(dotDesktopFile)
+		settingsFile = open(inputFile, "r", encoding='utf-8')
+		settingsFileReader.read_file(settingsFile)
 	# We can now close the file since it's in the configparser.
-		dotDesktopFile.close()
+		settingsFile.close()
 	
 	# Now print the sections for debugging.
 	#print(settingsFileReader.sections())
