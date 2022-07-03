@@ -34,7 +34,7 @@ from libs.libRetiledStartPy import appslist as AppsList
 from libs.libRetiledStartPy import tileslist as TilesList
 
 # Settings file loader.
-from ../../RetiledSettings/libs import settingsReader as settingsReader
+from ../../RetiledSettings/libs/libRetiledSettings import settingsReader as settingsReader
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
