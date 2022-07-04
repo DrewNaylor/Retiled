@@ -162,12 +162,14 @@ Besides features that were in WP, some additional features may need to be added 
   - Ensure .desktop files that are symlinks get resolved properly. KDE had this bug with Discord as described here: https://bugs.kde.org/show_bug.cgi?id=450727
 - Autostart scripts support, like KDE
   - Allows users to easily have stuff run when logging in.
+  - KDE also supports scripts on logout, so I should probably support that, too, but that isn't likely to be used if there's no way to logout.
+  - Scripts have to be marked as executable, and there should be a message that says they aren't with a button to mark them as executable. This is a bug KDE fixed recently here: https://invent.kde.org/plasma/plasma-workspace/-/merge_requests/878 and also with a screenshot here: https://pointieststick.com/2022/07/01/this-week-in-kde-and-now-time-for-for-some-ui-polishing/
   - By default, this will have three items:
     - GNOME Apps Compatibility
       - Supports GNOME apps so they work as expected under a Qt environment
     - KDE and Maui Apps Compatibility
       - Supports KDE and Maui apps so they work under a non-Plasma/Maui Qt environment
-    - Retiled Environment Variables Configutation
+    - Retiled Environment Variables Configuration
       - Environment variables that Retiled and apps built for it need to function properly at runtime
       - (this one needs to be hidden and require a hidden checkbox to be checked to allow it to be turned off, but this checkbox will be likely on a subpage or something out of the way; it can be called something like, "Allow important Autorun scripts to be turned off", with a messagebox that warns people doing so will likely cause problems, and asking if they want to allow that anyway; also add a label that says leaving the option on may be dangerous and that turning off important scripts will cause issues)
   - The first two can each be turned off if anyone doesn't want to have support for GNOME and/or KDE and Maui apps, and this may increase startup speed slightly if I end up having to do a lot of processing in each script.
