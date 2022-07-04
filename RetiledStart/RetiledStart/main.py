@@ -33,6 +33,13 @@ import sys
 from libs.libRetiledStartPy import appslist as AppsList
 from libs.libRetiledStartPy import tileslist as TilesList
 
+# Settings file loader.
+# TODO: Switch to a script that can just run the Python 
+# file as a script so that the library doesn't have to
+# be copied into each program and waste space and make
+# updating more confusing.
+from libs.libRetiledSettings import settingsReader as settingsReader
+
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QObject, Slot, Property, QStringListModel
@@ -48,7 +55,8 @@ class AllAppsListViewModel(QObject):
 		# Example code for sys.platform:
 		# https://docs.python.org/3/library/sys.html#sys.platform
 		if sys.platform.startswith("win32"):
-			AppsList.RunApp("".join(["C:\\Users\\drewn\\Desktop\\", ViewModelExecFilename]))
+			#AppsList.RunApp("".join(["C:\\Users\\drewn\\Desktop\\", ViewModelExecFilename]))
+			AppsList.RunApp("".join(["C:\\Users\\Drew\\Desktop\\", ViewModelExecFilename]))
 		else:
 			AppsList.RunApp("".join(["/usr/share/applications/", ViewModelExecFilename]))
 		
@@ -117,6 +125,31 @@ class TilesListViewModel(QObject):
 		# in JSON for dynamic object creation
 		# and destruction.
 		return TilesList.getTilesList()
+		
+class ThemeSettingsLoader(QObject):
+	# Slots still need to exist when using PySide.
+	@Slot(result=str)
+	def getThemeSettings(self):
+		# Get the theme settings.
+		# Currently just Accent colors.
+		# TODO: Switch to a script that can just run the Python 
+		# file as a script so that the library doesn't have to
+		# be copied into each program and waste space and make
+		# updating more confusing.
+		# Set main file path for the config file to get it from the repo, or an install.
+		# The two backslashes at the beginning are required on Windows, or it won't go up.
+		ThemeSettingsFilePath = "".join([os.getcwd(), "/../../RetiledSettings/configs/themes.config"])
+		
+		if not sys.platform.startswith("win32"):
+			# If not on Windows, check if the config file is in the user's home directory,
+			# and update the path accordingly.
+			if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])):
+				ThemeSettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])
+		
+		#print(ThemeSettingsFilePath)
+		
+		# Return the Accent color.
+		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
 
 if __name__ == "__main__":
 	# Set the Universal style.
@@ -132,10 +165,18 @@ if __name__ == "__main__":
 	# Hook up the tiles list stuff.
 	tilesListViewModel = TilesListViewModel()
 	
+	# Bind the theme settings loader to access it from QML.
+	themeSettingsLoader = ThemeSettingsLoader()
+	
 	engine = QQmlApplicationEngine()
+	# Theme settings loader binding.
+	engine.rootContext().setContextProperty("themeSettingsLoader", themeSettingsLoader)
+	# All Apps list items and view model.
 	engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
+	# Tiles list view model.
 	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
+	# Load the Tiles.qml page, which acts as the main window.
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)

@@ -35,6 +35,13 @@ import sys
 # from libs.libRetiledStartPy import tileslist as TilesList
 from libs.libRetiledActionCenter import actioncentercommands as ActionCenterCommands
 
+# Settings file loader.
+# TODO: Switch to a script that can just run the Python 
+# file as a script so that the library doesn't have to
+# be copied into each program and waste space and make
+# updating more confusing.
+from libs.libRetiledSettings import settingsReader as settingsReader
+
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QObject, Slot, Property, QStringListModel
@@ -128,6 +135,31 @@ class ActionCenterActionButtonsViewModel(QObject):
 		# Pass the command to the library so it runs.
 		ActionCenterCommands.runCommand(command)
 
+class ThemeSettingsLoader(QObject):
+	# Slots still need to exist when using PySide.
+	@Slot(result=str)
+	def getThemeSettings(self):
+		# Get the theme settings.
+		# Currently just Accent colors.
+		# TODO: Switch to a script that can just run the Python 
+		# file as a script so that the library doesn't have to
+		# be copied into each program and waste space and make
+		# updating more confusing.
+		# Set main file path for the config file to get it from the repo, or an install.
+		# The two backslashes at the beginning are required on Windows, or it won't go up.
+		ThemeSettingsFilePath = "".join([os.getcwd(), "/../../RetiledSettings/configs/themes.config"])
+		
+		if not sys.platform.startswith("win32"):
+			# If not on Windows, check if the config file is in the user's home directory,
+			# and update the path accordingly.
+			if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])):
+				ThemeSettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])
+		
+		#print(ThemeSettingsFilePath)
+		
+		# Return the Accent color.
+		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
+
 if __name__ == "__main__":
 	# Set the Universal style.
 	sys.argv += ['--style', 'Universal']
@@ -136,11 +168,17 @@ if __name__ == "__main__":
 	# # Define the AllAppsListItems class so I can use it.
 	# allAppsListItems = AllAppsListItems()
 	
+	# Bind the theme settings loader to access it from QML.
+	themeSettingsLoader = ThemeSettingsLoader()
+	
 	# Hook up some stuff so I can access the ActionCenterActionButtonsViewModel from QML.
 	actionCenterActionButtonsViewModel = ActionCenterActionButtonsViewModel()
 	
 	engine = QQmlApplicationEngine()
 	# engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
+	# Theme settings loader binding.
+	engine.rootContext().setContextProperty("themeSettingsLoader", themeSettingsLoader)
+	# Action buttons for the Action Center.
 	engine.rootContext().setContextProperty("actionCenterActionButtonsViewModel", actionCenterActionButtonsViewModel)
 	engine.load("pages/ActionCenterWindow.qml")
 	if not engine.rootObjects():

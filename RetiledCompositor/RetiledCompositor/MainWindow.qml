@@ -109,7 +109,7 @@ WaylandCompositor {
             
 			// accentColor property added for all the controls that use and need this property set.
 			// This isn't really copyrightable I don't think, but it's under the GPLv3 and (C) Drew Naylor if necessary.
-            property string accentColor: "#0050ef"
+            property string accentColor: themeSettingsLoader.getThemeSettings()
 			// Also set Universal.accent and color, the second one being where the background color used to be set.
 			Universal.accent: accentColor
 			// Background color changed to use whatever is set as accentColor by Drew Naylor. This change under GPLv3 and change Copyright (C) Drew Naylor.

@@ -46,7 +46,7 @@ ApplicationWindow {
     Universal.theme: Universal.Dark
 	// Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
-	property string accentColor: '#0050ef'
+	property string accentColor: themeSettingsLoader.getThemeSettings()
     Universal.accent: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
