@@ -189,26 +189,23 @@ ApplicationWindow {
 	
 	// Hide the local edit mode controls on the previously-active tile.
 	function hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex) {
-		// Use the previous tile index to hide the buttons on the previous tile.
+		// Use the previous tile index to hide the buttons on the previous tile
+		// that was in editMode.
 		// The moderator's answer here should work for looping through items:
 		// https://forum.qt.io/post/234640
-		for (var i = 0; i < tilesContainer.children.length; i++) {
-			// Loop through the children of the tilesContainer flow
-			// and find the tile that has the same tileIndex as the tile
-			// that was previously in editing mode.
-			if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
-				// Now hide the buttons and turn edit mode off for that tile.
-				// The visibility of the edit mode buttons is tied to editMode.
-				tilesContainer.children[i].editMode = false;
-				tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
-			}
-		}
+		// Now hide the buttons and turn edit mode off for that tile.
+		// The visibility of the edit mode buttons is tied to editMode.
+		tilesContainer.children[previousTileInEditingModeIndex].editMode = false;
+		tilesContainer.children[previousTileInEditingModeIndex].z = tilesContainer.children[previousTileInEditingModeIndex].z - 1;
 	} // End of the function that hides edit mode controls on the previous tile.
 	
 	// Hides editMode controls on all tiles.
 	// Function only to be used with the Back button, as it's not optimized
 	// to be run when switching which tile is currently in editMode.
-	// TODO: Try to combine the functions so they don't both have to exist.
+	// I really don't think this function can be easily combined
+	// with the non-loop one that hides editMode controls on the
+	// previously-active tile because they're now too different for it
+	// to make sense.
 	function hideEditModeControlsOnAllTiles() {
 		// Loop through tiles and hide editMode controls on all of them.
 		// The moderator's answer here should work for looping through items:
