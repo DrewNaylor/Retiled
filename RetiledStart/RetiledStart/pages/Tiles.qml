@@ -116,13 +116,24 @@ ApplicationWindow {
 		sequences: ["Esc", "Back"]
         onActivated: {
 			
-			// Go back to the tiles list.
-            startScreenView.currentIndex = 0
-			// Also set the flickable's contentY property to 0
-			// so it goes back to the top, like on WP:
-			// https://stackoverflow.com/a/7564705
-			tilesFlickable.contentY = 0
-			
+			if (globalEditMode == true) {
+				// Turn off global edit mode.
+				toggleGlobalEditMode(false, true);
+				// Hide editMode controls for each tile.
+				// This also resets z-index values for each tile.
+				hideEditModeControlsOnAllTiles();
+				// Reset opacity for each tile.
+				setTileOpacity();
+				// TODO: This doesn't properly remove editMode controls from
+				// the active tile, for some reason.
+			} else {
+				// Go back to the tiles list.
+				startScreenView.currentIndex = 0
+				// Also set the flickable's contentY property to 0
+				// so it goes back to the top, like on WP:
+				// https://stackoverflow.com/a/7564705
+				tilesFlickable.contentY = 0
+			}
 			// TODO: Figure out how to make this
 			// not conflict with the keyboard shortcut
 			// in the main window's file that goes back.
@@ -136,6 +147,101 @@ ApplicationWindow {
 			
         }
     }
+	
+	// Turn on or off global edit mode.
+	function toggleGlobalEditMode(enable, showAllAppsButtonAndAllowGoingBetweenPages) {
+		// If enable is false, global edit mode will be
+		// turned off. Likewise, if it's true, it'll be
+		// turned on.
+		globalEditMode = enable;
+		
+		// Hide the All Apps button and don't let the user
+		// open the All Apps list based on showAllAppsButtonAndAllowGoingBetweenPages.
+		allAppsButton.visible = showAllAppsButtonAndAllowGoingBetweenPages;
+		startScreenView.interactive = showAllAppsButtonAndAllowGoingBetweenPages;
+		
+		// Now if global edit mode gets turned off, we
+		// need to save the tile layout.
+		if (globalEditMode == false) {
+			// Create a list of the tiles to send to Python:
+			// https://stackoverflow.com/a/24747608
+			var tilesList = [];
+			// Loop through the tiles and add them to the list
+			// if their visible property is set to "true".
+			for (var i = 0; i < tilesContainer.children.length; i++) {
+				if (tilesContainer.children[i].visible == true) {
+					// Get the properties from the tiles
+					// and add them to the list.
+					var tile = {};
+					tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
+					tile['TileWidth'] = tilesContainer.children[i].width;
+					tile['TileHeight'] = tilesContainer.children[i].height;
+					// Push the tile to the list.
+					// TODO: Prevent sorting.
+					tilesList.push(tile);
+				} // End of If statement checking if the tile is visible.
+			} // End of loop that goes through the tiles to save.
+			// Send the list of tiles to Python so it can save
+			// changes to the config file and remove any unpinned tiles.
+			tilesListViewModel.SaveTileLayout(tilesList);
+		} // End of the check to see if we're in global edit mode.
+	} // End of the global edit mode toggle function.
+	
+	// Hide the local edit mode controls on the previously-active tile.
+	function hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex) {
+		// Use the previous tile index to hide the buttons on the previous tile.
+		// The moderator's answer here should work for looping through items:
+		// https://forum.qt.io/post/234640
+		for (var i = 0; i < tilesContainer.children.length; i++) {
+			// Loop through the children of the tilesContainer flow
+			// and find the tile that has the same tileIndex as the tile
+			// that was previously in editing mode.
+			if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
+				// Now hide the buttons and turn edit mode off for that tile.
+				// The visibility of the edit mode buttons is tied to editMode.
+				tilesContainer.children[i].editMode = false;
+				tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
+			}
+		}
+	} // End of the function that hides edit mode controls on the previous tile.
+	
+	// Hides editMode controls on all tiles.
+	// Function only to be used with the Back button, as it's not optimized
+	// to be run when switching which tile is currently in editMode.
+	// TODO: Try to combine the functions so they don't both have to exist.
+	function hideEditModeControlsOnAllTiles() {
+		// Loop through tiles and hide editMode controls on all of them.
+		// The moderator's answer here should work for looping through items:
+		// https://forum.qt.io/post/234640
+		for (var i = 0; i < tilesContainer.children.length; i++) {
+			// Loop through the children of the tilesContainer flow.
+			// Now hide the buttons and turn edit mode off for that tile.
+			// The visibility of the edit mode buttons is tied to editMode.
+			tilesContainer.children[i].editMode = false;
+			tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
+		}
+	}
+	
+	// Set opacity to 0.5 for tiles not in edit mode.
+	function setTileOpacity() {
+		// We need to see if the tile is currently in edit mode.
+		for (var i = 0; i < tilesContainer.children.length; i++) {
+			// Make sure tiles are set back to 1.0 opacity
+			// when leaving global edit mode, too.
+			if ((tilesContainer.children[i].editMode == true) || (globalEditMode == false)) {
+				tilesContainer.children[i].opacity = 1.0;
+				// Set scale back to 1.0.
+				tilesContainer.children[i].scale = 1.0;
+			} else {
+				// When in global edit mode, we have to set all
+				// tiles that aren't in local edit mode to 50% opacity.
+				tilesContainer.children[i].opacity = 0.5;
+				// Change scale to 0.9 for all the other tiles
+				// so they look like they're in the background.
+				tilesContainer.children[i].scale = 0.9;
+			}
+		}
+	} // End of the tile-opacity function.
 	
 	SwipeView {
 		id: startScreenView
@@ -314,84 +420,6 @@ ApplicationWindow {
 							tilesContainer.forceLayout();
 							
 				}
-				
-				// Turn on or off global edit mode.
-				function toggleGlobalEditMode(enable, showAllAppsButtonAndAllowGoingBetweenPages) {
-					// If enable is false, global edit mode will be
-					// turned off. Likewise, if it's true, it'll be
-					// turned on.
-					globalEditMode = enable;
-					
-					// Hide the All Apps button and don't let the user
-					// open the All Apps list based on showAllAppsButtonAndAllowGoingBetweenPages.
-					allAppsButton.visible = showAllAppsButtonAndAllowGoingBetweenPages;
-					startScreenView.interactive = showAllAppsButtonAndAllowGoingBetweenPages;
-					
-					// Now if global edit mode gets turned off, we
-					// need to save the tile layout.
-					if (globalEditMode == false) {
-						// Create a list of the tiles to send to Python:
-						// https://stackoverflow.com/a/24747608
-						var tilesList = [];
-						// Loop through the tiles and add them to the list
-						// if their visible property is set to "true".
-						for (var i = 0; i < tilesContainer.children.length; i++) {
-							if (tilesContainer.children[i].visible == true) {
-								// Get the properties from the tiles
-								// and add them to the list.
-								var tile = {};
-								tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
-								tile['TileWidth'] = tilesContainer.children[i].width;
-								tile['TileHeight'] = tilesContainer.children[i].height;
-								// Push the tile to the list.
-								// TODO: Prevent sorting.
-								tilesList.push(tile);
-							} // End of If statement checking if the tile is visible.
-						} // End of loop that goes through the tiles to save.
-						// Send the list of tiles to Python so it can save
-						// changes to the config file and remove any unpinned tiles.
-						tilesListViewModel.SaveTileLayout(tilesList);
-					} // End of the check to see if we're in global edit mode.
-				} // End of the global edit mode toggle function.
-				
-				// Hide the local edit mode controls on the previously-active tile.
-				function hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex) {
-					// Use the previous tile index to hide the buttons on the previous tile.
-					// The moderator's answer here should work:
-					// https://forum.qt.io/post/234640
-					for (var i = 0; i < tilesContainer.children.length; i++) {
-						// Loop through the children of the tilesContainer flow
-						// and find the tile that has the same tileIndex as the tile
-						// that was previously in editing mode.
-						if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
-							// Now hide the buttons and turn edit mode off for that tile.
-							// The visibility of the edit mode buttons is tied to editMode.
-							tilesContainer.children[i].editMode = false;
-							tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
-						}
-					}
-				} // End of the function that hides edit mode controls on the previous tile.
-				
-				// Set opacity to 0.5 for tiles not in edit mode.
-				function setTileOpacity() {
-					// We need to see if the tile is currently in edit mode.
-					for (var i = 0; i < tilesContainer.children.length; i++) {
-						// Make sure tiles are set back to 1.0 opacity
-						// when leaving global edit mode, too.
-						if ((tilesContainer.children[i].editMode == true) || (globalEditMode == false)) {
-							tilesContainer.children[i].opacity = 1.0;
-							// Set scale back to 1.0.
-							tilesContainer.children[i].scale = 1.0;
-						} else {
-							// When in global edit mode, we have to set all
-							// tiles that aren't in local edit mode to 50% opacity.
-							tilesContainer.children[i].opacity = 0.5;
-							// Change scale to 0.9 for all the other tiles
-							// so they look like they're in the background.
-							tilesContainer.children[i].scale = 0.9;
-						}
-					}
-				} // End of the tile-opacity function.
 				
 				// Hide or show tiles page based on the current number of tiles.
 				function checkPinnedTileCount(numberToChangePinnedTilesCountBy, showAnimation) {
