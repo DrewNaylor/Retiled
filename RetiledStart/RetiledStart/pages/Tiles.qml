@@ -218,7 +218,9 @@ ApplicationWindow {
 			// Now hide the buttons and turn edit mode off for that tile.
 			// The visibility of the edit mode buttons is tied to editMode.
 			tilesContainer.children[i].editMode = false;
-			tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
+			// We have to set their z-index to 0,
+			// otherwise everything starts getting messed up.
+			tilesContainer.children[i].z = 0;
 		}
 	}
 	
