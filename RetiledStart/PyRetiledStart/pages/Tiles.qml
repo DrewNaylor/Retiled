@@ -119,6 +119,32 @@ ApplicationWindow {
     Item {
 		// color: "black"
 		
+		
+		
+	Flickable {
+		// Gotta set a bunch of properties so the Flickable looks right.
+		// TODO: Change the scrolling so it's more loose and doesn't feel like
+		// it's dragging as much.
+		// TODO 2: Fix "QML Flickable: Binding loop detected for property "contentWidth""
+		// error that shows up on the PinePhone.
+		anchors.fill: parent
+		id: tilesFlickable
+		// Trying to go from this:
+		// https://stackoverflow.com/a/8902014
+		contentWidth: tilesContainer.width + spacerBesideTilesOnLeft.width + spacerBesideTilesOnRight.width
+		contentHeight: tilesContainer.height + spacerAboveTiles.height + spacerBelowTiles.height + spacerBelowAllAppsButton.height + allAppsButton.height
+		// Very important: Lock the flickable to vertical.
+		// I noticed this when I was just trying to find
+		// a way to disengage the flickable if the user
+		// is flicking horizontally in the docs.
+		flickableDirection: Flickable.VerticalFlick
+		width: parent.width
+		height: parent.height
+		// I mostly copied this from my modified version of the Qml.Net example app.
+		// Code for the About.qml file here:
+		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
+		
+		
 		// Trying to implement parallax scrolling based on
 		// this example:
 		// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
@@ -166,29 +192,6 @@ ApplicationWindow {
 					//invert: false
 				}
 	// }
-		
-	Flickable {
-		// Gotta set a bunch of properties so the Flickable looks right.
-		// TODO: Change the scrolling so it's more loose and doesn't feel like
-		// it's dragging as much.
-		// TODO 2: Fix "QML Flickable: Binding loop detected for property "contentWidth""
-		// error that shows up on the PinePhone.
-		anchors.fill: parent
-		id: tilesFlickable
-		// Trying to go from this:
-		// https://stackoverflow.com/a/8902014
-		contentWidth: tilesContainer.width + spacerBesideTilesOnLeft.width + spacerBesideTilesOnRight.width
-		contentHeight: tilesContainer.height + spacerAboveTiles.height + spacerBelowTiles.height + spacerBelowAllAppsButton.height + allAppsButton.height
-		// Very important: Lock the flickable to vertical.
-		// I noticed this when I was just trying to find
-		// a way to disengage the flickable if the user
-		// is flicking horizontally in the docs.
-		flickableDirection: Flickable.VerticalFlick
-		width: parent.width
-		height: parent.height
-		// I mostly copied this from my modified version of the Qml.Net example app.
-		// Code for the About.qml file here:
-		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
 		
 		
 		
