@@ -67,7 +67,7 @@ def getInfo(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = Fals
 	# "Copy file as path" on Windows.
 	# Actually, configparser has a read_file function:
 	# https://docs.python.org/3/library/configparser.html#configparser.ConfigParser.read_file
-		dotDesktopFile = open(inputFile, "r")
+		dotDesktopFile = open(inputFile, "r", encoding='utf-8')
 		dotDesktopFileReader.read_file(dotDesktopFile)
 	# We can now close the file since it's in the configparser.
 		dotDesktopFile.close()

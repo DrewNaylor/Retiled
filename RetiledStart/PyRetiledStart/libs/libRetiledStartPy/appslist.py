@@ -90,7 +90,7 @@ def getDotDesktopFiles():
 	# Example code for sys.platform:
 	# https://docs.python.org/3/library/sys.html#sys.platform
 	if sys.platform.startswith("win32"):
-		DotDesktopRootPath = "C:\\Users\\drewn\\Desktop"
+		DotDesktopRootPath = "C:\\Users\\Drew\\Desktop"
 		slash = "\\"
 	else:
 		DotDesktopRootPath = "/usr/share/applications"

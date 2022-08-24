@@ -32,6 +32,9 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
 
+// Qt5Compat for the graphical effects.
+import Qt5Compat.GraphicalEffects
+
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
 
@@ -137,13 +140,31 @@ ApplicationWindow {
 				// // We're using a custom shader:
 				// // https://stackoverflow.com/a/39907404
 				
-				// // Rectangle {
-					// // id: betterMask
-					// // anchors.fill: tileWallpaper
-					// // source: tileWallpaper
-					// // maskSource: tilesContainer
-					// // invert: false
-				// // }
+				// Actually, now we're trying a different approach
+				// based on this SO answer:
+				// https://stackoverflow.com/a/66613024
+				
+				Rectangle {
+					id: betterMask
+					anchors.fill: parent
+					color: "transparent"
+					
+					Image {
+						id: tileWallpaper
+						fillMode: Image.PreserveAspectCrop
+						anchors.top: tilesContainer.top
+						source: "wallpaper.jpg"
+						// //source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
+						visible: true
+					
+					}
+					
+					layer.enabled: true
+					layer.effect: OpacityMask {
+						maskSource: tilesContainer
+					}
+					//invert: false
+				}
 	// }
 		
 	Flickable {
@@ -204,15 +225,7 @@ ApplicationWindow {
 		// https://stackoverflow.com/a/38532138
 		
 				
-		// Image {
-					// id: tileWallpaper
-					// fillMode: Image.PreserveAspectCrop
-					// anchors.top: tilesContainer.top
-					// source: "wallpaper.jpg"
-					// //source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
-					// visible: true
-					
-				// }
+		
 		
 				
 					
