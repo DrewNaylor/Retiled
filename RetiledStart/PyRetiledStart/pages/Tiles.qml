@@ -124,6 +124,11 @@ ApplicationWindow {
 				// the tilesFlickable current scroll position
 				// multiplied by 0.15 to try to do a parallax thing.
 				contentY: tilesFlickable.contentY * 0.15
+				// Offset the flickable by -50 so it doesn't show the
+				// edge of the image.
+				// Ideally there would be a proper solution for this.
+				// TODO: Figure out a proper solution.
+				y: -50
 				
 				// // We're using a custom shader:
 				// // https://stackoverflow.com/a/39907404
