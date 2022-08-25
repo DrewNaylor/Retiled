@@ -119,7 +119,44 @@ ApplicationWindow {
     Item {
 		// color: "black"
 		
-		
+					Flickable {
+				// Experimenting with setting the contentY to
+				// the tilesFlickable current scroll position
+				// multiplied by 0.15 to try to do a parallax thing.
+				contentY: tilesFlickable.contentY * 0.15
+				
+				// // We're using a custom shader:
+				// // https://stackoverflow.com/a/39907404
+				
+				// Actually, now we're trying a different approach
+				// based on this SO answer:
+				// https://stackoverflow.com/a/66613024
+				
+				//Rectangle {
+				//	id: betterMask
+				//	anchors.fill: parent
+				//	color: "transparent"
+					
+					Image {
+						id: tileWallpaper
+						fillMode: Image.PreserveAspectCrop
+						width: tilesContainer.width
+						height: tilesContainer.height + spacerAboveTiles.height + spacerBelowTiles.height + spacerBelowAllAppsButton.height + allAppsButton.height
+						clip: true
+						//anchors.fill: tilesContainer
+						source: "wallpaper.jpg"
+						// //source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
+						visible: true
+					
+					}
+					
+					//layer.enabled: true
+					//layer.effect: OpacityMask {
+					//	maskSource: tilesContainer
+					//}
+					//invert: false
+				//}
+	}
 		
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
@@ -159,42 +196,7 @@ ApplicationWindow {
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
 				
-			Flickable {
-				// Experimenting with setting the contentY to
-				// the tilesFlickable current scroll position
-				// multiplied by 0.15 to try to do a parallax thing.
-				contentY: tilesFlickable.contentY * 0.15
-	
-				
-				// // We're using a custom shader:
-				// // https://stackoverflow.com/a/39907404
-				
-				// Actually, now we're trying a different approach
-				// based on this SO answer:
-				// https://stackoverflow.com/a/66613024
-				
-				//Rectangle {
-				//	id: betterMask
-				//	anchors.fill: parent
-				//	color: "transparent"
-					
-					Image {
-						id: tileWallpaper
-						fillMode: Image.PreserveAspectCrop
-						anchors.top: tilesContainer.top
-						source: "wallpaper.jpg"
-						// //source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
-						visible: true
-					
-					}
-					
-					//layer.enabled: true
-					//layer.effect: OpacityMask {
-					//	maskSource: tilesContainer
-					//}
-					//invert: false
-				//}
-	}
+
 		
 		
 		
