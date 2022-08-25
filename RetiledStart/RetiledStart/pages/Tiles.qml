@@ -343,6 +343,9 @@ ApplicationWindow {
 						//// This may be desirable for some if they want it like
 						//// Windows 10 Mobile, but there's no horizontal parallax for the image
 						//// yet, so it just ends up showing part of itself in the All Apps area.
+						//// As stated at the bottom of this section, it's important to clip an image if
+						//// using PreserveAspectCrop, as it can still go outside its intended bounds:
+						//// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
 						//clip: true
 						//source: "wallpaper.jpg"
 						//visible: true
