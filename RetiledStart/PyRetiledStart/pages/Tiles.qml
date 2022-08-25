@@ -129,7 +129,6 @@ ApplicationWindow {
 				y: tilesContainer.height * -0.1
 				// Force vertical flicks only.
 				flickableDirection: Flickable.VerticalFlick
-				
 				// // We're using a custom shader:
 				// // https://stackoverflow.com/a/39907404
 				
