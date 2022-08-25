@@ -267,6 +267,13 @@ ApplicationWindow {
 				//// so I'm using it for testing.
 				//// Please be respectful in how you use this image.
 				
+				//// In case it's not clear, Windows Phone 8.1 had
+				//// parallax scrolling tile backgrounds, so I'd like
+				//// to implement the same thing so that no one misses it,
+				//// because it looks really cool. That's also where I got
+				//// the idea for the feature, just to be completely clear
+				//// on this.
+				
 				//// Source for the original code that I tried to learn
 				//// from on how to do parallax scrolling in QML,
 				//// including the original text I wrote when trying
