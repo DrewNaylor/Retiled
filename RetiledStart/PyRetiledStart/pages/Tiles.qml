@@ -124,11 +124,11 @@ ApplicationWindow {
 				// the tilesFlickable current scroll position
 				// multiplied by 0.15 to try to do a parallax thing.
 				contentY: tilesFlickable.contentY * 0.15
-				// Offset the flickable by -50 so it doesn't show the
-				// edge of the image.
-				// Ideally there would be a proper solution for this.
-				// TODO: Figure out a proper solution.
-				y: -50
+				// Offset the flickable by tilesContainer.height multiplied by -0.1
+				// so it doesn't show the top edge of the image as easily.
+				y: tilesContainer.height * -0.1
+				// Force vertical flicks only.
+				flickableDirection: Flickable.VerticalFlick
 				
 				// // We're using a custom shader:
 				// // https://stackoverflow.com/a/39907404
@@ -146,7 +146,7 @@ ApplicationWindow {
 						id: tileWallpaper
 						fillMode: Image.PreserveAspectCrop
 						width: tilesContainer.width
-						height: tilesContainer.height + spacerAboveTiles.height + spacerBelowTiles.height + spacerBelowAllAppsButton.height + allAppsButton.height
+						height: window.height * 1.2
 						clip: true
 						//anchors.fill: tilesContainer
 						source: "wallpaper.jpg"
