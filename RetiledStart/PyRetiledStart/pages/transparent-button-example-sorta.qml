@@ -39,17 +39,21 @@ ApplicationWindow {
                      // a way to disengage the flickable if the user
                      // is flicking horizontally in the docs.
                      flickableDirection: Flickable.VerticalFlick
+                     id: tilesFlickable
                      width: parent.width
                      height: parent.height
            Flow {
                id: tilePageContentHolder
                width: window.width
-			   spacing: 10
+               spacing: 10
             Button {
                 // Trying to add text to buttons, but it seems to
                 // override the text when using the background
                 // image for some reason.
+                Label {
                  text: "testing a button here."
+                 color: "white"
+                }
                  width: 150
                  height: 150
                  scale: down ? 0.98 : 1.0
@@ -66,6 +70,48 @@ ApplicationWindow {
                 height: 150
                   scale: down ? 0.98 : 1.0
             }
+                Button {
+                  text: "testing a button here."
+                  width: 150
+                  height: 150
+                  scale: down ? 0.98 : 1.0
+           }
+                Button {
+                  text: "testing a button here."
+                  width: 150
+                  height: 150
+                  scale: down ? 0.98 : 1.0
+           }
+                Button {
+                  text: "testing a button here."
+                  width: 75
+                  height: 75
+                  scale: down ? 0.98 : 1.0
+           }
+                Button {
+                  text: "testing a button here."
+                  width: 75
+                  height: 75
+                  scale: down ? 0.98 : 1.0
+           }
+                Button {
+                  text: "testing a button here."
+                  width: 75
+                  height: 75
+                  scale: down ? 0.98 : 1.0
+           }
+                Button {
+                  text: "testing a button here."
+                  width: 75
+                  height: 75
+                  scale: down ? 0.98 : 1.0
+           }
+                Button {
+                  text: "testing a button here."
+                  width: 150
+                  height: 150
+                  scale: down ? 0.98 : 1.0
+           }
                 Button {
                   text: "testing a button here."
                   width: 150
@@ -122,7 +168,9 @@ ApplicationWindow {
                                    source: "wallpaper.jpg"
                                    // //source: "../RetiledStart/PyRetiledStart/pages/wallpaper.jpg"
                                    //visible: true
-
+                                   // Set the image's Y to the flickable's contentY times
+                                   // negative 0.12 (very important so it stays synced!).
+                                   y: tilesFlickable.contentY * -0.12
                                }
 
            layer.enabled: true
