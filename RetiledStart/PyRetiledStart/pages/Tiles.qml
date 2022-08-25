@@ -33,7 +33,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Universal
 
 // Qt5Compat for the graphical effects.
-import Qt5Compat.GraphicalEffects
+//import Qt5Compat.GraphicalEffects
 
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
@@ -159,8 +159,11 @@ ApplicationWindow {
 				// https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
 				
 				
-			// Flickable {
-				
+			Flickable {
+				// Experimenting with setting the contentY to
+				// the tilesFlickable current scroll position
+				// multiplied by 0.15 to try to do a parallax thing.
+				contentY: tilesFlickable.contentY * 0.15
 	
 				
 				// // We're using a custom shader:
@@ -170,10 +173,10 @@ ApplicationWindow {
 				// based on this SO answer:
 				// https://stackoverflow.com/a/66613024
 				
-				Rectangle {
-					id: betterMask
-					anchors.fill: parent
-					color: "transparent"
+				//Rectangle {
+				//	id: betterMask
+				//	anchors.fill: parent
+				//	color: "transparent"
 					
 					Image {
 						id: tileWallpaper
@@ -185,13 +188,13 @@ ApplicationWindow {
 					
 					}
 					
-					layer.enabled: true
-					layer.effect: OpacityMask {
-						maskSource: tilesContainer
-					}
+					//layer.enabled: true
+					//layer.effect: OpacityMask {
+					//	maskSource: tilesContainer
+					//}
 					//invert: false
-				}
-	// }
+				//}
+	}
 		
 		
 		
