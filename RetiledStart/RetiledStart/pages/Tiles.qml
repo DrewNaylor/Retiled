@@ -251,6 +251,98 @@ ApplicationWindow {
 	// of the pages in the SwipeView, or it
 	// gets into an endless loop.
     Item {
+		
+		//Flickable {
+				//// This is an example of a tile page
+				//// background wallpaper as taken from the
+				//// parallax-background-test branch.
+				//// It has some problems with ensuring the image
+				//// is always visible rather than displaying empty
+				//// areas, so it's not fully available yet.
+				//// The example wallpaper that's available is
+				//// of my cat Mitty, and it was taken with
+				//// a Nokia Lumia 822 on September 28, 2013.
+				//// This is the same image I liked using on
+				//// Windows Phone 8.1 as a tile background,
+				//// so I'm using it for testing.
+				//// Please be respectful in how you use this image.
+				
+				//// Source for the original code that I tried to learn
+				//// from on how to do parallax scrolling in QML,
+				//// including the original text I wrote when trying
+				//// to figure this out, though it's somewhat different
+				//// the way I implemented it. Guess I should say I used
+				//// the example under the BSD License as displayed below the text,
+				//// and that the example file is Copyright (C) 2017 The Qt Company Ltd..
+				//// 	Trying to implement parallax scrolling based on
+				//// 	this example:
+				//// 	https://doc.qt.io/archives/qt-5.9/qtquick-views-parallax-content-parallaxview-qml.html
+				//// 	I did read on the Qt forums that someone suggested
+				//// 	using a nested Flickable, so I may have to do that
+				//// 	if this doesn't work.
+				
+					// BSD License begins:
+					// "Redistribution and use in source and binary forms, with or without
+					// modification, are permitted provided that the following conditions are
+					// met:
+					//   * Redistributions of source code must retain the above copyright
+					//     notice, this list of conditions and the following disclaimer.
+					//   * Redistributions in binary form must reproduce the above copyright
+					//     notice, this list of conditions and the following disclaimer in
+					//     the documentation and/or other materials provided with the
+					//     distribution.
+					//   * Neither the name of The Qt Company Ltd nor the names of its
+					//     contributors may be used to endorse or promote products derived
+					//     from this software without specific prior written permission.
+					//
+					//
+					// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+					// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+					// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+					// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+					// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+					// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+					// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+					// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+					// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+					// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+					// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+					// BSD License ends.
+				
+				//// Experimenting with setting the contentY to
+				//// the tilesFlickable current scroll position
+				//// multiplied by 0.12 to try to do parallax scrolling.
+				//contentY: tilesFlickable.contentY * 0.12
+				//// Offset the flickable by tilesContainer.height * -0.1
+				//// so it doesn't show the edge of the image.
+				//y: tilesContainer.height * -0.1
+				
+					//Image {
+						//id: tileWallpaper
+						//fillMode: Image.PreserveAspectCrop
+						//// Setting the width to tilesContainer's width plus 50
+						//// ensures empty space on the right is hidden.
+						//width: tilesContainer.width + 50
+						//// Setting the height to the window's height multiplied
+						//// by 1.2 ensures the image is at least as tall as the
+						//// window, but this introduces a problem if there are enough
+						//// tiles to make the tilesContainer taller than the window.
+						//// The solution to this doesn't seem to be to use the tilesContainer's
+						//// height, because resizing, pinning, and unpinning tiles
+						//// will change the height of the tilesContainer, and thus the
+						//// background image.
+						//height: window.height * 1.2
+						//// Ensure the image doesn't go into the All Apps list area.
+						//// This may be desirable for some if they want it like
+						//// Windows 10 Mobile, but there's no horizontal parallax for the image
+						//// yet, so it just ends up showing part of itself in the All Apps area.
+						//clip: true
+						//source: "wallpaper.jpg"
+						//visible: true
+					
+					//} //// End of the tile area background image item.
+		//} //// End of the flickable allowing the background image to have some parallax scrolling.
+		
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
 		// TODO: Change the scrolling so it's more loose and doesn't feel like
