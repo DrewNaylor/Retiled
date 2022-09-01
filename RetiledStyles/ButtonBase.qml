@@ -86,6 +86,23 @@ T.Button {
 	// doesn't seem to work anymore in Qt6 and I don't know how to
 	// fix it right now.
 	scale: control.down ? 0.98 : 1.0
+	
+	// Transform the button by rotating it toward where
+	// the cursor is when pressing it, if desired.
+	// Had to watch this video to understand the
+	// general concept of how to do it the way
+	// I wanted to do it:
+	// https://www.youtube.com/watch?v=frC9nZGrLAM
+	// TODO: Offer a way to turn off tilting.
+	// NOTE: These values are only for testing for now.
+	transform: Rotation {
+		origin.x: control.width / 2
+		origin.y: control.height / 2
+		axis.x: 1
+		axis.y: 0.5
+		axis.z: 0
+		angle: 30
+	}
 
     icon.width: 20
     icon.height: 20
@@ -107,7 +124,6 @@ T.Button {
     background: Rectangle {
         implicitWidth: 32
         implicitHeight: 32
-
         visible: !control.flat || control.down || control.checked || control.highlighted
         color: control.down ? control.Universal.baseMediumLowColor :
                control.enabled && (control.highlighted || control.checked) ? control.Universal.accent :

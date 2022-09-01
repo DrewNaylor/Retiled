@@ -152,7 +152,10 @@ ButtonBase {
 				color: control.down ? control.pressedBackgroundColor : control.unpressedBackgroundColor
                 border.width: control.borderWidth
                 radius: control.borderRadius
-				
+				// Give buttons antialiasing.
+				// TODO: Allow buttons to have antialiasing turned
+				// off, if desired by the app using this component.
+				antialiasing: true
 				
 				//// I think this is the way I'll rotate and shrink the button
                 //// when it's held down:
