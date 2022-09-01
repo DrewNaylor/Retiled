@@ -70,8 +70,11 @@ RetiledStyles.Button {
 	onPressAndHold: allappscontextmenu.open()
 	
 	// Turning off tilting by default because it can be an issue
-	// due to it not being constrained to not be way too much yet.
-	//tilt: false
+	// due to it not being constrained to not be way too much yet,
+	// as moving to the edge causes it to flicker.
+	// This is an issue on the edges of the control.
+	// TODO: Figure out how to make tilting smooth.
+	tilt: false
 	
 	// Signal and property for the pin to start button.
 	property string dotDesktopFilePath;
