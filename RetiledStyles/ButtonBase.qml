@@ -109,8 +109,8 @@ T.Button {
 		// need to be used.
 		// Read that on a blog or something I'll paste here
 		// later.
-		axis.x: control.down ? -pressX : 0
-		axis.y: control.down ? -pressY : 0
+		axis.x: (control.down ? (pressX > (control.width / 2) ? -pressX : pressX) : 0)
+		axis.y: (control.down ? (pressY > (control.height / 2) ? -pressY : pressY) : 0)
 		axis.z: 0
 		angle: 30
 	}
