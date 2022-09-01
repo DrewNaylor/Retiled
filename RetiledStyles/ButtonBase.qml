@@ -109,10 +109,20 @@ T.Button {
 		// need to be used.
 		// Read that on a blog or something I'll paste here
 		// later.
-		axis.x: (control.down ? (pressX >= (control.width / 2) ? -(pressX + origin.x) : (pressX + origin.x)) : 0)
-		axis.y: (control.down ? (pressY >= (control.height / 2) ? -(pressY + origin.y) : (pressY + origin.y)) : 0)
+		// For the y-axis, we check if the control is being pressed
+		// down, then if so, we check if the x-value for where
+		// the button is being pressed at is greater than the width
+		// of the button divided by 2. Dividing the width like this
+		// allows us to split the button into quadrants, which
+		// makes it easy to know which direction the button
+		// is supposed to tilt in. Moving on, if the button is being
+		// pressed
+		axis.y: (control.down ? (pressX > (control.width / 2) ? pressX + origin.x : -(pressX + origin.x)) : 0)
+		axis.x: (control.down ? (pressY < (control.height / 2) ? pressY + origin.y : -(pressY + origin.y)) : 0)
 		axis.z: 0
-		angle: 50
+		// An angle of 20 seems pretty good.
+		// This is the limit of how far the button "tilts" when pressed.
+		angle: 20
 	}
 
     icon.width: 20
