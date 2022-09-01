@@ -87,6 +87,9 @@ T.Button {
 	// fix it right now.
 	scale: control.down ? 0.98 : 1.0
 	
+	// Property to control tilting.
+	property bool tilt: true
+	
 	// Transform the button by rotating it toward where
 	// the cursor is when pressing it, if desired.
 	// Had to watch this video to understand the
@@ -134,11 +137,11 @@ T.Button {
 		// negative and thus placing it on the left side of the
 		// button's center.
 		// If the button is un-pressed, the y-axis is reset to 0.
-		axis.y: (control.down ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
+		axis.y: (control.down && tilt ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
 		// For the x-axis, we do a similar thing as with the y-axis,
 		// only this time we use the y-value of the press and the height
 		// of the button divided by 2 stored as the y-origin.
-		axis.x: (control.down ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
+		axis.x: (control.down && tilt ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
 		// We don't need the z-axis changed from 0.
 		axis.z: 0
 		// An angle of 15 seems pretty good.
