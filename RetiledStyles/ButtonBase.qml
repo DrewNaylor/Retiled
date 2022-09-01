@@ -115,8 +115,7 @@ T.Button {
 		// in half vertically and horizontally
 		// to decide if negative or positive values
 		// need to be used.
-		// Read that on a blog or something I'll paste here
-		// later.
+		// Read that here: https://letsbuildui.dev/articles/a-3d-hover-effect-using-css-transforms
 		// Here's how buttons are tilted:
 		// For the y-axis, we check if the control is being pressed
 		// down, then if so, we check if the x-value for where
