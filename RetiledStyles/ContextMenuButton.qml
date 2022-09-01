@@ -151,6 +151,8 @@ ButtonBase {
                 border.width: control.borderWidth
                 radius: control.borderRadius
 				
+				// Add antialiasing.
+				antialiasing: true
 				
 				//// I think this is the way I'll rotate and shrink the button
                 //// when it's held down:

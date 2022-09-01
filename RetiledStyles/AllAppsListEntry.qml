@@ -170,6 +170,8 @@ RetiledStyles.Button {
 		// A margin needs to be added to ensure it's the right size.
 		anchors.topMargin: 5
 		anchors.bottomMargin: 5
+		// Have the rectangle be antialiased.
+		antialiasing: true
 	}
 	
 	Text {
