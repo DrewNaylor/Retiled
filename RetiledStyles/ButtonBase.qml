@@ -89,6 +89,8 @@ T.Button {
 	
 	// Property to control tilting.
 	property bool tilt: true
+	// Allow setting tilt angle.
+	property int tiltAngle: 15
 	
 	// Transform the button by rotating it toward where
 	// the cursor is when pressing it, if desired.
@@ -146,7 +148,7 @@ T.Button {
 		axis.z: 0
 		// An angle of 15 seems pretty good.
 		// This is the limit of how far the button "tilts" when pressed.
-		angle: 15
+		angle: tiltAngle
 	}
 
     icon.width: 20
