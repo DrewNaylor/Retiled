@@ -98,8 +98,19 @@ T.Button {
 	transform: Rotation {
 		origin.x: control.width / 2
 		origin.y: control.height / 2
-		axis.x: 1
-		axis.y: 0.5
+		// Set axis and angle values based on
+		// the last-pressed x and y values:
+		// https://doc.qt.io/qt-6/qml-qtquick-controls2-abstractbutton.html#pressX-prop
+		// Not entirely sure what values to use
+		// to make it realistic here.
+		// Maybe I need to divide the button
+		// in half vertically and horizontally
+		// to decide if negative or positive values
+		// need to be used.
+		// Read that on a blog or something I'll paste here
+		// later.
+		axis.x: control.down ? -pressX : 0
+		axis.y: control.down ? -pressY : 0
 		axis.z: 0
 		angle: 30
 	}
