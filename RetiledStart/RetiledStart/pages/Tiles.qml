@@ -674,7 +674,7 @@ ApplicationWindow {
 							NewTileObject.tileIndex = i
 						
 						// Connect clicked signal.
-							NewTileObject.clicked.connect(tileClicked);
+							NewTileObject.tileClicked.connect(tileClicked);
 						
 						// Connect global edit mode toggle.
 							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);

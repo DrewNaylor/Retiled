@@ -55,7 +55,7 @@ ButtonBase {
 	// so that we can add an event handler:
 	// https://stackoverflow.com/a/22605752
 	property string execKey;
-	signal clicked(string execKey);
+	signal tileClicked(string execKey);
 	
 	
 	
@@ -105,7 +105,7 @@ ButtonBase {
 	// Set tile index for use with global edit mode.
 	// This isn't the tile ID, which is used in the config file.
 	property int tileIndex;
-	
+					
 	RoundButton {
 		id: unpinButton
 		visible: editMode
@@ -250,12 +250,10 @@ ButtonBase {
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
 	// Add a mousearea to allow for clicking it.
-	MouseArea {
-		anchors.fill: parent
 		onClicked: {
 			// Only run the app if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
-				parent.clicked(parent.execKey);
+				tileClicked(parent.execKey);
 				// Reset the scale to 1.0.
 				// This, along with setting the scale
 				// in various events below, probably
@@ -267,7 +265,7 @@ ButtonBase {
 				// but I can't seem to get that to work
 				// with a MouseArea.
 				// TODO: Make this less janky.
-				control.scale = 1.0;
+				scale = 1.0;
 			} else if (editMode == true) {
 				// Turn off edit mode if it's on.
 				editMode = false;
@@ -279,7 +277,7 @@ ButtonBase {
 				setTileOpacity();
 				// Hide the edit mode buttons and reset the tile's
 				// z-index.
-				control.z = control.z - 1;
+				z = z - 1;
 				// console.log(previousTileInEditingModeIndex);
 			} else if ((editMode == false) && (globalEditMode == true)) {
 				// If local edit mode is off but global edit mode
@@ -291,22 +289,22 @@ ButtonBase {
 				// turned on properly.
 				editMode = true;
 				// Forgot to show the controls, oops.
-				control.z = control.z + 1;
+				z = z + 1;
 				// Hide the controls on the previously-active tile.
 				hideEditModeControlsOnPreviousTile(previousTileInEditingModeIndex);
 				// Set tile opacity, too.
 				setTileOpacity();
 				// Now set the previous tile index.
 				previousTileInEditingModeIndex = tileIndex;
-					if ((control.width == 150) && (control.height == 150)) {
+					if ((width == 150) && (height == 150)) {
 				// Change the resize button's rotation for the medium tile.
 				// -135 points the arrow in the top-left corner.
 						resizeButton.rotation = -135;
-					} else if ((control.width == 70) && (control.height == 70)) {
+					} else if ((width == 70) && (height == 70)) {
 				// Change the resize button's rotation for the small tile.
 				// 45 points the arrow down-right.
 						resizeButton.rotation = 45;
-					} else if ((control.width == 310) && (control.height == 150)) {
+					} else if ((width == 310) && (height == 150)) {
 				// Change the resize button's rotation to match
 				// the wide tile's expected resize button rotation.
 				// -180 points to the left.
@@ -336,20 +334,20 @@ ButtonBase {
 		onPressed: {
 			// Only change the scale if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
-				control.scale = 0.98
+				scale = 0.98
 			}
 		}
 		
 		onReleased: {
 			// Make sure global edit mode isn't on first.
 			if (globalEditMode == false) {
-				control.scale = 1.0
+				scale = 1.0
 			}
 		}
 		onCanceled: {
 			// Make sure global edit mode isn't on first.
 			if (globalEditMode == false) {
-				control.scale = 1.0
+				scale = 1.0
 			}
 		}
 		
@@ -375,7 +373,7 @@ ButtonBase {
 			// to each tile rather than the entire tile list, so
 			// it's still possible to open an app with tile A while the menu
 			// for tile B is open.
-			control.z = control.z + 1;
+			z = z + 1;
 			// If global edit mode is already on, hide the edit controls on the previous tile.
 			// Also make sure we're not editing this tile at the moment.
 			// There may be more stuff to change so that this works more reliably,
@@ -395,15 +393,15 @@ ButtonBase {
 			// TODO: Make the rotation into its own function.
 			// NOTE: These values are different from the ones
 			// used when pressing the resize button.
-			if ((control.width == 150) && (control.height == 150)) {
+			if ((width == 150) && (height == 150)) {
 				// Change the resize button's rotation for the medium tile.
 				// -135 points the arrow in the top-left corner.
 				resizeButton.rotation = -135;
-			} else if ((control.width == 70) && (control.height == 70)) {
+			} else if ((width == 70) && (height == 70)) {
 				// Change the resize button's rotation for the small tile.
 				// 45 points the arrow down-right.
 				resizeButton.rotation = 45;
-			} else if ((control.width == 310) && (control.height == 150)) {
+			} else if ((width == 310) && (height == 150)) {
 				// Change the resize button's rotation to match
 				// the wide tile's expected resize button rotation.
 				// -180 points to the left.
@@ -415,7 +413,6 @@ ButtonBase {
 				resizeButton.rotation = -135;
 			}
 		}
-	}
 	
 	// Override the contentItem using the one from Button.
 	contentItem: Text {
@@ -448,8 +445,8 @@ ButtonBase {
 				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff402557(v=vs.105)
 				//font.weight: Font.DemiBold
 				// Font weight changes don't look that good.
-                text: control.tileText
-                color: control.textColor
+                text: tileText
+                color: textColor
 				// Turn off ellipsis.
 				elide: Text.ElideNone
 				// Ensure that text doesn't just go out of
@@ -487,9 +484,10 @@ ButtonBase {
 	
 	background: Rectangle {
 		// Change tile color and stuff.
-				color: control.tileBackgroundColor
-                border.width: 0
-                radius: 0
+		color: tileBackgroundColor
+		border.width: 0
+		radius: 0
+		
 	}
 	
 }
