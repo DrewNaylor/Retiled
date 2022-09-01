@@ -141,9 +141,9 @@ T.Button {
 		axis.x: (control.down ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
 		// We don't need the z-axis changed from 0.
 		axis.z: 0
-		// An angle of 20 seems pretty good.
+		// An angle of 15 seems pretty good.
 		// This is the limit of how far the button "tilts" when pressed.
-		angle: 20
+		angle: 15
 	}
 
     icon.width: 20
