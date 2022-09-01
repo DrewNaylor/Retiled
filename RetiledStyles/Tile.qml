@@ -389,6 +389,7 @@ ButtonBase {
 			setTileOpacity();
 			// Now set the previous tile index.
 			previousTileInEditingModeIndex = tileIndex;
+			console.log("tileIndex on long-pressing a tile: " + tileIndex);
 			// Rotate the resize button as well.
 			// TODO: Make the rotation into its own function.
 			// NOTE: These values are different from the ones
