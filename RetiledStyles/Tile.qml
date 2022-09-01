@@ -253,7 +253,7 @@ ButtonBase {
 		onClicked: {
 			// Only run the app if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
-				tileClicked(parent.execKey);
+				tileClicked(execKey);
 				// Reset the scale to 1.0.
 				// This, along with setting the scale
 				// in various events below, probably
