@@ -425,7 +425,7 @@ ButtonBase {
                 verticalAlignment: Text.AlignBottom
 				// Make the font bigger.
 				// pixelSize isn't device-independent.
-                font.pointSize: control.fontSize
+                font.pointSize: fontSize
 				// Set the font weight:
 				// https://doc.qt.io/qt-5/qml-font.html
 				// Windows Phone 7 used SemiBold, but I hope
