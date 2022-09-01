@@ -109,10 +109,10 @@ T.Button {
 		// need to be used.
 		// Read that on a blog or something I'll paste here
 		// later.
-		axis.x: (control.down ? (pressX > (control.width / 2) ? -pressX : pressX) : 0)
-		axis.y: (control.down ? (pressY > (control.height / 2) ? -pressY : pressY) : 0)
+		axis.x: (control.down ? (pressX >= (control.width / 2) ? -(pressX + origin.x) : (pressX + origin.x)) : 0)
+		axis.y: (control.down ? (pressY >= (control.height / 2) ? -(pressY + origin.y) : (pressY + origin.y)) : 0)
 		axis.z: 0
-		angle: 30
+		angle: 50
 	}
 
     icon.width: 20
