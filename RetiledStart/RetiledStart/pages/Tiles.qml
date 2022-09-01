@@ -197,6 +197,7 @@ ApplicationWindow {
 		// The visibility of the edit mode buttons is tied to editMode.
 		tilesContainer.children[previousTileInEditingModeIndex].editMode = false;
 		tilesContainer.children[previousTileInEditingModeIndex].z = tilesContainer.children[previousTileInEditingModeIndex].z - 1;
+		console.log("Previous tile: " + previousTileInEditingModeIndex);
 	} // End of the function that hides edit mode controls on the previous tile.
 	
 	// Hides editMode controls on all tiles.
