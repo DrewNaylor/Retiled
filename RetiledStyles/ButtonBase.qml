@@ -94,31 +94,52 @@ T.Button {
 	// I wanted to do it:
 	// https://www.youtube.com/watch?v=frC9nZGrLAM
 	// TODO: Offer a way to turn off tilting.
-	// NOTE: These values are only for testing for now.
 	transform: Rotation {
+		// Set the x and y origins by dividing
+		// the button in half horizontally and
+		// vertically. This allows the button to
+		// be split into quadrants, which are
+		// used to know which direction the button
+		// is supposed to tilt in.
 		origin.x: control.width / 2
 		origin.y: control.height / 2
 		// Set axis and angle values based on
 		// the last-pressed x and y values:
 		// https://doc.qt.io/qt-6/qml-qtquick-controls2-abstractbutton.html#pressX-prop
-		// Not entirely sure what values to use
-		// to make it realistic here.
 		// Maybe I need to divide the button
 		// in half vertically and horizontally
 		// to decide if negative or positive values
 		// need to be used.
 		// Read that on a blog or something I'll paste here
 		// later.
+		// Here's how buttons are tilted:
 		// For the y-axis, we check if the control is being pressed
 		// down, then if so, we check if the x-value for where
 		// the button is being pressed at is greater than the width
-		// of the button divided by 2. Dividing the width like this
+		// of the button divided by 2, which is the origin.
+		// (We're using the origin directly below for simplification
+		// and to prevent typos.) Dividing the width like this
 		// allows us to split the button into quadrants, which
 		// makes it easy to know which direction the button
 		// is supposed to tilt in. Moving on, if the button is being
-		// pressed
-		axis.y: (control.down ? (pressX > (control.width / 2) ? pressX + origin.x : -(pressX + origin.x)) : 0)
-		axis.x: (control.down ? (pressY < (control.height / 2) ? pressY + origin.y : -(pressY + origin.y)) : 0)
+		// pressed on the right side of the button's center
+		// (stored as the origin.x value above, calculated from
+		// the button's width divided by 2), then we set the y-axis
+		// to the x-value of the press added to the x-origin of the
+		// button (this ensures it's in the right place, or else
+		// it might not quite look right). However, if the x-value
+		// of the press is on the left side of the x-origin, then
+		// we multiply the result of the x-value of the press added
+		// to the x-origin with negative 1, thereby making the result
+		// negative and thus placing it on the left side of the
+		// button's center.
+		// If the button is un-pressed, the y-axis is reset to 0.
+		axis.y: (control.down ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
+		// For the x-axis, we do a similar thing as with the y-axis,
+		// only this time we use the y-value of the press and the height
+		// of the button divided by 2 stored as the y-origin.
+		axis.x: (control.down ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
+		// We don't need the z-axis changed from 0.
 		axis.z: 0
 		// An angle of 20 seems pretty good.
 		// This is the limit of how far the button "tilts" when pressed.
