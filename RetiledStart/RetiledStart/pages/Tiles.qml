@@ -195,8 +195,20 @@ ApplicationWindow {
 		// https://forum.qt.io/post/234640
 		// Now hide the buttons and turn edit mode off for that tile.
 		// The visibility of the edit mode buttons is tied to editMode.
-		tilesContainer.children[previousTileInEditingModeIndex].editMode = false;
-		tilesContainer.children[previousTileInEditingModeIndex].z = tilesContainer.children[previousTileInEditingModeIndex].z - 1;
+		// As it turns out, just directly accessing the previous tile index
+		// doesn't work if you're trying to remove the edit mode controls
+		// from a newly-pinned tile. Unfortunately, this means that
+		// we have to loop over the tiles.
+		// TODO: Figure out something more efficient.
+		for (var i = 0; i < tilesContainer.children.length; i++) {
+			if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
+				tilesContainer.children[i].editMode = false;
+				tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
+			}
+		}
+		//console.log("tilesContainer.children.length: " + tilesContainer.children.length);
+		//console.log("pinnedTilesCount: " + pinnedTilesCount);
+		//console.log("previousTileInEditingModeIndex: " + previousTileInEditingModeIndex);
 	} // End of the function that hides edit mode controls on the previous tile.
 	
 	// Hides editMode controls on all tiles.
