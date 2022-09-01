@@ -105,6 +105,11 @@ ButtonBase {
 	// Set tile index for use with global edit mode.
 	// This isn't the tile ID, which is used in the config file.
 	property int tileIndex;
+	
+	// Set whether tiles can tilt.
+	// This is a property so it can be set
+	// by a setting in the future.
+	property bool tilt: true
 					
 	RoundButton {
 		id: unpinButton
@@ -278,6 +283,8 @@ ButtonBase {
 				// Hide the edit mode buttons and reset the tile's
 				// z-index.
 				z = z - 1;
+				// Turn back on tilting.
+				tilt = true;
 				// console.log(previousTileInEditingModeIndex);
 			} else if ((editMode == false) && (globalEditMode == true)) {
 				// If local edit mode is off but global edit mode
