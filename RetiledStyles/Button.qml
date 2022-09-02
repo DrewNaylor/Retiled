@@ -59,6 +59,7 @@ ButtonBase {
 	// automatically set the theme with a boolean would
 	// be useful.
 	property string textColor: "white"
+	property string pressedTextColor: "white"
 	// pressedBackgroundColor will usually be the accent color.
 	property string pressedBackgroundColor: Universal.accent
 	// unpressedBackgroundColor is usually transparent,
@@ -87,23 +88,7 @@ ButtonBase {
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
 	
-	// Copying in and modifying the transitions I modified from Qt's
-	// example that's available in ButtonBase.qml.
-	states: State {
-		name: "buttonPress"
-		when: pressed
-		PropertyChanges { target: background; color: pressedBackgroundColor }
-		PropertyChanges { target: background; border.color: pressedBorderColor }
-	}
 
-	transitions: Transition {
-		to: "buttonPress"
-		reversible: true
-		ParallelAnimation {
-			PropertyAnimation { property: "color"; duration: 100 }
-			PropertyAnimation { property: "border.color"; duration: 100 }
-		}
-	}
 	
 	contentItem: Text {
 		// I couldn't figure out why things weren't
@@ -159,19 +144,46 @@ ButtonBase {
            background: Rectangle {
                 implicitWidth: control.buttonWidth
                 implicitHeight: control.buttonHeight
-                border.color: control.borderColor
 				// Set the background color for the button here
 				// since the state-changing thing doesn't work
 				// anymore in Qt6. This is temporary if I figure
 				// out how to fix the animation.
-				color: control.unpressedBackgroundColor
-				
+				//color: unpressedBackgroundColor
+				//border.color: borderColor
                 border.width: control.borderWidth
                 radius: control.borderRadius
 				// Give buttons antialiasing.
 				// TODO: Allow buttons to have antialiasing turned
 				// off, if desired by the app using this component.
 				antialiasing: true
+				
+				// Copying in and modifying the transitions I modified from Qt's
+				// example that's available in ButtonBase.qml.
+				// Actually, now I'm trying to use multiple states from this
+				// example: https://doc.qt.io/qt-6/qml-qtquick-transition.html#enabled-prop
+				states: [
+					State { 
+						name: "buttonPress"
+						when: pressed
+						PropertyChanges { target: background; color: pressedBackgroundColor }
+						PropertyChanges { target: background; border.color: pressedBorderColor }
+					},
+					State {
+						name: "buttonUnpressed"
+						when: !pressed
+						PropertyChanges { target: background; color: unpressedBackgroundColor }
+						PropertyChanges { target: background; border.color: borderColor }
+					}
+				]
+
+				transitions: Transition {
+					from: "buttonUnpressed"
+					to: "buttonPress"
+					ParallelAnimation {
+						PropertyAnimation { property: "color"; duration: 100 }
+						PropertyAnimation { property: "border.color"; duration: 100 }
+					}
+				}
 				
 				//// I think this is the way I'll rotate and shrink the button
                 //// when it's held down:
