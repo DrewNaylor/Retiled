@@ -105,9 +105,9 @@ Rotation {
 	// Learned about this from this tutorial:
 	// https://www.pythonguis.com/tutorials/pyside6-qml-animations-transformations/
 	Behavior on axis.y {
-		NumberAnimation { duration: 100 }
+		SmoothedAnimation { duration: 100 }
 	}
 	Behavior on axis.x {
-		NumberAnimation { duration: 100 }
+		SmoothedAnimation { duration: 100 }
 	}
 }
