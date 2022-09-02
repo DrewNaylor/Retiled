@@ -142,6 +142,10 @@ import "../../../RetiledStyles" as RetiledStyles
 									tilesContainer.pinToStart(model.display);
 									// allAppsListViewModel.PinToStart(model.display);
 								}
+								// Setup moveOtherAppsIntoBackground.
+								onMoveOtherAppsIntoBackground: {
+									
+								}
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.

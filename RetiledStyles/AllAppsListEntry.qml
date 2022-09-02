@@ -66,8 +66,14 @@ RetiledStyles.Button {
 	// Have a property for the icon background color.
 	property string iconBackgroundColor: Universal.accent
 	
-	// Open the context menu.
-	onPressAndHold: allappscontextmenu.open()
+	// Signal for moving other apps into the background.
+	signal moveOtherAppsIntoBackground();
+	
+	// Open the context menu and move other apps into the background.
+	onPressAndHold: {
+		moveOtherAppsIntoBackground();
+		allappscontextmenu.open();
+	}
 	
 	// Turning off tilting by default because it can be an issue
 	// due to it not being constrained to not be way too much yet,
