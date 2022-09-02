@@ -211,6 +211,7 @@ ButtonBase {
 			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 			// Use "&&" for "and":
 			// https://stackoverflow.com/a/12364825
+			rotationBehavior.enabled = true;
 			if ((control.width == 150) && (control.height == 150)) {
 				// If button is medium, resize to small.
 				control.width = 70;
@@ -243,6 +244,15 @@ ButtonBase {
 				// We're changing it to -135 so it points in the top-left.
 				resizeButton.rotation = -135;
 			}
+		}
+		
+		// Add behavior for resize button rotation, at least.
+		// Make sure it's off until it needs to run:
+		// https://doc.qt.io/qt-6/qml-qtquick-behavior.html#enabled-prop
+		Behavior on rotation {
+			id: rotationBehavior
+			enabled: false
+			NumberAnimation { duration: 100 }
 		}
 	}
 	
