@@ -34,6 +34,11 @@ import "../../../RetiledStyles" as RetiledStyles
 
     Item {
 		
+		// Function for putting other apps into the background when
+		// opening the All Apps list context menu.
+		function moveOtherAppsIntoBackground(index) {
+			
+		}
 		
 		// We need a small area on the left and an infinitely-expanding area on the right.
 		// Wrapping ColumnLayouts inside a RowLayout should work.
@@ -97,7 +102,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			ListView {
-                
+                id: actualAppsList
 				width: window.width
 				// Not setting the height results in only one
 				// item appearing.
@@ -144,7 +149,9 @@ import "../../../RetiledStyles" as RetiledStyles
 								}
 								// Setup moveOtherAppsIntoBackground.
 								onMoveOtherAppsIntoBackground: {
-									
+									// Learned about index from here:
+									// https://stackoverflow.com/a/25163706
+									moveOtherAppsIntoBackground(index);
 								}
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
