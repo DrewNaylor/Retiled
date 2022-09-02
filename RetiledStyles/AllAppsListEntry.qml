@@ -141,6 +141,8 @@ RetiledStyles.Button {
 				width: window.width
 				textColor: "black"
 				borderColor: "transparent"
+				// Hide the border.
+				borderWidth: 0
 				pressedBackgroundColor: "transparent"
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
