@@ -106,7 +106,7 @@ ButtonBase {
 				// pixelSize isn't device-independent.
                 font.pointSize: control.fontSize
                 text: control.text
-                color: control.textColor
+                //color: control.textColor
 				// Qt's docs say to set the text to the width
 				// of the parent to get proper centered text,
 				// but it doesn't seem to work.
@@ -135,6 +135,32 @@ ButtonBase {
 				// Set font.
 				font.family: "Open Sans SemiBold"
 				font.weight: Font.DemiBold
+				
+				// Copying the transitions from the background
+				// color changing so that they can be used for text color.
+				// There's probably a better way to do this, but
+				// I'm not sure at the moment.
+				// Probably could move some stuff into its own file.
+				states: [
+					State { 
+						name: "buttonPress"
+						when: pressed
+						PropertyChanges { target: contentItem; color: pressedTextColor }
+					},
+					State {
+						name: "buttonUnpressed"
+						when: !pressed
+						PropertyChanges { target: contentItem; color: textColor }
+					}
+				]
+
+				transitions: Transition {
+					from: "buttonUnpressed"
+					to: "buttonPress"
+					ParallelAnimation {
+						PropertyAnimation { property: "color"; duration: 100 }
+					}
+				}
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"
