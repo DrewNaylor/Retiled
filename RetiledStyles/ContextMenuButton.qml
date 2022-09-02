@@ -89,7 +89,7 @@ ButtonBase {
 	// as moving to the edge causes it to flicker.
 	// This is an issue on the edges of the control.
 	// TODO: Figure out how to make tilting smooth.
-	//tilt: false
+	tilt: false
 	
 	//// Set the default state.
      // state: "RELEASED"
