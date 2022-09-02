@@ -146,9 +146,6 @@ ButtonBase {
 		unpressedBackgroundColor: "black"
 		// Also set pressedBorderColor.
 		pressedBorderColor: "black"
-		// TODO: I need to figure out how to make the unpin icon
-		// not show white outside the border. Maybe I need to remove
-		// the circle and just use mine.
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// NOTE: Unpinning a tile removes the buttons, so this
@@ -279,7 +276,7 @@ ButtonBase {
 	// This is just whatever the device that's running will use.
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
-	// Add a mousearea to allow for clicking it.
+	// We're clicking on the tile.
 		onClicked: {
 			// Only run the app if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
@@ -309,6 +306,10 @@ ButtonBase {
 				// z-index.
 				z = z - 1;
 				// Turn back on tilting.
+				// TODO: Figure out how to turn off tilting when
+				// clicking a tile that's currently in local edit mode
+				// so it goes directly "down", as well as figuring it out for
+				// not tilting the unpin and resize buttons when pressing the tile.
 				tilt = true;
 				// console.log(previousTileInEditingModeIndex);
 			} else if ((editMode == false) && (globalEditMode == true)) {
