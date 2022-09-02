@@ -37,13 +37,18 @@ import "../../../RetiledStyles" as RetiledStyles
 		// Function for putting other apps into the background when
 		// opening the All Apps list context menu.
 		function repositionApps(index) {
-			for (var i = 0; i < actualAppsList.children.length; i++) {
-				if (actualAppsList.children[i].index != index) {
-					actualAppsList.children[i].opacity = 0.5;
-					actualAppsList.children[i].scale = 0.9;
+			// We need to loop through the contentItem:
+			// https://stackoverflow.com/a/45988187
+			for (var i = 0; i < actualAppsList.contentItem.children.length; i++) {
+				console.log(actualAppsList.contentItem.children[i].index);
+				// Check the item we're looking at:
+				// https://doc.qt.io/qt-6/qml-qtqml-models-listmodel.html#get-method
+				if (actualAppsList.contentItem.children[i].index != index) {
+					actualAppsList.contentItem.children[i].opacity = 0.5;
+					actualAppsList.contentItem.children[i].scale = 0.9;
 				} else {
-					actualAppsList.children[i].opacity = 1;
-					actualAppsList.children[i].scale = 1;
+					actualAppsList.contentItem.children[i].opacity = 1;
+					actualAppsList.contentItem.children[i].scale = 1;
 				}
 			}
 		}
