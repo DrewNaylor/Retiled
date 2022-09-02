@@ -96,4 +96,10 @@ Rotation {
 	// https://doc.qt.io/qt-6/qml-qtquick-behavior.html
 	// Learned about this from this tutorial:
 	// https://www.pythonguis.com/tutorials/pyside6-qml-animations-transformations/
+	Behavior on axis.y {
+		NumberAnimation { duration: 100 }
+	}
+	Behavior on axis.x {
+		NumberAnimation { duration: 100 }
+	}
 }
