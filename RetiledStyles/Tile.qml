@@ -255,7 +255,7 @@ ButtonBase {
 		Behavior on rotation {
 			id: rotationBehavior
 			enabled: false
-			NumberAnimation { duration: 100 }
+			SmoothedAnimation { duration: 100 }
 		}
 	}
 	
@@ -263,12 +263,12 @@ ButtonBase {
 	Behavior on width {
 		id: tileResizeWidthBehavior
 		enabled: false
-		NumberAnimation { duration: 100 }
+		SmoothedAnimation { duration: 50 }
 	}
 	Behavior on height {
 		id: tileResizeHeightBehavior
 		enabled: false
-		NumberAnimation { duration: 100 }
+		SmoothedAnimation { duration: 50 }
 	}
 	
 	// Properties for pixel density:
