@@ -87,8 +87,23 @@ ButtonBase {
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
 	
-	//// Set the default state.
-     // state: "RELEASED"
+	// Copying in and modifying the transitions I modified from Qt's
+	// example that's available in ButtonBase.qml.
+	states: State {
+		name: "buttonPress"
+		when: pressed
+		PropertyChanges { target: background; color: pressedBackgroundColor }
+		PropertyChanges { target: background; border.color: pressedBorderColor }
+	}
+
+	transitions: Transition {
+		to: "buttonPress"
+		reversible: true
+		ParallelAnimation {
+			PropertyAnimation { property: "color"; duration: 100 }
+			PropertyAnimation { property: "border.color"; duration: 100 }
+		}
+	}
 	
 	contentItem: Text {
 		// I couldn't figure out why things weren't
@@ -144,12 +159,13 @@ ButtonBase {
            background: Rectangle {
                 implicitWidth: control.buttonWidth
                 implicitHeight: control.buttonHeight
-                border.color: control.down ? control.pressedBorderColor : control.borderColor
+                border.color: control.borderColor
 				// Set the background color for the button here
 				// since the state-changing thing doesn't work
 				// anymore in Qt6. This is temporary if I figure
 				// out how to fix the animation.
-				color: control.down ? control.pressedBackgroundColor : control.unpressedBackgroundColor
+				color: control.unpressedBackgroundColor
+				
                 border.width: control.borderWidth
                 radius: control.borderRadius
 				// Give buttons antialiasing.
