@@ -91,4 +91,9 @@ Rotation {
 	// An angle of 15 seems pretty good.
 	// This is the limit of how far the button "tilts" when pressed.
 	angle: tiltAngle
+	
+	// Use a Behavior to slow down tilting to a more-reasonable level:
+	// https://doc.qt.io/qt-6/qml-qtquick-behavior.html
+	// Learned about this from this tutorial:
+	// https://www.pythonguis.com/tutorials/pyside6-qml-animations-transformations/
 }
