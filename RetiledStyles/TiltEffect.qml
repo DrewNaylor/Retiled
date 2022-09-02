@@ -81,16 +81,24 @@ Rotation {
 	// negative and thus placing it on the left side of the
 	// button's center.
 	// If the button is un-pressed, the y-axis is reset to 0.
-	axis.y: (down && tilt ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
+	axis.y: (down && tilt && hovered ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
 	// For the x-axis, we do a similar thing as with the y-axis,
 	// only this time we use the y-value of the press and the height
 	// of the button divided by 2 stored as the y-origin.
-	axis.x: (down && tilt ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
+	axis.x: (down && tilt && hovered ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
 	// We don't need the z-axis changed from 0.
 	axis.z: 0
 	// An angle of 15 seems pretty good.
 	// This is the limit of how far the button "tilts" when pressed.
 	angle: tiltAngle
+	
+	// IMPORTANT: For some reason, pressing the spacebar causes
+	// it to tilt toward the left instead of just going in.
+	// Adding "hovered" makes it only tilt when the mouse
+	// cursor is over it, but it still tilts to the left
+	// when moving the mouse over it.
+	// Got the idea for "hovered" from here:
+	// https://stackoverflow.com/a/62929325
 	
 	// Use a Behavior to slow down tilting to a more-reasonable level:
 	// https://doc.qt.io/qt-6/qml-qtquick-behavior.html
