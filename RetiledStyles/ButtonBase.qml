@@ -98,7 +98,10 @@ T.Button {
 	// general concept of how to do it the way
 	// I wanted to do it:
 	// https://www.youtube.com/watch?v=frC9nZGrLAM
-	// TODO: Offer a way to turn off tilting.
+	// TODO: Offer a way to turn off tilting via a setting,
+        // as it could be a bit much.
+        // Probably should link the QtQuick page on Rotation, too:
+        // https://doc.qt.io/qt-6/qml-qtquick-rotation.html
 	transform: Rotation {
 		// Set the x and y origins by dividing
 		// the button in half horizontally and
