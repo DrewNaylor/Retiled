@@ -39,7 +39,7 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Modifications to this file are Copyright (C) 2021 Drew Naylor
+// Modifications to this file are Copyright (C) 2021-2022 Drew Naylor
 // and are licensed under the LGPLv3.
 // Please refer to The Qt Company's copyrights above
 // for the copyrights to the original file.
@@ -92,66 +92,12 @@ T.Button {
 	// Allow setting tilt angle.
 	property int tiltAngle: 15
 	
-	// Transform the button by rotating it toward where
-	// the cursor is when pressing it, if desired.
-	// Had to watch this video to understand the
-	// general concept of how to do it the way
-	// I wanted to do it:
-	// https://www.youtube.com/watch?v=frC9nZGrLAM
-	// TODO: Offer a way to turn off tilting via a setting,
-        // as it could be a bit much.
-        // Probably should link the QtQuick page on Rotation, too:
-        // https://doc.qt.io/qt-6/qml-qtquick-rotation.html
-	transform: Rotation {
-		// Set the x and y origins by dividing
-		// the button in half horizontally and
-		// vertically. This allows the button to
-		// be split into quadrants, which are
-		// used to know which direction the button
-		// is supposed to tilt in.
-		origin.x: control.width / 2
-		origin.y: control.height / 2
-		// Set axis and angle values based on
-		// the last-pressed x and y values:
-		// https://doc.qt.io/qt-6/qml-qtquick-controls2-abstractbutton.html#pressX-prop
-		// Maybe I need to divide the button
-		// in half vertically and horizontally
-		// to decide if negative or positive values
-		// need to be used.
-		// Read that here: https://letsbuildui.dev/articles/a-3d-hover-effect-using-css-transforms
-		// Here's how buttons are tilted:
-		// For the y-axis, we check if the control is being pressed
-		// down, then if so, we check if the x-value for where
-		// the button is being pressed at is greater than the width
-		// of the button divided by 2, which is the origin.
-		// (We're using the origin directly below for simplification
-		// and to prevent typos.) Dividing the width like this
-		// allows us to split the button into quadrants, which
-		// makes it easy to know which direction the button
-		// is supposed to tilt in. Moving on, if the button is being
-		// pressed on the right side of the button's center
-		// (stored as the origin.x value above, calculated from
-		// the button's width divided by 2), then we set the y-axis
-		// to the x-value of the press added to the x-origin of the
-		// button (this ensures it's in the right place, or else
-		// it might not quite look right). However, if the x-value
-		// of the press is on the left side of the x-origin, then
-		// we multiply the result of the x-value of the press added
-		// to the x-origin with negative 1, thereby making the result
-		// negative and thus placing it on the left side of the
-		// button's center.
-		// If the button is un-pressed, the y-axis is reset to 0.
-		axis.y: (control.down && tilt ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
-		// For the x-axis, we do a similar thing as with the y-axis,
-		// only this time we use the y-value of the press and the height
-		// of the button divided by 2 stored as the y-origin.
-		axis.x: (control.down && tilt ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
-		// We don't need the z-axis changed from 0.
-		axis.z: 0
-		// An angle of 15 seems pretty good.
-		// This is the limit of how far the button "tilts" when pressed.
-		angle: tiltAngle
-	}
+	// Have buttons tilt toward the cursor or
+	// touch point when pressed, like Windows Phone.
+	// The code was moved to TiltEffect.qml so it can be
+	// easily shared with other elements that don't
+	// inherit from ButtonBase.
+	transform: TiltEffect {}
 
     icon.width: 20
     icon.height: 20
