@@ -74,6 +74,9 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 				RetiledStyles.RoundButton {
 					// This is for the search button.
+					// TODO: implement searching.
+					// This could be useful:
+					// http://imaginativethinking.ca/use-qt-quicks-delegatemodelgroup/
 					text: "<b>\ue031</b>"
 					font: metroFont.font
 					pressedTextColor: "black"
