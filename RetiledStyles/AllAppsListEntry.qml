@@ -67,11 +67,12 @@ RetiledStyles.Button {
 	property string iconBackgroundColor: Universal.accent
 	
 	// Signal for moving other apps into the background.
-	signal moveOtherAppsIntoBackground();
+	// Commented out for now because I can't figure it out.
+	//signal moveOtherAppsIntoBackground();
 	
 	// Open the context menu and move other apps into the background.
 	onPressAndHold: {
-		moveOtherAppsIntoBackground();
+		//moveOtherAppsIntoBackground();
 		allappscontextmenu.open();
 	}
 	

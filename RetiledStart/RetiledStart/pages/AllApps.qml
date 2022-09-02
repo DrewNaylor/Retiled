@@ -34,25 +34,6 @@ import "../../../RetiledStyles" as RetiledStyles
 
     Item {
 		
-		// Function for putting other apps into the background when
-		// opening the All Apps list context menu.
-		function repositionApps(index) {
-			// We need to loop through the contentItem:
-			// https://stackoverflow.com/a/45988187
-			for (var i = 0; i < actualAppsList.contentItem.children.length; i++) {
-				console.log(actualAppsList.contentItem.children[i].index);
-				// Check the item we're looking at:
-				// https://doc.qt.io/qt-6/qml-qtqml-models-listmodel.html#get-method
-				if (actualAppsList.contentItem.children[i].index != index) {
-					actualAppsList.contentItem.children[i].opacity = 0.5;
-					actualAppsList.contentItem.children[i].scale = 0.9;
-				} else {
-					actualAppsList.contentItem.children[i].opacity = 1;
-					actualAppsList.contentItem.children[i].scale = 1;
-				}
-			}
-		}
-		
 		// We need a small area on the left and an infinitely-expanding area on the right.
 		// Wrapping ColumnLayouts inside a RowLayout should work.
 		
@@ -166,11 +147,11 @@ import "../../../RetiledStyles" as RetiledStyles
 									// allAppsListViewModel.PinToStart(model.display);
 								}
 								// Setup moveOtherAppsIntoBackground.
-								onMoveOtherAppsIntoBackground: {
-									// Learned about index from here:
-									// https://stackoverflow.com/a/25163706
-									repositionApps(index);
-								}
+								//onMoveOtherAppsIntoBackground: {
+									// Maybe something like this could work?
+									// https://stackoverflow.com/a/64434328
+									//repositionApps(index);
+								//}
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.
