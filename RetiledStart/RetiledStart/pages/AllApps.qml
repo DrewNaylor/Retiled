@@ -36,8 +36,16 @@ import "../../../RetiledStyles" as RetiledStyles
 		
 		// Function for putting other apps into the background when
 		// opening the All Apps list context menu.
-		function moveOtherAppsIntoBackground(index) {
-			
+		function repositionApps(index) {
+			for (var i = 0; i < actualAppsList.children.length; i++) {
+				if (actualAppsList.children[i].index != index) {
+					actualAppsList.children[i].opacity = 0.5;
+					actualAppsList.children[i].scale = 0.9;
+				} else {
+					actualAppsList.children[i].opacity = 1;
+					actualAppsList.children[i].scale = 1;
+				}
+			}
 		}
 		
 		// We need a small area on the left and an infinitely-expanding area on the right.
@@ -132,6 +140,8 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: 15
 				} // End of the spacer item above the All Apps list.
 			
+
+			
 			model: allAppsListItems.model
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
 								//entryText: model.display
@@ -151,7 +161,7 @@ import "../../../RetiledStyles" as RetiledStyles
 								onMoveOtherAppsIntoBackground: {
 									// Learned about index from here:
 									// https://stackoverflow.com/a/25163706
-									moveOtherAppsIntoBackground(index);
+									repositionApps(index);
 								}
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
