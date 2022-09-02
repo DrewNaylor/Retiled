@@ -211,7 +211,10 @@ ButtonBase {
 			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 			// Use "&&" for "and":
 			// https://stackoverflow.com/a/12364825
+			// Use behaviors for resize button rotation and tile size.
 			rotationBehavior.enabled = true;
+			tileResizeHeightBehavior.enabled = true;
+			tileResizeWidthBehavior.enabled = true;
 			if ((control.width == 150) && (control.height == 150)) {
 				// If button is medium, resize to small.
 				control.width = 70;
@@ -254,6 +257,18 @@ ButtonBase {
 			enabled: false
 			NumberAnimation { duration: 100 }
 		}
+	}
+	
+	// Add behavior for resizing tiles.
+	Behavior on width {
+		id: tileResizeWidthBehavior
+		enabled: false
+		NumberAnimation { duration: 100 }
+	}
+	Behavior on height {
+		id: tileResizeHeightBehavior
+		enabled: false
+		NumberAnimation { duration: 100 }
 	}
 	
 	// Properties for pixel density:
