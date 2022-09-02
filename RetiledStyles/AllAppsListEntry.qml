@@ -107,9 +107,10 @@ RetiledStyles.Button {
 		// TODO: Fade/darken everything but the button we
 		// long-pressed on into the background, or
 		// whatever WP does.
-		// TODO 2: Move the button that was long-pressed
-		// into the view if it's partially offscreen.
-		y: parent.y + 60
+		// Now the context menu stays onscreen even if it'd
+		// be below the window, but if it's too small it kinda
+		// gets squished in the top. Shouldn't be an issue, though.
+		y: parent.parent.y + 100 > window.height - 100 ? parent.y - 150 : parent.y + 60
 		// TODO: Ensure the context menu doesn't get its
 		// background pushed away from the button,
 		// which can happen when the user long-presses
