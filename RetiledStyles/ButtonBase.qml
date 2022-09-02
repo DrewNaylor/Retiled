@@ -85,7 +85,7 @@ T.Button {
 	// This is temporary because the nice animation
 	// doesn't seem to work anymore in Qt6 and I don't know how to
 	// fix it right now.
-	scale: control.down ? 0.98 : 1.0
+	//scale: control.down ? 0.98 : 1.0
 	
 	// Property to control tilting.
 	property bool tilt: true
@@ -98,6 +98,23 @@ T.Button {
 	// easily shared with other elements that don't
 	// inherit from ButtonBase.
 	transform: TiltEffect {}
+	
+	// Finally managed to get transitions working post-Qt6 porting!
+	// I copied and modified the code from Qt's example here:
+	// https://doc.qt.io/qt-6/qml-qtquick-transition.html#reversible-prop
+	states: State {
+        name: "pressDown"
+        when: pressed
+        PropertyChanges { target: control; scale: 0.98 }
+    }
+
+    transitions: Transition {
+        to: "pressDown"
+        reversible: true
+        SequentialAnimation {
+            PropertyAnimation { property: "scale"; duration: 100 }
+        }
+    }
 
     icon.width: 20
     icon.height: 20
