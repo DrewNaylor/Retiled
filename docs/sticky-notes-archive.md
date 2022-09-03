@@ -23,7 +23,7 @@ To try to differentiate this app a little from other fortune GUIs (at least one 
 
 ## Waiting before having tiles start flipping
 
-Have tiles wait 3 seconds before starting to flip when going back to Start. Begin the timer after user touches the screen. Eventually stop flipping if no input is detected for a while (30-45 seconds? 1 minute?).
+Have each tile (that can flip) wait between 2 and 5 seconds (mathematically inclusive) before starting to flip when going back to Start. The random timing selection exists so that tiles don't all flip at once. Begin the timer after the user touches the screen if it's been too long since the last input as described in the next sentence, as well as after tapping the Start button to return to it (hopefully this makes sense). Eventually stop flipping if no input is detected for a while (30-45 seconds? 1 minute?).
 
 ## Back and Start button stuff
 
