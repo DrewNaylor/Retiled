@@ -19,7 +19,7 @@ More settings that can be offered include:
 
 This used to be called Cowsay GUI, but then I read that it's fortune that I was thinking of that picks random pieces of text, and not cowsay.
 
-To try to differentiate this app a little from other fortune GUIs (at least one exists), I named it Fortun, as I thought that was a clever name for a sidequest in Xenoblade X, and it's cool to have a reference to that series. X on Switch, please?
+To try to differentiate this app a little from other fortune GUIs (at least one exists), I named it Fortun, as I thought "Good Fortun" was a clever name for a sidequest in Xenoblade X, and it's cool to have a reference to that series. X on Switch, please?
 
 ## Waiting before having tiles start flipping
 
