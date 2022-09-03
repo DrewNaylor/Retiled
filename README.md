@@ -102,7 +102,7 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 ## Screenshots
 Below are some screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot. I might not update the screenshots here very often either, so I'd recommend [following me on Twitter](https://twitter.com/DrewTNaylor) as I'll occasionally post screenshots for the feature I'm working on at the moment. It's not always Retiled screenshots, though.
 
-RetiledStart showing a set of tiles while running in Plasma Mobile on the PinePhone:<br>
+RetiledStart showing a set of tiles of various sizes while running in Plasma Mobile on the PinePhone:<br>
 <img src="/docs/images/tiles.png" width="360"><br>
 <br>
 Tiles in edit mode:<br>
