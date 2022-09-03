@@ -23,21 +23,23 @@ To try to differentiate this app a little from other fortune GUIs (at least one 
 
 ## Waiting before having tiles start flipping
 
-Have tiles wait a random amount of time between 2 and 5 seconds (inclusive) before starting to flip when going back to Start. Begin the timer after user touches the screen. Eventually stop flipping if no input is detected for a while (30-45 seconds? 1 minute?).
+Have tiles wait 3 seconds before starting to flip when going back to Start. Begin the timer after user touches the screen. Eventually stop flipping if no input is detected for a while (30-45 seconds? 1 minute?).
 
 ## Back and Start button stuff
 
 Check if there are any other apps open when the RetiledStart app is activated (active focus, on-screen, on the top of all other apps) and navigate back to the previous one when tapping Back, or just go to the top of the tiles if Start is the only thing open.
 
-May need to figure out an API/D-Bus thing to tie this together, plus other apps could (should, and will have to in order to be an authentic experience) have a way to say if they can still go back or not. If an app doesn't support this, just send Escape. Otherwise, if an app says it can't go back any further, send Alt+F4 to close the app.
+May need to figure out an API/D-Bus thing to tie this together, plus other apps could (should, and will have to in order to be an authentic experience) have a way to say if they can still go back or not. If an app doesn't support this, just send Escape. Otherwise, if an app says it can't go back any further, use the Wayland close thing to close the app.
 
 Grab the Windows/Meta key when RetiledStart is open and use it to override the navigation bar button so it just acts like Escape/the Back button and goes to the top of the tiles.
 
 ## Having tiles flip
 
-Ok, this isn't from a sticky note, but it's relevent to the Cowsay GUI part, so it's going here for now.
+Ok, this isn't from a sticky note, but it's relevent to the Fortun part, so it's going here for now.
 
 I think a basic flipping animation may be able to involve tiles visually shrinking to 0 pixels then growing back to their regular size. The only thing I'm not sure about is I think this will cause issues with the layout because it expects each tile to be an exact size. Hopefully it's simple enough to do 3D rotation in QML.
+
+Update Sept. 3, 2022: Actually, rotation seems pretty easy to do, though I don't know if it'll interfere with the tilting animation if the tile is pressed during a flip.
 
 ## Closing the keyboard
 
