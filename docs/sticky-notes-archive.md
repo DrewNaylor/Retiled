@@ -1,12 +1,25 @@
 These are some sticky notes I have written down about what I want to do with Retiled, and I figured they should be archived here. Some parts like the Cowsay GUI one were heavily modified from the original sticky notes, but only to improve clarification and reflect changes in how I think the best way things can be handled would be as of writing them.
 
-## Cowsay GUI
+## Fortun
 
-A Live Tile example app where it shows a random quote from Cowsay output, refreshing every 30 minutes like regular Live Tiles. The cow will be on the back of the medium tile to save space, with the quote on the front. The cow will be next to the quote on the wide tile as an example there. I probably will have to use the image of the cow as an icon rather than grabbing it from Cowsay's output. Not sure what can go on the back of the wide tile as an example.
+A Live Tile example app where it shows a random quote from fortune output, refreshing every 30 minutes like regular Live Tiles. The cow from cowsay will be on the back of the medium tile to save space if cowsay support is enabled by the user (otherwise it just shows the app icon), with the quote on the front. The quote will be optionally piped to cowsay so that the cow will be next to the quote on the wide tile as an example there, but only if the user wants to use cowsay support. Small tiles and the All Apps list icon will just use the app's icon. Not sure what can go on the back of the wide tile as an example for putting stuff on the back of wide tiles.
 
-The app for Cowsay GUI itself has a header that says "cowsay gui" at the top and below that, a button above a textbox. Pressing the textbox will run Cowsay and show its output in the textbox.
+The app for Fortun itself has a header that says "fortun" at the top and below that, a button above a textbox. Pressing the button will run fortune and show its output in the textbox, with the quote optionally piped to cowsay to display in the cow's bubble. Opening the app from the Live Tile will display the full output from fortune in the output textbox, optionally with the cow if, again, cowsay support is enabled.
 
-There should be a button to clear its Live Tile cache, along with one to force an update. Those buttons will be in a Settings page for it in its appbar drawer. Clearing the cache will cause all Live Tile sizes to just be the icon of the cow, which is usually just what the small tile shows. Forcing a tile update will be done in some way that may involve the app writing to its own Live Tile cache file. To make this easy for everyone, I'll have to make an API to use that forces a tile to update on-demand.
+There should be a button to clear its Live Tile cache, along with one to force an update. Those buttons will be in a Settings page for it in its appbar drawer. Clearing the cache will cause wide and medium Live Tiles to just be the icon of the cow (or which is chosen for the .cow files in regards to the cow's appearance) if using cowsay support, or it'll show the app's icon if not, with the app's icon being what the small tile shows regardless of cache status. Forcing a tile update will be done in some way that may involve the app writing to its own Live Tile cache file. To make this easy for everyone, I'll have to make an API to use that forces a tile to update on-demand.
+
+More settings that can be offered include:
+- Enable cowsay support
+  - Description: Pipes fortune output to cowsay to have the cow show up on the Live Tile.
+  - Cowsay support options:
+    - Use cowthink instead of cowsay
+    - (options for changing the cow's appearance based on the standard parameters, including support for `-f`: https://en.wikipedia.org/wiki/Cowsay#Parameters )
+- Custom fortune parameters
+  - Description: These get passed to fortune, so you can customize its output to your liking.
+
+This used to be called Cowsay GUI, but then I read that it's fortune that I was thinking of that picks random pieces of text, and not cowsay.
+
+To try to differentiate this app a little from other fortune GUIs (at least one exists), I named it Fortun, as I thought that was a clever name for a sidequest in Xenoblade X, and it's cool to have a reference to that series. X on Switch, please?
 
 ## Waiting before having tiles start flipping
 
