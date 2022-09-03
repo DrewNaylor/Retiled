@@ -123,5 +123,5 @@ Appbar menu in the search app showing the "about" button:<br>
 "about" page in the search app:<br>
 <img src="/docs/images/search-app-about.png" width="360"><br>
 <br>
-Early three-column view test:<br>
-<img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360">
+Three-column layout test:<br>
+<img src="/docs/images/three-column-layout-test.png" width="360">
