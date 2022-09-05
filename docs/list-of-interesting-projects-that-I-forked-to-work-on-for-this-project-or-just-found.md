@@ -54,3 +54,6 @@
 
 21. [Qt-Quick-TopBanner](https://github.com/jiangcaiyang/Qt-Quick-TopBanner)
 <br>Haven't tried looking at this in a window, but this appears to be a notification banner control that looks and behaves like the WP one. Might rename it to DarkBanner somewhere internally as a funny Xenoblade 3 reference. Forked to here: https://github.com/DrewNaylor/Qt-Quick-TopBanner
+
+22. [TilesGrid](https://github.com/Tereius/TilesGrid)
+<br>A QML grid that can position tiles of various sizes and is even described as behaving somewhat like the Live Tile part of Windows 10's Start menu. Doesn't handle resizing or saving and reloading, so hopefully the useful code can simply be extracted into the tiles area for RetiledStart and I can handle the rest. Forked to here because it's really cool and looks helpful: https://github.com/DrewNaylor/TilesGrid
