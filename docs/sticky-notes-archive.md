@@ -12,7 +12,7 @@ More settings that can be offered include:
 - Enable cowsay support
   - Description: Pipes fortune output to cowsay to have the cow show up on the Live Tile.
   - Cowsay support options:
-    - Use cowthink instead of cowsay
+    - (dropdown with options for what program to pass to, including `cowsay`, `cowthink`, and a `custom` option allowing the user to specify a specific cowsay-style program; I am aware of at least one, and there may be more; for now, only cowsay and cowthink will be specified as options, but if requested, I can add more)
     - (options for changing the cow's appearance based on the standard parameters, including support for `-f`: https://en.wikipedia.org/wiki/Cowsay#Parameters )
 - Custom fortune parameters
   - Description: These get passed to fortune, so you can customize its output to your liking.
