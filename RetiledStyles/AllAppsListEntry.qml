@@ -66,8 +66,22 @@ RetiledStyles.Button {
 	// Have a property for the icon background color.
 	property string iconBackgroundColor: Universal.accent
 	
-	// Open the context menu.
-	onPressAndHold: allappscontextmenu.open()
+	// Signal for moving other apps into the background.
+	// Commented out for now because I can't figure it out.
+	//signal moveOtherAppsIntoBackground();
+	
+	// Open the context menu and move other apps into the background.
+	onPressAndHold: {
+		//moveOtherAppsIntoBackground();
+		allappscontextmenu.open();
+	}
+	
+	// Turning off tilting by default because it can be an issue
+	// due to it not being constrained to not be way too much yet,
+	// as moving to the edge causes it to flicker.
+	// This is an issue on the edges of the control.
+	// TODO: Figure out how to make tilting smooth.
+	tilt: false
 	
 	// Signal and property for the pin to start button.
 	property string dotDesktopFilePath;
@@ -93,9 +107,10 @@ RetiledStyles.Button {
 		// TODO: Fade/darken everything but the button we
 		// long-pressed on into the background, or
 		// whatever WP does.
-		// TODO 2: Move the button that was long-pressed
-		// into the view if it's partially offscreen.
-		y: parent.y + 60
+		// Now the context menu stays onscreen even if it'd
+		// be below the window, but if it's too small it kinda
+		// gets squished in the top. Shouldn't be an issue, though.
+		y: parent.parent.y + 100 > window.height - 100 ? parent.y - 150 : parent.y + 60
 		// TODO: Ensure the context menu doesn't get its
 		// background pushed away from the button,
 		// which can happen when the user long-presses
@@ -126,6 +141,8 @@ RetiledStyles.Button {
 				width: window.width
 				textColor: "black"
 				borderColor: "transparent"
+				// Hide the border.
+				borderWidth: 0
 				pressedBackgroundColor: "transparent"
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
@@ -170,6 +187,8 @@ RetiledStyles.Button {
 		// A margin needs to be added to ensure it's the right size.
 		anchors.topMargin: 5
 		anchors.bottomMargin: 5
+		// Have the rectangle be antialiased.
+		antialiasing: true
 	}
 	
 	Text {

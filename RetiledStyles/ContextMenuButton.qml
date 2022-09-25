@@ -84,6 +84,12 @@ ButtonBase {
 	// This is just whatever the device that's running will use.
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
+	// Turning off tilting by default because it can be an issue
+	// due to it not being constrained to not be way too much yet,
+	// as moving to the edge causes it to flicker.
+	// This is an issue on the edges of the control.
+	// TODO: Figure out how to make tilting smooth.
+	tilt: false
 	
 	//// Set the default state.
      // state: "RELEASED"
@@ -151,6 +157,8 @@ ButtonBase {
                 border.width: control.borderWidth
                 radius: control.borderRadius
 				
+				// Add antialiasing.
+				antialiasing: true
 				
 				//// I think this is the way I'll rotate and shrink the button
                 //// when it's held down:

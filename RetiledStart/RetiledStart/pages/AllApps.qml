@@ -34,7 +34,6 @@ import "../../../RetiledStyles" as RetiledStyles
 
     Item {
 		
-		
 		// We need a small area on the left and an infinitely-expanding area on the right.
 		// Wrapping ColumnLayouts inside a RowLayout should work.
 		
@@ -56,6 +55,9 @@ import "../../../RetiledStyles" as RetiledStyles
 				
 				RetiledStyles.RoundButton {
 					// This is for the search button.
+					// TODO: implement searching.
+					// This could be useful:
+					// http://imaginativethinking.ca/use-qt-quicks-delegatemodelgroup/
 					text: "<b>\ue031</b>"
 					font: metroFont.font
 					pressedTextColor: "black"
@@ -97,7 +99,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			
 			ListView {
-                
+                id: actualAppsList
 				width: window.width
 				// Not setting the height results in only one
 				// item appearing.
@@ -127,6 +129,8 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: 15
 				} // End of the spacer item above the All Apps list.
 			
+
+			
 			model: allAppsListItems.model
 			delegate: Column { RetiledStyles.AllAppsListEntry { 
 								//entryText: model.display
@@ -142,6 +146,12 @@ import "../../../RetiledStyles" as RetiledStyles
 									tilesContainer.pinToStart(model.display);
 									// allAppsListViewModel.PinToStart(model.display);
 								}
+								// Setup moveOtherAppsIntoBackground.
+								//onMoveOtherAppsIntoBackground: {
+									// Maybe something like this could work?
+									// https://stackoverflow.com/a/64434328
+									//repositionApps(index);
+								//}
 								//onClicked: allAppsListViewModel.RunApp("/usr/share/applications/" + dotDesktopFile)
 								} // End of the Button delegate item in the listview.
 			} // End of the Column that's the ListView's delegate.

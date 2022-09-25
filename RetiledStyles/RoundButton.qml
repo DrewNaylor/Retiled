@@ -43,19 +43,8 @@ RetiledStyles.Button {
 	// TODO: Figure out how to properly center buttons.
 	// I may have to change this in ButtonBase.
 	
-	// Add two properties to change the text color
-	// on being pressed down.
-	property string pressedTextColor: "white"
-	property string defaultTextColor: "white"
-	
 	// Set button properties.
 	borderRadius: 90
-	
-	// We're defaulting to use the accent color as most round
-	// buttons will probably use them.
-	// Round buttons as used on the Start screen will
-	// have to set this to black or white accordingly.
-	pressedBackgroundColor: Universal.accent
 	
 	// Some round buttons have to have their background
 	// color set too, such as the tile editing ones.
@@ -71,7 +60,4 @@ RetiledStyles.Button {
 	// Get rid of padding.
 	padding: 0
 	verticalPadding: 0
-	
-	// Change text color on down.
-	textColor: control.down ? control.pressedTextColor : control.defaultTextColor
 }

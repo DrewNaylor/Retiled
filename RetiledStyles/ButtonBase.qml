@@ -39,7 +39,7 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Modifications to this file are Copyright (C) 2021 Drew Naylor
+// Modifications to this file are Copyright (C) 2021-2022 Drew Naylor
 // and are licensed under the LGPLv3.
 // Please refer to The Qt Company's copyrights above
 // for the copyrights to the original file.
@@ -82,10 +82,33 @@ T.Button {
     spacing: 8
 	
 	// Scale the button down on pressing it.
-	// This is temporary because the nice animation
-	// doesn't seem to work anymore in Qt6 and I don't know how to
-	// fix it right now.
 	scale: control.down ? 0.98 : 1.0
+	
+	// Use behaviors to change the scale speed
+	// instead of full animations.
+	// Copied and modified from the one in the tilt effect file.
+	Behavior on scale {
+		// Using InOutQuad:
+		// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html#easing-prop
+		// Got the idea from this SO answer:
+		// https://stackoverflow.com/a/15042294
+		PropertyAnimation { duration: 100;
+							easing.type: Easing.InOutQuad
+						  }
+	}
+	
+	// Property to control tilting.
+	property bool tilt: true
+	// Allow setting tilt angle.
+	property int tiltAngle: 15
+	
+	// Have buttons tilt toward the cursor or
+	// touch point when pressed, like Windows Phone.
+	// The code was moved to TiltEffect.qml so it can be
+	// easily shared with other elements that don't
+	// inherit from ButtonBase.
+	transform: TiltEffect {}
+
 
     icon.width: 20
     icon.height: 20
@@ -107,7 +130,6 @@ T.Button {
     background: Rectangle {
         implicitWidth: 32
         implicitHeight: 32
-
         visible: !control.flat || control.down || control.checked || control.highlighted
         color: control.down ? control.Universal.baseMediumLowColor :
                control.enabled && (control.highlighted || control.checked) ? control.Universal.accent :

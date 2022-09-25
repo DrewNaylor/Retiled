@@ -59,6 +59,7 @@ ButtonBase {
 	// automatically set the theme with a boolean would
 	// be useful.
 	property string textColor: "white"
+	property string pressedTextColor: "white"
 	// pressedBackgroundColor will usually be the accent color.
 	property string pressedBackgroundColor: Universal.accent
 	// unpressedBackgroundColor is usually transparent,
@@ -87,8 +88,7 @@ ButtonBase {
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
 	
-	//// Set the default state.
-     // state: "RELEASED"
+
 	
 	contentItem: Text {
 		// I couldn't figure out why things weren't
@@ -106,7 +106,7 @@ ButtonBase {
 				// pixelSize isn't device-independent.
                 font.pointSize: control.fontSize
                 text: control.text
-                color: control.textColor
+                //color: control.textColor
 				// Qt's docs say to set the text to the width
 				// of the parent to get proper centered text,
 				// but it doesn't seem to work.
@@ -135,6 +135,35 @@ ButtonBase {
 				// Set font.
 				font.family: "Open Sans SemiBold"
 				font.weight: Font.DemiBold
+				
+				// Copying the transitions from the background
+				// color changing so that they can be used for text color.
+				// There's probably a better way to do this, but
+				// I'm not sure at the moment.
+				// Probably could move some stuff into its own file.
+				states: [
+					State { 
+						name: "buttonPress"
+						when: pressed
+						PropertyChanges { target: contentItem; color: pressedTextColor }
+					},
+					State {
+						name: "buttonUnpressed"
+						when: !pressed
+						PropertyChanges { target: contentItem; color: textColor }
+					}
+				]
+
+				transitions: Transition {
+					from: "buttonUnpressed"
+					to: "buttonPress"
+					ParallelAnimation {
+						// Also have the text color change immediately
+						// by default, because I'm not entirely sure what to
+						// do with it.
+						PropertyAnimation { property: "color"; duration: 0 }
+					}
+				}
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"
@@ -144,15 +173,51 @@ ButtonBase {
            background: Rectangle {
                 implicitWidth: control.buttonWidth
                 implicitHeight: control.buttonHeight
-                border.color: control.down ? control.pressedBorderColor : control.borderColor
 				// Set the background color for the button here
 				// since the state-changing thing doesn't work
 				// anymore in Qt6. This is temporary if I figure
 				// out how to fix the animation.
-				color: control.down ? control.pressedBackgroundColor : control.unpressedBackgroundColor
+				//color: unpressedBackgroundColor
+				//border.color: borderColor
                 border.width: control.borderWidth
                 radius: control.borderRadius
+				// Give buttons antialiasing.
+				// TODO: Allow buttons to have antialiasing turned
+				// off, if desired by the app using this component.
+				antialiasing: true
 				
+				// Copying in and modifying the transitions I modified from Qt's
+				// example that's available in ButtonBase.qml.
+				// Actually, now I'm trying to use multiple states from this
+				// example: https://doc.qt.io/qt-6/qml-qtquick-transition.html#enabled-prop
+				states: [
+					State { 
+						name: "buttonPress"
+						when: pressed
+						PropertyChanges { target: background; color: pressedBackgroundColor }
+						PropertyChanges { target: background; border.color: pressedBorderColor }
+					},
+					State {
+						name: "buttonUnpressed"
+						when: !pressed
+						PropertyChanges { target: background; color: unpressedBackgroundColor }
+						PropertyChanges { target: background; border.color: borderColor }
+					}
+				]
+
+				transitions: Transition {
+					from: "buttonUnpressed"
+					to: "buttonPress"
+					ParallelAnimation {
+						// Set the animation duration to be 0 so it immediately
+						// shows up even if briefly pressed.
+						// Not sure if this should be changed back to
+						// the original "color: pressed ? pressedBackgroundColor : unpressedBackgroundColor"
+						// code or not, so it'll just be this for now.
+						PropertyAnimation { property: "color"; duration: 0 }
+						PropertyAnimation { property: "border.color"; duration: 0 }
+					}
+				}
 				
 				//// I think this is the way I'll rotate and shrink the button
                 //// when it's held down:
