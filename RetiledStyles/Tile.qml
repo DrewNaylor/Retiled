@@ -252,20 +252,30 @@ ButtonBase {
 		Behavior on rotation {
 			id: rotationBehavior
 			enabled: false
-			SmoothedAnimation { duration: 100 }
+			PropertyAnimation { duration: 100;
+							    easing.type: Easing.InOutQuad
+						      }
 		}
 	}
 	
 	// Add behavior for resizing tiles.
+	// Not quite sure what the "jumping-like" ease that resizing
+	// tiles uses on WP, but I'd like to eventually have it be more like that.
+	// Copied the PropertyAnimation stuff here over from what I put into
+	// the ButtonBase file.
 	Behavior on width {
 		id: tileResizeWidthBehavior
 		enabled: false
-		SmoothedAnimation { duration: 50 }
+		PropertyAnimation { duration: 75;
+							easing.type: Easing.InOutQuad
+						  }
 	}
 	Behavior on height {
 		id: tileResizeHeightBehavior
 		enabled: false
-		SmoothedAnimation { duration: 50 }
+		PropertyAnimation { duration: 75;
+							easing.type: Easing.InOutQuad
+						  }
 	}
 	
 	// Properties for pixel density:

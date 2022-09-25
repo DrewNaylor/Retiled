@@ -88,7 +88,13 @@ T.Button {
 	// instead of full animations.
 	// Copied and modified from the one in the tilt effect file.
 	Behavior on scale {
-		NumberAnimation { duration: 100 }
+		// Using InOutQuad:
+		// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html#easing-prop
+		// Got the idea from this SO answer:
+		// https://stackoverflow.com/a/15042294
+		PropertyAnimation { duration: 100;
+							easing.type: Easing.InOutQuad
+						  }
 	}
 	
 	// Property to control tilting.
