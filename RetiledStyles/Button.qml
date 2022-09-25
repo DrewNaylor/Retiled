@@ -158,7 +158,10 @@ ButtonBase {
 					from: "buttonUnpressed"
 					to: "buttonPress"
 					ParallelAnimation {
-						PropertyAnimation { property: "color"; duration: 100 }
+						// Also have the text color change immediately
+						// by default, because I'm not entirely sure what to
+						// do with it.
+						PropertyAnimation { property: "color"; duration: 0 }
 					}
 				}
             }
