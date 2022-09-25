@@ -104,6 +104,7 @@ Rotation {
 	// https://doc.qt.io/qt-6/qml-qtquick-behavior.html
 	// Learned about this from this tutorial:
 	// https://www.pythonguis.com/tutorials/pyside6-qml-animations-transformations/
+	// Copied the propertyanimation over from what I added to ButtonBase.
 	Behavior on axis.y {
 		PropertyAnimation { duration: 100;
 							easing.type: Easing.InOutQuad
