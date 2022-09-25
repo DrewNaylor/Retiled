@@ -206,8 +206,13 @@ ButtonBase {
 					from: "buttonUnpressed"
 					to: "buttonPress"
 					ParallelAnimation {
-						PropertyAnimation { property: "color"; duration: 100 }
-						PropertyAnimation { property: "border.color"; duration: 100 }
+						// Set the animation duration to be 0 so it immediately
+						// shows up even if briefly pressed.
+						// Not sure if this should be changed back to
+						// the original "color: pressed ? pressedBackgroundColor : unpressedBackgroundColor"
+						// code or not, so it'll just be this for now.
+						PropertyAnimation { property: "color"; duration: 0 }
+						PropertyAnimation { property: "border.color"; duration: 0 }
 					}
 				}
 				
