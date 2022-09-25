@@ -102,28 +102,26 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 ## Screenshots
 Below are some screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot. I might not update the screenshots here very often either, so I'd recommend [following me on Twitter](https://twitter.com/DrewTNaylor) as I'll occasionally post screenshots for the feature I'm working on at the moment. It's not always Retiled screenshots, though.
 
-A lot of these screenshots are currently pictures I took with my phone then scaled down, due to Plasma Mobile's screenshot program not working correctly right now.
-
-RetiledStart running on the PinePhone:<br>
-<img src="/docs/images/tiles.jpg" width="275"><br>
+RetiledStart showing a set of tiles of various sizes while running in Plasma Mobile on the PinePhone:<br>
+<img src="/docs/images/tiles.png" width="360"><br>
 <br>
 Tiles in edit mode:<br>
-<img src="/docs/images/edit-mode.jpg" width="278"><br>
+<img src="/docs/images/edit-mode.png" width="360"><br>
 <br>
 All Apps list:<br>
-<img src="/docs/images/all-apps.jpg" width="370"><br>
+<img src="/docs/images/all-apps.png" width="360"><br>
 <br>
 All Apps list item context menu showing the "pin to start" button:<br>
-<img src="/docs/images/pin-to-start-contextmenu.jpg" width="375"><br>
-<br>
-Early three-column view:<br>
-<img src="/docs/images/retiledstart-tiles-that-look-like-wp.png" width="360"><br>
+<img src="/docs/images/pin-to-start-contextmenu.png" width="360"><br>
 <br>
 RetiledSearch running on the PinePhone:<br>
-<img src="/docs/images/search-app.jpg" width="290"><br>
+<img src="/docs/images/search-app.png" width="360"><br>
 <br>
 Appbar menu in the search app showing the "about" button:<br>
-<img src="/docs/images/search-app-appbar.jpg" width="340"><br>
+<img src="/docs/images/search-app-appbar.png" width="360"><br>
 <br>
 "about" page in the search app:<br>
-<img src="/docs/images/search-app-about.jpg" width="303">
+<img src="/docs/images/search-app-about.png" width="360"><br>
+<br>
+Three-column layout test:<br>
+<img src="/docs/images/three-column-layout-test.png" width="360">
