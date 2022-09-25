@@ -498,7 +498,7 @@ ApplicationWindow {
 						
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = pinnedTilesCount + 1;
-						console.log("pinnedTilesCount: " + pinnedTilesCount);
+						//console.log("pinnedTilesCount: " + pinnedTilesCount);
 						// Connect clicked signal.
 							NewTileObject.tileClicked.connect(tileClicked);
 						
@@ -523,7 +523,7 @@ ApplicationWindow {
 							
 							// Increment the tile count and go back to the tiles page.
 							checkPinnedTileCount(1, true);
-							console.log("pinnedTilesCount: " + pinnedTilesCount);
+							//console.log("pinnedTilesCount: " + pinnedTilesCount);
 							// Exit global edit mode so we save the newly-pinned tile
 							// to the layout config file.
 							toggleGlobalEditMode(false, true);
