@@ -351,5 +351,10 @@ MigrationBackup/
 
 # Python virtual environment.
 env/
+
+# Modified startlayout file.
 RetiledStart/RetiledStart/libs/libRetiledStartPy/startlayout-modified.yaml
+
+# C++ build dirs.
 TestProjects/qt-cpp test/build/*
+build-*
