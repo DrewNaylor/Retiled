@@ -30,6 +30,12 @@ target_compile_definitions(appclean
 target_link_libraries(appclean
     PRIVATE Qt6::Quick)
 
+# NOTE: This commented-out block probably won't work the way
+# I'm importing QML files, because Qt Creator says it's fine,
+# but the program can't find the files when it runs.
+# Maybe this is related to not having my QML files in a real
+# module and just being in a folder, I don't know.
+ 
 # Import RetiledStyles QML files.
 # Change these paths in your CMakeCache as necessary.
 # Got this code from:
