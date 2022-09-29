@@ -48,9 +48,8 @@ Page {
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
+            source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
 		}
-		
 	
 
     RowLayout {
@@ -109,10 +108,16 @@ Page {
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 10
 			// Set font style to opensans.
-				font.family: "Open Sans"
-				font.weight: Font.Normal
-				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
+            font.family: "Open Sans"
+            font.weight: Font.Normal
+            // For some reason, pointSize needs to be specified
+            // when loading from a C++ app.
+            // Is pointSize the correct thing to set for HiDPI,
+            // or is it pixelSize?
+            // TODO: Figure that out.
+            font.pointSize: 11
+            // TODO: Move letter spacing into the control.
+            font.letterSpacing: -0.8 * scaleFactor
             text: "RetiledSearch v0.1 Developer Preview 1\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
