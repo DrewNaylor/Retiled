@@ -9,6 +9,8 @@ find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
 qt_add_executable(test2
     main.cpp
+    searcher.cpp
+    searcher.h
 )
 
 qt_add_qml_module(test2
