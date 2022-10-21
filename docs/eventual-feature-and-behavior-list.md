@@ -1,6 +1,8 @@
 # Eventual feature and behavior list
 
-These are things that Windows Phone has that Retiled will eventually have. Moved from the readme because it was taking up too much space.
+These are things that Windows Phone and other platforms have that Retiled will eventually have as well, plus a few possibly more-original ideas. Moved from the readme because it was taking up too much space.
+
+Please note that some things need to be removed as they're outdated, such as the Avalonia part as I don't use it for this anymore.
 
 - Start screen
   - This is just tiles minus the "live" part at the moment because that would be a little complicated, though maybe in the future some people or I could figure out a good way to integrate Python scripts (maybe I could also support Wren scripting, to have multiple options; perhaps adding Lua support as well would be a good idea) to display "live" data
