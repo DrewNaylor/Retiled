@@ -41,6 +41,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			// Not sure if something from this page will help, but I'm trying:
 			// https://stackoverflow.com/questions/66216383/why-can-i-not-make-a-qml-rowlayout-fill-a-columnlayouts-width
+			// Important note: Don't do "anchors.fill: parent"
+			// in RowLayouts similar to what we're doing here in Qt 6.4, because it'll break and your
+			// stuff will be way off the screen.
+			// See also: https://github.com/DrewNaylor/Retiled/issues/155
 			//anchors.fill: parent
 			
 			ColumnLayout {
@@ -75,6 +79,13 @@ import "../../../RetiledStyles" as RetiledStyles
 			// and I can't figure out what it is. The margin causes empty
 			// space to be added permanently, though.
 				//Layout.topMargin: 15
+				// Ensure we're aligned to the top of the thing, as otherwise there'll be
+				// an empty area at the top and we won't be able to have stuff go cleanly off the top of the window
+				// (of course, there will be a small rectangle added eventually for the statusbar
+				// background, but that'll be intentional so we'll know what's going on).
+				// This also seems to be related to Qt 6.4, similar to not being able
+				// to use "anchors.fill: parent" in the RowLayout above.
+				Layout.alignment: Qt.AlignTop
 		Flickable {
 			// The Flickable visibleArea group's properties
 			// are often used to draw a scrollbar, which
