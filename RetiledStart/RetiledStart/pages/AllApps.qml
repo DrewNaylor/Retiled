@@ -41,7 +41,7 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			// Not sure if something from this page will help, but I'm trying:
 			// https://stackoverflow.com/questions/66216383/why-can-i-not-make-a-qml-rowlayout-fill-a-columnlayouts-width
-			anchors.fill: parent
+			//anchors.fill: parent
 			
 			ColumnLayout {
 				
