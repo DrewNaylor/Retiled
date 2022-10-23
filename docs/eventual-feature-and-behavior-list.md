@@ -188,6 +188,7 @@ There are also some "wishlist" features that I really want but might be too comp
   - Likely will require a new Wayland protocol unless one already exists (I doubt it)
   - Apps probably have to opt-in by supporting the Wayland protocol, otherwise things would break
   - Wait, no, this would be a D-Bus thing that the app would handle.
+  - Or maybe it would have to be a specific component that can be easily integrated in the area of the status bar, as applications would need to be able to handle it their own way. Only issue is, some apps might have a titlebar, like GTK apps. Might only work well with Qt/QML apps.
   - There needs to be some way for an app to know if it can return to top on a specific page or window, as pages without scrollbars can't scroll; some pages may be able to scroll too, but doing so could cause undefined behavior, so apps need to direct the signal to a specific scrollbar on a case-by-case basis
 - Continuum-like mode, as well as "tablet mode" and "full desktop" mode in addition to "phone mode"
   - It might not be exactly like the Continuum desktop, but it should be similar enough (this is described in the line about the keyboard stick that W10M had, but it needs its own section)
