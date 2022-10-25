@@ -99,13 +99,17 @@ WaylandCompositor {
         window: Window {
             id: win
 
+			// Is this correct to do for the pixel width and height?
+			// Can't remember if this was just here or if I added it.
+			// - Drew Naylor
             property int pixelWidth: width * screen.devicePixelRatio
             property int pixelHeight: height * screen.devicePixelRatio
 
             visible: true
 			// Window size changed under GPLv3 and change Copyright (C) Drew Naylor.
-            width: 720
-            height: 1440
+			// Guess it should be the correct size for 2x scaling on the PinePhone.
+            width: 360
+            height: 720
             
 			// accentColor property added for all the controls that use and need this property set.
 			// This isn't really copyrightable I don't think, but it's under the GPLv3 and (C) Drew Naylor if necessary.
@@ -124,6 +128,61 @@ WaylandCompositor {
 				sequence: "Ctrl+Alt+Backspace"
 				onActivated: Qt.quit()
 			}
+			
+			Shortcut {
+				// Shortcut to leave multitasking added by Drew Naylor. Change (C) Drew Naylor 2022 under the GPLv3.
+                id: leaveMultitaskingShortcut
+                sequence: "esc"
+				// We have to only have it active when in multitasking.
+                // This also coincidentally allows popups to be closed with
+                // the Escape key, similar to how Windows Phone did it
+                // with the Back button.
+				// The only problem is the Back button conflicts with closing popups when we're
+				// in multitasking and exits multitasking with or without closing the popup.
+				// LayerShell support may allow this to be fine, but I still need to figure
+				// out how to have Qt send the "Escape" key to the compositor, but maybe it'll work?
+				// I don't know, because when we're not in multitasking and we have
+				// no windows open or we do and it's not correctly focused, Qt says it can't send the "Escape" key.
+                enabled: grid.overview == true
+                onActivated: {
+					// Upon activating it, leave multitasking
+                    // and make sure the shortcut is no longer active.
+					// Actually we don't need to change "enabled" directly,
+                    // because we're setting it to when the grid is in overview.
+                    grid.overview = false;
+                }
+            }
+			
+			// Popup {
+                // This is a test popup added under the GPLv3 and (C) Drew Naylor.
+                // Trying to allow the Back button to be used to close message boxes
+                // and stuff when in multitasking, but it doesn't quite work,
+                // as detailed below in the part where we enter multitasking
+                // and call "alertPopup.open();".
+				// Here's the page for it in the docs I learned from:
+				// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+				// In addition, MessageDialogs will close if they're clicked outside of,
+				// even though that's apparently not supposed to happen from what I read
+				// at least in the docs. Also having issues with Dialog{} items.
+				// Maybe I'll have to temporarily prevent input to the grid/app switcher area where
+				// apps are displayed in multitasking when a message is placed on the screen
+				// by being displayed in the compositor until LayerShell is supported.
+				// I'm also not sure how to send "Escape" when a MessageDialog/Dialog/Popup
+				// is displayed while in multitasking, because the Back button currently doesn't
+				// send "Escape" when in multitasking and instead leaves multitasking.
+				// Wait, I just remembered that I thought of the idea to just keep track of
+				// the number of open message boxes and stuff as well as a D-Bus
+				// message that'll say to force-send "Escape" to know if we should send "Escape"
+				// or not (see this issue comment: https://github.com/DrewNaylor/Retiled/issues/133#issuecomment-1289266037 )
+                //     id: alertPopup
+                //     contentItem: Text
+                //     {
+                //         text: "Test message."
+                //     }
+                //     modal: true
+                //     focus: true
+                //     closePolicy: Popup.CloseOnEscape
+                // }
 
             Grid {
                 id: grid
@@ -161,6 +220,19 @@ WaylandCompositor {
                             anchors.fill: parent
                             shellSurface: xdgSurface
                             onSurfaceDestroyed: toplevels.remove(index)
+							// Don't pass input events to clients when
+                            // in multitasking. If we didn't do this,
+                            // the "Escape" key would get passed
+                            // down and register in the app, potentially
+                            // causing it to navigate back (because we're using
+                            // the "Escape" key as the Back button).
+                            // inputEventsEnabled line added under GPLv3 and (C) Drew Naylor 2022.
+                            // Learned about doing this from this video:
+                            // https://www.youtube.com/watch?v=mIg1P3i2ZfI
+							// Not entirely sure how this'll be handled with the volume and Action Center UIs,
+							// as they are their own applications and they'll just appear on top once LayerShell
+							// is supported.
+							inputEventsEnabled: !grid.overview
                         }
 						RetiledStyles.RoundButton {
 							// Round close button added under GPLv3 and Copyright (C) Drew Naylor.
@@ -246,8 +318,21 @@ WaylandCompositor {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 text: "Back";
+				// Don't focus the Back button.
+                focus: false
                 // Switching to onPressAndHold for going into multitasking was done by Drew Naylor and falls under the GPLv3 and is Copyright (C) Drew Naylor.
-                onPressAndHold: grid.overview = !grid.overview
+                onPressAndHold:
+                {
+                    // Go into multitasking and allow the leaveMultitaskingShortcut to be used.
+					// Actually, we don't have to directly enable the shortcut, because it's using
+					// the grid.overview state.
+                    grid.overview = true;
+					// Trying to test having a popup open for a message box, but I can't
+                    // get MessageDialogs or Dialogs to stay open when clicking outside them,
+                    // and having a Popup as modal like here results in not being able
+                    // to close it with the Back button (should be fine with LayerShell, though).
+                    //alertPopup.open();
+                }
                 onClicked: {
                             // Had to figure out which seat was expected by Qt, because
                             // just typing "sendKeyEvent();" didn't work, and "seat.sendKeyEvent();"
@@ -268,8 +353,13 @@ WaylandCompositor {
                             // My only problem is that going back to the main page of Start doesn't work if you're doing it during the animation, but that's a problem with RetiledStart I think rather than this code.
                             // Feel free to use this comment block as documentation if you find it while searching, I'll extract it probably to a blog post or at least a Gist so it's for-sure safe to use without worrying about GPL code.
                             // The original onClicked event was modified by Drew Naylor to instead send the "Escape" key. This change is under the GPLv3 and is Copyright (C) Drew Naylor.
-                            defaultSeat.sendKeyEvent(Qt.Key_Escape, true);
-                            defaultSeat.sendKeyEvent(Qt.Key_Escape, false);
+							// We have to only send "Escape" when we're not in multitasking, otherwise we leave multitasking.
+                            if (!grid.overview) {
+                                defaultSeat.sendKeyEvent(Qt.Key_Escape, true);
+                                defaultSeat.sendKeyEvent(Qt.Key_Escape, false);
+                            } else {
+                                grid.overview = !grid.overview;
+                            }
                            }
             }
 			
@@ -281,6 +371,8 @@ WaylandCompositor {
                 anchors.bottom: parent.bottom
                 text: "Start";
                 onClicked: runAppFromNavbarButton.runApp("retiledstart")
+				// Don't focus the Start button.
+				focus: false
             }
 			
 			RetiledStyles.Button {
@@ -288,6 +380,8 @@ WaylandCompositor {
                 anchors.bottom: parent.bottom
                 text: "Search";
                 onClicked:  runAppFromNavbarButton.runApp("retiledsearch")
+				// Don't focus the Search button.
+				focus: false
             }
 			// End copied and modified buttons.
 			} // End of rectangle with buttons.
