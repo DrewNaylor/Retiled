@@ -117,7 +117,14 @@ WaylandCompositor {
 			// Also set Universal.accent and color, the second one being where the background color used to be set.
 			Universal.accent: accentColor
 			// Background color changed to use whatever is set as accentColor by Drew Naylor. This change under GPLv3 and change Copyright (C) Drew Naylor.
-			color: accentColor
+			// Actually, now it changes to black (or whatever the theme's background color is) when not in multitasking mode so that when a new window is opened
+			// from an app, there won't be a flash of the user's Accent color.
+			// Please note that this isn't perfect at the moment, as the Accent color doesn't stay visible the entire time
+			// we zoom back into an app. Tried to fix it by using the grid.xScale and grid.yScale properties here and checking
+			// if they're less than 1.0, but it didn't work and would just display the theme background color instead.
+			// TODO: add support for different background colors, like white when in the light theme.
+			// That will be supported when the entire light theme is supported, for consistency.
+			color:  grid.overview ? accentColor : "black"
 			
 			// This shortcut copied from the pure QML example here:
 			// https://github.com/DrewNaylor/qtwayland/blob/dev/examples/wayland/pure-qml/qml/CompositorScreen.qml
