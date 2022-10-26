@@ -209,6 +209,7 @@ There are also some "wishlist" features that I really want but might be too comp
   - Wait, no, this would be a D-Bus thing that the app would handle.
   - Or maybe it would have to be a specific component that can be easily integrated in the area of the status bar, as applications would need to be able to handle it their own way. Only issue is, some apps might have a titlebar, like GTK apps. Might only work well with Qt/QML apps.
   - There needs to be some way for an app to know if it can return to top on a specific page or window, as pages without scrollbars can't scroll; some pages may be able to scroll too, but doing so could cause undefined behavior, so apps need to direct the signal to a specific scrollbar on a case-by-case basis
+  - I think what should have the best compatibility and be the easiest to implement is just having a tap on the status bar send `Ctrl+Home`, that way even browsers and text editors that don't know about it can use the feature. Only thing is some text editors and word processors move the insertion point, so ideally it would be something better.
 - Continuum-like mode, as well as "tablet mode" and "full desktop" mode in addition to "phone mode"
   - It might not be exactly like the Continuum desktop, but it should be similar enough (this is described in the line about the keyboard stick that W10M had, but it needs its own section)
   - "Continuum desktop mode" would be the default for external displays, but there should be options to pick the others (phone/tablet/full desktop) in case another one works better
