@@ -10,6 +10,8 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 
 Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with Python (currently using 3.9.x) and Qt/QML/PySide6.
 
+Guess you could say it's "Something to fill the Live Tile-shaped hole in your heart", but it's not anywhere near ready yet.
+
 ## Required extra packages
 
 You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use. The ones that say "via pip" are extra ones that developers will have to install if not on something like the PinePhone, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't in pip.
