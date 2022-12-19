@@ -305,6 +305,20 @@ WaylandCompositor {
                                 grid.overview = false;
                             }
                         }
+						Label {
+                            // Adding this label to display the current app under GPLv3 and Copyright (C) Drew Naylor.
+                            visible: grid.overview
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            color: "white"
+                            font.pixelSize: 40
+                            // Had to look at this video at 18:57 to figure out how to get the title text,
+                            // but even then it was different from the video and I just based it off the
+                            // xdgSurface.toplevel.sendClose() call above, because I figured that would
+                            // get what we needed:
+                            // https://www.youtube.com/watch?v=mIg1P3i2ZfI
+                            text: xdgSurface.toplevel.title
+                        }
                     }
                 }
                 // ![toplevels repeater]
