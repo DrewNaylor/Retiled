@@ -201,6 +201,9 @@ Flickable {
     interactive: grid.overview
 	// We have to tell it how tall its contents are supposed to be or it'll bounce back up:
 	// https://forum.qt.io/topic/38640/solved-scrollable-grid-in-qt/3
+	// This 125 value is a bit too much, but at least it's more than necessary
+	// rather than not enough.
+	// TODO: Figure out how to only show exactly what is needed for the windows in multitasking.
     contentHeight: toplevels.count * 125
     contentWidth: grid.width
     flickableDirection: Flickable.VerticalFlick
