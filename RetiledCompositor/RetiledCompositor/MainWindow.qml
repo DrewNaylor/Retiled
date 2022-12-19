@@ -210,7 +210,10 @@ WaylandCompositor {
                     },
                     Translate {
                         x: grid.overview ? 0 : win.width * -grid.selectedColumn
-                        y: grid.overview ? 0 : win.height * -grid.selectedRow
+                        // The subtracting 55 multiplied by the selectedRow or 0 based on the selectedRow was added under the GPLv3 and Copyright (C) Drew Naylor.
+                        // It's there to ensurethe title text doesn't interfere with the window when
+                        // bringing it back into focus so it's in the right spot.
+                        y: grid.overview ? 0 : win.height * -grid.selectedRow - (grid.selectedRow > 0 ? 55 * grid.selectedRow : 0)
                         Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                         Behavior on y { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                     }
