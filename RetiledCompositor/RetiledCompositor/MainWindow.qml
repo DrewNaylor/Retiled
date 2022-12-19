@@ -309,6 +309,10 @@ WaylandCompositor {
                             anchors.fill: parent
                             onClicked: {
                                 grid.selected = index;
+								// Ensure the multitasking flickable has its contentY
+                                // set to the y-value of the MouseArea.
+                                // Doing the y-value thing under the GPLv3 and is Copyright (C) Drew Naylor.
+                                multitaskingFlickable.contentY = parent.y
                                 grid.overview = false;
                             }
                         }
