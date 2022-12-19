@@ -221,9 +221,6 @@ WaylandCompositor {
                 Repeater {
                     model: toplevels
                     Item {
-						// Column and extra Item thing to allow for displaying window title text added under GPLv3 and Copyright (C) Drew Naylor.
-						Column {
-						Item {
                         width: win.width
                         height: win.height
                         ShellSurfaceItem {
@@ -308,15 +305,7 @@ WaylandCompositor {
                                 grid.overview = false;
                             }
                         }
-						} // Close the new Item block for just the preview.
-						Item {
-							// Display the window title text on a transparent background.
-							Label {
-								text: "test"
-							}
-						}
-						} // Close the column holding the preview item and the label item.
-                    } // Close the Item block containing the stack view to hold both an item for the preview and a window label.
+                    }
                 }
                 // ![toplevels repeater]
             }
