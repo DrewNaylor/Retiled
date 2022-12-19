@@ -224,6 +224,7 @@ Flickable {
                 // ![zoom transform]
                 transform: [
                     Scale {
+                        // xScale and yScale changed to be 0.5 when in multitasking under GPLv3 and Copyright (C) Drew Naylor.
                         xScale: grid.overview ? 0.5 : 1
                         yScale: grid.overview ? 0.5 : 1
                         Behavior on xScale { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
