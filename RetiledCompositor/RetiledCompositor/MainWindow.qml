@@ -204,6 +204,10 @@ Flickable {
     contentHeight: toplevels.count * 125
     contentWidth: grid.width
     flickableDirection: Flickable.VerticalFlick
+    // Temporary variable to hold contentY when going into multitasking
+    // to ensure we can use the Back button to leave it and not
+    // have issues.
+    property int tempContentY
 
             Grid {
                 id: grid
@@ -326,7 +330,8 @@ Flickable {
 								// Ensure the multitasking flickable has its contentY
                                 // set to the y-value of the MouseArea.
                                 // Doing the y-value thing under the GPLv3 and is Copyright (C) Drew Naylor.
-                                multitaskingFlickable.contentY = parent.y
+                                multitaskingFlickable.contentY = parent.y;
+                                multitaskingFlickable.tempContentY = parent.y;
                                 grid.overview = false;
                             }
                         }
@@ -376,6 +381,9 @@ Flickable {
                     // Go into multitasking and allow the leaveMultitaskingShortcut to be used.
 					// Actually, we don't have to directly enable the shortcut, because it's using
 					// the grid.overview state.
+                    // Set the flickable's tempContentY to the current one.
+                    // TODO: Make sure this can update when adding or removing a window.
+                    multitaskingFlickable.tempContentY = multitaskingFlickable.contentY;
                     grid.overview = true;
 					// Trying to test having a popup open for a message box, but I can't
                     // get MessageDialogs or Dialogs to stay open when clicking outside them,
@@ -408,6 +416,8 @@ Flickable {
                                 defaultSeat.sendKeyEvent(Qt.Key_Escape, true);
                                 defaultSeat.sendKeyEvent(Qt.Key_Escape, false);
                             } else {
+                                // Restore the flickable's contentY to the temporary one.
+                                multitaskingFlickable.contentY = multitaskingFlickable.tempContentY;
                                 grid.overview = !grid.overview;
                             }
                            }
@@ -437,7 +447,21 @@ Flickable {
 			} // End of rectangle with buttons.
             
             // Drew Naylor changed the shortcut from "space" to "alt+tab" and commented the rest out. These changes are under GPLv3 and Copyright (C) Drew Naylor.
-            Shortcut { sequence: "alt+tab"; onActivated: grid.overview = !grid.overview }
+            Shortcut {
+                sequence: "alt+tab"
+                onActivated: {
+                    // Do the flickable thing under GPLv3 and Copyright (C) Drew Naylor.
+                    // Set the flickable's tempContentY to the current one.
+                    // TODO: Make sure this can update when adding or removing a window.
+                    if (grid.overview == true) {
+                        // If we want to go into multitasking, set the tempContentY to the current value.
+                        multitaskingFlickable.tempContentY = multitaskingFlickable.contentY;
+                    } else {
+                        // Otherwise, go back to the temporary one.
+                        multitaskingFlickable.contentY = multitaskingFlickable.tempContentY;
+                    }
+                    grid.overview = !grid.overview }
+            }
             //Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
             //Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
             //Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
