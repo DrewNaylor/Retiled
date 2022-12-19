@@ -220,6 +220,10 @@ WaylandCompositor {
                 // ![toplevels repeater]
                 Repeater {
                     model: toplevels
+					ColumnLayout {
+                        // ColumnLayout added under GPLv3 and Copyright (C) Drew Naylor
+                        // to allow the title text to be displayed for each preview,
+                        // like on Windows Phone.
                     Item {
                         width: win.width
                         height: win.height
@@ -305,11 +309,13 @@ WaylandCompositor {
                                 grid.overview = false;
                             }
                         }
-						Label {
+                    }
+					Item {
+                        height: 50
+                        Label {
                             // Adding this label to display the current app under GPLv3 and Copyright (C) Drew Naylor.
+							// The idea for this is from Windows Phone. I can't take credit for it.
                             visible: grid.overview
-                            anchors.bottom: parent.bottom
-                            anchors.left: parent.left
                             color: "white"
                             font.pixelSize: 40
                             // Had to look at this video at 18:57 to figure out how to get the title text,
@@ -318,8 +324,9 @@ WaylandCompositor {
                             // get what we needed:
                             // https://www.youtube.com/watch?v=mIg1P3i2ZfI
                             text: xdgSurface.toplevel.title
-                        }
-                    }
+                        } // Close the label at the bottom.
+                    } // Close the new item holder.
+                    } // Close the new ColumnLayout.
                 }
                 // ![toplevels repeater]
             }
