@@ -191,6 +191,20 @@ WaylandCompositor {
                 //     closePolicy: Popup.CloseOnEscape
                 // }
 
+Flickable {
+	// Allow the multitasking area to be scrolled up and down
+	// with equal-sized window cards
+	// until a proper left-right swipe is implemented.
+	// Flickable added under GPLv3 and Copyright (C) Drew Naylor.
+    id: multitaskingFlickable
+    anchors.fill: parent
+    interactive: grid.overview
+	// We have to tell it how tall its contents are supposed to be or it'll bounce back up:
+	// https://forum.qt.io/topic/38640/solved-scrollable-grid-in-qt/3
+    contentHeight: toplevels.count * 125
+    contentWidth: grid.width
+    flickableDirection: Flickable.VerticalFlick
+
             Grid {
                 id: grid
 
@@ -334,9 +348,10 @@ WaylandCompositor {
                         } // Close the label at the bottom.
                     } // Close the new item holder.
                     } // Close the new ColumnLayout.
-                }
+                } // Close the repeater.
                 // ![toplevels repeater]
-            }
+                } // Close the grid.
+} // Close the flickable.
 
 			// Rectangle added under GPLv3 and change Copyright (C) Drew Naylor.
 			Rectangle {
