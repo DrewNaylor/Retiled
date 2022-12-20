@@ -191,6 +191,27 @@ WaylandCompositor {
                 //     closePolicy: Popup.CloseOnEscape
                 // }
 
+Flickable {
+	// Allow the multitasking area to be scrolled up and down
+	// with equal-sized window cards
+	// until a proper left-right swipe is implemented.
+	// Flickable added under GPLv3 and Copyright (C) Drew Naylor.
+    id: multitaskingFlickable
+    anchors.fill: parent
+    interactive: grid.overview
+	// We have to tell it how tall its contents are supposed to be or it'll bounce back up:
+	// https://forum.qt.io/topic/38640/solved-scrollable-grid-in-qt/3
+	// This 125 value is a bit too much, but at least it's more than necessary
+	// rather than not enough.
+	// TODO: Figure out how to only show exactly what is needed for the windows in multitasking.
+    contentHeight: toplevels.count * 125
+    contentWidth: grid.width
+    flickableDirection: Flickable.VerticalFlick
+    // Temporary variable to hold contentY when going into multitasking
+    // to ensure we can use the Back button to leave it and not
+    // have issues.
+    property int tempContentY
+
             Grid {
                 id: grid
 
@@ -203,14 +224,18 @@ WaylandCompositor {
                 // ![zoom transform]
                 transform: [
                     Scale {
-                        xScale: grid.overview ? (1.0/grid.columns) : 1
-                        yScale: grid.overview ? (1.0/grid.columns) : 1
+                        // xScale and yScale changed to be 0.5 when in multitasking under GPLv3 and Copyright (C) Drew Naylor.
+                        xScale: grid.overview ? 0.5 : 1
+                        yScale: grid.overview ? 0.5 : 1
                         Behavior on xScale { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                         Behavior on yScale { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                     },
                     Translate {
                         x: grid.overview ? 0 : win.width * -grid.selectedColumn
-                        y: grid.overview ? 0 : win.height * -grid.selectedRow
+                        // The subtracting 55 multiplied by the selectedRow or 0 based on the selectedRow was added under the GPLv3 and Copyright (C) Drew Naylor.
+                        // It's there to ensurethe title text doesn't interfere with the window when
+                        // bringing it back into focus so it's in the right spot.
+                        y: grid.overview ? 0 : win.height * -grid.selectedRow - (grid.selectedRow > 0 ? 55 * grid.selectedRow : 0)
                         Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                         Behavior on y { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                     }
@@ -220,6 +245,10 @@ WaylandCompositor {
                 // ![toplevels repeater]
                 Repeater {
                     model: toplevels
+					ColumnLayout {
+                        // ColumnLayout added under GPLv3 and Copyright (C) Drew Naylor
+                        // to allow the title text to be displayed for each preview,
+                        // like on Windows Phone.
                     Item {
                         width: win.width
                         height: win.height
@@ -302,13 +331,36 @@ WaylandCompositor {
                             anchors.fill: parent
                             onClicked: {
                                 grid.selected = index;
+								// Ensure the multitasking flickable has its contentY
+                                // set to the y-value of the MouseArea.
+                                // Doing the y-value thing under the GPLv3 and is Copyright (C) Drew Naylor.
+                                multitaskingFlickable.contentY = parent.y;
+                                multitaskingFlickable.tempContentY = parent.y;
                                 grid.overview = false;
                             }
                         }
                     }
-                }
+					Item {
+                        height: 50
+                        Label {
+                            // Adding this label to display the current app under GPLv3 and Copyright (C) Drew Naylor.
+							// The idea for this is from Windows Phone. I can't take credit for it.
+                            visible: grid.overview
+                            color: "white"
+                            font.pixelSize: 40
+                            // Had to look at this video at 18:57 to figure out how to get the title text,
+                            // but even then it was different from the video and I just based it off the
+                            // xdgSurface.toplevel.sendClose() call above, because I figured that would
+                            // get what we needed:
+                            // https://www.youtube.com/watch?v=mIg1P3i2ZfI
+                            text: xdgSurface.toplevel.title
+                        } // Close the label at the bottom.
+                    } // Close the new item holder.
+                    } // Close the new ColumnLayout.
+                } // Close the repeater.
                 // ![toplevels repeater]
-            }
+                } // Close the grid.
+} // Close the flickable.
 
 			// Rectangle added under GPLv3 and change Copyright (C) Drew Naylor.
 			Rectangle {
@@ -333,6 +385,9 @@ WaylandCompositor {
                     // Go into multitasking and allow the leaveMultitaskingShortcut to be used.
 					// Actually, we don't have to directly enable the shortcut, because it's using
 					// the grid.overview state.
+                    // Set the flickable's tempContentY to the current one.
+                    // TODO: Make sure this can update when adding or removing a window.
+                    multitaskingFlickable.tempContentY = multitaskingFlickable.contentY;
                     grid.overview = true;
 					// Trying to test having a popup open for a message box, but I can't
                     // get MessageDialogs or Dialogs to stay open when clicking outside them,
@@ -365,6 +420,8 @@ WaylandCompositor {
                                 defaultSeat.sendKeyEvent(Qt.Key_Escape, true);
                                 defaultSeat.sendKeyEvent(Qt.Key_Escape, false);
                             } else {
+                                // Restore the flickable's contentY to the temporary one.
+                                multitaskingFlickable.contentY = multitaskingFlickable.tempContentY;
                                 grid.overview = !grid.overview;
                             }
                            }
@@ -394,7 +451,21 @@ WaylandCompositor {
 			} // End of rectangle with buttons.
             
             // Drew Naylor changed the shortcut from "space" to "alt+tab" and commented the rest out. These changes are under GPLv3 and Copyright (C) Drew Naylor.
-            Shortcut { sequence: "alt+tab"; onActivated: grid.overview = !grid.overview }
+            Shortcut {
+                sequence: "alt+tab"
+                onActivated: {
+                    // Do the flickable thing under GPLv3 and Copyright (C) Drew Naylor.
+                    // Set the flickable's tempContentY to the current one.
+                    // TODO: Make sure this can update when adding or removing a window.
+                    if (grid.overview == true) {
+                        // If we want to go into multitasking, set the tempContentY to the current value.
+                        multitaskingFlickable.tempContentY = multitaskingFlickable.contentY;
+                    } else {
+                        // Otherwise, go back to the temporary one.
+                        multitaskingFlickable.contentY = multitaskingFlickable.tempContentY;
+                    }
+                    grid.overview = !grid.overview }
+            }
             //Shortcut { sequence: "right"; onActivated: grid.selected = Math.min(grid.selected+1, toplevels.count-1) }
             //Shortcut { sequence: "left"; onActivated: grid.selected = Math.max(grid.selected-1, 0) }
             //Shortcut { sequence: "up"; onActivated: grid.selected = Math.max(grid.selected-grid.columns, 0) }
