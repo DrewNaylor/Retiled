@@ -1,3 +1,5 @@
+> **Important:** this may not work in Fedora, at least Fedora 36 as it'll probably prevent input. More details in the long paragraph after the steps.
+
 Running the custom compositor currently involves these commands:
 1. Switch to a new TTY
 2. Delete the Wayland lock file from `/run/user/1002/wayland-0.lock` (this path will vary depending on your installation) so Kwin doesn't interfere (if on Plasma Mobile)
