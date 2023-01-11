@@ -425,8 +425,8 @@ ApplicationWindow {
 			// and also basing the details on the tile resize transition I put into the Tile.qml file:
 			// https://doc.qt.io/qt-6/qml-qtquick-viewtransition.html#view-transitions-a-simple-example
 			move: Transition {
-				PropertyAnimation { property: "x"; duration: 75; easing.type: Easing.InOutQuad }
-				PropertyAnimation { property: "y"; duration: 75; easing.type: Easing.InOutQuad }
+				PropertyAnimation { property: "x"; duration: 150; easing.type: Easing.InOutQuad }
+				PropertyAnimation { property: "y"; duration: 150; easing.type: Easing.InOutQuad }
 			}
 			
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
