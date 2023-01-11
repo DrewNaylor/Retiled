@@ -355,3 +355,5 @@ RetiledStart/RetiledStart/libs/libRetiledStartPy/startlayout-modified.yaml
 
 # CMake build.
 build-cmake-makes-no-sense-and-relative-imports-are-hard-Clang_LLVM-Debug/
+clean-test-environment/build*
+TestProjects/build*
