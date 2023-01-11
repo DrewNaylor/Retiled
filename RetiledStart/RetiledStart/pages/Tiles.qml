@@ -424,9 +424,12 @@ ApplicationWindow {
 			// Add proper transitions when tiles move around based on this example
 			// and also basing the details on the tile resize transition I put into the Tile.qml file:
 			// https://doc.qt.io/qt-6/qml-qtquick-viewtransition.html#view-transitions-a-simple-example
+			// Consult this page for easing options:
+			// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html
+			// Made the duration longer and used InOutQuart to make it feel better.
 			move: Transition {
-				PropertyAnimation { property: "x"; duration: 150; easing.type: Easing.InOutQuad }
-				PropertyAnimation { property: "y"; duration: 150; easing.type: Easing.InOutQuad }
+				PropertyAnimation { property: "x"; duration: 200; easing.type: Easing.InOutQuart }
+				PropertyAnimation { property: "y"; duration: 200; easing.type: Easing.InOutQuart }
 			}
 			
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
