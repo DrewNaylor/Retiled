@@ -420,6 +420,15 @@ ApplicationWindow {
 			width: window.width
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+			
+			// Add proper transitions when tiles move around based on this example
+			// and also basing the details on the tile resize transition I put into the Tile.qml file:
+			// https://doc.qt.io/qt-6/qml-qtquick-viewtransition.html#view-transitions-a-simple-example
+			move: Transition {
+				PropertyAnimation { property: "x"; duration: 75; easing.type: Easing.InOutQuad }
+				PropertyAnimation { property: "y"; duration: 75; easing.type: Easing.InOutQuad }
+			}
+			
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
 			// a different one work for the All Apps list:
 			// https://code.qt.io/cgit/pyside/pyside-setup.git/tree/examples/declarative/editingmodel
