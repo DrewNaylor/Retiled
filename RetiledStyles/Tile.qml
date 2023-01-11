@@ -254,6 +254,7 @@ ButtonBase {
 	
 	background: Rectangle {
 		// Change tile color and stuff.
+		visible: (control.tileBackgroundColor === "#0050ef") ? false : true
 				color: control.tileBackgroundColor
 				// Setting a border width of 5 looks pretty
 				// good when tiles are transparent.
