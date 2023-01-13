@@ -26,4 +26,4 @@ Alternatively, you can try to run these commands to have it run inside another c
 5. `cd ../../RetiledStart/RetiledStart/`
 6. `python main.py`
 
-These worked once, but I don't know why they don't work when I try a second time. Also note that I figured that you can probably just use the Start button in the compositor once you set the `WAYLAND_DISPLAY` export.
+These worked once, but I don't know why they don't work when I try a second time. Also note that you should be able to just use the Start button in the compositor once you set the `WAYLAND_DISPLAY` export, but it doesn't work as intended so I may need to have it run `WAYLAND_DISPLAY=$WAYLAND_DISPLAY python main.py` when I work on it more. Still having issues with touch being in the wrong place, though, even on postmarketOS and Qt 6.4.1 or something.
