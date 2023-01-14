@@ -204,7 +204,9 @@ Flickable {
 	// This 125 value is a bit too much, but at least it's more than necessary
 	// rather than not enough.
 	// TODO: Figure out how to only show exactly what is needed for the windows in multitasking.
-    contentHeight: toplevels.count * 125
+	// We're multiplying by 250 now and adding the navbar's height to ensure everything can
+	// at least be shown, now that the navbar has its own space (thankfully).
+    contentHeight: (toplevels.count * 250) + navBar.height
     contentWidth: grid.width
     flickableDirection: Flickable.VerticalFlick
     // Temporary variable to hold contentY when going into multitasking
@@ -220,7 +222,12 @@ Flickable {
                 property int selectedColumn: selected % columns
                 property int selectedRow: selected / columns
 				anchors.fill: parent
-                columns: Math.ceil(Math.sqrt(toplevels.count))
+				// Enforce only two columns.
+				// This prevents windows from getting lost in multitasking,
+				// as it was previously calculating the number
+				// of columns needed based on the amount of toplevels.
+				// Change under the GPLv3 and Copyright (C) Drew Naylor.
+                columns: 2
                 // ![zoom transform]
                 transform: [
                     Scale {
@@ -233,9 +240,11 @@ Flickable {
                     Translate {
                         x: grid.overview ? 0 : win.width * -grid.selectedColumn
                         // The subtracting 55 multiplied by the selectedRow or 0 based on the selectedRow was added under the GPLv3 and Copyright (C) Drew Naylor.
-                        // It's there to ensurethe title text doesn't interfere with the window when
+                        // It's there to ensure the title text doesn't interfere with the window when
                         // bringing it back into focus so it's in the right spot.
-                        y: grid.overview ? 0 : win.height * -grid.selectedRow - (grid.selectedRow > 0 ? 55 * grid.selectedRow : 0)
+						// Now we're also subtracting navBar.height multiplied by grid.selectedRow
+						// to ensure that the navbar area is properly taken care of when exiting multitasking.
+                        y: grid.overview ? 0 : win.height * -grid.selectedRow - (grid.selectedRow > 0 ? (55 * grid.selectedRow) - (navBar.height * grid.selectedRow) : 0)
                         Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                         Behavior on y { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
                     }
@@ -251,7 +260,11 @@ Flickable {
                         // like on Windows Phone.
                     Item {
                         width: win.width
-                        height: win.height
+						// Subtract the height of the navbar from the height of the
+						// item that holds each ShellSurfaceItem, so each window,
+						// basically.
+						// Change under the GPLv3 and Copyright (C) Drew Naylor.
+                        height: win.height - navBar.height
                         ShellSurfaceItem {
                             anchors.fill: parent
                             shellSurface: xdgSurface
@@ -483,7 +496,10 @@ Flickable {
     XdgShell {
         onToplevelCreated: {
             toplevels.append({xdgSurface});
-            toplevel.sendFullscreen(Qt.size(win.pixelWidth, win.pixelHeight));
+			// Subtract navBar.height so the pixels are the right shape as we're moving
+			// stuff away from the navbar now.
+			// Change under the GPLv3 and Copyright (C) Drew Naylor.
+            toplevel.sendFullscreen(Qt.size(win.pixelWidth, win.pixelHeight - navBar.height));
         }
     }
     // ![XdgShell]
