@@ -264,6 +264,10 @@ Flickable {
 						// item that holds each ShellSurfaceItem, so each window,
 						// basically.
 						// Change under the GPLv3 and Copyright (C) Drew Naylor.
+						// TODO: Figure out why the Angelfish UI doesn't appear
+						// (at least when running inside Plasma Mobile)
+						// when other apps that use (I think) Kirigami do just fine, such as Index and Koko.
+						// TODO 2: Fix GTK apps like Firefox displaying strangely (too tall for the multitasking area and the client-side decorations are all messed up), as well as message boxes being blurry and way too big, and Qt apps like the KDE Settings app being way too small (would lying that I'm KDE fix this, as I'm planning to do?).
                         height: win.height - navBar.height
                         ShellSurfaceItem {
                             anchors.fill: parent
