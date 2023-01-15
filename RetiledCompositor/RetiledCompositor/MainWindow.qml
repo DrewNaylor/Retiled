@@ -267,7 +267,7 @@ Flickable {
 						// TODO: Figure out why the Angelfish UI doesn't appear
 						// (at least when running inside Plasma Mobile)
 						// when other apps that use (I think) Kirigami do just fine, such as Index and Koko.
-						// TODO 2: Fix GTK apps like Firefox displaying strangely (too tall for the multitasking area and the client-side decorations are all messed up), as well as message boxes being blurry and way too big, and Qt apps like the KDE Settings app being way too small (would lying that I'm KDE fix this, as I'm planning to do?).
+						// TODO 2: Fix GTK apps like Firefox displaying strangely (too tall for the multitasking area and the client-side decorations are all messed up), as well as message boxes being blurry and way too big, and Qt apps like the KDE Settings app being way too small (would lying that I'm KDE fix this, as I'm planning to do? Update: yes, it does, and it just looks like how it should in Plasma Mobile with a single list at a reasonable size; The full command I'm using is `export XDG_CURRENT_DESKTOP=KDE:X-Retiled`, and apparently KDE apps don't care that there's extra stuff in there, so it ends up being like what Windows Phone 8.1 Update 1 did for IE11 Mobile's user agent string to increase compatibility with websites that want browsers like Chrome, Safari, or Firefox).
                         height: win.height - navBar.height
                         ShellSurfaceItem {
                             anchors.fill: parent
