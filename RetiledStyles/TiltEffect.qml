@@ -49,8 +49,8 @@ Rotation {
 	// be split into quadrants, which are
 	// used to know which direction the button
 	// is supposed to tilt in.
-	origin.x: control.width / 2
-	origin.y: control.height / 2
+	origin.x: width / 2
+	origin.y: height / 2
 	// Set axis and angle values based on
 	// the last-pressed x and y values:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-abstractbutton.html#pressX-prop
@@ -81,11 +81,14 @@ Rotation {
 	// negative and thus placing it on the left side of the
 	// button's center.
 	// If the button is un-pressed, the y-axis is reset to 0.
-	axis.y: (down && tilt && hovered ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
+	// Now we're trying to do more-accurate tilting as described by Metro-UI-CSS's
+	// Tile.js item (MIT-licensed, here's my fork):
+	// https://github.com/DrewNaylor/Metro-UI-CSS/blob/master/source/components/tile/tile.js
+	axis.y: (down && tilt && hovered ? (pressX > origin.x * 1/3 ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0) : 0)
 	// For the x-axis, we do a similar thing as with the y-axis,
 	// only this time we use the y-value of the press and the height
 	// of the button divided by 2 stored as the y-origin.
-	axis.x: (down && tilt && hovered ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
+	axis.x: (down && tilt && hovered ? (pressY < origin.y * 2/3 ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0) : 0)
 	// We don't need the z-axis changed from 0.
 	axis.z: 0
 	// An angle of 15 seems pretty good.
