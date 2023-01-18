@@ -110,6 +110,11 @@ Rotation {
 	//       (pressY < origin.y - (origin.y * 1/2) || pressY > origin.y + (origin.y * 1/2) ? ... : 0) : 0) parts
 	//       add a deadzone to the center of tiltable objects like tiles so that they can tilt more accurately
 	//       and do things like tilt only down, only up, only left, or only right, or not tilt at all if in the middle enough.
+	// TODO 2: figure out how WP allows you to tilt smoothly on a button so that everywhere on it reacts to you pressing down on it,
+	//         rather than having a large deadzone and only 8 directions. So we need an analog stick, not a D-Pad.
+	//         Even tiles react like this, so maybe it has to take into account the current
+	//         position of the pointer within the element? That would need a MouseArea, though, which would make things a lot
+	//         more difficult to have work.
 	axis.y: (down && tilt && hovered ? (pressX > origin.x + (origin.x * 1/3) || pressX < origin.x - (origin.x * 1/3) ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0) : 0)
 	// For the x-axis, we do a similar thing as with the y-axis,
 	// only this time we use the y-value of the press and the height
