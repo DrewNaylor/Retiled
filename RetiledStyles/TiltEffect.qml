@@ -84,11 +84,15 @@ Rotation {
 	// Now we're trying to do more-accurate tilting as described by Metro-UI-CSS's
 	// Tile.js item (MIT-licensed, here's my fork):
 	// https://github.com/DrewNaylor/Metro-UI-CSS/blob/master/source/components/tile/tile.js
-	axis.y: (down && tilt && hovered ? (pressX > origin.x * 1/3 ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0) : 0)
+	// TODO: Explain how the (pressX > origin.x + (origin.x * 1/3) || pressX < origin.x - (origin.x *1/3)? ... : 0) : 0) and
+	//       (pressY < origin.y - (origin.y * 1/2) || pressY > origin.y + (origin.y * 1/2) ? ... : 0) : 0) parts
+	//       add a deadzone to the center of tiltable objects like tiles so that they can tilt more accurately
+	//       and do things like tilt only down, only up, only left, or only right, or not tilt at all if in the middle enough.
+	axis.y: (down && tilt && hovered ? (pressX > origin.x + (origin.x * 1/3) || pressX < origin.x - (origin.x * 1/3) ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0) : 0)
 	// For the x-axis, we do a similar thing as with the y-axis,
 	// only this time we use the y-value of the press and the height
 	// of the button divided by 2 stored as the y-origin.
-	axis.x: (down && tilt && hovered ? (pressY < origin.y * 2/3 ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0) : 0)
+	axis.x: (down && tilt && hovered ? (pressY < origin.y - (origin.y * 1/2) || pressY > origin.y + (origin.y * 1/2) ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0) : 0)
 	// We don't need the z-axis changed from 0.
 	axis.z: 0
 	// An angle of 15 seems pretty good.
