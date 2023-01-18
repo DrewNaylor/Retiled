@@ -12,6 +12,8 @@ Development is mainly being done using the PinePhone, so that'll be the main sup
 
 Guess you could say it's "Something to fill the Live Tile-shaped hole in your heart", but it's not anywhere near ready yet.
 
+> **Please note:** as of January 18, 2023, I would recommend installing from the `main` branch instead of downloading the v0.1-DP1 release package due to bugs that only appeared well after it was released that I think are a result of changes in Qt. The only drawback to this is that extra, unneeded files may be pulled in that would otherwise be taken care of in a proper release. There are instructions available below, but you'd use the same install script anyway so it's not too bad. Once v0.1 DP2 is released, this message will be removed.
+
 ## Required extra packages
 
 You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use. The ones that say "via pip" are extra ones that developers will have to install if not on something like the PinePhone, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't in pip.
@@ -60,7 +62,7 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 
 > **These instructions aren't up to date with the zip file in the releases**, so I'd recommend [checking the "how to use" guide](https://github.com/DrewNaylor/Retiled/blob/main/docs/changelogs/v0.1-DP1.md#how-to-use) for installation instructions for released versions. One thing I do need to say to comply with the (L)GPL is that you can replace the files in the `RetiledStyles` directory if you want to use different files than what I provide, either by switching them out of the package then running the install script, or by replacing them as root when installed by changing the files in `/opt/Retiled/RetiledStyles`.
 
-> **Actually, these instructions may be more up-to-date than what's in the v0.1 DP1's package**, so if you can't figure out what's going on with those files, check these instructions. The instructions will be unified for v0.1 DP2.
+> **Actually, these instructions may be more up-to-date than what's in the v0.1 DP1's package (even though I don't recommend that version anymore as if I remember correctly, it has major bugs fixed, those being mainly in the All Apps list and they showed up well after it was released due to what I think is a change in Qt)**, so if you can't figure out what's going on with those files, check these instructions. The instructions will be unified for v0.1 DP2.
 
 - Installation
   1. Install `pyside6` (`py3-pyside6` on postmarketOS), `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
