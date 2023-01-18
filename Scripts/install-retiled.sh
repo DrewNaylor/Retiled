@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # CD into ./Scripts.
-cd ./Scripts
+# I think it would be easier to require a manual cd into Scripts, so this is
+# uncommented until I find out an easy way to check if we're in here or not.
+#cd ./Scripts
 
 # Run the build scripts.
 sh ./build-retiledsearch.sh

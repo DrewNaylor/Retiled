@@ -63,11 +63,11 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 > **Actually, these instructions may be more up-to-date than what's in the v0.1 DP1's package**, so if you can't figure out what's going on with those files, check these instructions. The instructions will be unified for v0.1 DP2.
 
 - Installation
-  1. Install `pyside6`, `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I'd like to add support for postmarketOS, but I haven't tested much there yet. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
-  2. Clone the repo using `git clone https://github.com/drewnaylor/retiled`
-  3. `cd` into `retiled/Scripts`
+  1. Install `pyside6` (`py3-pyside6` on postmarketOS), `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
+  2. Install `git` if you haven't, and clone the repo using `git clone https://github.com/DrewNaylor/Retiled`
+  3. `cd` into `Retiled/Scripts`
   4. Run `sh install-retiled.sh`. The Python scripts will be compiled, then you'll be prompted with `sudo` asking your password to install (if you haven't entered it recently).
-  5. You should find the items for Retiled Start and Retiled Search in your app list. If not (can happen with Plasma Mobile, which is the UI that this is recommended to be run using until RetiledCompositor is ready for use due to also using Qt), you'll need to restart your phone.
+  5. You should find the items for RetiledStart and RetiledSearch in your app list. If not (can happen with Plasma Mobile, which is the UI that this is recommended to be run using until RetiledCompositor is ready for use due to also using Qt), you'll need to restart your phone.
 - Uninstallation
   1. `cd` back into `retiled/Scripts` in the repo you cloned earlier, or clone it again if you deleted it.
   2. Run `sh uninstall-retiled.sh`. You'll be prompted for your password by `sudo` so that it can delete the files and folders used by Retiled, mainly `/opt/Retiled/*`, `/usr/share/applications/retiledstart.desktop`, and `/usr/share/applications/retiledsearch.desktop`.
