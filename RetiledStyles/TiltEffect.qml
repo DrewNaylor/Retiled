@@ -150,7 +150,7 @@ Rotation {
 	// smoothly when necessary.
 	Behavior on axis.y {
 		SequentialAnimation {
-			PauseAnimation { duration: axis.y != 0 ? 200 : 0 }
+			PauseAnimation { duration: axis.y != 0 && !down ? 200 : 0 }
 			PropertyAnimation { duration: 200;
 								easing.type: Easing.InOutQuad
 							}
@@ -158,7 +158,7 @@ Rotation {
 	}
 	Behavior on axis.x {
 		SequentialAnimation {
-			PauseAnimation { duration: axis.x != 0 ? 200 : 0 }
+			PauseAnimation { duration: axis.x != 0 && !down ? 200 : 0 }
 			PropertyAnimation { duration: 200;
 								easing.type: Easing.InOutQuad
 							}
