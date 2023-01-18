@@ -19,14 +19,14 @@ You may need to install packages through your distro's package manager, and thos
 - `python`: Used to run most of Retiled; should be Python 3 (using Python 3.9.x, specifically, **but my goal is to use the latest version of Python when possible, so it may not be 3.9.x by the time you read this**), but I can't remember if the package itself is `python3`, so I'll need to check
 - `pyside6` (`PySide6` via pip, which may be necessary on Fedora; `py3-pyside6` on postmarketOS): Used for the UI of Python/QML-based components of Retiled
 - `qt6-declarative` (previously `qt6-quickcontrols2`): Provides Qt6 QtQuick controls that are used in each component
-- `qt6-wayland` (`qt6-qtwayland` on Fedora): Allows Qt6 apps like the ones included in Retiled to run under Wayland
-- `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it; Arch Linux ARM wasn't the latest anyway last I checked, but maybe I can put the latest one in my own repo if that's easy enough; I will soon stop providing pyyaml in my package directly, so it'll have to be installed manually, whether that be via `pip` [newest] or from your package manager [possibly outdated]): Helps read yaml files, which are used for configuration. You probably won't have to install this yourself, as I just copied the library's files into my repo. The only case where you'll need to install it manually is if my repo doesn't have the proper compiled library for one of the files. In that case, please let me know. I don't feel comfortable just adding binaries from random people to my repo, so a way for me to acquire that binary will be necessary to specify.
+- `qt6-wayland` (`qt6-qtwayland` on Fedora): Allows Qt6 apps like the ones included in Retiled to run under Wayland, and also allows RetiledCompositor to run
+- `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it; Arch Linux ARM wasn't the latest anyway last I checked, but maybe I can put the latest one in my own repo if that's easy enough; I will soon stop providing pyyaml in my package directly (probably in DP2, so it'll break if you don't manually install pyyaml but that's ok early on), so it'll have to be installed manually, whether that be via `pip` [newest] or from your package manager [possibly outdated]): Helps read yaml files, which are used for configuration. You probably won't have to install this yourself, as I just copied the library's files into my repo. The only case where you'll need to install it manually is if my repo doesn't have the proper compiled library for one of the files. In that case, please let me know. I don't feel comfortable just adding binaries from random people to my repo, so a way for me to acquire that binary will be necessary to specify.
 - `qt6-svg`: You'll need to install this if using Xfce or another non-Qt environment. Without it, SVG images won't show up anywhere.
 - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
 
 ## License stuff
 
->This project (Retiled) is Copyright (C) 2021-2022 Drew Naylor and is licensed under the Apache License 2.0.<br>
+>This project (Retiled) is Copyright (C) 2021-2023 Drew Naylor and is licensed under the Apache License 2.0.<br>
 Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative<br>
 Code relating to qtwayland, which is the module used for the project in the RetiledCompositor folder, can be found here: https://github.com/DrewNaylor/qtwayland<br>
 RetiledCompositor is the compositor used for Retiled for such things as the multitasking area and giving a place for the navigation bar, etc., and is sadly licensed under the Gnu GPLv3 due to qtwayland also being under the GPLv3 (I think it's GPLv3+ with the "+" being for any version that's ok'd by the KDE Free Qt Foundation, according to some source files in the repo) now. Any files that do not use GPL'd libraries directly will be licensed under one of these three licenses for as much flexibility as possible: the Apache License, Version 2.0; the BSD License according to what Qt uses in the QML files; or the LGPLv3, which is what the RetiledStyles project's files are under.<br><br>
@@ -60,6 +60,8 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 
 > **These instructions aren't up to date with the zip file in the releases**, so I'd recommend [checking the "how to use" guide](https://github.com/DrewNaylor/Retiled/blob/main/docs/changelogs/v0.1-DP1.md#how-to-use) for installation instructions for released versions. One thing I do need to say to comply with the (L)GPL is that you can replace the files in the `RetiledStyles` directory if you want to use different files than what I provide, either by switching them out of the package then running the install script, or by replacing them as root when installed by changing the files in `/opt/Retiled/RetiledStyles`.
 
+> **Actually, these instructions may be more up-to-date than what's in the v0.1 DP1's package**, so if you can't figure out what's going on with those files, check these instructions. The instructions will be unified for v0.1 DP2.
+
 - Installation
   1. Install `pyside6`, `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I'd like to add support for postmarketOS, but I haven't tested much there yet. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
   2. Clone the repo using `git clone https://github.com/drewnaylor/retiled`
@@ -76,11 +78,11 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 - Running
   - Windows
     - To run RetiledStart, follow the instructions for running RetiledSearch, but use the `RetiledStart/RetiledStart` directory instead.
-    - To run RetiledSearch, ~~run `dotnet "RetiledSearch\RetiledSearch\bin\Debug\net5.0\RetiledSearch.dll"`~~ set up and activate your venv with Python 3.9 and the pip packages listed above, then refer to the line below regarding running Python/QML apps on Linux.
+    - To run RetiledActionCenter, follow the instructions for running RetiledSearch, but use the `RetiledActionCenter` directory instead.
+    - To run RetiledSearch, set up and activate your venv with Python 3.9 (or later, which is preferred if it doesn't break things) and the pip packages listed above, then refer to the line below regarding running Python/QML apps on Linux.
   - Linux
-    - To run RetiledStart, please refer to the line below regarding running Python/QML-based apps.
-    - To run RetiledSearch, please refer to the line below regarding running Python/QML-based apps.
-    - You may need to specify where `dotnet` is located, in case it's somewhere like your home folder.
+    - To run RetiledStart, RetiledSearch, or RetiledActionCenter, please refer to the line below regarding running Python/QML-based apps.
+	- To run RetiledCompositor, please refer to the [instructions on running the compositor in /docs](/docs/running-the-compositor.md).
     - Running Python/QML-based apps requires installing the relevant packages as described in the `Building` section (desktop Linux can probably use the pip packages), then for 
 	  - RetiledSearch:
         - `cd` into `RetiledSearch/RetiledSearch`
@@ -88,7 +90,10 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 	  - RetiledStart:
 	    - `cd` into `RetiledStart/RetiledStart`
 	    - Run `python main.py`
-    - If you run the Python/QML-based apps on Phosh without first rebooting after installing the required extra packages, the keyboard may not display the letters properly, and instead show boxes. This doesn't seem to be permanent, as rebooting fixes the issue. **However**, running the Python/QML-based apps after a reboot may have Qt say that it's ignoring Wayland on Gnome, so it'll use Xwayland instead. You'll have to run `QT_QPA_PLATFORM=wayland python main.py` to make it use Wayland. This command will be integrated into a launcher script to make things easy. Additionally, there's a titlebar when running with Wayland under Phosh. I'd like to have it only appear when in docked mode, although some apps may be better to have no window borders in docked mode and instead appear next to the panel, like RetiledStart.
+	  - RetiledActionCenter:
+	    - `cd` into `RetiledActionCenter`
+	    - Run `python main.py`
+    - If you run the Python/QML-based apps on Phosh without first rebooting after installing the required extra packages, the keyboard may not display the letters properly, and instead show boxes. This doesn't seem to be permanent, as rebooting fixes the issue. **However**, running the Python/QML-based apps after a reboot may have Qt say that it's ignoring Wayland on Gnome, so it'll use Xwayland instead. You'll have to run `QT_QPA_PLATFORM=wayland python main.py` to make it use Wayland. This command will be integrated into a launcher script to make things easy (actually, not sure about that now, as that could make things more difficult and my goal is to focus on running the apps on Wayland even on Plasma Mobile...). Additionally, there's a titlebar when running with Wayland under Phosh. I'd like to have it only appear when in docked mode, although some apps may be better to have no window borders in docked mode and instead appear next to the panel, like RetiledStart.
 
 ## Video demos
 
@@ -102,7 +107,7 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 - [RetiledActionCenter demo #1: Flashlight Toggle Showcase](https://m.youtube.com/watch?v=_xcpuhhv5TE)
 
 ## Screenshots
-Below are some screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot. I might not update the screenshots here very often either, so I'd recommend [following me on Twitter](https://twitter.com/DrewTNaylor) as I'll occasionally post screenshots for the feature I'm working on at the moment. It's not always Retiled screenshots, though.
+Below are some screenshots in case you want to see how things are going so far. Some may be updated separately from the rest so recent changes might not show up in every screenshot. I might not update the screenshots here very often either, so I'd recommend [following me on Mastodon](https://mastodon.online/@DrewNaylor) as I'll occasionally post screenshots for the feature I'm working on at the moment. It's not always Retiled screenshots, though.
 
 RetiledStart showing a set of tiles of various sizes while running in Plasma Mobile on the PinePhone:<br>
 <img src="/docs/images/tiles.png" width="360"><br>
