@@ -146,6 +146,8 @@ Rotation {
 	// Also it seems that going back from tilt "snaps" into place when it's at the end.
 	// Turns out it's going to the tilt smoothly, but not smoothly returning.
 	// It also happens even without the SequentialAnimation and PauseAnimation.
+	// I think this needs proper animations, so they can automatically reverse
+	// smoothly when necessary.
 	Behavior on axis.y {
 		SequentialAnimation {
 			PauseAnimation { duration: axis.y != 0 ? 200 : 0 }
