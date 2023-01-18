@@ -92,9 +92,12 @@ T.Button {
 		// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html#easing-prop
 		// Got the idea from this SO answer:
 		// https://stackoverflow.com/a/15042294
-		PropertyAnimation { duration: 100;
-							easing.type: Easing.InOutQuad
-						  }
+		SequentialAnimation {
+			PauseAnimation { duration: scale != 1.0 ? 200 : 0 }
+			PropertyAnimation { duration: 100;
+								easing.type: Easing.InOutQuad
+							  }
+		}
 	}
 	
 	// Property to control tilting.

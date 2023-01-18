@@ -134,14 +134,23 @@ Rotation {
 	// Learned about this from this tutorial:
 	// https://www.pythonguis.com/tutorials/pyside6-qml-animations-transformations/
 	// Copied the propertyanimation over from what I added to ButtonBase.
+	// We need a SequentialAnimation to wrap the animations in or it'll
+	// complain that we can't change the animation on a behavior:
+	// https://doc.qt.io/qt-6/qml-qtquick-sequentialanimation.html
 	Behavior on axis.y {
-		PropertyAnimation { duration: 100;
-							easing.type: Easing.InOutQuad
-						  }
+		SequentialAnimation {
+			PauseAnimation { duration: axis.y != 0 ? 200 : 0 }
+			PropertyAnimation { duration: 100;
+								easing.type: Easing.InOutQuad
+							}
+		}
 	}
 	Behavior on axis.x {
-		PropertyAnimation { duration: 100;
-							easing.type: Easing.InOutQuad
-						  }
+		SequentialAnimation {
+			PauseAnimation { duration: axis.x != 0 ? 200 : 0 }
+			PropertyAnimation { duration: 100;
+								easing.type: Easing.InOutQuad
+							}
+		}
 	}
 }
