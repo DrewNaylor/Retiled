@@ -81,7 +81,9 @@ RetiledStyles.Button {
 	// as moving to the edge causes it to flicker.
 	// This is an issue on the edges of the control.
 	// TODO: Figure out how to make tilting smooth.
-	tilt: false
+	// Now we're trying to bring it back, but it's a bit jittery with
+	// the pause animation. Maybe it should be removed?
+	tilt: true
 	
 	// Signal and property for the pin to start button.
 	property string dotDesktopFilePath;

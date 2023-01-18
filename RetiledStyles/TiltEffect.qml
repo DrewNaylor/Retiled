@@ -144,9 +144,11 @@ Rotation {
 	// not "down" (like held down with a mouse or finger) to not always go.
 	// NOTE: this can have bugs as sometimes a button will stay tilted when it's not supposed to.
 	// Also it seems that going back from tilt "snaps" into place when it's at the end.
+	// Turns out it's going to the tilt smoothly, but not smoothly returning.
+	// It also happens even without the SequentialAnimation and PauseAnimation.
 	Behavior on axis.y {
 		SequentialAnimation {
-			PauseAnimation { duration: axis.y != 0 && scale != 1.0 && scale != 0.9 && !down ? 200 : 0 }
+			PauseAnimation { duration: axis.y != 0 ? 200 : 0 }
 			PropertyAnimation { duration: 200;
 								easing.type: Easing.InOutQuad
 							}
@@ -154,7 +156,7 @@ Rotation {
 	}
 	Behavior on axis.x {
 		SequentialAnimation {
-			PauseAnimation { duration: axis.x != 0 && scale != 1.0 && scale != 0.9 && !down ? 200 : 0 }
+			PauseAnimation { duration: axis.x != 0 ? 200 : 0 }
 			PropertyAnimation { duration: 200;
 								easing.type: Easing.InOutQuad
 							}
