@@ -114,7 +114,7 @@ Rotation {
 	//         rather than having a large deadzone and only 8 directions. So we need an analog stick, not a D-Pad.
 	//         Even tiles react like this, so maybe it has to take into account the current
 	//         position of the pointer within the element? That would need a MouseArea, though, which would make things a lot
-	//         more difficult to have work.
+	//         more difficult to have work. We need to expand the active area above and below the graphical button for usability though, anyway.
 	axis.y: (down && tilt && hovered ? (pressX > origin.x + (origin.x * 1/3) || pressX < origin.x - (origin.x * 1/3) ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0) : 0)
 	// For the x-axis, we do a similar thing as with the y-axis,
 	// only this time we use the y-value of the press and the height
