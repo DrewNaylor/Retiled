@@ -374,6 +374,10 @@ ButtonBase {
 		// but at least it's not as janky as it was
 		// before adding onCanceled and resetting
 		// the scale in the click handler.
+		// TODO: make sure there's some way to have
+		// the tilt reset on releasing and canceling
+		// without affecting other controls that don't have editMode.
+		// At least for tiles, they can sometimes get stuck tilted.
 		onPressed: {
 			// Only change the scale if edit mode is off.
 			if ((editMode == false) && (globalEditMode == false)) {
