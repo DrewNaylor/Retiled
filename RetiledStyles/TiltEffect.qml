@@ -49,8 +49,8 @@ Rotation {
 	// be split into quadrants, which are
 	// used to know which direction the button
 	// is supposed to tilt in.
-	origin.x: control.width / 2
-	origin.y: control.height / 2
+	origin.x: width / 2
+	origin.y: height / 2
 	// Set axis and angle values based on
 	// the last-pressed x and y values:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-abstractbutton.html#pressX-prop
@@ -81,11 +81,40 @@ Rotation {
 	// negative and thus placing it on the left side of the
 	// button's center.
 	// If the button is un-pressed, the y-axis is reset to 0.
-	axis.y: (down && tilt && hovered ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0)
+	// Now we're trying to do more-accurate tilting as described by Metro-UI-CSS's
+	// Tile.js item (MIT-licensed, here's my fork):
+	// https://github.com/DrewNaylor/Metro-UI-CSS/blob/master/source/components/tile/tile.js
+	// License as copied from https://github.com/DrewNaylor/Metro-UI-CSS/blob/master/LICENSE:
+		//The MIT License (MIT)
+		//
+		//Copyright (c) 2012-2020 Serhii Pimenov.
+		//
+		//Permission is hereby granted, free of charge, to any person obtaining a copy
+		//of this software and associated documentation files (the "Software"), to deal
+		//in the Software without restriction, including without limitation the rights
+		//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+		//copies of the Software, and to permit persons to whom the Software is
+		//furnished to do so, subject to the following conditions:
+		//
+		//The above copyright notice and this permission notice shall be included in
+		//all copies or substantial portions of the Software.
+		//
+		//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+		//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+		//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+		//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+		//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+		//THE SOFTWARE.
+	// TODO: Explain how the (pressX > origin.x + (origin.x * 1/3) || pressX < origin.x - (origin.x *1/3)? ... : 0) : 0) and
+	//       (pressY < origin.y - (origin.y * 1/2) || pressY > origin.y + (origin.y * 1/2) ? ... : 0) : 0) parts
+	//       add a deadzone to the center of tiltable objects like tiles so that they can tilt more accurately
+	//       and do things like tilt only down, only up, only left, or only right, or not tilt at all if in the middle enough.
+	axis.y: (down && tilt && hovered ? (pressX > origin.x + (origin.x * 1/3) || pressX < origin.x - (origin.x * 1/3) ? (pressX > origin.x ? pressX + origin.x : -(pressX + origin.x)) : 0) : 0)
 	// For the x-axis, we do a similar thing as with the y-axis,
 	// only this time we use the y-value of the press and the height
 	// of the button divided by 2 stored as the y-origin.
-	axis.x: (down && tilt && hovered ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0)
+	axis.x: (down && tilt && hovered ? (pressY < origin.y - (origin.y * 1/2) || pressY > origin.y + (origin.y * 1/2) ? (pressY < origin.y ? pressY + origin.y : -(pressY + origin.y)) : 0) : 0)
 	// We don't need the z-axis changed from 0.
 	axis.z: 0
 	// An angle of 15 seems pretty good.
