@@ -3,7 +3,7 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2023 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.

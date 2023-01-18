@@ -3,7 +3,7 @@
 //                 To view "git blame" on this file before it was moved
 //                 back to Retiled, see here:
 //                   https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/retiled-qml-porting-work/src/Features/Main-PyRetiledSearch.qml
-// Copyright (C) 2021-2022 Drew Naylor
+// Copyright (C) 2021-2023 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.

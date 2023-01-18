@@ -1,6 +1,6 @@
 # libRetiledSettings - Utility library for Retiled that works with settings.
 #                      This file is used for reading settings from config files.
-# Copyright (C) 2022 Drew Naylor
+# Copyright (C) 2022-2023 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
 # of Microsoft Corporation. All rights reserved.

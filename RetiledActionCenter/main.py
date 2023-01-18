@@ -1,6 +1,6 @@
 # RetiledActionCenter - Windows Phone 8.1-like Action Center UI for the
 #                       Retiled project.
-# Copyright (C) 2021-2022 Drew Naylor
+# Copyright (C) 2021-2023 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # (This file is based off RetiledStart, hence the copyright including 2021.)
 # Windows Phone and all other related copyrights and trademarks are property

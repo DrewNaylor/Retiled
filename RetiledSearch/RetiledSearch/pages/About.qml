@@ -1,6 +1,6 @@
 // RetiledSearch - Windows Phone 8.0-like Search app for the
 //                 Retiled project.
-// Copyright (C) 2021 Drew Naylor
+// Copyright (C) 2021-2023 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
 // of Microsoft Corporation. All rights reserved.
@@ -112,9 +112,9 @@ Page {
 				font.weight: Font.Normal
 				// TODO: Move letter spacing into the control.
 				font.letterSpacing: -0.8 * scaleFactor
-            text: "RetiledSearch v0.1 Developer Preview 1\n" +
+            text: "RetiledSearch v0.1 Developer Preview 2\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
-			"Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.\n" +
+			"Copyright (C) 2021-2023 Drew Naylor. Licensed under the Apache License 2.0.\n" +
 			"Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.\n\n" +
 			"License notice:\n" +
 			"Licensed under the Apache License, Version 2.0 (the ''License'')\n" +
