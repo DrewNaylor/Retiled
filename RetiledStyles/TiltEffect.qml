@@ -137,18 +137,25 @@ Rotation {
 	// We need a SequentialAnimation to wrap the animations in or it'll
 	// complain that we can't change the animation on a behavior:
 	// https://doc.qt.io/qt-6/qml-qtquick-sequentialanimation.html
+	// TODO: Solve this in a way that's better than just adding
+	// a hard-coded hack to ignore scales of both 1.0 and 0.9.
+	// I think this is slightly better than what it was previously,
+	// as it also includes a check for scale and to see if the button is currently
+	// not "down" (like held down with a mouse or finger) to not always go.
+	// NOTE: this can have bugs as sometimes a button will stay tilted when it's not supposed to.
+	// Also it seems that going back from tilt "snaps" into place when it's at the end.
 	Behavior on axis.y {
 		SequentialAnimation {
-			PauseAnimation { duration: axis.y != 0 ? 200 : 0 }
-			PropertyAnimation { duration: 100;
+			PauseAnimation { duration: axis.y != 0 && scale != 1.0 && scale != 0.9 && !down ? 200 : 0 }
+			PropertyAnimation { duration: 200;
 								easing.type: Easing.InOutQuad
 							}
 		}
 	}
 	Behavior on axis.x {
 		SequentialAnimation {
-			PauseAnimation { duration: axis.x != 0 ? 200 : 0 }
-			PropertyAnimation { duration: 100;
+			PauseAnimation { duration: axis.x != 0 && scale != 1.0 && scale != 0.9 && !down ? 200 : 0 }
+			PropertyAnimation { duration: 200;
 								easing.type: Easing.InOutQuad
 							}
 		}

@@ -92,11 +92,22 @@ T.Button {
 		// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html#easing-prop
 		// Got the idea from this SO answer:
 		// https://stackoverflow.com/a/15042294
+		// We need a SequentialAnimation to wrap the animations in or it'll
+		// complain that we can't change the animation on a behavior:
+		// https://doc.qt.io/qt-6/qml-qtquick-sequentialanimation.html
 		SequentialAnimation {
-			PauseAnimation { duration: scale != 1.0 ? 200 : 0 }
-			PropertyAnimation { duration: 100;
-								easing.type: Easing.InOutQuad
-							  }
+			// If the scale isn't 1.0, then we pause for a duration
+			// of 200 to delay going back to 1.0 scale similar to
+			// what Windows Phone does, otherwise if it is 1.0, that
+			// implies that the button isn't pressed down.
+			// Only problem is this affects the edit mode in RetiledStart.
+			// TODO: Solve this in a way that's better than just adding
+			// a hard-coded hack to ignore scales of both 1.0 and 0.9.
+			// I think this is slightly better than what it was previously,
+			// as it also includes a check to see if the button is currently
+			// not "down" (like held down with a mouse or finger) to not always go.
+			PauseAnimation { duration: scale != 1.0 && scale != 0.9 && !down ? 200 : 0 }
+			PropertyAnimation { duration: 200; easing.type: Easing.InOutQuad }
 		}
 	}
 	
