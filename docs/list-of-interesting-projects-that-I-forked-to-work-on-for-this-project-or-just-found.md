@@ -1,3 +1,5 @@
+Note: several of these may not be useful to this project anymore due to mainly using Qt and Python instead of .NET, but they will temporarily be kept here until moved to an archive list of cool stuff.
+
 1. [WeastroShell](https://github.com/DrewNaylor/weastroshell)
 <br>This may be able to act as a starting point for figuring out how to make a desktop environment with .NET on Linux. This is under the MIT License. Originally forked from [abanu-desktop/abanu](https://github.com/abanu-desktop/abanu).
 
@@ -44,7 +46,7 @@
 <br>Shouldn't need to use the fork, but I just did anyway for archival. This project has a bunch of controls and stuff ported to Avalonia that may be useful. Licensed under the MIT License and forked from here: https://github.com/amwx/FluentAvalonia
 
 16. [emptty](https://github.com/tvrzna/emptty)
-<br>This is a display manager that works in the TTY and uses the MIT License. I'll have to fork it to add fbkeyboard support. Unfortunately, fbkeyboard is GPL, but it's better than no keyboard.
+<br>This is a display manager that works in the TTY and uses the MIT License. I'll have to fork it to add fbkeyboard support. Unfortunately, fbkeyboard is GPL, but it's better than no keyboard. Hopefully there would be a way to run fbkeyboard when this starts to keep them separate and not have licensing issues.
 
 17. [qml-keyboard](https://github.com/MishkaRogachev/qml-keyboard)
 <br>It's a pure-QML keyboard with layouts that are easily changeable by XML files. This could work well for the lock screen. Best part is it's under the LGPL v3. I'll have to update it to Qt6, though.
@@ -57,3 +59,6 @@
 
 22. [TilesGrid](https://github.com/Tereius/TilesGrid)
 <br>A QML grid that can position tiles of various sizes and is even described as behaving somewhat like the Live Tile part of Windows 10's Start menu. Doesn't handle resizing or saving and reloading, so hopefully the useful code can simply be extracted into the tiles area for RetiledStart and I can handle the rest. Forked to here because it's really cool and looks helpful: https://github.com/DrewNaylor/TilesGrid
+
+23. [sherpa-ncnn](https://github.com/k2-fsa/sherpa-ncnn)
+<br>Voice recognition stuff that would work great for the software keyboard and the voice search button in the Search app. Forked it here, but would need to [download the voice training data from the website](https://k2-fsa.github.io/sherpa/ncnn/pretrained_models/conv-emformer-transducer-models.html): https://github.com/DrewNaylor/sherpa-ncnn
