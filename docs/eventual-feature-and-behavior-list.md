@@ -175,6 +175,8 @@ There are also some "wishlist" features that I really want but might be too comp
   - Some things probably won't be easy/possible, such as a button to show tabs, so it might be more like Windows 8.x's IE when opened from the Start screen. That version just had a tab bar above the address bar and below the controls.
   - This might be the easiest of the wishlist to do, depending on if Mozilla changes stuff in Firefox to not allow something like this.
   - Probably will require making a Windows Phone 8.x GTK theme to make it simple. That in turn may require this project to become GPL'd, which I don't want to have happen but will if it means it'll be successful and work.
+  - Wait, a Firefox Adwaita theme does exist, maybe I could fork that?
+  - If all else fails, maybe I should make a browser that uses the latest Qt browser features and just has a UI that looks, works, and feels like IE Mobile, to minimize chrome as much as possible and increase usability on a phone as much as possible (Angelfish is alright, but a bit too much UI and doesn't really work the way I want, and postmarketOS-modified desktop Firefox is cool, but it feels a little too bulky).
 - Volume control UI
   - Not sure how it would behave like WP, but there it would open `Ringer + Notifications` when on the Start screen, and default to `Media + Apps` in apps like Bing Search. Changing different volume settings separately like this would probably take a lot of modifications to system-level stuff.
   - There's a volume slider when it's expanded.
