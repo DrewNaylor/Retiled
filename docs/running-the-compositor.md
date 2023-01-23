@@ -1,4 +1,4 @@
-> **Important:** this may not work in Fedora, at least Fedora 36 as it'll probably prevent input. More details in the long paragraph after the steps.
+> **Important:** this may not work in Fedora in a TTY, at least Fedora 36 as it'll probably prevent input. More details in the long paragraph after the steps.
 
 > **Update Jan. 12, 2023:** See the end of this page for updated commands to run this inside another compositor.
 
