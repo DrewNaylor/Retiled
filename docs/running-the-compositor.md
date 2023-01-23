@@ -20,10 +20,11 @@ Please note that as of October 21, 2022, I'm not sure what's going on with the c
 
 Alternatively, you can try to run these commands to have it run inside another compositor, like Plasma Mobile's Kwin:
 1. `cd RetiledCompositor/RetiledCompositor`
-2. `python main.py -platform wayland --wayland-socket-name 2 &`
-3. `export WAYLAND_DISPLAY=2`
-4. `export QT_SCALE_FACTOR=2`
-5. `cd ../../RetiledStart/RetiledStart/`
-6. `python main.py`
+2. `export XDG_CURRENT_DESKTOP=KDE:X-Retiled` (may as well since we use Qt; causes KDE apps like the Plasma Mobile Settings app to work correctly as we're partially lying [kinda like IE11 Mobile] that we're KDE and thus apps listening for that will know to use KDE stuff to load data like themes and be displayed reasonably properly [`X-Retiled` is currently unused, but for now it's there so we're not entirely lying], but Angelfish seems to still have its address bar below the nav bar for some reason)
+3. `python main.py -platform wayland --wayland-socket-name 2 &`
+4. `export WAYLAND_DISPLAY=2`
+5. `export QT_SCALE_FACTOR=2`
+6. `cd ../../RetiledStart/RetiledStart/`
+7. `python main.py`
 
-These worked once, but I don't know why they don't work when I try a second time. Also note that you should be able to just use the Start button in the compositor once you set the `WAYLAND_DISPLAY` export, but it doesn't work as intended so I may need to have it run `WAYLAND_DISPLAY=$WAYLAND_DISPLAY python main.py` when I work on it more. Still having issues with touch being in the wrong place, though, even on postmarketOS and Qt 6.4.1 or something.
+These worked once, but I don't know why they don't work when I try a second time (actually I think it's the setting the compositor environment variable part breaking it, so it needs to save the current value to another variable in the script then reload that variable after the compositor exits before the script quits). Also note that you should be able to just use the Start button in the compositor once you set the `WAYLAND_DISPLAY` export, but it doesn't work as intended so I may need to have it run `WAYLAND_DISPLAY=$WAYLAND_DISPLAY python main.py` when I work on it more. Still having issues with touch being in the wrong place, though, even on postmarketOS and Qt 6.4.1 or something.
