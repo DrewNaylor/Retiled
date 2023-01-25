@@ -8,7 +8,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 - Status bar
 - [And more, with an entire list that was too long for the readme](/docs/eventual-feature-and-behavior-list.md)
 
-Development is mainly being done using the PinePhone, so that'll be the main supported device. It's still in early development as I don't really know what I'm doing with Python (currently using 3.9.x) and Qt/QML/PySide6.
+Development is mainly being done using the PinePhone, so that'll be the main supported device (with support for other devices planned, but not as the main focus). It's still in early development as I don't really know what I'm doing with Python and Qt/QML/PySide6.
 
 Guess you could say it's "Something to fill the Live Tile-shaped hole in your heart", but it's not anywhere near ready yet.
 
