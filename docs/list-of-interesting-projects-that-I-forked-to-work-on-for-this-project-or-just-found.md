@@ -62,3 +62,6 @@ Note: several of these may not be useful to this project anymore due to mainly u
 
 23. [sherpa-ncnn](https://github.com/k2-fsa/sherpa-ncnn)
 <br>Voice recognition stuff that would work great for the software keyboard and the voice search button in the Search app. Forked it here, but would need to [download the voice training data from the website](https://k2-fsa.github.io/sherpa/ncnn/pretrained_models/conv-emformer-transducer-models.html): https://github.com/DrewNaylor/sherpa-ncnn
+
+24. [tilt](https://github.com/rikschennink/tilt)
+<br>JS library that lets you tilt buttons and stuff, and has examples for Metro tiles with 360° tilting action. Hopefully the math functions will at least be useful. It's under the MIT License, and I forked it here: https://github.com/rikschennink/tilt
