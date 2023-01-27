@@ -28,7 +28,7 @@ Note: several of these may not be useful to this project anymore due to mainly u
 <br>While this project is for Silverlight, there may be some useful stuff here, such as XAML styles. This one's licensed under the MIT License. Originally forked from https://github.com/saurabhrajguru/HubTileX
 
 10. [Avalonia.Extensions](https://github.com/DrewNaylor/Avalonia.Extensions)
-<br>This project has a bunch of controls that may be useful, such as a GridView control. It's under the MIT license. Original source: https://github.com/DrewNaylor/Avalonia.Extensions
+<br>This project has a bunch of controls that may be useful, such as a GridView control. It's under the MIT license. Original source, I think (not sure why it's not showing up as a fork on my copy, pretty sure I didn't clone then upload the repo): https://github.com/michael-eddy/Avalonia.Extensions
 
 11. [WoWDatabaseEditor](https://github.com/DrewNaylor/WoWDatabaseEditor)
 <br>What's interesting about this project is [it has an Avalonia GridView control](https://github.com/BAndysc/WoWDatabaseEditor/blob/master/AvaloniaStyles/Controls/GridView.cs) just like the previous project, except it doesn't seem like its main purpose is to be Avalonia-related. This one is licensed under the Unlicense. I decided to fork it to preserve the Avalonia controls just in case. Original source: https://github.com/BAndysc/WoWDatabaseEditor
