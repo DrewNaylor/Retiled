@@ -14,6 +14,8 @@ Guess you could say it's "Something to fill the Live Tile-shaped hole in your he
 
 > **Please note:** as of January 18, 2023, I would recommend installing from the `main` branch instead of downloading the v0.1-DP1 release package due to bugs that only appeared well after it was released that I think are a result of changes in Qt. The only drawback to this is that extra, unneeded files may be pulled in that would otherwise be taken care of in a proper release. There are instructions available below, but you'd use the same install script anyway so it's not too bad. Once v0.1 DP2 is released, this message will be removed.
 
+So far, it's been tested on Manjaro Plasma Mobile and postmarketOS (with Plasma Mobile), but I also want to support more distros like NixOS (I like its philosophy), Mobian, and openSUSE, as a few examples (but not limited to these). I'd also like to support operating systems besides Linux such as FreeBSD if possible.
+
 ## Required extra packages
 
 You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use. The ones that say "via pip" are extra ones that developers will have to install if not on something like the PinePhone, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't in pip.
