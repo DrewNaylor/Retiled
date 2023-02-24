@@ -7,6 +7,12 @@ Running the custom compositor currently involves these commands:
 2. Delete the Wayland lock file from `/run/user/1002/wayland-0.lock` (this path will vary depending on your installation) so Kwin doesn't interfere (if on Plasma Mobile)
 3. CD into the folder with the compositor's files and run `python main.py -platform eglfs`
 
+> **Note:** if running this on postmarketOS, you ***must*** set `XDG_RUNTIME_DIR` to an existing, unused directory (or else everything will crash, requiring a hard reset by holding down the power button), like so:
+`XDG_RUNTIME_DIR=~/exampletempdir python main.py -platform eglfs`
+This directory needs `0755` permissions, apparently, so be sure to set that as well.
+
+> **Note 2:** for some reason, I can't switch to other TTYs while it's running. Maybe I should just try to make a set of plugins for Wayfire and drop my attempt at making a QtWayland compositor? Particularly as it's been really slow with touch point placement issues for the last several months...
+
 These are copied from my demo video on the compositor here:
 https://youtube.com/shorts/jURqf86CS0I
 
