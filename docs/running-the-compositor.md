@@ -11,7 +11,7 @@ Running the custom compositor currently involves these commands:
 `XDG_RUNTIME_DIR=~/exampletempdir python main.py -platform eglfs`
 This directory needs `0755` permissions, apparently, so be sure to set that as well.
 
-> **Note 2:** for some reason, I can't switch to other TTYs while it's running. Maybe I should just try to make a set of plugins for Wayfire and drop my attempt at making a QtWayland compositor? Particularly as it's been really slow with touch point placement issues for the last several months...
+> **Note 2:** for some reason, I can't switch to other TTYs while it's running. Maybe I should just try to make a set of plugins for Wayfire and drop my attempt at making a QtWayland compositor? Particularly as it's been really slow with touch point placement issues for the last several months... Or maybe I should just try to use something like WayQt (has Qt6 in the build options) as the compositor library, as wf-shell isn't on postmarketOS or Alpine for some reason (plus the last releases were a while ago)...
 
 These are copied from my demo video on the compositor here:
 https://youtube.com/shorts/jURqf86CS0I
