@@ -509,8 +509,9 @@ ButtonBase {
 				// Ensure that text doesn't just go out of
 				// the tiles.
 				clip: true
-				// Set font style to opensans.
-				font.family: "Open Sans"
+				// Set font.
+                                // TODO: Replace with font that's good with the GPLv2.
+				//font.family: "Open Sans"
 				font.weight: Font.Normal
 				// A letter spacing of -0.8 emulates
 				// Segoe WP's letter spacing.
