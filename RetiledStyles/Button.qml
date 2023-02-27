@@ -142,7 +142,8 @@ ButtonBase {
 				// don't get too out of control.
 				font.letterSpacing: -0.8 * scaleFactor
 				// Set font.
-				font.family: "Open Sans SemiBold"
+                                // TODO: Replace with font that's good with the GPLv2.
+				//font.family: "Open Sans SemiBold"
 				font.weight: Font.DemiBold
 				
 				// Copying the transitions from the background
