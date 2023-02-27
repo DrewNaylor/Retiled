@@ -100,15 +100,15 @@ ApplicationWindow {
 	// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/PhoneToolkitSample/Samples/HubTileSample.xaml#L19
 	// Note: Context menus use SemiLight, which isn't available in Open Sans,
 	// so I'll probably just use Regular for them.
-	FontLoader {
-			id: opensansRegular
+	//FontLoader {
+			//id: opensansRegular
 			// This is using the Open Sans font, which you can
 			// find here:
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
-		}
+			//source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
+		//}
 	
 	
 	Shortcut {
