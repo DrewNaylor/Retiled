@@ -117,25 +117,25 @@ ApplicationWindow {
 			// that use Open Sans Regular.
 			// Source for the textbox thing:
 			// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/Microsoft.Phone.Controls.Toolkit.WP8/Themes/Generic.xaml#L1309
-	FontLoader {
-			id: opensansRegular
+	//FontLoader {
+			//id: opensansRegular
 			// This is using the Open Sans font, which you can
 			// find here:
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
-		}
+			//source: "../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
+		//}
 		
-		FontLoader {
-			id: opensansSemiBold
+		//FontLoader {
+			//id: opensansSemiBold
 			// This is using the Open Sans SemiBold font, which you can
 			// find here:
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-			source: "../../fonts/open_sans/static/OpenSans/OpenSans-SemiBold.ttf"
-		}
+			//source: "../../fonts/open_sans/static/OpenSans/OpenSans-SemiBold.ttf"
+		//}
 		
 			// Properties for pixel density:
 	// https://stackoverflow.com/a/38003760
@@ -260,7 +260,7 @@ ApplicationWindow {
         edge: Qt.BottomEdge
 		
 		// Set font.
-		font.family: "Open Sans SemiBold"
+		//font.family: "Open Sans SemiBold"
 		font.weight: Font.DemiBold
 		// TODO: Move letter spacing into the control.
 		font.letterSpacing: -0.8 * scaleFactor
@@ -349,7 +349,7 @@ ApplicationWindow {
 			// pixelSize isn't device-independent.
             font.pointSize: 16
 			// Set font style to opensans.
-			font.family: "Open Sans"
+			//font.family: "Open Sans"
 			font.weight: Font.Normal
 			
 			// There are some additional properties you can set:
