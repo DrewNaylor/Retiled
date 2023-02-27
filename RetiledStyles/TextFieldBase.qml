@@ -39,8 +39,11 @@
 //                 the official qtdeclarative repo, which you can
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
-// Modifications to this file are Copyright (C) 2021 Drew Naylor
-// and are licensed under the LGPLv3.
+// Modifications to this file are Copyright (C) 2021-2023 Drew Naylor
+// and are overall licensed under the LGPLv3 and the GPLv2+ as described in
+// Qt's license block above, so you can choose which you use this under.
+// Any file in this repo (Retiled) that is licensed under the Apache License, 2.0, and
+// uses this file is using it under the LGPLv3.
 // Please refer to The Qt Company's copyrights above
 // for the copyrights to the original file.
 // (Note that the copyright years include the years left out by the hyphen.)
@@ -80,9 +83,9 @@ T.TextField {
 	// I need to figure out how to handle this when the
 	// textfield isn't enabled.
 	// I think that's a close-enough color to the watermark
-    // color used in Avalonia. Had to use Window Spy to figure it out,
-    // since there was no obvious way to figure it out from Avalonia's
-    // source.
+        // color used in Avalonia. Had to use Window Spy to figure it out,
+        // since there was no obvious way to figure it out from Avalonia's
+        // source.
 	property string unfocusedPlaceholderTextColor: "#666666"
 	property string focusedPlaceholderTextColor: "transparent"
 	// Set selectByMouse to true, detailed here:
