@@ -1,13 +1,14 @@
 #!/bin/sh
 
-# build-retiledsearch.sh - Build script for RetiledSearch, an app meant as part of Retiled and will be like the Bing Search app on Windows Phone. 
+# build-retiledsearch.sh - Build script for RetiledSearch, an app that's part of Retiled
+#                          and meant to be similar to the Bing Search app on Windows Phone. 
 #                          Retiled is a Windows Phone 8.x-like "desktop" environment
 #                          for (mainly) Linux phones. Will transition to being
 #                          either a Plasma Mobile fork or an alternate layout
 #                          for Plasma Mobile.
 # Copyright (C) 2021, 2023 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
-# Windows Phone and all other related copyrights and trademarks are property
+# Windows Phone, Bing, and all other related copyrights and trademarks are property
 # of Microsoft Corporation. All rights reserved.
 #
 # This file is a part of the Retiled project.
