@@ -2,6 +2,8 @@
 // the Overlay.modal rectangle color set to transparent.
 // Anything else specific to the appbar drawer will be set in
 // AppBarDrawer.qml.
+// Update 2/27/2023: guess I did end up putting more changes into
+// here than intended.
 
 /****************************************************************************
 **
@@ -45,7 +47,10 @@
 //                 access a copy of here:
 //                 https://github.com/DrewNaylor/qtdeclarative
 // Modifications to this file are Copyright (C) 2021-2023 Drew Naylor
-// and are licensed under the LGPLv3.
+// and are overall licensed under the LGPLv3 and the GPLv2+ as described in
+// Qt's license block above, so you can choose which you use this under.
+// Any file in this repo (Retiled) that is licensed under the Apache License, 2.0, and
+// uses this file is using it under the LGPLv3.
 // Please refer to The Qt Company's copyrights above
 // for the copyrights to the original file.
 // (Note that the copyright years include the years left out by the hyphen.)
