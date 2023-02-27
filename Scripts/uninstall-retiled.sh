@@ -21,7 +21,7 @@
 #   you may not use this file except in compliance with the License.
 #
 #       The MIT License (MIT)
-#       Copyright (C) 2021-2023 Drew Naylor
+#       Copyright (C) 2021, 2023 Drew Naylor
 #
 #       Permission is hereby granted, free of charge,
 #       to any person obtaining a copy of this
