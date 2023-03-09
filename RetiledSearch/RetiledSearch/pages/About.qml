@@ -129,7 +129,7 @@ Page {
 			"RetiledSearch is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n\n" +
 			"The ''back'' button in this app is provided by the wp-metro font, made by AJ Troxell, licensed under the SIL OFL 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
 			"https://github.com/ajtroxell/wp-metro \n\n" +
-			"Text in this app uses Open Sans, designed by Steve Matteson, licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0), and available here:\n"+
+			"Text in this app doesn't use Open Sans, designed by Steve Matteson, licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0), and available here:\n"+
 			"https://fonts.google.com/specimen/Open+Sans \n\n" +
 			"Qt (and I think PySide6 as well, since it's owned by The Qt Company) is copyright The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here:\n" +
 			"https://www.gnu.org/licenses/lgpl-3.0.en.html \n" +
@@ -137,7 +137,7 @@ Page {
 			"https://www.gnu.org/licenses/gpl-3.0.html \n\n"+
 			"Some files were taken and modified from the Qt6 QtQuick2 source, in particular styles. I'm supposed to provide a way to download Qt's source according to its license, so I hope a fork of the qtdeclarative repo is enough (there are so many repos in the Qt organization account that I didn't know which one to fork, so I figured that the main one my code uses would be a safe bet):\n" +
 			"https://github.com/DrewNaylor/qtdeclarative \n" +
-			"Please be aware that although I kept the original licensing stuff for the styles, Retiled is using them under the LGPLv3.\n\n" +
+			"Please be aware that although I kept the original licensing stuff for the styles, the parts of Retiled under the Apache License, Version 2.0, are using them under the LGPLv3.\n\n" +
 			"I will also provide a link to the PySide6 project, though I didn't take or modify any code from it and I'm not distributing any part of it, so I don't think I have to host it myself:\n" +
 			"https://code.qt.io/cgit/pyside/pyside-setup.git/about/ \n\n" +
 			"Python copyrights are below:\n" +
