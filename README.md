@@ -35,18 +35,18 @@ You may need to install packages through your distro's package manager, and thos
 
 ## License stuff
 
->This project (Retiled) is Copyright (C) 2021-2023 Drew Naylor and is licensed under the Apache License 2.0.<br>
+>This project (Retiled) is Copyright (C) 2021-2023 Drew Naylor and is licensed under the Apache License 2.0, but soon to be GPLv3(+?) as I'm planning on making it mainly a Look-and-Feel package for (or if that won't work, a fork of) Plasma Mobile (but still have it so that certain programs like RetiledStart can run independently of Plasma Mobile if desired).<br>
 Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative<br>
 Code relating to qtwayland, which is the module used for the project in the RetiledCompositor folder, can be found here: https://github.com/DrewNaylor/qtwayland<br>
-RetiledCompositor is the compositor used for Retiled for such things as the multitasking area and giving a place for the navigation bar, etc., and is sadly licensed under the Gnu GPLv3 due to qtwayland also being under the GPLv3 (I think it's GPLv3+ with the "+" being for any version that's ok'd by the KDE Free Qt Foundation, according to some source files in the repo) now. Any files that do not use GPL'd libraries directly will be licensed under one of these three licenses for as much flexibility as possible: the Apache License, Version 2.0; the BSD License according to what Qt uses in the QML files; or the LGPLv3, which is what the RetiledStyles project's files are under.<br><br>
+RetiledCompositor is the compositor used for Retiled for such things as the multitasking area and giving a place for the navigation bar, etc., and is sadly licensed under the Gnu GPLv3 due to qtwayland also being under the GPLv3 (I think it's GPLv3+ with the "+" being for any version that's ok'd by the KDE Free Qt Foundation, according to some source files in the repo) now. Any files that do not use GPL'd libraries directly will be licensed under one of these three licenses for as much flexibility as possible: the MIT License; the Apache License, Version 2.0; the BSD License according to what Qt uses in the QML files; or the LGPLv3, which is what the RetiledStyles project's files are under.<br><br>
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
 Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd.<br><br>
-Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.<br>
+~~Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.~~ I'll be using a different font shortly, as it'll look better and be compatible with the GPLv2+ in the files I need it in.<br>
 Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:<br>
 http://scripts.sil.org/OFL.<br>
 You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
-libdotdesktop_py is Copyright (C) Drew Naylor and is licensed under the Apache License, Version 2.0. This library is from the DotDesktop4Win project.<br>
+libdotdesktop_py is Copyright (C) Drew Naylor and is licensed under the MIT License. This library is from the DotDesktop4Win project.<br>
 PyYAML is licensed under the MIT License and is Copyright (c) 2017-2021 Ingy döt Net and Copyright (c) 2006-2016 Kirill Simonov.<br><br>
 Python 3.9 copyrights start:<br>
 Copyright (c) 2001-2021 Python Software Foundation.<br>
@@ -61,7 +61,7 @@ Python 3.9 copyrights end.<br>
 Python is licensed under the PSF License Agreement, which you can find a copy of here:<br>
 https://docs.python.org/3.9/license.html#psf-license<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
-Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win](https://github.com/drewnaylor/dotdesktop4win), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Open Sans](https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
+Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win](https://github.com/drewnaylor/dotdesktop4win), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), ~~[Open Sans](https://fonts.google.com/specimen/Open+Sans)~~. Anything else that's used in the future will be added to this list.
 
 ## Installation, Uninstallation, Building, and Running
 
