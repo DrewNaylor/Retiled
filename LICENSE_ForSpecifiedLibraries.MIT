@@ -2,6 +2,7 @@ The MIT License (MIT)
 libRetiledActionCenter: Copyright (C) 2022-2023 Drew Naylor
 libRetiledSettings: Copyright (C) 2022-2023 Drew Naylor
 libdotdesktop_py: Copyright (C) 2021-2023 Drew Naylor
+libRetiledStart: Copyright (C) 2021-2023 Drew Naylor
 
 // I have several files to list here.
 LicenseBlock: {
@@ -22,6 +23,8 @@ LicenseBlock: {
             "retiledsearch.desktop", "retiledstart.desktop"
         }
 }
+
+(I wish copyright didn't exist and thus licenses didn't need to exist, either.)
 
 Permission is hereby granted, free of charge,
 to any person obtaining a copy of this
