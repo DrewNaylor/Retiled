@@ -471,6 +471,19 @@ ButtonBase {
 			}
 		}
 	
+	Image {
+		source: "../icons/actions/unpin_white.svg"
+		anchors.fill: parent
+		fillMode: Image.Stretch
+		// Set the images to the tile size for now,
+		// until there's a way to actually get the
+		// nearest correct icon size.
+		// Modified from here:
+		// https://doc.qt.io/qt-6/qml-qtquick-image.html#sourceSize-prop
+		sourceSize.width: parent.width
+		sourceSize.height: parent.height
+	}
+	
 	// Override the contentItem using the one from Button.
 	contentItem: Text {
 		// I couldn't figure out why things weren't
