@@ -525,7 +525,7 @@ ButtonBase {
 				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff402557(v=vs.105)
 				//font.weight: Font.DemiBold
 				// Font weight changes don't look that good.
-                text: tileText
+                text: parent.width >= 150 && parent.height >= 150 ? tileText : ""
                 color: textColor
 				// Turn off ellipsis.
 				elide: Text.ElideNone
