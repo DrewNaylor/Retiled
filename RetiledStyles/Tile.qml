@@ -525,6 +525,10 @@ ButtonBase {
 				// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff402557(v=vs.105)
 				//font.weight: Font.DemiBold
 				// Font weight changes don't look that good.
+				// Hide text on small tiles.
+				// This is not ideal and is basically a temporary hack until a proper solution of
+				// checking to see if the tile is "medium" or "wide" rather than "small" is implemented.
+				// TODO: Replace this with a proper implementation.
                 text: parent.width >= 150 && parent.height >= 150 ? tileText : ""
                 color: textColor
 				// Turn off ellipsis.
