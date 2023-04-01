@@ -474,14 +474,24 @@ ButtonBase {
 	Image {
 		source: "../icons/actions/unpin_white.svg"
 		anchors.fill: parent
-		fillMode: Image.Stretch
+		// Just pad out the image; got the Image.Pad
+		// thing from the QtQuick Image link below.
+		fillMode: Image.Pad
 		// Set the images to the tile size for now,
 		// until there's a way to actually get the
 		// nearest correct icon size.
 		// Modified from here:
 		// https://doc.qt.io/qt-6/qml-qtquick-image.html#sourceSize-prop
-		sourceSize.width: parent.width
-		sourceSize.height: parent.height
+		// The division by 1.6 value here is from this SO answer:
+		// https://stackoverflow.com/a/12958512
+		// It honestly looks pretty good for medium tiles,
+		// but the wide ones are a bit strange.
+		// Of course, that's just for testing images. Only issue
+		// is I'll have to figure out how to handle wide icons
+		// when they're not intended to be wide in the wide
+		// tiles if a program doesn't have a wide icon available.
+		sourceSize.width: parent.width/1.6
+		sourceSize.height: parent.height/1.6
 	}
 	
 	// Override the contentItem using the one from Button.
