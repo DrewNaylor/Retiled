@@ -151,7 +151,7 @@ import "../../../RetiledStyles" as RetiledStyles
 								width: window.width - 50
 								// Make sure to set the height for the items:
 								// https://forum.qt.io/topic/68757/qml-listview-memory-performance
-								height: buttonHeight
+								height: 60
 								onClicked: allAppsListViewModel.RunApp(model.display)
 								// Set pin to start stuff.
 								dotDesktopFilePath: model.display
