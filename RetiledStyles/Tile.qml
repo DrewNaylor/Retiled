@@ -476,6 +476,13 @@ ButtonBase {
 		// theme based on this AskUbuntu answer, notably the "appending
 		// a name to a hardcoded path" thing:
 		// https://askubuntu.com/a/351924
+		// Update: now we're grabbing them via pyxdg.
+		// TODO: Properly get the icon size we need here rather
+		// than just doing the 96x96 version that's hardcoded in
+		// main.py. In this case, wide tiles make icons stretched
+		// out.
+		// TODO 2: Open the .desktop files and use their "Icon="
+		// value as otherwise we won't have an icon sometimes.
 		source: getAppIcon.getIcon(dotDesktopFilePath.replace(".desktop", ""))
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
