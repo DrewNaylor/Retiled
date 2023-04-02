@@ -199,6 +199,8 @@ class GetAppIcon(QObject):
 			# Don't return anything if the icon path doesn't exist.
 			if os.path.exists(iconPath):
 				return iconPath
+			else:
+				return None
 
 if __name__ == "__main__":
 	# Set the Universal style.
