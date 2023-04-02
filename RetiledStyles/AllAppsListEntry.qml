@@ -240,8 +240,14 @@ RetiledStyles.Button {
 			// tiles if a program doesn't have a wide icon available.
 			// NOTE: This was copied from Tile.qml, and there may need
 			// to be changes to accommodate the All Apps list specifically.
+			// Actually we're setting the source width and height,
+			// and image element width and height to 44 because I read
+			// that's what Windows Phone did. I'll have to add where I
+			// read that.
 			sourceSize.width: 44
 			sourceSize.height: 44
+			height: 44
+			width: 44
 		}
 	}
 	
