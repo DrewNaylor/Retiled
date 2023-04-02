@@ -204,14 +204,6 @@ RetiledStyles.Button {
 		anchors.bottomMargin: 5
 		// Have the rectangle be antialiased.
 		antialiasing: true
-		
-		Loader {
-			// Trying to use a Loader for the app icon
-			// to improve performance:
-			// https://doc.qt.io/qt-6/qml-qtquick-loader.html#loader-sizing-behavior
-			sourceComponent: appIcon
-			anchors.fill: parent
-		}
 
 		Image {
 			// Temporarily grabbing icons directly from the hicolor
