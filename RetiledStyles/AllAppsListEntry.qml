@@ -125,7 +125,11 @@ RetiledStyles.Button {
 		// TODO: Ensure the context menu doesn't get its
 		// background pushed away from the button,
 		// which can happen when the user long-presses
-		// on an app at the top of the list.
+		// on an app at the top of the list. Note that
+		// this only sometimes happens and it varies
+		// depending on how close to the top of the
+		// All Apps list that a given item is, so it won't
+		// necessarily get messed up, only sometimes.
 		// TODO 2: Prevent the user from scrolling the
 		// All Apps list if they continue to touch
 		// the screen after the context menu opens,
@@ -200,6 +204,51 @@ RetiledStyles.Button {
 		anchors.bottomMargin: 5
 		// Have the rectangle be antialiased.
 		antialiasing: true
+
+		Image {
+			// Temporarily grabbing icons directly from the hicolor
+			// theme based on this AskUbuntu answer, notably the "appending
+			// a name to a hardcoded path" thing:
+			// https://askubuntu.com/a/351924
+			// Update: now we're grabbing them via pyxdg.
+			// TODO: Properly get the icon size we need here rather
+			// than just doing the 96x96 version that's hardcoded in
+			// main.py.
+			// TODO 2: Open the .desktop files and use their "Icon="
+			// value as otherwise we won't have an icon sometimes.
+			id: appIcon
+			source: getAppIcon.getIcon(dotDesktopFilePath)
+			anchors.fill: parent
+			// Just pad out the image; got the Image.Pad
+			// thing from the QtQuick Image link below.
+			fillMode: Image.Pad
+			// Set image to be async so the UI loads faster:
+			// https://doc.qt.io/qt-6/qml-qtquick-image.html#asynchronous-prop
+			asynchronous: true
+			// Set the images to the tile size for now,
+			// until there's a way to actually get the
+			// nearest correct icon size.
+			// Modified from here:
+			// https://doc.qt.io/qt-6/qml-qtquick-image.html#sourceSize-prop
+			// The division by 1.6 value here is from this SO answer:
+			// https://stackoverflow.com/a/12958512
+			// It honestly looks pretty good for medium tiles,
+			// but the wide ones are a bit strange.
+			// Of course, that's just for testing images. Only issue
+			// is I'll have to figure out how to handle wide icons
+			// when they're not intended to be wide in the wide
+			// tiles if a program doesn't have a wide icon available.
+			// NOTE: This was copied from Tile.qml, and there may need
+			// to be changes to accommodate the All Apps list specifically.
+			// Actually we're setting the source width and height,
+			// and image element width and height to 44 because I read
+			// that's what Windows Phone did. I'll have to add where I
+			// read that.
+			sourceSize.width: 44
+			sourceSize.height: 44
+			height: 44
+			width: 44
+		}
 	}
 	
 	Text {

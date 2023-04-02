@@ -118,8 +118,11 @@ import "../../../RetiledStyles" as RetiledStyles
 				// "- 45" is just to have all the items show while there's
 				// an appbar.
 				height: window.height
-				// Clip the ListView or things don't scroll correctly.
-				clip: true
+				// Reuse items for less memory usage.
+				// TODO: Figure out a way to allow reuseItems to be on
+				// while also not having icons get replaced with other icons
+				// in the list if an app doesn't have an icon specified.
+				//reuseItems: true
 				// We're using the ListView:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
 				// TODO: Add section headers that the user can click/tap on to get a
@@ -149,6 +152,9 @@ import "../../../RetiledStyles" as RetiledStyles
 								//entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
+								// Make sure to set the height for the items:
+								// https://forum.qt.io/topic/68757/qml-listview-memory-performance
+								height: 60
 								onClicked: allAppsListViewModel.RunApp(model.display)
 								// Set pin to start stuff.
 								dotDesktopFilePath: model.display

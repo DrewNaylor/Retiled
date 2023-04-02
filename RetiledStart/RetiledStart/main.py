@@ -32,6 +32,11 @@ from pathlib import Path
 import sys
 from libs.libRetiledStartPy import appslist as AppsList
 from libs.libRetiledStartPy import tileslist as TilesList
+# Importing the icon theme library to make getting icons easier.
+from xdg import IconTheme
+
+# I need to directly import libdotdesktop as well, for icons.
+from libs.libdotdesktop_py import desktopEntryStuff
 
 # Settings file loader.
 # TODO: Switch to a script that can just run the Python 
@@ -151,6 +156,52 @@ class ThemeSettingsLoader(QObject):
 		# Return the Accent color.
 		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
 
+class GetAppIcon(QObject):
+	# Arguments:
+	# First "str" is the name of the application (for now the .desktop file without
+	# ".desktop", but will use the "Icon=" value in that file once it's integrated,
+	# but we'll still fall back to the .desktop file's name just in case. I don't
+	# know if this is allowed by the Icon theme spec, thoug).
+	# The "int" is for the icon size (we'll have to diverge from the Icon theme spec
+	# a little because for tiles, they probably will have different-sized
+	# icons both per size, and per tile type, with some tiles not displaying
+	# an icon at all if they're not using the "Iconic"-style template
+	# template when medium or wide, in which case we'll have to have a different method
+	# to get each Live Tile the images and content they need. I expect
+	# most small tiles to just display an icon, so they'll still sometimes
+	# need to get an icon. The calendar app though would display the current
+	# date on the small tile, so that needs to be taken care of, and
+	# Weatherbug would display current weather on the small tile even
+	# though that wasn't according to the spec, so I'll just outright allow
+	# it in my Live Tile implementation because it's useful. Users
+	# will still need to be able to turn them off, though.)
+	# The second "str" is for the current icon theme (we'll default to
+	# "breeze" for now until implementing reading from the user's config.)
+	@Slot(str, result=str)
+	def getIcon(self, DotDesktopFile):
+		# Gets and returns the icon for a given .desktop file
+		# based on the icon size and current user theme.
+		# See the "Arguments" block above for what the args do.
+		# TODO: Use the user's current icon theme instead
+		# of hardcoding Breeze, and allow using different icon
+		# sizes depending on where the icon is being shown
+		# and the user's DPI scaling (on 200% scaling, 96px
+		# icons might be a good idea in the All Apps list and
+		# maybe small tiles, but wide tiles have the icons
+		# stretched horizontally and medium tiles might be a little large
+		# to display the icon so they may be a little blurry).
+		# Only return a value if the DotDesktopFile has something
+		# in it, otherwise this would return nothing which results
+		# in trying to assign /usr/share/applications as an image,
+		# and that's not what we want.
+		if len(DotDesktopFile) > 0:
+			iconPath = IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, "breeze-dark")
+			# Don't return anything if the icon path doesn't exist.
+			if os.path.exists(iconPath):
+				return iconPath
+			else:
+				return None
+
 if __name__ == "__main__":
 	# Set the Universal style.
 	sys.argv += ['--style', 'Universal']
@@ -167,6 +218,9 @@ if __name__ == "__main__":
 	
 	# Bind the theme settings loader to access it from QML.
 	themeSettingsLoader = ThemeSettingsLoader()
+
+	# Grab the GetAppIcon class so we can put it into QML later.
+	getAppIcon = GetAppIcon()
 	
 	engine = QQmlApplicationEngine()
 	# Theme settings loader binding.
@@ -176,6 +230,8 @@ if __name__ == "__main__":
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	# Tiles list view model.
 	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
+	# Icon-getter class to use in QML.
+	engine.rootContext().setContextProperty("getAppIcon", getAppIcon)
 	# Load the Tiles.qml page, which acts as the main window.
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():

@@ -61,7 +61,7 @@ Page {
                 // spacing for a given app that uses large headers, like
                 // pages in the Settings app.
                 height: 50
-                width: 25
+                width: 12
                 }
 
                 Label {
@@ -106,7 +106,7 @@ Page {
 			anchors.right: parent.right
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
-			anchors.margins: 10
+			anchors.margins: 6
 			// Set font style to opensans.
 				//font.family: "Open Sans"
 				font.weight: Font.Normal
