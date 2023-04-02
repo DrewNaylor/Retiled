@@ -200,7 +200,7 @@ if __name__ == "__main__":
 
 	GetAppIcon.getIcon("firefox", 48, "breeze")
 	
-""" 	engine = QQmlApplicationEngine()
+	engine = QQmlApplicationEngine()
 	# Theme settings loader binding.
 	engine.rootContext().setContextProperty("themeSettingsLoader", themeSettingsLoader)
 	# All Apps list items and view model.
@@ -211,5 +211,5 @@ if __name__ == "__main__":
 	# Load the Tiles.qml page, which acts as the main window.
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
-		sys.exit(-1) """
-	#sys.exit(app.exec())
+		sys.exit(-1)
+	sys.exit(app.exec())
