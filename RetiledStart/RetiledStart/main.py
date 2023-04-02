@@ -198,7 +198,8 @@ if __name__ == "__main__":
 	# Bind the theme settings loader to access it from QML.
 	themeSettingsLoader = ThemeSettingsLoader()
 
-	GetAppIcon.getIcon("firefox", 48, "breeze")
+	# Grab the GetAppIcon class so we can put it into QML later.
+	getAppIcon = GetAppIcon()
 	
 	engine = QQmlApplicationEngine()
 	# Theme settings loader binding.
@@ -208,6 +209,8 @@ if __name__ == "__main__":
 	engine.rootContext().setContextProperty("allAppsListViewModel", allAppsListViewModel)
 	# Tiles list view model.
 	engine.rootContext().setContextProperty("tilesListViewModel", tilesListViewModel)
+	# Icon-getter class to use in QML.
+	engine.rootContext().setContextProperty("getAppIcon", getAppIcon)
 	# Load the Tiles.qml page, which acts as the main window.
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
