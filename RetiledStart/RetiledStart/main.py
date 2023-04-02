@@ -33,7 +33,7 @@ import sys
 from libs.libRetiledStartPy import appslist as AppsList
 from libs.libRetiledStartPy import tileslist as TilesList
 # Importing the icon theme library to make getting icons easier.
-from libs.pyxdg.xdg import IconTheme
+from xdg import IconTheme
 
 # I need to directly import libdotdesktop as well, for icons.
 from libs.libdotdesktop_py import desktopEntryStuff

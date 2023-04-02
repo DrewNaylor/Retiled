@@ -1,8 +1,0 @@
-I deleted several files from this folder as I don't need them. To get the full distribution, go here:
-https://pypi.org/project/pyxdg/#files
-
-You can get the source from my fork here:
-https://github.com/DrewNaylor/pyxdg
-
-More details on pyxdg:
-https://www.freedesktop.org/wiki/Software/pyxdg/
