@@ -195,7 +195,10 @@ class GetAppIcon(QObject):
 		# in trying to assign /usr/share/applications as an image,
 		# and that's not what we want.
 		if len(DotDesktopFile) > 0:
-			return IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, "breeze-dark")
+			iconPath = IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, "breeze-dark")
+			# Don't return anything if the icon path doesn't exist.
+			if os.path.exists(iconPath):
+				return iconPath
 
 if __name__ == "__main__":
 	# Set the Universal style.
