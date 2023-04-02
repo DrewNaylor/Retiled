@@ -119,6 +119,9 @@ import "../../../RetiledStyles" as RetiledStyles
 				// an appbar.
 				height: window.height
 				// Reuse items for less memory usage.
+				// TODO: Figure out a way to allow reuseItems to be on
+				// while also not having icons get replaced with other icons
+				// in the list if an app doesn't have an icon specified.
 				//reuseItems: true
 				// We're using the ListView:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
