@@ -205,6 +205,14 @@ RetiledStyles.Button {
 		// Have the rectangle be antialiased.
 		antialiasing: true
 		
+		Loader {
+			// Trying to use a Loader for the app icon
+			// to improve performance:
+			// https://doc.qt.io/qt-6/qml-qtquick-loader.html#loader-sizing-behavior
+			sourceComponent: appIcon
+			anchors.fill: parent
+		}
+
 		Image {
 			// Temporarily grabbing icons directly from the hicolor
 			// theme based on this AskUbuntu answer, notably the "appending
@@ -216,6 +224,7 @@ RetiledStyles.Button {
 			// main.py.
 			// TODO 2: Open the .desktop files and use their "Icon="
 			// value as otherwise we won't have an icon sometimes.
+			id: appIcon
 			source: getAppIcon.getIcon(dotDesktopFilePath)
 			anchors.fill: parent
 			// Just pad out the image; got the Image.Pad
