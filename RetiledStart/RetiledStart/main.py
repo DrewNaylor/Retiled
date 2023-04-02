@@ -153,7 +153,7 @@ class ThemeSettingsLoader(QObject):
 		# Return the Accent color.
 		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
 
-class GetAppIcon(QObject)
+class GetAppIcon(QObject):
 	# Arguments:
 	# First "str" is the name of the application (for now the .desktop file without
 	# ".desktop", but will use the "Icon=" value in that file once it's integrated,
@@ -175,8 +175,11 @@ class GetAppIcon(QObject)
 	# The second "str" is for the current icon theme (we'll default to
 	# "breeze" for now until implementing reading from the user's config.)
 	@Slot(str, int, str, result=str)
-	def getIcon(self)
-		# Gets and returns the
+	def getIcon(DotDesktopFile, IconSize, CurrentTheme):
+		# Gets and returns the icon for a given .desktop file
+		# based on the icon size and current user theme.
+		# See the "Arguments" block above for what the args do.
+		print(IconTheme.getIconPath(DotDesktopFile, IconSize, CurrentTheme))
 
 if __name__ == "__main__":
 	# Set the Universal style.
@@ -194,8 +197,10 @@ if __name__ == "__main__":
 	
 	# Bind the theme settings loader to access it from QML.
 	themeSettingsLoader = ThemeSettingsLoader()
+
+	GetAppIcon.getIcon("firefox", 48, "breeze")
 	
-	engine = QQmlApplicationEngine()
+""" 	engine = QQmlApplicationEngine()
 	# Theme settings loader binding.
 	engine.rootContext().setContextProperty("themeSettingsLoader", themeSettingsLoader)
 	# All Apps list items and view model.
@@ -206,5 +211,5 @@ if __name__ == "__main__":
 	# Load the Tiles.qml page, which acts as the main window.
 	engine.load("pages/Tiles.qml")
 	if not engine.rootObjects():
-		sys.exit(-1)
-	sys.exit(app.exec())
+		sys.exit(-1) """
+	#sys.exit(app.exec())
