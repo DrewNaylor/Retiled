@@ -488,6 +488,9 @@ ButtonBase {
 		// Just pad out the image; got the Image.Pad
 		// thing from the QtQuick Image link below.
 		fillMode: Image.Pad
+		// Set image to be async so the UI loads faster:
+		// https://doc.qt.io/qt-6/qml-qtquick-image.html#asynchronous-prop
+		asynchronous: true
 		// Set the images to the tile size for now,
 		// until there's a way to actually get the
 		// nearest correct icon size.
