@@ -149,6 +149,9 @@ import "../../../RetiledStyles" as RetiledStyles
 								//entryText: allAppsListViewModel.GetDesktopEntryNameKey("/usr/share/applications/" + name)
 								// Width of the window - 50 ends up with buttons that fill the width like they're supposed to.
 								width: window.width - 50
+								// Make sure to set the height for the items:
+								// https://forum.qt.io/topic/68757/qml-listview-memory-performance
+								height: buttonHeight
 								onClicked: allAppsListViewModel.RunApp(model.display)
 								// Set pin to start stuff.
 								dotDesktopFilePath: model.display
