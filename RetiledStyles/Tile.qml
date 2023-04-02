@@ -476,7 +476,7 @@ ButtonBase {
 		// theme based on this AskUbuntu answer, notably the "appending
 		// a name to a hardcoded path" thing:
 		// https://askubuntu.com/a/351924
-		source: getAppIcon.getIcon()
+		source: getAppIcon.getIcon("firefox")
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
 		// thing from the QtQuick Image link below.

@@ -174,12 +174,12 @@ class GetAppIcon(QObject):
 	# will still need to be able to turn them off, though.)
 	# The second "str" is for the current icon theme (we'll default to
 	# "breeze" for now until implementing reading from the user's config.)
-	@Slot(result=str)
-	def getIcon(self):
+	@Slot(str, result=str)
+	def getIcon(self, DotDesktopFile):
 		# Gets and returns the icon for a given .desktop file
 		# based on the icon size and current user theme.
 		# See the "Arguments" block above for what the args do.
-		return IconTheme.getIconPath("firefox")
+		return IconTheme.getIconPath(DotDesktopFile)
 
 if __name__ == "__main__":
 	# Set the Universal style.
