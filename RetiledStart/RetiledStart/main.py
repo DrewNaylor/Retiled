@@ -190,7 +190,7 @@ class GetAppIcon(QObject):
 		# maybe small tiles, but wide tiles have the icons
 		# stretched horizontally and medium tiles might be a little large
 		# to display the icon so they may be a little blurry).
-		return IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, "breeze-dark")
+		return IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 48, "breeze-dark", ["png", "svg"])
 
 if __name__ == "__main__":
 	# Set the Universal style.
