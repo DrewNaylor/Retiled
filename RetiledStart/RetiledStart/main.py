@@ -179,7 +179,7 @@ class GetAppIcon(QObject):
 		# Gets and returns the icon for a given .desktop file
 		# based on the icon size and current user theme.
 		# See the "Arguments" block above for what the args do.
-		return IconTheme.getIconPath(DotDesktopFile)
+		return IconTheme.getIconPath(DotDesktopFile, 96, "breeze")
 
 if __name__ == "__main__":
 	# Set the Universal style.
