@@ -508,7 +508,7 @@ ButtonBase {
 		// get stretched than forcing the source width to be
 		// based off the tile's height, because it could
 		// probably be a problem eventually. At least this looks
-		// pretty good for now.
+		// pretty good for now. This is a hack.
 		sourceSize.width: parent.height/1.6
 		sourceSize.height: parent.height/1.6
 		height: parent.height/1.6
