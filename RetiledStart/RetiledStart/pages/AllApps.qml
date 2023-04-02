@@ -120,8 +120,6 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: window.height
 				// Reuse items for less memory usage.
 				reuseItems: true
-				// Increase cache buffer.
-				cacheBuffer: 100
 				// Clip the ListView or things don't scroll correctly.
 				clip: true
 				// We're using the ListView:

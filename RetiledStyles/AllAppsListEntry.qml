@@ -240,8 +240,8 @@ RetiledStyles.Button {
 			// tiles if a program doesn't have a wide icon available.
 			// NOTE: This was copied from Tile.qml, and there may need
 			// to be changes to accommodate the All Apps list specifically.
-			sourceSize.width: parent.width/1.6
-			sourceSize.height: parent.height/1.6
+			sourceSize.width: 44
+			sourceSize.height: 44
 		}
 	}
 	
