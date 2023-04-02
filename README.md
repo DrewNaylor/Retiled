@@ -23,13 +23,14 @@ If I don't get around it, I, Drew Naylor, hereby declare as of February 26, 2023
 
 ## Required extra packages
 
-You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use. The ones that say "via pip" are extra ones that developers will have to install if not on something like the PinePhone, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't in pip.
+You may need to install packages through your distro's package manager, and those are as follows; their names may vary by distro, but most of these are what Arch Linux ARM (and Manjaro ARM, by extension I guess) use (actually I'm mostly using postmarketOS now, so they may be different). The ones that say "via pip" are extra ones that will have to be installed if not on something like the PinePhone or if it's not installed by default/in your package manager, otherwise the package name on the left side will have to be installed via the distro's package manager like `pacman`; the packages that aren't listed as being from pip aren't usually in pip.
 <br><br>**Note:** I'll have to probably update some items as they may be unclear.
 - `python`: Used to run most of Retiled; should be Python 3 (using Python 3.9.x, specifically, **but my goal is to use the latest version of Python when possible, so it may not be 3.9.x by the time you read this**), but I can't remember if the package itself is `python3`, so I'll need to check
 - `pyside6` (`PySide6` via pip, which may be necessary on Fedora; `py3-pyside6` on postmarketOS): Used for the UI of Python/QML-based components of Retiled
 - `qt6-declarative` (previously `qt6-quickcontrols2`): Provides Qt6 QtQuick controls that are used in each component
 - `qt6-wayland` (`qt6-qtwayland` on Fedora): Allows Qt6 apps like the ones included in Retiled to run under Wayland, and also allows RetiledCompositor to run
 - `pyyaml` (`PyYAML` via pip, which is where I got it from and it's just in the repo, so you shouldn't have to worry about it unless you don't have the compiled library for it; Arch Linux ARM wasn't the latest anyway last I checked, but maybe I can put the latest one in my own repo if that's easy enough; I will soon stop providing pyyaml in my package directly (probably in DP2, so it'll break if you don't manually install pyyaml but that's ok early on), so it'll have to be installed manually, whether that be via `pip` [newest] or from your package manager [possibly outdated]): Helps read yaml files, which are used for configuration. You probably won't have to install this yourself, as I just copied the library's files into my repo. The only case where you'll need to install it manually is if my repo doesn't have the proper compiled library for one of the files. In that case, please let me know. I don't feel comfortable just adding binaries from random people to my repo, so a way for me to acquire that binary will be necessary to specify.
+- `pyxdg` (postmarketOS doesn't seem to have this installed by default, so first you'll need to install `py3-pip` via `apk`, then `pip install pyxdg`)
 - `qt6-svg`: You'll need to install this if using Xfce or another non-Qt environment. Without it, SVG images won't show up anywhere.
 - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros
 
@@ -47,6 +48,7 @@ Some glyphs are from the wp-metro font, which was made by AJ Troxell and is avai
 http://scripts.sil.org/OFL.<br>
 You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
 libdotdesktop_py is Copyright (C) Drew Naylor and is licensed under the MIT License. This library is from the DotDesktop4Win project.<br>
+pyxdg is used for the app icons in RetiledStart and licensed under the LGPLv2, but I need to check the copyrights on it. I have my own fork for it that you can download from if needed, though: https://github.com/DrewNaylor/pyxdg
 PyYAML is licensed under the MIT License and is Copyright (c) 2017-2021 Ingy döt Net and Copyright (c) 2006-2016 Kirill Simonov.<br><br>
 Python 3.9 copyrights start:<br>
 Copyright (c) 2001-2021 Python Software Foundation.<br>
