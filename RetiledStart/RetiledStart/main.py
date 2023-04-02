@@ -35,6 +35,9 @@ from libs.libRetiledStartPy import tileslist as TilesList
 # Importing the icon theme library to make getting icons easier.
 from libs.pyxdg.xdg import IconTheme
 
+# I need to directly import libdotdesktop as well, for icons.
+from libs.libdotdesktop_py import desktopEntryStuff
+
 # Settings file loader.
 # TODO: Switch to a script that can just run the Python 
 # file as a script so that the library doesn't have to
@@ -179,7 +182,15 @@ class GetAppIcon(QObject):
 		# Gets and returns the icon for a given .desktop file
 		# based on the icon size and current user theme.
 		# See the "Arguments" block above for what the args do.
-		return IconTheme.getIconPath(DotDesktopFile, 96, "breeze")
+		# TODO: Use the user's current icon theme instead
+		# of hardcoding Breeze, and allow using different icon
+		# sizes depending on where the icon is being shown
+		# and the user's DPI scaling (on 200% scaling, 96px
+		# icons might be a good idea in the All Apps list and
+		# maybe small tiles, but wide tiles have the icons
+		# stretched horizontally and medium tiles might be a little large
+		# to display the icon so they may be a little blurry).
+		return IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, "breeze")
 
 if __name__ == "__main__":
 	# Set the Universal style.

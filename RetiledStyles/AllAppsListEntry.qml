@@ -212,7 +212,7 @@ RetiledStyles.Button {
 			// main.py.
 			// TODO 2: Open the .desktop files and use their "Icon="
 			// value as otherwise we won't have an icon sometimes.
-			source: getAppIcon.getIcon(dotDesktopFilePath.replace(".desktop", ""))
+			source: getAppIcon.getIcon(dotDesktopFilePath)
 			anchors.fill: parent
 			// Just pad out the image; got the Image.Pad
 			// thing from the QtQuick Image link below.
