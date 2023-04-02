@@ -118,6 +118,8 @@ import "../../../RetiledStyles" as RetiledStyles
 				// "- 45" is just to have all the items show while there's
 				// an appbar.
 				height: window.height
+				// Reuse items for less memory usage.
+				reuseItems: true
 				// Clip the ListView or things don't scroll correctly.
 				clip: true
 				// We're using the ListView:
