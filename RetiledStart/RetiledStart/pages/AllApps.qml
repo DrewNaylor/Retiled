@@ -120,8 +120,6 @@ import "../../../RetiledStyles" as RetiledStyles
 				height: window.height
 				// Reuse items for less memory usage.
 				reuseItems: true
-				// Clip the ListView or things don't scroll correctly.
-				clip: true
 				// We're using the ListView:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
 				// TODO: Add section headers that the user can click/tap on to get a
