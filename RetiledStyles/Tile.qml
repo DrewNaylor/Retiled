@@ -504,8 +504,15 @@ ButtonBase {
 		// is I'll have to figure out how to handle wide icons
 		// when they're not intended to be wide in the wide
 		// tiles if a program doesn't have a wide icon available.
-		sourceSize.width: parent.width/1.6
+		// TODO: Figure out a better way to not have SVG files
+		// get stretched than forcing the source width to be
+		// based off the tile's height, because it could
+		// probably be a problem eventually. At least this looks
+		// pretty good for now.
+		sourceSize.width: parent.height/1.6
 		sourceSize.height: parent.height/1.6
+		height: parent.height/1.6
+		width: parent.width/1.6
 	}
 	
 	// Override the contentItem using the one from Button.
