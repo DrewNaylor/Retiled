@@ -119,7 +119,7 @@ import "../../../RetiledStyles" as RetiledStyles
 				// an appbar.
 				height: window.height
 				// Reuse items for less memory usage.
-				reuseItems: true
+				//reuseItems: true
 				// We're using the ListView:
 				// https://doc.qt.io/qt-6/qml-qtquick-listview.html
 				// TODO: Add section headers that the user can click/tap on to get a
