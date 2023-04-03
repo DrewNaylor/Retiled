@@ -48,7 +48,7 @@ Some glyphs are from the wp-metro font, which was made by AJ Troxell and is avai
 http://scripts.sil.org/OFL.<br>
 You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
 libdotdesktop_py is Copyright (C) Drew Naylor and is licensed under the MIT License. This library is from the DotDesktop4Win project.<br>
-pyxdg is used for the app icons in RetiledStart and licensed under the LGPLv2, but I need to check the copyrights on it. I have my own fork for it that you can download from if needed, though: https://github.com/DrewNaylor/pyxdg
+pyxdg is used for the app icons in RetiledStart and licensed under the LGPLv2, but I need to check the copyrights on it as well as include a copy of the LGPLv2. I have my own fork for it that you can download from if needed, though: https://github.com/DrewNaylor/pyxdg
 PyYAML is licensed under the MIT License and is Copyright (c) 2017-2021 Ingy döt Net and Copyright (c) 2006-2016 Kirill Simonov.<br><br>
 Python 3.9 copyrights start:<br>
 Copyright (c) 2001-2021 Python Software Foundation.<br>
