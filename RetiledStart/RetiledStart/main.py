@@ -193,7 +193,7 @@ class GetAppIcon(QObject):
 	# that otherwise uses some pieces of Plasma Mobile, I'll still have to
 	# have a way for users to set the Plasma Accent color in the kdeglobals
 	# file so all their KDE apps still look ok and they can easily change
-	# their colors; maybe an option on the "start + theme" page to inherit from
+	# their colors; maybe an option on the "start+theme" page to inherit from
 	# the KDE Accent color, and it can be changed to an option to change
 	# our own color with a checkbox to "update KDE Accent color when changing
 	# it for Retiled"? That sounds pretty good, but I think maybe all the
@@ -217,7 +217,7 @@ class GetAppIcon(QObject):
 	# launch from any app launcher and make it obvious on how it can be pinned;
 	# there will still need to be a way to change advanced settings that aren't
 	# really as complicated as Accent color syncing, so those will stay in the
-	# Settings app by default).
+	# Settings app by default. I do still need to have something like kde-gtk-config so that stuff for GTK apps can be configured in my Settings app, and setting KDE Accent colors and stuff from my Settings app will probably be in there as well, just at least as its own page linked from `start+theme`, and the syncing back and forth wouldn't be a default thing, rather, there would be a page that lets KDE-specific stuff be configured that doesn't directly impact my own apps, but desktop stuff that does will be where it makes sense; maybe a checkbox to "sync KDE Accent color to Retiled Accent color" would be in fact a good thing to have on "start+theme".).
 	@Slot(str, result=str)
 	def getIcon(self, DotDesktopFile):
 		# Gets and returns the icon for a given .desktop file
