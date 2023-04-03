@@ -177,6 +177,47 @@ class GetAppIcon(QObject):
 	# will still need to be able to turn them off, though.)
 	# The second "str" is for the current icon theme (we'll default to
 	# "breeze" for now until implementing reading from the user's config.)
+	# TODO: extend the ThemeSettingsLoader class above to allow
+	# specifying whatever value we want to grab from the theme file
+	# so that we can store the icon theme in there (ideally we should try to
+	# grab settings from KDE and Gnome if we're running on them, but the main
+	# focus is to mostly do our own thing for now and add compatibility
+	# via options to default to the current desktop's settings [kinda not
+	# going to be making my own compositor probably due to touch input
+	# issues at HiDPI and instead going with a custom LookAndFeel package
+	# for Plasma Mobile] or use our own settings instead of the desktop's
+	# settings; not sure how that would be implemented in a user-friendly way,
+	# maybe in a "compatibility" Settings page? I'm already going to have to
+	# do a compatibility layer for Plasma Mobile to put my stuff as a custom
+	# homescreen, and if I replace the KDE settings app in a custom image
+	# that otherwise uses some pieces of Plasma Mobile, I'll still have to
+	# have a way for users to set the Plasma Accent color in the kdeglobals
+	# file so all their KDE apps still look ok and they can easily change
+	# their colors; maybe an option on the "start + theme" page to inherit from
+	# the KDE Accent color, and it can be changed to an option to change
+	# our own color with a checkbox to "update KDE Accent color when changing
+	# it for Retiled"? That sounds pretty good, but I think maybe all the
+	# settings like this should be in the "compatibility" page, or maybe
+	# "advanced compatibility", to not confuse anyone; this would have to
+	# be added in there specifically, because a hypothetical RetiledTweaks
+	# app might not be the most efficient way to do this, as it may be
+	# a bit error-prone, or maybe it would be fine if there's like a thing
+	# in there to update the KDE Accent color upon the D-Bus message
+	# about the Retiled Accent color being sent out, but even then it would
+	# require code to be always running to keep the Accent colors in sync;
+	# alternatively, there could be a thing that updates the Retiled Accent
+	# color when the KDE one changes and vice-versa, but then that shouldn't
+	# be a default setting as it may confuse people, so maybe it would be best
+	# to have it be a separate app for advanced users, and keep the main Retiled
+	# Settings app simple enough for average users to use without getting too confused
+	# or overwhelmed. Yeah, that actually sounds like a good idea, then I can put
+	# the RetiledTweaks settings into the Settings app like in the KDE Settings
+	# app and the Windows Control Panel so it's easy to get to it from there,
+	# but a separate .desktop file will be needed at minimum to make it easy to
+	# launch from any app launcher and make it obvious on how it can be pinned;
+	# there will still need to be a way to change advanced settings that aren't
+	# really as complicated as Accent color syncing, so those will stay in the
+	# Settings app by default).
 	@Slot(str, result=str)
 	def getIcon(self, DotDesktopFile):
 		# Gets and returns the icon for a given .desktop file
