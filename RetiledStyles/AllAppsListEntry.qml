@@ -214,8 +214,6 @@ RetiledStyles.Button {
 			// TODO: Properly get the icon size we need here rather
 			// than just doing the 96x96 version that's hardcoded in
 			// main.py.
-			// TODO 2: Open the .desktop files and use their "Icon="
-			// value as otherwise we won't have an icon sometimes.
 			id: appIcon
 			source: getAppIcon.getIcon(dotDesktopFilePath)
 			anchors.fill: parent
@@ -225,7 +223,7 @@ RetiledStyles.Button {
 			// Set image to be async so the UI loads faster:
 			// https://doc.qt.io/qt-6/qml-qtquick-image.html#asynchronous-prop
 			asynchronous: true
-			// Set the images to the tile size for now,
+			// Set the image source size to 44 for now,
 			// until there's a way to actually get the
 			// nearest correct icon size.
 			// Modified from here:
@@ -244,10 +242,16 @@ RetiledStyles.Button {
 			// and image element width and height to 44 because I read
 			// that's what Windows Phone did. I'll have to add where I
 			// read that.
-			sourceSize.width: 44
-			sourceSize.height: 44
-			height: 44
-			width: 44
+			// Now I'm testing at 48.
+			// Actually, I'm using 42 now, as the distance between the Kate
+			// icon and the edge of the rectangle is 7 pixels that way,
+			// which is the same as for the Cortana logo in a screenshot
+			// I have from the emulator. I chose those two icons because
+			// they're both circular.
+			sourceSize.width: 42
+			sourceSize.height: 42
+			height: 42
+			width: 42
 		}
 	}
 	
