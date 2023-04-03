@@ -65,3 +65,6 @@ Note: several of these may not be useful to this project anymore due to mainly u
 
 24. [tilt](https://github.com/rikschennink/tilt)
 <br>JS library that lets you tilt buttons and stuff, and has examples for Metro tiles with 360° tilting action. Hopefully the math functions will at least be useful. It's under the MIT License, and I forked it here: https://github.com/DrewNaylor/tilt
+
+25. [qt5-qml-toolkit](https://github.com/stephenquan/qt5-qml-toolkit)
+<br>A bunch of QML files for various things like filtering the ListView, code editors, and terminal stuff, etc., that will probably be very useful for this project. May need to update it for Qt6, though. It's under the MIT License, and I forked it here: https://github.com/DrewNaylor/qt5-qml-toolkit
