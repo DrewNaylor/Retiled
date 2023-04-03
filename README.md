@@ -133,7 +133,7 @@ All Apps list:<br>
 <br>
 All Apps list item context menu showing the "pin to start" button:<br>
 <img src="/docs/images/pin-to-start-contextmenu.png" width="360"><br>
-All Apps list with icons:<br>
+All Apps list with icons (is this a good size for the icons? If it's not, please let me know. I've changed this slightly after taking this screenshot, too):<br>
 <img src="/docs/images/all-apps-with-icons.png" width="360"><br>
 <br>
 RetiledSearch running on the PinePhone:<br>
