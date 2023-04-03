@@ -74,7 +74,7 @@ Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win]
 > **Actually, these instructions may be more up-to-date than what's in the v0.1 DP1's package (even though I don't recommend that version anymore as if I remember correctly, it has major bugs fixed, those being mainly in the All Apps list and they showed up well after it was released due to what I think is a change in Qt)**, so if you can't figure out what's going on with those files, check these instructions. The instructions will be unified for v0.1 DP2.
 
 - Installation
-  1. Install `pyside6` (`py3-pyside6` on postmarketOS), `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland`. These packages are what they're named in Arch Linux ARM/Manjaro ARM. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
+  1. Install `pyside6` (`py3-pyside6` on postmarketOS), `qt6-quickcontrols2` (may be the same thing as `qt6-declarative` now, so if the other name doesn't work, try this one), `qt6-wayland` (may also be `qt6-qtwayland` on pmOS), `pyxdg` (`py3-xdg` on pmOS). These packages should be what they're named in Arch Linux ARM/Manjaro ARM, but I haven't used it much lately and I mostly use Fedora in a VM and postmarketOS on my PinePhone. I assume that you'll already have Python 3 installed, but if not, you'll also have to install it.
   2. Install `git` if you haven't, and clone the repo using `git clone https://github.com/DrewNaylor/Retiled`
   3. `cd` into `Retiled/Scripts`
   4. Run `sh install-retiled.sh`. The Python scripts will be compiled, then you'll be prompted with `sudo` asking your password to install (if you haven't entered it recently).
