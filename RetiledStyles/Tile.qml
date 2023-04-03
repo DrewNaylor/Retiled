@@ -471,49 +471,7 @@ ButtonBase {
 			}
 		}
 	
-	Image {
-		// Temporarily grabbing icons directly from the hicolor
-		// theme based on this AskUbuntu answer, notably the "appending
-		// a name to a hardcoded path" thing:
-		// https://askubuntu.com/a/351924
-		// Update: now we're grabbing them via pyxdg.
-		// TODO: Properly get the icon size we need here rather
-		// than just doing the 96x96 version that's hardcoded in
-		// main.py. In this case, wide tiles make icons stretched
-		// out.
-		// TODO 2: Open the .desktop files and use their "Icon="
-		// value as otherwise we won't have an icon sometimes.
-		source: getAppIcon.getIcon(dotDesktopFilePath)
-		anchors.fill: parent
-		// Just pad out the image; got the Image.Pad
-		// thing from the QtQuick Image link below.
-		fillMode: Image.Pad
-		// Set image to be async so the UI loads faster:
-		// https://doc.qt.io/qt-6/qml-qtquick-image.html#asynchronous-prop
-		asynchronous: true
-		// Set the images to the tile size for now,
-		// until there's a way to actually get the
-		// nearest correct icon size.
-		// Modified from here:
-		// https://doc.qt.io/qt-6/qml-qtquick-image.html#sourceSize-prop
-		// The division by 1.6 value here is from this SO answer:
-		// https://stackoverflow.com/a/12958512
-		// It honestly looks pretty good for medium tiles,
-		// but the wide ones are a bit strange.
-		// Of course, that's just for testing images. Only issue
-		// is I'll have to figure out how to handle wide icons
-		// when they're not intended to be wide in the wide
-		// tiles if a program doesn't have a wide icon available.
-		// TODO: Figure out a better way to not have SVG files
-		// get stretched than forcing the source width to be
-		// based off the tile's height, because it could
-		// probably be a problem eventually. At least this looks
-		// pretty good for now. This is a hack.
-		sourceSize.width: parent.height/1.6
-		sourceSize.height: parent.height/1.6
-		height: parent.height/1.6
-		width: parent.width/1.6
-	}
+	
 	
 	// Override the contentItem using the one from Button.
 	contentItem: Text {
@@ -598,6 +556,50 @@ ButtonBase {
 		// TODO: Allow buttons to have antialiasing turned
 		// off, if desired by the user in the settings.
 		antialiasing: true
+
+		Image {
+		// Temporarily grabbing icons directly from the hicolor
+		// theme based on this AskUbuntu answer, notably the "appending
+		// a name to a hardcoded path" thing:
+		// https://askubuntu.com/a/351924
+		// Update: now we're grabbing them via pyxdg.
+		// TODO: Properly get the icon size we need here rather
+		// than just doing the 96x96 version that's hardcoded in
+		// main.py. In this case, wide tiles make icons stretched
+		// out.
+		// TODO 2: Open the .desktop files and use their "Icon="
+		// value as otherwise we won't have an icon sometimes.
+		source: getAppIcon.getIcon(dotDesktopFilePath)
+		anchors.fill: parent
+		// Just pad out the image; got the Image.Pad
+		// thing from the QtQuick Image link below.
+		fillMode: Image.Pad
+		// Set image to be async so the UI loads faster:
+		// https://doc.qt.io/qt-6/qml-qtquick-image.html#asynchronous-prop
+		asynchronous: true
+		// Set the images to the tile size for now,
+		// until there's a way to actually get the
+		// nearest correct icon size.
+		// Modified from here:
+		// https://doc.qt.io/qt-6/qml-qtquick-image.html#sourceSize-prop
+		// The division by 1.6 value here is from this SO answer:
+		// https://stackoverflow.com/a/12958512
+		// It honestly looks pretty good for medium tiles,
+		// but the wide ones are a bit strange.
+		// Of course, that's just for testing images. Only issue
+		// is I'll have to figure out how to handle wide icons
+		// when they're not intended to be wide in the wide
+		// tiles if a program doesn't have a wide icon available.
+		// TODO: Figure out a better way to not have SVG files
+		// get stretched than forcing the source width to be
+		// based off the tile's height, because it could
+		// probably be a problem eventually. At least this looks
+		// pretty good for now. This is a hack.
+		sourceSize.width: parent.height/1.6
+		sourceSize.height: parent.height/1.6
+		height: parent.height/1.6
+		width: parent.width/1.6
+	}
 		
 	}
 	
