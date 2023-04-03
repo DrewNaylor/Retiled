@@ -248,6 +248,9 @@ RetiledStyles.Button {
 			// which is the same as for the Cortana logo in a screenshot
 			// I have from the emulator. I chose those two icons because
 			// they're both circular.
+			// TODO: Figure out why the Firefox icon and a few others like Koko
+			// are blurry when they shouldn't be (Firefox in particular has
+			// a 96x96 icon).
 			sourceSize.width: 42
 			sourceSize.height: 42
 			height: 42

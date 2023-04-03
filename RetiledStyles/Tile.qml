@@ -566,9 +566,9 @@ ButtonBase {
 		// TODO: Properly get the icon size we need here rather
 		// than just doing the 96x96 version that's hardcoded in
 		// main.py. In this case, wide tiles make icons stretched
-		// out.
-		// TODO 2: Open the .desktop files and use their "Icon="
-		// value as otherwise we won't have an icon sometimes.
+		// out. But now I'm just doing a hack to force the icon's
+		// source width to be based off it's height, so it's
+		// not as bad as it could be.
 		source: getAppIcon.getIcon(dotDesktopFilePath)
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
@@ -595,6 +595,9 @@ ButtonBase {
 		// based off the tile's height, because it could
 		// probably be a problem eventually. At least this looks
 		// pretty good for now. This is a hack.
+		// TODO 2: Figure out why the Firefox icon and a few others like Koko
+		// are blurry when they shouldn't be (Firefox in particular has
+		// a 96x96 icon).
 		sourceSize.width: parent.height/1.6
 		sourceSize.height: parent.height/1.6
 		height: parent.height/1.6
