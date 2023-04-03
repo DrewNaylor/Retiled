@@ -126,11 +126,15 @@ RetiledStart showing a set of tiles of various sizes while running in Plasma Mob
 Tiles in edit mode:<br>
 <img src="/docs/images/edit-mode.png" width="360"><br>
 <br>
+Tiles with icons:<br>
+<img src="/docs/images/tiles-with-icons.png" width="360"><br>
 All Apps list:<br>
 <img src="/docs/images/all-apps.png" width="360"><br>
 <br>
 All Apps list item context menu showing the "pin to start" button:<br>
 <img src="/docs/images/pin-to-start-contextmenu.png" width="360"><br>
+All Apps list with icons:<br>
+<img src="/docs/images/all-apps-with-icons.png" width="360"><br>
 <br>
 RetiledSearch running on the PinePhone:<br>
 <img src="/docs/images/search-app.png" width="360"><br>
