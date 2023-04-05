@@ -2,10 +2,12 @@
 
 To run Retiled, your device requires the following:
 
+(Please refer to [the readme](../README.md#required-extra-packages) for up-to-date package requirments; they may change over time and this document may become out of date.)
+
 ## Packages
 - Python 3.9 or greater
   - Python is used to run most of Retiled.
-  - postmarketOS uses `python3` instead of `python`.
+  - postmarketOS might use `python3` instead of `python` sometimes, but I've noticed just `python` is fine now.
   - Generally speaking, you should already have Python installed, but if you don't, use one of the following commands without quotes:
     - Manjaro ARM: "sudo pacman -Syu python"
   
@@ -53,9 +55,10 @@ To run Retiled, your device requires the following:
 - Manjaro ARM with Plasma Mobile is officially supported and recommended due to Plasma being Qt-based.
 - I'd like to also support postmarketOS, but it hasn't been tested there yet.
   - Update Dec 15, 2021: I tested this under postmarketOS Plasma Mobile, and things aren't perfect, with the biggest issue being that trying to do a search in the search app gives the error of "Unknown error code 100 Could not find the program 'webbrowser-app' Please send a full bug report at https://bugs.kde.org."
-  - The scripts need to be altered for postmarketOS due to it using "python3" instead of just "python". Hopefully it would work on Manjaro ARM, too.
+    - Update Apr 5, 2023: RetiledSearch does work in pmOS now as of probably a while ago, but it opens Firefox, which doesn't currently work correctly in my experience. If it were changed to Angelfish, it'd probably be fine.
+  - ~~The scripts need to be altered for postmarketOS due to it using "python3" instead of just "python". Hopefully it would work on Manjaro ARM, too.~~ I tried this, but it doesn't need to be done.
 - DanctNIX's Arch Linux ARM should also work due to being semi-upstream from Manjaro ARM (I don't know whether Manjaro ARM uses the regular ALARM or the DanctNIX one), but I haven't tested the Plasma Mobile image with this yet.
-- Windows support is limited to debugging and you'll have to manually change paths in the code for it to work in case you don't use the same paths I do. Perhaps I should add the sample .desktop files to the repo so things work.
+- Windows support is limited to some debugging and you'll have to manually change paths in the code for it to work in case you don't use the same paths I do. Perhaps I should add the sample .desktop files to the repo so things work.
 
 ## Disk space
 - On Manjaro ARM with Plasma Mobile
