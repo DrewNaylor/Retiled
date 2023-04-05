@@ -601,8 +601,8 @@ ButtonBase {
 		// https://doc.qt.io/qt-6/qml-qtquick-shadereffectsource.html
 		
 		sourceItem: tileWallpaper
-		sourceRect: Qt.rect(parent.x, parent.y, parent.width, parent.height)
-		recursive: true
+		sourceRect: Qt.rect(parent.x, tileWallpaper.y + parent.y, parent.width, parent.height)
+		live: true
 		hideSource: true
 		
 	}
