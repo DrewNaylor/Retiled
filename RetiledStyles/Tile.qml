@@ -601,7 +601,7 @@ ButtonBase {
 		// https://doc.qt.io/qt-6/qml-qtquick-shadereffectsource.html
 		
 		sourceItem: tileWallpaper
-		sourceRect: Qt.rect(parent.x, (-tilesFlickable.contentY + tilesFlickable.height / window.height) + parent.y - tileWallpaper.y, parent.width, parent.height)
+		sourceRect: Qt.rect(parent.x, tilesPageTopMargin.height + (-tilesFlickable.contentY + tilesFlickable.height / window.height) + parent.y - tileWallpaper.y, parent.width, parent.height)
 		live: true
 		hideSource: true
 		

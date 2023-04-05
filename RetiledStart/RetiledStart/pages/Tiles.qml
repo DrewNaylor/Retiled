@@ -404,6 +404,7 @@ ApplicationWindow {
 		Item {
 			// Create an empty item so the area above
 			// the tiles works as a scrollable area.
+			id: tilesPageTopMargin
 			height: 37
 			
 		}
