@@ -545,19 +545,8 @@ ButtonBase {
 				// I wasn't going to do it, but then I went back
 				// and I really don't like how Open Sans looks by default.
             }
-	
-	background: Rectangle {
-		// Change tile color and stuff.
-		color: tileBackgroundColor
-		border.width: 0
-		radius: 0
-		
-		// Add antialiasing to tiles.
-		// TODO: Allow buttons to have antialiasing turned
-		// off, if desired by the user in the settings.
-		antialiasing: true
-
-		Image {
+			
+			Image {
 		// Temporarily grabbing icons directly from the hicolor
 		// theme based on this AskUbuntu answer, notably the "appending
 		// a name to a hardcoded path" thing:
@@ -569,7 +558,8 @@ ButtonBase {
 		// out. But now I'm just doing a hack to force the icon's
 		// source width to be based off it's height, so it's
 		// not as bad as it could be.
-		source: getAppIcon.getIcon(dotDesktopFilePath)
+		source: "../icons/actions/unpin_white"
+		//source: getAppIcon.getIcon(dotDesktopFilePath)
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
 		// thing from the QtQuick Image link below.
@@ -603,7 +593,31 @@ ButtonBase {
 		height: parent.height/1.6
 		width: parent.width/1.6
 	}
+	
+	background: ShaderEffectSource {
+		
+		// Trying to use ShaderEffectSource to show tile backgrounds.
+		// Docs on ShaderEffectSource:
+		// https://doc.qt.io/qt-6/qml-qtquick-shadereffectsource.html
+		
+		sourceItem: tileWallpaper
+		sourceRect: Qt.rect(parent.x, parent.y, parent.width, parent.height)
+		recursive: true
+		hideSource: true
 		
 	}
+	
+	//background: Rectangle {
+	//	// Change tile color and stuff.
+	//	color: tileBackgroundColor
+	//	border.width: 0
+	//	radius: 0
+		
+	//	// Add antialiasing to tiles.
+	//	// TODO: Allow buttons to have antialiasing turned
+	//	// off, if desired by the user in the settings.
+	//	antialiasing: true
+
+	//}
 	
 }

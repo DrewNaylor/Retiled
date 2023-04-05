@@ -336,33 +336,35 @@ ApplicationWindow {
 				//// so it doesn't show the edge of the image.
 				//y: tilesContainer.height * -0.1
 				
-					//Image {
-						//id: tileWallpaper
-						//fillMode: Image.PreserveAspectCrop
-						//// Setting the width to tilesContainer's width plus 50
-						//// ensures empty space on the right is hidden.
-						//width: tilesContainer.width + 50
-						//// Setting the height to the window's height multiplied
-						//// by 1.2 ensures the image is at least as tall as the
-						//// window, but this introduces a problem if there are enough
-						//// tiles to make the tilesContainer taller than the window.
-						//// The solution to this doesn't seem to be to use the tilesContainer's
-						//// height, because resizing, pinning, and unpinning tiles
-						//// will change the height of the tilesContainer, and thus the
-						//// background image.
-						//height: window.height * 1.2
-						//// Ensure the image doesn't go into the All Apps list area.
-						//// This may be desirable for some if they want it like
-						//// Windows 10 Mobile, but there's no horizontal parallax for the image
-						//// yet, so it just ends up showing part of itself in the All Apps area.
-						//// As stated at the bottom of this section, it's important to clip an image if
-						//// using PreserveAspectCrop, as it can still go outside its intended bounds:
-						//// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
-						//clip: true
-						//source: "wallpaper.jpg"
-						//visible: true
+					Image {
+						id: tileWallpaper
+						fillMode: Image.PreserveAspectCrop
+						// Setting the width to tilesContainer's width plus 50
+						// ensures empty space on the right is hidden.
+						width: tilesContainer.width + 50
+						// Setting the height to the window's height multiplied
+						// by 1.2 ensures the image is at least as tall as the
+						// window, but this introduces a problem if there are enough
+						// tiles to make the tilesContainer taller than the window.
+						// The solution to this doesn't seem to be to use the tilesContainer's
+						// height, because resizing, pinning, and unpinning tiles
+						// will change the height of the tilesContainer, and thus the
+						// background image.
+						height: window.height * 1.2
+						// Ensure the image doesn't go into the All Apps list area.
+						// This may be desirable for some if they want it like
+						// Windows 10 Mobile, but there's no horizontal parallax for the image
+						// yet, so it just ends up showing part of itself in the All Apps area.
+						// As stated at the bottom of this section, it's important to clip an image if
+						// using PreserveAspectCrop, as it can still go outside its intended bounds:
+						// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
+						clip: true
+						source: "wallpaper.jpg"
+						visible: true
+						
+						y: -tilesFlickable.contentY * 0.12
 					
-					//} //// End of the tile area background image item.
+					} //// End of the tile area background image item.
 		//} //// End of the flickable allowing the background image to have some parallax scrolling.
 		
 	Flickable {
