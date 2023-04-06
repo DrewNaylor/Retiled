@@ -55,11 +55,16 @@ ApplicationWindow {
 	Universal.background: 'black'
 	
 	// Decide whether to display a background image or not.
-	// This is also used to determine if we should use
+	// This (displayBackgroundWallpaper) is used in conjunction with
+	// useTileBackgroundWallpaper to determine if we should use
 	// a tile background (in-tile, like 8.1),
-	// but will be displayed behind the tiles like 10
-	// if the in-tile background is turned off.
-	property bool displayBackgroundWallpaper: false
+	// or if it should be displayed behind the tiles like 10
+	// if useTileBackgroundWallpaper is false.
+	// Having both be false will just do the solid-color tiles
+	// like 7.x-8.0.
+	// TODO: Make it easy to configure the image to use
+	// without having to switch the file or manually edit the code.
+	property bool displayBackgroundWallpaper: true
 	property bool useTileBackgroundWallpaper: false
 	
 	// Global edit mode property so we can check to see if
