@@ -602,6 +602,9 @@ ButtonBase {
 		sourceSize.height: parent.height/1.6
 		height: parent.height/1.6
 		width: parent.width/1.6
+		
+		// Make sure the icons are antialiased.
+		antialiasing: true
 	}
 	
 	
