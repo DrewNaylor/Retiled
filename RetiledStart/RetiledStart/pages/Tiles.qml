@@ -64,7 +64,7 @@ ApplicationWindow {
 	// like 7.x-8.0.
 	// TODO: Make it easy to configure the image to use
 	// without having to switch the file or manually edit the code.
-	property bool displayBackgroundWallpaper: true
+	property bool displayBackgroundWallpaper: false
 	property bool useTileBackgroundWallpaper: false
 	
 	// Global edit mode property so we can check to see if
