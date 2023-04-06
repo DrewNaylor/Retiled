@@ -628,6 +628,7 @@ ButtonBase {
 		// the image isn't the right aspect ratio to fill it in; maybe we can
 		// use a different fillMode or make it go slower if the window is smaller/larger?)
 		sourceRect: Qt.rect(parent.x, tilesPageTopSpacer.height + (-tilesFlickable.contentY + tilesFlickable.height / window.height) + parent.y - tileWallpaper.y, parent.width, parent.height)
+		// Hide the image source.
 		hideSource: true
 		
 	}
