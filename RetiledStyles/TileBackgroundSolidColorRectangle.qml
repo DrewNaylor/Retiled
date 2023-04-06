@@ -37,7 +37,7 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-
+import QtQuick
 Rectangle {
 			// Change tile color and stuff.
 			color: tileBackgroundColor

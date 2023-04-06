@@ -119,6 +119,16 @@ ButtonBase {
 	// This is a property so it can be set
 	// by a setting in the future.
 	property bool tilt: true
+	
+	// Specify whether we should be using
+	// a tile background wallpaper.
+	// If not, we just use the standard Accent
+	// color background.
+	// This can be set per-tile, so there can
+	// also be tiles that just opt out, whether
+	// by the user or by a developer, as well as
+	// if the user says not to use a tile wallpaper.
+	property bool useTileBackgroundWallpaper: false
 					
 	RoundButton {
 		id: unpinButton
@@ -597,7 +607,15 @@ ButtonBase {
 	
 	
 	background: Loader {
-		source: tileBackgroundColor == "#0050ef" ? "./TileBackgroundShaderEffectSource.qml" : "./TileBackgroundSolidColorRectangle.qml"
+		// Ensure we only give tiles that are the same as the Accent color
+		// the tile background wallpaper.
+		// We also check to ensure the user actually wants to use
+		// a tile background wallpaper.
+		// TODO: Remember that we need to allow just using a plain
+		// background wallpaper for devices that can't
+		// handle the in-tile image as well as anyone that just doesn't
+		// want it.
+		source: tileBackgroundColor == accentColor && useTileBackgroundWallpaper == true ? "./TileBackgroundShaderEffectSource.qml" : "./TileBackgroundSolidColorRectangle.qml"
 	}
 	
 	//background: 
