@@ -54,6 +54,19 @@ ApplicationWindow {
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
 	Universal.background: 'black'
 	
+	// Decide whether to display a background image or not.
+	// This (displayBackgroundWallpaper) is used in conjunction with
+	// useTileBackgroundWallpaper to determine if we should use
+	// a tile background (in-tile, like 8.1),
+	// or if it should be displayed behind the tiles like 10
+	// if useTileBackgroundWallpaper is false.
+	// Having both be false will just do the solid-color tiles
+	// like 7.x-8.0.
+	// TODO: Make it easy to configure the image to use
+	// without having to switch the file or manually edit the code.
+	property bool displayBackgroundWallpaper: false
+	property bool useTileBackgroundWallpaper: false
+	
 	// Global edit mode property so we can check to see if
 	// edit mode is turned on globally when tapping a tile.
 	// If it is, we'll turn local edit mode on for that tile
@@ -336,33 +349,35 @@ ApplicationWindow {
 				//// so it doesn't show the edge of the image.
 				//y: tilesContainer.height * -0.1
 				
-					//Image {
-						//id: tileWallpaper
-						//fillMode: Image.PreserveAspectCrop
-						//// Setting the width to tilesContainer's width plus 50
-						//// ensures empty space on the right is hidden.
-						//width: tilesContainer.width + 50
-						//// Setting the height to the window's height multiplied
-						//// by 1.2 ensures the image is at least as tall as the
-						//// window, but this introduces a problem if there are enough
-						//// tiles to make the tilesContainer taller than the window.
-						//// The solution to this doesn't seem to be to use the tilesContainer's
-						//// height, because resizing, pinning, and unpinning tiles
-						//// will change the height of the tilesContainer, and thus the
-						//// background image.
-						//height: window.height * 1.2
-						//// Ensure the image doesn't go into the All Apps list area.
-						//// This may be desirable for some if they want it like
-						//// Windows 10 Mobile, but there's no horizontal parallax for the image
-						//// yet, so it just ends up showing part of itself in the All Apps area.
-						//// As stated at the bottom of this section, it's important to clip an image if
-						//// using PreserveAspectCrop, as it can still go outside its intended bounds:
-						//// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
-						//clip: true
-						//source: "wallpaper.jpg"
-						//visible: true
+					Image {
+						id: tileWallpaper
+						fillMode: Image.PreserveAspectCrop
+						// Setting the width to tilesContainer's width plus 50
+						// ensures empty space on the right is hidden.
+						width: tilesContainer.width + 50
+						// Setting the height to the window's height multiplied
+						// by 1.2 ensures the image is at least as tall as the
+						// window, but this introduces a problem if there are enough
+						// tiles to make the tilesContainer taller than the window.
+						// The solution to this doesn't seem to be to use the tilesContainer's
+						// height, because resizing, pinning, and unpinning tiles
+						// will change the height of the tilesContainer, and thus the
+						// background image.
+						height: window.height * 1.2
+						// Ensure the image doesn't go into the All Apps list area.
+						// This may be desirable for some if they want it like
+						// Windows 10 Mobile, but there's no horizontal parallax for the image
+						// yet, so it just ends up showing part of itself in the All Apps area.
+						// As stated at the bottom of this section, it's important to clip an image if
+						// using PreserveAspectCrop, as it can still go outside its intended bounds:
+						// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
+						clip: true
+						source: "wallpaper.jpg"
+						visible: displayBackgroundWallpaper
+						
+						y: -tilesFlickable.contentY * 0.12
 					
-					//} //// End of the tile area background image item.
+					} //// End of the tile area background image item.
 		//} //// End of the flickable allowing the background image to have some parallax scrolling.
 		
 	Flickable {
@@ -402,6 +417,7 @@ ApplicationWindow {
 		Item {
 			// Create an empty item so the area above
 			// the tiles works as a scrollable area.
+			id: tilesPageTopSpacer
 			height: 37
 			
 		}
@@ -447,29 +463,32 @@ ApplicationWindow {
 				//onPressAndHold: console.log("We can definitely do this!")
 				//onClicked: console.log("The future doesn't belong to you!")
 				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 150
-				//height: 150
-				//// You can access code in the main.py file from QML sub-pages.
-				//onClicked: allAppsListViewModel.getDotDesktopFiles()
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 310
-				//height: 150
-				//onClicked: tilesListViewModel.getTilesList()
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 150
-				//height: 150
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 70
-				//height: 70
-				//}
+				/* RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 150
+				height: 150
+				tileBackgroundColor: "red"
+				// You can access code in the main.py file from QML sub-pages.
+				onClicked: allAppsListViewModel.getDotDesktopFiles()
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 310
+				height: 150
+				tileBackgroundColor: "purple"
+				onClicked: tilesListViewModel.getTilesList()
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 150
+				height: 150
+				tileBackgroundColor: "orange"
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 70
+				height: 70
+				} */
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
@@ -492,6 +511,9 @@ ApplicationWindow {
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
 							NewTileObject.width = 150;
 							NewTileObject.height = 150;
+							// Set the boolean to use the tile background wallpaper on this tile,
+							// according to the user's choices in the config file.
+							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 							// TODO: Add another property to tiles so they'll default to
 							// using accent colors unless the boolean to use accent colors
 							// is off, in which case they'll use a specified tile background
@@ -684,6 +706,9 @@ ApplicationWindow {
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
 							NewTileObject.height = ParsedTilesList[i].TileHeight;
 							NewTileObject.tileBackgroundColor = accentColor;
+							// Set the boolean to use the tile background wallpaper on this tile,
+							// according to the user's choices in the config file.
+							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.

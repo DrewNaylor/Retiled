@@ -119,6 +119,16 @@ ButtonBase {
 	// This is a property so it can be set
 	// by a setting in the future.
 	property bool tilt: true
+	
+	// Specify whether we should be using
+	// a tile background wallpaper.
+	// If not, we just use the standard Accent
+	// color background.
+	// This can be set per-tile, so there can
+	// also be tiles that just opt out, whether
+	// by the user or by a developer, as well as
+	// if the user says not to use a tile wallpaper.
+	property bool useTileBackgroundWallpaper;
 					
 	RoundButton {
 		id: unpinButton
@@ -545,19 +555,8 @@ ButtonBase {
 				// I wasn't going to do it, but then I went back
 				// and I really don't like how Open Sans looks by default.
             }
-	
-	background: Rectangle {
-		// Change tile color and stuff.
-		color: tileBackgroundColor
-		border.width: 0
-		radius: 0
-		
-		// Add antialiasing to tiles.
-		// TODO: Allow buttons to have antialiasing turned
-		// off, if desired by the user in the settings.
-		antialiasing: true
-
-		Image {
+			
+			Image {
 		// Temporarily grabbing icons directly from the hicolor
 		// theme based on this AskUbuntu answer, notably the "appending
 		// a name to a hardcoded path" thing:
@@ -569,6 +568,7 @@ ButtonBase {
 		// out. But now I'm just doing a hack to force the icon's
 		// source width to be based off it's height, so it's
 		// not as bad as it could be.
+		//source: "../icons/actions/unpin_white"
 		source: getAppIcon.getIcon(dotDesktopFilePath)
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
@@ -603,7 +603,21 @@ ButtonBase {
 		height: parent.height/1.6
 		width: parent.width/1.6
 	}
-		
+	
+	
+	
+	background: Loader {
+		// Ensure we only give tiles that are the same as the Accent color
+		// the tile background wallpaper.
+		// We also check to ensure the user actually wants to use
+		// a tile background wallpaper.
+		// TODO: Remember that we need to allow just using a plain
+		// background wallpaper for devices that can't
+		// handle the in-tile image as well as anyone that just doesn't
+		// want it.
+		source: tileBackgroundColor == accentColor && useTileBackgroundWallpaper == true && displayBackgroundWallpaper == true ? "./TileBackgroundShaderEffectSource.qml" : "./TileBackgroundSolidColorRectangle.qml"
 	}
+	
+	//background: 
 	
 }
