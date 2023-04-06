@@ -601,10 +601,13 @@ ButtonBase {
 		// https://doc.qt.io/qt-6/qml-qtquick-shadereffectsource.html
 		
 		// Use the tile wallpaper for the source to put as the tile background.
+		// I tried multiplying the width and height by the parent's scale (the tile's scale, that is),
+		// and it's a little weird. There needs to be a way to have the background ignore
+		// changes to scale and tilt, but I'm not sure what to do.
 		// TODO: Figure out how to have it so that pressing a tile doesn't change
 		// the "scale" of the part of the wallpaper shown on a tile
 		// and instead "zooms in" and crops the visible part of the shader
-		// effect source.
+		// effect source. Also do this for the tilt.
 		sourceItem: tileWallpaper
 		// Cut out parts of the wallpaper for each tile.
 		// Here we're taking the current tile's X-value for the
