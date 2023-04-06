@@ -54,6 +54,13 @@ ApplicationWindow {
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
 	Universal.background: 'black'
 	
+	// Decide whether to display a background image or not.
+	// This is also used to determine if we should use
+	// a tile background (in-tile, like 8.1),
+	// but will be displayed behind the tiles like 10
+	// if the in-tile background is turned off.
+	property bool displayBackgroundWallpaper: true
+	
 	// Global edit mode property so we can check to see if
 	// edit mode is turned on globally when tapping a tile.
 	// If it is, we'll turn local edit mode on for that tile
@@ -360,7 +367,7 @@ ApplicationWindow {
 						// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
 						clip: true
 						source: "wallpaper.jpg"
-						visible: true
+						visible: displayBackgroundWallpaper
 						
 						y: -tilesFlickable.contentY * 0.12
 					
@@ -450,29 +457,32 @@ ApplicationWindow {
 				//onPressAndHold: console.log("We can definitely do this!")
 				//onClicked: console.log("The future doesn't belong to you!")
 				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 150
-				//height: 150
-				//// You can access code in the main.py file from QML sub-pages.
-				//onClicked: allAppsListViewModel.getDotDesktopFiles()
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 310
-				//height: 150
-				//onClicked: tilesListViewModel.getTilesList()
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 150
-				//height: 150
-				//}
-				//RetiledStyles.Tile {
-				//tileText: qsTr("WP8.1 app with a really long name")
-				//width: 70
-				//height: 70
-				//}
+				/* RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 150
+				height: 150
+				tileBackgroundColor: "red"
+				// You can access code in the main.py file from QML sub-pages.
+				onClicked: allAppsListViewModel.getDotDesktopFiles()
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 310
+				height: 150
+				tileBackgroundColor: "purple"
+				onClicked: tilesListViewModel.getTilesList()
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 150
+				height: 150
+				tileBackgroundColor: "orange"
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				width: 70
+				height: 70
+				} */
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
@@ -495,6 +505,7 @@ ApplicationWindow {
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
 							NewTileObject.width = 150;
 							NewTileObject.height = 150;
+							NewTileObject.useTileBackgroundWallpaper = displayBackgroundWallpaper;
 							// TODO: Add another property to tiles so they'll default to
 							// using accent colors unless the boolean to use accent colors
 							// is off, in which case they'll use a specified tile background
@@ -687,6 +698,7 @@ ApplicationWindow {
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
 							NewTileObject.height = ParsedTilesList[i].TileHeight;
 							NewTileObject.tileBackgroundColor = accentColor;
+							NewTileObject.useTileBackgroundWallpaper = displayBackgroundWallpaper;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.

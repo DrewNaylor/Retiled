@@ -128,7 +128,7 @@ ButtonBase {
 	// also be tiles that just opt out, whether
 	// by the user or by a developer, as well as
 	// if the user says not to use a tile wallpaper.
-	property bool useTileBackgroundWallpaper: false
+	property bool useTileBackgroundWallpaper;
 					
 	RoundButton {
 		id: unpinButton
@@ -615,7 +615,7 @@ ButtonBase {
 		// background wallpaper for devices that can't
 		// handle the in-tile image as well as anyone that just doesn't
 		// want it.
-		source: tileBackgroundColor == accentColor && useTileBackgroundWallpaper == true ? "./TileBackgroundShaderEffectSource.qml" : "./TileBackgroundSolidColorRectangle.qml"
+		source: tileBackgroundColor == accentColor && useTileBackgroundWallpaper == true && displayBackgroundWallpaper == true ? "./TileBackgroundShaderEffectSource.qml" : "./TileBackgroundSolidColorRectangle.qml"
 	}
 	
 	//background: 
