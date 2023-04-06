@@ -39,13 +39,20 @@
 
 import QtQuick
 Rectangle {
-			// Change tile color and stuff.
-			color: tileBackgroundColor
-			border.width: 0
-			radius: 0
-		
-			//	// Add antialiasing to tiles.
-			//	// TODO: Allow buttons to have antialiasing turned
-			//	// off, if desired by the user in the settings.
-			antialiasing: true
-			}
+	
+	// This is the regular tile background object/element,
+	// with the solid color like WP7.x-8.0 before
+	// tile background images were introduced in 8.1.
+	// To see the code for the tile background images,
+	// please open "TileBackgroundShaderEffectSource.qml".
+	
+	// Change tile color and stuff.
+	color: tileBackgroundColor
+	border.width: 0
+	radius: 0
+	
+	// Add antialiasing to tiles.
+	// TODO: Allow buttons to have antialiasing turned
+	// off, if desired by the user in the settings.
+	antialiasing: true
+}

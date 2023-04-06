@@ -42,6 +42,11 @@ import QtQuick
 
 ShaderEffectSource {
 		
+		// This is the tile wallpaper object/element,
+		// with a background image as introduced in 8.1.
+		// To see the code for the tile background images,
+		// please open "TileBackgroundSolidColorRectangle.qml".
+		
 		// Trying to use ShaderEffectSource to show tile backgrounds.
 		// Docs on ShaderEffectSource:
 		// https://doc.qt.io/qt-6/qml-qtquick-shadereffectsource.html
@@ -77,5 +82,5 @@ ShaderEffectSource {
 		sourceRect: Qt.rect(control.x, tilesPageTopSpacer.height + (-tilesFlickable.contentY + tilesFlickable.height / window.height) + control.y - tileWallpaper.y, control.width, control.height)
 		// Hide the image source.
 		hideSource: true
-		
+		// Unfortunately, the tiles seem not very aliased, at least in Windows 10.
 }
