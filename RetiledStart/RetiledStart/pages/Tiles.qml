@@ -59,7 +59,8 @@ ApplicationWindow {
 	// a tile background (in-tile, like 8.1),
 	// but will be displayed behind the tiles like 10
 	// if the in-tile background is turned off.
-	property bool displayBackgroundWallpaper: true
+	property bool displayBackgroundWallpaper: false
+	property bool useTileBackgroundWallpaper: false
 	
 	// Global edit mode property so we can check to see if
 	// edit mode is turned on globally when tapping a tile.
@@ -505,7 +506,9 @@ ApplicationWindow {
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
 							NewTileObject.width = 150;
 							NewTileObject.height = 150;
-							NewTileObject.useTileBackgroundWallpaper = displayBackgroundWallpaper;
+							// Set the boolean to use the tile background wallpaper on this tile,
+							// according to the user's choices in the config file.
+							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 							// TODO: Add another property to tiles so they'll default to
 							// using accent colors unless the boolean to use accent colors
 							// is off, in which case they'll use a specified tile background
@@ -698,7 +701,9 @@ ApplicationWindow {
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
 							NewTileObject.height = ParsedTilesList[i].TileHeight;
 							NewTileObject.tileBackgroundColor = accentColor;
-							NewTileObject.useTileBackgroundWallpaper = displayBackgroundWallpaper;
+							// Set the boolean to use the tile background wallpaper on this tile,
+							// according to the user's choices in the config file.
+							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.

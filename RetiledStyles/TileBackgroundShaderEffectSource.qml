@@ -73,6 +73,7 @@ ShaderEffectSource {
 		// (This doesn't quite work if the window is too short/wide/skinny/tall and
 		// the image isn't the right aspect ratio to fill it in; maybe we can
 		// use a different fillMode or make it go slower if the window is smaller/larger?)
+		// TODO: Fix the image starting to disappear when there are too many tiles.
 		sourceRect: Qt.rect(control.x, tilesPageTopSpacer.height + (-tilesFlickable.contentY + tilesFlickable.height / window.height) + control.y - tileWallpaper.y, control.width, control.height)
 		// Hide the image source.
 		hideSource: true
