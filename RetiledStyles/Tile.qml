@@ -568,8 +568,8 @@ ButtonBase {
 		// out. But now I'm just doing a hack to force the icon's
 		// source width to be based off it's height, so it's
 		// not as bad as it could be.
-		source: "../icons/actions/unpin_white"
-		//source: getAppIcon.getIcon(dotDesktopFilePath)
+		//source: "../icons/actions/unpin_white"
+		source: getAppIcon.getIcon(dotDesktopFilePath)
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
 		// thing from the QtQuick Image link below.
