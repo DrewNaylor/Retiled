@@ -428,6 +428,26 @@ ApplicationWindow {
 		// Code for the About.qml file here:
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
 		
+		MouseArea {
+			// This MouseArea lets us leave edit mode when clicked inside it.
+			onClicked: {
+				if (globalEditMode == true) {
+				// Turn off global edit mode.
+				toggleGlobalEditMode(false, true);
+				// Hide editMode controls for each tile.
+				// This also resets z-index values for each tile.
+				hideEditModeControlsOnAllTiles();
+				// Reset opacity for each tile.
+				setTileOpacity();
+				// TODO: Figure out how to ensure we can click
+				// anywhere on the tiles area to exit edit mode,
+				// because right now there's an area on the right
+				// side where it won't work.
+				} 
+			}
+			anchors.fill: parent
+		}
+
 		RowLayout {
 			
 			Item {
