@@ -72,6 +72,10 @@ ApplicationWindow {
 	// useTileBackgroundWallpaper above.
 	property bool allowParallax: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowParallax", "true"))
 
+	// Grab the wallpaper overlay rectangle properties.
+	property string wallpaperOverlayLayerColor: settingsLoader.getSetting("themes", "WallpaperOverlayLayerColor", "black")
+	property string wallpaperOverlayLayerOpacity: settingsLoader.getSetting("themes", "WallpaperOverlayLayerOpacity", "0.20")
+
 	// Set icon theme.
 	property string iconTheme: settingsLoader.getSetting("themes", "IconTheme", "breeze-dark")
 	
@@ -388,9 +392,12 @@ ApplicationWindow {
 					} //// End of the tile area background image item.
 
 					Rectangle {
-						// Darken the wallpaper by 20% like WP does.
-						color: "black"
-						opacity: 0.20
+						// Darken the wallpaper by 20% like WP does,
+						// or however much the user decided to set the
+						// opacity to, with whichever color they decided
+						// to use.
+						color: wallpaperOverlayLayerColor
+						opacity: wallpaperOverlayLayerOpacity
 						anchors.fill: tileWallpaper
 					}
 		//} //// End of the flickable allowing the background image to have some parallax scrolling.

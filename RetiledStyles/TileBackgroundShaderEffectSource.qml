@@ -91,9 +91,12 @@ ShaderEffectSource {
 		// Hide the image source.
 		hideSource: true
 		Rectangle {
-				// Darken the wallpaper by 20% like WP does.
-				color: "black"
-				opacity: 0.20
+				// Darken the wallpaper by 20% like WP does,
+				// or however much the user decided to set the
+				// opacity to, with whichever color they decided
+				// to use.
+				color: wallpaperOverlayLayerColor
+				opacity: wallpaperOverlayLayerOpacity
 				anchors.fill: parent
 			}
 		// Unfortunately, the tiles seem not very aliased, at least in Windows 10.
