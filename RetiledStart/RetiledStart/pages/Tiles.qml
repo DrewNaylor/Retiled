@@ -70,7 +70,7 @@ ApplicationWindow {
 	// See also "TileBackgroundShaderEffectSource.qml"
 	// for more details, for both this and
 	// useTileBackgroundWallpaper above.
-	property bool allowParallax: true
+	property bool allowParallax: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowParallax", "true"))
 
 	// Set icon theme.
 	property string iconTheme: settingsLoader.getSetting("themes", "IconTheme", "breeze-dark")
