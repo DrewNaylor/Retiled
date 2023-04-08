@@ -158,4 +158,54 @@ T.TextField {
 		color: control.focus ? control.focusedBackgroundColor : control.unfocusedBackgroundColor
         //color: control.enabled ? control.Universal.background : control.Universal.baseLowColor
     }
+
+    onTextEdited: {
+        cursorVisible = true
+    }
+
+    // Forgot to change the color of the cursor, I'll do that now
+    // by modifying this SO answer a little:
+    // https://stackoverflow.com/a/69812884
+    // Note: we're modifying properties the TextField gets from TextInput.
+    // Page in the Qt docs for TextInput, specifically going to what we're changing:
+    // https://doc.qt.io/qt-6/qml-qtquick-textinput.html#cursorDelegate-prop
+    cursorDelegate: Rectangle {
+        id: cursor
+        visible: false
+        // Change the color to black and set the width to 2.
+        color: "black"
+        width: 2
+
+        SequentialAnimation {
+            loops: Animation.Infinite
+            // We only want to play the animation if the selected text is nothing.
+            running: control.cursorVisible && selectedText.length == 0 && justEditedTimerExpired
+
+            PropertyAction {
+                target: cursor
+                property: 'visible'
+                value: true
+            }
+
+            PauseAnimation {
+                duration: 600
+            }
+
+            PropertyAction {
+                target: cursor
+                property: 'visible'
+                value: false
+            }
+
+            PauseAnimation {
+                duration: 600
+            }
+
+            onStopped: {
+                cursor.visible = false
+            }
+
+            
+        }  
+    }
 }
