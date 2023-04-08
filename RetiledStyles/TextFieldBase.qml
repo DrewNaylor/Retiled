@@ -190,7 +190,7 @@ T.TextField {
     // https://doc.qt.io/qt-6/qml-qtquick-textinput.html#cursorDelegate-prop
     cursorDelegate: Rectangle {
         id: cursor
-        visible: false
+        visible: true
         // Change the color to black and set the width to 2.
         color: "black"
         width: 2
@@ -198,7 +198,7 @@ T.TextField {
         SequentialAnimation {
             loops: Animation.Infinite
             // We only want to play the animation if the selected text is nothing.
-            running: selectedText.length == 0 ? true : false
+            running: justEditedTimerExpired == true ? true : false
 
             PropertyAction {
                 target: cursor
@@ -214,7 +214,7 @@ T.TextField {
                 //    // display the cursor.
                 //    else if (selectedText.length == 0) return true
                 //}
-                value: selectedText.length > 0 ? false : true
+                value: selectedText.length > 0 ? false : false
             }
 
             PauseAnimation {
@@ -237,7 +237,7 @@ T.TextField {
                 //    // We need to hide the cursor if the timer has expired.
                 //    else if (selectedText.length == 0 && justEditedTimerExpired == true) return false
                 //}
-                value: selectedText.length >= 0 && justEditedTimerExpired == true ? false : true
+                value: selectedText.length > 0 ? false : true
             }
 
             PauseAnimation {
@@ -247,7 +247,7 @@ T.TextField {
             onStopped: {
                 // Show the cursor when the animation is stopped
                 // if we're not selecting anything.
-                cursor.visible = selectedText.length == 0 && justEditedTimerExpired == true ? true : false
+                cursor.visible = selectedText.length == 0 ? true : false
             }
 
             
