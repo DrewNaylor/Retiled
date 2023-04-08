@@ -160,8 +160,10 @@ T.TextField {
     }
 
     onTextEdited: {
+        console.log(justEditedTimerExpired);
         justEditedTimerExpired = false;
         justEditedTimer.restart();
+        console.log(justEditedTimerExpired);
     }
 
     // We need a timer to keep the cursor visible when the user is typing relatively
@@ -171,10 +173,9 @@ T.TextField {
     Timer {
         id: justEditedTimer
         interval: 1200
-        running: true
         onTriggered: {
             justEditedTimerExpired = true;
-            console.log("expired");
+            console.log(justEditedTimerExpired);
         }
     }
 
@@ -211,9 +212,7 @@ T.TextField {
                     if (selectedText.length > 0) return false
                     // If we haven't selected any text and the timer hasn't expired yet,
                     // display the cursor.
-                    else if (selectedText.length == 0 && justEditedTimerExpired == false) return true
-                    // We need to display the cursor if the timer has expired.
-                    else if (selectedText.length == 0 && justEditedTimerExpired == true) return true
+                    else if (selectedText.length == 0) return true
                 }
             }
 
