@@ -198,7 +198,7 @@ T.TextField {
         SequentialAnimation {
             loops: Animation.Infinite
             // We only want to play the animation if the selected text is nothing.
-            running: justEditedTimerExpired == true ? true : false
+            running: selectedText.length == 0 ? true : false
 
             PropertyAction {
                 target: cursor
@@ -214,7 +214,7 @@ T.TextField {
                 //    // display the cursor.
                 //    else if (selectedText.length == 0) return true
                 //}
-                value: selectedText.length > 0 ? false : false
+                value: false
             }
 
             PauseAnimation {
@@ -237,7 +237,7 @@ T.TextField {
                 //    // We need to hide the cursor if the timer has expired.
                 //    else if (selectedText.length == 0 && justEditedTimerExpired == true) return false
                 //}
-                value: selectedText.length > 0 ? false : true
+                value: selectedText.length == 0 || justEditedTimerExpired == false ? true : false
             }
 
             PauseAnimation {
