@@ -386,6 +386,13 @@ ApplicationWindow {
 						y: allowParallax == true ? -tilesFlickable.contentY * 0.12 : 0
 					
 					} //// End of the tile area background image item.
+
+					Rectangle {
+						// Darken the wallpaper by 20% like WP does.
+						color: "black"
+						opacity: 0.20
+						anchors.fill: tileWallpaper
+					}
 		//} //// End of the flickable allowing the background image to have some parallax scrolling.
 		
 	Flickable {

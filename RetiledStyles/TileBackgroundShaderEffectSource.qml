@@ -90,5 +90,11 @@ ShaderEffectSource {
 		sourceRect: Qt.rect(control.x, allowParallax == true ? (tilesPageTopSpacer.height + (-tilesFlickable.contentY + tilesFlickable.height / window.height) + control.y - tileWallpaper.y) : tilesPageTopSpacer.height + 5 + (-tilesFlickable.contentY) + control.y, control.width, control.height)
 		// Hide the image source.
 		hideSource: true
+		Rectangle {
+				// Darken the wallpaper by 20% like WP does.
+				color: "black"
+				opacity: 0.20
+				anchors.fill: parent
+			}
 		// Unfortunately, the tiles seem not very aliased, at least in Windows 10.
 }
