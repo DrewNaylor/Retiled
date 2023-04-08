@@ -46,7 +46,7 @@ ApplicationWindow {
     Universal.theme: Universal.Dark
     // Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
-	property string accentColor: themeSettingsLoader.getThemeSettings()
+	property string accentColor: themeSettingsLoader.getThemeSettings("AccentColor", "#0050ef")
     Universal.accent: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
@@ -64,7 +64,7 @@ ApplicationWindow {
 	// like 7.x-8.0.
 	// TODO: Make it easy to configure the image to use
 	// without having to switch the file or manually edit the code.
-	property bool displayBackgroundWallpaper: false
+	property bool displayBackgroundWallpaper: themeSettingsLoader.convertSettingToBool(themeSettingsLoader.getThemeSettings("DisplayBackgroundWallpaper", "false"))
 	property bool useTileBackgroundWallpaper: false
 	// Turning off parallax is for accessibility.
 	// See also "TileBackgroundShaderEffectSource.qml"

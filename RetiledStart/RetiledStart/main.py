@@ -133,8 +133,8 @@ class TilesListViewModel(QObject):
 		
 class ThemeSettingsLoader(QObject):
 	# Slots still need to exist when using PySide.
-	@Slot(result=str)
-	def getThemeSettings(self):
+	@Slot(str, str, result=str)
+	def getThemeSettings(self, RequestedThemeSetting, DefaultValue):
 		# Get the theme settings.
 		# Currently just Accent colors.
 		# TODO: Switch to a script that can just run the Python 
@@ -153,8 +153,25 @@ class ThemeSettingsLoader(QObject):
 		
 		#print(ThemeSettingsFilePath)
 		
-		# Return the Accent color.
-		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
+		# Return the requested theme setting.
+		return settingsReader.getSetting(ThemeSettingsFilePath, RequestedThemeSetting, DefaultValue)
+	
+	# We need to sometimes convert strings to bools for settings
+	# loading in QML.
+	# Please note: this only covers when the string
+	# is "true"; "1", "on", and "yes" are not
+	# yet covered.
+	# I kinda got this idea from this SO post,
+	# since just returning bool(StringToConvert)
+	# didn't work:
+	# https://stackoverflow.com/a/18472142
+	@Slot(str, result=bool)
+	def convertSettingToBool(self, StringToConvert):
+		if StringToConvert.lower() == "true":
+			return True
+		else:
+			return False
+
 
 class GetAppIcon(QObject):
 	# Arguments:
