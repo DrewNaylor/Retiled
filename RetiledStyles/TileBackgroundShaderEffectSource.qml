@@ -79,7 +79,15 @@ ShaderEffectSource {
 		// the image isn't the right aspect ratio to fill it in; maybe we can
 		// use a different fillMode or make it go slower if the window is smaller/larger?)
 		// TODO: Fix the image starting to disappear when there are too many tiles.
-		sourceRect: Qt.rect(control.x, tilesPageTopSpacer.height + (-tilesFlickable.contentY + tilesFlickable.height / window.height) + control.y - tileWallpaper.y, control.width, control.height)
+		// If allowParallax is set to false, we only add the top spacer and 5 (to
+		// ensure we don't display an empty area that would be covered up by the
+		// background otherwise) to the inverse of the tilesFlickable's contentY
+		// and we add that to the tile's Y-value. This results in there being no
+		// parallax effect. Sadly, the extra 5 spacing moves the image a little,
+		// but it's better that than to display a weird space with nothing.
+		// Turning off parallax is for accessibility and the boolean is defined in
+		// "Tiles.qml".
+		sourceRect: Qt.rect(control.x, allowParallax == true ? (tilesPageTopSpacer.height + (-tilesFlickable.contentY + tilesFlickable.height / window.height) + control.y - tileWallpaper.y) : tilesPageTopSpacer.height + 5 + (-tilesFlickable.contentY) + control.y, control.width, control.height)
 		// Hide the image source.
 		hideSource: true
 		// Unfortunately, the tiles seem not very aliased, at least in Windows 10.

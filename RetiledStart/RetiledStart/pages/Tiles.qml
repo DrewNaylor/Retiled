@@ -66,6 +66,11 @@ ApplicationWindow {
 	// without having to switch the file or manually edit the code.
 	property bool displayBackgroundWallpaper: false
 	property bool useTileBackgroundWallpaper: false
+	// Turning off parallax is for accessibility.
+	// See also "TileBackgroundShaderEffectSource.qml"
+	// for more details, for both this and
+	// useTileBackgroundWallpaper above.
+	property bool allowParallax: true
 	
 	// Global edit mode property so we can check to see if
 	// edit mode is turned on globally when tapping a tile.
@@ -375,7 +380,7 @@ ApplicationWindow {
 						source: "wallpaper.jpg"
 						visible: displayBackgroundWallpaper
 						
-						y: -tilesFlickable.contentY * 0.12
+						y: allowParallax == true ? -tilesFlickable.contentY * 0.12 : 0
 					
 					} //// End of the tile area background image item.
 		//} //// End of the flickable allowing the background image to have some parallax scrolling.
