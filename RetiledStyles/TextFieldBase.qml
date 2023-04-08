@@ -198,7 +198,7 @@ T.TextField {
         SequentialAnimation {
             loops: Animation.Infinite
             // We only want to play the animation if the selected text is nothing.
-            running: true
+            running: selectedText.length == 0 ? true : false
 
             PropertyAction {
                 target: cursor
@@ -207,13 +207,14 @@ T.TextField {
                 //value: (selectedText.length > 0 ? false : justEditedTimerExpired == false && selectedText.length == 0 ? true) : false
                 // If statements for simplification:
                 // https://stackoverflow.com/a/50878135
-                value: {
-                    // If we've selected any text, don't display the cursor.
-                    if (selectedText.length > 0) return false
-                    // If we haven't selected any text and the timer hasn't expired yet,
-                    // display the cursor.
-                    else if (selectedText.length == 0) return true
-                }
+                //value: {
+                //    // If we've selected any text, don't display the cursor.
+                //    if (selectedText.length > 0) return false
+                //    // If we haven't selected any text and the timer hasn't expired yet,
+                //    // display the cursor.
+                //    else if (selectedText.length == 0) return true
+                //}
+                value: selectedText.length > 0 ? false : true
             }
 
             PauseAnimation {
@@ -227,26 +228,27 @@ T.TextField {
                 //value: ((selectedText.length > 0 ? false) : (justEditedTimerExpired == false && selectedText.length == 0 ? true)) : true
                 // If statements for simplification:
                 // https://stackoverflow.com/a/50878135
-                value: {
-                    // If we've selected any text, don't display the cursor.
-                    if (selectedText.length > 0) return false
-                    // If we haven't selected any text and the timer hasn't expired yet,
-                    // display the cursor.
-                    else if (selectedText.length == 0 && justEditedTimerExpired == false) return true
-                    // We need to hide the cursor if the timer has expired.
-                    else if (selectedText.length == 0 && justEditedTimerExpired == true) return false
-                }
+                //value: {
+                //    // If we've selected any text, don't display the cursor.
+                //   if (selectedText.length > 0) return false
+                //    // If we haven't selected any text and the timer hasn't expired yet,
+                //    // display the cursor.
+                //    else if (selectedText.length == 0 && justEditedTimerExpired == false) return true
+                //    // We need to hide the cursor if the timer has expired.
+                //    else if (selectedText.length == 0 && justEditedTimerExpired == true) return false
+                //}
+                value: selectedText.length >= 0 && justEditedTimerExpired == true ? false : true
             }
 
             PauseAnimation {
                 duration: 600
             }
 
-            //onStopped: {
-            //    // Show the cursor when the animation is stopped
-            //    // if we're not selecting anything.
-            //    cursor.visible = selectedText.length == 0 && justEditedTimerExpired == true ? true : false
-            //}
+            onStopped: {
+                // Show the cursor when the animation is stopped
+                // if we're not selecting anything.
+                cursor.visible = selectedText.length == 0 && justEditedTimerExpired == true ? true : false
+            }
 
             
         }  
