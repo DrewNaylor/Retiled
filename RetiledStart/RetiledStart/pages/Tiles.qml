@@ -66,6 +66,8 @@ ApplicationWindow {
 	// without having to switch the file or manually edit the code.
 	property bool displayBackgroundWallpaper: themeSettingsLoader.convertSettingToBool(themeSettingsLoader.getThemeSettings("DisplayBackgroundWallpaper", "false"))
 	property bool useTileBackgroundWallpaper: themeSettingsLoader.convertSettingToBool(themeSettingsLoader.getThemeSettings("UseTileBackgroundWallpaper", "false"))
+	// Set the path for background wallpapers.
+	property string wallpaperPath: themeSettingsLoader.getThemeSettings("WallpaperPath", "wallpaper.jpg")
 	// Turning off parallax is for accessibility.
 	// See also "TileBackgroundShaderEffectSource.qml"
 	// for more details, for both this and
@@ -377,7 +379,7 @@ ApplicationWindow {
 						// using PreserveAspectCrop, as it can still go outside its intended bounds:
 						// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
 						clip: true
-						source: "wallpaper.jpg"
+						source: wallpaperPath
 						visible: displayBackgroundWallpaper
 						
 						y: allowParallax == true ? -tilesFlickable.contentY * 0.12 : 0
