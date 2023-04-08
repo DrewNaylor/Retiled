@@ -215,7 +215,7 @@ RetiledStyles.Button {
 			// than just doing the 96x96 version that's hardcoded in
 			// main.py.
 			id: appIcon
-			source: getAppIcon.getIcon(dotDesktopFilePath)
+			source: getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
 			anchors.fill: parent
 			// Just pad out the image; got the Image.Pad
 			// thing from the QtQuick Image link below.

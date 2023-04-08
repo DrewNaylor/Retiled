@@ -73,6 +73,9 @@ ApplicationWindow {
 	// for more details, for both this and
 	// useTileBackgroundWallpaper above.
 	property bool allowParallax: true
+
+	// Set icon theme.
+	property string iconTheme: themeSettingsLoader.getThemeSettings("IconTheme", "breeze-dark")
 	
 	// Global edit mode property so we can check to see if
 	// edit mode is turned on globally when tapping a tile.

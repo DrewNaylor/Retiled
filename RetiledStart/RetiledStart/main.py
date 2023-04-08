@@ -175,11 +175,10 @@ class ThemeSettingsLoader(QObject):
 
 class GetAppIcon(QObject):
 	# Arguments:
-	# First "str" is the name of the application (for now the .desktop file without
-	# ".desktop", but will use the "Icon=" value in that file once it's integrated,
-	# but we'll still fall back to the .desktop file's name just in case. I don't
-	# know if this is allowed by the Icon theme spec, thoug).
-	# The "int" is for the icon size (we'll have to diverge from the Icon theme spec
+	#     First "str" is the name of the application (we need to fall back to the .desktop
+	# file's name just in case there's no "Icon=" key in it. I don't
+	# know if this is allowed by the Icon theme spec, though).
+	#     (when implemented) The "int" is for the icon size (we'll have to diverge from the Icon theme spec
 	# a little because for tiles, they probably will have different-sized
 	# icons both per size, and per tile type, with some tiles not displaying
 	# an icon at all if they're not using the "Iconic"-style template
@@ -192,9 +191,10 @@ class GetAppIcon(QObject):
 	# though that wasn't according to the spec, so I'll just outright allow
 	# it in my Live Tile implementation because it's useful. Users
 	# will still need to be able to turn them off, though.)
-	# The second "str" is for the current icon theme (we'll default to
-	# "breeze" for now until implementing reading from the user's config.)
-	# TODO: extend the ThemeSettingsLoader class above to allow
+	#     The second "str" is for the current icon theme.
+	# We're passing this from QML, which may not be ideal but
+	# it's quick to add for now.
+	#     TODO: extend the ThemeSettingsLoader class above to allow
 	# specifying whatever value we want to grab from the theme file
 	# so that we can store the icon theme in there (ideally we should try to
 	# grab settings from KDE and Gnome if we're running on them, but the main
@@ -235,27 +235,29 @@ class GetAppIcon(QObject):
 	# there will still need to be a way to change advanced settings that aren't
 	# really as complicated as Accent color syncing, so those will stay in the
 	# Settings app by default. I do still need to have something like kde-gtk-config so that stuff for GTK apps can be configured in my Settings app, and setting KDE Accent colors and stuff from my Settings app will probably be in there as well, just at least as its own page linked from `start+theme`, and the syncing back and forth wouldn't be a default thing, rather, there would be a page that lets KDE-specific stuff be configured that doesn't directly impact my own apps, but desktop stuff that does will be where it makes sense; maybe a checkbox to "sync KDE Accent color to Retiled Accent color" would be in fact a good thing to have on "start+theme".).
-	@Slot(str, result=str)
-	def getIcon(self, DotDesktopFile):
+	#     NOTE: Make sure you use "RequestedIconTheme" instead of
+	# "IconTheme", because the second one is part of pyxdg and will
+	# conflict.
+	@Slot(str, str, result=str)
+	def getIcon(self, DotDesktopFile, RequestedIconTheme):
 		# Gets and returns the icon for a given .desktop file
 		# based on the icon size and current user theme.
 		# See the "Arguments" block above for what the args do.
-		# TODO: Use the user's current icon theme instead
-		# of hardcoding Breeze, and allow using different icon
+		# TODO: Allow using different icon
 		# sizes depending on where the icon is being shown
 		# and the user's DPI scaling (on 200% scaling, 96px
 		# icons might be a good idea in the All Apps list and
 		# maybe small tiles, but wide tiles have the icons
 		# stretched horizontally and medium tiles might be a little large
 		# to display the icon so they may be a little blurry).
-		# Only return a value if the DotDesktopFile has something
+		# We're only returning a value if the DotDesktopFile has something
 		# in it, otherwise this would return nothing which results
 		# in trying to assign /usr/share/applications as an image,
 		# and that's not what we want.
 		# TODO 2: Also look in the other places that .desktop files can be
 		# instead of just /usr/share/applications.
 		if len(DotDesktopFile) > 0:
-			iconPath = IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, "breeze-dark")
+			iconPath = IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, RequestedIconTheme)
 			# Don't return anything if the icon path doesn't exist.
 			if os.path.exists(iconPath):
 				return iconPath
