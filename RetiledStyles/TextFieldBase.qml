@@ -158,8 +158,8 @@ T.TextField {
 		color: control.focus ? control.focusedBackgroundColor : control.unfocusedBackgroundColor
         //color: control.enabled ? control.Universal.background : control.Universal.baseLowColor
     }
-
-    onTextEdited: {
+    
+    /* onTextEdited: {
         console.log(justEditedTimerExpired);
         justEditedTimerExpired = false;
         justEditedTimer.restart();
@@ -247,10 +247,10 @@ T.TextField {
             onStopped: {
                 // Show the cursor when the animation is stopped
                 // if we're not selecting anything.
-                cursor.visible = selectedText.length == 0 ? true : false
+                cursor.visible = selectedText.length == 0 && justEditedTimerExpired == false ? true : false
             }
 
             
         }  
-    }
+    } */
 }
