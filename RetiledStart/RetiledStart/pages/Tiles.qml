@@ -46,7 +46,7 @@ ApplicationWindow {
     Universal.theme: Universal.Dark
     // Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
-	property string accentColor: themeSettingsLoader.getThemeSettings("AccentColor", "#0050ef")
+	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
@@ -62,12 +62,10 @@ ApplicationWindow {
 	// if useTileBackgroundWallpaper is false.
 	// Having both be false will just do the solid-color tiles
 	// like 7.x-8.0.
-	// TODO: Make it easy to configure the image to use
-	// without having to switch the file or manually edit the code.
-	property bool displayBackgroundWallpaper: themeSettingsLoader.convertSettingToBool(themeSettingsLoader.getThemeSettings("DisplayBackgroundWallpaper", "false"))
-	property bool useTileBackgroundWallpaper: themeSettingsLoader.convertSettingToBool(themeSettingsLoader.getThemeSettings("UseTileBackgroundWallpaper", "false"))
+	property bool displayBackgroundWallpaper: settingsLoader.convertSettingToBool(settingsLoader.getSetting("themes", "DisplayBackgroundWallpaper", "false"))
+	property bool useTileBackgroundWallpaper: settingsLoader.convertSettingToBool(settingsLoader.getSetting("themes", "UseTileBackgroundWallpaper", "false"))
 	// Set the path for background wallpapers.
-	property string wallpaperPath: themeSettingsLoader.getThemeSettings("WallpaperPath", "wallpaper.jpg")
+	property string wallpaperPath: settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg")
 	// Turning off parallax is for accessibility.
 	// See also "TileBackgroundShaderEffectSource.qml"
 	// for more details, for both this and
@@ -75,7 +73,7 @@ ApplicationWindow {
 	property bool allowParallax: true
 
 	// Set icon theme.
-	property string iconTheme: themeSettingsLoader.getThemeSettings("IconTheme", "breeze-dark")
+	property string iconTheme: settingsLoader.getSetting("themes", "IconTheme", "breeze-dark")
 	
 	// Global edit mode property so we can check to see if
 	// edit mode is turned on globally when tapping a tile.
