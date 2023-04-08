@@ -95,6 +95,9 @@ ShaderEffectSource {
 				// or however much the user decided to set the
 				// opacity to, with whichever color they decided
 				// to use.
+				// Only render it when the opacity is greater
+				// than 0 to save processing power.
+				visible: opacity > 0
 				color: wallpaperOverlayLayerColor
 				opacity: wallpaperOverlayLayerOpacity
 				anchors.fill: parent
