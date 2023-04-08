@@ -65,7 +65,7 @@ ApplicationWindow {
 	// TODO: Make it easy to configure the image to use
 	// without having to switch the file or manually edit the code.
 	property bool displayBackgroundWallpaper: themeSettingsLoader.convertSettingToBool(themeSettingsLoader.getThemeSettings("DisplayBackgroundWallpaper", "false"))
-	property bool useTileBackgroundWallpaper: false
+	property bool useTileBackgroundWallpaper: themeSettingsLoader.convertSettingToBool(themeSettingsLoader.getThemeSettings("UseTileBackgroundWallpaper", "false"))
 	// Turning off parallax is for accessibility.
 	// See also "TileBackgroundShaderEffectSource.qml"
 	// for more details, for both this and
