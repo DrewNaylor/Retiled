@@ -160,8 +160,24 @@ T.TextField {
     }
 
     onTextEdited: {
-        cursorVisible = true
+        justEditedTimer.restart();
+        cursorVisible = true;
     }
+
+    // We need a timer to keep the cursor visible when the user is typing relatively
+    // quickly kinda. Maybe check for 600 ms, like below?
+    // QML Timer info:
+    // https://doc.qt.io/qt-6/qml-qtqml-timer.html#details
+    Timer {
+        id: justEditedTimer
+        interval: 600
+        running: false
+        repeat: false
+        onTriggered: justEditedTimerExpired = true
+    }
+
+    // Here's the boolean that we check.
+    property bool justEditedTimerExpired;
 
     // Forgot to change the color of the cursor, I'll do that now
     // by modifying this SO answer a little:
@@ -171,7 +187,7 @@ T.TextField {
     // https://doc.qt.io/qt-6/qml-qtquick-textinput.html#cursorDelegate-prop
     cursorDelegate: Rectangle {
         id: cursor
-        visible: false
+        visible: true
         // Change the color to black and set the width to 2.
         color: "black"
         width: 2
@@ -179,7 +195,7 @@ T.TextField {
         SequentialAnimation {
             loops: Animation.Infinite
             // We only want to play the animation if the selected text is nothing.
-            running: control.cursorVisible && selectedText.length == 0 && justEditedTimerExpired
+            running: control.cursorVisible && selectedText.length == 0 && justEditedTimerExpired == true
 
             PropertyAction {
                 target: cursor
