@@ -162,7 +162,6 @@ T.TextField {
     onTextEdited: {
         justEditedTimerExpired = false;
         justEditedTimer.restart();
-        cursorVisible = true;
     }
 
     // We need a timer to keep the cursor visible when the user is typing relatively
@@ -176,7 +175,7 @@ T.TextField {
     }
 
     // Here's the boolean that we check.
-    property bool justEditedTimerExpired;
+    property bool justEditedTimerExpired: false;
 
     // Forgot to change the color of the cursor, I'll do that now
     // by modifying this SO answer a little:
@@ -194,12 +193,12 @@ T.TextField {
         SequentialAnimation {
             loops: Animation.Infinite
             // We only want to play the animation if the selected text is nothing.
-            running: selectedText.length == 0 && justEditedTimerExpired == true
+            running: true
 
             PropertyAction {
                 target: cursor
                 property: 'visible'
-                value: true
+                value: selectedText.length == 0 && justEditedTimerExpired == false ? true : false
             }
 
             PauseAnimation {
@@ -209,7 +208,7 @@ T.TextField {
             PropertyAction {
                 target: cursor
                 property: 'visible'
-                value: false
+                value: justEditedTimerExpired == false ? true : false
             }
 
             PauseAnimation {
@@ -219,7 +218,7 @@ T.TextField {
             onStopped: {
                 // Show the cursor when the animation is stopped
                 // if we're not selecting anything.
-                cursor.visible = selectedText.length == 0 ? true : false
+                cursor.visible = selectedText.length == 0 && justEditedTimerExpired == true ? true : false
             }
 
             
