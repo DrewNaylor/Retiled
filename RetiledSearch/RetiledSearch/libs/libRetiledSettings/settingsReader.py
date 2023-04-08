@@ -114,8 +114,8 @@ def getSetting(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = T
 		# Make sure the key is in the file and return the default
 		# if it's not:
 		# https://stackoverflow.com/a/21057828
-			if settingsFileReader.has_option('ThemeSettings', keyToGet):		
-				return settingsFileReader.get('ThemeSettings', keyToGet)
+			if settingsFileReader.has_option('Settings', keyToGet):		
+				return settingsFileReader.get('Settings', keyToGet)
 			else:
 				return defaultValue
 			
