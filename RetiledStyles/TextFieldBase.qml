@@ -160,6 +160,7 @@ T.TextField {
     }
 
     onTextEdited: {
+        justEditedTimerExpired = false;
         justEditedTimer.restart();
         cursorVisible = true;
     }
@@ -171,8 +172,6 @@ T.TextField {
     Timer {
         id: justEditedTimer
         interval: 600
-        running: false
-        repeat: false
         onTriggered: justEditedTimerExpired = true
     }
 
@@ -187,7 +186,7 @@ T.TextField {
     // https://doc.qt.io/qt-6/qml-qtquick-textinput.html#cursorDelegate-prop
     cursorDelegate: Rectangle {
         id: cursor
-        visible: true
+        visible: false
         // Change the color to black and set the width to 2.
         color: "black"
         width: 2
@@ -195,7 +194,7 @@ T.TextField {
         SequentialAnimation {
             loops: Animation.Infinite
             // We only want to play the animation if the selected text is nothing.
-            running: control.cursorVisible && selectedText.length == 0 && justEditedTimerExpired == true
+            running: selectedText.length == 0 && justEditedTimerExpired == true
 
             PropertyAction {
                 target: cursor
@@ -218,7 +217,9 @@ T.TextField {
             }
 
             onStopped: {
-                cursor.visible = false
+                // Show the cursor when the animation is stopped
+                // if we're not selecting anything.
+                cursor.visible = selectedText.length == 0 ? true : false
             }
 
             
