@@ -171,6 +171,9 @@ def getTilesList(includeTileAppNameAreaText = True):
 		#print(YamlFile.StartLayoutSchemaVersion)
 		# You can now know their names.
 		#print(YamlFile.Tiles[0].DotDesktopFilePath)
+
+		# Create a variable for TileSize to access in the loop.
+		#tempTileSize = "medium"
 		
 		# Loop through the Tiles items and add them to the TilesList.
 		# We'll use the looping through index numbers example here:
@@ -178,23 +181,39 @@ def getTilesList(includeTileAppNameAreaText = True):
 		for i in range(len(YamlFile.Tiles)):
 			#print(YamlFile.Tiles[i].TileColor)
 			if (includeTileAppNameAreaText == False):
-				if YamlFile.Tiles[i].TileWidth  or YamlFile.Tiles[i].TileHeight:
+				if YamlFile.Tiles[i].TileWidth or YamlFile.Tiles[i].TileHeight:
 					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
 					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
 					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
 					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
 					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
 					print("\r")
-				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
+				if not YamlFile.Tiles[i].TileSize:
+					if (YamlFile.Tiles[i].TileWidth == "310" & YamlFile.Tiles[i].TileHeight == "150"):
+						tempTileSize = "wide"
+					elif (YamlFile.Tiles[i].TileWidth == "70" & YamlFile.Tiles[i].TileHeight == "70"):
+						tempTileSize = "small"
+					else:
+						tempTileSize = "medium"
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileSize": tempTileSize})
 			else:
-				if YamlFile.Tiles[i].TileWidth  or YamlFile.Tiles[i].TileHeight:
+				if YamlFile.Tiles[i].TileWidth or YamlFile.Tiles[i].TileHeight:
 					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
 					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
 					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
 					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
 					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
 					print("\r")
-				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
+				tempTileSize = ""
+				if not YamlFile.Tiles[i].TileSize:
+					if (YamlFile.Tiles[i].TileWidth == "310" & YamlFile.Tiles[i].TileHeight == "150"):
+						tempTileSize = "wide"
+					elif (YamlFile.Tiles[i].TileWidth == "70" & YamlFile.Tiles[i].TileHeight == "70"):
+						tempTileSize = "small"
+					else:
+						tempTileSize = "medium"
+				print(tempTileSize)
+				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	
@@ -232,7 +251,8 @@ class StartScreenLayoutRoot:
 	# easy to read. Also using the SO link in
 	# the other class below.
 	def __init__(self, root):
-		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"]) for i in root["Tiles"]]
+
+		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], "medium") for i in root["Tiles"]]
 		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
 
 
@@ -244,10 +264,14 @@ class StartScreenTileEntry:
 	# The values here are the same as in the VB.NET version.
 	# Actually, we're now mostly using this answer:
 	# https://stackoverflow.com/a/52581851
-	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight):
+	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileSize):
 		self.DotDesktopFilePath = DotDesktopFilePath
 		self.TileWidth = TileWidth
 		self.TileHeight = TileHeight
+		if not TileSize:
+			self.TileSize = "medium"
+		else:
+			self.TileSize = TileSize
 
 
 
