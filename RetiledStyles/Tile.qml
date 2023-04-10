@@ -129,6 +129,10 @@ ButtonBase {
 	// by the user or by a developer, as well as
 	// if the user says not to use a tile wallpaper.
 	property bool useTileBackgroundWallpaper;
+
+	// Tile size (small, medium, or large).
+	// Won't be fully used until moving to TilesGrid.
+	property string tileSize;
 					
 	RoundButton {
 		id: unpinButton

@@ -557,6 +557,7 @@ ApplicationWindow {
 						
 						// Set tile properties.
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
+							NewTileObject.tileSize = "medium";
 							NewTileObject.width = 150;
 							NewTileObject.height = 150;
 							// Set the boolean to use the tile background wallpaper on this tile,
@@ -751,6 +752,7 @@ ApplicationWindow {
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
 							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+							NewTileObject.tileSize = ParsedTilesList[i].TileSize;
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
 							NewTileObject.height = ParsedTilesList[i].TileHeight;
 							NewTileObject.tileBackgroundColor = accentColor;
