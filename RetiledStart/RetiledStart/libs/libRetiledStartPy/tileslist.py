@@ -185,10 +185,10 @@ def getTilesList(includeTileAppNameAreaText = True):
 		for i in YamlFile["Tiles"]:
 			print(i["DotDesktopFilePath"])
 
-		for i in range(len(YamlFile.Tiles)):
+		for i in YamlFile["Tiles"]:
 			#print(YamlFile.Tiles[i].TileColor)
 			if (includeTileAppNameAreaText == False):
-				if YamlFile.Tiles[i].TileWidth or YamlFile.Tiles[i].TileHeight:
+				if i["TileWidth"] or i["TileHeight"]:
 					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
 					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
 					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
@@ -204,18 +204,18 @@ def getTilesList(includeTileAppNameAreaText = True):
 						tempTileSize = "medium"
 				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileSize": tempTileSize})
 			else:
-				if YamlFile.Tiles[i].TileWidth or YamlFile.Tiles[i].TileHeight:
+				if i["TileWidth"] or i["TileHeight"]:
 					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
 					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
 					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
 					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
-					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
+					print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
 					print("\r")
 				tempTileSize = ""
-				if not YamlFile.Tiles[i].TileSize:
-					if (YamlFile.Tiles[i].TileWidth == "310" & YamlFile.Tiles[i].TileHeight == "150"):
+				if not i["TileSize"]:
+					if (i["TileWidth"] == "310" & i["TileHeight"] == "150"):
 						tempTileSize = "wide"
-					elif (YamlFile.Tiles[i].TileWidth == "70" & YamlFile.Tiles[i].TileHeight == "70"):
+					elif (i["TileWidth"] == "70" & i["TileHeight"] == "70"):
 						tempTileSize = "small"
 					else:
 						tempTileSize = "medium"
