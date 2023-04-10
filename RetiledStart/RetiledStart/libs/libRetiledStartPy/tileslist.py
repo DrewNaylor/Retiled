@@ -222,7 +222,7 @@ def getTilesList(includeTileAppNameAreaText = True):
 					else:
 						tempTileSize = "medium"
 				print(tempTileSize)
-				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileSize": tempTileSize})
+				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileAppNameAreaText": AppsList.GetAppName(i["DotDesktopFilePath"]), "TileWidth": i["TileWidth"], "TileHeight": i["TileHeight"], "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	
