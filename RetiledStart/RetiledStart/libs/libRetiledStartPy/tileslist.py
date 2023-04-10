@@ -85,13 +85,13 @@ def saveTilesList(tilesList):
 		# Add to the TilesListToSave.
 		# NOTE: QML won't give us integers for tile widths and heights,
 		# so we need to make them into integers in Python.
-		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"])})
+		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": i["TileSize"]})
 		# print(i["DotDesktopFilePath"])
 		
-	# print(TilesListToSave)
+	#print(TilesListToSave)
 	
 	# Now we can check if the list is the same as getTilesList().
-	if not json.dumps(TilesListToSave) == getTilesList(False):
+	if not json.dumps(TilesListToSave) == getTilesList():
 	
 		# Append the start layout schema version.
 		# We need to create a new list first, one that
@@ -131,7 +131,7 @@ def saveTilesList(tilesList):
 			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
 	
 
-def getTilesList(includeTileAppNameAreaText = True):
+def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
 	
 	# Check whether the modified tiles list exists, and use
@@ -165,36 +165,60 @@ def getTilesList(includeTileAppNameAreaText = True):
 		# https://pynative.com/python-yaml/
 	
 		# Load the file into a YAML reader.
-		YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile))
+		#YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile))
+		YamlFile = yaml.safe_load(StartLayoutYamlFile)
 		
 		# Now we can refer to the items in the file by their names!
 		#print(YamlFile.StartLayoutSchemaVersion)
 		# You can now know their names.
 		#print(YamlFile.Tiles[0].DotDesktopFilePath)
+
+		# Create a variable for TileSize to access in the loop.
+		#tempTileSize = "medium"
 		
 		# Loop through the Tiles items and add them to the TilesList.
 		# We'll use the looping through index numbers example here:
 		# https://www.w3schools.com/python/python_lists_loop.asp
-		for i in range(len(YamlFile.Tiles)):
+		#for i in range(len(YamlFile.Tiles)):
+		#print(YamlFile)
+
+		for i in YamlFile["Tiles"]:
 			#print(YamlFile.Tiles[i].TileColor)
-			if (includeTileAppNameAreaText == False):
-				if YamlFile.Tiles[i].TileWidth  or YamlFile.Tiles[i].TileHeight:
-					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
-					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
-					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
-					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
-					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
-					print("\r")
-				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
+			# We need to know if the config file has the deprecated
+			# raw values of width and height.
+			# This is used when saving the config file, so that we'll
+			# manually save it and ignore the eMMC safety thing,
+			# otherwise we won't know if we're supposed to save or not,
+			# and that would be bad once we remove this feature.
+			hasDeprecatedRawWidthAndHeight = False
+			if ((not i.get("TileWidth") == None) or (not i.get("TileHeight") == None)) and (i.get("TileSize") == None):
+				print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
+				print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
+				print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
+				print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
+				print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
+				print("\r")
+				# The config file is manually setting height and width,
+				# and we need to know that.
+				hasDeprecatedRawWidthAndHeight = True
+			# Temporary value for tempFileSize so we can grab it later.
+			tempTileSize = "medium"
+			# We have to use .get:
+			# https://stackoverflow.com/a/9285135
+			if (i.get("TileSize")) == None:
+				if (i.get("TileWidth") == int(310) and i.get("TileHeight") == int(150)):
+					tempTileSize = "wide"
+				elif (i.get("TileWidth") == int(70) and i.get("TileHeight") == int(70)):
+					tempTileSize = "small"
+				else:
+					tempTileSize = "medium"
 			else:
-				if YamlFile.Tiles[i].TileWidth  or YamlFile.Tiles[i].TileHeight:
-					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
-					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
-					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
-					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
-					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
-					print("\r")
-				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
+				tempTileSize = i["TileSize"]
+			#print(tempTileSize)
+			if (hasDeprecatedRawWidthAndHeight == True):
+				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize, "hasDeprecatedRawWidthAndHeight" : "True"})
+			else:
+				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	
@@ -223,49 +247,3 @@ def getTilesList(includeTileAppNameAreaText = True):
 	#print(jsonTiles)
 	
 	return jsonTiles
-	
-	
-
-class StartScreenLayoutRoot:
-	# Trying to get all the tile entries
-	# contained into another class so it's
-	# easy to read. Also using the SO link in
-	# the other class below.
-	def __init__(self, root):
-		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"]) for i in root["Tiles"]]
-		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
-
-
-
-class StartScreenTileEntry:
-	# We're creating our own class to use with safe_load:
-	# https://stackoverflow.com/a/2627732
-	# Not sure if this'll work.
-	# The values here are the same as in the VB.NET version.
-	# Actually, we're now mostly using this answer:
-	# https://stackoverflow.com/a/52581851
-	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight):
-		self.DotDesktopFilePath = DotDesktopFilePath
-		self.TileWidth = TileWidth
-		self.TileHeight = TileHeight
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	

@@ -201,6 +201,7 @@ ApplicationWindow {
 					tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
 					tile['TileWidth'] = tilesContainer.children[i].width;
 					tile['TileHeight'] = tilesContainer.children[i].height;
+					tile['TileSize'] = tilesContainer.children[i].tileSize;
 					// Push the tile to the list.
 					// TODO: Prevent sorting.
 					tilesList.push(tile);
@@ -557,6 +558,7 @@ ApplicationWindow {
 						
 						// Set tile properties.
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
+							NewTileObject.tileSize = "medium";
 							NewTileObject.width = 150;
 							NewTileObject.height = 150;
 							// Set the boolean to use the tile background wallpaper on this tile,
@@ -750,9 +752,22 @@ ApplicationWindow {
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
-							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
-							NewTileObject.width = ParsedTilesList[i].TileWidth;
-							NewTileObject.height = ParsedTilesList[i].TileHeight;
+							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
+							NewTileObject.tileSize = ParsedTilesList[i].TileSize;
+							// Using the tileSize property to set the tile's height and width.
+							// Please note: in the future, we're not going to be setting height
+							// and width, and instead we'll be setting rows and columns
+							// in TilesGrid.
+							if (NewTileObject.tileSize == "small") {
+								NewTileObject.width = 70;
+								NewTileObject.height = 70;
+							} else if (NewTileObject.tileSize == "wide") {
+								NewTileObject.width = 310;
+								NewTileObject.height = 150;
+							} else {
+								NewTileObject.width = 150;
+								NewTileObject.height = 150;
+							}
 							NewTileObject.tileBackgroundColor = accentColor;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.

@@ -129,6 +129,10 @@ ButtonBase {
 	// by the user or by a developer, as well as
 	// if the user says not to use a tile wallpaper.
 	property bool useTileBackgroundWallpaper;
+
+	// Tile size (small, medium, or wide).
+	// Won't be fully used until moving to TilesGrid.
+	property string tileSize;
 					
 	RoundButton {
 		id: unpinButton
@@ -231,24 +235,27 @@ ButtonBase {
 			rotationBehavior.enabled = true;
 			tileResizeHeightBehavior.enabled = true;
 			tileResizeWidthBehavior.enabled = true;
-			if ((control.width == 150) && (control.height == 150)) {
+			if (tileSize == "medium") {
 				// If button is medium, resize to small.
 				control.width = 70;
 				control.height = 70;
+				tileSize = "small";
 				// Change the resize button's rotation for the small tile.
 				// 45 points down-right.
 				resizeButton.rotation = 45;
-			} else if ((control.width == 70) && (control.height == 70)) {
+			} else if (tileSize == "small") {
 				// If button is small, resize to wide.
 				control.width = 310;
 				control.height = 150;
+				tileSize = "wide";
 				// Change the resize button's rotation for the wide tile.
 				// -180 points the arrow backward.
 				resizeButton.rotation = -180;
-			} else if ((control.width == 310) && (control.height == 150)) {
+			} else if (tileSize == "wide") {
 				// If button is wide, resize to medium.
 				control.width = 150;
 				control.height = 150;
+				tileSize = "medium";
 				// Change the resize button's rotation to match
 				// the medium tile's expected resize button rotation.
 				// We're changing it to -135 so it points in the top-left.
@@ -258,6 +265,7 @@ ButtonBase {
 				// in case.
 				control.width = 150;
 				control.height = 150;
+				tileSize = "medium";
 				// Change the resize button's rotation to match
 				// the medium tile's expected resize button rotation.
 				// We're changing it to -135 so it points in the top-left.
@@ -358,15 +366,15 @@ ButtonBase {
 				setTileOpacity();
 				// Now set the previous tile index.
 				previousTileInEditingModeIndex = tileIndex;
-					if ((width == 150) && (height == 150)) {
+					if (tileSize == "medium") {
 				// Change the resize button's rotation for the medium tile.
 				// -135 points the arrow in the top-left corner.
 						resizeButton.rotation = -135;
-					} else if ((width == 70) && (height == 70)) {
+					} else if (tileSize == "small") {
 				// Change the resize button's rotation for the small tile.
 				// 45 points the arrow down-right.
 						resizeButton.rotation = 45;
-					} else if ((width == 310) && (height == 150)) {
+					} else if (tileSize == "wide") {
 				// Change the resize button's rotation to match
 				// the wide tile's expected resize button rotation.
 				// -180 points to the left.
@@ -460,15 +468,15 @@ ButtonBase {
 			// TODO: Make the rotation into its own function.
 			// NOTE: These values are different from the ones
 			// used when pressing the resize button.
-			if ((width == 150) && (height == 150)) {
+			if (tileSize == "medium") {
 				// Change the resize button's rotation for the medium tile.
 				// -135 points the arrow in the top-left corner.
 				resizeButton.rotation = -135;
-			} else if ((width == 70) && (height == 70)) {
+			} else if (tileSize == "small") {
 				// Change the resize button's rotation for the small tile.
 				// 45 points the arrow down-right.
 				resizeButton.rotation = 45;
-			} else if ((width == 310) && (height == 150)) {
+			} else if (tileSize == "wide") {
 				// Change the resize button's rotation to match
 				// the wide tile's expected resize button rotation.
 				// -180 points to the left.
