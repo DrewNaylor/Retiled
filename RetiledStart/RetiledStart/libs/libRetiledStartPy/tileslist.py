@@ -85,7 +85,7 @@ def saveTilesList(tilesList):
 		# Add to the TilesListToSave.
 		# NOTE: QML won't give us integers for tile widths and heights,
 		# so we need to make them into integers in Python.
-		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": int(i["TileWidth"]), "TileHeight": int(i["TileHeight"]), "TileSize": i["TileSize"]})
+		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": i["TileSize"]})
 		# print(i["DotDesktopFilePath"])
 		
 	# print(TilesListToSave)
@@ -187,7 +187,7 @@ def getTilesList():
 
 		for i in YamlFile["Tiles"]:
 			#print(YamlFile.Tiles[i].TileColor)
-			if (i["TileWidth"] or i["TileHeight"]) and (i.get("TileSize")) == None:
+			if (not i.get("TileWidth") == None or not i.get("TileHeight") == None) and (i.get("TileSize")) == None:
 				print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
 				print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
 				print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
@@ -198,9 +198,9 @@ def getTilesList():
 			# We have to use .get:
 			# https://stackoverflow.com/a/9285135
 			if (i.get("TileSize")) == None:
-				if (i["TileWidth"] == int(310) and i["TileHeight"] == int(150)):
+				if (i.get("TileWidth") == int(310) and i.get("TileHeight") == int(150)):
 					tempTileSize = "wide"
-				elif (i["TileWidth"] == int(70) and i["TileHeight"] == int(70)):
+				elif (i.get("TileWidth") == int(70) and i.get("TileHeight") == int(70)):
 					tempTileSize = "small"
 				else:
 					tempTileSize = "medium"
