@@ -165,7 +165,8 @@ def getTilesList(includeTileAppNameAreaText = True):
 		# https://pynative.com/python-yaml/
 	
 		# Load the file into a YAML reader.
-		YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile))
+		#YamlFile = StartScreenLayoutRoot(yaml.safe_load(StartLayoutYamlFile))
+		YamlFile = yaml.safe_load(StartLayoutYamlFile)
 		
 		# Now we can refer to the items in the file by their names!
 		#print(YamlFile.StartLayoutSchemaVersion)
@@ -178,6 +179,12 @@ def getTilesList(includeTileAppNameAreaText = True):
 		# Loop through the Tiles items and add them to the TilesList.
 		# We'll use the looping through index numbers example here:
 		# https://www.w3schools.com/python/python_lists_loop.asp
+		#for i in range(len(YamlFile.Tiles)):
+		#print(YamlFile)
+		
+		for i in YamlFile["Tiles"]:
+			print(i["DotDesktopFilePath"])
+
 		for i in range(len(YamlFile.Tiles)):
 			#print(YamlFile.Tiles[i].TileColor)
 			if (includeTileAppNameAreaText == False):
