@@ -201,6 +201,7 @@ ApplicationWindow {
 					tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
 					tile['TileWidth'] = tilesContainer.children[i].width;
 					tile['TileHeight'] = tilesContainer.children[i].height;
+					tile['TileSize'] = tilesContainer.children[i].tileSize;
 					// Push the tile to the list.
 					// TODO: Prevent sorting.
 					tilesList.push(tile);
