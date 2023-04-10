@@ -130,7 +130,7 @@ ButtonBase {
 	// if the user says not to use a tile wallpaper.
 	property bool useTileBackgroundWallpaper;
 
-	// Tile size (small, medium, or large).
+	// Tile size (small, medium, or wide).
 	// Won't be fully used until moving to TilesGrid.
 	property string tileSize;
 					
