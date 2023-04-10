@@ -751,7 +751,7 @@ ApplicationWindow {
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
-							NewTileObject.tileText = ParsedTilesList[i].TileAppNameAreaText;
+							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
 							NewTileObject.tileSize = ParsedTilesList[i].TileSize;
 							NewTileObject.width = ParsedTilesList[i].TileWidth;
 							NewTileObject.height = ParsedTilesList[i].TileHeight;

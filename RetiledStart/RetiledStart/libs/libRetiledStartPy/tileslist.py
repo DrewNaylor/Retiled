@@ -230,6 +230,8 @@ def getTilesList(includeTileAppNameAreaText = True):
 						tempTileWidth = "150"
 						tempTileHeight = "150"
 				print(tempTileSize)
+				# TODO: Figure out how to not have to add TileAppNameAreaText to this list of dictionaries,
+				# and instead grab it from the tiles to collapse this if statement into one.
 				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileAppNameAreaText": AppsList.GetAppName(i["DotDesktopFilePath"]), "TileWidth": tempTileWidth, "TileHeight": tempTileHeight, "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
