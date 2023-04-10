@@ -187,7 +187,7 @@ def getTilesList():
 
 		for i in YamlFile["Tiles"]:
 			#print(YamlFile.Tiles[i].TileColor)
-			if (not i.get("TileWidth") == None or not i.get("TileHeight") == None) and (i.get("TileSize")) == None:
+			if ((not i.get("TileWidth") == None) or (not i.get("TileHeight") == None)) and (i.get("TileSize") == None):
 				print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
 				print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
 				print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
