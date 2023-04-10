@@ -430,6 +430,9 @@ ApplicationWindow {
 		
 		MouseArea {
 			// This MouseArea lets us leave edit mode when clicked inside it.
+			// TODO: Move this block and the one in the Shortcut
+			// at the top of this file to a separate function to not
+			// have to change it in multiple places.
 			onClicked: {
 				if (globalEditMode == true) {
 				// Turn off global edit mode.
@@ -440,7 +443,7 @@ ApplicationWindow {
 				// Reset opacity for each tile.
 				setTileOpacity();
 				// TODO: Figure out how to ensure we can click
-				// anywhere on the tiles area to exit edit mode,
+				// anywhere on the tiles page to exit edit mode,
 				// because right now there's an area on the right
 				// side where it won't work.
 				} 
