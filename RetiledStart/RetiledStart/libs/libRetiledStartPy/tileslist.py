@@ -128,7 +128,7 @@ def saveTilesList(tilesList):
 			os.makedirs(ModifiedStartLayoutYamlBaseFilePath)
 		
 		with open("".join([ModifiedStartLayoutYamlBaseFilePath, "startlayout-modified.yaml"]), "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
-			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
+				ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
 	
 
 def getTilesList():
@@ -187,6 +187,13 @@ def getTilesList():
 
 		for i in YamlFile["Tiles"]:
 			#print(YamlFile.Tiles[i].TileColor)
+			# We need to know if the config file has the deprecated
+			# raw values of width and height.
+			# This is used when saving the config file, so that we'll
+			# manually save it and ignore the eMMC safety thing,
+			# otherwise we won't know if we're supposed to save or not,
+			# and that would be bad once we remove this feature.
+			hasDeprecatedRawWidthAndHeight = False
 			if ((not i.get("TileWidth") == None) or (not i.get("TileHeight") == None)) and (i.get("TileSize") == None):
 				print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
 				print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
@@ -194,6 +201,10 @@ def getTilesList():
 				print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
 				print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
 				print("\r")
+				# The config file is manually setting height and width,
+				# and we need to know that.
+				hasDeprecatedRawWidthAndHeight = True
+			# Temporary value for tempFileSize so we can grab it later.
 			tempTileSize = "medium"
 			# We have to use .get:
 			# https://stackoverflow.com/a/9285135
@@ -207,7 +218,10 @@ def getTilesList():
 			else:
 				tempTileSize = i["TileSize"]
 			print(tempTileSize)
-			TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize})
+			if (hasDeprecatedRawWidthAndHeight == True):
+				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize, "hasDeprecatedRawWidthAndHeight" : "True"})
+			else:
+				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	
