@@ -195,27 +195,19 @@ def getTilesList():
 				print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
 				print("\r")
 			tempTileSize = "medium"
-			tempTileWidth = "150"
-			tempTileHeight = "150"
 			# We have to use .get:
 			# https://stackoverflow.com/a/9285135
 			if (i.get("TileSize")) == None:
 				if (i["TileWidth"] == int(310) and i["TileHeight"] == int(150)):
 					tempTileSize = "wide"
-					tempTileWidth = "310"
-					tempTileHeight = "150"
 				elif (i["TileWidth"] == int(70) and i["TileHeight"] == int(70)):
 					tempTileSize = "small"
-					tempTileWidth = "70"
-					tempTileHeight = "70"
 				else:
 					tempTileSize = "medium"
-					tempTileWidth = "150"
-					tempTileHeight = "150"
 			else:
 				tempTileSize = i["TileSize"]
 			print(tempTileSize)
-			TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": tempTileWidth, "TileHeight": tempTileHeight, "TileSize": tempTileSize})
+			TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	
