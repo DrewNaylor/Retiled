@@ -88,7 +88,7 @@ def saveTilesList(tilesList):
 		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": i["TileSize"]})
 		# print(i["DotDesktopFilePath"])
 		
-	# print(TilesListToSave)
+	#print(TilesListToSave)
 	
 	# Now we can check if the list is the same as getTilesList().
 	if not json.dumps(TilesListToSave) == getTilesList():
@@ -128,7 +128,7 @@ def saveTilesList(tilesList):
 			os.makedirs(ModifiedStartLayoutYamlBaseFilePath)
 		
 		with open("".join([ModifiedStartLayoutYamlBaseFilePath, "startlayout-modified.yaml"]), "w+", encoding="utf-8") as ModifiedStartLayoutYamlFile:
-				ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
+			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
 	
 
 def getTilesList():
@@ -181,9 +181,6 @@ def getTilesList():
 		# https://www.w3schools.com/python/python_lists_loop.asp
 		#for i in range(len(YamlFile.Tiles)):
 		#print(YamlFile)
-		
-		for i in YamlFile["Tiles"]:
-			print(i["DotDesktopFilePath"])
 
 		for i in YamlFile["Tiles"]:
 			#print(YamlFile.Tiles[i].TileColor)
@@ -217,7 +214,7 @@ def getTilesList():
 					tempTileSize = "medium"
 			else:
 				tempTileSize = i["TileSize"]
-			print(tempTileSize)
+			#print(tempTileSize)
 			if (hasDeprecatedRawWidthAndHeight == True):
 				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize, "hasDeprecatedRawWidthAndHeight" : "True"})
 			else:
