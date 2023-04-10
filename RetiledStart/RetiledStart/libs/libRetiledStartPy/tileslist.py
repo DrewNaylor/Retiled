@@ -212,17 +212,25 @@ def getTilesList(includeTileAppNameAreaText = True):
 					print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
 					print("\r")
 				tempTileSize = ""
+				tempTileWidth = ""
+				tempTileHeight = ""
 				# We have to use .get:
 				# https://stackoverflow.com/a/9285135
 				if (i.get("TileSize")) == None:
-					if (i["TileWidth"] == "310" and i["TileHeight"] == "150"):
+					if (i["TileWidth"] == int(310) and i["TileHeight"] == int(150)):
 						tempTileSize = "wide"
-					elif (i["TileWidth"] == "70" and i["TileHeight"] == "70"):
+						tempTileWidth = "310"
+						tempTileHeight = "150"
+					elif (i["TileWidth"] == int(70) and i["TileHeight"] == int(70)):
 						tempTileSize = "small"
+						tempTileWidth = "70"
+						tempTileHeight = "70"
 					else:
 						tempTileSize = "medium"
+						tempTileWidth = "150"
+						tempTileHeight = "150"
 				print(tempTileSize)
-				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileAppNameAreaText": AppsList.GetAppName(i["DotDesktopFilePath"]), "TileWidth": i["TileWidth"], "TileHeight": i["TileHeight"], "TileSize": tempTileSize})
+				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileAppNameAreaText": AppsList.GetAppName(i["DotDesktopFilePath"]), "TileWidth": tempTileWidth, "TileHeight": tempTileHeight, "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	
@@ -251,54 +259,3 @@ def getTilesList(includeTileAppNameAreaText = True):
 	#print(jsonTiles)
 	
 	return jsonTiles
-	
-	
-
-class StartScreenLayoutRoot:
-	# Trying to get all the tile entries
-	# contained into another class so it's
-	# easy to read. Also using the SO link in
-	# the other class below.
-	def __init__(self, root):
-
-		self.Tiles = [StartScreenTileEntry(i["DotDesktopFilePath"], i["TileWidth"], i["TileHeight"], "medium") for i in root["Tiles"]]
-		self.StartLayoutSchemaVersion = root["StartLayoutSchemaVersion"]
-
-
-
-class StartScreenTileEntry:
-	# We're creating our own class to use with safe_load:
-	# https://stackoverflow.com/a/2627732
-	# Not sure if this'll work.
-	# The values here are the same as in the VB.NET version.
-	# Actually, we're now mostly using this answer:
-	# https://stackoverflow.com/a/52581851
-	def __init__(self, DotDesktopFilePath, TileWidth, TileHeight, TileSize):
-		self.DotDesktopFilePath = DotDesktopFilePath
-		self.TileWidth = TileWidth
-		self.TileHeight = TileHeight
-		if not TileSize:
-			self.TileSize = "medium"
-		else:
-			self.TileSize = TileSize
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
