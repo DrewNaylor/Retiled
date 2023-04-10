@@ -178,8 +178,22 @@ def getTilesList(includeTileAppNameAreaText = True):
 		for i in range(len(YamlFile.Tiles)):
 			#print(YamlFile.Tiles[i].TileColor)
 			if (includeTileAppNameAreaText == False):
+				if YamlFile.Tiles[i].TileWidth  or YamlFile.Tiles[i].TileHeight:
+					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
+					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
+					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
+					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
+					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
+					print("\r")
 				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
 			else:
+				if YamlFile.Tiles[i].TileWidth  or YamlFile.Tiles[i].TileHeight:
+					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
+					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
+					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
+					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
+					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
+					print("\r")
 				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileAppNameAreaText": AppsList.GetAppName(YamlFile.Tiles[i].DotDesktopFilePath), "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight})
 		
 		# Get the stuff under Tiles.
