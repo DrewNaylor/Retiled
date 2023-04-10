@@ -362,15 +362,15 @@ ButtonBase {
 				setTileOpacity();
 				// Now set the previous tile index.
 				previousTileInEditingModeIndex = tileIndex;
-					if ((width == 150) && (height == 150)) {
+					if (tileSize == "medium") {
 				// Change the resize button's rotation for the medium tile.
 				// -135 points the arrow in the top-left corner.
 						resizeButton.rotation = -135;
-					} else if ((width == 70) && (height == 70)) {
+					} else if (tileSize == "small") {
 				// Change the resize button's rotation for the small tile.
 				// 45 points the arrow down-right.
 						resizeButton.rotation = 45;
-					} else if ((width == 310) && (height == 150)) {
+					} else if (tileSize == "wide") {
 				// Change the resize button's rotation to match
 				// the wide tile's expected resize button rotation.
 				// -180 points to the left.
