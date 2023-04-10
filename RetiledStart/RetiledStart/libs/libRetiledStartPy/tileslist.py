@@ -212,10 +212,12 @@ def getTilesList(includeTileAppNameAreaText = True):
 					print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
 					print("\r")
 				tempTileSize = ""
-				if not i["TileSize"]:
-					if (i["TileWidth"] == "310" & i["TileHeight"] == "150"):
+				# We have to use .get:
+				# https://stackoverflow.com/a/9285135
+				if (i.get("TileSize")) == None:
+					if (i["TileWidth"] == "310" and i["TileHeight"] == "150"):
 						tempTileSize = "wide"
-					elif (i["TileWidth"] == "70" & i["TileHeight"] == "70"):
+					elif (i["TileWidth"] == "70" and i["TileHeight"] == "70"):
 						tempTileSize = "small"
 					else:
 						tempTileSize = "medium"
