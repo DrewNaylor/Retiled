@@ -91,7 +91,7 @@ def saveTilesList(tilesList):
 	# print(TilesListToSave)
 	
 	# Now we can check if the list is the same as getTilesList().
-	if not json.dumps(TilesListToSave) == getTilesList(False):
+	if not json.dumps(TilesListToSave) == getTilesList():
 	
 		# Append the start layout schema version.
 		# We need to create a new list first, one that
@@ -131,7 +131,7 @@ def saveTilesList(tilesList):
 			ModifiedStartLayoutYamlFile.write(yamlifiedTiles)
 	
 
-def getTilesList(includeTileAppNameAreaText = True):
+def getTilesList():
 	# Gets the list of tiles that should be shown on Start.
 	
 	# Check whether the modified tiles list exists, and use
@@ -187,52 +187,33 @@ def getTilesList(includeTileAppNameAreaText = True):
 
 		for i in YamlFile["Tiles"]:
 			#print(YamlFile.Tiles[i].TileColor)
-			if (includeTileAppNameAreaText == False):
-				if i["TileWidth"] or i["TileHeight"]:
-					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
-					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
-					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
-					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
-					print("RetiledStart: Affected tile's .desktop file: " + YamlFile.Tiles[i].DotDesktopFilePath)
-					print("\r")
-				if not YamlFile.Tiles[i].TileSize:
-					if (YamlFile.Tiles[i].TileWidth == "310" & YamlFile.Tiles[i].TileHeight == "150"):
-						tempTileSize = "wide"
-					elif (YamlFile.Tiles[i].TileWidth == "70" & YamlFile.Tiles[i].TileHeight == "70"):
-						tempTileSize = "small"
-					else:
-						tempTileSize = "medium"
-				TilesList.append({"DotDesktopFilePath": YamlFile.Tiles[i].DotDesktopFilePath, "TileWidth": YamlFile.Tiles[i].TileWidth, "TileHeight": YamlFile.Tiles[i].TileHeight, "TileSize": tempTileSize})
-			else:
-				if i["TileWidth"] or i["TileHeight"]:
-					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
-					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
-					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
-					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
-					print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
-					print("\r")
-				tempTileSize = ""
-				tempTileWidth = ""
-				tempTileHeight = ""
-				# We have to use .get:
-				# https://stackoverflow.com/a/9285135
-				if (i.get("TileSize")) == None:
-					if (i["TileWidth"] == int(310) and i["TileHeight"] == int(150)):
-						tempTileSize = "wide"
-						tempTileWidth = "310"
-						tempTileHeight = "150"
-					elif (i["TileWidth"] == int(70) and i["TileHeight"] == int(70)):
-						tempTileSize = "small"
-						tempTileWidth = "70"
-						tempTileHeight = "70"
-					else:
-						tempTileSize = "medium"
-						tempTileWidth = "150"
-						tempTileHeight = "150"
-				print(tempTileSize)
-				# TODO: Figure out how to not have to add TileAppNameAreaText to this list of dictionaries,
-				# and instead grab it from the tiles to collapse this if statement into one.
-				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": tempTileWidth, "TileHeight": tempTileHeight, "TileSize": tempTileSize})
+			if i["TileWidth"] or i["TileHeight"]:
+				print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
+				print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
+				print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
+				print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
+				print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
+				print("\r")
+			tempTileSize = ""
+			tempTileWidth = ""
+			tempTileHeight = ""
+			# We have to use .get:
+			# https://stackoverflow.com/a/9285135
+			if (i.get("TileSize")) == None:
+				if (i["TileWidth"] == int(310) and i["TileHeight"] == int(150)):
+					tempTileSize = "wide"
+					tempTileWidth = "310"
+					tempTileHeight = "150"
+				elif (i["TileWidth"] == int(70) and i["TileHeight"] == int(70)):
+					tempTileSize = "small"
+					tempTileWidth = "70"
+					tempTileHeight = "70"
+				else:
+					tempTileSize = "medium"
+					tempTileWidth = "150"
+					tempTileHeight = "150"
+			print(tempTileSize)
+			TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileWidth": tempTileWidth, "TileHeight": tempTileHeight, "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	
