@@ -46,4 +46,13 @@ import QtQuick
 QtObject {
     property string regularFont: "Inter"
     property string lightFont: "InterLight"
+    // Font weight is an enum:
+    // https://doc.qt.io/qt-6/qml-font.html
+    property enumeration lightFontWeight: Font.Light
+    property enumeration regularFontWeight: Font.Normal
+    property enumeration semiboldFontWeight: Font.DemiBold
+    // Inter doesn't have a Semi/DemiLight weight, but Noto
+    // does for at least one version.
+    //property enumeration semilightFontWeight: Font.DemiLight
+
 }
