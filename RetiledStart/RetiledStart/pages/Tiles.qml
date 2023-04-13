@@ -850,8 +850,17 @@ ApplicationWindow {
 			// wrong font, "8514oem" to be exact.
 			// Seems to work fine on Linux, for some reason.
 			// This is really weird.
+			// Ok, I don't think I can just use the font directly
+			// from the repo, and instead it'll need to be installed
+			// into the fonts directory, usually "/usr/share/fonts",
+			// but can also be "~/.local/share/fonts/".
+			// This will be replaced with SVG files soon, anyway.
 			text: "<b>\ue021</b>"
-			font: metroFont.font
+			// I guess it'll work for now, but we need to use ".name"
+			// instead of ".font" for some reason.
+			// Got this idea from here:
+			// https://stackoverflow.com/a/57219406
+			fontFamily: metroFont.name
 			
 			// Set background color for when pressed.
 			// By default this is cobalt (#0050ef).
