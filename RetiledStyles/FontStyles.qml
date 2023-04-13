@@ -55,6 +55,9 @@ QtObject {
     // appears, but sometimes margins and colors are included).
     // I'm not entirely sure yet how to put them together into text styles.
     // TODO: Put them together into text styles.
+    // TODO 2: Have some way that doesn't require the user to install the font,
+    // maybe? unless that's a good idea? anyway, there also needs to be
+    // a way to change the font used at runtime.
     property string regularFont: "Inter Display"
     property string lightFont: "Inter Display Light"
     property string semiboldFont: "Inter Display Semi Bold"
