@@ -114,7 +114,7 @@ Page {
 			// of the text color to be the dimmer variant.
 				font.family: RetiledStyles.FontStyles.regularFont
 				font.weight: RetiledStyles.FontStyles.regularFontWeight
-				font.pointSize: RetiledStyles.FontStyles.regularFontSize
+				font.pointSize: RetiledStyles.FontStyles.smallFontSize
 				// TODO: Move letter spacing into the control.
 				// Actually I'm not sure about using letter spacing now.
 				//font.letterSpacing: -0.8 * scaleFactor

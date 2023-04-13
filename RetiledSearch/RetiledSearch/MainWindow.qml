@@ -173,7 +173,7 @@ ApplicationWindow {
 				// TODO: Figure out a way to use SVG files because
 				// this is blurry with HiDPI.
                 text: "<b>\ue020</b>"
-				font: metroFont.font
+				font: metroFont.name
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
