@@ -52,9 +52,9 @@
 import os
 import sys
 import json
-from ..pyyaml import yaml
+import yaml
 # We have to specify the whole path or it won't work.
-from ..pyyaml.yaml.loader import SafeLoader
+from yaml.loader import SafeLoader
 from . import appslist as AppsList
 
 
