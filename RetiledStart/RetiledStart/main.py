@@ -264,10 +264,18 @@ class GetAppIcon(QObject):
 			else:
 				return None
 
+def shutdown():
+	# This is the cleanup code as described in the link.
+	engine.rootObjects()[0].deleteLater()
+
 if __name__ == "__main__":
 	# Set the Universal style.
 	sys.argv += ['--style', 'Universal']
 	app = QGuiApplication(sys.argv)
+	# Clean up the engine stuff before closing:
+	# https://bugreports.qt.io/browse/QTBUG-81247?focusedCommentId=512347&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-512347
+	# But we're actually taking the one from September 17, 2021, also from Benjamin Green.
+	app.aboutToQuit.connect(shutdown)
 	
 	# Define the AllAppsListItems class so I can use it.
 	allAppsListItems = AllAppsListItems()
