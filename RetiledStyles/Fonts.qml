@@ -57,6 +57,7 @@ QtObject {
     property string semiboldFont: "Inter Display Semi Bold"
     // Inter doesn't have a Semi/DemiLight font style.
     //property string semilightFont: "Inter Display Semi Light"
+
     // Font weight is an enum:
     // https://doc.qt.io/qt-6/qml-font.html
     property enumeration lightFontWeight: Font.Light
@@ -65,6 +66,16 @@ QtObject {
     // Inter doesn't have a Semi/DemiLight weight, but Noto
     // does for at least one version.
     //property enumeration semilightFontWeight: Font.DemiLight
+    
+    // Font sizes in pointSize as reals.
+    // See the MSDN link above for the font sizes we're using
+    // under the "Font sizes" section, hope they don't mind.
+    // Apparently "real" is double-precision, like actual doubles,
+    // so we should be fine:
+    // https://stackoverflow.com/questions/42308147/is-double-now-fully-equivalent-to-real-in-qml
+    property real smallFontSize: 18.667
+    property real normalFontSize: 20
+    property real mediumFontSize: 22.667
 
 
 }
