@@ -107,7 +107,7 @@ RetiledStyles.Button {
 	}
 	
 	Text {
-		font.pointSize: 8
+		font.pointSize: RetiledStyles.FontStyles.extraextrasmallFontSize
 		text: actionCenterButtonText
 		//text: "FLASHLIGHT"
 		//text: "ROTATION LOCK"
