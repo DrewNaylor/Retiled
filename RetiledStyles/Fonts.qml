@@ -40,3 +40,10 @@
 // have to be hardcoded everywhere.
 // Using singletons (approach 2):
 // https://wiki.qt.io/Qml_Styling
+pragma Singleton
+import QtQuick
+
+QtObject {
+    property string regularFont: "Inter"
+    property string lightFont: "InterLight"
+}
