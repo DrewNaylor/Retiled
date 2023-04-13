@@ -65,7 +65,7 @@
 //   Please refer to the licensing info above for the licenses this file falls
 //   under.
 
-
+import "."
 import QtQuick
 import QtQuick.Templates as T
 import QtQuick.Controls.impl
@@ -88,6 +88,16 @@ T.ItemDelegate {
 	
 	// Scale it down like a button.
 	scale: down ? 0.98 : 1.0
+
+    // Tilt angle for the tilt effect.
+    property int tiltAngle: 15
+
+    // Have buttons tilt toward the cursor or
+	// touch point when pressed, like Windows Phone.
+	// The code was moved to TiltEffect.qml so it can be
+	// easily shared with other elements that don't
+	// inherit from ButtonBase.
+	transform: TiltEffect {}
 
     icon.width: 20
     icon.height: 20
