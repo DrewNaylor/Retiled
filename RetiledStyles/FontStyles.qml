@@ -88,7 +88,7 @@ QtObject {
     property real extrasmallFontSize: 10
     property real smallFontSize: 12
     property real normalFontSize: 16
-    property real mediumFontSize: 22.667
+    property real mediumFontSize: 18
     property real mediumlargeFontSize: 25.333
     property real largeFontSize: 32
     property real extralargeFontSize: 42.667

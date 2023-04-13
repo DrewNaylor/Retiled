@@ -60,7 +60,7 @@ ButtonBase {
 	// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff769552(v=vs.105)#font-sizes
 	// That's too big, let's use 20.
 	// Nah, 18.
-	property int fontSize: 18
+	property real fontSize: FontStyles.mediumFontSize
 	// textColor would usually be white, but it can be
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
