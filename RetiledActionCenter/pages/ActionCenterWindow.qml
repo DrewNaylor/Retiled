@@ -47,16 +47,19 @@ ApplicationWindow {
     Universal.theme: Universal.Dark
     // Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
-	property string accentColor: themeSettingsLoader.getThemeSettings()
+	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
 	// Currently used for the button to test changing the Accent color
 	// at runtime if a different color besides Cobalt is desired.
-	property string defaultAccentColor: themeSettingsLoader.getThemeSettings()
+	property string defaultAccentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
 	Universal.background: 'black'
+
+	// Turning off tilt for accessibility if desired.
+	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
 	
 	// Load Open Sans ~~SemiBold~~ Regular (see below) for the tile text:
 	// https://stackoverflow.com/a/8430030
