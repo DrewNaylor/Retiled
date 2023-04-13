@@ -63,7 +63,7 @@ import "../../../RetiledStyles" as RetiledStyles
 					// This could be useful:
 					// http://imaginativethinking.ca/use-qt-quicks-delegatemodelgroup/
 					text: "<b>\ue031</b>"
-					font: metroFont.name
+					fontFamily: metroFont.name
 					pressedTextColor: "black"
 					pressedBackgroundColor: "white"
 					// Make sure the buttons are aligned to the top.

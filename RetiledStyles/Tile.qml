@@ -189,7 +189,7 @@ ButtonBase {
 		id: resizeButton
 		visible: editMode
 		text: "<b>\ue021</b>"
-		font: metroFont.font
+		fontFamily: metroFont.name
 		// Anchor the horizontal and vertical
 		// center to the right and bottom
 		// respectively so that the resize

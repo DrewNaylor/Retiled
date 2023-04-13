@@ -136,6 +136,20 @@ ApplicationWindow {
 			// http://www.apache.org/licenses/LICENSE-2.0
 			//source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
 		//}
+
+	// Use a FontLoader to get the arrow button font:
+		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
+	FontLoader {
+		id: metroFont
+		// This is using the wp-metro font, which you can
+		// find here:
+		// https://github.com/ajtroxell/wp-metro
+		// In case that repo goes down, here's my fork:
+		// https://github.com/DrewNaylor/wp-metro
+		// This font was made by AJ Troxell and is under the SIL OFL 1.1:
+		// http://scripts.sil.org/OFL
+		source: "../../../fonts/wp-metro/WP-Metro.ttf"
+	}
 	
 	
 	Shortcut {
@@ -822,19 +836,7 @@ ApplicationWindow {
 				
 			} // End of the Flow that contains the tiles.
 	
-		// Use a FontLoader to get the arrow button font:
-		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
-		FontLoader {
-			id: metroFont
-			// This is using the wp-metro font, which you can
-			// find here:
-			// https://github.com/ajtroxell/wp-metro
-			// In case that repo goes down, here's my fork:
-			// https://github.com/DrewNaylor/wp-metro
-			// This font was made by AJ Troxell and is under the SIL OFL 1.1:
-			// http://scripts.sil.org/OFL
-			source: "../../../fonts/wp-metro/WP-Metro.ttf"
-		}
+		
 		
 		Item {
 			// Empty item above All Apps button for spacing.
