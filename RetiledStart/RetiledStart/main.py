@@ -278,7 +278,7 @@ if __name__ == "__main__":
 	# Hook up the tiles list stuff.
 	tilesListViewModel = TilesListViewModel()
 	
-	# Bind the theme settings loader to access it from QML.
+	# Bind the settings loader to access it from QML.
 	settingsLoader = SettingsLoader()
 
 	# Grab the GetAppIcon class so we can put it into QML later.

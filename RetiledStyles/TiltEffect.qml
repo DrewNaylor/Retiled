@@ -60,6 +60,8 @@ Rotation {
 	// is supposed to tilt in.
 	origin.x: width / 2
 	origin.y: height / 2
+	// Define tilt according to the allowTilt property.
+	property bool tilt: allowTilt
 	// Set axis and angle values based on
 	// the last-pressed x and y values:
 	// https://doc.qt.io/qt-6/qml-qtquick-controls2-abstractbutton.html#pressX-prop

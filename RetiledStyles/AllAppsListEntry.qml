@@ -92,7 +92,7 @@ RetiledStyles.Button {
 	// TODO: Figure out how to make tilting smooth.
 	// Now we're trying to bring it back, but it's a bit jittery with
 	// the pause animation. Maybe it should be removed?
-	tilt: true
+	//tilt: allowTilt
 	
 	// Signal and property for the pin to start button.
 	property string dotDesktopFilePath;

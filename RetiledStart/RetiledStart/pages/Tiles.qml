@@ -71,6 +71,8 @@ ApplicationWindow {
 	// for more details, for both this and
 	// useTileBackgroundWallpaper above.
 	property bool allowParallax: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowParallax", "true"))
+	// Turning off tilt for accessibility if desired.
+	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
 
 	// Grab the wallpaper overlay rectangle properties.
 	property string wallpaperOverlayLayerColor: settingsLoader.getSetting("themes", "WallpaperOverlayLayerColor", "black")

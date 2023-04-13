@@ -115,11 +115,8 @@ ButtonBase {
 	// This isn't the tile ID, which is used in the config file.
 	property int tileIndex;
 	
-	// Set whether tiles can tilt.
-	// This is a property so it can be set
-	// by a setting in the future.
-	property bool tilt: true
-	
+	//tilt: allowTilt
+
 	// Specify whether we should be using
 	// a tile background wallpaper.
 	// If not, we just use the standard Accent
@@ -347,7 +344,7 @@ ButtonBase {
 				// clicking a tile that's currently in local edit mode
 				// so it goes directly "down", as well as figuring it out for
 				// not tilting the unpin and resize buttons when pressing the tile.
-				tilt = true;
+				tilt = allowTilt;
 				// console.log(previousTileInEditingModeIndex);
 			} else if ((editMode == false) && (globalEditMode == true)) {
 				// If local edit mode is off but global edit mode

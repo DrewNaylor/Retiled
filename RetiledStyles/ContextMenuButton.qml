@@ -100,7 +100,7 @@ ButtonBase {
 	// TODO: Figure out how to make tilting smooth.
 	// Now we're trying to bring it back, but it's a bit jittery with
 	// the pause animation. Maybe it should be removed?
-	tilt: true
+	//tilt: true
 	
 	//// Set the default state.
      // state: "RELEASED"

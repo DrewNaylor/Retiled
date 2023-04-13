@@ -63,30 +63,46 @@ class SearchCommands(QObject):
 		# constantly.
 		webbrowser.open("".join(["https://bing.com/search?q=", searchTerm]), new = 2)
 		
-class ThemeSettingsLoader(QObject):
+class SettingsLoader(QObject):
 	# Slots still need to exist when using PySide.
-	@Slot(result=str)
-	def getThemeSettings(self):
-		# Get the theme settings.
-		# Currently just Accent colors.
+	@Slot(str, str, str, result=str)
+	def getSetting(self, SettingType, RequestedSetting, DefaultValue):
+		# Get the settings.
 		# TODO: Switch to a script that can just run the Python 
 		# file as a script so that the library doesn't have to
 		# be copied into each program and waste space and make
 		# updating more confusing.
 		# Set main file path for the config file to get it from the repo, or an install.
 		# The two backslashes at the beginning are required on Windows, or it won't go up.
-		ThemeSettingsFilePath = "".join([os.getcwd(), "/../../RetiledSettings/configs/themes.config"])
+		# (I think I changed this at some point, as there are no backslashes anymore.)
+		SettingsFilePath = "".join([os.getcwd(), "/../../RetiledSettings/configs/", SettingType, ".config"])
 		
 		if not sys.platform.startswith("win32"):
 			# If not on Windows, check if the config file is in the user's home directory,
 			# and update the path accordingly.
-			if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])):
-				ThemeSettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/themes.config"])
+			if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/", SettingType, ".config"])):
+				SettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/", SettingType, ".config"])
 		
-		#print(ThemeSettingsFilePath)
+		#print(SettingsFilePath)
 		
-		# Return the Accent color.
-		return settingsReader.getSetting(ThemeSettingsFilePath, "AccentColor", "#0050ef")
+		# Return the requested setting.
+		return settingsReader.getSetting(SettingsFilePath, RequestedSetting, DefaultValue)
+	
+	# We need to sometimes convert strings to bools for settings
+	# loading in QML.
+	# Please note: this only covers when the string
+	# is "true"; "1", "on", and "yes" are not
+	# yet covered.
+	# I kinda got this idea from this SO post,
+	# since just returning bool(StringToConvert)
+	# didn't work:
+	# https://stackoverflow.com/a/18472142
+	@Slot(str, result=bool)
+	def convertSettingToBool(self, StringToConvert):
+		if StringToConvert.lower() == "true":
+			return True
+		else:
+			return False
 
 
 if __name__ == "__main__":
@@ -94,15 +110,15 @@ if __name__ == "__main__":
 	sys.argv += ['--style', 'Universal']
 	app = QGuiApplication(sys.argv)
 	
-	# Bind the theme settings loader to access it from QML.
-	themeSettingsLoader = ThemeSettingsLoader()
+	# Bind the settings loader to access it from QML.
+	settingsLoader = SettingsLoader()
 	
 	# Hook up some stuff so I can access the searchClass from QML.
 	searchClass = SearchCommands()
 	
 	engine = QQmlApplicationEngine()
 	# Theme settings loader binding.
-	engine.rootContext().setContextProperty("themeSettingsLoader", themeSettingsLoader)
+	engine.rootContext().setContextProperty("settingsLoader", settingsLoader)
 	engine.rootContext().setContextProperty("searchClass", searchClass)
 	engine.load("MainWindow.qml")
 	if not engine.rootObjects():

@@ -46,12 +46,15 @@ ApplicationWindow {
     Universal.theme: Universal.Dark
 	// Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
-	property string accentColor: themeSettingsLoader.getThemeSettings()
+	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
 	Universal.foreground: 'white'
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
 	Universal.background: 'black'
+
+	// Turning off tilt for accessibility if desired.
+	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
 	
 	// Bring in the shortcut code for the app bar.
 	// Copied from my modified version of the Qml.Net example app,

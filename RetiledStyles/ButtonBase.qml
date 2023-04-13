@@ -115,7 +115,7 @@ T.Button {
 	}
 	
 	// Property to control tilting.
-	property bool tilt: true
+	//property bool tilt: allowTilt
 	// Allow setting tilt angle.
 	property int tiltAngle: 15
 	
