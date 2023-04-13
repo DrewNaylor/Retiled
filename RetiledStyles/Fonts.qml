@@ -44,8 +44,11 @@ pragma Singleton
 import QtQuick
 
 QtObject {
-    property string regularFont: "Inter"
-    property string lightFont: "InterLight"
+    property string regularFont: "Inter Display"
+    property string lightFont: "Inter Display Light"
+    property string semiboldFont: "Inter Display Semi Bold"
+    // Inter doesn't have a Semi/DemiLight font style.
+    //property string semilightFont: "Inter Display Semi Light"
     // Font weight is an enum:
     // https://doc.qt.io/qt-6/qml-font.html
     property enumeration lightFontWeight: Font.Light
