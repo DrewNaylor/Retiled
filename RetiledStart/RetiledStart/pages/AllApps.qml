@@ -111,7 +111,10 @@ import "../../../RetiledStyles" as RetiledStyles
 			
 			ListView {
                 id: actualAppsList
-				width: window.width
+
+				// We have to set the ListView's width to the window minus 50
+				// so that the scrollbar shows up properly.
+				width: window.width - 50
 				// Not setting the height results in only one
 				// item appearing.
 				// I don't know if the height should be window.height.
@@ -134,6 +137,23 @@ import "../../../RetiledStyles" as RetiledStyles
 				// We're currently basing the code for getting the items into the list
 				// off the second part of this answer:
 				// https://stackoverflow.com/a/59700406
+
+				// Add a ScrollBar:
+				// https://doc.qt.io/qt-6/qml-qtquick-controls2-scrollbar.html
+				// TODO: Make it fade out more quickly like on WP.
+				// Customize scrollbar:
+				// https://doc.qt.io/qt-6/qtquickcontrols-customize.html#customizing-scrollbar
+				ScrollBar.vertical: ScrollBar {
+					// We're doing our own choices for the customizations.
+					// TODO: Move it away from the edge a little.
+					// TODO 2: Make it wider when putting the mouse over it for usability
+					// like on Windows 10.
+					width: 6
+					opacity: 0.50
+					contentItem: Rectangle {
+						radius: 90
+					}
+				}
 				
 				header: Item {
 				// Spacer item above the All Apps list.
