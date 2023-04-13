@@ -161,6 +161,15 @@ def cleanExecKey(inputFile):
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%f", "")
 	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%F", "")
 	
+	# Other flags that aren't implemented yet.
+	# TODO: Implement passing the localized Name key value, if it exists (%c)
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%c", "")
+	# TODO: Implement passing the Icon key value, if it exists (%i, expanded to "--icon icon-key-value-here")
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%i", "")
+	# TODO: Implement passing %k for "The location of the desktop file as either a URI (if for example
+	#       gotten from the vfolder system) or a local filename or empty if no location is known." - Desktop Entry Spec Exec key page
+	cleanedExecKey = regexReplaceFlags(cleanedExecKey, "%k", "")
+
 	# Now back to a list.
 	
 	cleanedExecKeyList = shlex.split(cleanedExecKey)
