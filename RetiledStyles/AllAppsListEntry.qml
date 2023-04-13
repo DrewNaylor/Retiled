@@ -137,14 +137,6 @@ RetiledStyles.Button {
 		// We're using the column layout.
 		Column {
 			anchors.fill: parent
-			// ButtonBase {
-				// width: parent.width
-				// text: qsTr("pin to start")
-				// // Set font style to opensans.
-				// font.family: "Open Sans"
-				// font.weight: Font.Normal
-				// onClicked: pinToStart(dotDesktopFilePath)
-			// }
 			
 			// Another spacer item above.
 			Item {
@@ -268,7 +260,7 @@ RetiledStyles.Button {
                 text: entryText
                 color: textColor
 				// Set font style to opensans.
-				//font.family: "Open Sans"
+				font.family: RetiledStyles.FontStyles.regularFont
 				font.weight: RetiledStyles.FontStyles.regularFontWeight
             }
 			

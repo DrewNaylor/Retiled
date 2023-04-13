@@ -112,7 +112,7 @@ Page {
 			// Might need to change the size so it's slightly larger
 			// as this is a little difficult to read, and maybe change some
 			// of the text color to be the dimmer variant.
-				font.family: "Inter Display"
+				font.family: RetiledStyles.FontStyles.regularFont
 				font.weight: RetiledStyles.FontStyles.regularFontWeight
 				font.pointSize: RetiledStyles.FontStyles.regularFontSize
 				// TODO: Move letter spacing into the control.

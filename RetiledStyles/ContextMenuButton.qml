@@ -148,8 +148,7 @@ ButtonBase {
 				// don't get too out of control.
 				font.letterSpacing: -0.8 * scaleFactor
 				// Set font.
-                                // TODO: Replace with font that's good with the GPLv2.
-				//font.family: "Open Sans"
+				font.family: FontStyles.regularFont
 				font.weight: FontStyles.regularFontWeight
             }
 			

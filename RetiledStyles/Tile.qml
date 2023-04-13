@@ -531,8 +531,7 @@ ButtonBase {
 				// the tiles.
 				clip: true
 				// Set font.
-                                // TODO: Replace with font that's good with the GPLv2.
-				//font.family: "Open Sans"
+				font.family: FontStyles.regularFont
 				font.weight: FontStyles.regularFontWeight
 				// A letter spacing of -0.8 emulates
 				// Segoe WP's letter spacing.

@@ -65,6 +65,10 @@ ButtonBase {
 	// No, 16 is better.
 	// We're using the new normalFontSize value from FontStyles.qml.
 	property real fontSize: FontStyles.normalFontSize
+	// Allow the font family to be overwritten easily.
+	property string fontFamily: FontStyles.regularFont
+	// Also the font weight.
+	property int fontWeight: FontStyles.regularFontWeight
 	// textColor would usually be white, but it can be
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
@@ -144,9 +148,8 @@ ButtonBase {
 				// don't get too out of control.
 				font.letterSpacing: -0.8 * scaleFactor
 				// Set font.
-                                // TODO: Replace with font that's good with the GPLv2.
-				//font.family: "Open Sans SemiBold"
-				font.weight: FontStyles.semiboldFontWeight
+				font.family: fontFamily
+				font.weight: fontWeight
 				
 				// Copying the transitions from the background
 				// color changing so that they can be used for text color.
