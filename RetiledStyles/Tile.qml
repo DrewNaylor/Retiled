@@ -166,6 +166,21 @@ ButtonBase {
 		unpressedBackgroundColor: "black"
 		// Also set pressedBorderColor.
 		pressedBorderColor: "black"
+		// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "Unpin tile button"
+    			Accessible.description: "Unpins the current tile."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// NOTE: Unpinning a tile removes the buttons, so this
@@ -211,6 +226,22 @@ ButtonBase {
 		// Change pressed text color.
 		// TODO: Check if this is also the same under the light theme.
 		pressedTextColor: "black"
+		// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "Resize tile button"
+				// TODO: Include the next size the tile will be when clicked.
+    			Accessible.description: "Resizes the current tile."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// TODO: Figure out how to make it so that tapping any other
@@ -552,7 +583,7 @@ ButtonBase {
 				// This doesn't help that much, but I think
 				// I'll keep it for now to make sure things
 				// don't get too out of control.
-				font.letterSpacing: -0.8 * scaleFactor
+				//font.letterSpacing: -0.8 * scaleFactor
 				// You know what, I'm just not going to do this
 				// because it'll introduce difficult-to-fix bugs
 				// and inconsistencies.
