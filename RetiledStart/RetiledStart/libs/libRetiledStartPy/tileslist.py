@@ -53,8 +53,12 @@ import os
 import sys
 import json
 import yaml
-# We have to specify the whole path or it won't work.
 from yaml.loader import SafeLoader
+# We need a few things from the appslist file,
+# mainly the code for launching apps.
+# I don't want to duplicate it, but maybe
+# it could be moved to retiledstartcommon.py,
+# or something.
 from . import appslist as AppsList
 
 
