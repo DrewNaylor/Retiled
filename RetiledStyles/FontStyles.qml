@@ -63,9 +63,12 @@ QtObject {
 
     // Font weight is an enum:
     // https://doc.qt.io/qt-6/qml-font.html
-    property enumeration lightFontWeight: Font.Light
-    property enumeration regularFontWeight: Font.Normal
-    property enumeration semiboldFontWeight: Font.DemiBold
+    // We have to use "int" or "var" when referring to
+    // enums in QML:
+    // https://doc.qt.io/qt-6/qml-enumeration.html#using-the-enumeration-type-in-qml
+    property int lightFontWeight: Font.Light
+    property int regularFontWeight: Font.Normal
+    property int semiboldFontWeight: Font.DemiBold
     // Inter doesn't have a Semi/DemiLight weight, but Noto
     // does for at least one version.
     //property enumeration semilightFontWeight: Font.DemiLight
