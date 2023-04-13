@@ -880,7 +880,21 @@ ApplicationWindow {
 			// Light themes would have the default text color be black
 			// I think.
 			// defaultTextColor: "white"
-			
+			// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "All Apps button"
+    			Accessible.description: "Goes to the All Apps list."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
 			// Layout.alignment only works in QML's
 			// "Layout" types, like ColumnLayout,
 			// RowLayout, and GridLayout.

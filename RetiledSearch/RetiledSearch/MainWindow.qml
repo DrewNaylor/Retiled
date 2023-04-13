@@ -174,6 +174,21 @@ ApplicationWindow {
 				// this is blurry with HiDPI.
                 text: "<b>\ue020</b>"
 				font: metroFont.name
+				// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "Back button"
+    			Accessible.description: "Goes back to the main page of RetiledSearch."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
