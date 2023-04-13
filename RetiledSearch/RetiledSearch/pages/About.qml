@@ -134,7 +134,7 @@ Page {
 			"RetiledSearch is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n\n" +
 			"The ''back'' button in this app is provided by the wp-metro font, made by AJ Troxell, licensed under the SIL OFL 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
 			"https://github.com/ajtroxell/wp-metro \n\n" +
-			"Text in this app uses Inter (specifically, Inter Display) if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
+			"Text in this app uses Inter (specifically, Inter Display, and v4.0 beta 8 was used for testing) if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
 			"https://github.com/rsms/inter \n\n" +
 			"Qt (and I think PySide6 as well, since it's owned by The Qt Company) is copyright The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here:\n" +
 			"https://www.gnu.org/licenses/lgpl-3.0.en.html \n" +

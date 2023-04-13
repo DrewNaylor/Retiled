@@ -45,7 +45,7 @@ RetiledCompositor is the compositor used for Retiled for such things as the mult
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
 Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd.<br><br>
-Inter (specifically, Inter Display) is used for most of the text in the UI if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL).<br>
+Inter (specifically, Inter Display, and v4.0 beta 8 was used for testing) is used for most of the text in the UI if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL).<br>
 Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1; you can find a copy of this license in `./fonts/wp-metro/OFL.txt`, as well as here:<br>
 http://scripts.sil.org/OFL.<br>
 You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
