@@ -71,7 +71,7 @@ QtObject {
     property int semiboldFontWeight: Font.DemiBold
     // Inter doesn't have a Semi/DemiLight weight, but Noto
     // does for at least one version.
-    //property enumeration semilightFontWeight: Font.DemiLight
+    //property int semilightFontWeight: 350
     
     // Font sizes for pointSize as reals.
     // See the MSDN link above for the font sizes we're using

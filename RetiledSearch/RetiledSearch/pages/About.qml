@@ -72,10 +72,10 @@ Page {
 				// pixelSize isn't device-independent.
                 font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
 				// Set font.
-				//font.family: "Open Sans Light"
+				font.family: RetiledStyles.FontStyles.lightFont
 				font.weight: RetiledStyles.FontStyles.lightFontWeight
 				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
+				//font.letterSpacing: -0.8 * scaleFactor
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
@@ -112,7 +112,8 @@ Page {
 				//font.family: "Open Sans"
 				font.weight: RetiledStyles.FontStyles.regularFontWeight
 				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
+				// Actually I'm not sure about using letter spacing now.
+				//font.letterSpacing: -0.8 * scaleFactor
             text: "RetiledSearch v0.1 Developer Preview 2\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021-2023 Drew Naylor. Licensed under the Apache License 2.0.\n" +
