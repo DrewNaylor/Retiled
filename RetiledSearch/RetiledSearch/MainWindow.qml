@@ -350,7 +350,8 @@ ApplicationWindow {
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
 			// pixelSize isn't device-independent.
-            font.pointSize: 16
+			// Forgot to add the prefix.
+            font.pointSize: RetiledStyles.FontStyles.normalFontSize
 			// Set font style to opensans.
 			//font.family: "Open Sans"
 			font.weight: Font.Normal

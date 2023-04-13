@@ -84,7 +84,7 @@ QtObject {
     // as they're integrated.
     property real extrasmallFontSize: 10
     property real smallFontSize: 12
-    property real normalFontSize: 20
+    property real normalFontSize: 16
     property real mediumFontSize: 22.667
     property real mediumlargeFontSize: 25.333
     property real largeFontSize: 32
