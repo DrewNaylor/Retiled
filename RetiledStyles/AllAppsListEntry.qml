@@ -52,7 +52,7 @@ RetiledStyles.Button {
 	buttonWidth: parent.width
 	
 	// Set text size.
-	fontSize: 16
+	fontSize: RetiledStyles.FontStyles.normalFontSize
 	
 	// Remove the border.
 	// You can comment this out if you need to debug the area around it.
