@@ -80,8 +80,11 @@ QtObject {
     // so we should be fine:
     // https://stackoverflow.com/questions/42308147/is-double-now-fully-equivalent-to-real-in-qml
     // Also add extrasmallFontSize, for anything that needs a smaller value than 12.
+    // I've also added extraextrasmallFontSize for the action buttons in
+    // the Action Center mainly.
     // Will probably need to change these to more realistic values
     // as they're integrated.
+    property real extraextrasmallFontSize: 8
     property real extrasmallFontSize: 10
     property real smallFontSize: 12
     property real normalFontSize: 16
