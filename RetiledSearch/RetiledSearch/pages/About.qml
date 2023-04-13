@@ -24,6 +24,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+import "../../../RetiledStyles" as RetiledStyles
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -69,7 +70,7 @@ Page {
                 text: "about"
                 // Not sure if this is the right font size, but it's closer.
 				// pixelSize isn't device-independent.
-                font.pointSize: 50
+                font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
 				// Set font.
 				//font.family: "Open Sans Light"
 				font.weight: Font.Light
