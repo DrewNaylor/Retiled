@@ -269,7 +269,7 @@ RetiledStyles.Button {
                 color: textColor
 				// Set font style to opensans.
 				//font.family: "Open Sans"
-				font.weight: Font.Normal
+				font.weight: RetiledStyles.FontStyles.regularFontWeight
             }
 			
 	

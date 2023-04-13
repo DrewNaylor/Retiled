@@ -533,7 +533,7 @@ ButtonBase {
 				// Set font.
                                 // TODO: Replace with font that's good with the GPLv2.
 				//font.family: "Open Sans"
-				font.weight: Font.Normal
+				font.weight: FontStyles.regularFontWeight
 				// A letter spacing of -0.8 emulates
 				// Segoe WP's letter spacing.
 				// However, it's not perfect as I can't

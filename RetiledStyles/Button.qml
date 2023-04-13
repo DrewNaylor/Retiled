@@ -146,7 +146,7 @@ ButtonBase {
 				// Set font.
                                 // TODO: Replace with font that's good with the GPLv2.
 				//font.family: "Open Sans SemiBold"
-				font.weight: Font.DemiBold
+				font.weight: FontStyles.semiboldFontWeight
 				
 				// Copying the transitions from the background
 				// color changing so that they can be used for text color.

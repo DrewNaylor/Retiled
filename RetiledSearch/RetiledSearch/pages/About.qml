@@ -73,7 +73,7 @@ Page {
                 font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
 				// Set font.
 				//font.family: "Open Sans Light"
-				font.weight: Font.Light
+				font.weight: RetiledStyles.FontStyles.lightFontWeight
 				// TODO: Move letter spacing into the control.
 				font.letterSpacing: -0.8 * scaleFactor
                 elide: Label.ElideRight
@@ -110,7 +110,7 @@ Page {
 			anchors.margins: 6
 			// Set font style to opensans.
 				//font.family: "Open Sans"
-				font.weight: Font.Normal
+				font.weight: RetiledStyles.FontStyles.regularFontWeight
 				// TODO: Move letter spacing into the control.
 				font.letterSpacing: -0.8 * scaleFactor
             text: "RetiledSearch v0.1 Developer Preview 2\n" +

@@ -264,7 +264,7 @@ ApplicationWindow {
 		
 		// Set font.
 		//font.family: "Open Sans SemiBold"
-		font.weight: Font.DemiBold
+		font.weight: RetiledStyles.FontStyles.semiboldFontWeight
 		// TODO: Move letter spacing into the control.
 		font.letterSpacing: -0.8 * scaleFactor
 
@@ -354,7 +354,7 @@ ApplicationWindow {
             font.pointSize: RetiledStyles.FontStyles.normalFontSize
 			// Set font style to opensans.
 			//font.family: "Open Sans"
-			font.weight: Font.Normal
+			font.weight: RetiledStyles.FontStyles.regularFontWeight
 			
 			// There are some additional properties you can set:
 			// Change the textfield's background color when focused.

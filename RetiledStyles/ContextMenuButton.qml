@@ -150,7 +150,7 @@ ButtonBase {
 				// Set font.
                                 // TODO: Replace with font that's good with the GPLv2.
 				//font.family: "Open Sans"
-				font.weight: Font.Normal
+				font.weight: FontStyles.regularFontWeight
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"
