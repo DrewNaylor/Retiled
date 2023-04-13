@@ -51,7 +51,7 @@ ButtonBase {
 	// Add properties.
 	property string tileText: "tile"
 	// A fontSize of 12 is pretty close to the real sizing.
-	property int fontSize: 12
+	property real fontSize: FontStyles.smallFontSize
 	property string textColor: "white"
 	// Fun fact: if you change the color value here
 	// to #990050ef (or anything else with numbers in front of "0050ef"),

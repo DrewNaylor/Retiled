@@ -79,7 +79,11 @@ QtObject {
     // Apparently "real" is double-precision, like actual doubles,
     // so we should be fine:
     // https://stackoverflow.com/questions/42308147/is-double-now-fully-equivalent-to-real-in-qml
-    property real smallFontSize: 18.667
+    // Also add extrasmallFontSize, for anything that needs a smaller value than 12.
+    // Will probably need to change these to more realistic values
+    // as they're integrated.
+    property real extrasmallFontSize: 10
+    property real smallFontSize: 12
     property real normalFontSize: 20
     property real mediumFontSize: 22.667
     property real mediumlargeFontSize: 25.333
