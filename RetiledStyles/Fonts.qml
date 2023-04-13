@@ -44,6 +44,14 @@ pragma Singleton
 import QtQuick
 
 QtObject {
+    // These font properties are basically the values for Windows Phone,
+    // but translated to be used in QML. See also:
+    // https://learn.microsoft.com/en-us/previous-versions/windows/apps/ff769552(v=vs.105)#font-names
+    // That link goes to the font names, but scrolling down will show
+    // font sizes and text styles (font families and font sizes combined usually it
+    // appears, but sometimes margins and colors are included).
+    // I'm not entirely sure yet how to put them together into text styles.
+    // TODO: Put them together into text styles.
     property string regularFont: "Inter Display"
     property string lightFont: "Inter Display Light"
     property string semiboldFont: "Inter Display Semi Bold"
@@ -57,5 +65,6 @@ QtObject {
     // Inter doesn't have a Semi/DemiLight weight, but Noto
     // does for at least one version.
     //property enumeration semilightFontWeight: Font.DemiLight
+
 
 }
