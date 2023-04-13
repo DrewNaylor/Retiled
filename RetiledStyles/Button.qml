@@ -66,9 +66,9 @@ ButtonBase {
 	// We're using the new normalFontSize value from FontStyles.qml.
 	property real fontSize: FontStyles.normalFontSize
 	// Allow the font family to be overwritten easily.
-	property string fontFamily: FontStyles.regularFont
+	property string fontFamily: FontStyles.semiboldFont
 	// Also the font weight.
-	property int fontWeight: FontStyles.regularFontWeight
+	property int fontWeight: FontStyles.semiboldFontWeight
 	// textColor would usually be white, but it can be
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
