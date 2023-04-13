@@ -108,9 +108,13 @@ Page {
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 6
-			// Set font style to opensans.
-				//font.family: "Open Sans"
+			// Set font style to Inter Display.
+			// Might need to change the size so it's slightly larger
+			// as this is a little difficult to read, and maybe change some
+			// of the text color to be the dimmer variant.
+				font.family: "Inter Display"
 				font.weight: RetiledStyles.FontStyles.regularFontWeight
+				font.pointSize: RetiledStyles.FontStyles.regularFontSize
 				// TODO: Move letter spacing into the control.
 				// Actually I'm not sure about using letter spacing now.
 				//font.letterSpacing: -0.8 * scaleFactor
