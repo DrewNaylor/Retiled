@@ -146,7 +146,8 @@ ButtonBase {
 				// This doesn't help that much, but I think
 				// I'll keep it for now to make sure things
 				// don't get too out of control.
-				font.letterSpacing: -0.8 * scaleFactor
+				// Actually I'm not sure about using letter spacing now.
+				//font.letterSpacing: -0.8 * scaleFactor
 				// Set font.
 				font.family: fontFamily
 				font.weight: fontWeight

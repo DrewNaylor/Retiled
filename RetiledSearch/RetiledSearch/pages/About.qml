@@ -74,7 +74,7 @@ Page {
 				// Set font.
 				font.family: RetiledStyles.FontStyles.lightFont
 				font.weight: RetiledStyles.FontStyles.lightFontWeight
-				// TODO: Move letter spacing into the control.
+				// Actually I'm not sure about using letter spacing now.
 				//font.letterSpacing: -0.8 * scaleFactor
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
@@ -115,7 +115,6 @@ Page {
 				font.family: RetiledStyles.FontStyles.regularFont
 				font.weight: RetiledStyles.FontStyles.regularFontWeight
 				font.pointSize: RetiledStyles.FontStyles.smallFontSize
-				// TODO: Move letter spacing into the control.
 				// Actually I'm not sure about using letter spacing now.
 				//font.letterSpacing: -0.8 * scaleFactor
             text: "RetiledSearch v0.1 Developer Preview 2\n" +

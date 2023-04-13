@@ -283,7 +283,7 @@ ApplicationWindow {
 		font.family: RetiledStyles.FontStyles.semiboldFont
 		font.weight: RetiledStyles.FontStyles.semiboldFontWeight
 		// TODO: Move letter spacing into the control.
-		font.letterSpacing: -0.8 * scaleFactor
+		//font.letterSpacing: -0.8 * scaleFactor
 
 
         // Removing the shadow from the drawer:

@@ -111,11 +111,12 @@ T.ItemDelegate {
 
         icon: control.icon
         text: control.text
-		// Change font to Open Sans and do the other stuff.
+		// Change font to Inter Display and do the other stuff.
         font.family: FontStyles.regularFont
 		font.pointSize: FontStyles.normalFontSize
 		font.weight: FontStyles.regularFontWeight
-		font.letterSpacing: -0.8 * scaleFactor
+        // Actually I'm not sure about using letter spacing now.
+		//font.letterSpacing: -0.8 * scaleFactor
         color: Color.transparent(control.Universal.foreground, enabled ? 1.0 : 0.2)
     }
 
