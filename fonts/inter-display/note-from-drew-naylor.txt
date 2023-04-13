@@ -1,0 +1,11 @@
+Note: This is Inter version 4.0 beta 8 as of April 13, 2023. I, Drew Naylor, am
+distributing this version because the stable version is almost two years old at
+this point. This file (note-from-drew-naylor.txt) was not part of the
+Inter package and as such does not fall under the same license as Inter
+(SIL OPEN FONT LICENSE Version 1.1), but instead falls under the CC0 license
+because it's just a note (see details of the CC0 here:
+https://creativecommons.org/publicdomain/zero/1.0/).
+Inter is Copyright (c) 2016-2020 The Inter Project Authors and "Inter"
+is trademark of Rasmus Andersson. You can get the Inter font from
+https://github.com/rsms/inter
+See the file "LICENSE.txt" for more details about Inter.
