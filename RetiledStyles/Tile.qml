@@ -51,6 +51,9 @@ ButtonBase {
 	// Add properties.
 	property string tileText: "tile"
 	// A fontSize of 12 is pretty close to the real sizing.
+	// Update: now that we're using Inter Display, the sizing
+	// is slightly off, but I guess it's fine since we realistically
+	// can't get to the exact same thing.
 	property real fontSize: FontStyles.smallFontSize
 	property string textColor: "white"
 	// Fun fact: if you change the color value here
@@ -589,6 +592,8 @@ ButtonBase {
 				// and inconsistencies.
 				// I wasn't going to do it, but then I went back
 				// and I really don't like how Open Sans looks by default.
+				// Now that we're using Inter Display, we don't need it
+				// to make things look better.
             }
 			
 			Image {
