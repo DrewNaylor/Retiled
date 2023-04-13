@@ -67,7 +67,7 @@ QtObject {
     // does for at least one version.
     //property enumeration semilightFontWeight: Font.DemiLight
     
-    // Font sizes in pointSize as reals.
+    // Font sizes for pointSize as reals.
     // See the MSDN link above for the font sizes we're using
     // under the "Font sizes" section, hope they don't mind.
     // Apparently "real" is double-precision, like actual doubles,
@@ -76,6 +76,16 @@ QtObject {
     property real smallFontSize: 18.667
     property real normalFontSize: 20
     property real mediumFontSize: 22.667
+    property real mediumlargeFontSize: 25.333
+    property real largeFontSize: 32
+    property real extralargeFontSize: 42.667
+    property real extraextralargeFontSize: 72
+    property real hugeFontSize: 186.667
+
+
+
+
+
 
 
 }
