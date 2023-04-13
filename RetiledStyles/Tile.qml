@@ -118,7 +118,10 @@ ButtonBase {
 	// This isn't the tile ID, which is used in the config file.
 	property int tileIndex;
 	
-	//tilt: allowTilt
+	// Guess we still need this because we're
+	// accessing "tilt" in the code where we're
+	// clicking on a tile and leaving edit mode.
+	property bool tilt: allowTilt
 
 	// Specify whether we should be using
 	// a tile background wallpaper.
