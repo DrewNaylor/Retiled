@@ -246,6 +246,8 @@ ApplicationWindow {
     // TODO 3: Change the app bar icons so they're closer to WP, especially
     // the app bar drawer opening button, as that's more like Windows 10
     // Mobile.
+	// TODO 4: Move the font-related stuff to another style so that
+	// more apps can use this customized appbar drawer.
         id: appbarDrawer
         width: window.width
         // Set height to 50 so that the app bar always moves out of the way,
@@ -263,7 +265,7 @@ ApplicationWindow {
         edge: Qt.BottomEdge
 		
 		// Set font.
-		//font.family: "Open Sans SemiBold"
+		font.family: RetiledStyles.FontStyles.semiboldFont
 		font.weight: RetiledStyles.FontStyles.semiboldFontWeight
 		// TODO: Move letter spacing into the control.
 		font.letterSpacing: -0.8 * scaleFactor
@@ -353,7 +355,7 @@ ApplicationWindow {
 			// Forgot to add the prefix.
             font.pointSize: RetiledStyles.FontStyles.normalFontSize
 			// Set font style to opensans.
-			//font.family: "Open Sans"
+			font.family: RetiledStyles.FontStyles.regularFont
 			font.weight: RetiledStyles.FontStyles.regularFontWeight
 			
 			// There are some additional properties you can set:
