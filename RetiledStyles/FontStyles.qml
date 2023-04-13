@@ -40,6 +40,9 @@
 // have to be hardcoded everywhere.
 // Using singletons (approach 2):
 // https://wiki.qt.io/Qml_Styling
+// Check the qmldir for this singleton's import stuff.
+// We're also getting that example qmldir contents from here:
+// https://doc.qt.io/qt-6/qtqml-modules-qmldir.html
 pragma Singleton
 import QtQuick
 
