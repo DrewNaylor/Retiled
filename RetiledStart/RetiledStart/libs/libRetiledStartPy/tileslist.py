@@ -195,34 +195,39 @@ def getTilesList():
 			# otherwise we won't know if we're supposed to save or not,
 			# and that would be bad once we remove this feature.
 			hasDeprecatedRawWidthAndHeight = False
-			if ((not i.get("TileWidth") == None) or (not i.get("TileHeight") == None)) and (i.get("TileSize") == None):
-				print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
-				print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
-				print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
-				print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
-				print("RetiledStart: Affected tile's .desktop file: " + i["DotDesktopFilePath"])
-				print("\r")
-				# The config file is manually setting height and width,
-				# and we need to know that.
-				hasDeprecatedRawWidthAndHeight = True
-			# Temporary value for tempFileSize so we can grab it later.
-			tempTileSize = "medium"
-			# We have to use .get:
-			# https://stackoverflow.com/a/9285135
-			if (i.get("TileSize")) == None:
-				if (i.get("TileWidth") == int(310) and i.get("TileHeight") == int(150)):
-					tempTileSize = "wide"
-				elif (i.get("TileWidth") == int(70) and i.get("TileHeight") == int(70)):
-					tempTileSize = "small"
+			# Only add the tile to the list if the .desktop file path
+			# key is longer than 0, which will break everything.
+			# First assign the variable so we don't have to read it multiple times.
+			tempDotDesktopFilePath = i.get("DotDesktopFilePath")
+			if ((not tempDotDesktopFilePath == None) and (len(tempDotDesktopFilePath) > 0)):
+				if ((not i.get("TileWidth") == None) or (not i.get("TileHeight") == None)) and (i.get("TileSize") == None):
+					print("RetiledStart: Specifying TileWidth or TileHeight is deprecated in v0.1-DP2. It's replaced by TileSize and will be removed in v0.1-DP3.")
+					print("RetiledStart: For now we'll still load TileWidth and TileHeight, but they'll be converted to TileSize at runtime and when saving tile layout.")
+					print("RetiledStart: Valid values for TileSize include: small, medium, and wide.")
+					print("RetiledStart: A future version will add back in custom sizes via columns and rows when TilesGrid is integrated.")
+					print("RetiledStart: Affected tile's .desktop file: " + tempDotDesktopFilePath)
+					print("\r")
+					# The config file is manually setting height and width,
+					# and we need to know that.
+					hasDeprecatedRawWidthAndHeight = True
+				# Temporary value for tempFileSize so we can grab it later.
+				tempTileSize = "medium"
+				# We have to use .get:
+				# https://stackoverflow.com/a/9285135
+				if (i.get("TileSize")) == None:
+					if (i.get("TileWidth") == int(310) and i.get("TileHeight") == int(150)):
+						tempTileSize = "wide"
+					elif (i.get("TileWidth") == int(70) and i.get("TileHeight") == int(70)):
+						tempTileSize = "small"
+					else:
+						tempTileSize = "medium"
 				else:
-					tempTileSize = "medium"
-			else:
-				tempTileSize = i["TileSize"]
-			#print(tempTileSize)
-			if (hasDeprecatedRawWidthAndHeight == True):
-				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize, "hasDeprecatedRawWidthAndHeight" : "True"})
-			else:
-				TilesList.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": tempTileSize})
+					tempTileSize = i["TileSize"]
+				#print(tempTileSize)
+				if (hasDeprecatedRawWidthAndHeight == True):
+					TilesList.append({"DotDesktopFilePath": tempDotDesktopFilePath, "TileSize": tempTileSize, "hasDeprecatedRawWidthAndHeight" : "True"})
+				else:
+					TilesList.append({"DotDesktopFilePath": tempDotDesktopFilePath, "TileSize": tempTileSize})
 		
 		# Get the stuff under Tiles.
 	

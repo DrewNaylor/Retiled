@@ -63,11 +63,26 @@ import "../../../RetiledStyles" as RetiledStyles
 					// This could be useful:
 					// http://imaginativethinking.ca/use-qt-quicks-delegatemodelgroup/
 					text: "<b>\ue031</b>"
-					font: metroFont.font
+					fontFamily: metroFont.name
 					pressedTextColor: "black"
 					pressedBackgroundColor: "white"
 					// Make sure the buttons are aligned to the top.
 					Layout.alignment: Qt.AlignTop
+					// Set accessibility stuff:
+					// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+					// Didn't know this was a thing, but I learned about it
+					// from a Mastodon post.
+					// Partially copying from that page.
+					Accessible.role: Accessible.Button
+					Accessible.name: "Search button"
+    				Accessible.description: "Opens a search box to search your All Apps list (not yet implemented)."
+    				Accessible.onPressAction: {
+        				// Click the button with the accessibility press feature:
+						// https://stackoverflow.com/a/34332489
+						// I really hope this works, because I don't really
+						// have any way to test it as far as I know.
+						clicked()
+    				}
 				} // End of the search button.
 				
 			} // End of the ColumnLayout that stores stuff like the Search button.

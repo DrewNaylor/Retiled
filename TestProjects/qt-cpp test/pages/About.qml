@@ -48,7 +48,7 @@ Page {
 			// https://fonts.google.com/specimen/Open+Sans
 			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
 			// http://www.apache.org/licenses/LICENSE-2.0
-            source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
+            //source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
 		}
 	
 
@@ -71,7 +71,7 @@ Page {
 				// pixelSize isn't device-independent.
                 font.pointSize: 50
 				// Set font.
-				font.family: "Open Sans Light"
+				//font.family: "Open Sans Light"
 				font.weight: Font.Light
 				// TODO: Move letter spacing into the control.
 				font.letterSpacing: -0.8 * scaleFactor
@@ -108,7 +108,7 @@ Page {
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 10
 			// Set font style to opensans.
-            font.family: "Open Sans"
+            //font.family: "Open Sans"
             font.weight: Font.Normal
             // For some reason, pointSize needs to be specified
             // when loading from a C++ app.

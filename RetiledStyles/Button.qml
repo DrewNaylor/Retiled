@@ -62,7 +62,13 @@ ButtonBase {
 	// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff769552(v=vs.105)#font-sizes
 	// That's too big, let's use 20.
 	// Nah, 18.
-	property int fontSize: 16
+	// No, 16 is better.
+	// We're using the new normalFontSize value from FontStyles.qml.
+	property real fontSize: FontStyles.normalFontSize
+	// Allow the font family to be overwritten easily.
+	property string fontFamily: FontStyles.semiboldFont
+	// Also the font weight.
+	property int fontWeight: FontStyles.semiboldFontWeight
 	// textColor would usually be white, but it can be
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
@@ -140,11 +146,11 @@ ButtonBase {
 				// This doesn't help that much, but I think
 				// I'll keep it for now to make sure things
 				// don't get too out of control.
-				font.letterSpacing: -0.8 * scaleFactor
+				// Actually I'm not sure about using letter spacing now.
+				//font.letterSpacing: -0.8 * scaleFactor
 				// Set font.
-                                // TODO: Replace with font that's good with the GPLv2.
-				//font.family: "Open Sans SemiBold"
-				font.weight: Font.DemiBold
+				font.family: fontFamily
+				font.weight: fontWeight
 				
 				// Copying the transitions from the background
 				// color changing so that they can be used for text color.

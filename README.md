@@ -45,12 +45,12 @@ RetiledCompositor is the compositor used for Retiled for such things as the mult
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.<br>
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.<br>
 Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd.<br><br>
-~~Open Sans is used for most of the text in the UI and is available under the Apache License, Version 2.0.~~ I'll be using a different font shortly, as it'll look better and be compatible with the GPLv2+ in the files I need it in.<br>
-Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:<br>
+Inter (specifically, Inter Display, and v4.0 beta 8 was used for testing) is used for most of the text in the UI if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL).<br>
+Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1; you can find a copy of this license in `./fonts/wp-metro/OFL.txt`, as well as here:<br>
 http://scripts.sil.org/OFL.<br>
 You can find links to these fonts in the components list at the end of this "license stuff" block.<br>
 libdotdesktop_py is Copyright (C) Drew Naylor and is licensed under the MIT License. This library is from the DotDesktop4Win project.<br>
-pyxdg is used for the app icons in RetiledStart and licensed under the LGPLv2, but I need to check the copyrights on it as well as include a copy of the LGPLv2. I have my own fork for it that you can download from if needed, though: https://github.com/DrewNaylor/pyxdg
+pyxdg is used for the app icons in RetiledStart and licensed under the LGPLv2, and the copyright field in "docs/conf.py" states "2012, Sergey Kuleshov, Heinrich Wendel, Thomas Kluyver". I have my own fork for it that you can download from if needed, though: https://github.com/DrewNaylor/pyxdg Please see the project's homepage at the end of this quote block.
 PyYAML is licensed under the MIT License and is Copyright (c) 2017-2021 Ingy döt Net and Copyright (c) 2006-2016 Kirill Simonov.<br><br>
 Python 3.9 copyrights start:<br>
 Copyright (c) 2001-2021 Python Software Foundation.<br>
@@ -65,7 +65,7 @@ Python 3.9 copyrights end.<br>
 Python is licensed under the PSF License Agreement, which you can find a copy of here:<br>
 https://docs.python.org/3.9/license.html#psf-license<br><br>
 Any other copyrights and trademarks belong to their respective people and companies/organizations.<br><br>
-Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win](https://github.com/drewnaylor/dotdesktop4win), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), ~~[Open Sans](https://fonts.google.com/specimen/Open+Sans)~~. Anything else that's used in the future will be added to this list.
+Components of the Retiled project include [libdotdesktop_py from DotDesktop4Win](https://github.com/drewnaylor/dotdesktop4win), Python, Qt, QML, PySide6, PyYAML, [wp-metro](https://github.com/ajtroxell/wp-metro), [Inter](https://github.com/rsms/inter), [pyxdg](https://www.freedesktop.org/wiki/Software/pyxdg/). Anything else that's used in the future will be added to this list.
 
 ## Installation, Uninstallation, Building, and Running
 

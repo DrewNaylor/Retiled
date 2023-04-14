@@ -136,6 +136,20 @@ ApplicationWindow {
 			// http://www.apache.org/licenses/LICENSE-2.0
 			//source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Regular.ttf"
 		//}
+
+	// Use a FontLoader to get the arrow button font:
+		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
+	FontLoader {
+		id: metroFont
+		// This is using the wp-metro font, which you can
+		// find here:
+		// https://github.com/ajtroxell/wp-metro
+		// In case that repo goes down, here's my fork:
+		// https://github.com/DrewNaylor/wp-metro
+		// This font was made by AJ Troxell and is under the SIL OFL 1.1:
+		// http://scripts.sil.org/OFL
+		source: "../../../fonts/wp-metro/WP-Metro.ttf"
+	}
 	
 	
 	Shortcut {
@@ -822,19 +836,7 @@ ApplicationWindow {
 				
 			} // End of the Flow that contains the tiles.
 	
-		// Use a FontLoader to get the arrow button font:
-		// https://doc.qt.io/qt-6/qml-qtquick-fontloader.html
-		FontLoader {
-			id: metroFont
-			// This is using the wp-metro font, which you can
-			// find here:
-			// https://github.com/ajtroxell/wp-metro
-			// In case that repo goes down, here's my fork:
-			// https://github.com/DrewNaylor/wp-metro
-			// This font was made by AJ Troxell and is under the SIL OFL 1.1:
-			// http://scripts.sil.org/OFL
-			source: "../../../fonts/wp-metro/WP-Metro.ttf"
-		}
+		
 		
 		Item {
 			// Empty item above All Apps button for spacing.
@@ -850,8 +852,17 @@ ApplicationWindow {
 			// wrong font, "8514oem" to be exact.
 			// Seems to work fine on Linux, for some reason.
 			// This is really weird.
+			// Ok, I don't think I can just use the font directly
+			// from the repo, and instead it'll need to be installed
+			// into the fonts directory, usually "/usr/share/fonts",
+			// but can also be "~/.local/share/fonts/".
+			// This will be replaced with SVG files soon, anyway.
 			text: "<b>\ue021</b>"
-			font: metroFont.font
+			// I guess it'll work for now, but we need to use ".name"
+			// instead of ".font" for some reason.
+			// Got this idea from here:
+			// https://stackoverflow.com/a/57219406
+			fontFamily: metroFont.name
 			
 			// Set background color for when pressed.
 			// By default this is cobalt (#0050ef).
@@ -869,7 +880,21 @@ ApplicationWindow {
 			// Light themes would have the default text color be black
 			// I think.
 			// defaultTextColor: "white"
-			
+			// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "All Apps button"
+    			Accessible.description: "Goes to the All Apps list."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
 			// Layout.alignment only works in QML's
 			// "Layout" types, like ColumnLayout,
 			// RowLayout, and GridLayout.

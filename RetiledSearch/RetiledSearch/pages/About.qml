@@ -24,6 +24,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+import "../../../RetiledStyles" as RetiledStyles
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -69,12 +70,12 @@ Page {
                 text: "about"
                 // Not sure if this is the right font size, but it's closer.
 				// pixelSize isn't device-independent.
-                font.pointSize: 50
+                font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
 				// Set font.
-				//font.family: "Open Sans Light"
-				font.weight: Font.Light
-				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
+				font.family: RetiledStyles.FontStyles.lightFont
+				font.weight: RetiledStyles.FontStyles.lightFontWeight
+				// Actually I'm not sure about using letter spacing now.
+				//font.letterSpacing: -0.8 * scaleFactor
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
@@ -107,11 +108,15 @@ Page {
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
 			anchors.margins: 6
-			// Set font style to opensans.
-				//font.family: "Open Sans"
-				font.weight: Font.Normal
-				// TODO: Move letter spacing into the control.
-				font.letterSpacing: -0.8 * scaleFactor
+			// Set font style to Inter Display.
+			// Might need to change the size so it's slightly larger
+			// as this is a little difficult to read, and maybe change some
+			// of the text color to be the dimmer variant.
+				font.family: RetiledStyles.FontStyles.regularFont
+				font.weight: RetiledStyles.FontStyles.regularFontWeight
+				font.pointSize: RetiledStyles.FontStyles.smallFontSize
+				// Actually I'm not sure about using letter spacing now.
+				//font.letterSpacing: -0.8 * scaleFactor
             text: "RetiledSearch v0.1 Developer Preview 2\n" +
 			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
 			"Copyright (C) 2021-2023 Drew Naylor. Licensed under the Apache License 2.0.\n" +
@@ -129,8 +134,8 @@ Page {
 			"RetiledSearch is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n\n" +
 			"The ''back'' button in this app is provided by the wp-metro font, made by AJ Troxell, licensed under the SIL OFL 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
 			"https://github.com/ajtroxell/wp-metro \n\n" +
-			"Text in this app doesn't use Open Sans, designed by Steve Matteson, licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0), and available here:\n"+
-			"https://fonts.google.com/specimen/Open+Sans \n\n" +
+			"Text in this app uses Inter (specifically, Inter Display, and v4.0 beta 8 was used for testing) if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
+			"https://github.com/rsms/inter \n\n" +
 			"Qt (and I think PySide6 as well, since it's owned by The Qt Company) is copyright The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here:\n" +
 			"https://www.gnu.org/licenses/lgpl-3.0.en.html \n" +
 			"I'm also supposed to provide a link to the standard GPL:\n" +

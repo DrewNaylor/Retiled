@@ -51,7 +51,10 @@ ButtonBase {
 	// Add properties.
 	property string tileText: "tile"
 	// A fontSize of 12 is pretty close to the real sizing.
-	property int fontSize: 12
+	// Update: now that we're using Inter Display, the sizing
+	// is slightly off, but I guess it's fine since we realistically
+	// can't get to the exact same thing.
+	property real fontSize: FontStyles.smallFontSize
 	property string textColor: "white"
 	// Fun fact: if you change the color value here
 	// to #990050ef (or anything else with numbers in front of "0050ef"),
@@ -115,7 +118,10 @@ ButtonBase {
 	// This isn't the tile ID, which is used in the config file.
 	property int tileIndex;
 	
-	//tilt: allowTilt
+	// Guess we still need this because we're
+	// accessing "tilt" in the code where we're
+	// clicking on a tile and leaving edit mode.
+	property bool tilt: allowTilt
 
 	// Specify whether we should be using
 	// a tile background wallpaper.
@@ -166,6 +172,21 @@ ButtonBase {
 		unpressedBackgroundColor: "black"
 		// Also set pressedBorderColor.
 		pressedBorderColor: "black"
+		// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "Unpin tile button"
+    			Accessible.description: "Unpins the current tile."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// NOTE: Unpinning a tile removes the buttons, so this
@@ -189,7 +210,7 @@ ButtonBase {
 		id: resizeButton
 		visible: editMode
 		text: "<b>\ue021</b>"
-		font: metroFont.font
+		fontFamily: metroFont.name
 		// Anchor the horizontal and vertical
 		// center to the right and bottom
 		// respectively so that the resize
@@ -211,6 +232,22 @@ ButtonBase {
 		// Change pressed text color.
 		// TODO: Check if this is also the same under the light theme.
 		pressedTextColor: "black"
+		// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "Resize tile button"
+				// TODO: Include the next size the tile will be when clicked.
+    			Accessible.description: "Resizes the current tile."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// TODO: Figure out how to make it so that tapping any other
@@ -531,9 +568,8 @@ ButtonBase {
 				// the tiles.
 				clip: true
 				// Set font.
-                                // TODO: Replace with font that's good with the GPLv2.
-				//font.family: "Open Sans"
-				font.weight: Font.Normal
+				font.family: FontStyles.regularFont
+				font.weight: FontStyles.regularFontWeight
 				// A letter spacing of -0.8 emulates
 				// Segoe WP's letter spacing.
 				// However, it's not perfect as I can't
@@ -553,12 +589,14 @@ ButtonBase {
 				// This doesn't help that much, but I think
 				// I'll keep it for now to make sure things
 				// don't get too out of control.
-				font.letterSpacing: -0.8 * scaleFactor
+				//font.letterSpacing: -0.8 * scaleFactor
 				// You know what, I'm just not going to do this
 				// because it'll introduce difficult-to-fix bugs
 				// and inconsistencies.
 				// I wasn't going to do it, but then I went back
 				// and I really don't like how Open Sans looks by default.
+				// Now that we're using Inter Display, we don't need it
+				// to make things look better.
             }
 			
 			Image {

@@ -173,7 +173,22 @@ ApplicationWindow {
 				// TODO: Figure out a way to use SVG files because
 				// this is blurry with HiDPI.
                 text: "<b>\ue020</b>"
-				font: metroFont.font
+				font: metroFont.name
+				// Set accessibility stuff:
+				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+				// Didn't know this was a thing, but I learned about it
+				// from a Mastodon post.
+				// Partially copying from that page.
+				Accessible.role: Accessible.Button
+				Accessible.name: "Back button"
+    			Accessible.description: "Goes back to the main page of RetiledSearch."
+    			Accessible.onPressAction: {
+        			// Click the button with the accessibility press feature:
+					// https://stackoverflow.com/a/34332489
+					// I really hope this works, because I don't really
+					// have any way to test it as far as I know.
+					clicked()
+    			}
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
@@ -246,6 +261,8 @@ ApplicationWindow {
     // TODO 3: Change the app bar icons so they're closer to WP, especially
     // the app bar drawer opening button, as that's more like Windows 10
     // Mobile.
+	// TODO 4: Move the font-related stuff to another style so that
+	// more apps can use this customized appbar drawer.
         id: appbarDrawer
         width: window.width
         // Set height to 50 so that the app bar always moves out of the way,
@@ -263,10 +280,10 @@ ApplicationWindow {
         edge: Qt.BottomEdge
 		
 		// Set font.
-		//font.family: "Open Sans SemiBold"
-		font.weight: Font.DemiBold
+		font.family: RetiledStyles.FontStyles.semiboldFont
+		font.weight: RetiledStyles.FontStyles.semiboldFontWeight
 		// TODO: Move letter spacing into the control.
-		font.letterSpacing: -0.8 * scaleFactor
+		//font.letterSpacing: -0.8 * scaleFactor
 
 
         // Removing the shadow from the drawer:
@@ -350,10 +367,11 @@ ApplicationWindow {
             // I don't know if pixelSize is the right property
             // to change for DPI scaling.
 			// pixelSize isn't device-independent.
-            font.pointSize: 16
+			// Forgot to add the prefix.
+            font.pointSize: RetiledStyles.FontStyles.normalFontSize
 			// Set font style to opensans.
-			//font.family: "Open Sans"
-			font.weight: Font.Normal
+			font.family: RetiledStyles.FontStyles.regularFont
+			font.weight: RetiledStyles.FontStyles.regularFontWeight
 			
 			// There are some additional properties you can set:
 			// Change the textfield's background color when focused.

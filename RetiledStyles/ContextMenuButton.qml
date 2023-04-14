@@ -60,7 +60,7 @@ ButtonBase {
 	// https://docs.microsoft.com/en-us/previous-versions/windows/apps/ff769552(v=vs.105)#font-sizes
 	// That's too big, let's use 20.
 	// Nah, 18.
-	property int fontSize: 18
+	property real fontSize: FontStyles.mediumFontSize
 	// textColor would usually be white, but it can be
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
@@ -146,11 +146,11 @@ ButtonBase {
 				// This doesn't help that much, but I think
 				// I'll keep it for now to make sure things
 				// don't get too out of control.
-				font.letterSpacing: -0.8 * scaleFactor
+       			// Actually I'm not sure about using letter spacing now.
+				//font.letterSpacing: -0.8 * scaleFactor
 				// Set font.
-                                // TODO: Replace with font that's good with the GPLv2.
-				//font.family: "Open Sans"
-				font.weight: Font.Normal
+				font.family: FontStyles.regularFont
+				font.weight: FontStyles.regularFontWeight
             }
 			
 		// Had to use the contentItem Text thing to change stuff from the "customizing button"

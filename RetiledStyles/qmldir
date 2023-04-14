@@ -1,0 +1,2 @@
+module FontStylesModule
+singleton FontStyles 1.0 FontStyles.qml
