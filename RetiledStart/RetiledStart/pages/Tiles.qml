@@ -389,7 +389,17 @@ ApplicationWindow {
 			//anchors.top: popupText.bottom
 			text: "ok"
 			Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-			Layout.preferredWidth: window.width / 2
+			// The button was a little too wide, I think.
+			Layout.preferredWidth: window.width / 2.25
+			// The "Allow search to use your location..."
+			// popup, and I think all the rest of them,
+			// are 36 pixels tall based on my calculations.
+			// TODO: Update the RetiledStyles.Button style
+			// so it defaults to this height, as I think that's
+			// generally the right size.
+			// TODO 2: Add an invisible area above and below
+			// the buttons so they can be easily pressed.
+			Layout.preferredHeight: 36
 			onClicked: {
 				// This'll close the popup.
 				// TODO: Add the animations in for opening and closing it.
