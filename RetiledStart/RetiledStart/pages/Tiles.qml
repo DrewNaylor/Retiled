@@ -372,7 +372,7 @@ ApplicationWindow {
 		font.pointSize: RetiledStyles.FontStyles.smallFontSize
 		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
 		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
-		"Valid values for TileSize include: small, medium, and wide.\n" +
+		"Valid values for TileSize include: small, medium, and wide. Any height and width combinations that don't equal these values were set to medium.\n" +
 		"To convert your config file to the newest format, please force a save by entering edit mode on a tile then leaving edit mode. This " +
 		"situation doesn't require manually changing tile size or unpinning anything, as it's already accounted for.\n" +
 		"For now we'll still load TileWidth and TileHeight from the config file, but it'll be converted to TileSize at runtime.\n" +
@@ -404,6 +404,8 @@ ApplicationWindow {
 				// This'll close the popup.
 				// TODO: Add the animations in for opening and closing it.
 				// They were "barn door sweeps" from the top.
+				// TODO 2: Allow using the Enter key to activate buttons,
+				// and not just spacebar.
 				deprecatedRawTileHeightsAndWidthsMessageDialog.close();
 			}
 		}
