@@ -324,8 +324,14 @@ ApplicationWindow {
 		closePolicy: Popup.CloseOnEscape | Popup.NoAutoClose
 		focus: true
 		modal: true
-		contentItem: Text { 
+		contentItem: ColumnLayout {
+			width: window.width
+		Text { 
 		id: popupText
+		// We can't use just plain width in a ColumnLayout:
+		// https://stackoverflow.com/a/44713811
+		// Layout.fillWidth looks nice.
+		Layout.fillWidth: true
 		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
 		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
 		"Valid values for TileSize include: small, medium, and wide.\n" +
@@ -337,15 +343,15 @@ ApplicationWindow {
 		// Word wrap:
 		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
 		wrapMode: Text.Wrap
-		anchors.bottom: popupOkButton.top
 		}
 		Button {
 			id: popupOkButton
 			// Set margins:
 			// https://doc.qt.io/qt-6/qtquick-positioning-anchors.html#anchor-margins-and-offsets
-			anchors.top: popupText.bottom
+			//anchors.top: popupText.bottom
 			text: "Ok"
 			width: 50
+		}
 		}
 	}
 	
