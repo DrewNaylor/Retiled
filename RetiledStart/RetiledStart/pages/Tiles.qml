@@ -350,7 +350,8 @@ ApplicationWindow {
 			// https://doc.qt.io/qt-6/qtquick-positioning-anchors.html#anchor-margins-and-offsets
 			//anchors.top: popupText.bottom
 			text: "Ok"
-			width: 50
+			Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+			width: 100
 		}
 		}
 	}
