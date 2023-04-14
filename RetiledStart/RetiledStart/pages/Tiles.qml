@@ -334,6 +334,13 @@ ApplicationWindow {
 		}
 		contentItem: ColumnLayout {
 			width: window.width
+		Text {
+			// This is the header text.
+			text: "Deprecated config file keys"
+			color: "white"
+			font.family: RetiledStyles.FontStyles.lightFont
+			font.pointSize: RetiledStyles.FontStyles.mediumFontSize
+		}
 		Text { 
 		id: popupText
 		// We can't use just plain width in a ColumnLayout:
