@@ -68,3 +68,6 @@ Note: several of these may not be useful to this project anymore due to mainly u
 
 25. [qt5-qml-toolkit](https://github.com/stephenquan/qt5-qml-toolkit)
 <br>A bunch of QML files for various things like filtering the ListView, code editors, and terminal stuff, etc., that will probably be very useful for this project. May need to update it for Qt6, though. It's under the MIT License, and I forked it here: https://github.com/DrewNaylor/qt5-qml-toolkit
+
+26. [Flat-J-Black-White-icons](https://github.com/Nipunakavi/Flat-J-Black-White-icons)
+<br>Monochrome icons that look like they could be a base for a monochrome icon set, at least partially. There's a decent symbolic calculator icon and the symbolic Evolution icon also looks nice for email. Will need to modify it though, and merging in stuff from probably Open Clipart could help. This is under the GPLv3. I forked it here: https://github.com/DrewNaylor/Flat-J-Black-White-icons
