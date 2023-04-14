@@ -340,8 +340,12 @@ ApplicationWindow {
 		// Set the popup background color to the same
 		// as the dark appbar's color.
 		// I'm pretty sure this would be correct.
+		// Turns out it's not the right color for popups.
+		// I may need to change the appbar color as well.
+		// I got this from the "Allow search to access
+		// and use your location?" popup background.
 		background: Rectangle {
-			color: "#212021"
+			color: "#1F1F1F"
 		}
 		contentItem: ColumnLayout {
 			width: window.width
