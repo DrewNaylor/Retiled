@@ -317,6 +317,8 @@ ApplicationWindow {
 	// The popup for the deprecated heights and widths thing.
 	Popup {
 		id: deprecatedRawTileHeightsAndWidthsMessageDialog
+		// Set width:
+		width: window.width
 		// We're using a Popup directly to cover everything we need:
 		// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
 		contentItem: Text { text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
@@ -327,6 +329,9 @@ ApplicationWindow {
 		"For now we'll still load TileWidth and TileHeight from the config file, but it'll be converted to TileSize at runtime.\n" +
 		"A future version will add back in custom sizes via columns and rows when TilesGrid is integrated."
 		color: "white"
+		// Word wrap:
+		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
+		wrapMode: Text.Wrap
 		}
 	}
 	
