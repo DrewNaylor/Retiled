@@ -295,6 +295,19 @@ ApplicationWindow {
 			}
 		}
 	} // End of the tile-opacity function.
+
+	// Trip a boolean for the deprecated tile raw heights and widths thing.
+	// This is only used to show a messagebox informing the user that they
+	// need to force a save to the config file by entering edit mode
+	// then leaving edit mode any way they usually would so that their
+	// startlayout-modified.yaml file can be switched to use TileSize
+	// instead of TileWidth and TileHeight.
+	// This will be removed in v0.1-DP3.
+	function tripDeprecatedTileRawWidthAndHeightValuesBoolean() {
+		deprecatedRawTileHeightsAndWidthsBoolean = true;
+	}
+
+	property bool deprecatedRawTileHeightsAndWidthsBoolean: false
 	
 	SwipeView {
 		id: startScreenView
@@ -759,6 +772,11 @@ ApplicationWindow {
 						//console.log(ParsedTilesList[i].TileHeight);
 						//console.log(ParsedTilesList[i].TileColor);
 						//console.log("------------------------");
+
+						// Set a boolean if this tile is using the deprecated format.
+						if (ParsedTilesList[i].hasDeprecatedRawWidthAndHeight == "True") {
+							tripDeprecatedTileRawWidthAndHeightValuesBoolean();
+						}
 						
 						// Now create the tile.
 						// Make sure it's ready first.
