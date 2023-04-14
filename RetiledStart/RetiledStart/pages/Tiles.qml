@@ -332,6 +332,8 @@ ApplicationWindow {
 		// https://stackoverflow.com/a/44713811
 		// Layout.fillWidth looks nice.
 		Layout.fillWidth: true
+		font.family: RetiledStyles.FontStyles.regularFont
+		font.pointSize: RetiledStyles.FontStyles.smallFontSize
 		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
 		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
 		"Valid values for TileSize include: small, medium, and wide.\n" +
