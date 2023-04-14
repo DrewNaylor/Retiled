@@ -324,7 +324,9 @@ ApplicationWindow {
 		closePolicy: Popup.CloseOnEscape | Popup.NoAutoClose
 		focus: true
 		modal: true
-		contentItem: Text { text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
+		contentItem: Text { 
+		id: popupText
+		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
 		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
 		"Valid values for TileSize include: small, medium, and wide.\n" +
 		"To convert your config file to the newest format, please force a save by entering edit mode on a tile then leaving edit mode. This " +
@@ -335,6 +337,15 @@ ApplicationWindow {
 		// Word wrap:
 		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
 		wrapMode: Text.Wrap
+		anchors.bottom: popupOkButton.top
+		}
+		Button {
+			id: popupOkButton
+			// Set margins:
+			// https://doc.qt.io/qt-6/qtquick-positioning-anchors.html#anchor-margins-and-offsets
+			anchors.top: popupText.bottom
+			text: "Ok"
+			width: 50
 		}
 	}
 	
