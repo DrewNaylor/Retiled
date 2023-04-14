@@ -324,6 +324,14 @@ ApplicationWindow {
 		closePolicy: Popup.CloseOnEscape | Popup.NoAutoClose
 		focus: true
 		modal: true
+		// Set the dimming area to be a semi-opaque black rectangle:
+		// https://stackoverflow.com/a/67307006
+		Overlay.modal: Rectangle {
+			// We can't use opacity, for some reason.
+			// This value seems pretty good, though.
+			// It's meant to be black with an alpha channel.
+			color: "#aa000000"
+		}
 		contentItem: ColumnLayout {
 			width: window.width
 		Text { 
