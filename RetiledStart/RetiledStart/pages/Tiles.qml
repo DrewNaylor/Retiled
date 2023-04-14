@@ -315,6 +315,11 @@ ApplicationWindow {
 	property bool deprecatedRawTileHeightsAndWidthsBoolean: false
 
 	// The popup for the deprecated heights and widths thing.
+	// TODO: Move this into RetiledStyles so it can be reused
+	// for messageboxes in general.
+	// TODO 2: Figure out how to make it so the text can be
+	// scrolled. Adding a Flickable into the ColumnLayout
+	// didn't work out too well in my tests.
 	Popup {
 		id: deprecatedRawTileHeightsAndWidthsMessageDialog
 		// Set width:
@@ -331,6 +336,12 @@ ApplicationWindow {
 			// This value seems pretty good, though.
 			// It's meant to be black with an alpha channel.
 			color: "#aa000000"
+		}
+		// Set the popup background color to the same
+		// as the dark appbar's color.
+		// I'm pretty sure this would be correct.
+		background: Rectangle {
+			color: "#212021"
 		}
 		contentItem: ColumnLayout {
 			width: window.width
