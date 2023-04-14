@@ -54,7 +54,15 @@ ButtonBase {
 	// Update: now that we're using Inter Display, the sizing
 	// is slightly off, but I guess it's fine since we realistically
 	// can't get to the exact same thing.
-	property real fontSize: FontStyles.smallFontSize
+	// Actually, the extra small font size I'm using is the same
+	// width in pixels for the "Calc" part of KCalc as it is
+	// for WP's Calculator when combined with semibold Inter Display.
+	// Looks very nice.
+	// TODO: Allow some way to make it larger for accessibility.
+	// Perhaps there should be font size settings for each font size
+	// so that users can change all of them to whatever they want,
+	// so maybe the extra small font size could be set to 16 if needed?
+	property real fontSize: FontStyles.extrasmallFontSize
 	property string textColor: "white"
 	// Fun fact: if you change the color value here
 	// to #990050ef (or anything else with numbers in front of "0050ef"),
@@ -568,8 +576,8 @@ ButtonBase {
 				// the tiles.
 				clip: true
 				// Set font.
-				font.family: FontStyles.regularFont
-				font.weight: FontStyles.regularFontWeight
+				font.family: FontStyles.semiboldFont
+				font.weight: FontStyles.semiboldFontWeight
 				// A letter spacing of -0.8 emulates
 				// Segoe WP's letter spacing.
 				// However, it's not perfect as I can't

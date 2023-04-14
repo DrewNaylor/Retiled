@@ -28,6 +28,8 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
+// Message box for the deprecated startlayout format.
+import QtQuick.Dialogs
 
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
@@ -295,6 +297,102 @@ ApplicationWindow {
 			}
 		}
 	} // End of the tile-opacity function.
+
+	// Trip a boolean for the deprecated tile raw heights and widths thing.
+	// This is only used to show a messagebox informing the user that they
+	// need to force a save to the config file by entering edit mode
+	// then leaving edit mode any way they usually would so that their
+	// startlayout-modified.yaml file can be switched to use TileSize
+	// instead of TileWidth and TileHeight.
+	// This will be removed in v0.1-DP3.
+	function tripDeprecatedTileRawWidthAndHeightValuesBoolean() {
+		deprecatedRawTileHeightsAndWidthsBoolean = true;
+		// Open the popup:
+		// https://stackoverflow.com/a/39348167
+		deprecatedRawTileHeightsAndWidthsMessageDialog.open();
+	}
+
+	property bool deprecatedRawTileHeightsAndWidthsBoolean: false
+
+	// The popup for the deprecated heights and widths thing.
+	// TODO: Move this into RetiledStyles so it can be reused
+	// for messageboxes in general.
+	// TODO 2: Figure out how to make it so the text can be
+	// scrolled. Adding a Flickable into the ColumnLayout
+	// didn't work out too well in my tests.
+	Popup {
+		id: deprecatedRawTileHeightsAndWidthsMessageDialog
+		// Set width:
+		width: window.width
+		// We're using a Popup directly to cover everything we need:
+		// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+		closePolicy: Popup.CloseOnEscape | Popup.NoAutoClose
+		focus: true
+		modal: true
+		// Set the dimming area to be a semi-opaque black rectangle:
+		// https://stackoverflow.com/a/67307006
+		Overlay.modal: Rectangle {
+			// We can't use opacity, for some reason.
+			// This value seems pretty good, though.
+			// It's meant to be black with an alpha channel.
+			color: "#aa000000"
+		}
+		// Set the popup background color to the same
+		// as the dark appbar's color.
+		// I'm pretty sure this would be correct.
+		// Turns out it's not the right color for popups.
+		// I may need to change the appbar color as well.
+		// I got this from the "Allow search to access
+		// and use your location?" popup background.
+		background: Rectangle {
+			color: "#1F1F1F"
+		}
+		contentItem: ColumnLayout {
+			width: window.width
+		Text {
+			// This is the header text.
+			text: "Deprecated config file keys"
+			color: "white"
+			font.family: RetiledStyles.FontStyles.lightFont
+			font.pointSize: RetiledStyles.FontStyles.mediumFontSize
+		}
+		Text { 
+		id: popupText
+		// We can't use just plain width in a ColumnLayout:
+		// https://stackoverflow.com/a/44713811
+		// Layout.fillWidth looks nice.
+		Layout.fillWidth: true
+		font.family: RetiledStyles.FontStyles.regularFont
+		font.pointSize: RetiledStyles.FontStyles.smallFontSize
+		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
+		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
+		"Valid values for TileSize include: small, medium, and wide.\n" +
+		"To convert your config file to the newest format, please force a save by entering edit mode on a tile then leaving edit mode. This " +
+		"situation doesn't require manually changing tile size or unpinning anything, as it's already accounted for.\n" +
+		"For now we'll still load TileWidth and TileHeight from the config file, but it'll be converted to TileSize at runtime.\n" +
+		"A future version will add back in custom sizes via columns and rows when TilesGrid is integrated."
+		color: "white"
+		// Word wrap:
+		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
+		wrapMode: Text.Wrap
+		}
+		RetiledStyles.Button {
+			id: popupOkButton
+			// Set margins:
+			// https://doc.qt.io/qt-6/qtquick-positioning-anchors.html#anchor-margins-and-offsets
+			//anchors.top: popupText.bottom
+			text: "ok"
+			Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+			Layout.preferredWidth: window.width / 2
+			onClicked: {
+				// This'll close the popup.
+				// TODO: Add the animations in for opening and closing it.
+				// They were "barn door sweeps" from the top.
+				deprecatedRawTileHeightsAndWidthsMessageDialog.close();
+			}
+		}
+		}
+	}
 	
 	SwipeView {
 		id: startScreenView
@@ -759,6 +857,12 @@ ApplicationWindow {
 						//console.log(ParsedTilesList[i].TileHeight);
 						//console.log(ParsedTilesList[i].TileColor);
 						//console.log("------------------------");
+
+						// Set a boolean if this tile is using the deprecated format.
+						// TODO: Remove this in v0.1-DP3.
+						if (ParsedTilesList[i].hasDeprecatedRawWidthAndHeight == "True") {
+							tripDeprecatedTileRawWidthAndHeightValuesBoolean();
+						}
 						
 						// Now create the tile.
 						// Make sure it's ready first.
