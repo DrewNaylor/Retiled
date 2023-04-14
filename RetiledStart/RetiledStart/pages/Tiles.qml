@@ -307,28 +307,27 @@ ApplicationWindow {
 	// This will be removed in v0.1-DP3.
 	function tripDeprecatedTileRawWidthAndHeightValuesBoolean() {
 		deprecatedRawTileHeightsAndWidthsBoolean = true;
-		// Open the message dialog:
+		// Open the popup:
 		// https://stackoverflow.com/a/39348167
 		deprecatedRawTileHeightsAndWidthsMessageDialog.open();
 	}
 
 	property bool deprecatedRawTileHeightsAndWidthsBoolean: false
 
-	// The message box for the deprecated raw tile widths and heights thing:
-	// https://doc.qt.io/qt-6/qml-qtquick-dialogs-messagedialog.html
-	MessageDialog {
+	// The popup for the deprecated heights and widths thing.
+	Popup {
 		id: deprecatedRawTileHeightsAndWidthsMessageDialog
-		// Various dialog settings:
-		// https://doc.qt.io/qt-6/qml-qtquick-dialogs-dialog.html
-		buttons: MessageDialog.Ok
-		title: "Deprecated raw tile size"
-		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
+		// We're using a Popup directly to cover everything we need:
+		// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+		contentItem: Text { text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
 		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
 		"Valid values for TileSize include: small, medium, and wide.\n" +
 		"To convert your config file to the newest format, please force a save by entering edit mode on a tile then leaving edit mode. This " +
 		"situation doesn't require manually changing tile size or unpinning anything, as it's already accounted for.\n" +
 		"For now we'll still load TileWidth and TileHeight from the config file, but it'll be converted to TileSize at runtime.\n" +
 		"A future version will add back in custom sizes via columns and rows when TilesGrid is integrated."
+		color: "white"
+		}
 	}
 	
 	SwipeView {
