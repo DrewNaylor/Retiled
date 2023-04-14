@@ -381,6 +381,9 @@ ApplicationWindow {
 			Layout.alignment: Qt.AlignRight | Qt.AlignBottom
 			Layout.preferredWidth: window.width / 2
 			onClicked: {
+				// This'll close the popup.
+				// TODO: Add the animations in for opening and closing it.
+				// They were "barn door sweeps" from the top.
 				deprecatedRawTileHeightsAndWidthsMessageDialog.close();
 			}
 		}
