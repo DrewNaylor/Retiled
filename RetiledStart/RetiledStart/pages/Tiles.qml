@@ -352,9 +352,15 @@ ApplicationWindow {
 		Text {
 			// This is the header text.
 			text: "Deprecated config file keys"
+			Layout.fillWidth: true
+			wrapMode: Text.Wrap
 			color: "white"
-			font.family: RetiledStyles.FontStyles.lightFont
+			// My guess for the font was wrong.
+			// I checked the "Allow search to use your location..."
+			// messagebox just to be sure.
+			font.family: RetiledStyles.FontStyles.semiboldFont
 			font.pointSize: RetiledStyles.FontStyles.mediumFontSize
+			font.weight: RetiledStyles.FontStyles.semiboldFontWeight
 		}
 		Text { 
 		id: popupText
