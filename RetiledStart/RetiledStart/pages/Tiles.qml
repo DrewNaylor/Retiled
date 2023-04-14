@@ -369,6 +369,9 @@ ApplicationWindow {
 			text: "ok"
 			Layout.alignment: Qt.AlignRight | Qt.AlignBottom
 			Layout.preferredWidth: window.width / 2
+			onClicked: {
+				deprecatedRawTileHeightsAndWidthsMessageDialog.close();
+			}
 		}
 		}
 	}
