@@ -321,6 +321,9 @@ ApplicationWindow {
 		width: window.width
 		// We're using a Popup directly to cover everything we need:
 		// https://doc.qt.io/qt-6/qml-qtquick-controls2-popup.html
+		closePolicy: Popup.CloseOnEscape | Popup.NoAutoClose
+		focus: true
+		modal: true
 		contentItem: Text { text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
 		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
 		"Valid values for TileSize include: small, medium, and wide.\n" +
