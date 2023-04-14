@@ -307,6 +307,9 @@ ApplicationWindow {
 	// This will be removed in v0.1-DP3.
 	function tripDeprecatedTileRawWidthAndHeightValuesBoolean() {
 		deprecatedRawTileHeightsAndWidthsBoolean = true;
+		// Open the message dialog:
+		// https://stackoverflow.com/a/39348167
+		deprecatedRawTileHeightsAndWidthsMessageDialog.open();
 	}
 
 	property bool deprecatedRawTileHeightsAndWidthsBoolean: false
@@ -314,7 +317,11 @@ ApplicationWindow {
 	// The message box for the deprecated raw tile widths and heights thing:
 	// https://doc.qt.io/qt-6/qml-qtquick-dialogs-messagedialog.html
 	MessageDialog {
+		id: deprecatedRawTileHeightsAndWidthsMessageDialog
+		// Various dialog settings:
+		// https://doc.qt.io/qt-6/qml-qtquick-dialogs-dialog.html
 		buttons: MessageDialog.Ok
+		title: "Deprecated raw tile size"
 		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
 		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
 		"Valid values for TileSize include: small, medium, and wide.\n" +
