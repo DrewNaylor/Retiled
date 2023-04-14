@@ -28,6 +28,8 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal
+// Message box for the deprecated startlayout format.
+import QtQuick.Dialogs
 
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
@@ -308,6 +310,19 @@ ApplicationWindow {
 	}
 
 	property bool deprecatedRawTileHeightsAndWidthsBoolean: false
+
+	// The message box for the deprecated raw tile widths and heights thing:
+	// https://doc.qt.io/qt-6/qml-qtquick-dialogs-messagedialog.html
+	MessageDialog {
+		buttons: MessageDialog.Ok
+		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
+		"This is deprecated and will be removed in Retiled v0.1-DP3, and has been replaced by a TileSize key.\n" +
+		"Valid values for TileSize include: small, medium, and wide.\n" +
+		"To convert your config file to the newest format, please force a save by entering edit mode on a tile then leaving edit mode. This " +
+		"situation doesn't require manually changing tile size or unpinning anything, as it's already accounted for.\n" +
+		"For now we'll still load TileWidth and TileHeight from the config file, but it'll be converted to TileSize at runtime.\n" +
+		"A future version will add back in custom sizes via columns and rows when TilesGrid is integrated."
+	}
 	
 	SwipeView {
 		id: startScreenView
@@ -774,6 +789,7 @@ ApplicationWindow {
 						//console.log("------------------------");
 
 						// Set a boolean if this tile is using the deprecated format.
+						// TODO: Remove this in v0.1-DP3.
 						if (ParsedTilesList[i].hasDeprecatedRawWidthAndHeight == "True") {
 							tripDeprecatedTileRawWidthAndHeightValuesBoolean();
 						}
