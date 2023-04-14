@@ -107,6 +107,8 @@ RetiledStyles.Button {
 		id: allappscontextmenu
 		width: window.width
 		contentWidth: window.width
+		// TODO: Add the animation of the context menu "drawing"
+		// into reality and smoothly opening downward.
 		modal: true
 		// Center the popup in the window:
 		// https://stackoverflow.com/a/45052225
