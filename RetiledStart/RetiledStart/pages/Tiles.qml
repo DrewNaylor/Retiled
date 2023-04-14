@@ -344,7 +344,7 @@ ApplicationWindow {
 		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
 		wrapMode: Text.Wrap
 		}
-		Button {
+		RetiledStyles.Button {
 			id: popupOkButton
 			// Set margins:
 			// https://doc.qt.io/qt-6/qtquick-positioning-anchors.html#anchor-margins-and-offsets
