@@ -71,3 +71,6 @@ Note: several of these may not be useful to this project anymore due to mainly u
 
 26. [Flat-J-Black-White-icons](https://github.com/Nipunakavi/Flat-J-Black-White-icons)
 <br>Monochrome icons that look like they could be a base for a monochrome icon set, at least partially. There's a decent symbolic calculator icon and the symbolic Evolution icon also looks nice for email. Will need to modify it though, and merging in stuff from probably Open Clipart could help. This is under the GPLv3. I forked it here: https://github.com/DrewNaylor/Flat-J-Black-White-icons
+
+27. [sedna](https://git.sr.ht/~sircmpwn/sedna)
+<br>A really bare-bones Wayland stacking (as opposed to tiling) compositor that basically just handles showing surfaces on top of other surfaces. This could be useful to fork and alter for my own uses. It's under the GPLv3, which is the same as the current RetiledCompositor files are. It's also written in C, so I'll have to learn that.
