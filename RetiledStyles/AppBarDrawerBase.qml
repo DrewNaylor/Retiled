@@ -97,6 +97,10 @@ T.Drawer {
 	// This allows the app to set the color at runtime.
     // #1f1f1f is the proper dark appbar color
     // as sampled from the Phone app.
+    // TODO: move this to another file so it can just be referenced
+	// along with all the other light and dark theme colors.
+    // This will still be able to be overridden in case an app
+    // wants a specific color for the appbar drawer.
 	property string backgroundColor: "#1f1f1f"
 
     background: Rectangle {

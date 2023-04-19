@@ -85,6 +85,10 @@ T.ToolBar {
 	// We're setting this here so apps using the appbar can set its color.
     // Actually that was the wrong color, it's supposed to be
     // #1f1f1f.
+    // TODO: move this to another file so it can just be referenced
+	// along with all the other light and dark theme colors.
+    // This will still be able to be overridden in case an app
+    // wants a specific color for the appbar drawer.
 	property string backgroundColor: "#1f1f1f"
 
     background: Rectangle {
