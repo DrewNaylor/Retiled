@@ -383,8 +383,9 @@ ApplicationWindow {
 		// Strangely we need to set width, even though usually you're
 		// not supposed to in a Layout:
 		// https://stackoverflow.com/a/44713904
-		width: window.width
-		Layout.preferredWidth: window.width
+		// Can't have the text too wide, or it will require horizontal scrolling.
+		width: window.width - 30
+		Layout.preferredWidth: window.width - 30
 		//Layout.fillHeight: true
 
 		font.family: RetiledStyles.FontStyles.regularFont
