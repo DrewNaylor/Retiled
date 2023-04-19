@@ -259,9 +259,14 @@ class GetAppIcon(QObject):
 		if len(DotDesktopFile) > 0:
 			iconPath = IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, RequestedIconTheme)
 			# Don't return anything if the icon path doesn't exist.
-			if os.path.exists(iconPath):
+			# Make sure we check to make sure the path isn't None.
+			# If we don't do this, then we get an error in the terminal
+			# saying it can't be NoneType or something.
+			if (not iconPath == None) and (os.path.exists(iconPath)):
 				return iconPath
 			else:
+				# Returning None if the path doesn't exist or it is None
+				# apparently is fine for Qt.
 				return None
 
 def shutdown():
