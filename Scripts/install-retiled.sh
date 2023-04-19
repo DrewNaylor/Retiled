@@ -76,6 +76,13 @@ sudo mkdir -p /opt/Retiled/icons
 # Make dirs for the programs themselves.
 sudo mkdir -p /opt/Retiled/RetiledSearch
 sudo mkdir -p /opt/Retiled/RetiledStart
+# Make dir for RetiledSettings, including the config files.
+# Guess I should include the library for future-proofing.
+# But for now I won't compile the settings library
+# as it's not being used by anything in ./RetiledSettings.
+# TODO: Add RetiledSettings stuff to the build scripts
+# when there's a settings app added.
+sudo mkdir -p /opt/Retiled/RetiledSettings
 # Now we can copy stuff.
 # Copy styles dir.
 sudo cp -rv ./RetiledStyles/* /opt/Retiled/RetiledStyles
@@ -86,6 +93,8 @@ sudo cp -rv ./icons/* /opt/Retiled/icons
 # Now copy the programs.
 sudo cp -rv ./RetiledSearch/* /opt/Retiled/RetiledSearch
 sudo cp -rv ./RetiledStart/* /opt/Retiled/RetiledStart
+# Copy settings stuff.
+sudo cp -rv ./RetiledSettings/* /opt/Retiled/RetiledSettings
 
 # Copy the .desktop files.
 sudo cp -v ./Scripts/retiledsearch.desktop /usr/share/applications
