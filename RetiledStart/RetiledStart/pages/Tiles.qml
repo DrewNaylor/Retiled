@@ -348,7 +348,7 @@ ApplicationWindow {
 			color: "#1F1F1F"
 		}
 		contentItem: ColumnLayout {
-			width: window.width
+			width: parent.width
 			//anchors.fill: parent
 		Text {
 			// This is the header text.
@@ -378,7 +378,11 @@ ApplicationWindow {
 		// https://stackoverflow.com/a/44713811
 		// Layout.fillWidth looks nice.
 		Layout.fillWidth: true
-		
+		// Strangely we need to set width, even though usually you're
+		// not supposed to in a Layout:
+		// https://stackoverflow.com/a/44713904
+		width: window.width
+		Layout.preferredWidth: window.width
 		//Layout.fillHeight: true
 
 		font.family: RetiledStyles.FontStyles.regularFont
@@ -393,7 +397,7 @@ ApplicationWindow {
 		color: "white"
 		// Word wrap:
 		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
-		wrapMode: Text.WordWrap
+		wrapMode: Text.Wrap
 			}
 		}
 		RetiledStyles.Button {
