@@ -747,8 +747,10 @@ ApplicationWindow {
 						// Set tile properties.
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
 							NewTileObject.tileSize = "medium";
-							NewTileObject.width = 150;
-							NewTileObject.height = 150;
+							// 157x157 is what the 720p WP8.1 Update 1 emulator has at 100%
+							// for medium tiles after dividing the size by 2.
+							NewTileObject.width = 157;
+							NewTileObject.height = 157;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
 							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;

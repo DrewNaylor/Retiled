@@ -279,24 +279,24 @@ ButtonBase {
 			tileResizeWidthBehavior.enabled = true;
 			if (tileSize == "medium") {
 				// If button is medium, resize to small.
-				control.width = 70;
-				control.height = 70;
+				control.width = 74;
+				control.height = 74;
 				tileSize = "small";
 				// Change the resize button's rotation for the small tile.
 				// 45 points down-right.
 				resizeButton.rotation = 45;
 			} else if (tileSize == "small") {
 				// If button is small, resize to wide.
-				control.width = 310;
-				control.height = 150;
+				control.width = 323;
+				control.height = 157;
 				tileSize = "wide";
 				// Change the resize button's rotation for the wide tile.
 				// -180 points the arrow backward.
 				resizeButton.rotation = -180;
 			} else if (tileSize == "wide") {
 				// If button is wide, resize to medium.
-				control.width = 150;
-				control.height = 150;
+				control.width = 157;
+				control.height = 157;
 				tileSize = "medium";
 				// Change the resize button's rotation to match
 				// the medium tile's expected resize button rotation.
@@ -305,8 +305,8 @@ ButtonBase {
 			} else {
 				// If nothing matches, resize to medium, just
 				// in case.
-				control.width = 150;
-				control.height = 150;
+				control.width = 157;
+				control.height = 157;
 				tileSize = "medium";
 				// Change the resize button's rotation to match
 				// the medium tile's expected resize button rotation.
@@ -568,7 +568,7 @@ ButtonBase {
 				// This is not ideal and is basically a temporary hack until a proper solution of
 				// checking to see if the tile is "medium" or "wide" rather than "small" is implemented.
 				// TODO: Replace this with a proper implementation.
-                text: parent.width >= 150 && parent.height >= 150 ? tileText : ""
+                text: parent.width >= 157 && parent.height >= 157 ? tileText : ""
                 color: textColor
 				// Turn off ellipsis.
 				elide: Text.ElideNone
