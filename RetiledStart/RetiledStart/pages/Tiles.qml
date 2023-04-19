@@ -1115,6 +1115,9 @@ ApplicationWindow {
 		Item {
 				// Empty item that acts as a margin on the right of the
 				// tiles so it can be scrolled, as margins don't allow scrolling.
+				// TODO: have the All Apps button be pushed over so that it lines up
+				// below the bottom-right corner of the tiles. Right now it's not quite
+				// in the right spot.
 				width: 10
 			}
 		
