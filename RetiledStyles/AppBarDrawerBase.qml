@@ -91,6 +91,7 @@ T.Drawer {
     rightPadding: control.edge === Qt.LeftEdge
     bottomPadding: control.edge === Qt.TopEdge
 
+    // TODO: Change the transition to be smoother.
     enter: Transition { SmoothedAnimation { velocity: 5 } }
     exit: Transition { SmoothedAnimation { velocity: 5 } }
 	
