@@ -368,7 +368,11 @@ ApplicationWindow {
 			// https://forum.qt.io/topic/104565/wrapping-text-in-a-vertical-flickable/4?_=1681868713839&lang=en-US
 			Layout.fillWidth: true
 			contentHeight: popupText.height
-			contentWidth: popupText.width
+			// Don't specify contentWidth to prevent horizontal scrolling.
+			// TODO: Bring this change over to RetiledSearch's about page
+			// to prevent the horizontal scrolling here when the window
+			// is resized.
+			//ontentWidth: popupText.width
 			Layout.preferredHeight: 250
 			Layout.preferredWidth: parent.width
 			//Layout.maximumWidth: window.width
