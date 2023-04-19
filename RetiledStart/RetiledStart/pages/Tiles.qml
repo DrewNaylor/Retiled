@@ -349,6 +349,7 @@ ApplicationWindow {
 		}
 		contentItem: ColumnLayout {
 			width: window.width
+			//anchors.fill: parent
 		Text {
 			// This is the header text.
 			text: "Deprecated config file keys"
@@ -363,15 +364,23 @@ ApplicationWindow {
 			font.weight: RetiledStyles.FontStyles.semiboldFontWeight
 		}
 		Flickable {
+			// Properly have the text wrap in a flickable:
+			// https://forum.qt.io/topic/104565/wrapping-text-in-a-vertical-flickable/4?_=1681868713839&lang=en-US
 			Layout.fillWidth: true
+			contentHeight: popupText.height
+			contentWidth: popupText.width
 			Layout.preferredHeight: 250
+			Layout.preferredWidth: parent.width
+			//Layout.maximumWidth: window.width
 			Text { 
 		id: popupText
 		// We can't use just plain width in a ColumnLayout:
 		// https://stackoverflow.com/a/44713811
 		// Layout.fillWidth looks nice.
 		Layout.fillWidth: true
-		Layout.fillHeight: true
+		
+		//Layout.fillHeight: true
+
 		font.family: RetiledStyles.FontStyles.regularFont
 		font.pointSize: RetiledStyles.FontStyles.smallFontSize
 		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
@@ -384,7 +393,7 @@ ApplicationWindow {
 		color: "white"
 		// Word wrap:
 		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
-		wrapMode: Text.Wrap
+		wrapMode: Text.WordWrap
 			}
 		}
 		RetiledStyles.Button {
