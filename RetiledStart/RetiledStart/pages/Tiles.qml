@@ -610,7 +610,21 @@ ApplicationWindow {
 				// side where it won't work.
 				} 
 			}
-			anchors.fill: parent
+			// Set the width and height manually instead of using
+			// anchors to fill the Flickable.
+			// This allows the user to tap anywhere inside the tiles
+			// area's background to leave edit mode.
+			width: window.width
+			// HACK: Might be kinda a hack to add the window's height to the tilePageContentHolder's
+			// height, but at least it's a more reliable way to ensure the MouseArea
+			// to allow exiting edit mode fills the area properly.
+			// TODO: figure out a non-hacky way to do this.
+			height: window.height + tilePageContentHolder.height
+			//Rectangle {
+			//  // Rectangle for testing, if you need to uncomment this.
+			//	color: "green"
+			//	anchors.fill: parent
+			//}
 		}
 
 		RowLayout {
