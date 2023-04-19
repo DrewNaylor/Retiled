@@ -643,7 +643,16 @@ ApplicationWindow {
 			id: tilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
-			width: window.width
+			// We have to do it like this or else the All Apps
+			// button will shift around horizontally and resizing
+			// the tiles will make them eventually go into one list.
+			// Subtracting 33 from the window's width results in the same
+			// horizontal position as it had on WP7.8-8.1 Update 1.
+			// At least, I assume it was the same position on 7.8 through
+			// 8.1 non-Update 1, because that's what it is on 8.1 Update 1.
+			// May need to change this when the tiles are more centered.
+			Layout.preferredWidth: window.width - 33
+			Layout.fillWidth: true
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 			
