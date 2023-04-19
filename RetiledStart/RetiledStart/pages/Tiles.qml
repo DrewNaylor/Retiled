@@ -555,8 +555,12 @@ ApplicationWindow {
 						// opacity to, with whichever color they decided
 						// to use.
 						// Only render it when the opacity is greater
-						// than 0 to save processing power.
-						visible: opacity > 0
+						// than 0 and the option to display
+						// a background wallpaper is on to save processing power.
+						// Probably shouldn't have this dim if the user wants
+						// to use a solid-color background different from their
+						// accent color instead of an image.
+						visible: opacity > 0 && displayBackgroundWallpaper
 						color: wallpaperOverlayLayerColor
 						opacity: wallpaperOverlayLayerOpacity
 						anchors.fill: tileWallpaper
