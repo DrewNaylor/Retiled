@@ -262,6 +262,10 @@ class GetAppIcon(QObject):
 			# Make sure we check to make sure the path isn't None.
 			# If we don't do this, then we get an error in the terminal
 			# saying it can't be NoneType or something.
+			# This doesn't seem to improve the choppiness/slowness
+			# in scrolling on the PinePhone. Probably would help
+			# to cache the "Icon=" value from .desktop files so
+			# we're not going through two layers every time.
 			if (not iconPath == None) and (os.path.exists(iconPath)):
 				return iconPath
 			else:
