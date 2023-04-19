@@ -46,6 +46,7 @@ Maybe this should be split into multiple files so it's easier to read. All I kno
       - Medium: 157x157
       - Wide: 323x157
     - These are the values I'm using now, as the size appears to be more accurate to the emulator and thus the tiles get centered properly with the correct margins on the left and right sides of the tile area.
+    - Turns out these values aren't a good idea to use, as they'll cause a misalignment on the PinePhone when rotated into horizontal mode. I'll use the documented values and just add more of a spacer on the left I guess.
   - Not sure how tiles will be added to the Start screen. Maybe they'll all be in a grid with rows and columns set to be the smallest size, and just have each tile's RowSpan and ColumnSpan be what they need? There will have to be a system to determine whether a grid cell should be empty or not. Maybe this page will help a bit with adding the tiles dynamically: https://social.msdn.microsoft.com/Forums/vstudio/en-US/25fb2c46-8298-4f4f-a653-c3abc405b1a8/dynamically-adding-controls-to-grid
     - TilesGrid will help with this, probably.
   - Tiles need to allow drag-and-drop to reposition them. Not sure how to save the repositioned tiles, but this could help with implementing the basic parts: https://doc.qt.io/qtforpython/overviews/qtquick-draganddrop-example.html?highlight=gridview

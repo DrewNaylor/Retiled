@@ -749,8 +749,12 @@ ApplicationWindow {
 							NewTileObject.tileSize = "medium";
 							// 157x157 is what the 720p WP8.1 Update 1 emulator has at 100%
 							// for medium tiles after dividing the size by 2.
-							NewTileObject.width = 157;
-							NewTileObject.height = 157;
+							// It doesn't line up properly on a PinePhone in horizontal, though.
+							// Maybe it needs different values for spacing?
+							// Maybe not though, as 150x150 is the official size, so maybe
+							// it just needs more spacing on the left side.
+							NewTileObject.width = 150;
+							NewTileObject.height = 150;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
 							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
@@ -959,15 +963,18 @@ ApplicationWindow {
 							// then I divided those values by 2 and got these.
 							// They're slightly larger than they were before,
 							// but it's more accurate.
+							// Actually, maybe it's worse because they don't line up
+							// properly now.
+							// I'm going back to the officially-documented values.
 							if (NewTileObject.tileSize == "small") {
-								NewTileObject.width = 74;
-								NewTileObject.height = 74;
+								NewTileObject.width = 70;
+								NewTileObject.height = 70;
 							} else if (NewTileObject.tileSize == "wide") {
-								NewTileObject.width = 323;
-								NewTileObject.height = 157;
+								NewTileObject.width = 310;
+								NewTileObject.height = 150;
 							} else {
-								NewTileObject.width = 157;
-								NewTileObject.height = 157;
+								NewTileObject.width = 150;
+								NewTileObject.height = 150;
 							}
 							NewTileObject.tileBackgroundColor = accentColor;
 							// Set the boolean to use the tile background wallpaper on this tile,
