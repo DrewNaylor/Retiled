@@ -372,6 +372,8 @@ ApplicationWindow {
 			Layout.preferredHeight: 250
 			Layout.preferredWidth: parent.width
 			//Layout.maximumWidth: window.width
+			// Clip the flickable to keep the text in the area it should be in.
+			clip: true
 			Text { 
 		id: popupText
 		// We can't use just plain width in a ColumnLayout:
