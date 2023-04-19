@@ -636,7 +636,7 @@ ApplicationWindow {
 			Item {
 				// Empty item that acts as a margin on the left of the
 				// tiles so it can be scrolled, as margins don't allow scrolling.
-				width: 10
+				Layout.preferredWidth: 13
 			}
 		
 		ColumnLayout {
