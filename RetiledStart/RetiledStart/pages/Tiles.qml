@@ -446,7 +446,7 @@ ApplicationWindow {
 	// of the pages in the SwipeView, or it
 	// gets into an endless loop.
     Item {
-		
+
 		//Flickable {
 				//// This is an example of a tile page
 				//// background wallpaper as taken from the
@@ -524,7 +524,9 @@ ApplicationWindow {
 						fillMode: Image.PreserveAspectCrop
 						// Setting the width to tilesContainer's width plus 50
 						// ensures empty space on the right is hidden.
-						width: tilesContainer.width + 50
+						// Actually, we shouldn't do that anymore because then it
+						// goes too far outside its intended area.
+						width: window.width
 						// Setting the height to the window's height multiplied
 						// by 1.2 ensures the image is at least as tall as the
 						// window, but this introduces a problem if there are enough
@@ -541,7 +543,9 @@ ApplicationWindow {
 						// As stated at the bottom of this section, it's important to clip an image if
 						// using PreserveAspectCrop, as it can still go outside its intended bounds:
 						// https://doc.qt.io/qt-6/qml-qtquick-image.html#fillMode-prop
-						clip: true
+						// We don't actually need clipping anymore for this, as it stays
+						// in the tiles area on its own now.
+						//clip: true
 						source: wallpaperPath
 						visible: displayBackgroundWallpaper
 						
