@@ -362,12 +362,16 @@ ApplicationWindow {
 			font.pointSize: RetiledStyles.FontStyles.mediumFontSize
 			font.weight: RetiledStyles.FontStyles.semiboldFontWeight
 		}
-		Text { 
+		Flickable {
+			Layout.fillWidth: true
+			Layout.preferredHeight: 250
+			Text { 
 		id: popupText
 		// We can't use just plain width in a ColumnLayout:
 		// https://stackoverflow.com/a/44713811
 		// Layout.fillWidth looks nice.
 		Layout.fillWidth: true
+		Layout.fillHeight: true
 		font.family: RetiledStyles.FontStyles.regularFont
 		font.pointSize: RetiledStyles.FontStyles.smallFontSize
 		text: "One or more tiles in your Start layout config file are setting their size via raw height and width values.\n" +
@@ -381,6 +385,7 @@ ApplicationWindow {
 		// Word wrap:
 		// https://doc.qt.io/qt-6/qml-qtquick-text.html#wrapMode-prop
 		wrapMode: Text.Wrap
+			}
 		}
 		RetiledStyles.Button {
 			id: popupOkButton
