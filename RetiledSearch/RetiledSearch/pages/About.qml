@@ -93,7 +93,10 @@ Page {
 		// error that shows up on the PinePhone.
 		anchors.left: parent.left
 		anchors.right: parent.right
-		contentWidth: aboutText.width
+		// Don't set contentWidth to allow the text to properly flow and wrap when
+		// the window is resized. This also deals with the horizontal scrolling
+		// issue that happens when dragging the text around after the window gets resized.
+		//contentWidth: aboutText.width
 		contentHeight: aboutText.height
 		width: parent.width
 		height: parent.height
