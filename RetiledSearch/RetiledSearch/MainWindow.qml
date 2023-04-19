@@ -258,10 +258,7 @@ ApplicationWindow {
     // TODO 2: Figure out how to let the user drag the app bar back down
     // on both the right and the left side to close the
     // drawer, like on Windows Phone.
-    // TODO 3: Change the app bar icons so they're closer to WP, especially
-    // the app bar drawer opening button, as that's more like Windows 10
-    // Mobile.
-	// TODO 4: Move the font-related stuff to another style so that
+	// TODO 3: Move the customizations to AppBarDrawer.qml so that
 	// more apps can use this customized appbar drawer.
         id: appbarDrawer
         width: window.width

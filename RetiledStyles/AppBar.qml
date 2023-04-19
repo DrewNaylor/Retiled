@@ -83,7 +83,9 @@ T.ToolBar {
 	// I should probably figure out how to just change the
 	// Universal theme directly, so I can use values from it.
 	// We're setting this here so apps using the appbar can set its color.
-	property string backgroundColor: "#212021"
+    // Actually that was the wrong color, it's supposed to be
+    // #1f1f1f.
+	property string backgroundColor: "#1f1f1f"
 
     background: Rectangle {
         implicitHeight: 48 // AppBarThemeCompactHeight
