@@ -88,8 +88,8 @@ ApplicationWindow {
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
 						// Set the appbar and its drawer background color to the default.
-						appBar.backgroundColor = "#212021"
-						appbarDrawer.backgroundColor = "#212021"
+						appBar.backgroundColor = "#1f1f1f"
+						appbarDrawer.backgroundColor = "#1f1f1f"
 					}
 			
         }
@@ -195,8 +195,8 @@ ApplicationWindow {
 						// that depth is read-only and won't just compare.
 						backButton.visible = false
 						// Set the appbar and its drawer background color to the default.
-						appBar.backgroundColor = "#212021"
-						appbarDrawer.backgroundColor = "#212021"
+						appBar.backgroundColor = "#1f1f1f"
+						appbarDrawer.backgroundColor = "#1f1f1f"
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
 						// TODO: Figure out a way to change the appbar's color
