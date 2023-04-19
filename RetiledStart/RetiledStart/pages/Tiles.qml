@@ -1025,7 +1025,8 @@ ApplicationWindow {
 		
 		Item {
 			// Empty item above All Apps button for spacing.
-			height: 5
+			// Wasn't quite tall enough.
+			Layout.preferredHeight: 8
 		}
 		
 		RetiledStyles.RoundButton {
