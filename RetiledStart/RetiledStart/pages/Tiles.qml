@@ -413,7 +413,10 @@ ApplicationWindow {
 			// https://doc.qt.io/qt-6/qtquick-positioning-anchors.html#anchor-margins-and-offsets
 			//anchors.top: popupText.bottom
 			text: "ok"
-			Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+			// We have to align left since it's one button and
+			// that's what the guidelines say:
+			// https://learn.microsoft.com/en-us/archive/blogs/africaapps/uxui-guidelines-for-windows-phone-8
+			Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
 			// The button was a little too wide, I think.
 			Layout.preferredWidth: window.width / 2.25
 			// The "Allow search to use your location..."
