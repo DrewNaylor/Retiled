@@ -62,7 +62,9 @@ Page {
                 // spacing for a given app that uses large headers, like
                 // pages in the Settings app.
                 height: 50
-                width: 12
+				// When combined with "12" for the about text main body,
+				// this forces the title and the body to line up.
+                width: 6
                 }
 
                 Label {
@@ -110,7 +112,9 @@ Page {
 			anchors.right: parent.right
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
-			anchors.margins: 6
+			// Setting this to 12 will make it line up with the title label.
+			// The only potential issue is it won't be scrollable directly on the edge.
+			anchors.margins: 12
 			// Set font style to Inter Display.
 			// Might need to change the size so it's slightly larger
 			// as this is a little difficult to read, and maybe change some
