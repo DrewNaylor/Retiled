@@ -90,21 +90,22 @@ To run Retiled, your device requires the following:
   
 - qt6-declarative (or maybe it's "qt6-quickcontrols2" now; the package was renamed at some point on some distro)
   - Provides Qt6 QtQuick controls that are used in each component.
-  - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
-    - Manjaro ARM: "sudo pacman -Syu qt6-declarative"
-    - 
+  - You probably won't have this package already, so you can install one of the following packages (depending on your distro/package manager) without quotes:
+    - Manjaro ARM: "qt6-declarative" or "qt6-quickcontrols2"
+    - Other distros should be similar, maybe?
 
 - qt6-wayland
   - Allows Qt6 apps like the ones included in Retiled to run under Wayland.
-  - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
+  - You probably won't have this package already, so you can install one of the following packages (depending on your distro/package manager) without quotes:
     - Manjaro ARM: "sudo pacman -Syu qt6-wayland"
 
 - pyyaml
   - Helps read yaml files, which are used for configuration.
-  - You probably won't have to install this yourself, as I just copied the library's files into my repo. The only case where you'll need to install it manually is if my repo doesn't have the proper compiled library for one of the files. In that case, please let me know. I don't feel comfortable just adding binaries from random people to my repo, so a way for me to acquire that binary will be necessary to specify.
-  - If you do need pyyaml's compiled binary built for your specific device, you can install it via "pip":
-    - "pip install pyyaml"
-    - After installing, copy the file that starts with "_yaml" from the default location pip installs pyyaml to (usually "/usr/lib/python3.9/site-packages/yaml"), and either paste it in "/opt/Retiled/RetiledStart/RetiledStart/libs/pyyaml/yaml" if you can get root permissions easily, or paste it in "(the folder you downloaded Retiled to)/RetiledStart/RetiledStart/libs/pyyaml/yaml", then run "sh Scripts/install-retiled.sh" again so it can copy the new file you just pasted there. Please note: this manual library installation of running the install script again may not always work, so you may need to copy via the command line as root, though that should be easy.
+  - I'm not distributing it with my package anymore, so you'll have to install it:
+    - Manjaro ARM and probably Arch Linux ARM: "python-yaml"
+    - pip: "PyYAML"
+    - Alpine and maybe postmarketOS: "py3-yaml"
+    - Fedora: "python3-pyyaml"
 
 - libopengl0
   - Required if you want to run stuff on something like Linux Mint Cinnamon, but otherwise not required on Manjaro ARM with Plasma Mobile.
