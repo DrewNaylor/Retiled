@@ -96,6 +96,9 @@ sudo cp -rv ./RetiledStart/* /opt/Retiled/RetiledStart
 # Copy settings stuff.
 sudo cp -rv ./RetiledSettings/* /opt/Retiled/RetiledSettings
 
+# Copy license files, just to be safe.
+sudo sudo cp -v ./LICENSE* /opt/Retiled
+
 # Copy the .desktop files.
 sudo cp -v ./Scripts/retiledsearch.desktop /usr/share/applications
 sudo cp -v ./Scripts/retiledstart.desktop /usr/share/applications
