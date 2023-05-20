@@ -1,4 +1,4 @@
-If you are reading this in Notepad or another text editor, it displays best in Word Wrap view. Click on Format>Word Wrap on the top bar. Notepad++ users will find it under View>Word wrap.
+If you are reading this in Notepad or another text editor, it displays best in Word Wrap view. Click on Format>Word Wrap on the top bar if using Notepad on Windows. Notepad++ users will find it under View>Word Wrap. Word Wrap is automatically done if viewing on GitHub, and should already be used in VS Code (if not, use View>Word Wrap), Kate, and KWrite.
 
 
 Retiled -- Version 0.1 Developer Preview 1 -- 12/12/2021 (MM/DD/YYYY).
