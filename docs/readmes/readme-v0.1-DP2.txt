@@ -74,20 +74,25 @@ SYSTEM REQUIREMENTS
 To run Retiled, your device requires the following:
 
 ## Packages
-- Python 3.9 or greater
+- Python 3.11 or greater
   - Python is used to run most of Retiled.
-  - Generally speaking, you should already have Python installed, but if you don't, use one of the following commands without quotes:
-    - Manjaro ARM: "sudo pacman -Syu python"
+  - Generally speaking, you should already have Python installed, but if you don't, install one of the following packages (depending on your distro/package manager) without quotes:
+    - Manjaro ARM: "python"
+    - Should be similar for other distros, or maybe "python3"; just search for it I guess
+  - The version of Python I wrote here is just what my distro has as of writing this. I'll change it when future versions of Retiled are released.
   
 - pyside6
   - Used for the UI of Python/QML-based components of Retiled.
-  - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
-    - Manjaro ARM: "sudo pacman -Syu pyside6"
+  - You probably won't have this package already, so you can install one of the following packages (depending on your distro/package manager) without quotes:
+    - Manjaro ARM: "pyside6"
+    - just Python's pip, which may be necessary on a distro like Fedora: "PySide6"
+    - postmarketOS: "py3-pyside6"
   
-- qt6-declarative
+- qt6-declarative (or maybe it's "qt6-quickcontrols2" now; the package was renamed at some point on some distro)
   - Provides Qt6 QtQuick controls that are used in each component.
   - You probably won't have this package already, so you can use one of the following commands to install it, just without the quotes:
     - Manjaro ARM: "sudo pacman -Syu qt6-declarative"
+    - 
 
 - qt6-wayland
   - Allows Qt6 apps like the ones included in Retiled to run under Wayland.
