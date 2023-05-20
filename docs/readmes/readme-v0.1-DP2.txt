@@ -44,25 +44,21 @@ GENERAL NOTES
 KNOWN ISSUES
 ~~~~~~~~~~~~~~~~
 
-- The only fancy animations that exist are the ones that happen when going to/from the All Apps list via the All Apps button or when unpinning all the tiles/when pinning a tile, respectively.
-- Moving tiles around isn't possible yet, though it should be possible with some work, even though I haven't experimented with it yet.
-- Icons are not yet supported, but I know how to make them work I think, so it shouldn't be too long for them.
-- Changing accent colors and switching to the light theme requires directly modifying code, mostly QML.
-- The All Apps list doesn't have a scrollbar yet. I was going to add that to this version, but couldn't find anything that work work immediately and I wanted to save it for later so this would be out sooner.
-- I still haven't figured out how to get the small tiles to go on both rows beside a medium tile. I have one idea involving the GridLayout/Grid/GridView and having tiles fill rectangles that are fixed sizes but have the tiles change their columnspan and rowspan when being resized or something, but it might not work, and I haven't found anything about masonry layouts in QML as far as I remember.
-- One major issue is that unpinning all the tiles then pinning some more will cause all of them to be underneath the first tile in a column, which may be caused by using a Column layout to hold the tiles and the All Apps button, along with various spacer items. Maybe a Grid layout would fix it, but I want to wait for now. A workaround is to long-press a tile to go into "global edit mode", resize any tile to wide then medium, and exit "global edit mode" (single-tap a tile that has editing buttons on it) so the layout fixes itself.
-- The "pin to start" button in RetiledStart and the "about" button in RetiledSearch's appbar drawer don't have proper spacing on the left.
-- In RetiledStart, the tiles list isn't correctly centered in the page. Tried to fix this, but nothing seemed to work.
+- The message that shows up if you have one or more tiles in the old format in the startlayout config file doesn't have animations when being shown or dismissed. (issue #220 https://github.com/DrewNaylor/Retiled/issues/220)
+- Moving tiles around isn't possible yet, though it should be possible when TilesGrid is integrated into my code. Hopefully this can be done for v0.1-DP3.
+- The All Apps list scrollbar looks a bit wonky and stays there a bit too long.
+- I still haven't figured out how to get the small tiles to go on both rows beside a medium tile. I have one idea involving the GridLayout/Grid/GridView and having tiles fill rectangles that are fixed sizes but have the tiles change their columnspan and rowspan when being resized or something, but it might not work, and I haven't found anything about masonry layouts in QML as far as I remember. Actually, this should be fine with TilesGrid.
+- The "pin to start" button in RetiledStart and the "about" button in RetiledSearch's appbar drawer don't have proper spacing on the left. (I don't know if this is fixed or not yet, please let me know if it isn't.)
+- In RetiledStart, the tiles list isn't correctly centered in the page. Tried to fix this, but nothing seemed to work. (worked on this a bit for DP2 and it looks fine on a PinePhone in portrait mode [as well as other devices with the same horizontal resolution probably], but it's a bit of a hack as I just increased the width of the empty item I'm using on the left as a spacer)
 - The unpin icon is slightly too large (issue #76 https://github.com/DrewNaylor/Retiled/issues/76)
 - Currently only .desktop files in "/usr/share/applications" are accessed.
-- The search button in the top-right of the All Apps list is unimplemented, but I kept it there because it would probably look weird without it.
+- The search button in the top-left of the All Apps list is unimplemented, but I kept it there because it would probably look weird without it.
 - Tiles aren't kept into two/three columns on rotating the phone.
 - Nothing checks to ensure a tile isn't pinned before allowing the user to pin it, so you can pin multiple tiles from the same app in the All Apps list until that's fixed.
-- Another issue is that pinned tiles get added to the left column, and this doesn't stop happening after pinning the second column by resizing any of the tiles like I thought. Not sure how to fix it. Maybe there's some way with the QML Grid/GridView/GridLayout, but I don't know.
+- Another issue is that pinned tiles get added to the left column, and this doesn't stop happening after pinning the second column by resizing any of the tiles like I thought. Not sure how to fix it. Maybe there's some way with the QML Grid/GridView/GridLayout, but I don't know. (I think this is fixed?)
 - Tapping an app in the All Apps list then long-pressing it and leaving your finger on the screen when the app is open then closing the app and tapping "pin to start" won't take you back to the tiles list as it's supposed to. I don't know why this happens or how to fix it.
 - Sometimes the tiles list doesn't scroll all the way to the bottom correctly.
-- "Global edit mode" can't be exited by tapping anywhere outside the tiles for now.
-- Some button text, including the All Apps button icon, resize button icon, and the All Apps list search icon are slightly off-position.
+- Some button icons, including the All Apps button icon, resize button icon, and the All Apps list search icon are slightly off-position.
 
 Please note that these known issues may not be recorded in the issue tracker, so they won't show up at the link below.
 
