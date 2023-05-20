@@ -20,6 +20,9 @@ You can run a check on individual files by running "sha256sum -b (insert filenam
 GENERAL NOTES
 ~~~~~~~~~~~~~~~~
 
+--> How to upgrade from a previous version: I recommend uninstalling Retiled by running "sh ./Scripts/uninstall-retiled.sh" after CD-ing into "./Scripts" before installing the new version via "sh ./install-retiled.sh". This will ensure nothing is left behind from the old version that may be broken, but please note that this will remove any customizations you've made to the files, as well as anything located in "/opt/Retiled". Your startlayout config file will be left in your home directory.
+  - Eventually a better upgrade method will be available via your package manager, ideally.
+
 --> If you know how to use Windows Phone's Start screen, you can pretty much use RetiledStart.
 
 --> RetiledSearch is kinda like the Bing Search app on WP8.0/8.1 without Cortana, except it opens the search results in your browser and there's no image yet.
