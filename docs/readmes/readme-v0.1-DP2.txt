@@ -191,8 +191,8 @@ Email:                    		drewnaylor_apps -AT- outlook.com
 
 
 Retiled
-Version 0.1 Developer Preview 1
-Copyright (C) 2021 Drew Naylor. Licensed under the Apache License 2.0.
+Version 0.1 Developer Preview 2
+Copyright (C) 2021-2023 Drew Naylor. Licensed under the Apache License 2.0.
 You can find a copy of this license in "LICENSE".
 
 Begin boilerplate on the Apache License, Version 2.0:
@@ -216,17 +216,21 @@ RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.
 Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.
 Retiled is not associated with Microsoft in any way, and Microsoft does not endorse Retiled.
 
-Retiled uses the RetiledStyles project, which falls under the LGPLv3 for most files (some are modified versions of Qt's styles, so they can fall under the licenses those files fell under). See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative
+Retiled uses the RetiledStyles project, which falls under the LGPLv3 and can be used under the GPLv2+. See the files under `./RetiledStyles` to be certain of their licenses and copyrights. Qt's license requires me to host my own copy of the code, and you can find that here (I hope the qtdeclarative repo is enough, as that's where I assume PySide6 gets its styles from, and PySide6 doesn't actually include any of the styles in its repo): https://github.com/DrewNaylor/qtdeclarative
 
 Qt (and I assume PySide6, since The Qt Company owns it) is Copyright (C) The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here: https://www.gnu.org/licenses/lgpl-3.0.en.html And the regular GPL: https://www.gnu.org/licenses/gpl-3.0.html Copies of the LGPLv3 and GPLv3 are available in "LICENSE.LGPLv3" and "LICENSE.GPLv3", respectively.
 
-Open Sans was designed by Steve Matteson and is used for most of the text in the UI, and is available under the Apache License, Version 2.0. A copy of this license is available in "./fonts/open_sans/LICENSE.txt"
+Inter (specifically, Inter Display, and v4.0 beta 8 was used for testing) is used for most of the text in the UI if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL).
 Some glyphs are from the wp-metro font, which was made by AJ Troxell and is available under the SIL OFL 1.1:
 http://scripts.sil.org/OFL. A copy of this license is available in "./fonts/wp-metro/OFL.txt", though this version is just the template version from the OFL website as there was no license file in the wp-metro repo (figured just adding the license would be fine, as the font's readme said it was under that license).
 
 These fonts are linked at the end of the copyright list.
 
-PyYAML is licensed under the MIT License. You can find a copy of its license under "./RetiledStart/RetiledStart/libs/pyyaml/PyYAML-6.0.dist-info/LICENSE", with its text copied below:
+libdotdesktop_py is Copyright (C) Drew Naylor and is licensed under the MIT License. This library is from the DotDesktop4Win project.
+
+pyxdg is used for the app icons in RetiledStart and licensed under the LGPLv2, and the copyright field in "docs/conf.py" states "2012, Sergey Kuleshov, Heinrich Wendel, Thomas Kluyver". I have my own fork for it that you can download from if needed, though: https://github.com/DrewNaylor/pyxdg Please see the project's homepage at the end of this quote block.
+
+PyYAML is licensed under the MIT License. You should be able to view a copy here https://github.com/yaml/pyyaml/blob/master/LICENSE or if it's not available, try my fork here https://github.com/DrewNaylor/pyyaml/blob/master/LICENSE , with its text copied below:
 Copyright (c) 2017-2021 Ingy döt Net
 Copyright (c) 2006-2016 Kirill Simonov
 
