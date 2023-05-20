@@ -163,9 +163,9 @@ If you'd like to uninstall Retiled, you can run "sh ./uninstall-retiled.sh" and 
 
 5. Once you return to the prompt, Retiled should be installed, and you can launch RetiledStart and RetiledSearch from your mobile environment's apps list. Plasma Mobile might not properly reload and display the new files, so you may have to restart your phone. You can also run "retiledstart" and "retiledsearch" from the terminal, if you want. That's useful if you're having trouble running them, as any errors or packages that are missing should be displayed.
 
-6. If running RetiledStart, you can pin apps from the All Apps list by long-pressing on the app's name and tapping "pin to start", resize tiles by long-pressing on a tile then tapping the resize button in the bottom-right corner until you're happy with the size (cycling through medium->small->wide->medium), and unpin tiles by long-pressing on a tile then tapping the unpin button in the top-right corner. Once you long-press a tile, you enter "global edit mode", which allows you to tap other tiles to move the edit buttons to that tile. Exiting global edit mode is done by tapping a tile with edit buttons on it (tiles with edit buttons on them are in "local edit mode"). Exiting global edit mode is required to save your layout changes.
+6. If running RetiledStart, you can pin apps from the All Apps list by long-pressing on the app's name and tapping "pin to start", resize tiles by long-pressing on a tile then tapping the resize button in the bottom-right corner until you're happy with the size (cycling through medium->small->wide->medium), and unpin tiles by long-pressing on a tile then tapping the unpin button in the top-right corner. Once you long-press a tile, you enter "global edit mode", which allows you to tap other tiles to move the edit buttons to that tile. Exiting global edit mode is done by tapping a tile with edit buttons on it (tiles with edit buttons on them are in "local edit mode") or by tapping in an empty area outside the tiles. Exiting global edit mode is required to save your layout changes.
 
-7. Just to make sure no one misses it, you have to save your tile layout/size changes by exiting global edit mode, which is done by tapping a tile that has edit buttons on it. Pinning a tile automatically saves the tile to the config file.
+7. Just to make sure no one misses it, you have to save your tile layout/size changes by exiting global edit mode, which is done by tapping a tile that has edit buttons on it or by tapping outside the tiles. Pinning a tile automatically saves the tile to the config file.
 
 8. With RetiledSearch, just tap the textbox and the touch keyboard should show up, allowing you to enter a search term. Pressing "Enter" or tapping "search" will open the Bing search results for the term you entered in your default browser.
 
@@ -173,7 +173,7 @@ Tip: Since moving tiles around isn't supported yet, you can manually change whic
 
 
 ----------------------------------
-CONTACT AND COPYRIGHT/LICENSING
+Contact and Copyright/Licensing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Drew's Main Website:      		https://drew-naylor.com/
@@ -181,7 +181,7 @@ Drew's GitHub profile:     		https://github.com/DrewNaylor
 Retiled GitHub repository:		https://github.com/DrewNaylor/Retiled
 Report a problem:	  			https://github.com/DrewNaylor/Retiled/issues/new
 Check for updates:				https://github.com/DrewNaylor/Retiled/releases/latest
-guinget documentation:			https://github.com/DrewNaylor/Retiled/docs
+Retiled documentation:			https://github.com/DrewNaylor/Retiled/docs
 There isn't much in the documentation other than stuff that may be useful and the to-do list/Windows Phone behavior and appearance research.
 As a result, the readme may be more useful. You can get to it from the repo link above.
 
