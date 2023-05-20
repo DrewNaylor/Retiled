@@ -100,7 +100,9 @@ To run Retiled, your device requires the following:
 - qt6-wayland
   - Allows Qt6 apps like the ones included in Retiled to run under Wayland.
   - You probably won't have this package already, so you can install one of the following packages (depending on your distro/package manager) without quotes:
-    - Manjaro ARM: "sudo pacman -Syu qt6-wayland"
+    - Manjaro ARM: "qt6-wayland"
+    - Fedora: "qt6-qtwayland"
+    - I don't know what it is on postmarketOS, but it's probably one of the two above.
 
 - pyyaml
   - Helps read yaml files, which are used for configuration.
@@ -109,6 +111,15 @@ To run Retiled, your device requires the following:
     - pip: "PyYAML"
     - Alpine and maybe postmarketOS: "py3-yaml"
     - Fedora: "python3-pyyaml"
+
+- pyxdg
+  - Allows us to easily get your icons for apps from an icon theme specified in the config file. Might use it for more eventually, though.
+  - If you don't have it, you can install it using one of these packages in your package manager (without quotes):
+    - postmarketOS: "py3-xdg"
+    - Arch Linux ARM and probably also Manjaro ARM: "python-pyxdg"
+
+- qt6-svg
+  - You'll need to install this if using Xfce or another non-Qt environment. Without it, SVG images won't show up anywhere.
 
 - libopengl0
   - Required if you want to run stuff on something like Linux Mint Cinnamon, but otherwise not required on Manjaro ARM with Plasma Mobile.
