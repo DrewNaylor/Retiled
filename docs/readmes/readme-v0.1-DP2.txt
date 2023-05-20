@@ -17,7 +17,7 @@ The checksum of that file is (need to do it yet)
 You can run a check on individual files by running "sha256sum -b (insert filename here)".
 
 ----------------
-GENERAL NOTES
+General Notes
 ~~~~~~~~~~~~~~~~
 
 --> How to upgrade from a previous version: I recommend uninstalling Retiled by running "sh ./Scripts/uninstall-retiled.sh" after CD-ing into "./Scripts" before installing the new version via "sh ./install-retiled.sh". This will ensure nothing is left behind from the old version that may be broken, but please note that this will remove any customizations you've made to the files, as well as anything located in "/opt/Retiled". Your startlayout config file will be left in your home directory.
@@ -44,7 +44,7 @@ GENERAL NOTES
 --> I am not responsible for any damage using my apps may cause.
 
 ----------------
-KNOWN ISSUES
+Known Issues
 ~~~~~~~~~~~~~~~~
 
 - Scrolling the All Apps list can be slow/choppy on the PinePhone due to not caching the Icon key value from .desktop files (will be changed in v0.1-DP3). (issue #211 https://github.com/DrewNaylor/Retiled/issues/211)
@@ -71,7 +71,7 @@ Please note that these known issues may not be recorded in the issue tracker, so
 See all known issues: https://github.com/DrewNaylor/Retiled/labels/known%20issue
 
 --------------------
-SYSTEM REQUIREMENTS
+System Requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 To run Retiled, your device requires the following:
@@ -144,19 +144,20 @@ To run Retiled, your device requires the following:
   - Minimum: 250 MB
   - Recommended: 500 MB
   - To be safe, probably like 250 MB would be enough to give space at minimum, as PySide6 and qt6-declarative take up a decent amount of space. Calculating how much both of those packages take up shows they're roughly 192 MB, so I increased the number for comfort.
+- postmarketOS requirements would probably be similar, but I haven't checked.
 - Disk space is mostly based on the space that the libraries take up. Retiled itself is quite small, although some config files may take up more space.
 
 ------------
-HOW TO USE
+How to use
 ~~~~~~~~~~~~
 
 1. Extract this archive to a folder. No package currently exists, though I'd like to make one.
 
-2. Open a terminal in the root of the newly-extracted archive.
+2. Open a terminal in the root of the newly-extracted archive then CD into "./Scripts".
 
-3. Run "sh ./Scripts/install-retiled.sh" to begin the installation process. You will be prompted for your password after Python pre-compiles the scripts for installation.
+3. Run "sh ./install-retiled.sh" to begin the installation process. You will be prompted for your password after Python pre-compiles the scripts for installation.
 
-If you'd like to uninstall Retiled, you can run "sh Scripts/uninstall-retiled.sh" and it'll delete the installed files after asking for your password if it's been long enough. Please be aware that any user-made files in "/opt/Retiled" will be deleted, as that's how the uninstall process works right now. Config files in "~/.config/Retiled" will be kept.
+If you'd like to uninstall Retiled, you can run "sh ./uninstall-retiled.sh" and it'll delete the installed files after asking for your password if it's been long enough. Please be aware that any user-made files in "/opt/Retiled" will be deleted, as that's how the uninstall process works right now. Config files in "~/.config/Retiled" will be kept.
 
 4. Once you type in your password, the installer will create a directory in "/opt/Retiled", then it'll copy the main files there, the .desktop files to "/usr/share/applications", and scripts to run things to "/usr/bin". This may take a bit, though the pre-compilation may take longer.
 
