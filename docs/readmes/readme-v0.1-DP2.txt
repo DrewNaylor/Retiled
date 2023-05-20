@@ -195,6 +195,8 @@ Version 0.1 Developer Preview 2
 Copyright (C) 2021-2023 Drew Naylor. Licensed under the Apache License 2.0.
 You can find a copy of this license in "LICENSE".
 
+Please note that Retiled is soon to be GPLv3(+?) as I'm planning on making it mainly a Look-and-Feel package for (or if that won't work, a fork of) Plasma Mobile (but still have it so that certain programs like RetiledStart can run independently of Plasma Mobile if desired).
+
 Begin boilerplate on the Apache License, Version 2.0:
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -269,4 +271,4 @@ https://docs.python.org/3.9/license.html#psf-license
 
 Any other copyrights and trademarks belong to their respective people and companies/organizations.
 
-Components of the Retiled project include Python, Qt, QML, PySide6, PyYAML, wp-metro (https://github.com/ajtroxell/wp-metro), Open Sans (https://fonts.google.com/specimen/Open+Sans). Anything else that's used in the future will be added to this list.
+Components of the Retiled project include libdotdesktop_py from DotDesktop4Win (https://github.com/drewnaylor/dotdesktop4win), Python, Qt, QML, PySide6, PyYAML, wp-metro (https://github.com/ajtroxell/wp-metro), Inter (https://github.com/rsms/inter), pyxdg (https://www.freedesktop.org/wiki/Software/pyxdg/). Anything else that's used in the future will be added to this list.
