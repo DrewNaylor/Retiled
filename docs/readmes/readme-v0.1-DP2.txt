@@ -10,9 +10,9 @@ You can use sha256sum to confirm the hash of the files by running
 "find . -type f -exec sha256sum {} \;" in the folder you extracted the archive to and comparing the output to my sums listed below. Be sure that you don't copy the quotes. Hopefully this'll work on non-Bash systems, like postmarketOS. I got this command from this Ask Ubuntu answer: https://askubuntu.com/a/486094 . HowToGeek has a nice article on checksums and stuff:
 https://www.howtogeek.com/67241/htg-explains-what-are-md5-sha-1-hashes-and-how-do-i-check-them/ .
 
-There are a lot of them, so you'll find the relevant ones in "sums-v0.1-DP1.txt".
+There are a lot of them, so you'll find the relevant ones in "sums-v0.1-DP2.txt".
 
-The checksum of that file is 5bb7b3726d1186d4e14ee248e1fba1d82e0a0668e29afc7dd4037d31104c6268
+The checksum of that file is (need to do it yet)
 
 You can run a check on individual files by running "sha256sum -b (insert filename here)".
 
@@ -24,7 +24,7 @@ GENERAL NOTES
 
 --> RetiledSearch is kinda like the Bing Search app on WP8.0/8.1 without Cortana, except it opens the search results in your browser and there's no image yet.
 
---> The default accent color is Cobalt (#0050ef) and the default theme is the dark theme.
+--> The default accent color is Cobalt (#0050ef) and the default theme is the dark theme. You can change the Accent color in the config file in `./RetiledSettings/configs/themes.config`, and it can be copied to `~/.config/Retiled/RetiledSettings/configs/themes.config` to make editing easier
 
 --> Some documentation is available online as linked below. Please be aware that it might not be comprehensive.
 
