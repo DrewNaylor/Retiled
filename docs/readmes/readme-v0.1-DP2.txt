@@ -44,9 +44,12 @@ GENERAL NOTES
 KNOWN ISSUES
 ~~~~~~~~~~~~~~~~
 
+- Scrolling the All Apps list can be slow/choppy on the PinePhone due to not caching the Icon key value from .desktop files (will be changed in v0.1-DP3). (issue #211 https://github.com/DrewNaylor/Retiled/issues/211)
+- App icons aren't crispy like they're supposed to be at 200% scaling until they're reloaded, whether by scrolling the All Apps list far enough to reload them, or by resizing an affected tile. This might be Qt6.5-related because it wasn't an issue until I updated to it on my postmarketOS install, I'm not sure. (issue #210 https://github.com/DrewNaylor/Retiled/issues/210)
 - The message that shows up if you have one or more tiles in the old format in the startlayout config file doesn't have animations when being shown or dismissed. (issue #220 https://github.com/DrewNaylor/Retiled/issues/220)
+- The initial wallpaper implementation has some issues. (issue #194 https://github.com/DrewNaylor/Retiled/issues/194)
 - Moving tiles around isn't possible yet, though it should be possible when TilesGrid is integrated into my code. Hopefully this can be done for v0.1-DP3.
-- The All Apps list scrollbar looks a bit wonky and stays there a bit too long.
+- The scrollbar in the All Apps list is kinda shoved into the side and it looks bad, particularly with regards to the radius on the top and bottom. (issue #212 https://github.com/DrewNaylor/Retiled/issues/212)
 - I still haven't figured out how to get the small tiles to go on both rows beside a medium tile. I have one idea involving the GridLayout/Grid/GridView and having tiles fill rectangles that are fixed sizes but have the tiles change their columnspan and rowspan when being resized or something, but it might not work, and I haven't found anything about masonry layouts in QML as far as I remember. Actually, this should be fine with TilesGrid.
 - The "pin to start" button in RetiledStart and the "about" button in RetiledSearch's appbar drawer don't have proper spacing on the left. (I don't know if this is fixed or not yet, please let me know if it isn't.)
 - In RetiledStart, the tiles list isn't correctly centered in the page. Tried to fix this, but nothing seemed to work. (worked on this a bit for DP2 and it looks fine on a PinePhone in portrait mode [as well as other devices with the same horizontal resolution probably], but it's a bit of a hack as I just increased the width of the empty item I'm using on the left as a spacer)
