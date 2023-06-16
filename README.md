@@ -33,7 +33,7 @@ You may need to install packages through your distro's package manager, and thos
 - `qt6-wayland` (`qt6-qtwayland` on Fedora): Allows Qt6 apps like the ones included in Retiled to run under Wayland, and also allows RetiledCompositor to run
 - `pyyaml` (`PyYAML` via pip, `py3-yaml` in Alpine and probably also postmarketOS, `python-yaml` in Arch Linux ARM and probably Manjaro ARM, `python3-pyyaml` in Fedora; no longer provided via this repo, so it'll have to be installed manually, whether that be via `pip` [newest] or from your package manager [possibly outdated]): Helps read and write yaml files, which are used for RetiledStart's layout file.
 - `pyxdg` (on postmarketOS, this appears to be `py3-xdg`, and it appears to be `python-pyxdg` on Arch Linux ARM and probably also Manjaro ARM): Mainly used for getting app icons at the moment as of April 13, 2023, but usage of it may expand.
-- `qt6-svg`: You'll need to install this if using Xfce or another non-Qt environment. Without it, SVG images won't show up anywhere.
+- `qt6-svg`: You'll need to install this so that SVG images will work. Without it, SVG images won't show up anywhere.
 - `libopengl0`: Required if you want to run stuff on something like Linux Mint Cinnamon; not sure if this is installed by default on other distros, or if it's something that GTK ones lack; also not sure of the package name on non-Ubuntu distros.
 
 ## License stuff
