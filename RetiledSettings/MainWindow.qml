@@ -318,6 +318,9 @@ ApplicationWindow {
                 }
             }
 
+			// Note: these pages here will eventually be replaced
+			// with items that would be in a settings app's appbar drawer,
+			// and not ones that are now in the main list.
             model: ListModel {
 				ListElement { title: "start+theme"; source: "pages/start-theme.qml" }
 				ListElement { title: "about"; source: "pages/About.qml" }
