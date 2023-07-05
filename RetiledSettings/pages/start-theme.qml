@@ -125,7 +125,23 @@ Page {
 					//font.letterSpacing: -0.8 * scaleFactor
 				// TODO: Add a styled version of the label for easier reuse.
 				textFormat: Text.StyledText
-				text: "accent color: <font color=" + accentColor + ">" + accentColor + "</font>"
+				// This is how we'll have to display text in the user's accent color,
+				// unless there's an easier way to do so.
+				// Remember to add the single-quotes directly after color=
+				// and right before the greater-than symbol.
+				// Had to look here for the docs:
+				// https://doc.qt.io/qt-6/qml-qtquick-text.html#textFormat-prop
+				// That link also says stuff on StyledText as used above.
+				// Accent colors are used to highlight text that's important for the user
+				// to be aware of in various apps.
+				// For now it won't know what the name of a color is,
+				// but I'll have a way to specify a list of colors via a theme-related
+				// file, and that'll display color names instead of the HTML color
+				// code when available. That lookup will be done based on the current
+				// color theme in use, so an accent color that's not a part of the current
+				// set (or the set it's inheriting from) will show up as just the color
+				// code if it's not available in the current set or what it inherits from.
+				text: "accent color: <font color='" + accentColor + "'>" + accentColor + "</font>"
 			} // End of the accent color label.
 			Label {
 				wrapMode: Label.Wrap
