@@ -304,6 +304,9 @@ ApplicationWindow {
                 width: parent.width
                 text: model.title
                 onClicked: {
+					// Only navigate to another page if the item says to.
+					// Sometimes you don't want to navigate, so that's why
+					// it has to be specified.
 					if (model.navigate === "true"){
 						stackView.push(model.source)
 						// Set the appbar drawer's color to transparent.
