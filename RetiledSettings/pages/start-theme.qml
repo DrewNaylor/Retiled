@@ -124,6 +124,7 @@ Page {
 				font.pointSize: RetiledStyles.FontStyles.smallFontSize
 				// Actually I'm not sure about using letter spacing now.
 				//font.letterSpacing: -0.8 * scaleFactor
+			// TODO: Add a styled version of the label for easier reuse.
             text: "accent color: " + accentColor
     }
 	}
