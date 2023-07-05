@@ -110,13 +110,11 @@ Page {
 			id: pageContent
 		Label {
 			id: aboutText
-            anchors.left: parent.left
-			anchors.right: parent.right
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHLeft
 			// Setting this to 12 will make it line up with the title label.
-			// The only potential issue is it won't be scrollable directly on the edge.
-			anchors.margins: 12
+			// The only potential issue is it won't be scrollable directly on the edge, but it might not be an issue.
+			Layout.margins: 12
 			// Set font style to Inter Display.
 			// Might need to change the size so it's slightly larger
 			// as this is a little difficult to read, and maybe change some
