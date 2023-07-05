@@ -304,17 +304,27 @@ ApplicationWindow {
                 width: parent.width
                 text: model.title
                 onClicked: {
-                    stackView.push(model.source)
-					// Set the appbar drawer's color to transparent.
-					appbarDrawer.backgroundColor = "transparent"
-					// Close the appbar drawer.
-                    appbarDrawer.close()
-					// Show the back button to allow navigating back.
-					backButton.visible = true
-					// Have the appbar be transparent.
-					appBar.backgroundColor = "transparent"
-					// Hide the ellipsis button.
-					appbarEllipsisButton.visible = false
+					if (model.navigate === "true"){
+						stackView.push(model.source)
+						// Set the appbar drawer's color to transparent.
+						appbarDrawer.backgroundColor = "transparent"
+						// Close the appbar drawer.
+						appbarDrawer.close()
+						// Show the back button to allow navigating back.
+						backButton.visible = true
+						// Have the appbar be transparent.
+						appBar.backgroundColor = "transparent"
+						// Hide the ellipsis button.
+						appbarEllipsisButton.visible = false
+					} else {
+						// This is just a test for now to allow commands
+						// to be used from the appbar.
+						// An example would be pinning something to Start.
+						console.log(model.command)
+						// We should also close the appbar drawer.
+						appbarDrawer.close()
+					}
+
                 }
             }
 
@@ -322,8 +332,12 @@ ApplicationWindow {
 			// with items that would be in a settings app's appbar drawer,
 			// and not ones that are now in the main list.
             model: ListModel {
-				ListElement { title: "start+theme"; source: "pages/start-theme.qml" }
-				ListElement { title: "about"; source: "pages/About.qml" }
+				ListElement { title: "start+theme"; navigate: "true"; source: "pages/start-theme.qml" }
+				ListElement { title: "about"; navigate: "true"; source: "pages/About.qml" }
+				// "debug command" is just a test for now to allow commands
+				// to be used from the appbar.
+				// An example would be pinning something to Start.
+				ListElement { title: "debug command"; navigate: "false"; command: "hello" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
