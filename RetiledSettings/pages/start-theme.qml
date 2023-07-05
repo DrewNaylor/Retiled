@@ -124,7 +124,8 @@ Page {
 					// Actually I'm not sure about using letter spacing now.
 					//font.letterSpacing: -0.8 * scaleFactor
 				// TODO: Add a styled version of the label for easier reuse.
-				text: "accent color: " + accentColor
+				textFormat: Text.StyledText
+				text: "accent color: <font color=" + accentColor + ">" + accentColor + "</font>"
 			} // End of the accent color label.
 			Label {
 				wrapMode: Label.Wrap
