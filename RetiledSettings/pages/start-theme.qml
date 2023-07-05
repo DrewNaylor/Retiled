@@ -1,5 +1,5 @@
-// RetiledSearch - Windows Phone 8.0-like Search app for the
-//                 Retiled project.
+// RetiledSettings - Windows Phone 8.0-like Settings app for the
+//                   Retiled project.
 // Copyright (C) 2021-2023 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
