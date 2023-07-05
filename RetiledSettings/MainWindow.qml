@@ -361,6 +361,7 @@ ApplicationWindow {
 
 
 // This part is basically just the appbar drawer items moved out into a proper list.
+// TODO: Figure out how to have tabbing and arrow keys work correctly.
          ListView {
             anchors.fill: parent
             clip: true
