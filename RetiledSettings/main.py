@@ -1,5 +1,5 @@
-# RetiledSearch - Windows Phone 8.0-like Search app for the
-#                 Retiled project.
+# RetiledSettings - Windows Phone 8.0-like Settings app for the
+#                   Retiled project.
 # Copyright (C) 2021-2023 Drew Naylor
 # (Note that the copyright years include the years left out by the hyphen.)
 # Windows Phone and all other related copyrights and trademarks are property
@@ -75,7 +75,7 @@ class SettingsLoader(QObject):
 		# Set main file path for the config file to get it from the repo, or an install.
 		# The two backslashes at the beginning are required on Windows, or it won't go up.
 		# (I think I changed this at some point, as there are no backslashes anymore.)
-		SettingsFilePath = "".join([os.getcwd(), "/../../RetiledSettings/configs/", SettingType, ".config"])
+		SettingsFilePath = "".join([os.getcwd(), "/../RetiledSettings/configs/", SettingType, ".config"])
 		
 		if not sys.platform.startswith("win32"):
 			# If not on Windows, check if the config file is in the user's home directory,

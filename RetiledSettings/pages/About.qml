@@ -24,7 +24,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import "../../../RetiledStyles" as RetiledStyles
+import "../../RetiledStyles" as RetiledStyles
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
