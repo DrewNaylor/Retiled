@@ -142,6 +142,7 @@ Page {
 					// Actually I'm not sure about using letter spacing now.
 					//font.letterSpacing: -0.8 * scaleFactor
 				// TODO: Add a styled version of the label for easier reuse.
+				// TODO 2: Rename "theme type" to something that makes more sense.
 				text: "theme type: " + settingsLoader.getSetting("themes", "ThemeType", "dark")
 			} // End of the theme type label.
 		} // End of the ColumnLayout holding everything on the page.
