@@ -99,14 +99,16 @@ Page {
 		// the window is resized. This also deals with the horizontal scrolling
 		// issue that happens when dragging the text around after the window gets resized.
 		//contentWidth: aboutText.width
-		contentHeight: aboutText.height
+		contentHeight: pageContent.height
 		width: parent.width
 		height: parent.height
 		clip: true
 		// I mostly copied this from my modified version of the Qml.Net example app.
 		// Code for the About.qml file here:
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
-        Label {
+        ColumnLayout {
+			id: pageContent
+		Label {
 			id: aboutText
             anchors.left: parent.left
 			anchors.right: parent.right
@@ -126,6 +128,7 @@ Page {
 				//font.letterSpacing: -0.8 * scaleFactor
 			// TODO: Add a styled version of the label for easier reuse.
             text: "accent color: " + accentColor
-    }
+    } // End of the accent color label.
+		} // End of the ColumnLayout holding everything on the page.
 	}
 }
