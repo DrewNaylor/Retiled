@@ -133,7 +133,7 @@ Page {
 				// https://doc.qt.io/qt-6/qml-qtquick-text.html#textFormat-prop
 				// That link also says stuff on StyledText as used above.
 				// Accent colors are used to highlight text that's important for the user
-				// to be aware of in various apps.
+				// to be aware of, as well as linklabels, in various apps.
 				// For now it won't know what the name of a color is,
 				// but I'll have a way to specify a list of colors via a theme-related
 				// file, and that'll display color names instead of the HTML color
