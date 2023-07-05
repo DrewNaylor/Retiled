@@ -340,114 +340,37 @@ ApplicationWindow {
         spacing: 4
 
 
-// The rest of this isn't from the modified Qml.Net example app, or at least shouldn't be.
-         RetiledStyles.TextFieldBase {
-            id: searchBox
-			// Allow the user to use the Enter key to search.
-			Keys.onEnterPressed: {
-				searchClass.openUrl(searchBox.text)
-			}
-			// We also have to have one for onReturnPressed
-			// because Qt doesn't consider the Return key to
-			// be the same as the Enter key, even though it's
-			// literally labeled as "Enter" on my keyboard.
-			Keys.onReturnPressed: {
-				searchClass.openUrl(searchBox.text)
-			}
-			// Anchor the search box to the left and right of the window.
-			anchors.margins: 12
-			anchors.topMargin: 5
-			anchors.top: parent.top
-			anchors.right: parent.right
-			anchors.left: parent.left
-            implicitHeight: 40
-            placeholderText: qsTr("enter a search term here")
-            // I don't know if pixelSize is the right property
-            // to change for DPI scaling.
-			// pixelSize isn't device-independent.
-			// Forgot to add the prefix.
-            font.pointSize: RetiledStyles.FontStyles.normalFontSize
-			// Set font style to opensans.
-			font.family: RetiledStyles.FontStyles.regularFont
-			font.weight: RetiledStyles.FontStyles.regularFontWeight
-			
-			// There are some additional properties you can set:
-			// Change the textfield's background color when focused.
-			//   focusedBackgroundColor: "white"
-			// Change the textfield's background color when unfocused.
-			//   unfocusedBackgroundColor: "#CCCCCC"
-			// Set the unfocused placeholder text.
-			// This was as close as I could get to what Avalonia's
-			// placeholder text color was at the opacity I set.
-			//   unfocusedPlaceholderTextColor: "#666666"
-			// Set the focused placeholder text color.
-			// This is mostly used to make it disappear
-			// when focused so it doesn't interfere with
-			// the text.
-			//   focusedPlaceholderTextColor: "transparent"
-			// Additionally, "selectByMouse" is set to true
-			// by default now.
-			// "color" is now also set to "black" so the text shows
-			// up with the white background.
-			// Border width also changes from 0 when unfocused to 2
-			// when focused. There isn't a property to change that yet.
-         }
-		 
-		 
-         RetiledStyles.Button {
-            id: searchButton
-			onClicked: {
-				searchClass.openUrl(searchBox.text)
-			}
-			
-			// Pro-tip: set these properties rather than
-			// putting in a contentItem or it'll override
-			// the style's contentItem.
-			// I'm not setting them because they're already
-			// set.
-			//fontSize: 18
-			//textColor: "white"
-			//pressedBackgroundColor: "#0050ef"
-			//unpressedBackgroundColor: "transparent"
-			//borderColor: "white"
-			//borderWidth: 2
-			//borderRadius: 0
-			
-			// However, I will set these properties.
-			buttonWidth: 100
-			buttonHeight: 40
-			
-			// Set margins and anchors.
-			anchors.top: searchBox.bottom
-			anchors.margins: 12
-			anchors.topMargin: 4
-			anchors.left: parent.left
-			
-			// Set the text.
-            text: qsTr("search")
-			// Set font style to opensans.
-			// Apparently ButtonBase uses SemiBold:
-			// https://github.com/microsoftarchive/WindowsPhoneToolkit/blob/master/PhoneToolkitSample8/App.xaml#L51
-			// Hope it works, but I can't really tell a difference.
-			// It actually is noticeable on the PinePhone, but I don't
-			// know if I'll keep it SemiBold in the button template.
-			// Windows Phone uses PhoneFontSizeMediumLarge for ButtonBase,
-			// which is a double and has the value of 25.333.
-			// This is a problem for QML's pixelSize, because that's
-			// an integer, so we have to round down to 25.
-			// Had to change the width above.
-			// 25 was too big.
-			// I'm just setting this in the Button control file.
-            
+// This part is basically just the appbar drawer items moved out into a proper list.
+         ListView {
+            anchors.fill: parent
+            clip: true
+            focus: true
 
-		} // End of the Search button.
-		RetiledStyles.Button {
-			visible: false
-			// This button changes the Accent color for the app.
-			onClicked: {
-				accentColor = "Maroon";
-			}
-		}
+            delegate: RetiledStyles.AppBarDrawerEntry {
+                width: parent.width
+                text: model.title
+                onClicked: {
+                    stackView.push(model.source)
+					// Set the appbar drawer's color to transparent.
+					appbarDrawer.backgroundColor = "transparent"
+					// Close the appbar drawer.
+                    appbarDrawer.close()
+					// Show the back button to allow navigating back.
+					backButton.visible = true
+					// Have the appbar be transparent.
+					appBar.backgroundColor = "transparent"
+					// Hide the ellipsis button.
+					appbarEllipsisButton.visible = false
+                }
+            }
+
+            model: ListModel {
+				ListElement { title: "start+theme"; source: "pages/start-theme.qml" }
+				ListElement { title: "about"; source: "pages/About.qml" }
+            }
+
+            ScrollIndicator.vertical: ScrollIndicator { }
+            }
 		} // End of the pane within the StackView for navigation.
 	} // End of the StackView.
 } // End of the ApplicationWindow.
