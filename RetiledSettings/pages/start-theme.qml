@@ -69,7 +69,7 @@ Page {
 
                 Label {
                 id: titleLabel
-                text: "about"
+                text: "start+theme"
                 // Not sure if this is the right font size, but it's closer.
 				// pixelSize isn't device-independent.
                 font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
