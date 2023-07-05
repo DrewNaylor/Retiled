@@ -295,7 +295,7 @@ ApplicationWindow {
         
 
 // TODO: Figure out how to have tabbing and arrow keys work correctly in the appbar drawer
-// and the appbar itself.
+// and the appbar itself, once that's implemented.
         ListView {
             id: appbarDrawerListView
             anchors.fill: parent
