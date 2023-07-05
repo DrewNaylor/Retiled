@@ -108,25 +108,25 @@ Page {
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
         ColumnLayout {
 			id: pageContent
-		Label {
-			id: aboutText
-            wrapMode: Label.Wrap
-            horizontalAlignment: Qt.AlignHLeft
-			// Setting this to 12 will make it line up with the title label.
-			// The only potential issue is it won't be scrollable directly on the edge, but it might not be an issue.
-			Layout.margins: 12
-			// Set font style to Inter Display.
-			// Might need to change the size so it's slightly larger
-			// as this is a little difficult to read, and maybe change some
-			// of the text color to be the dimmer variant.
-				font.family: RetiledStyles.FontStyles.regularFont
-				font.weight: RetiledStyles.FontStyles.regularFontWeight
-				font.pointSize: RetiledStyles.FontStyles.smallFontSize
-				// Actually I'm not sure about using letter spacing now.
-				//font.letterSpacing: -0.8 * scaleFactor
-			// TODO: Add a styled version of the label for easier reuse.
-            text: "accent color: " + accentColor
-    } // End of the accent color label.
+			Label {
+				id: aboutText
+				wrapMode: Label.Wrap
+				horizontalAlignment: Qt.AlignHLeft
+				// Setting this to 12 will make it line up with the title label.
+				// The only potential issue is it won't be scrollable directly on the edge, but it might not be an issue.
+				Layout.margins: 12
+				// Set font style to Inter Display.
+				// Might need to change the size so it's slightly larger
+				// as this is a little difficult to read, and maybe change some
+				// of the text color to be the dimmer variant.
+					font.family: RetiledStyles.FontStyles.regularFont
+					font.weight: RetiledStyles.FontStyles.regularFontWeight
+					font.pointSize: RetiledStyles.FontStyles.smallFontSize
+					// Actually I'm not sure about using letter spacing now.
+					//font.letterSpacing: -0.8 * scaleFactor
+				// TODO: Add a styled version of the label for easier reuse.
+				text: "accent color: " + accentColor
+			} // End of the accent color label.
 		} // End of the ColumnLayout holding everything on the page.
 	}
 }
