@@ -319,8 +319,8 @@ ApplicationWindow {
             }
 
             model: ListModel {
-				ListElement { title: "about"; source: "pages/About.qml" }
 				ListElement { title: "start+theme"; source: "pages/start-theme.qml" }
+				ListElement { title: "about"; source: "pages/About.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
