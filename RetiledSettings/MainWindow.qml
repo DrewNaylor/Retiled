@@ -41,7 +41,7 @@ ApplicationWindow {
     width: 360
     height: 720
     visible: true
-    title: qsTr("RetiledSearch")
+    title: qsTr("RetiledSettings")
 
     Universal.theme: Universal.Dark
 	// Property for setting Accent colors so that Universal.accent
