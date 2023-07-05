@@ -294,6 +294,8 @@ ApplicationWindow {
             color: "transparent"
         
 
+// TODO: Figure out how to have tabbing and arrow keys work correctly in the appbar drawer
+// and the appbar itself.
         ListView {
             id: appbarDrawerListView
             anchors.fill: parent
@@ -362,6 +364,8 @@ ApplicationWindow {
 
 // This part is basically just the appbar drawer items moved out into a proper list.
 // TODO: Figure out how to have tabbing and arrow keys work correctly.
+// TODO 2: Allow pages to actually have appbars that are separate from the emergency
+// Back button.
          ListView {
             anchors.fill: parent
             clip: true
