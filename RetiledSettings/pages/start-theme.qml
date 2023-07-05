@@ -124,48 +124,7 @@ Page {
 				font.pointSize: RetiledStyles.FontStyles.smallFontSize
 				// Actually I'm not sure about using letter spacing now.
 				//font.letterSpacing: -0.8 * scaleFactor
-            text: "RetiledSearch v0.1 Developer Preview 2\n" +
-			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
-			"Copyright (C) 2021-2023 Drew Naylor. Licensed under the Apache License 2.0.\n" +
-			"Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.\n\n" +
-			"License notice:\n" +
-			"Licensed under the Apache License, Version 2.0 (the ''License'')\n" +
-			"you may not use this file except in compliance with the License.\n" +
-			"You may obtain a copy of the License at\n\n" +
-			"    http://www.apache.org/licenses/LICENSE-2.0 \n\n" +
-			"Unless required by applicable law or agreed to in writing, software\n" +
-			"distributed under the License is distributed on an ''AS IS'' BASIS,\n" +
-			"WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-			"See the License for the specific language governing permissions and\n" +
-			"limitations under the License.\n\n" +
-			"RetiledSearch is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n\n" +
-			"The ''back'' button in this app is provided by the wp-metro font, made by AJ Troxell, licensed under the SIL OFL 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
-			"https://github.com/ajtroxell/wp-metro \n\n" +
-			"Text in this app uses Inter (specifically, Inter Display, and v4.0 beta 8 was used for testing) if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
-			"https://github.com/rsms/inter \n\n" +
-			"Qt (and I think PySide6 as well, since it's owned by The Qt Company) is copyright The Qt Company Ltd. and Qt6 and PySide6 are both being used under the LGPLv3. You can view a copy of the license here:\n" +
-			"https://www.gnu.org/licenses/lgpl-3.0.en.html \n" +
-			"I'm also supposed to provide a link to the standard GPL:\n" +
-			"https://www.gnu.org/licenses/gpl-3.0.html \n\n"+
-			"Some files were taken and modified from the Qt6 QtQuick2 source, in particular styles. I'm supposed to provide a way to download Qt's source according to its license, so I hope a fork of the qtdeclarative repo is enough (there are so many repos in the Qt organization account that I didn't know which one to fork, so I figured that the main one my code uses would be a safe bet):\n" +
-			"https://github.com/DrewNaylor/qtdeclarative \n" +
-			"Please be aware that although I kept the original licensing stuff for the styles, the parts of Retiled under the Apache License, Version 2.0, are using them under the LGPLv3.\n\n" +
-			"I will also provide a link to the PySide6 project, though I didn't take or modify any code from it and I'm not distributing any part of it, so I don't think I have to host it myself:\n" +
-			"https://code.qt.io/cgit/pyside/pyside-setup.git/about/ \n\n" +
-			"Python copyrights are below:\n" +
-			"Copyright (c) 2001-2021 Python Software Foundation.\n" +
-			"All Rights Reserved.\n" +
-			"Copyright (c) 2000 BeOpen.com.\n" +
-			"All Rights Reserved.\n" +
-			"Copyright (c) 1995-2001 Corporation for National Research Initiatives.\n" +
-			"All Rights Reserved.\n" +
-			"Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\n" +
-			"All Rights Reserved.\n" +
-			"And that's the end of the Python copyrights, at least for 3.9.\n" +
-			"Python is licensed under the PSF License Agreement:\n" +
-			"https://docs.python.org/3.9/license.html#psf-license \n\n" +
-			"You can access the Retiled source code here:\n" +
-			"https://github.com/DrewNaylor/Retiled"
+            text: "accent color: " + accentColor
     }
 	}
 }
