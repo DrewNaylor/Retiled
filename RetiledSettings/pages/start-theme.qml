@@ -145,6 +145,24 @@ Page {
 				// TODO 2: Rename "theme type" to something that makes more sense.
 				text: "theme type: " + settingsLoader.getSetting("themes", "ThemeType", "dark")
 			} // End of the theme type label.
+			Label {
+				wrapMode: Label.Wrap
+				horizontalAlignment: Qt.AlignHLeft
+				// Setting this to 12 will make it line up with the title label.
+				// The only potential issue is it won't be scrollable directly on the edge, but it might not be an issue.
+				Layout.margins: 12
+				// Set font style to Inter Display.
+				// Might need to change the size so it's slightly larger
+				// as this is a little difficult to read, and maybe change some
+				// of the text color to be the dimmer variant.
+					font.family: RetiledStyles.FontStyles.regularFont
+					font.weight: RetiledStyles.FontStyles.regularFontWeight
+					font.pointSize: RetiledStyles.FontStyles.smallFontSize
+					// Actually I'm not sure about using letter spacing now.
+					//font.letterSpacing: -0.8 * scaleFactor
+				// TODO: Add a styled version of the label for easier reuse.
+				text: "display background wallpaper: " + settingsLoader.getSetting("themes", "DisplayBackgroundWallpaper", "false")
+			} // End of the display background wallpaper label.
 		} // End of the ColumnLayout holding everything on the page.
 	}
 }
