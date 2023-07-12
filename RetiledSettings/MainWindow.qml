@@ -153,7 +153,9 @@ ApplicationWindow {
 
         transform: Translate {
         // Move the menu to make it look like WP's ellipsis menu opening.
-        y: appbarDrawer.position * (appBar.height * 3) * -1
+		// Turns out we need to have it be multiplied by 3.4 so the items don't
+		// overlap the appbar.
+        y: appbarDrawer.position * (appBar.height * 3.4) * -1
          }
 
         RowLayout {
@@ -262,9 +264,9 @@ ApplicationWindow {
 	// TODO 3: Move the customizations to AppBarDrawer.qml so that
 	// more apps can use this customized appbar drawer.
 	// TODO 4: Prevent the appbar drawer from being able to be closed
-	// by dragging downward on the items in it.
-	// TODO 5: Ensure the items aren't clickable above where they're intended
-	// to be.
+	// by dragging downward on the items in it or by clicking anywhere
+	// on the appbar other than the ellipsis/more button or the empty
+	// spot on the left side of the appbar.
         id: appbarDrawer
         width: window.width
         // Set height to 165 so that there's enough space for the pages.
