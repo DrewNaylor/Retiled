@@ -81,9 +81,9 @@ T.Popup {
     padding: 0
 
     background: Rectangle {
-        color: "white"
-        border.color: "black"
-        border.width: 2 // FlyoutBorderThemeThickness
+        color: ThemeLoader.getValueFromTheme(themePath, "ContextMenu", "BackgroundColor", "white")
+        border.color: ThemeLoader.getValueFromTheme(themePath, "ContextMenu", "BorderColor", "black")
+        border.width: ThemeLoader.getValueFromTheme(themePath, "ContextMenu", "BorderWidth", "2") // FlyoutBorderThemeThickness
     }
 
     T.Overlay.modal: Rectangle {
