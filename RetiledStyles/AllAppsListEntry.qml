@@ -59,8 +59,8 @@ RetiledStyles.Button {
 	borderWidth: 0
 	
 	// Set the background color when pressing the button to transparent
-	// to get rid of it.
-	pressedBackgroundColor: "transparent"
+	// to get rid of it, if the theme says to.
+	pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "PressedBackgroundColor", "transparent")
 	
 	// Add a property to store text because I
 	// can't just put any property I want into
@@ -152,7 +152,7 @@ RetiledStyles.Button {
 				borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
 				// Hide the border if it's set to 0 in the theme.
 				borderWidth: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderWidth", "0")
-				pressedBackgroundColor: "transparent"
+				pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "PressedBackgroundColor", "transparent")
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
 				// on this button looks way more bold
