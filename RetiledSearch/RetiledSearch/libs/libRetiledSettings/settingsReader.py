@@ -53,7 +53,7 @@
 import configparser
 from os.path import exists
 
-def getSetting(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = True):
+def getSetting(inputFile, keyToGet, defaultValue, fileName = "", sectionName = "Settings", IsCustomKey = True):
 	# fileName and IsCustomKey are both optional.
 
 	# Check if the path exists first to prevent using
@@ -114,8 +114,8 @@ def getSetting(inputFile, keyToGet, defaultValue, fileName = "", IsCustomKey = T
 		# Make sure the key is in the file and return the default
 		# if it's not:
 		# https://stackoverflow.com/a/21057828
-			if settingsFileReader.has_option('Settings', keyToGet):		
-				return settingsFileReader.get('Settings', keyToGet)
+			if settingsFileReader.has_option(sectionName, keyToGet):		
+				return settingsFileReader.get(sectionName, keyToGet)
 			else:
 				return defaultValue
 			
