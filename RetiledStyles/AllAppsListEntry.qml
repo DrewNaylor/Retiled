@@ -148,8 +148,8 @@ RetiledStyles.Button {
 			
 			ContextMenuButton {
 				width: window.width
-				textColor: "black"
-				borderColor: "transparent"
+				textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
+				borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
 				// Hide the border.
 				borderWidth: 0
 				pressedBackgroundColor: "transparent"
