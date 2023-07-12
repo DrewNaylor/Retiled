@@ -43,27 +43,21 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 ToolBar {
+
+    // Do properties so the text can be changed.
+    property string appTitleText;
+    property string pageTitleText;
     
     // Didn't know this is how you set background colors for
     // controls in QML.
     // Based on this info here:
     // https://stackoverflow.com/a/27619649
     background: Rectangle {
+        // TODO: Switch to using the theme background color
+        // when implemented.
         color: 'black'
     }
 	
-	//FontLoader {
-			//id: opensansLight
-			// This is using the Open Sans Light font, which you can
-			// find here:
-			// https://fonts.google.com/specimen/Open+Sans
-			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
-			// http://www.apache.org/licenses/LICENSE-2.0
-			//source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
-		//}
-		
-	
-
     RowLayout {
     anchors.left: parent.left
 
@@ -82,8 +76,8 @@ ToolBar {
 				Label {
 					// I think this is about how the app titles
 					// should appear, but it might be off.
-					id: appTitleLable
-					text: "retiledsettings"
+					id: appTitleLabel
+					text: appTitleText
 					font.capitalization: Font.AllUppercase
 					// Not sure if this is the right font size, but it's closer.
 					// pixelSize isn't device-independent.
@@ -102,8 +96,8 @@ ToolBar {
             	} // End of page title
 				
                 Label {
-					id: titleLabel
-					text: "start+theme"
+					id: pageTitleLabel
+					text: pageTitleText
 					// Not sure if this is the right font size, but it's closer.
 					// pixelSize isn't device-independent.
 					font.pointSize: RetiledStyles.FontStyles.extralargeFontSize

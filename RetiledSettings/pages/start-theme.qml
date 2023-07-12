@@ -32,7 +32,10 @@ import QtQuick.Layouts
 Page {
 	
     header: RetiledStyles.PlainPageHeader {
-		// TODO: Switch header to using aliases for the text.
+		// This is the page header for pages that just have
+		// the app name and page name.
+		appTitleText: "retiledsettings"
+		pageTitleText: "start+theme"
 	}
 
 	Flickable {
