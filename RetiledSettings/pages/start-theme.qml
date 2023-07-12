@@ -153,6 +153,11 @@ Page {
 				// Of course, we're not going to set ThemeType when saving.
 				text: "theme name: " + settingsLoader.getSetting("themes", "ThemeName", "MetroDark")
 			} // End of the theme type label.
+			RetiledStyles.Button {
+				width: 20
+				height: 15
+				text: "test"
+			}
 			Label {
 				wrapMode: Label.Wrap
 				horizontalAlignment: Qt.AlignHLeft
