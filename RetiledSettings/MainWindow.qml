@@ -355,7 +355,16 @@ ApplicationWindow {
 		id: stackView
 		anchors.fill: parent
 	
-		initialItem: Pane {
+		initialItem: Page {
+
+			header: RetiledStyles.PlainPageHeader {
+				// This is the page header for pages that just have
+				// the app name and page name.
+				// TODO: Replace this with the Pivot once that's implemented
+				// to go between lists.
+				appTitleText: "retiledsettings"
+				pageTitleText: "system"
+			}
 		
 		id: pane
 		
