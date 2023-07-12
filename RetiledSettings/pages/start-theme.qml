@@ -149,6 +149,8 @@ Page {
 					// We can show a preview of the user's accent color next to the label.
 					// This'll be added to the left side of the accent color
 					// dropdown once that's implemented.
+					// TODO: Center the rectangle better when it's added to the
+					// dropdown.
 					anchors.left: parent.right
 					height: 24
 					width: 24
