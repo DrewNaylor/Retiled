@@ -70,7 +70,7 @@ RetiledStyles.Button {
 	// Put something in setting text color.
 	// Usually under the dark theme it'll be
 	// white.
-	property string textColor: "white"
+	property string textColor: ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "TextColor", "white")
 	
 	// Have a property for the icon background color.
 	property string iconBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "UseAccentForIconBackground", "true") === "true" ? accentColor : ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "AlternateIconBackgroundColor", "transparent")
