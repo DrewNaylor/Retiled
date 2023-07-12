@@ -231,7 +231,14 @@ Page {
 				// TODO: Add a styled version of the label for easier reuse.
 				text: "wallpaper path: " + settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg")
 				Image {
-					source: "../../RetiledStart/RetiledStart/pages/" + settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg")
+					source: {
+						let wallpaperSettingPath = settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg");
+						if (wallpaperSettingPath.startsWith("/")) {
+							return wallpaperSettingPath;
+						} else {
+							return "../../RetiledStart/RetiledStart/pages/" + wallpaperSettingPath;
+						}
+					}
 					height: 120
 					width: 120
 					anchors.leftMargin: 6
