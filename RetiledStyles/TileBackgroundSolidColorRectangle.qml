@@ -49,6 +49,7 @@ Rectangle {
 	// Change tile color and stuff.
 	color: tileBackgroundColor
 	border.width: ThemeLoader.getValueFromTheme(themePath, "Tiles", "BorderWidth", "0")
+	border.color: border.width > 0 ? ThemeLoader.getValueFromTheme(themePath, "Tiles", "BorderColor", "transparent") : "transparent"
 	radius: ThemeLoader.getValueFromTheme(themePath, "Tiles", "Radius", "0")
 	
 	// Add antialiasing to tiles.
