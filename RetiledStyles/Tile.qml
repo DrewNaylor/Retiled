@@ -235,15 +235,15 @@ ButtonBase {
 		z: control.z + 1
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
-		pressedBackgroundColor: "white"
+		pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBackgroundColor", "white")
 		// Forgot to set the unpressedBackgroundColor
 		// property and that these buttons are opaque
 		// on WP. Thought something looked slightly off.
 		// TODO: Check if this is also black under the light theme.
-		unpressedBackgroundColor: "black"
+		unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonUnpressedBackgroundColor", "black")
 		// Change pressed text color.
 		// TODO: Check if this is also the same under the light theme.
-		pressedTextColor: "black"
+		pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedTextColor", "black")
 		// Set accessibility stuff:
 				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
 				// Didn't know this was a thing, but I learned about it
