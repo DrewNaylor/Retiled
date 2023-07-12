@@ -79,6 +79,8 @@ ButtonBase {
 	// Not sure if it should be customizable via themes.
 	// Maybe there should be a thing in themes to specify whether
 	// to use the Accent color or to use a different color?
+	// TODO: Provide a boolean to allow overriding the pressedBackgroundColor
+	// such as for high-contrast themes.
 	property string pressedBackgroundColor: accentColor
 	// unpressedBackgroundColor is usually transparent,
 	// but it may be useful to specify a color, such as for
