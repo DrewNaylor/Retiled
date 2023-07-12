@@ -184,7 +184,9 @@ class ThemeLoader(QObject):
 		# Set main file path for the config file to get it from the repo, or an install.
 		# The two backslashes at the beginning are required on Windows, or it won't go up.
 		# (I think I changed this at some point, as there are no backslashes anymore.)
-		ThemeFilePath = "".join([os.getcwd(), "/../RetiledThemes/", ThemeName, ".ini"])
+		# VERY IMPORTANT NOTE: Make sure the path to the themes folder is correct, or
+		# accessing themes will silently fail and return the default value.
+		ThemeFilePath = "".join([os.getcwd(), "/../../RetiledThemes/", ThemeName, ".ini"])
 		
 		# We'll have to look for themes in other places, but not yet.
 		#if not sys.platform.startswith("win32"):
