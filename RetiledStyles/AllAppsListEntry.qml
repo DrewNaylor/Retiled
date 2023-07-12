@@ -56,6 +56,8 @@ RetiledStyles.Button {
 	
 	// Remove the border.
 	// You can comment this out if you need to debug the area around it.
+	// Not going to allow this to be themed because it's close together
+	// and may look weird.
 	borderWidth: 0
 	
 	// Set the background color when pressing the button to transparent
