@@ -104,6 +104,8 @@ Page {
 					horizontalAlignment: Qt.AlignHCenter
 					verticalAlignment: Qt.AlignVCenter
 					Layout.fillWidth: true
+					// Set top margin.
+					Layout.topMargin: -6
             	} // End of page title
 			} // End of ColumnLayout holding the app and page title labels.
             } // End of RowLayout giving a margin to the app and page title
