@@ -107,7 +107,7 @@ ToolBar {
 					// Actually I'm not sure about using letter spacing now.
 					//font.letterSpacing: -0.8 * scaleFactor
 					elide: Label.ElideRight
-					horizontalAlignment: Qt.AlignHCenter
+					horizontalAlignment: Qt.AlignLeft
 					verticalAlignment: Qt.AlignVCenter
 					Layout.fillWidth: true
 					// Set top margin.
