@@ -154,6 +154,7 @@ T.TextField {
 
 		// Keep the border a width of 0 until it's focused,
 		// at which point it's set to 2.
+        // TODO: Add support for theme files to set border width and color if possible.
         border.width: control.focus ? 2 : 0 // TextControlBorderThemeThickness
         border.color: !control.enabled ? control.Universal.baseLowColor :
                        control.activeFocus ? control.Universal.accent :
