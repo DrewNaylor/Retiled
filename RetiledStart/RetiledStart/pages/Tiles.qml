@@ -697,6 +697,8 @@ ApplicationWindow {
 			// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html
 			// Made the duration longer and used InOutQuart to make it feel better.
 			move: Transition {
+				// TODO: Use a simultaneous animation or whatever it is to have things
+				// move at the same time for both.
 				PropertyAnimation { property: "x"; duration: 200; easing.type: Easing.InOutQuart }
 				PropertyAnimation { property: "y"; duration: 200; easing.type: Easing.InOutQuart }
 			}
