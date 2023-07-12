@@ -149,8 +149,8 @@ T.TextField {
     background: Rectangle {
         implicitWidth: 60 // TextControlThemeMinWidth - 4 (border)
         implicitHeight: 28 // TextControlThemeMinHeight - 4 (border)
-		// Change the radius so it's square.
-		radius: 0
+		// Change the radius so it's square if the theme says so.
+		radius: ThemeLoader.getValueFromTheme(themePath, "TextFieldBase", "BackgroundRadius", "0")
 
 		// Keep the border a width of 0 until it's focused,
 		// at which point it's set to 2.
