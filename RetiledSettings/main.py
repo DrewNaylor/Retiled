@@ -106,8 +106,8 @@ class SettingsLoader(QObject):
 
 class ThemeLoader(QObject):
 	# Slots still need to exist when using PySide.
-	@Slot(str, str, str, result=str)
-	def getValueFromTheme(self, ThemeName, RequestedValue, DefaultValue):
+	@Slot(str, str, str, str, result=str)
+	def getValueFromTheme(self, ThemeName, ThemeSection, RequestedValue, DefaultValue):
 		# Get the settings.
 		# TODO: Switch to a script that can just run the Python 
 		# file as a script so that the library doesn't have to
@@ -128,7 +128,9 @@ class ThemeLoader(QObject):
 		#print(SettingsFilePath)
 		
 		# Return the requested value.
-		return settingsReader.getSetting(ThemeFilePath, RequestedValue, DefaultValue, sectionName="Theme")
+		# Remove the quotes, though (Qt doesn't like them):
+		# https://stackoverflow.com/a/40950987
+		return settingsReader.getSetting(ThemeFilePath, RequestedValue, DefaultValue, sectionName=ThemeSection).strip('\"')
 
 def shutdown():
 	# This is the cleanup code as described in the link.

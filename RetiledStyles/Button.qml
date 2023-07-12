@@ -87,9 +87,9 @@ ButtonBase {
 	// Very rarely, buttons will have a different border color
 	// when pressed. One example of this is the "unpin tile"
 	// button. I still need to check the light theme for this.
-	property string pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "ButtonPressedBorderColor", "white")
+	property string pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "ButtonPressedBorderColor", "white")
 	property int borderWidth: 2
-	property int borderRadius: ThemeLoader.getValueFromTheme(themePath, "StandardButtonCornerRadius", "0")
+	property int borderRadius: ThemeLoader.getValueFromTheme(themePath, "Buttons", "StandardButtonCornerRadius", "0")
 	// Change button size to help with the large font.
 	property int buttonWidth: 100
 	property int buttonHeight: 40
