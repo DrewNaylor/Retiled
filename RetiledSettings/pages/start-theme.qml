@@ -213,6 +213,7 @@ Page {
 				text: "use tile background wallpaper: " + settingsLoader.getSetting("themes", "UseTileBackgroundWallpaper", "false")
 			} // End of the use tile background wallpaper label.
 			Label {
+				Layout.maximumWidth: window.width - 144
 				wrapMode: Label.Wrap
 				horizontalAlignment: Qt.AlignHLeft
 				// Setting this to 12 will make it line up with the title label.
