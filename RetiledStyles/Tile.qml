@@ -63,13 +63,16 @@ ButtonBase {
 	// so that users can change all of them to whatever they want,
 	// so maybe the extra small font size could be set to 16 if needed?
 	property real fontSize: FontStyles.extrasmallFontSize
-	property string textColor: "white"
+	property string textColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TextColor", "white")
 	// Fun fact: if you change the color value here
 	// to #990050ef (or anything else with numbers in front of "0050ef"),
 	// you'll get transparent tile backgrounds, with different values
 	// depending on the first two numbers (replacing "99").
 	// This may be useful for customization, if people want W10M-style
 	// semi-transparent tiles.
+	// TODO: Figure out how to allow this to be changed in themes if possible,
+	// or at least hook it up to tile .desktop files and stuff when I get around
+	// to doing that.
 	property string tileBackgroundColor: accentColor
 	// We have to add a property for the button's exec key
 	// so that we can add an event handler:
@@ -113,6 +116,7 @@ ButtonBase {
 	// Actually, Segoe WP's spacing can be emulated by setting the pixel spacing to -8.
 	// It would still be best to fork Open Sans, though, as that's how it can be fixed
 	// properly, along with fixing the J and Q.
+	// TODO: Allow this to be changed?
 	leftPadding: 8
 	topPadding: 0
 	rightPadding: 0
@@ -172,14 +176,14 @@ ButtonBase {
 		borderWidth: 2
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
-		pressedBackgroundColor: "white"
+		pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBackgroundColor", "white")
 		// Forgot to set the unpressedBackgroundColor
 		// property and that these buttons are opaque
 		// on WP. Thought something looked slightly off.
 		// TODO: Check if this is also black under the light theme.
-		unpressedBackgroundColor: "black"
+		unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonUnpressedBackgroundColor", "black")
 		// Also set pressedBorderColor.
-		pressedBorderColor: "black"
+		pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBorderColor", "black")
 		// Set accessibility stuff:
 				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
 				// Didn't know this was a thing, but I learned about it
