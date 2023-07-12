@@ -155,7 +155,7 @@ Page {
 					anchors.leftMargin: 6
 					color: accentColor
 					Accessible.name: "accent color preview rectangle"
-				}
+				} // End of the accent color preview rectangle.
 			} // End of the accent color label.
 			Label {
 				wrapMode: Label.Wrap
@@ -213,6 +213,9 @@ Page {
 				text: "use tile background wallpaper: " + settingsLoader.getSetting("themes", "UseTileBackgroundWallpaper", "false")
 			} // End of the use tile background wallpaper label.
 			Label {
+				// Ensure the label wraps with long paths so the
+				// image preview stays visible. We're also giving
+				// a margin on the right side.
 				Layout.maximumWidth: window.width - 144
 				wrapMode: Label.Wrap
 				horizontalAlignment: Qt.AlignHLeft
@@ -232,6 +235,9 @@ Page {
 				// TODO: Add a styled version of the label for easier reuse.
 				text: "wallpaper path: " + settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg")
 				Image {
+					// Display a preview image for the wallpaper.
+					// Right now it's not perfect and looks a little
+					// sharp.
 					source: {
 						let wallpaperSettingPath = settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg");
 						// This allows exact or relative paths.
@@ -247,7 +253,7 @@ Page {
 					anchors.leftMargin: 6
 					anchors.left: parent.right
 					Accessible.name: "wallpaper preview image"
-				}
+				} // End of the wallpaper preview image.
 			} // End of the wallpaper path label.
 			Label {
 				wrapMode: Label.Wrap
