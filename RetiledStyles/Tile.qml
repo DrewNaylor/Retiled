@@ -80,7 +80,8 @@ ButtonBase {
 	property string execKey;
 	signal tileClicked(string execKey);
 	
-	
+	// Set tile border radius.
+	radius: ThemeLoader.getValueFromTheme(themePath, "Tiles", "Radius", "0")
 	
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
