@@ -150,8 +150,8 @@ RetiledStyles.Button {
 				width: window.width
 				textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
 				borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
-				// Hide the border.
-				borderWidth: 0
+				// Hide the border if it's set to 0 in the theme.
+				borderWidth: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderWidth", "0")
 				pressedBackgroundColor: "transparent"
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
