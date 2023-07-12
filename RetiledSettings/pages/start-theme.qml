@@ -31,95 +31,10 @@ import QtQuick.Layouts
 
 Page {
 	
-    header: ToolBar {
-    
-    // Didn't know this is how you set background colors for
-    // controls in QML.
-    // Based on this info here:
-    // https://stackoverflow.com/a/27619649
-    background: Rectangle {
-        color: 'black'
-    }
-	
-	//FontLoader {
-			//id: opensansLight
-			// This is using the Open Sans Light font, which you can
-			// find here:
-			// https://fonts.google.com/specimen/Open+Sans
-			// This font was designed by Steve Matteson and is under the Apache License, Version 2.0:
-			// http://www.apache.org/licenses/LICENSE-2.0
-			//source: "../../../fonts/open_sans/static/OpenSans/OpenSans-Light.ttf"
-		//}
-		
-	
+    header: RetiledStyles.PlainPageHeader {
+		// TODO: Switch header to using aliases for the text.
+	}
 
-    RowLayout {
-    anchors.left: parent.left
-
-                Item {
-                // Adding an empty Item to space the header from the left.
-                // TODO: Get this empty item's spacing to be closer to WP's
-                // spacing for a given app that uses large headers, like
-                // pages in the Settings app.
-                height: 50
-				// When combined with "12" for the about text main body,
-				// this forces the title and the body to line up.
-                width: 6
-                }
-
-	ColumnLayout {
-				Label {
-					// I think this is about how the app titles
-					// should appear, but it might be off.
-					id: appTitleLable
-					text: "retiledsettings"
-					font.capitalization: Font.AllUppercase
-					// Not sure if this is the right font size, but it's closer.
-					// pixelSize isn't device-independent.
-					font.pointSize: RetiledStyles.FontStyles.smallFontSize
-					// Set font.
-					font.family: RetiledStyles.FontStyles.semiboldFont
-					font.weight: RetiledStyles.FontStyles.semiboldFontWeight
-					// Actually I'm not sure about using letter spacing now.
-					//font.letterSpacing: -0.8 * scaleFactor
-					elide: Label.ElideRight
-					horizontalAlignment: Qt.AlignLeft
-					verticalAlignment: Qt.AlignVCenter
-					Layout.fillWidth: true
-					// Set top margin.
-					Layout.topMargin: 24
-            	} // End of page title
-				
-                Label {
-					id: titleLabel
-					text: "start+theme"
-					// Not sure if this is the right font size, but it's closer.
-					// pixelSize isn't device-independent.
-					font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
-					// Set font.
-					font.family: RetiledStyles.FontStyles.lightFont
-					font.weight: RetiledStyles.FontStyles.lightFontWeight
-					// Actually I'm not sure about using letter spacing now.
-					//font.letterSpacing: -0.8 * scaleFactor
-					elide: Label.ElideRight
-					horizontalAlignment: Qt.AlignHCenter
-					verticalAlignment: Qt.AlignVCenter
-					Layout.fillWidth: true
-					// Set top margin.
-					Layout.topMargin: -6
-            	} // End of page title
-			
-				Item {
-					// Empty item as a spacer for the header.
-					// Can't seem to get margins working on the layouts
-					// directly.
-					height: 12
-				}
-
-			} // End of ColumnLayout holding the app and page title labels.
-            } // End of RowLayout giving a margin to the app and page title
-
-    }
 	Flickable {
 		// Gotta set a bunch of properties so the Flickable looks right.
 		// TODO: Change the scrolling so it's more loose and doesn't feel like
