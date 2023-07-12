@@ -40,15 +40,42 @@ ApplicationWindow {
     visible: true
     title: qsTr("RetiledSettings")
 
-    Universal.theme: Universal.Dark
+    Universal.theme: {
+		// Get Universal theme.
+		// TODO: Hook this up to a theme file so things can be
+		// loaded for multiple things.
+		if (settingsLoader.getSetting("themes", "ThemeType", "dark") === "light") {
+			return Universal.Light;
+		} else {
+			return Universal.Dark;
+		}
+	} // End of the foreground text color loader. Universal.Dark
 	// Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
 	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
-	Universal.foreground: 'white'
+	Universal.foreground: {
+		// Get main text color.
+		// TODO: Hook this up to a theme file so things can be
+		// loaded for multiple types of text.
+		if (settingsLoader.getSetting("themes", "ThemeType", "dark") === "light") {
+			return "black";
+		} else {
+			return "white";
+		}
+	} // End of the foreground text color loader.
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
-	Universal.background: 'black'
+	Universal.background: {
+		// Get main background color.
+		// TODO: Hook this up to a theme file so things can be
+		// loaded for multiple types of backgrounds.
+		if (settingsLoader.getSetting("themes", "ThemeType", "dark") === "light") {
+			return "white";
+		} else {
+			return "black";
+		}
+	} // End of the background color loader.
 
 	// Turning off tilt for accessibility if desired.
 	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
