@@ -141,7 +141,21 @@ Page {
 				// color theme in use, so an accent color that's not a part of the current
 				// set (or the set it's inheriting from) will show up as just the color
 				// code if it's not available in the current set or what it inherits from.
-				text: "accent color: <font color='" + accentColor + "'>" + accentColor + "</font>"
+				text: "accent color: " + accentColor
+				// This is commented out but kept because I'm going to need to know
+				// how to display accent-colored text.
+				//text: "accent color: <font color='" + accentColor + "'>" + accentColor + "</font>"
+				Rectangle {
+					// We can show a preview of the user's accent color next to the label.
+					// This'll be added to the left side of the accent color
+					// dropdown once that's implemented.
+					anchors.left: parent.right
+					height: 24
+					width: 24
+					anchors.leftMargin: 6
+					color: accentColor
+					Accessible.name: "accent color preview rectangle"
+				}
 			} // End of the accent color label.
 			Label {
 				wrapMode: Label.Wrap
