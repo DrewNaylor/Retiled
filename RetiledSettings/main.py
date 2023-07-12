@@ -127,8 +127,8 @@ class ThemeLoader(QObject):
 		
 		#print(SettingsFilePath)
 		
-		# Return the requested setting.
-		return settingsReader.getSetting(ThemeFilePath, RequestedValue, DefaultValue)
+		# Return the requested value.
+		return settingsReader.getSetting(ThemeFilePath, RequestedValue, DefaultValue, sectionName="Theme")
 
 def shutdown():
 	# This is the cleanup code as described in the link.
@@ -145,6 +145,9 @@ if __name__ == "__main__":
 	
 	# Bind the settings loader to access it from QML.
 	settingsLoader = SettingsLoader()
+
+	# Bind the theme loader to access it from QML.
+	ThemeLoader = ThemeLoader()
 	
 	# Hook up some stuff so I can access the searchClass from QML.
 	searchClass = SearchCommands()
@@ -152,6 +155,7 @@ if __name__ == "__main__":
 	engine = QQmlApplicationEngine()
 	# Theme settings loader binding.
 	engine.rootContext().setContextProperty("settingsLoader", settingsLoader)
+	engine.rootContext().setContextProperty("ThemeLoader", ThemeLoader)
 	engine.rootContext().setContextProperty("searchClass", searchClass)
 	engine.load("MainWindow.qml")
 	if not engine.rootObjects():

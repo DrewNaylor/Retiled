@@ -89,7 +89,7 @@ ButtonBase {
 	// button. I still need to check the light theme for this.
 	property string pressedBorderColor: "white"
 	property int borderWidth: 2
-	property int borderRadius: 0
+	property int borderRadius: ThemeLoader.getValueFromTheme("Retiled-Metro/MetroDark/MetroDark", "StandardButtonCornerRadius", "0")
 	// Change button size to help with the large font.
 	property int buttonWidth: 100
 	property int buttonHeight: 40
