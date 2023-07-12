@@ -233,6 +233,8 @@ Page {
 				Image {
 					source: {
 						let wallpaperSettingPath = settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg");
+						// This allows exact or relative paths.
+						// TODO: Allow the ~ (tilda) for home path.
 						if (wallpaperSettingPath.startsWith("/")) {
 							return wallpaperSettingPath;
 						} else {
