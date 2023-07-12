@@ -117,6 +117,7 @@ ApplicationWindow {
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
+						// TODO 2: For real though, this needs to be moved for theme support.
 						appBar.backgroundColor = "#1f1f1f"
 						appbarDrawer.backgroundColor = "#1f1f1f"
 					}
@@ -243,6 +244,8 @@ ApplicationWindow {
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
+						// TODO 2: But really, this needs to be moved to its own file for
+						// easy changes and reuse for theme support.
 						appBar.backgroundColor = "#1f1f1f"
 						appbarDrawer.backgroundColor = "#1f1f1f"
 						// Show the ellipsis button again.
