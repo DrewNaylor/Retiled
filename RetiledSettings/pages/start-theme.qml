@@ -218,7 +218,7 @@ Page {
 				// Setting this to 12 will make it line up with the title label.
 				// The only potential issue is it won't be scrollable directly on the edge, but it might not be an issue.
 				Layout.margins: 12
-				Layout.bottomMargin: 24
+				Layout.bottomMargin: 90
 				// Set font style to Inter Display.
 				// Might need to change the size so it's slightly larger
 				// as this is a little difficult to read, and maybe change some
@@ -232,8 +232,8 @@ Page {
 				text: "wallpaper path: " + settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg")
 				Image {
 					source: "../../RetiledStart/RetiledStart/pages/" + settingsLoader.getSetting("themes", "WallpaperPath", "wallpaper.jpg")
-					height: 60
-					width: 60
+					height: 120
+					width: 120
 					anchors.leftMargin: 6
 					anchors.left: parent.right
 				}
