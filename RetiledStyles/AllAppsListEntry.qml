@@ -73,7 +73,7 @@ RetiledStyles.Button {
 	property string textColor: "white"
 	
 	// Have a property for the icon background color.
-	property string iconBackgroundColor: Universal.accent
+	property string iconBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "UseAccentForIconBackground", "true") === "true" ? accentColor : ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "AlternateIconBackgroundColor", "transparent")
 	
 	// Signal for moving other apps into the background.
 	// Commented out for now because I can't figure it out.
