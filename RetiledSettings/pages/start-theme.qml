@@ -66,25 +66,47 @@ Page {
 				// this forces the title and the body to line up.
                 width: 6
                 }
-
+	ColumnLayout {
+				Label {
+					// I think this is about how the app titles
+					// should appear, but it might be off.
+					id: appTitleLable
+					text: "retiledsettings"
+					font.capitalization: Font.AllUppercase
+					// Not sure if this is the right font size, but it's closer.
+					// pixelSize isn't device-independent.
+					font.pointSize: RetiledStyles.FontStyles.smallFontSize
+					// Set font.
+					font.family: RetiledStyles.FontStyles.semiboldFont
+					font.weight: RetiledStyles.FontStyles.semiboldFontWeight
+					// Actually I'm not sure about using letter spacing now.
+					//font.letterSpacing: -0.8 * scaleFactor
+					elide: Label.ElideRight
+					horizontalAlignment: Qt.AlignLeft
+					verticalAlignment: Qt.AlignVCenter
+					Layout.fillWidth: true
+					// Set top margin.
+					Layout.topMargin: 24
+            	} // End of page title
+				
                 Label {
-                id: titleLabel
-                text: "start+theme"
-                // Not sure if this is the right font size, but it's closer.
-				// pixelSize isn't device-independent.
-                font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
-				// Set font.
-				font.family: RetiledStyles.FontStyles.lightFont
-				font.weight: RetiledStyles.FontStyles.lightFontWeight
-				// Actually I'm not sure about using letter spacing now.
-				//font.letterSpacing: -0.8 * scaleFactor
-                elide: Label.ElideRight
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
-                Layout.fillWidth: true
-            }
-
-            }
+					id: titleLabel
+					text: "start+theme"
+					// Not sure if this is the right font size, but it's closer.
+					// pixelSize isn't device-independent.
+					font.pointSize: RetiledStyles.FontStyles.extralargeFontSize
+					// Set font.
+					font.family: RetiledStyles.FontStyles.lightFont
+					font.weight: RetiledStyles.FontStyles.lightFontWeight
+					// Actually I'm not sure about using letter spacing now.
+					//font.letterSpacing: -0.8 * scaleFactor
+					elide: Label.ElideRight
+					horizontalAlignment: Qt.AlignHCenter
+					verticalAlignment: Qt.AlignVCenter
+					Layout.fillWidth: true
+            	} // End of page title
+			} // End of ColumnLayout holding the app and page title labels.
+            } // End of RowLayout giving a margin to the app and page title
 
     }
 	Flickable {
