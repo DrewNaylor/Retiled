@@ -76,9 +76,9 @@ T.TextField {
 	// Define some properties that can be set.
 	// I'll have to check what the background for
 	// textboxes would be in the light theme.
-	property string focusedBackgroundColor: "white"
+	property string focusedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "TextFieldBase", "FocusedBackgroundColor", "white")
 	// Unfocused textboxes.
-	property string unfocusedBackgroundColor: "#CCCCCC"
+	property string unfocusedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "TextFieldBase", "UnfocusedBackgroundColor", "#CCCCCC")
 	// Placeholder text color when focused or unfocused.
 	// I need to figure out how to handle this when the
 	// textfield isn't enabled.
@@ -86,8 +86,9 @@ T.TextField {
         // color used in Avalonia. Had to use Window Spy to figure it out,
         // since there was no obvious way to figure it out from Avalonia's
         // source.
-	property string unfocusedPlaceholderTextColor: "#666666"
-	property string focusedPlaceholderTextColor: "transparent"
+	property string unfocusedPlaceholderTextColor: ThemeLoader.getValueFromTheme(themePath, "TextFieldBase", "UnfocusedPlaceholderTextColor", "#666666")
+	// I'm not letting this be themed because it could get in the way.
+    property string focusedPlaceholderTextColor: "transparent"
 	// Set selectByMouse to true, detailed here:
 	// https://stackoverflow.com/a/38882378
 	selectByMouse: true
@@ -104,6 +105,8 @@ T.TextField {
     rightPadding: padding - 4
     bottomPadding: padding - 5
 
+    // TODO: Figure out what this line is doing by changing the Universal theme to Light
+    // when focused.
     Universal.theme: activeFocus ? Universal.Light : undefined
 
 	// For some reason, just changing the theme wasn't enough
@@ -111,6 +114,10 @@ T.TextField {
 	color: "black"
     //color: !enabled ? Universal.chromeDisabledLowColor : Universal.foreground
 	
+    // TODO: Allow using a color other than the accent color for selection color,
+    // in case the theme wants to, but this would require a boolean flag that says
+    // to use a different color like I did for the icon background in the All Apps
+    // list.
     selectionColor: Universal.accent
     selectedTextColor: Universal.chromeWhiteColor
 	// Not sure if I'm doing this right to allow it to change when
