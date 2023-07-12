@@ -349,6 +349,8 @@ ApplicationWindow {
 				ListElement { title: "debug command"; navigate: "false"; command: "hello" }
             }
 
+			// TODO: Improve the shape of the scrollbar
+			// so it's closer to WP.
             ScrollIndicator.vertical: ScrollIndicator { }
             }
         }
