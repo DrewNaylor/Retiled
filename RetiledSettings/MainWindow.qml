@@ -261,6 +261,10 @@ ApplicationWindow {
     // drawer, like on Windows Phone.
 	// TODO 3: Move the customizations to AppBarDrawer.qml so that
 	// more apps can use this customized appbar drawer.
+	// TODO 4: Prevent the appbar drawer from being able to be closed
+	// by dragging downward on the items in it.
+	// TODO 5: Ensure the items aren't clickable above where they're intended
+	// to be.
         id: appbarDrawer
         width: window.width
         // Set height to 165 so that there's enough space for the pages.
