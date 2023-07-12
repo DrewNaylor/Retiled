@@ -114,6 +114,17 @@ T.Drawer {
         // Update: that color was wrong, see backgroundColor above.
         color: backgroundColor
         Rectangle {
+            // TODO: Figure out how to ensure the appbar and its drawer
+            // are on the same edge as the physical bottom of the display.
+            // This is an issue when rotating the device, for example,
+            // and I need to have it not look weird if the user wants
+            // to be able to rotate their device upside down (excluding
+            // when displays that are mounted upside down; that'll
+            // be treated correctly).
+            // The appbar's buttons and its drawer's contents will rotate
+            // accordingly when in landscape mode, so I do need to keep
+            // support for having the appbar as a sidebar (because
+            // that's what it becomes in landscape mode, or should become).
             readonly property bool horizontal: control.edge === Qt.LeftEdge || control.edge === Qt.RightEdge
             width: horizontal ? 1 : parent.width
             height: 0
