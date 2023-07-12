@@ -104,6 +104,32 @@ class SettingsLoader(QObject):
 		else:
 			return False
 
+class ThemeLoader(QObject):
+	# Slots still need to exist when using PySide.
+	@Slot(str, str, str, result=str)
+	def getValueFromTheme(self, ThemeName, RequestedValue, DefaultValue):
+		# Get the settings.
+		# TODO: Switch to a script that can just run the Python 
+		# file as a script so that the library doesn't have to
+		# be copied into each program and waste space and make
+		# updating more confusing.
+		# Set main file path for the config file to get it from the repo, or an install.
+		# The two backslashes at the beginning are required on Windows, or it won't go up.
+		# (I think I changed this at some point, as there are no backslashes anymore.)
+		ThemeFilePath = "".join([os.getcwd(), "/../RetiledThemes/", ThemeName, ".ini"])
+		
+		# We'll have to look for themes in other places, but not yet.
+		#if not sys.platform.startswith("win32"):
+			# If not on Windows, check if the config file is in the user's home directory,
+			# and update the path accordingly.
+		#	if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/", ThemeName, ".ini"])):
+		#		SettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/", ThemeName, ".ini"])
+		
+		#print(SettingsFilePath)
+		
+		# Return the requested setting.
+		return settingsReader.getSetting(ThemeFilePath, RequestedValue, DefaultValue)
+
 def shutdown():
 	# This is the cleanup code as described in the link.
 	engine.rootObjects()[0].deleteLater()
