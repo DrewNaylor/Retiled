@@ -73,10 +73,13 @@ ButtonBase {
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
 	// be useful.
-	property string textColor: "white"
-	property string pressedTextColor: "white"
+	property string textColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "TextColor", "white")
+	property string pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "PressedTextColor", "white")
 	// pressedBackgroundColor will usually be the accent color.
-	property string pressedBackgroundColor: Universal.accent
+	// Not sure if it should be customizable via themes.
+	// Maybe there should be a thing in themes to specify whether
+	// to use the Accent color or to use a different color?
+	property string pressedBackgroundColor: accentColor
 	// unpressedBackgroundColor is usually transparent,
 	// but it may be useful to specify a color, such as for
 	// tiles.
