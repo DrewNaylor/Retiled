@@ -236,6 +236,7 @@ Page {
 					width: 120
 					anchors.leftMargin: 6
 					anchors.left: parent.right
+					Accessible.name: "wallpaper preview image"
 				}
 			} // End of the wallpaper path label.
 			Label {
