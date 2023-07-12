@@ -101,6 +101,7 @@ T.ItemDelegate {
 
     icon.width: 20
     icon.height: 20
+    // TODO: Allow this color to be set by themes.
     icon.color: Color.transparent(Universal.foreground, enabled ? 1.0 : 0.2)
 
     contentItem: IconLabel {
@@ -117,10 +118,12 @@ T.ItemDelegate {
 		font.weight: FontStyles.regularFontWeight
         // Actually I'm not sure about using letter spacing now.
 		//font.letterSpacing: -0.8 * scaleFactor
+        // TODO: Allow this color to be set by themes.
         color: Color.transparent(control.Universal.foreground, enabled ? 1.0 : 0.2)
     }
 
     background: Rectangle {
+        // TODO: Allow the colors here to be set by themes.
         visible: control.down || control.highlighted || control.visualFocus || control.hovered
         color: "transparent"
         Rectangle {
