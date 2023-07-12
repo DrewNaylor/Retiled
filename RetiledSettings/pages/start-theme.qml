@@ -66,6 +66,7 @@ Page {
 				// this forces the title and the body to line up.
                 width: 6
                 }
+
 	ColumnLayout {
 				Label {
 					// I think this is about how the app titles
@@ -107,6 +108,14 @@ Page {
 					// Set top margin.
 					Layout.topMargin: -6
             	} // End of page title
+			
+				Item {
+					// Empty item as a spacer for the header.
+					// Can't seem to get margins working on the layouts
+					// directly.
+					height: 12
+				}
+
 			} // End of ColumnLayout holding the app and page title labels.
             } // End of RowLayout giving a margin to the app and page title
 
