@@ -147,6 +147,10 @@ Page {
 				// Setting this to 12 will make it line up with the title label.
 				// The only potential issue is it won't be scrollable directly on the edge, but it might not be an issue.
 				Layout.margins: 12
+				// Set the top margin to 0 so that it's right at the top of the page
+				// directly under the header area.
+				// TODO: Be sure to check if this is correct.
+				Layout.topMargin: 0
 				// Set font style to Inter Display.
 				// Might need to change the size so it's slightly larger
 				// as this is a little difficult to read, and maybe change some
