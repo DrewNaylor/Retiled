@@ -80,14 +80,14 @@ ButtonBase {
 	// unpressedBackgroundColor is usually transparent,
 	// but it may be useful to specify a color, such as for
 	// tiles.
-	property string unpressedBackgroundColor: "transparent"
+	property string unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "UnpressedBackgroundColor", "transparent")
 	// Just like the textColor, borderColor would be black
 	// in the light theme.
-	property string borderColor: "white"
+	property string borderColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "BorderColor", "white")
 	// Very rarely, buttons will have a different border color
 	// when pressed. One example of this is the "unpin tile"
 	// button. I still need to check the light theme for this.
-	property string pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "ButtonPressedBorderColor", "white")
+	property string pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "PressedBorderColor", "white")
 	property int borderWidth: 2
 	property int borderRadius: ThemeLoader.getValueFromTheme(themePath, "Buttons", "StandardButtonCornerRadius", "0")
 	// Change button size to help with the large font.
