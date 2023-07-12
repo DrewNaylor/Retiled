@@ -64,6 +64,7 @@ ButtonBase {
 	// Nah, 18.
 	// No, 16 is better.
 	// We're using the new normalFontSize value from FontStyles.qml.
+	// TODO: Figure out a way to change fonts from themes with a config file override.
 	property real fontSize: FontStyles.normalFontSize
 	// Allow the font family to be overwritten easily.
 	property string fontFamily: FontStyles.semiboldFont
