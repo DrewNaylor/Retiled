@@ -291,6 +291,12 @@ Page {
 				// TODO: Add a styled version of the label for easier reuse.
 				text: "icon theme: " + settingsLoader.getSetting("themes", "IconTheme", "breeze-dark")
 			} // End of the icon theme label.
+			Item {
+				// 95 pixel tall item as a bottom spacer to comply
+				// with Microsoft guidelines:
+				// https://learn.microsoft.com/en-us/archive/blogs/africaapps/uxui-guidelines-for-windows-phone-8
+				height: 95
+			}
 		} // End of the ColumnLayout holding everything on the page.
 	}
 }
