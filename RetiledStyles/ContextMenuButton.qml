@@ -70,6 +70,7 @@ ButtonBase {
 	// to be black on white and this appears to be all the wrong values.
 	// Some stuff might not appear correctly such as the appbar drawer
 	// buttons, so it'll need to be fixed.
+	// TODO: Make sure my changes still work in RetiledStart.
 	property string textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
 	// pressedBackgroundColor will usually be transparent.
 	property string pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "PressedBackgroundColor", "transparent")
