@@ -150,6 +150,9 @@ RetiledStyles.Button {
 			
 			ContextMenuButton {
 				width: window.width
+				// TODO: We shouldn't need all these property changes now that they're
+				// set  correctly in ContextMenuButton.qml, but
+				// I might have to change it to RetiledStyles.ContextMenuButton.
 				textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
 				borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
 				// Hide the border if it's set to 0 in the theme.
