@@ -65,6 +65,8 @@ ButtonBase {
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
 	// be useful.
+	// FIXME/TODO: Fix this because the context menu buttons are supposed
+	// to be black on white and this appears to be all the wrong values.
 	property string textColor: "white"
 	// pressedBackgroundColor will usually be the accent color.
 	property string pressedBackgroundColor: "#0050ef"
