@@ -77,3 +77,6 @@ Note: several of these may not be useful to this project anymore due to mainly u
 
 28. [Suru++ Asprómauros](https://github.com/gusbemacbe/suru-plus-aspromauros)
 <br>Monochromatic icon theme based on Suru++ which was based on Suru. This will be super helpful as it's mostly a white icon set as far as I can tell, at least for the apps like Firefox. Some stuff isn't white though, so I guess I can modify Microsoft's fluentui-system-icons repo (which I also forked) for that. I forked it here: https://github.com/drewnaylor/suru-plus-aspromauros
+
+29. [livetile.js](https://github.com/kenrick95/livetile.js)
+<br>JS library for live tiles. Could be useful for my stuff, so I forked it here: https://github.com/DrewNaylor/livetile.js
