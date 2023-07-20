@@ -56,7 +56,7 @@ ApplicationWindow {
 		// Get Universal theme.
 		// TODO: Hook this up to a theme file so things can be
 		// loaded for multiple things.
-		if (settingsLoader.getSetting("themes", "ThemeType", "dark") === "light") {
+		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
 			return Universal.Light;
 		} else {
 			return Universal.Dark;
@@ -72,7 +72,7 @@ ApplicationWindow {
 		// loaded for multiple types of text.
 		// TODO 2: Just load this from theme files instead of this
 		// hardcoded if statement.
-		if (settingsLoader.getSetting("themes", "ThemeType", "dark") === "light") {
+		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
 			return "black";
 		} else {
 			return "white";
@@ -84,7 +84,7 @@ ApplicationWindow {
 		// Get main background color.
 		// TODO: Hook this up to a theme file so things can be
 		// loaded for multiple types of backgrounds.
-		if (settingsLoader.getSetting("themes", "ThemeType", "dark") === "light") {
+		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
 			return "white";
 		} else {
 			return "black";
