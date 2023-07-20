@@ -44,7 +44,10 @@ import QtQuick.Controls.Universal
 
 RetiledStyles.Button {
 	// Set borderWidth to 0.
+	// TODO: Allow setting border width for these.
 	borderWidth: 0
+	// TODO: Allow setting radius for Action Center Action Buttons,
+	// like ordinary buttons and tiles.
 	// Set width and height.
 	// These are roughly what the 720p 4.7-inch emulator has at 50% scale.
 	// If these don't feel that good on a phone, they can be changed.
@@ -52,6 +55,8 @@ RetiledStyles.Button {
 	buttonHeight: 58
 	// Add property for button color when it's toggled on.
 	// This is the accent color, cobalt (#0050ef) by default.
+	// TODO: Allow this to be overridden by themes so they can
+	// use a different color.
 	property string toggledOnColor: Universal.accent
 	// Unpressed background color will use the toggledOnColor
 	// to ensure things don't break.
