@@ -71,7 +71,8 @@ ApplicationWindow {
 		// TODO: Hook this up to a theme file so things can be
 		// loaded for multiple types of text.
 		// TODO 2: Just load this from theme files instead of this
-		// hardcoded if statement.
+		// hardcoded if statement. We'll need to have a specific
+		// set of properties for main background and foreground colors.
 		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
 			return "black";
 		} else {
