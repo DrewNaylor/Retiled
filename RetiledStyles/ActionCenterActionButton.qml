@@ -57,7 +57,7 @@ RetiledStyles.Button {
 	// This is the accent color, cobalt (#0050ef) by default.
 	// TODO: Allow this to be overridden by themes so they can
 	// use a different color.
-	property string toggledOnColor: Universal.accent
+	property string toggledOnColor: accentColor
 	// Unpressed background color will use the toggledOnColor
 	// to ensure things don't break.
 	unpressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
