@@ -61,6 +61,8 @@ RetiledStyles.Button {
 	// This is the same as displayed in the emulator.
 	property string toggledOffColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ToggledOffColor", "#1f1f1f")
 	
+	// Property for button text color.
+	property string actionCenterActionButtonTextColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ActionButtonTextColor", "white")
 	// Specify whether this button can be toggled.
 	// TODO: Allow multi-state buttons, such as for display brightness.
 	// By default it's a toggle button for testing.
@@ -115,7 +117,7 @@ RetiledStyles.Button {
 		//text: "FLASHLIGHT"
 		//text: "ROTATION LOCK"
 		//text: "AIRPLANE\nMODE"
-		color: "white"
+		color: actionCenterActionButtonTextColor
 	}
 	
 }
