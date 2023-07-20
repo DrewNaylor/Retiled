@@ -66,31 +66,10 @@ ApplicationWindow {
 	// can in turn be set easily at runtime.
 	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
-	Universal.foreground: {
-		// Get main text color.
-		// TODO: Hook this up to a theme file so things can be
-		// loaded for multiple types of text.
-		// TODO 2: Just load this from theme files instead of this
-		// hardcoded if statement. We'll need to have a specific
-		// set of properties for main background and foreground colors.
-		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
-			return "black";
-		} else {
-			return "white";
-		}
-	} // End of the foreground text color loader.
+	Universal.foreground: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalForegroundColor", "white")
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
-	Universal.background: {
-		// Get main background color.
-		// TODO: Hook this up to a theme file so things can be
-		// loaded for multiple types of backgrounds.
-		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
-			return "white";
-		} else {
-			return "black";
-		}
-	} // End of the background color loader.
+	Universal.background: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalBackgroundColor", "black")
 
 	// Turning off tilt for accessibility if desired.
 	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
