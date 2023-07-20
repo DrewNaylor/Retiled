@@ -59,7 +59,7 @@ RetiledStyles.Button {
 	pressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
 	// Add property for toggled-off button color.
 	// This is the same as displayed in the emulator.
-	property string toggledOffColor: "#1F1F1F"
+	property string toggledOffColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ToggledOffColor", "#1f1f1f")
 	
 	// Specify whether this button can be toggled.
 	// TODO: Allow multi-state buttons, such as for display brightness.
@@ -75,6 +75,9 @@ RetiledStyles.Button {
 	// This is for accessibility purposes to help screen readers and should also help anyone that doesn't
 	// like stuff in all-caps because it feels like it's yelling at them.
 	// Currently unused.
+	// NOTE: We'll use the font property to have text render as lowercase,
+	// rather than directly using ".toLower" or something.
+	// That way it should be fine for screen readers.
 	property bool textIsLowercase: false
 	
 	// Property for storing the command the button can use.
