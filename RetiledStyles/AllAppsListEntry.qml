@@ -150,22 +150,17 @@ RetiledStyles.Button {
 			
 			ContextMenuButton {
 				width: window.width
-				// TODO: We shouldn't need all these property changes now that they're
-				// set  correctly in ContextMenuButton.qml, but
-				// I might have to change it to RetiledStyles.ContextMenuButton.
-				//textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
-				//borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
-				// Hide the border if it's set to 0 in the theme.
-				//borderWidth: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderWidth", "0")
-				//pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "PressedBackgroundColor", "transparent")
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
 				// on this button looks way more bold
 				// than it does in the search app, even
 				// though the button template uses the
 				// same weight for each.
+				// Wait, I don't know if that last TODO is out
+				// of date or not as of July 20, 2023.
 				onClicked: {
-					// Hide the context menu.
+					// Hide the context menu and send
+					// the .desktop file path to be pinned.
 					allappscontextmenu.visible = false;
 					pinToStart(dotDesktopFilePath);
 				}
