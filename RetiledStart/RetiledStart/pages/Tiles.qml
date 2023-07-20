@@ -57,16 +57,24 @@ ApplicationWindow {
 	// but as a file.
 	property string themePath: themeFamily + "/" + themeName + "/" + themeName
 
-    Universal.theme: Universal.Dark
+    Universal.theme: {
+		// Get Universal theme.
+		// TODO: Split this if statement out so it's easier to reuse.
+		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
+			return Universal.Light;
+		} else {
+			return Universal.Dark;
+		}
+	} // End of the Universal theme loader.
     // Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
 	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
-	Universal.foreground: 'white'
+	Universal.foreground: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalForegroundColor", "white")
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
-	Universal.background: 'black'
+	Universal.background: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalBackgroundColor", "black")
 	
 	// Decide whether to display a background image or not.
 	// This (displayBackgroundWallpaper) is used in conjunction with
