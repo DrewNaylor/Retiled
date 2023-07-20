@@ -153,11 +153,11 @@ RetiledStyles.Button {
 				// TODO: We shouldn't need all these property changes now that they're
 				// set  correctly in ContextMenuButton.qml, but
 				// I might have to change it to RetiledStyles.ContextMenuButton.
-				textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
-				borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
+				//textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
+				//borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
 				// Hide the border if it's set to 0 in the theme.
-				borderWidth: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderWidth", "0")
-				pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "PressedBackgroundColor", "transparent")
+				//borderWidth: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderWidth", "0")
+				//pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "PressedBackgroundColor", "transparent")
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
 				// on this button looks way more bold
