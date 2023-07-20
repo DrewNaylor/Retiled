@@ -54,14 +54,13 @@ ApplicationWindow {
 
     Universal.theme: {
 		// Get Universal theme.
-		// TODO: Hook this up to a theme file so things can be
-		// loaded for multiple things.
+		// TODO: Split this if statement out so it's easier to reuse.
 		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
 			return Universal.Light;
 		} else {
 			return Universal.Dark;
 		}
-	} // End of the foreground text color loader. Universal.Dark
+	} // End of the Universal theme loader.
 	// Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
 	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
