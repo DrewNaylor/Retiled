@@ -70,6 +70,8 @@ ApplicationWindow {
 		// Get main text color.
 		// TODO: Hook this up to a theme file so things can be
 		// loaded for multiple types of text.
+		// TODO 2: Just load this from theme files instead of this
+		// hardcoded if statement.
 		if (settingsLoader.getSetting("themes", "ThemeType", "dark") === "light") {
 			return "black";
 		} else {
