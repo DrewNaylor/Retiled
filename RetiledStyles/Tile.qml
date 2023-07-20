@@ -146,6 +146,11 @@ ButtonBase {
 	// Tile size (small, medium, or wide).
 	// Won't be fully used until moving to TilesGrid.
 	property string tileSize;
+
+	// Properties for unpin button icons.
+	// Stored here so they're out of the way.
+	property string unpinIconPressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconPressed", "unpin")
+	property string unpinIconUnpressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconUnpressed", "unpin_white")
 					
 	RoundButton {
 		id: unpinButton
@@ -153,7 +158,7 @@ ButtonBase {
 		Image {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
-			source: parent.pressed ? "../icons/actions/unpin.svg" : "../icons/actions/unpin_white.svg"
+			source: parent.pressed ? "../icons/actions/" + unpinIconPressed + ".svg" : "../icons/actions/" + unpinIconUnpressed + ".svg"
 			anchors.fill: parent
 			fillMode: Image.Stretch
 			// Mipmapping makes it look pretty good.
