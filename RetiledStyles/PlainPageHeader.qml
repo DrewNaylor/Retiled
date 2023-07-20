@@ -55,7 +55,7 @@ ToolBar {
     background: Rectangle {
         // TODO: Switch to using the theme background color
         // when implemented.
-        color: 'black'
+        color: ThemeLoader.getValueFromTheme(themePath, "PageHeader", "BackgroundColor", "black")
     }
 	
     RowLayout {
@@ -91,6 +91,7 @@ ToolBar {
 					horizontalAlignment: Qt.AlignLeft
 					verticalAlignment: Qt.AlignVCenter
 					Layout.fillWidth: true
+					color: ThemeLoader.getValueFromTheme(themePath, "PageHeader", "TextColor", "white")
 					// Set top margin.
 					Layout.topMargin: 24
             	} // End of page title
@@ -110,6 +111,7 @@ ToolBar {
 					horizontalAlignment: Qt.AlignLeft
 					verticalAlignment: Qt.AlignVCenter
 					Layout.fillWidth: true
+					color: ThemeLoader.getValueFromTheme(themePath, "PageHeader", "TextColor", "white")
 					// Set top margin.
 					Layout.topMargin: -6
             	} // End of page title
