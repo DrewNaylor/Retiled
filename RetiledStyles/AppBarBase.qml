@@ -75,7 +75,14 @@ T.ToolBar {
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             contentWidth + leftPadding + rightPadding)
-    implicitHeight: minimized ? 24 : 48
+    
+    // When minimized is true, use size 24 appbars, otherwise use 48.
+    // We also check to see if the appbar drawer position
+    // is 0.0, meaning it's closed, and otherwise we set it to
+    // the full height.
+    // TODO: Should the appbar drawer position we check for
+    // be a different value? Should it be less than 1.0 or something?
+    implicitHeight: minimized && appbarDrawer.position === 0.0 ? 24 : 48
 
     // Allow appbars to appear minimized.
     property bool minimized: true
@@ -98,7 +105,12 @@ T.ToolBar {
         // to support both display styles (where they show buttons and when they
         // don't).
         // When minimized is true, use size 24 appbars, otherwise use 48.
-        height: minimized ? 24 : 48
+        // We also check to see if the appbar drawer position
+        // is 0.0, meaning it's closed, and otherwise we set it to
+        // the full height.
+        // TODO: Should the appbar drawer position we check for
+        // be a different value? Should it be less than 1.0 or something?
+        height: minimized && appbarDrawer.position === 0.0 ? 24 : 48
 		// Set background color.
         color: backgroundColor
     }

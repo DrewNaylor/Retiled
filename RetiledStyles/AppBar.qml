@@ -63,7 +63,7 @@ RetiledStyles.AppBarBase {
 		// Turns out we need to have it be multiplied by 3.4 so the items don't
 		// overlap the appbar (or whatever value the app set).
         // We also need to take into account the minimized height.
-        y: appbarDrawer.position * ((control.height + (minimized ? 24 : 0)) * appbarOpenedHeightMultiplier) * -1
+        y: appbarDrawer.position * (control.height * appbarOpenedHeightMultiplier) * -1
          }
 
         RowLayout {
