@@ -176,6 +176,9 @@ ApplicationWindow {
 
 	property bool appbarEllipsisButtonVisible: true
 
+	// Get the app root path for the appbar and appbar drawer.
+	readonly property string appRootPath: AppRootPath.getAppRootPath
+
     RetiledStyles.AppBarDrawer {
 		id: appbarDrawer
 		// Note: these pages here will eventually be replaced
@@ -183,8 +186,11 @@ ApplicationWindow {
 			// and not ones that are now in the main list.
 			// TODO: Figure out how to make sure we stay in our app's path
 			// instead of trying to get stuff from the RetiledStyles folder.
+			// We have to use Component.onCompleted and ListModel.append
+			// in order to grab stuff from the app's root path:
+			// https://stackoverflow.com/a/33161093
             drawerItems: ListModel {
-				ListElement { title: "start+theme"; navigate: "true"; source: "../RetiledSettings/pages/start-theme.qml" }
+				ListElement { title: "start+theme"; navigate: "true"; source: appRootPath + "pages/start-theme.qml" }
 				ListElement { title: "about"; navigate: "true"; source: "pages/About.qml" }
 				// "debug command" is just a test for now to allow commands
 				// to be used from the appbar.
