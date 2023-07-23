@@ -185,7 +185,10 @@ ApplicationWindow {
         // need a drawer.
 		//appbarOpenedHeightMultiplier: 0.1
 		// Note: we need to add the appbar buttons eventually instead of just having nothing here.
-    }
+		
+		// For now we'll minimize the appbar until items are added to it.
+		minimized: true
+	}
 
 	// Appbar stuff for the emergency back button and ellipsis button to be visible.
 	property bool backButtonVisible: false
