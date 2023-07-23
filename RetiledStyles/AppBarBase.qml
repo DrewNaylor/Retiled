@@ -75,8 +75,7 @@ T.ToolBar {
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             contentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+    implicitHeight: minimized ? 24 : 48
 
     // Allow appbars to appear minimized.
     property bool minimized: true
