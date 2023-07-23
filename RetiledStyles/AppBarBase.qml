@@ -78,6 +78,9 @@ T.ToolBar {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              contentHeight + topPadding + bottomPadding)
 
+    // Allow appbars to appear minimized.
+    property bool minimized: true
+
 	// #212021 is the hex color code for the dark appbar color
 	// as sampled from a screenshot.
 	// I should probably figure out how to just change the
@@ -95,7 +98,8 @@ T.ToolBar {
         // TODO: figure out how to have different-height appbars when they're closed
         // to support both display styles (where they show buttons and when they
         // don't).
-        implicitHeight: 48 // AppBarThemeCompactHeight
+        // When minimized is true, use size 24 appbars, otherwise use 48.
+        height: minimized ? 24 : 48
 		// Set background color.
         color: backgroundColor
     }
