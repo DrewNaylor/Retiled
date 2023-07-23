@@ -101,8 +101,8 @@ ApplicationWindow {
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
-						appBar.backgroundColor = "#1f1f1f"
-						appbarDrawer.backgroundColor = "#1f1f1f"
+						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
+						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 					}
 			
         }
@@ -225,8 +225,8 @@ ApplicationWindow {
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
-						appBar.backgroundColor = "#1f1f1f"
-						appbarDrawer.backgroundColor = "#1f1f1f"
+						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
+						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
 						// TODO: Figure out a way to change the appbar's color
