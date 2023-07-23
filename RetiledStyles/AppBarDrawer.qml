@@ -79,6 +79,8 @@ RetiledStyles.AppBarDrawerBase {
 		// TODO: Move letter spacing into the control.
 		//font.letterSpacing: -0.8 * scaleFactor
 
+        property ListModel drawerItems;
+
 
         // Removing the shadow from the drawer:
         // https://stackoverflow.com/a/63411102
@@ -133,14 +135,7 @@ RetiledStyles.AppBarDrawerBase {
 			// Note: these pages here will eventually be replaced
 			// with items that would be in a settings app's appbar drawer,
 			// and not ones that are now in the main list.
-            model: ListModel {
-				ListElement { title: "start+theme"; navigate: "true"; source: "pages/start-theme.qml" }
-				ListElement { title: "about"; navigate: "true"; source: "pages/About.qml" }
-				// "debug command" is just a test for now to allow commands
-				// to be used from the appbar.
-				// An example would be pinning something to Start.
-				ListElement { title: "debug command"; navigate: "false"; command: "hello" }
-            }
+            model: drawerItems
 
 			// TODO: Improve the shape of the scrollbar
 			// so it's closer to WP.

@@ -178,7 +178,19 @@ ApplicationWindow {
 
     RetiledStyles.AppBarDrawer {
 		id: appbarDrawer
-		
+		// Note: these pages here will eventually be replaced
+			// with items that would be in a settings app's appbar drawer,
+			// and not ones that are now in the main list.
+			// TODO: Figure out how to make sure we stay in our app's path
+			// instead of trying to get stuff from the RetiledStyles folder.
+            drawerItems: ListModel {
+				ListElement { title: "start+theme"; navigate: "true"; source: "../RetiledSettings/pages/start-theme.qml" }
+				ListElement { title: "about"; navigate: "true"; source: "pages/About.qml" }
+				// "debug command" is just a test for now to allow commands
+				// to be used from the appbar.
+				// An example would be pinning something to Start.
+				ListElement { title: "debug command"; navigate: "false"; command: "hello" }
+            }
     }
 
 	StackView {
