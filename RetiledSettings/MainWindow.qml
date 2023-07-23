@@ -168,7 +168,7 @@ ApplicationWindow {
 	// This is just whatever the device that's running will use.
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
-	footer: RetiledStyles.AppBar {
+	footer: RetiledStyles.AppBarBase {
 
                 id: appBar
 
