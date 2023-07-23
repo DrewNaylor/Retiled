@@ -168,7 +168,11 @@ ApplicationWindow {
 	// This is just whatever the device that's running will use.
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
+	// Put the appbar on the footer.
 	footer: RetiledStyles.AppBar {
+		// We need an ID for this because it's referred to from the appbar drawer's code.
+		// It has to be "appBar" for it to work.
+		// TODO: Make it not require an ID.
 		id: appBar
     }
 
@@ -176,33 +180,36 @@ ApplicationWindow {
 	property bool backButtonVisible: false
 	property bool appbarEllipsisButtonVisible: true
 
-	// Get the app root path for the appbar and appbar drawer.
+	// Get the app root path for the appbar and appbar drawer pages.
 	readonly property string appRootPath: AppRootPath.getAppRootPath()
 
     RetiledStyles.AppBarDrawer {
+		// We need an ID for this because it's referred to from the appbar's code.
+		// It has to be "appbarDrawer" for it to work.
+		// TODO: Make it not require an ID.
 		id: appbarDrawer
 		// Note: these pages here will eventually be replaced
-			// with items that would be in a settings app's appbar drawer,
-			// and not ones that are now in the main list.
-			// TODO: Figure out how to make sure we stay in our app's path
-			// instead of trying to get stuff from the RetiledStyles folder.
-			// We have to use Component.onCompleted and ListModel.append
-			// in order to grab stuff from the app's root path:
-			// https://stackoverflow.com/a/33161093
-            drawerItems: ListModel {
+		// with items that would be in a settings app's appbar drawer,
+		// and not ones that are now in the main list.
+		// TODO: Figure out how to make sure we stay in our app's path
+		// instead of using the current working directory.
+		// We have to use Component.onCompleted and ListModel.append
+		// in order to grab stuff from the app's root path:
+		// https://stackoverflow.com/a/33161093
+		drawerItems: ListModel {
 
-				// Now add stuff to the ListModel.
-				// See the SO answer above the drawerItems line
-				// for more details.
-				Component.onCompleted: {
-					append({ title: "start+theme", navigate: "true", source: appRootPath + "/pages/start-theme.qml" });
-					append({ title: "about", navigate: "true", source: appRootPath + "/pages/About.qml" });
-					// "debug command" is just a test for now to allow commands
-					// to be used from the appbar.
-					// An example would be pinning something to Start.
-					append({ title: "debug command", navigate: "false", command: "hello" });
-				}
-            }
+			// Now add stuff to the ListModel.
+			// See the SO answer above the drawerItems line
+			// for more details.
+			Component.onCompleted: {
+				append({ title: "start+theme", navigate: "true", source: appRootPath + "/pages/start-theme.qml" });
+				append({ title: "about", navigate: "true", source: appRootPath + "/pages/About.qml" });
+				// "debug command" is just a test for now to allow commands
+				// to be used from the appbar.
+				// An example would be pinning something to Start.
+				append({ title: "debug command", navigate: "false", command: "hello" });
+			}
+		}
     }
 
 	StackView {
