@@ -315,7 +315,22 @@ Flickable {
 							text: "X"
                             textColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "TextColor", "white")
                             pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "PressedTextColor", "white")
-
+                            // Set accessibility stuff:
+                            // https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+                            // Didn't know this was a thing, but I learned about it
+                            // from a Mastodon post.
+                            // Partially copying from that page.
+                            // TODO: Add the window title that'll be closed, maybe?
+                            Accessible.role: Accessible.Button
+                            Accessible.name: "Close window button"
+                            Accessible.description: "Closes the specified window."
+                            Accessible.onPressAction: {
+                                // Click the button with the accessibility press feature:
+                                // https://stackoverflow.com/a/34332489
+                                // I really hope this works, because I don't really
+                                // have any way to test it as far as I know.
+                                clicked()
+                            }
 							visible: grid.overview
 							buttonHeight: 64
 							buttonWidth: 64

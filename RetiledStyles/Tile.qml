@@ -188,20 +188,20 @@ ButtonBase {
 		// Also set pressedBorderColor.
 		pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBorderColor", "black")
 		// Set accessibility stuff:
-				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
-				// Didn't know this was a thing, but I learned about it
-				// from a Mastodon post.
-				// Partially copying from that page.
-				Accessible.role: Accessible.Button
-				Accessible.name: "Unpin tile button"
-    			Accessible.description: "Unpins the current tile."
-    			Accessible.onPressAction: {
-        			// Click the button with the accessibility press feature:
-					// https://stackoverflow.com/a/34332489
-					// I really hope this works, because I don't really
-					// have any way to test it as far as I know.
-					clicked()
-    			}
+		// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+		// Didn't know this was a thing, but I learned about it
+		// from a Mastodon post.
+		// Partially copying from that page.
+		Accessible.role: Accessible.Button
+		Accessible.name: "Unpin tile button"
+		Accessible.description: "Unpins the current tile."
+		Accessible.onPressAction: {
+			// Click the button with the accessibility press feature:
+			// https://stackoverflow.com/a/34332489
+			// I really hope this works, because I don't really
+			// have any way to test it as far as I know.
+			clicked()
+		}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// NOTE: Unpinning a tile removes the buttons, so this
