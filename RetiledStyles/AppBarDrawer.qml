@@ -60,8 +60,10 @@ RetiledStyles.AppBarDrawerBase {
 	// spot on the left side of the appbar.
         id: control
         width: window.width
-        // Set height to 165 so that there's enough space for the pages.
-        height: 165
+        // Set height to 165 so that there's enough space for the pages,
+        // but allow it to be changed by apps.
+        property int appbarDrawerHeight: 165
+        height: appbarDrawerHeight
 		// Not sure what Interactive means, but I'll guess it determines
 		// if you can interact with the app drawer.
         interactive: stackView.depth === 1

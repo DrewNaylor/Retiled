@@ -176,6 +176,14 @@ ApplicationWindow {
 		// It has to be "appBar" for it to work.
 		// TODO: Make it not require an ID.
 		id: appBar
+		// A value of 0.1 makes it open just a little,
+		// perfect for appbars without appbar drawer items
+		// (but for now an empty appbar drawer will be required
+		// as the appbar opening is tied to appbar drawers)
+		// TODO: make appbar drawers not required.
+		// This can be useful if you have a subpage that doesn't
+        // need a drawer.
+		//appbarOpenedHeightMultiplier: 0.1
 		// Note: we need to add the appbar buttons eventually instead of just having nothing here.
     }
 
@@ -191,6 +199,12 @@ ApplicationWindow {
 		// It has to be "appbarDrawer" for it to work.
 		// TODO: Make it not require an ID.
 		id: appbarDrawer
+		// We can set the appbar drawer height to something
+		// other than the default.
+		// Using a small number can ensure the appbar doesn't get covered up
+		// if there's nothing important in the appbar drawer and the appbar
+		// has a small height multiplier when open.
+		//appbarDrawerHeight: 10
 		// Note: There will eventually be more items than just an about page here.
 		// TODO: Figure out how to make sure we stay in our app's path
 		// instead of using the current working directory.

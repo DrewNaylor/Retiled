@@ -174,6 +174,14 @@ ApplicationWindow {
 		// It has to be "appBar" for it to work.
 		// TODO: Make it not require an ID.
 		id: appBar
+		// A value of 0.1 makes it open just a little,
+		// perfect for appbars without appbar drawer items
+		// (but for now an empty appbar drawer will be required
+		// as the appbar opening is tied to appbar drawers)
+		// TODO: make appbar drawers not required.
+        // This can be useful if you have a subpage that doesn't
+        // need a drawer.
+		//appbarOpenedHeightMultiplier: 0.1
     }
 
 	// Appbar stuff for the emergency back button and ellipsis button to be visible.
