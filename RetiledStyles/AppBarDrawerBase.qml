@@ -102,7 +102,7 @@ T.Drawer {
 	// along with all the other light and dark theme colors.
     // This will still be able to be overridden in case an app
     // wants a specific color for the appbar drawer.
-	property string backgroundColor: "#1f1f1f"
+	property string backgroundColor: ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 
     background: Rectangle {
 		// Change the color of the appbar background to be what it should be in dark mode.
@@ -128,6 +128,7 @@ T.Drawer {
             readonly property bool horizontal: control.edge === Qt.LeftEdge || control.edge === Qt.RightEdge
             width: horizontal ? 1 : parent.width
             height: 0
+            // TODO: Figure out what chromeHighColor is.
             color: control.Universal.chromeHighColor
             x: control.edge === Qt.LeftEdge ? parent.width - 1 : 0
             y: control.edge === Qt.TopEdge ? parent.height - 1 : 0
@@ -138,6 +139,8 @@ T.Drawer {
 	// only on the more button and at the far left side. This may help somewhat:
 	// https://stackoverflow.com/a/49494819
 
+    // Not going to let these be changed because otherwise it looks weird, even
+    // though it's supposed to dim the page.
     T.Overlay.modal: Rectangle {
         color: "transparent"
     }

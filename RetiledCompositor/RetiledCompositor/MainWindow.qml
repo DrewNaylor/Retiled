@@ -100,10 +100,38 @@ WaylandCompositor {
     // Added by Drew Naylor under the GPLv3 and Copyright (C) Drew Naylor.
 	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
 
+    // accentColor property added for all the controls that use and need this property set.
+    // This isn't really copyrightable I don't think, but it's under the GPLv3 and (C) Drew Naylor if necessary.
+    property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
+    // Also set Universal.accent and color, the second one being where the background color used to be set.
+    Universal.accent: accentColor
+
+    // Store the theme family and theme name for easy access.
+    // TODO: Hook this up to D-Bus along with the rest of the settings
+    // so that it can update when the user changes it in the Settings app.
+    property string themeFamily: settingsLoader.getSetting("themes", "ThemeFamily", "Retiled-Metro")
+    property string themeName: settingsLoader.getSetting("themes", "ThemeName", "MetroDark")
+    // Also construct a theme path so it's less to figure out each time
+    // I need to have something read from a theme file.
+    // Each theme is in a subfolder starting with the theme family name
+    // followed by the theme name as a folder then the name again
+    // but as a file.
+    property string themePath: themeFamily + "/" + themeName + "/" + themeName
+
     WaylandOutput {
         sizeFollowsWindow: true
         window: Window {
             id: win
+
+            // Background color changed to use whatever is set as accentColor by Drew Naylor. This change under GPLv3 and change Copyright (C) Drew Naylor.
+			// Actually, now it changes to black (or whatever the theme's background color is) when not in multitasking mode so that when a new window is opened
+			// from an app, there won't be a flash of the user's Accent color.
+			// Please note that this isn't perfect at the moment, as the Accent color doesn't stay visible the entire time
+			// we zoom back into an app. Tried to fix it by using the grid.xScale and grid.yScale properties here and checking
+			// if they're less than 1.0, but it didn't work and would just display the theme background color instead.
+			// TODO: add support for different background colors, like white when in the light theme.
+			// That will be supported when the entire light theme is supported, for consistency.
+			color:  grid.overview ? accentColor : ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalBackgroundColor", "black")
 
 			// Is this correct to do for the pixel width and height?
 			// Can't remember if this was just here or if I added it.
@@ -117,20 +145,7 @@ WaylandCompositor {
             width: 360
             height: 720
             
-			// accentColor property added for all the controls that use and need this property set.
-			// This isn't really copyrightable I don't think, but it's under the GPLv3 and (C) Drew Naylor if necessary.
-            property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
-			// Also set Universal.accent and color, the second one being where the background color used to be set.
-			Universal.accent: accentColor
-			// Background color changed to use whatever is set as accentColor by Drew Naylor. This change under GPLv3 and change Copyright (C) Drew Naylor.
-			// Actually, now it changes to black (or whatever the theme's background color is) when not in multitasking mode so that when a new window is opened
-			// from an app, there won't be a flash of the user's Accent color.
-			// Please note that this isn't perfect at the moment, as the Accent color doesn't stay visible the entire time
-			// we zoom back into an app. Tried to fix it by using the grid.xScale and grid.yScale properties here and checking
-			// if they're less than 1.0, but it didn't work and would just display the theme background color instead.
-			// TODO: add support for different background colors, like white when in the light theme.
-			// That will be supported when the entire light theme is supported, for consistency.
-			color:  grid.overview ? accentColor : "black"
+			
 			
 			// This shortcut copied from the pure QML example here:
 			// https://github.com/DrewNaylor/qtwayland/blob/dev/examples/wayland/pure-qml/qml/CompositorScreen.qml
@@ -298,10 +313,30 @@ Flickable {
 							anchors.right: parent.right
 							anchors.top: parent.top
 							text: "X"
+                            textColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "TextColor", "white")
+                            pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "PressedTextColor", "white")
+                            // Set accessibility stuff:
+                            // https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+                            // Didn't know this was a thing, but I learned about it
+                            // from a Mastodon post.
+                            // Partially copying from that page.
+                            // TODO: Add the window title that'll be closed, maybe?
+                            Accessible.role: Accessible.Button
+                            Accessible.name: "Close window button"
+                            Accessible.description: "Closes the specified window."
+                            Accessible.onPressAction: {
+                                // Click the button with the accessibility press feature:
+                                // https://stackoverflow.com/a/34332489
+                                // I really hope this works, because I don't really
+                                // have any way to test it as far as I know.
+                                clicked()
+                            }
 							visible: grid.overview
 							buttonHeight: 64
 							buttonWidth: 64
-							unpressedBackgroundColor: "black"
+                            // NOTE: This probably shouldn't use the tile background color setting.
+                            // TODO: Change this so it's using its own setting if we keep using the custom compositor.
+							unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonUnpressedBackgroundColor", "black")
 							// Ensure the close button is above the area that the user can click
 							// to go back to a window so it's usable.
 							z: 2
@@ -388,7 +423,7 @@ Flickable {
 			// Rectangle added under GPLv3 and change Copyright (C) Drew Naylor.
 			Rectangle {
 				id: navBar
-				color: "black"
+				color: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalBackgroundColor", "black")
 				anchors.left: parent.left
 				anchors.bottom: parent.bottom
 				anchors.right: parent.right
@@ -475,6 +510,7 @@ Flickable {
             
             // Drew Naylor changed the shortcut from "space" to "alt+tab" and commented the rest out. These changes are under GPLv3 and Copyright (C) Drew Naylor.
             Shortcut {
+                // TODO: Allow for long-pressing the Escape key, too.
                 sequence: "alt+tab"
                 onActivated: {
                     // Do the flickable thing under GPLv3 and Copyright (C) Drew Naylor.

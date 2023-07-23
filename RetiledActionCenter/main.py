@@ -99,6 +99,34 @@ class SettingsLoader(QObject):
 		else:
 			return False
 
+class ThemeLoader(QObject):
+	# Slots still need to exist when using PySide.
+	@Slot(str, str, str, str, result=str)
+	def getValueFromTheme(self, ThemeName, ThemeSection, RequestedValue, DefaultValue):
+		# Get the settings.
+		# TODO: Switch to a script that can just run the Python 
+		# file as a script so that the library doesn't have to
+		# be copied into each program and waste space and make
+		# updating more confusing.
+		# Set main file path for the config file to get it from the repo, or an install.
+		# The two backslashes at the beginning are required on Windows, or it won't go up.
+		# (I think I changed this at some point, as there are no backslashes anymore.)
+		ThemeFilePath = "".join([os.getcwd(), "/../RetiledThemes/", ThemeName, ".ini"])
+		
+		# We'll have to look for themes in other places, but not yet.
+		#if not sys.platform.startswith("win32"):
+			# If not on Windows, check if the config file is in the user's home directory,
+			# and update the path accordingly.
+		#	if os.path.exists("".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/", ThemeName, ".ini"])):
+		#		SettingsFilePath = "".join([os.path.expanduser("~"), "/.config/Retiled/RetiledSettings/configs/", ThemeName, ".ini"])
+		
+		#print(SettingsFilePath)
+		
+		# Return the requested value.
+		# Remove the quotes, though (Qt doesn't like them):
+		# https://stackoverflow.com/a/40950987
+		return settingsReader.getSetting(ThemeFilePath, RequestedValue, DefaultValue, sectionName=ThemeSection).strip('\"')
+
 def shutdown():
 	# This is the cleanup code as described in the link.
 	engine.rootObjects()[0].deleteLater()
@@ -117,6 +145,9 @@ if __name__ == "__main__":
 	
 	# Bind the theme settings loader to access it from QML.
 	settingsLoader = SettingsLoader()
+
+	# Bind the theme loader to access it from QML.
+	ThemeLoader = ThemeLoader()
 	
 	# Hook up some stuff so I can access the ActionCenterActionButtonsViewModel from QML.
 	actionCenterActionButtonsViewModel = ActionCenterActionButtonsViewModel()
@@ -125,6 +156,7 @@ if __name__ == "__main__":
 	# engine.rootContext().setContextProperty("allAppsListItems", allAppsListItems)
 	# Theme settings loader binding.
 	engine.rootContext().setContextProperty("settingsLoader", settingsLoader)
+	engine.rootContext().setContextProperty("ThemeLoader", ThemeLoader)
 	# Action buttons for the Action Center.
 	engine.rootContext().setContextProperty("actionCenterActionButtonsViewModel", actionCenterActionButtonsViewModel)
 	engine.load("pages/ActionCenterWindow.qml")

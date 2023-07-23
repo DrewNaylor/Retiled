@@ -44,7 +44,10 @@ import QtQuick.Controls.Universal
 
 RetiledStyles.Button {
 	// Set borderWidth to 0.
+	// TODO: Allow setting border width for these.
 	borderWidth: 0
+	// TODO: Allow setting radius for Action Center Action Buttons,
+	// like ordinary buttons and tiles.
 	// Set width and height.
 	// These are roughly what the 720p 4.7-inch emulator has at 50% scale.
 	// If these don't feel that good on a phone, they can be changed.
@@ -52,15 +55,19 @@ RetiledStyles.Button {
 	buttonHeight: 58
 	// Add property for button color when it's toggled on.
 	// This is the accent color, cobalt (#0050ef) by default.
-	property string toggledOnColor: Universal.accent
+	// TODO: Allow this to be overridden by themes so they can
+	// use a different color.
+	property string toggledOnColor: accentColor
 	// Unpressed background color will use the toggledOnColor
 	// to ensure things don't break.
 	unpressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
 	pressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
 	// Add property for toggled-off button color.
 	// This is the same as displayed in the emulator.
-	property string toggledOffColor: "#1F1F1F"
+	property string toggledOffColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ToggledOffBackgroundColor", "#1f1f1f")
 	
+	// Property for button text color.
+	property string actionCenterActionButtonTextColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ActionButtonTextColor", "white")
 	// Specify whether this button can be toggled.
 	// TODO: Allow multi-state buttons, such as for display brightness.
 	// By default it's a toggle button for testing.
@@ -75,6 +82,9 @@ RetiledStyles.Button {
 	// This is for accessibility purposes to help screen readers and should also help anyone that doesn't
 	// like stuff in all-caps because it feels like it's yelling at them.
 	// Currently unused.
+	// NOTE: We'll use the font property to have text render as lowercase,
+	// rather than directly using ".toLower" or something.
+	// That way it should be fine for screen readers.
 	property bool textIsLowercase: false
 	
 	// Property for storing the command the button can use.
@@ -112,7 +122,7 @@ RetiledStyles.Button {
 		//text: "FLASHLIGHT"
 		//text: "ROTATION LOCK"
 		//text: "AIRPLANE\nMODE"
-		color: "white"
+		color: actionCenterActionButtonTextColor
 	}
 	
 }

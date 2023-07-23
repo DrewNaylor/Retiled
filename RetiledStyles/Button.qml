@@ -64,6 +64,7 @@ ButtonBase {
 	// Nah, 18.
 	// No, 16 is better.
 	// We're using the new normalFontSize value from FontStyles.qml.
+	// TODO: Figure out a way to change fonts from themes with a config file override.
 	property real fontSize: FontStyles.normalFontSize
 	// Allow the font family to be overwritten easily.
 	property string fontFamily: FontStyles.semiboldFont
@@ -73,23 +74,28 @@ ButtonBase {
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
 	// be useful.
-	property string textColor: "white"
-	property string pressedTextColor: "white"
+	property string textColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "TextColor", "white")
+	property string pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "PressedTextColor", "white")
 	// pressedBackgroundColor will usually be the accent color.
-	property string pressedBackgroundColor: Universal.accent
+	// Not sure if it should be customizable via themes.
+	// Maybe there should be a thing in themes to specify whether
+	// to use the Accent color or to use a different color?
+	// TODO: Provide a boolean to allow overriding the pressedBackgroundColor
+	// such as for high-contrast themes.
+	property string pressedBackgroundColor: accentColor
 	// unpressedBackgroundColor is usually transparent,
 	// but it may be useful to specify a color, such as for
 	// tiles.
-	property string unpressedBackgroundColor: "transparent"
+	property string unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "UnpressedBackgroundColor", "transparent")
 	// Just like the textColor, borderColor would be black
 	// in the light theme.
-	property string borderColor: "white"
+	property string borderColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "BorderColor", "white")
 	// Very rarely, buttons will have a different border color
 	// when pressed. One example of this is the "unpin tile"
 	// button. I still need to check the light theme for this.
-	property string pressedBorderColor: "white"
+	property string pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "PressedBorderColor", "white")
 	property int borderWidth: 2
-	property int borderRadius: 0
+	property int borderRadius: ThemeLoader.getValueFromTheme(themePath, "Buttons", "StandardButtonCornerRadius", "0")
 	// Change button size to help with the large font.
 	property int buttonWidth: 100
 	property int buttonHeight: 40

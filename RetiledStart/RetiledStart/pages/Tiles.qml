@@ -45,16 +45,36 @@ ApplicationWindow {
     visible: true
     title: qsTr("RetiledStart")
 
-    Universal.theme: Universal.Dark
+	// Store the theme family and theme name for easy access.
+	// TODO: Hook this up to D-Bus along with the rest of the settings
+	// so that it can update when the user changes it in the Settings app.
+	property string themeFamily: settingsLoader.getSetting("themes", "ThemeFamily", "Retiled-Metro")
+	property string themeName: settingsLoader.getSetting("themes", "ThemeName", "MetroDark")
+	// Also construct a theme path so it's less to figure out each time
+	// I need to have something read from a theme file.
+	// Each theme is in a subfolder starting with the theme family name
+	// followed by the theme name as a folder then the name again
+	// but as a file.
+	property string themePath: themeFamily + "/" + themeName + "/" + themeName
+
+    Universal.theme: {
+		// Get Universal theme.
+		// TODO: Split this if statement out so it's easier to reuse.
+		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
+			return Universal.Light;
+		} else {
+			return Universal.Dark;
+		}
+	} // End of the Universal theme loader.
     // Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
 	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
-	Universal.foreground: 'white'
+	Universal.foreground: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalForegroundColor", "white")
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
 	// This will probably be useful when working on stuff like the volume controls and Action Center.
-	Universal.background: 'black'
+	Universal.background: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalBackgroundColor", "black")
 	
 	// Decide whether to display a background image or not.
 	// This (displayBackgroundWallpaper) is used in conjunction with
@@ -685,6 +705,8 @@ ApplicationWindow {
 			// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html
 			// Made the duration longer and used InOutQuart to make it feel better.
 			move: Transition {
+				// TODO: Use a simultaneous animation or whatever it is to have things
+				// move at the same time for both.
 				PropertyAnimation { property: "x"; duration: 200; easing.type: Easing.InOutQuart }
 				PropertyAnimation { property: "y"; duration: 200; easing.type: Easing.InOutQuart }
 			}
@@ -1062,15 +1084,15 @@ ApplicationWindow {
 			fontFamily: metroFont.name
 			
 			// Set background color for when pressed.
-			// By default this is cobalt (#0050ef).
+			// By default this is white.
 			// This would probably be black in light themes.
-			pressedBackgroundColor: "white"
+			pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBackgroundColor", "white")
 			// Set text color for when the button is pressed.
 			// This is white by default, as most round buttons
 			// don't change their text color.
 			// I think this would also have to be white when
 			// using the light theme.
-			pressedTextColor: "black"
+			pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedTextColor", "black")
 			// If necessary, you can also set the default text color.
 			// This is the color that the text color returns to after
 			// un-pressing the button.

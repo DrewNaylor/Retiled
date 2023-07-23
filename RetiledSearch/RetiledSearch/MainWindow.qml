@@ -43,15 +43,35 @@ ApplicationWindow {
     visible: true
     title: qsTr("RetiledSearch")
 
-    Universal.theme: Universal.Dark
+	// Store the theme family and theme name for easy access.
+	// TODO: Hook this up to D-Bus along with the rest of the settings
+	// so that it can update when the user changes it in the Settings app.
+	property string themeFamily: settingsLoader.getSetting("themes", "ThemeFamily", "Retiled-Metro")
+	property string themeName: settingsLoader.getSetting("themes", "ThemeName", "MetroDark")
+	// Also construct a theme path so it's less to figure out each time
+	// I need to have something read from a theme file.
+	// Each theme is in a subfolder starting with the theme family name
+	// followed by the theme name as a folder then the name again
+	// but as a file.
+	property string themePath: themeFamily + "/" + themeName + "/" + themeName
+
+    Universal.theme: {
+		// Get Universal theme.
+		// TODO: Split this if statement out so it's easier to reuse.
+		if (ThemeLoader.getValueFromTheme(themePath, "ThemeDetails", "ThemeType", "dark") === "light") {
+			return Universal.Light;
+		} else {
+			return Universal.Dark;
+		}
+	} // End of the Universal theme loader.
 	// Property for setting Accent colors so that Universal.accent
 	// can in turn be set easily at runtime.
 	property string accentColor: settingsLoader.getSetting("themes", "AccentColor", "#0050ef")
     Universal.accent: accentColor
-	Universal.foreground: 'white'
+	Universal.foreground: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalForegroundColor", "white")
 	// Fun fact: QML supports setting the background to transparent,
 	// which shows all the other windows behind the app's window as you'd expect.
-	Universal.background: 'black'
+	Universal.background: ThemeLoader.getValueFromTheme(themePath, "UniversalStyle", "UniversalBackgroundColor", "black")
 
 	// Turning off tilt for accessibility if desired.
 	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
@@ -81,8 +101,8 @@ ApplicationWindow {
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
-						appBar.backgroundColor = "#1f1f1f"
-						appbarDrawer.backgroundColor = "#1f1f1f"
+						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
+						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 					}
 			
         }
@@ -205,8 +225,8 @@ ApplicationWindow {
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
-						appBar.backgroundColor = "#1f1f1f"
-						appbarDrawer.backgroundColor = "#1f1f1f"
+						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
+						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
 						// TODO: Figure out a way to change the appbar's color
@@ -232,7 +252,7 @@ ApplicationWindow {
 				Image {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
-			source: "../../icons/actions/ellipsis_white.svg"
+			source: "../../icons/actions/" + ThemeLoader.getValueFromTheme(themePath, "AppBar", "EllipsisButtonIcon", "ellipsis_white") + ".svg"
 			// Set source size so it's crisp:
 			// https://doc.qt.io/qt-5/qml-qtquick-image.html#sourceSize-prop
 			sourceSize.width: 40

@@ -89,9 +89,12 @@ T.ToolBar {
 	// along with all the other light and dark theme colors.
     // This will still be able to be overridden in case an app
     // wants a specific color for the appbar drawer.
-	property string backgroundColor: "#1f1f1f"
+	property string backgroundColor: ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
 
     background: Rectangle {
+        // TODO: figure out how to have different-height appbars when they're closed
+        // to support both display styles (where they show buttons and when they
+        // don't).
         implicitHeight: 48 // AppBarThemeCompactHeight
 		// Set background color.
         color: backgroundColor

@@ -43,9 +43,10 @@
 import "."
 import QtQuick
 
-// Change the button so it's more like WP.
+// Change the context menu button so it's more like WP.
 // I took these properties from the button
-// in RetiledSearch.
+// in RetiledSearch, but they had to be modified for
+// context menus.
 ButtonBase {
 	
 	id: control
@@ -65,22 +66,29 @@ ButtonBase {
 	// changed to black. Actually, maybe adding a way to
 	// automatically set the theme with a boolean would
 	// be useful.
-	property string textColor: "white"
-	// pressedBackgroundColor will usually be the accent color.
-	property string pressedBackgroundColor: "#0050ef"
+	// FIXME/TODO: Fix this because the context menu buttons are supposed
+	// to be black on white and this appears to be all the wrong values.
+	// Some stuff might not appear correctly such as the appbar drawer
+	// buttons, so it'll need to be fixed.
+	// TODO: Make sure my changes still work in RetiledStart.
+	property string textColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "TextColor", "black")
+	// pressedBackgroundColor will usually be transparent.
+	property string pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "PressedBackgroundColor", "transparent")
 	// unpressedBackgroundColor is usually transparent,
 	// but it may be useful to specify a color, such as for
 	// tiles.
-	property string unpressedBackgroundColor: "transparent"
-	// Just like the textColor, borderColor would be black
-	// in the light theme.
-	property string borderColor: "white"
-	// Very rarely, buttons will have a different border color
-	// when pressed. One example of this is the "unpin tile"
-	// button. I still need to check the light theme for this.
-	property string pressedBorderColor: "white"
-	property int borderWidth: 2
-	property int borderRadius: 0
+	property string unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "UnpressedBackgroundColor", "transparent")
+	// BorderColor shouldn't appear unless desired by a theme.
+	property string borderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderColor", "transparent")
+	// Generally context menu buttons shouldn't have a border
+	// when pressed unless requested by a theme.
+	property string pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "PressedBorderColor", "transparent")
+	property int borderWidth: ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderWidth", "0")
+	// TODO: Reduce the number of places we have to access the
+	// theme data like below in case it's unnecessary to check
+	// the theme for something, such as when a feature isn't in use,
+	// like for border width.
+	property int borderRadius: borderWidth > 0 ? ThemeLoader.getValueFromTheme(themePath, "ContextMenuButton", "BorderRadius", "0") : 0
 	// Change button size to help with the large font.
 	property int buttonWidth: 100
 	property int buttonHeight: 40

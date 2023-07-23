@@ -63,21 +63,22 @@ ButtonBase {
 	// so that users can change all of them to whatever they want,
 	// so maybe the extra small font size could be set to 16 if needed?
 	property real fontSize: FontStyles.extrasmallFontSize
-	property string textColor: "white"
+	property string textColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TextColor", "white")
 	// Fun fact: if you change the color value here
 	// to #990050ef (or anything else with numbers in front of "0050ef"),
 	// you'll get transparent tile backgrounds, with different values
 	// depending on the first two numbers (replacing "99").
 	// This may be useful for customization, if people want W10M-style
 	// semi-transparent tiles.
+	// TODO: Figure out how to allow this to be changed in themes if possible,
+	// or at least hook it up to tile .desktop files and stuff when I get around
+	// to doing that.
 	property string tileBackgroundColor: accentColor
 	// We have to add a property for the button's exec key
 	// so that we can add an event handler:
 	// https://stackoverflow.com/a/22605752
 	property string execKey;
 	signal tileClicked(string execKey);
-	
-	
 	
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
@@ -113,6 +114,7 @@ ButtonBase {
 	// Actually, Segoe WP's spacing can be emulated by setting the pixel spacing to -8.
 	// It would still be best to fork Open Sans, though, as that's how it can be fixed
 	// properly, along with fixing the J and Q.
+	// TODO: Allow this to be changed?
 	leftPadding: 8
 	topPadding: 0
 	rightPadding: 0
@@ -144,6 +146,11 @@ ButtonBase {
 	// Tile size (small, medium, or wide).
 	// Won't be fully used until moving to TilesGrid.
 	property string tileSize;
+
+	// Properties for unpin button icons.
+	// Stored here so they're out of the way.
+	property string unpinIconPressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconPressed", "unpin")
+	property string unpinIconUnpressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconUnpressed", "unpin_white")
 					
 	RoundButton {
 		id: unpinButton
@@ -151,7 +158,7 @@ ButtonBase {
 		Image {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
-			source: parent.pressed ? "../icons/actions/unpin.svg" : "../icons/actions/unpin_white.svg"
+			source: parent.pressed ? "../icons/actions/" + unpinIconPressed + ".svg" : "../icons/actions/" + unpinIconUnpressed + ".svg"
 			anchors.fill: parent
 			fillMode: Image.Stretch
 			// Mipmapping makes it look pretty good.
@@ -172,29 +179,29 @@ ButtonBase {
 		borderWidth: 2
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
-		pressedBackgroundColor: "white"
+		pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBackgroundColor", "white")
 		// Forgot to set the unpressedBackgroundColor
 		// property and that these buttons are opaque
 		// on WP. Thought something looked slightly off.
 		// TODO: Check if this is also black under the light theme.
-		unpressedBackgroundColor: "black"
+		unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonUnpressedBackgroundColor", "black")
 		// Also set pressedBorderColor.
-		pressedBorderColor: "black"
+		pressedBorderColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBorderColor", "black")
 		// Set accessibility stuff:
-				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
-				// Didn't know this was a thing, but I learned about it
-				// from a Mastodon post.
-				// Partially copying from that page.
-				Accessible.role: Accessible.Button
-				Accessible.name: "Unpin tile button"
-    			Accessible.description: "Unpins the current tile."
-    			Accessible.onPressAction: {
-        			// Click the button with the accessibility press feature:
-					// https://stackoverflow.com/a/34332489
-					// I really hope this works, because I don't really
-					// have any way to test it as far as I know.
-					clicked()
-    			}
+		// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
+		// Didn't know this was a thing, but I learned about it
+		// from a Mastodon post.
+		// Partially copying from that page.
+		Accessible.role: Accessible.Button
+		Accessible.name: "Unpin tile button"
+		Accessible.description: "Unpins the current tile."
+		Accessible.onPressAction: {
+			// Click the button with the accessibility press feature:
+			// https://stackoverflow.com/a/34332489
+			// I really hope this works, because I don't really
+			// have any way to test it as far as I know.
+			clicked()
+		}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// NOTE: Unpinning a tile removes the buttons, so this
@@ -231,15 +238,15 @@ ButtonBase {
 		z: control.z + 1
 		// Change the pressed background color.
 		// TODO: Check if it's the same under the light theme.
-		pressedBackgroundColor: "white"
+		pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBackgroundColor", "white")
 		// Forgot to set the unpressedBackgroundColor
 		// property and that these buttons are opaque
 		// on WP. Thought something looked slightly off.
 		// TODO: Check if this is also black under the light theme.
-		unpressedBackgroundColor: "black"
+		unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonUnpressedBackgroundColor", "black")
 		// Change pressed text color.
 		// TODO: Check if this is also the same under the light theme.
-		pressedTextColor: "black"
+		pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedTextColor", "black")
 		// Set accessibility stuff:
 				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
 				// Didn't know this was a thing, but I learned about it

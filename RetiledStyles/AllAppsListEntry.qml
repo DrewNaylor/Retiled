@@ -56,11 +56,13 @@ RetiledStyles.Button {
 	
 	// Remove the border.
 	// You can comment this out if you need to debug the area around it.
+	// Not going to allow this to be themed because it's close together
+	// and may look weird.
 	borderWidth: 0
 	
 	// Set the background color when pressing the button to transparent
-	// to get rid of it.
-	pressedBackgroundColor: "transparent"
+	// to get rid of it, if the theme says to.
+	pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "PressedBackgroundColor", "transparent")
 	
 	// Add a property to store text because I
 	// can't just put any property I want into
@@ -70,10 +72,10 @@ RetiledStyles.Button {
 	// Put something in setting text color.
 	// Usually under the dark theme it'll be
 	// white.
-	property string textColor: "white"
+	property string textColor: ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "TextColor", "white")
 	
 	// Have a property for the icon background color.
-	property string iconBackgroundColor: Universal.accent
+	property string iconBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "UseAccentForIconBackground", "true") === "true" ? accentColor : ThemeLoader.getValueFromTheme(themePath, "AllAppsListEntry", "AlternateIconBackgroundColor", "transparent")
 	
 	// Signal for moving other apps into the background.
 	// Commented out for now because I can't figure it out.
@@ -148,19 +150,17 @@ RetiledStyles.Button {
 			
 			ContextMenuButton {
 				width: window.width
-				textColor: "black"
-				borderColor: "transparent"
-				// Hide the border.
-				borderWidth: 0
-				pressedBackgroundColor: "transparent"
 				text: qsTr("pin to start")
 				// TODO: Figure out why the font
 				// on this button looks way more bold
 				// than it does in the search app, even
 				// though the button template uses the
 				// same weight for each.
+				// Wait, I don't know if that last TODO is out
+				// of date or not as of July 20, 2023.
 				onClicked: {
-					// Hide the context menu.
+					// Hide the context menu and send
+					// the .desktop file path to be pinned.
 					allappscontextmenu.visible = false;
 					pinToStart(dotDesktopFilePath);
 				}

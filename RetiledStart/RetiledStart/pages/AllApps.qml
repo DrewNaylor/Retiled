@@ -64,8 +64,8 @@ import "../../../RetiledStyles" as RetiledStyles
 					// http://imaginativethinking.ca/use-qt-quicks-delegatemodelgroup/
 					text: "<b>\ue031</b>"
 					fontFamily: metroFont.name
-					pressedTextColor: "black"
-					pressedBackgroundColor: "white"
+					pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedTextColor", "black")
+					pressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonPressedBackgroundColor", "white")
 					// Make sure the buttons are aligned to the top.
 					Layout.alignment: Qt.AlignTop
 					// Set accessibility stuff:

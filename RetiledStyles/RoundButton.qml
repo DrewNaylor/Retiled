@@ -53,7 +53,7 @@ RetiledStyles.Button {
 	// I may have to change this in ButtonBase.
 	
 	// Set button properties.
-	borderRadius: 90
+	borderRadius: ThemeLoader.getValueFromTheme(themePath, "RoundButtons", "RoundButtonCornerRadius", "90")
 	
 	// Some round buttons have to have their background
 	// color set too, such as the tile editing ones.
