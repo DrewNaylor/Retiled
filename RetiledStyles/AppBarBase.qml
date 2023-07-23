@@ -82,7 +82,9 @@ T.ToolBar {
     // the full height.
     // TODO: Should the appbar drawer position we check for
     // be a different value? Should it be less than 1.0 or something?
-    implicitHeight: minimized && appbarDrawer.position === 0.0 ? 24 : 48
+    // We also need to override the appbar height if the back button
+    // is visible.
+    implicitHeight: minimized && appbarDrawer.position === 0.0 && backButtonVisible === false ? 24 : 48
 
     // Allow appbars to appear minimized.
     property bool minimized: true
@@ -110,7 +112,9 @@ T.ToolBar {
         // the full height.
         // TODO: Should the appbar drawer position we check for
         // be a different value? Should it be less than 1.0 or something?
-        height: minimized && appbarDrawer.position === 0.0 ? 24 : 48
+        // We also need to override the appbar height if the back button
+        // is visible.
+        height: minimized && appbarDrawer.position === 0.0 && backButtonVisible === false ? 24 : 48
 		// Set background color.
         color: backgroundColor
     }
