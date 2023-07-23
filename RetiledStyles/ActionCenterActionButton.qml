@@ -64,7 +64,7 @@ RetiledStyles.Button {
 	pressedBackgroundColor: isToggled ? toggledOnColor : toggledOffColor
 	// Add property for toggled-off button color.
 	// This is the same as displayed in the emulator.
-	property string toggledOffColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ToggledOffColor", "#1f1f1f")
+	property string toggledOffColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ToggledOffBackgroundColor", "#1f1f1f")
 	
 	// Property for button text color.
 	property string actionCenterActionButtonTextColor: ThemeLoader.getValueFromTheme(themePath, "ActionCenterActionButton", "ActionButtonTextColor", "white")
