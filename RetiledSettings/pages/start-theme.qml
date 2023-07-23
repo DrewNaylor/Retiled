@@ -153,11 +153,6 @@ Page {
 				// Of course, we're not going to set ThemeType when saving.
 				text: "theme name: " + settingsLoader.getSetting("themes", "ThemeName", "MetroDark")
 			} // End of the theme type label.
-			RetiledStyles.Button {
-				width: 20
-				height: 15
-				text: "test"
-			}
 			Label {
 				wrapMode: Label.Wrap
 				horizontalAlignment: Qt.AlignHLeft
@@ -232,6 +227,11 @@ Page {
 					}
 					height: 120
 					width: 120
+					// Chsnge sourceSize so it's not awful-looking.
+					// Thought it was sourceHeight and sourceWidth but it's not:
+					// https://doc.qt.io/qt-6/qml-qtquick-image.html#sourceSize-prop
+					sourceSize.height: 120
+					sourceSize.width: 120
 					anchors.leftMargin: 6
 					anchors.left: parent.right
 					Accessible.name: "wallpaper preview image"
