@@ -313,10 +313,15 @@ Flickable {
 							anchors.right: parent.right
 							anchors.top: parent.top
 							text: "X"
+                            textColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "TextColor", "white")
+                            pressedTextColor: ThemeLoader.getValueFromTheme(themePath, "Buttons", "PressedTextColor", "white")
+
 							visible: grid.overview
 							buttonHeight: 64
 							buttonWidth: 64
-							unpressedBackgroundColor: "black"
+                            // NOTE: This probably shouldn't use the tile background color setting.
+                            // TODO: Change this so it's using its own setting if we keep using the custom compositor.
+							unpressedBackgroundColor: ThemeLoader.getValueFromTheme(themePath, "Tiles", "TileRoundButtonUnpressedBackgroundColor", "black")
 							// Ensure the close button is above the area that the user can click
 							// to go back to a window so it's usable.
 							z: 2
