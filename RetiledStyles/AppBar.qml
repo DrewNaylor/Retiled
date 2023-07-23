@@ -45,13 +45,16 @@ import QtQuick.Layouts
 
 RetiledStyles.AppBarBase {
 
-                id: control
+        id: control
+
+        // Need a property for the height multiplier.
+        property real appbarOpenedHeightMultiplier: 3.4
 
         transform: Translate {
         // Move the menu to make it look like WP's ellipsis menu opening.
 		// Turns out we need to have it be multiplied by 3.4 so the items don't
 		// overlap the appbar.
-        y: appbarDrawer.position * (control.height * 3.4) * -1
+        y: appbarDrawer.position * (control.height * appbarOpenedHeightMultiplier) * -1
          }
 
         RowLayout {

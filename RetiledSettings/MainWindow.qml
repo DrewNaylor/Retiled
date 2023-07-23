@@ -214,6 +214,8 @@ ApplicationWindow {
 
 	StackView {
 		// Set up the stackview to have page navigation.
+		// Also you need to have the same ID here for the appbar navigation to work.
+		// TODO: Don't require a hardcoded ID for the page navigation to work.
 		id: stackView
 		anchors.fill: parent
 	
