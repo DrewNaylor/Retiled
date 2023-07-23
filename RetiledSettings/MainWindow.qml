@@ -99,8 +99,8 @@ ApplicationWindow {
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
 						// TODO 2: For real though, this needs to be moved for theme support.
-						appBar.backgroundColor = "#1f1f1f"
-						appbarDrawer.backgroundColor = "#1f1f1f"
+						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
+						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 					}
 			
         }
@@ -227,8 +227,8 @@ ApplicationWindow {
 						// along with all the other light and dark theme colors.
 						// TODO 2: But really, this needs to be moved to its own file for
 						// easy changes and reuse for theme support.
-						appBar.backgroundColor = "#1f1f1f"
-						appbarDrawer.backgroundColor = "#1f1f1f"
+						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
+						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true
 						// TODO: Figure out a way to change the appbar's color
