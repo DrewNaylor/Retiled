@@ -137,7 +137,7 @@ class AppRootPath(QObject):
 	# to refer to the pages so we can properly
 	# navigate from the appbar and appbar drawer.
 	@Slot(result=str)
-	def getAppRootPath():
+	def getAppRootPath(self):
 		# TODO: Change this to something more specific
 		# so it doesn't break when the working directory
 		# changes.

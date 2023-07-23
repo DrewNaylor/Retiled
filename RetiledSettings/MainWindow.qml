@@ -177,7 +177,7 @@ ApplicationWindow {
 	property bool appbarEllipsisButtonVisible: true
 
 	// Get the app root path for the appbar and appbar drawer.
-	readonly property string appRootPath: AppRootPath.getAppRootPath
+	readonly property string appRootPath: AppRootPath.getAppRootPath()
 
     RetiledStyles.AppBarDrawer {
 		id: appbarDrawer
@@ -190,12 +190,18 @@ ApplicationWindow {
 			// in order to grab stuff from the app's root path:
 			// https://stackoverflow.com/a/33161093
             drawerItems: ListModel {
-				ListElement { title: "start+theme"; navigate: "true"; source: appRootPath + "pages/start-theme.qml" }
-				ListElement { title: "about"; navigate: "true"; source: "pages/About.qml" }
-				// "debug command" is just a test for now to allow commands
-				// to be used from the appbar.
-				// An example would be pinning something to Start.
-				ListElement { title: "debug command"; navigate: "false"; command: "hello" }
+
+				// Now add stuff to the ListModel.
+				// See the SO answer above the drawerItems line
+				// for more details.
+				Component.onCompleted: {
+					append({ title: "start+theme", navigate: "true", source: appRootPath + "/pages/start-theme.qml" });
+					append({ title: "about", navigate: "true", source: appRootPath + "/pages/About.qml" });
+					// "debug command" is just a test for now to allow commands
+					// to be used from the appbar.
+					// An example would be pinning something to Start.
+					append({ title: "debug command", navigate: "false", command: "hello" });
+				}
             }
     }
 
