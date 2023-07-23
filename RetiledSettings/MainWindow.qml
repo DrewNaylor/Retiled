@@ -73,6 +73,10 @@ ApplicationWindow {
 	// Turning off tilt for accessibility if desired.
 	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
 	
+	// Appbar stuff for the emergency back button and ellipsis button to be visible.
+	property bool backButtonVisible: false
+	property bool appbarEllipsisButtonVisible: true
+
 	// Bring in the shortcut code for the app bar.
 	// Copied from my modified version of the Qml.Net example app,
 	// but modified for this one. Code here:
@@ -92,9 +96,9 @@ ApplicationWindow {
 						// The double-equals is required rather than
 						// a single-equals, as otherwise it'll complain
 						// that depth is read-only and won't just compare.
-						backButton.visible = false
+						backButtonVisible = false
 						// Show the ellipsis button again.
-						appbarEllipsisButton.visible = true
+						appbarEllipsisButtonVisible = true
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
@@ -172,9 +176,7 @@ ApplicationWindow {
 		id: appBar
     }
 
-	property bool backButtonVisible: false
-
-	property bool appbarEllipsisButtonVisible: true
+	
 
 	// Get the app root path for the appbar and appbar drawer.
 	readonly property string appRootPath: AppRootPath.getAppRootPath()
@@ -245,11 +247,11 @@ ApplicationWindow {
 					// Close the appbar drawer.
                     appbarDrawer.close()
 					// Show the back button to allow navigating back.
-					backButton.visible = true
+					backButtonVisible = true
 					// Have the appbar be transparent.
 					appBar.backgroundColor = "transparent"
 					// Hide the ellipsis button.
-					appbarEllipsisButton.visible = false
+					appbarEllipsisButtonVisible = false
                 }
             }
 

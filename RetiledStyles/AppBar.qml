@@ -95,7 +95,9 @@ RetiledStyles.AppBarBase {
 						// The double-equals is required rather than
 						// a single-equals, as otherwise it'll complain
 						// that depth is read-only and won't just compare.
-						backButton.visible = false
+                        // We can't set the visibility of the item directly,
+                        // or it'll break and mess with the visibility
+                        // so it'll sometimes not appear when it should.
                         backButtonVisible = false
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
@@ -105,7 +107,10 @@ RetiledStyles.AppBarBase {
 						control.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
 						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 						// Show the ellipsis button again.
-						appbarEllipsisButton.visible = true
+                        // We can't set the visibility of the item directly,
+                        // or it'll break and mess with the visibility
+                        // so it'll sometimes appear when it shouldn't.
+						appbarEllipsisButtonVisible = true
 						// TODO: Figure out a way to change the appbar's color
 						// so it looks like the back button is just floating there
 						// rather than being part of the bar.
