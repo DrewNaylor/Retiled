@@ -132,6 +132,17 @@ class ThemeLoader(QObject):
 		# https://stackoverflow.com/a/40950987
 		return settingsReader.getSetting(ThemeFilePath, RequestedValue, DefaultValue, sectionName=ThemeSection).strip('\"')
 
+class AppRootPath(QObject):
+	# We need to store the app's root directory
+	# to refer to the pages so we can properly
+	# navigate from the appbar and appbar drawer.
+	@Slot(result=str)
+	def getAppRootPath(self):
+		# TODO: Change this to something more specific
+		# so it doesn't break when the working directory
+		# changes.
+		return os.getcwd()
+
 def shutdown():
 	# This is the cleanup code as described in the link.
 	engine.rootObjects()[0].deleteLater()
@@ -153,12 +164,17 @@ if __name__ == "__main__":
 	
 	# Hook up some stuff so I can access the searchClass from QML.
 	searchClass = SearchCommands()
+
+	# We need to get the app's root path so the appbar and
+	# appbar drawer can navigate.
+	AppRootPath = AppRootPath()
 	
 	engine = QQmlApplicationEngine()
 	# Theme settings loader binding.
 	engine.rootContext().setContextProperty("settingsLoader", settingsLoader)
 	engine.rootContext().setContextProperty("ThemeLoader", ThemeLoader)
 	engine.rootContext().setContextProperty("searchClass", searchClass)
+	engine.rootContext().setContextProperty("AppRootPath", AppRootPath)
 	engine.load("MainWindow.qml")
 	if not engine.rootObjects():
 		sys.exit(-1)

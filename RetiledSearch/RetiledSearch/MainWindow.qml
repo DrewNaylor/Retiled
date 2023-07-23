@@ -95,9 +95,9 @@ ApplicationWindow {
 						// The double-equals is required rather than
 						// a single-equals, as otherwise it'll complain
 						// that depth is read-only and won't just compare.
-						backButton.visible = false
+						backButtonVisible = false
 						// Show the ellipsis button again.
-						appbarEllipsisButton.visible = true
+						appbarEllipsisButtonVisible = true
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
@@ -170,185 +170,59 @@ ApplicationWindow {
 	// This is just whatever the device that's running will use.
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
+	// Put the appbar on the footer.
 	footer: RetiledStyles.AppBar {
-
-                id: appBar
-
-        transform: Translate {
-        // Move the menu to make it look like WP's ellipsis menu opening.
-        y: appbarDrawer.position * appBar.height * -1
-         }
-
-        RowLayout {
-            spacing: 0
-            anchors.fill: parent
-
-
-            RetiledStyles.AppBarMoreButton {
-			// Usually we won't use the AppBarMoreButton for items here,
-			// but the Back button can't have any visual changes.
-			id: backButton
-			visible: false
-			// QML with Python requires you use "file:" before
-			// the image path as specified here:
-			// https://stackoverflow.com/a/55515136
-				// TODO: Figure out a way to use SVG files because
-				// this is blurry with HiDPI.
-                text: "<b>\ue020</b>"
-				font: metroFont.name
-				// Set accessibility stuff:
-				// https://doc.qt.io/qt-6/qml-qtquick-accessible.html
-				// Didn't know this was a thing, but I learned about it
-				// from a Mastodon post.
-				// Partially copying from that page.
-				Accessible.role: Accessible.Button
-				Accessible.name: "Back button"
-    			Accessible.description: "Goes back to the main page of RetiledSearch."
-    			Accessible.onPressAction: {
-        			// Click the button with the accessibility press feature:
-					// https://stackoverflow.com/a/34332489
-					// I really hope this works, because I don't really
-					// have any way to test it as far as I know.
-					clicked()
-    			}
-                onClicked: {
-                    if (stackView.depth > 1) {
-                        stackView.pop()
-                        }
-					if (stackView.depth == 1) {
-						// Only hide the back button if we can't
-						// go back any further.
-						// The double-equals is required rather than
-						// a single-equals, as otherwise it'll complain
-						// that depth is read-only and won't just compare.
-						backButton.visible = false
-						// Set the appbar and its drawer background color to the default.
-						// TODO: move this to another file so it can just be referenced
-						// along with all the other light and dark theme colors.
-						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
-						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
-						// Show the ellipsis button again.
-						appbarEllipsisButton.visible = true
-						// TODO: Figure out a way to change the appbar's color
-						// so it looks like the back button is just floating there
-						// rather than being part of the bar.
-					}
-                }
-            }
-
-            Item {
-            // This empty item is necessary to take up space
-            // and push the back button and ellipsis button to both edges.
-            // I guess I could've just tweaked things a bit.
-                Layout.fillWidth: true
-            }
-			
-            RetiledStyles.AppBarMoreButton {
-				id: appbarEllipsisButton
-				width: 20
-				// TODO: Figure out a way to use SVG files because
-				// this is blurry with HiDPI.
-                // icon.source: "../icons/actions/ellipsis_white.svg"
-				Image {
-			// It's "pressed", not "down", to change images:
-			// https://stackoverflow.com/a/30092412
-			source: "../../icons/actions/" + ThemeLoader.getValueFromTheme(themePath, "AppBar", "EllipsisButtonIcon", "ellipsis_white") + ".svg"
-			// Set source size so it's crisp:
-			// https://doc.qt.io/qt-5/qml-qtquick-image.html#sourceSize-prop
-			sourceSize.width: 40
-			sourceSize.height: 15
-			anchors.top: parent.top
-			anchors.horizontalCenter: parent.horizontalCenter
-			// Mipmapping makes it look pretty good.
-			mipmap: true
-		}
-				// For some reason, I can only open the app bar by pulling it
-				// up. Fortunately, you can swipe where you're supposed to be
-				// able to tap the button at. Unfortunately, that may interfere
-				// with other appbar buttons that may be added in the future.
-                onClicked: {
-                        appbarDrawer.open()
-                }
-            }
-
-
-        }
-    }
-
-    RetiledStyles.AppBarDrawerBase {
-    // TODO: Figure out a way to allow the drawer to be closed from any
-    // page and not just from clicking inside the main page or clicking
-    // on any of the items in the drawer.
-    // TODO 2: Figure out how to let the user drag the app bar back down
-    // on both the right and the left side to close the
-    // drawer, like on Windows Phone.
-	// TODO 3: Move the customizations to AppBarDrawer.qml so that
-	// more apps can use this customized appbar drawer.
-        id: appbarDrawer
-        width: window.width
-        // Set height to 50 so that the app bar always moves out of the way,
-        // even when the window is taller or shorter.
-        height: 55
-		// Not sure what Interactive means, but I'll guess it determines
-		// if you can interact with the app drawer.
-        interactive: stackView.depth === 1
-        // Setting edge to Qt.BottomEdge makes the menu
-        // kinda look like WP's ellipsis menu, except it
-        // doesn't yet move the bar up. Maybe a translation
-        // thing will help with that.
-        // Edge documentation:
-        // https://doc.qt.io/qt-5/qml-qtquick-controls2-drawer.html#edge-prop
-        edge: Qt.BottomEdge
+		// We need an ID for this because it's referred to from the appbar drawer's code.
+		// It has to be "appBar" for it to work.
+		// TODO: Make it not require an ID.
+		id: appBar
+		// A value of 0.1 makes it open just a little,
+		// perfect for appbars without appbar drawer items
+		// (but for now an empty appbar drawer will be required
+		// as the appbar opening is tied to appbar drawers)
+		// TODO: make appbar drawers not required.
+		// This can be useful if you have a subpage that doesn't
+        // need a drawer.
+		//appbarOpenedHeightMultiplier: 0.1
+		// Note: we need to add the appbar buttons eventually instead of just having nothing here.
 		
-		// Set font.
-		font.family: RetiledStyles.FontStyles.semiboldFont
-		font.weight: RetiledStyles.FontStyles.semiboldFontWeight
-		// TODO: Move letter spacing into the control.
-		//font.letterSpacing: -0.8 * scaleFactor
+		// For now we'll minimize the appbar until items are added to it.
+		minimized: true
+	}
 
+	// Appbar stuff for the emergency back button and ellipsis button to be visible.
+	property bool backButtonVisible: false
+	property bool appbarEllipsisButtonVisible: true
 
-        // Removing the shadow from the drawer:
-        // https://stackoverflow.com/a/63411102
-        
+	// Get the app root path for the appbar and appbar drawer pages.
+	readonly property string appRootPath: AppRootPath.getAppRootPath()
 
-       Rectangle {
-       // You have to set this rectangle's color
-       // or else it'll be white.
-            anchors.fill: parent
-            color: "transparent"
-        
+    RetiledStyles.AppBarDrawer {
+		// We need an ID for this because it's referred to from the appbar's code.
+		// It has to be "appbarDrawer" for it to work.
+		// TODO: Make it not require an ID.
+		id: appbarDrawer
+		// We can set the appbar drawer height to something
+		// other than the default.
+		// Using a small number can ensure the appbar doesn't get covered up
+		// if there's nothing important in the appbar drawer and the appbar
+		// has a small height multiplier when open.
+		//appbarDrawerHeight: 10
+		// Note: There will eventually be more items than just an about page here.
+		// TODO: Figure out how to make sure we stay in our app's path
+		// instead of using the current working directory.
+		// We have to use Component.onCompleted and ListModel.append
+		// in order to grab stuff from the app's root path:
+		// https://stackoverflow.com/a/33161093
+		drawerItems: ListModel {
 
-        ListView {
-            id: appbarDrawerListView
-            anchors.fill: parent
-            clip: true
-            focus: true
-
-            delegate: RetiledStyles.AppBarDrawerEntry {
-                width: parent.width
-                text: model.title
-                onClicked: {
-                    stackView.push(model.source)
-					// Set the appbar drawer's color to transparent.
-					appbarDrawer.backgroundColor = "transparent"
-					// Close the appbar drawer.
-                    appbarDrawer.close()
-					// Show the back button to allow navigating back.
-					backButton.visible = true
-					// Have the appbar be transparent.
-					appBar.backgroundColor = "transparent"
-					// Hide the ellipsis button.
-					appbarEllipsisButton.visible = false
-                }
-            }
-
-            model: ListModel {
-				ListElement { title: "about"; source: "pages/About.qml" }
-            }
-
-            ScrollIndicator.vertical: ScrollIndicator { }
-            }
-        }
+			// Now add stuff to the ListModel.
+			// See the SO answer above the drawerItems line
+			// for more details.
+			Component.onCompleted: {
+				append({ title: "about", navigate: "true", source: appRootPath + "/pages/About.qml" });
+			}
+		}
     }
 
 	StackView {
