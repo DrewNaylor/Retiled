@@ -58,7 +58,7 @@ RetiledStyles.AppBarDrawerBase {
 	// by dragging downward on the items in it or by clicking anywhere
 	// on the appbar other than the ellipsis/more button or the empty
 	// spot on the left side of the appbar.
-        id: appbarDrawer
+        id: control
         width: window.width
         // Set height to 165 so that there's enough space for the pages.
         height: 165
@@ -109,11 +109,11 @@ RetiledStyles.AppBarDrawerBase {
 					if (model.navigate === "true"){
 						stackView.push(model.source)
 						// Set the appbar drawer's color to transparent.
-						appbarDrawer.backgroundColor = "transparent"
+						control.backgroundColor = "transparent"
 						// Close the appbar drawer.
-						appbarDrawer.close()
+						control.close()
 						// Show the back button to allow navigating back.
-						backButton.visible = true
+						backButtonVisible = true
 						// Have the appbar be transparent.
 						appBar.backgroundColor = "transparent"
 						// Hide the ellipsis button.
@@ -124,7 +124,7 @@ RetiledStyles.AppBarDrawerBase {
 						// An example would be pinning something to Start.
 						console.log(model.command)
 						// We should also close the appbar drawer.
-						appbarDrawer.close()
+						control.close()
 					}
 
                 }

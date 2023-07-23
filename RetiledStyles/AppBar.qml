@@ -45,25 +45,24 @@ import QtQuick.Layouts
 
 RetiledStyles.AppBarBase {
 
-                id: appBar
+                id: control
 
         transform: Translate {
         // Move the menu to make it look like WP's ellipsis menu opening.
 		// Turns out we need to have it be multiplied by 3.4 so the items don't
 		// overlap the appbar.
-        y: appbarDrawer.position * (appBar.height * 3.4) * -1
+        y: appbarDrawer.position * (control.height * 3.4) * -1
          }
 
         RowLayout {
             spacing: 0
             anchors.fill: parent
 
-
             RetiledStyles.AppBarMoreButton {
 			// Usually we won't use the AppBarMoreButton for items here,
 			// but the Back button can't have any visual changes.
 			id: backButton
-			visible: false
+			visible: backButtonVisible
 			// QML with Python requires you use "file:" before
 			// the image path as specified here:
 			// https://stackoverflow.com/a/55515136
@@ -97,12 +96,13 @@ RetiledStyles.AppBarBase {
 						// a single-equals, as otherwise it'll complain
 						// that depth is read-only and won't just compare.
 						backButton.visible = false
+                        backButtonVisible = false
 						// Set the appbar and its drawer background color to the default.
 						// TODO: move this to another file so it can just be referenced
 						// along with all the other light and dark theme colors.
 						// TODO 2: But really, this needs to be moved to its own file for
 						// easy changes and reuse for theme support.
-						appBar.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
+						control.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBar", "BackgroundColor", "#1f1f1f")
 						appbarDrawer.backgroundColor = ThemeLoader.getValueFromTheme(themePath, "AppBarDrawerBase", "BackgroundColor", "#1f1f1f")
 						// Show the ellipsis button again.
 						appbarEllipsisButton.visible = true

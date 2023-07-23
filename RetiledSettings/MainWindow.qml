@@ -169,11 +169,14 @@ ApplicationWindow {
 	property real scaleFactor: Screen.pixelDensity / mylaptopPixelDensity
 	
 	footer: RetiledStyles.AppBar {
-
+		id: appBar
     }
 
+	property bool backButtonVisible: false
+
     RetiledStyles.AppBarDrawer {
-    
+		id: appbarDrawer
+		
     }
 
 	StackView {
