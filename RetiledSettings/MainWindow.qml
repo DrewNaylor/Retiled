@@ -72,10 +72,6 @@ ApplicationWindow {
 
 	// Turning off tilt for accessibility if desired.
 	property bool allowTilt: settingsLoader.convertSettingToBool(settingsLoader.getSetting("accessibility", "AllowTilt", "true"))
-	
-	// Appbar stuff for the emergency back button and ellipsis button to be visible.
-	property bool backButtonVisible: false
-	property bool appbarEllipsisButtonVisible: true
 
 	// Bring in the shortcut code for the app bar.
 	// Copied from my modified version of the Qml.Net example app,
@@ -176,7 +172,9 @@ ApplicationWindow {
 		id: appBar
     }
 
-	
+	// Appbar stuff for the emergency back button and ellipsis button to be visible.
+	property bool backButtonVisible: false
+	property bool appbarEllipsisButtonVisible: true
 
 	// Get the app root path for the appbar and appbar drawer.
 	readonly property string appRootPath: AppRootPath.getAppRootPath()
