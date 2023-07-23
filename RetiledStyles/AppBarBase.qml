@@ -87,7 +87,7 @@ T.ToolBar {
     implicitHeight: minimized && appbarDrawer.position === 0.0 && backButtonVisible === false ? 24 : 48
 
     // Allow appbars to appear minimized.
-    property bool minimized: true
+    property bool minimized: false
 
 	// #212021 is the hex color code for the dark appbar color
 	// as sampled from a screenshot.
