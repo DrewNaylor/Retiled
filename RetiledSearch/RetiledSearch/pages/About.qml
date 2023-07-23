@@ -50,22 +50,30 @@ Page {
 		// the window is resized. This also deals with the horizontal scrolling
 		// issue that happens when dragging the text around after the window gets resized.
 		//contentWidth: aboutText.width
-		contentHeight: aboutText.height
+		// contentHeight needs to use the height of the ColumnLayout
+		// to include the spacer at the bottom.
+		contentHeight: pageContent.height
 		width: parent.width
 		height: parent.height
 		clip: true
 		// I mostly copied this from my modified version of the Qml.Net example app.
 		// Code for the About.qml file here:
 		// https://github.com/DrewNaylor/wp-like_qmlnet-examples/blob/master/src/Features/pages/About.qml
-        Label {
+        ColumnLayout {
+			id: pageContent
+		Label {
 			id: aboutText
-            anchors.left: parent.left
-			anchors.right: parent.right
+			// Ensure we wrap and don't let the text go too far over.
             wrapMode: Label.Wrap
+			Layout.maximumWidth: window.width - 24
             horizontalAlignment: Qt.AlignHLeft
 			// Setting this to 12 will make it line up with the title label.
 			// The only potential issue is it won't be scrollable directly on the edge.
-			anchors.margins: 12
+			Layout.margins: 12
+			// Set the top margin to 0 so that it's right at the top of the page
+			// directly under the header area.
+			// TODO: Be sure to check if this is correct.
+			Layout.topMargin: 0
 			// Set font style to Inter Display.
 			// Might need to change the size so it's slightly larger
 			// as this is a little difficult to read, and maybe change some
@@ -118,5 +126,12 @@ Page {
 			"You can access the Retiled source code here:\n" +
 			"https://github.com/DrewNaylor/Retiled"
     }
-	}
-}
+	Item {
+		// 95 pixel tall item as a bottom spacer to comply
+		// with Microsoft guidelines:
+		// https://learn.microsoft.com/en-us/archive/blogs/africaapps/uxui-guidelines-for-windows-phone-8
+		height: 95
+		}
+	} // End columnlayout.
+} // End flickable.
+} // End page.
