@@ -182,6 +182,7 @@ ApplicationWindow {
         // This can be useful if you have a subpage that doesn't
         // need a drawer.
 		//appbarOpenedHeightMultiplier: 0.1
+		minimized: true
     }
 
 	// Appbar stuff for the emergency back button and ellipsis button to be visible.
