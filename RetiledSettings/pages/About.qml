@@ -1,5 +1,5 @@
-// RetiledSearch - Windows Phone 8.0-like Search app for the
-//                 Retiled project.
+// RetiledSettings - Windows Phone 8.x-like Settings app for the
+//                   Retiled project.
 // Copyright (C) 2021-2023 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
 // Windows Phone and all other related copyrights and trademarks are property
@@ -83,8 +83,8 @@ Page {
 				font.pointSize: RetiledStyles.FontStyles.smallFontSize
 				// Actually I'm not sure about using letter spacing now.
 				//font.letterSpacing: -0.8 * scaleFactor
-            text: "RetiledSearch v0.1 Developer Preview 2\n" +
-			"RetiledSearch is a Windows Phone 8.0-like Search app for the Retiled project.\n" +
+            text: "RetiledSettings v0.1 Developer Preview 3\n" +
+			"RetiledSettings is a Windows Phone 8.x-like Settings app for the Retiled project.\n" +
 			"Copyright (C) 2021-2023 Drew Naylor. Licensed under the Apache License 2.0.\n" +
 			"Windows Phone and all other related copyrights and trademarks are property of Microsoft Corporation. All rights reserved.\n\n" +
 			"License notice:\n" +
@@ -97,7 +97,7 @@ Page {
 			"WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
 			"See the License for the specific language governing permissions and\n" +
 			"limitations under the License.\n\n" +
-			"RetiledSearch is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n\n" +
+			"RetiledSettings is powered by Python 3, as well as Qt6/QML thanks to the PySide6 project.\n\n" +
 			"The ''back'' button in this app is provided by the wp-metro font, made by AJ Troxell, licensed under the SIL OFL 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
 			"https://github.com/ajtroxell/wp-metro \n\n" +
 			"Text in this app uses Inter (specifically, Inter Display, and v4.0 beta 8 was used for testing) if installed, designed by and trademark Rasmus Andersson and Copyright (c) 2016-2020 The Inter Project Authors, licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL), and available here:\n"+
@@ -124,7 +124,8 @@ Page {
 			"Python is licensed under the PSF License Agreement:\n" +
 			"https://docs.python.org/3.9/license.html#psf-license \n\n" +
 			"You can access the Retiled source code here:\n" +
-			"https://github.com/DrewNaylor/Retiled"
+			"https://github.com/DrewNaylor/Retiled \n\n" +
+			"A future version will have a proper about page representative of Retiled as a whole (it'll also have like technical details for version numbers and some hardware info such as your device's name and contributor credits as you would expect) in addition to this legal stuff for the settings app."
     }
 	Item {
 		// 95 pixel tall item as a bottom spacer to comply

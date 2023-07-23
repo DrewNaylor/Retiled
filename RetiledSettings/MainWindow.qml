@@ -1,4 +1,4 @@
-// RetiledSettings - Windows Phone 8.0-like Settings app for the
+// RetiledSettings - Windows Phone 8.x-like Settings app for the
 //                   Retiled project.
 // Copyright (C) 2021-2023 Drew Naylor
 // (Note that the copyright years include the years left out by the hyphen.)
