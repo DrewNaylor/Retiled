@@ -174,6 +174,8 @@ ApplicationWindow {
 
 	property bool backButtonVisible: false
 
+	property bool appbarEllipsisButtonVisible: true
+
     RetiledStyles.AppBarDrawer {
 		id: appbarDrawer
 		

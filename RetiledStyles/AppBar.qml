@@ -122,6 +122,7 @@ RetiledStyles.AppBarBase {
 			
             RetiledStyles.AppBarMoreButton {
 				id: appbarEllipsisButton
+                visible: appbarEllipsisButtonVisible
 				width: 20
 				// TODO: Figure out a way to use SVG files because
 				// this is blurry with HiDPI.

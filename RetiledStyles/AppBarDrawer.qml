@@ -117,7 +117,7 @@ RetiledStyles.AppBarDrawerBase {
 						// Have the appbar be transparent.
 						appBar.backgroundColor = "transparent"
 						// Hide the ellipsis button.
-						appbarEllipsisButton.visible = false
+						appbarEllipsisButtonVisible = false
 					} else {
 						// This is just a test for now to allow commands
 						// to be used from the appbar.
