@@ -799,6 +799,9 @@ ApplicationWindow {
 						
 						// Set the .desktop file path for unpinning or resizing.
 							NewTileObject.dotDesktopFilePath = dotDesktopFilePath;
+
+						// Set the icon path for the new tile.
+							NewTileObject.tileIconPath = getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
 						
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = pinnedTilesCount + 1;
@@ -1016,6 +1019,9 @@ ApplicationWindow {
 						// Set the .desktop file path for unpinning or resizing.
 							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
+						// Set the icon path for the new tile.
+							NewTileObject.tileIconPath = getAppIcon.getIcon(NewTileObject.dotDesktopFilePath, iconTheme)
+
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = i
 						

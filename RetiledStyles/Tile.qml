@@ -79,6 +79,9 @@ ButtonBase {
 	// https://stackoverflow.com/a/22605752
 	property string execKey;
 	signal tileClicked(string execKey);
+
+	// Property for storing the tile's icon path.
+	property string tileIconPath;
 	
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
@@ -627,7 +630,7 @@ ButtonBase {
 		// source width to be based off it's height, so it's
 		// not as bad as it could be.
 		//source: "../icons/actions/unpin_white"
-		source: getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
+		source: tileIconPath
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
 		// thing from the QtQuick Image link below.
