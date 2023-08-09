@@ -617,7 +617,7 @@ ButtonBase {
 				// to make things look better.
             }
 			
-			ImageSvgHelper6 {
+			Image {
 		// Temporarily grabbing icons directly from the hicolor
 		// theme based on this AskUbuntu answer, notably the "appending
 		// a name to a hardcoded path" thing:
@@ -634,10 +634,10 @@ ButtonBase {
 		anchors.fill: parent
 		// Just pad out the image; got the Image.Pad
 		// thing from the QtQuick Image link below.
-		//fillMode: Image.Pad
+		fillMode: Image.Pad
 		// Set image to be async so the UI loads faster:
 		// https://doc.qt.io/qt-6/qml-qtquick-image.html#asynchronous-prop
-		//asynchronous: true
+		asynchronous: true
 		// Set the images to the tile size for now,
 		// until there's a way to actually get the
 		// nearest correct icon size.
@@ -659,10 +659,10 @@ ButtonBase {
 		// TODO 2: Figure out why the Firefox icon and a few others like Koko
 		// are blurry when they shouldn't be (Firefox in particular has
 		// a 96x96 icon).
-		//sourceSize.width: control.height/1.6
-		//sourceSize.height: control.height/1.6
-		//height: control.height/1.6
-		//width: control.height/1.6
+		sourceSize.width: control.height/1.6
+		sourceSize.height: control.height/1.6
+		height: control.height/1.6
+		width: control.height/1.6
 		
 		// Make sure the icons are antialiased.
 		antialiasing: true
