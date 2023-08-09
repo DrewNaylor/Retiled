@@ -296,7 +296,8 @@ class GetAppIcon(QObject):
 			# to cache the "Icon=" value from .desktop files so
 			# we're not going through two layers every time.
 			if (not iconPath == None) and (os.path.exists(iconPath)):
-				return iconPath
+				#return iconPath
+				return "/usr/share/icons/hicolor/scalable/apps/firefox.svg"
 			else:
 				# Returning None if the path doesn't exist or it is None
 				# apparently is fine for Qt.
