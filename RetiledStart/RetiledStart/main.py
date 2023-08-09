@@ -286,7 +286,7 @@ class GetAppIcon(QObject):
 		# TODO 2: Also look in the other places that .desktop files can be
 		# instead of just /usr/share/applications.
 		if len(DotDesktopFile) > 0:
-			iconPath = IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), 96, RequestedIconTheme)
+			iconPath = IconTheme.getIconPath(desktopEntryStuff.getInfo("".join(["/usr/share/applications/", DotDesktopFile]), "Icon", DotDesktopFile, "", True), theme = RequestedIconTheme)
 			# Don't return anything if the icon path doesn't exist.
 			# Make sure we check to make sure the path isn't None.
 			# If we don't do this, then we get an error in the terminal
