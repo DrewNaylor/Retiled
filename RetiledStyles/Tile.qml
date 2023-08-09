@@ -150,6 +150,16 @@ ButtonBase {
 	// Won't be fully used until moving to TilesGrid.
 	property string tileSize;
 
+	// Tile icon size. This is used in a HACK to force QtQuick
+	// to re-render our icon so it's clear.
+	property real tileIconSize: tileIconLoadingComplete ? defaultTileIconSizeFormula : 2
+	// And the default formula. Should maybe be a const
+	// unless there are cases where it can be modified.
+	property real defaultTileIconSizeFormula: height/1.6
+	// We need a boolean here so the tile knows it can go back to the default
+	// tile size formula since the tile icon-loading code is done.
+	property bool tileIconLoadingComplete: false
+
 	// Properties for unpin button icons.
 	// Stored here so they're out of the way.
 	property string unpinIconPressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconPressed", "unpin")
@@ -659,10 +669,10 @@ ButtonBase {
 		// TODO 2: Figure out why the Firefox icon and a few others like Koko
 		// are blurry when they shouldn't be (Firefox in particular has
 		// a 96x96 icon).
-		sourceSize.width: control.height/1.6
-		sourceSize.height: control.height/1.6
-		height: control.height/1.6
-		width: control.height/1.6
+		sourceSize.width: tileIconSize
+		sourceSize.height: tileIconSize
+		height: tileIconSize
+		width: tileIconSize
 		
 		// Make sure the icons are antialiased.
 		antialiasing: true

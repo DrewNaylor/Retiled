@@ -1022,6 +1022,10 @@ ApplicationWindow {
 						// Set the icon path for the new tile.
 							NewTileObject.tileIconPath = getAppIcon.getIcon(NewTileObject.dotDesktopFilePath, iconTheme)
 
+						// HACK: Say that we're done loading the icon to
+						// force QtQuick to go to the expected icon size.
+						NewTileObject.tileIconLoadingComplete = true
+
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = i
 						
