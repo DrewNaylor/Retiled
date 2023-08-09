@@ -659,10 +659,10 @@ ButtonBase {
 		// TODO 2: Figure out why the Firefox icon and a few others like Koko
 		// are blurry when they shouldn't be (Firefox in particular has
 		// a 96x96 icon).
-		sourceSize.width: parent.height/1.6
-		sourceSize.height: parent.height/1.6
-		height: parent.height/1.6
-		width: parent.width/1.6
+		sourceSize.width: control.height/1.6
+		sourceSize.height: control.height/1.6
+		height: control.height/1.6
+		width: control.width/1.6
 		
 		// Make sure the icons are antialiased.
 		antialiasing: true
