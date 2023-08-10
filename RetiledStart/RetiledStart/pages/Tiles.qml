@@ -320,28 +320,17 @@ ApplicationWindow {
 
 	// HACK: Force all the tiles to resize to get QtQuick to reload
 	// the icons so they're not blurry.
-	function forceResizeTilesForIcons() {
+	function forceResizeTilesForIcons(newValue) {
 		// Loop through tiles and change the sizes on all of them,
 		// but first store them in temp variables.
 		// The moderator's answer here should work for looping through items:
 		// https://forum.qt.io/post/234640
 
-		var tempWidth;
-		var tempHeight;
-
 		for (var i = 0; i < tilesContainer.children.length; i++) {
 			// Loop through the children of the tilesContainer flow.
-			// Now backup the width and set the tile width to 70.
-			tempWidth = tilesContainer.children[i].width
-			tilesContainer.children[i].width = 70;
-			// Reset to the backup.
-			tilesContainer.children[i].width = tempWidth;
-
-			// Now do the same for tile height.
-			tempHeight = tilesContainer.children[i].height
-			tilesContainer.children[i].height = 70;
-			// And reset to the backup.
-			tilesContainer.children[i].height = tempHeight;
+			// Set the bool to reset the tile icon size value.
+			// NOTE: newValue MUST be a boolean, either true or false.
+			tilesContainer.children[i].isTileIconSizeReset = newValue;
 		}
 	}
 
@@ -866,10 +855,11 @@ ApplicationWindow {
 							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
 							tilesContainer.forceLayout();
 
-							// Force the tiles to have their size reset.
+							// Force the tile icons to have their size reset.
 							// HACK/TODO: This could be changed to just be done for
 							// newly-pinned tiles.
-							forceResizeTilesForIcons();
+							forceResizeTilesForIcons(false);
+							forceResizeTilesForIcons(true);
 							
 				}
 				
@@ -1090,9 +1080,10 @@ ApplicationWindow {
 						checkPinnedTileCount(0, false);
 					} // End of If statement checking to ensure there are tiles to add.
 
-					// HACK: Force tile sizes to be small and back to their real height
+					// HACK: Force tile icon sizes to be reset
 					// to get QtQuick to reload the icons so they're not blurry.
-					forceResizeTilesForIcons();
+					forceResizeTilesForIcons(false);
+					forceResizeTilesForIcons(true);
 				} // Component.onCompleted for the Tiles Flow area.
 				
 			} // End of the Flow that contains the tiles.

@@ -150,6 +150,10 @@ ButtonBase {
 	// Won't be fully used until moving to TilesGrid.
 	property string tileSize;
 
+	// Tile icon size.
+	// Used in a HACK to get tile icons to not be blurry.
+	property bool isTileIconSizeReset: false
+
 	// Properties for unpin button icons.
 	// Stored here so they're out of the way.
 	property string unpinIconPressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconPressed", "unpin")
@@ -659,10 +663,10 @@ ButtonBase {
 		// TODO 2: Figure out why the Firefox icon and a few others like Koko
 		// are blurry when they shouldn't be (Firefox in particular has
 		// a 96x96 icon).
-		sourceSize.width: control.height/1.6
-		sourceSize.height: control.height/1.6
-		height: control.height/1.6
-		width: control.height/1.6
+		sourceSize.width: isTileIconSizeReset ? control.height/1.6 : 256
+		sourceSize.height: isTileIconSizeReset ? control.height/1.6 : 256
+		height: isTileIconSizeReset ? control.height/1.6 : 256
+		width: isTileIconSizeReset ? control.height/1.6 : 256
 
 		// Make sure the icons are antialiased.
 		antialiasing: true
