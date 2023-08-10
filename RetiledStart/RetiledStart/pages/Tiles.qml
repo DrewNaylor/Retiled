@@ -647,11 +647,12 @@ ApplicationWindow {
 				hideEditModeControlsOnAllTiles();
 				// Reset opacity for each tile.
 				setTileOpacity();
-				// TODO: Figure out how to ensure we can click
-				// anywhere on the tiles page to exit edit mode,
-				// because right now there's an area on the right
-				// side where it won't work.
 				} 
+				// HACK: Reset icon sizes when tapping here so there's
+				// a quick way to get the icons looking nice until
+				// I can figure out a proper solution.
+				forceResizeTilesForIcons(false);
+				forceResizeTilesForIcons(true);
 			}
 			// Set the width and height manually instead of using
 			// anchors to fill the Flickable.
