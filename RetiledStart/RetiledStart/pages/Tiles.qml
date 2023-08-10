@@ -1082,7 +1082,8 @@ ApplicationWindow {
 
 					// HACK: Force tile icon sizes to be reset
 					// to get QtQuick to reload the icons so they're not blurry.
-					forceResizeTilesForIcons(false);
+					// I don't think we need the false thing here.
+					//forceResizeTilesForIcons(false);
 					forceResizeTilesForIcons(true);
 				} // Component.onCompleted for the Tiles Flow area.
 				
