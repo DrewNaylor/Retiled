@@ -1000,17 +1000,6 @@ ApplicationWindow {
 						// Set the icon path for the new tile.
 							NewTileObject.tileIconPath = getAppIcon.getIcon(NewTileObject.dotDesktopFilePath, iconTheme)
 
-						// HACK: Say that we're done loading the icon to
-						// force QtQuick to go to the expected icon size.
-						// This doesn't work to reload the icon, maybe I need to
-						// unset the path to the icon and put it back?
-						NewTileObject.tileIconLoadingComplete = true
-
-						// HACK: Force the tile size to small to try to get the icon to reload
-						// and not be blurry.
-						NewTileObject.height = 70;
-						NewTileObject.width = 70;
-
 						NewTileObject.tileSize = ParsedTilesList[i].TileSize;
 							// Using the tileSize property to set the tile's height and width.
 							// Please note: in the future, we're not going to be setting height
