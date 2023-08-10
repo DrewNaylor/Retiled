@@ -636,6 +636,8 @@ ButtonBase {
 		//source: "../icons/actions/unpin_white"
 		source: tileIconPath
 		anchors.fill: parent
+		// Allow the icon to be hidden while it's resized.
+		visible: isTileIconSizeReset
 		// Just pad out the image; got the Image.Pad
 		// thing from the QtQuick Image link below.
 		fillMode: Image.Pad
