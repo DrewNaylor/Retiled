@@ -498,10 +498,13 @@ ApplicationWindow {
 		// TODO: Also use it to refresh the All Apps list and
 		// force its icons to resize in the same way as I'm doing with
 		// the tiles now.
-		onCurrentIndexChanged: {
-			forceResizeTilesForIcons(false);
-			forceResizeTilesForIcons(true);
-		}
+		// Actually this is commented out as a placeholder for when I implement
+		// stuff for reloading the All Apps list, as I don't need to resize
+		// the icons thanks to the timer.
+		//onCurrentIndexChanged: {
+		//	forceResizeTilesForIcons(false);
+		//	forceResizeTilesForIcons(true);
+		//}
 
 	// Note: You have to use "Item" for each
 	// of the pages in the SwipeView, or it
