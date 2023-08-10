@@ -81,7 +81,7 @@ ButtonBase {
 	signal tileClicked(string execKey);
 
 	// Property for storing the tile's icon path.
-	property string tileIconPath;
+	property string tileIconPath: ""
 	
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
@@ -676,8 +676,6 @@ ButtonBase {
 		height: tileIconSize
 		width: tileIconSize
 
-		visible: tileIconLoadingComplete
-		
 		// Make sure the icons are antialiased.
 		antialiasing: true
 	}
