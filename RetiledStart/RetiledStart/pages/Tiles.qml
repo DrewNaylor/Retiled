@@ -1087,7 +1087,9 @@ ApplicationWindow {
 						
 						// Connect decrementing the pinned tiles count signal.
 							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
-						
+						// HACK: Force tile icon sizes to be reset
+						// to get QtQuick to reload the icons so they're not blurry.
+						timerForceTileIconReload.restart()
 						//} // End of If statement to ensure things are ready.
 						
 						} // End of For loop that loads the tiles.
@@ -1101,10 +1103,6 @@ ApplicationWindow {
 						checkPinnedTileCount(0, false);
 					} // End of If statement checking to ensure there are tiles to add.
 
-					// HACK: Force tile icon sizes to be reset
-					// to get QtQuick to reload the icons so they're not blurry.
-					// I don't think we need the false thing here.
-					timerForceTileIconReload.restart()
 				} // Component.onCompleted for the Tiles Flow area.
 				
 			} // End of the Flow that contains the tiles.
