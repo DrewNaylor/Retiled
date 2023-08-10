@@ -334,6 +334,19 @@ ApplicationWindow {
 		}
 	}
 
+	// Timer to automatically activate the code to resize icons when everything
+	// is loaded.
+	// Based on:
+	// https://doc.qt.io/qt-6/qml-qtqml-timer.html
+	Timer {
+		id: timerForceTileIconReload
+        interval: 1; running: false; repeat: false
+        onTriggered: {
+			forceResizeTilesForIcons(false);
+			forceResizeTilesForIcons(true);
+		}
+    }
+
 	// Trip a boolean for the deprecated tile raw heights and widths thing.
 	// This is only used to show a messagebox informing the user that they
 	// need to force a save to the config file by entering edit mode
@@ -657,11 +670,6 @@ ApplicationWindow {
 				// Reset opacity for each tile.
 				setTileOpacity();
 				} 
-				// HACK: Reset icon sizes when tapping here so there's
-				// a quick way to get the icons looking nice until
-				// I can figure out a proper solution.
-				forceResizeTilesForIcons(false);
-				forceResizeTilesForIcons(true);
 			}
 			// Set the width and height manually instead of using
 			// anchors to fill the Flickable.
@@ -1093,8 +1101,7 @@ ApplicationWindow {
 					// HACK: Force tile icon sizes to be reset
 					// to get QtQuick to reload the icons so they're not blurry.
 					// I don't think we need the false thing here.
-					//forceResizeTilesForIcons(false);
-					forceResizeTilesForIcons(true);
+					timerForceTileIconReload.restart()
 				} // Component.onCompleted for the Tiles Flow area.
 				
 			} // End of the Flow that contains the tiles.
