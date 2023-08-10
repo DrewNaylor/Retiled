@@ -982,29 +982,7 @@ ApplicationWindow {
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
 							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
-							NewTileObject.tileSize = ParsedTilesList[i].TileSize;
-							// Using the tileSize property to set the tile's height and width.
-							// Please note: in the future, we're not going to be setting height
-							// and width, and instead we'll be setting rows and columns
-							// in TilesGrid.
-							// These values are ones that I got from a screenshot of the
-							// 720p Windows Phone 8.1 Update 1 emulator at 100% scale,
-							// then I divided those values by 2 and got these.
-							// They're slightly larger than they were before,
-							// but it's more accurate.
-							// Actually, maybe it's worse because they don't line up
-							// properly now.
-							// I'm going back to the officially-documented values.
-							if (NewTileObject.tileSize == "small") {
-								NewTileObject.width = 70;
-								NewTileObject.height = 70;
-							} else if (NewTileObject.tileSize == "wide") {
-								NewTileObject.width = 310;
-								NewTileObject.height = 150;
-							} else {
-								NewTileObject.width = 150;
-								NewTileObject.height = 150;
-							}
+							
 							NewTileObject.tileBackgroundColor = accentColor;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
@@ -1027,6 +1005,35 @@ ApplicationWindow {
 						// This doesn't work to reload the icon, maybe I need to
 						// unset the path to the icon and put it back?
 						NewTileObject.tileIconLoadingComplete = true
+
+						// HACK: Force the tile size to small to try to get the icon to reload
+						// and not be blurry.
+						NewTileObject.height = 70;
+						NewTileObject.width = 70;
+
+						NewTileObject.tileSize = ParsedTilesList[i].TileSize;
+							// Using the tileSize property to set the tile's height and width.
+							// Please note: in the future, we're not going to be setting height
+							// and width, and instead we'll be setting rows and columns
+							// in TilesGrid.
+							// These values are ones that I got from a screenshot of the
+							// 720p Windows Phone 8.1 Update 1 emulator at 100% scale,
+							// then I divided those values by 2 and got these.
+							// They're slightly larger than they were before,
+							// but it's more accurate.
+							// Actually, maybe it's worse because they don't line up
+							// properly now.
+							// I'm going back to the officially-documented values.
+							if (NewTileObject.tileSize == "small") {
+								NewTileObject.width = 70;
+								NewTileObject.height = 70;
+							} else if (NewTileObject.tileSize == "wide") {
+								NewTileObject.width = 310;
+								NewTileObject.height = 150;
+							} else {
+								NewTileObject.width = 150;
+								NewTileObject.height = 150;
+							}
 
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = i
