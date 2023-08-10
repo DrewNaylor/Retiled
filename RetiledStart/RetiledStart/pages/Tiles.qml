@@ -318,6 +318,33 @@ ApplicationWindow {
 		}
 	} // End of the tile-opacity function.
 
+	// HACK: Force all the tiles to resize to get QtQuick to reload
+	// the icons so they're not blurry.
+	function forceResizeTilesForIcons() {
+		// Loop through tiles and change the sizes on all of them,
+		// but first store them in temp variables.
+		// The moderator's answer here should work for looping through items:
+		// https://forum.qt.io/post/234640
+
+		var tempWidth;
+		var tempHeight;
+
+		for (var i = 0; i < tilesContainer.children.length; i++) {
+			// Loop through the children of the tilesContainer flow.
+			// Now backup the width and set the tile width to 70.
+			tempWidth = tilesContainer.children[i].width
+			tilesContainer.children[i].width = 70;
+			// Reset to the backup.
+			tilesContainer.children[i].width = tempWidth;
+
+			// Now do the same for tile height.
+			tempHeight = tilesContainer.children[i].height
+			tilesContainer.children[i].height = 70;
+			// And reset to the backup.
+			tilesContainer.children[i].height = tempHeight;
+		}
+	}
+
 	// Trip a boolean for the deprecated tile raw heights and widths thing.
 	// This is only used to show a messagebox informing the user that they
 	// need to force a save to the config file by entering edit mode
@@ -838,6 +865,11 @@ ApplicationWindow {
 							// Force the layout of the tiles list:
 							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
 							tilesContainer.forceLayout();
+
+							// Force the tiles to have their size reset.
+							// HACK/TODO: This could be changed to just be done for
+							// newly-pinned tiles.
+							forceResizeTilesForIcons();
 							
 				}
 				
@@ -1057,7 +1089,10 @@ ApplicationWindow {
 						// startup if possible, but allow it to be used later.
 						checkPinnedTileCount(0, false);
 					} // End of If statement checking to ensure there are tiles to add.
-					
+
+					// HACK: Force tile sizes to be small and back to their real height
+					// to get QtQuick to reload the icons so they're not blurry.
+					forceResizeTilesForIcons();
 				} // Component.onCompleted for the Tiles Flow area.
 				
 			} // End of the Flow that contains the tiles.
