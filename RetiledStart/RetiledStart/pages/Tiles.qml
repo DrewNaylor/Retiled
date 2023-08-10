@@ -481,7 +481,7 @@ ApplicationWindow {
 		currentIndex: 0
 		anchors.fill: parent
 
-		// Use onCurrentIndexChanged to refresh tile icons.
+		// HACK: Use onCurrentIndexChanged to refresh tile icons so they're not blurry.
 		// TODO: Also use it to refresh the All Apps list and
 		// force its icons to resize in the same way as I'm doing with
 		// the tiles now.
