@@ -481,6 +481,15 @@ ApplicationWindow {
 		currentIndex: 0
 		anchors.fill: parent
 
+		// Use onCurrentIndexChanged to refresh tile icons.
+		// TODO: Also use it to refresh the All Apps list and
+		// force its icons to resize in the same way as I'm doing with
+		// the tiles now.
+		onCurrentIndexChanged: {
+			forceResizeTilesForIcons(false);
+			forceResizeTilesForIcons(true);
+		}
+
 	// Note: You have to use "Item" for each
 	// of the pages in the SwipeView, or it
 	// gets into an endless loop.
