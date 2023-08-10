@@ -1024,6 +1024,8 @@ ApplicationWindow {
 
 						// HACK: Say that we're done loading the icon to
 						// force QtQuick to go to the expected icon size.
+						// This doesn't work to reload the icon, maybe I need to
+						// unset the path to the icon and put it back?
 						NewTileObject.tileIconLoadingComplete = true
 
 						// Set tile index for the edit mode.

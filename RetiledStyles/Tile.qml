@@ -152,6 +152,8 @@ ButtonBase {
 
 	// Tile icon size. This is used in a HACK to force QtQuick
 	// to re-render our icon so it's clear.
+	// This doesn't work to reload the icon, maybe I need to
+	// unset the path to the icon and put it back?
 	property real tileIconSize: tileIconLoadingComplete ? defaultTileIconSizeFormula : 2
 	// And the default formula. Should maybe be a const
 	// unless there are cases where it can be modified.
@@ -673,6 +675,8 @@ ButtonBase {
 		sourceSize.height: tileIconSize
 		height: tileIconSize
 		width: tileIconSize
+
+		visible: tileIconLoadingComplete
 		
 		// Make sure the icons are antialiased.
 		antialiasing: true
