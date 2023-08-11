@@ -266,10 +266,11 @@ ApplicationWindow {
 		// from a newly-pinned tile. Unfortunately, this means that
 		// we have to loop over the tiles.
 		// TODO: Figure out something more efficient.
-		for (var i = 0; i < tilesContainer.children.length; i++) {
-			if (tilesContainer.children[i].tileIndex == previousTileInEditingModeIndex) {
-				tilesContainer.children[i].editMode = false;
-				tilesContainer.children[i].z = tilesContainer.children[i].z - 1;
+		// Now we're accessing a repeater instead of a flow, so it's a little different.
+		for (var i = 0; i < tileRepeater.count; i++) {
+			if (tileRepeater.itemAt(i).tileIndex == previousTileInEditingModeIndex) {
+				tileRepeater.itemAt(i).editMode = false;
+				tileRepeater.itemAt(i).z = tileRepeater.itemAt(i).z - 1;
 			}
 		}
 		//console.log("tilesContainer.children.length: " + tilesContainer.children.length);
@@ -289,7 +290,7 @@ ApplicationWindow {
 		// The moderator's answer here should work for looping through items:
 		// https://forum.qt.io/post/234640
 		for (var i = 0; i < tileRepeater.count; i++) {
-			// Loop through the children of the tilesContainer flow.
+			// Loop through the children of the tilesContainer repeater.
 			// Now hide the buttons and turn edit mode off for that tile.
 			// The visibility of the edit mode buttons is tied to editMode.
 			tileRepeater.itemAt(i).editMode = false;
