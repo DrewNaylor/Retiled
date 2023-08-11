@@ -759,6 +759,16 @@ ApplicationWindow {
                 execKey: model.execKey
                 rowSpan: model.rowSpan
                 columnSpan: model.columnSpan
+				// We can just use Component.onCompleted to connect signals:
+				// https://stackoverflow.com/a/36083276
+				Component.onCompleted: {
+					tileClicked.connect(parent.tileClicked);
+					toggleGlobalEditMode.connect(parent.toggleGlobalEditMode);
+					hideEditModeControlsOnPreviousTile.connect(parent.hideEditModeControlsOnPreviousTile);
+					setTileOpacity.connect(parent.setTileOpacity);
+					decrementPinnedTilesCount.connect(parent.checkPinnedTileCount);
+
+				}
             }
 			tilesRepeaterModel: loadedTilesList
 			
