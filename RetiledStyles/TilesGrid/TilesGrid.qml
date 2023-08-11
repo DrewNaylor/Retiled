@@ -341,7 +341,7 @@ Control {
                 //border.width: 1
                 //border.color: "black"
                 // Temporary modification by Drew Naylor to see what's going on.
-                color: "green"
+                color: globalEditMode ? "green" : "red"
 
                 property var tiles: {
 
