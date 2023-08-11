@@ -288,14 +288,14 @@ ApplicationWindow {
 		// Loop through tiles and hide editMode controls on all of them.
 		// The moderator's answer here should work for looping through items:
 		// https://forum.qt.io/post/234640
-		for (var i = 0; i < tilesContainer.children.length; i++) {
+		for (var i = 0; i < tileRepeater.count; i++) {
 			// Loop through the children of the tilesContainer flow.
 			// Now hide the buttons and turn edit mode off for that tile.
 			// The visibility of the edit mode buttons is tied to editMode.
-			tilesContainer.children[i].editMode = false;
+			tileRepeater.itemAt(i).editMode = false;
 			// We have to set their z-index to 0,
 			// otherwise everything starts getting messed up.
-			tilesContainer.children[i].z = 0;
+			tileRepeater.itemAt(i).z = 0;
 		}
 	}
 	
