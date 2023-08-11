@@ -712,6 +712,11 @@ ApplicationWindow {
 			height: 37
 			
 		}
+
+		ListModel {
+			// Store the currently-loaded tiles here.
+			id: loadedTilesList
+		}
 		
 		// We'll use Flow to get the buttons to wrap
 		// to each line. This may not be what I'll
@@ -744,6 +749,17 @@ ApplicationWindow {
 			Layout.fillWidth: true
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+
+			// This is settings for the repeater for the TilesGrid to load tiles.
+			tilesRepeaterDelegate: RetiledStyles.Tile {
+                text: model.tileText
+            	tileBackgroundColor: model.tileBackgroundColor
+                useTileBackgroundWallpaper: model.useTileBackgroundWallpaper
+                execKey: model.execKey
+                rowSpan: model.rowSpan
+                columnSpan: model.columnSpan
+            }
+			tilesRepeaterModel: loadedTilesList
 			
 			// Add proper transitions when tiles move around based on this example
 			// and also basing the details on the tile resize transition I put into the Tile.qml file:

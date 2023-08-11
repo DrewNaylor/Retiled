@@ -12,8 +12,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQml.Models 2.12
-// Modification by Drew Naylor: Import RetiledStyles to use tiles.
-import ".." as RetiledStyles
 
 Control {
 
@@ -23,6 +21,10 @@ Control {
     property alias columns: grid.columns
     property alias rowSpacing: grid.rowSpacing
     property alias columnSpacing: grid.columnSpacing
+    // Modification by Drew Naylor: Add aliases for the repeater's
+    // delegates and model so they can be accessed easily.
+    property alias tilesRepeaterDelegate: loadedTilesRepeater.delegate
+    property alias tilesRepeaterModel: loadedTilesRepeater.model
     // This is the width of the smallest tile (the tiles columnSpan equals 1)
     // Modification by Drew Naylor: Changed the name to "monadicWidth" and "monadicHeight"
     // as monads are indivisible but atoms aren't.
@@ -154,13 +156,8 @@ Control {
         // https://stackoverflow.com/a/29935302
         // And also my own code in AppBarDrawer.qml for putting stuff in the appbar drawer.
         Repeater {
+            id: loadedTilesRepeater
             model: loadedTilesModel
-            delegate: RetiledStyles.Tile {
-                text: model.text
-                color: model.color
-                rowSpan: model.rowSpan
-                columnSpan: model.columnSpan
-            }
         }
 
         QtObject {
