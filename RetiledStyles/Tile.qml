@@ -698,7 +698,8 @@ ButtonBase {
 				// This is not ideal and is basically a temporary hack until a proper solution of
 				// checking to see if the tile is "medium" or "wide" rather than "small" is implemented.
 				// TODO: Replace this with a proper implementation.
-                text: parent.width >= 150 && parent.height >= 150 ? tileText : ""
+				// We're using rowSpan and columnSpan for this now for TilesGrid.
+                text: parent.rowSpan >= 2 && parent.columnSpan >= 2 ? tileText : ""
                 color: textColor
 				// Turn off ellipsis.
 				elide: Text.ElideNone
