@@ -11,7 +11,8 @@
 
 // Remove version on the import for Qt6.
 // Modification by Drew Naylor.
-import QtQuick
+// Actually it still needs it since other files use it.
+import QtQuick 2.12
 
 Rectangle {
 
@@ -31,8 +32,10 @@ Rectangle {
     color: "white"
     border.width: 3
     border.color: "grey"
-    implicitHeight: 48 * tile.rowSpan
-    implicitWidth: 48 * tile.columnSpan
+    // Change implicitHeight and implicitWidth to match Retiled's tiles.
+    // Modification by Drew Naylor.
+    implicitHeight: 70 * tile.rowSpan
+    implicitWidth: 70 * tile.columnSpan
     z: tile.dragActive ? 1 : 0
 
     objectName: "item-(" + tile.row + ", " + tile.column + ")"
