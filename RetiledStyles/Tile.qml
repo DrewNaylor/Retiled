@@ -161,6 +161,32 @@ ButtonBase {
 		// Actually I can just send that to the appropriate code from
 		// here.
 		enabled: editMode
+		// Force the tile's editMode clicked event to happen
+		// if we click on it.
+		// TODO: Clean this up because the tile's version of this
+		// code is still used. Actually, maybe I should eventually
+		// bring all the onClicked code into here to use the code
+		// that gets the mouse cursor's current position to enhance
+		// tilt.
+		onClicked: {
+			// Turn off edit mode if it's on.
+				editMode = false;
+				// Also turn off global edit mode, because
+				// the current tile has focus and that's how
+				// global edit mode is turned off.
+				toggleGlobalEditMode(false, true);
+				// Set tile opacity, too.
+				setTileOpacity();
+				// Hide the edit mode buttons and reset the tile's
+				// z-index.
+				z = z - 1;
+				// Turn back on tilting.
+				// TODO: Figure out how to turn off tilting when
+				// clicking a tile that's currently in local edit mode
+				// so it goes directly "down", as well as figuring it out for
+				// not tilting the unpin and resize buttons when pressing the tile.
+				tilt = allowTilt;
+		}
         anchors.fill: control
         drag.target: control
         drag.filterChildren: true
