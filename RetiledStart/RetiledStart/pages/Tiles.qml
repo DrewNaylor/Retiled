@@ -1031,6 +1031,8 @@ ApplicationWindow {
 						// TODO: Switch to incubateObject.
 						//if (TileComponent.status == Component.Ready) {
 							var NewTileObject = TileComponent.createObject(tilesContainer);
+							// We need to add the tiles to a ListModel instead of using createObject:
+							// https://stackoverflow.com/a/29935302
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
