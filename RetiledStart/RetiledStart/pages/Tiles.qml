@@ -771,6 +771,7 @@ ApplicationWindow {
 				row: model.row
 				tileIconPath: model.tileIconPath
 				tileIndex: model.tileIndex
+				tileSize: model.tileSize
 				// We can just use Component.onCompleted to connect signals:
 				// https://stackoverflow.com/a/36083276
 				Component.onCompleted: {
@@ -874,8 +875,6 @@ ApplicationWindow {
 					// function to reduce code duplication.
 					var TileComponent = Qt.createComponent("../../../RetiledStyles/Tile.qml");
 					
-					var NewTileObject = TileComponent.createObject(tilesContainer);
-						
 						// Set tile properties.
 							var tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
 							var tileSize = "medium";
@@ -885,8 +884,9 @@ ApplicationWindow {
 							// Maybe it needs different values for spacing?
 							// Maybe not though, as 150x150 is the official size, so maybe
 							// it just needs more spacing on the left side.
-							var width = 150;
-							var height = 150;
+							// We're using column and row span now.
+							var columnSpan = 2;
+							var rowSpan = 2;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
 							var useTileBackgroundWallpaper = useTileBackgroundWallpaper;
@@ -894,7 +894,7 @@ ApplicationWindow {
 							// using accent colors unless the boolean to use accent colors
 							// is off, in which case they'll use a specified tile background
 							// color according to the layout config file or the .desktop file.
-							var tileBackgroundColor = Universal.accent;
+							var tileBackgroundColor = accentColor;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
@@ -930,6 +930,14 @@ ApplicationWindow {
 						// Connect decrementing the pinned tiles count signal.
 							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 							
+							// Now append the tile to the list.
+							loadedTilesList.append({tileText: tileText, 
+							tileBackgroundColor: tileBackgroundColor,
+							execKey: execKey, 
+							rowSpan: rowSpan, columnSpan: columnSpan,
+							tileIconPath: tileIconPath, tileIndex: tileIndex,
+							tileSize: tileSize});
+
 							// Increment the tile count and go back to the tiles page.
 							checkPinnedTileCount(1, true);
 							//console.log("pinnedTilesCount: " + pinnedTilesCount);
@@ -937,6 +945,9 @@ ApplicationWindow {
 							// to the layout config file.
 							toggleGlobalEditMode(false, true);
 							
+							// Now connect signals.
+							connectSignals(tileIndex);
+
 							// Force the tile icons to have their size reset.
 							// HACK/TODO: This could be changed to just be done for
 							// newly-pinned tiles.
@@ -1173,7 +1184,8 @@ ApplicationWindow {
 						execKey: execKey, 
 						rowSpan: rowSpan, columnSpan: columnSpan,
 						column: column, row: row,
-						tileIconPath: tileIconPath, tileIndex: tileIndex});
+						tileIconPath: tileIconPath, tileIndex: tileIndex,
+						tileSize: tileSize});
 
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.
