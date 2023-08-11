@@ -943,8 +943,6 @@ ApplicationWindow {
 							}
 							
 							// Now append the tile to the list.
-							// TODO: Figure out why none of the things are working
-							// for pinned tiles.
 							loadedTilesList.append({tileText: tileText, 
 							tileBackgroundColor: tileBackgroundColor,
 							execKey: execKey, dotDesktopFilePath: dotDesktopFilePath,
@@ -961,7 +959,10 @@ ApplicationWindow {
 							toggleGlobalEditMode(false, true);
 							
 							// Now connect signals.
-							connectSignals(tileIndex);
+							// Turns out there was an off by 1 error and
+							// we can't connect any of the signals without
+							// subtracting 1.
+							connectSignals(tileIndex - 1);
 
 							// Force the tile icons to have their size reset.
 							// HACK/TODO: This could be changed to just be done for
