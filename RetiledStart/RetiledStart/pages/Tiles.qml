@@ -772,6 +772,7 @@ ApplicationWindow {
 				tileIconPath: model.tileIconPath
 				tileIndex: model.tileIndex
 				tileSize: model.tileSize
+				dotDesktopFilePath: model.dotDesktopFilePath
 				// We can just use Component.onCompleted to connect signals:
 				// https://stackoverflow.com/a/36083276
 				Component.onCompleted: {
@@ -933,7 +934,7 @@ ApplicationWindow {
 							// Now append the tile to the list.
 							loadedTilesList.append({tileText: tileText, 
 							tileBackgroundColor: tileBackgroundColor,
-							execKey: execKey, 
+							execKey: execKey, dotDesktopFilePath: dotDesktopFilePath,
 							rowSpan: rowSpan, columnSpan: columnSpan,
 							tileIconPath: tileIconPath, tileIndex: tileIndex,
 							tileSize: tileSize});
@@ -1181,7 +1182,7 @@ ApplicationWindow {
 						// Now we can append the new tile to the loaded tiles list.
 						loadedTilesList.append({tileText: tileText, 
 						tileBackgroundColor: tileBackgroundColor,
-						execKey: execKey, 
+						execKey: execKey, dotDesktopFilePath: dotDesktopFilePath,
 						rowSpan: rowSpan, columnSpan: columnSpan,
 						column: column, row: row,
 						tileIconPath: tileIconPath, tileIndex: tileIndex,
