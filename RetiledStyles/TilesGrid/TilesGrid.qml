@@ -47,6 +47,7 @@ Control {
         grid.monadicWidth = control.monadicWidth
     }
 
+    // Modification by Drew Naylor: Update property names.
     implicitWidth: control.leftPadding + control.rightPadding + control.monadicWidth
                    * control.columns + (control.columns - 1) * control.columnSpacing
     implicitHeight: control.topPadding + control.bottomPadding + control.monadicHeight
@@ -99,6 +100,7 @@ Control {
 
         id: grid
 
+        // Modification by Drew Naylor: Update property names and values.
         property real monadicWidth: 70
         property real monadicHeight: 70
 
@@ -182,7 +184,7 @@ Control {
                             let columnSpan = Math.min(
                                     Math.max(Math.round(this.columnSpan), 1),
                                     grid.columns)
-
+                            // Modification by Drew Naylor: Update property names.
                             return columnSpan * grid.monadicWidth
                                     + (columnSpan - 1) * grid.columnSpacing
                         })
@@ -192,7 +194,7 @@ Control {
                             let rowSpan = Math.min(Math.max(Math.round(
                                                                 this.rowSpan),
                                                             1), grid.rows)
-
+                            // Modification by Drew Naylor: Update property names.
                             return rowSpan * grid.monadicHeight + (rowSpan - 1) * grid.rowSpacing
                         })
                     }
@@ -348,6 +350,7 @@ Control {
                    + (tileHolder.ownsTile && drop.drag.source
                       && drop.drag.source === tileHolder.tiles[0] ? 1 : 0)
 
+                // Modification by Drew Naylor: Update property names.
                 implicitHeight: grid.monadicHeight
                 implicitWidth: grid.monadicWidth
 
@@ -357,6 +360,7 @@ Control {
                                             && drop.currentTileHolder == tileHolder
 
                 onContainsDragChanged: {
+                    // Modification by Drew Naylor: Update property names.
                     let highlightItemWidth = grid.monadicWidth
                     let highlightItemHeight = grid.monadicHeight
                     let tile = drop.drag.source
@@ -374,6 +378,7 @@ Control {
                         let columnSpan = Math.min(
                                 Math.max(Math.round(tile.columnSpan), 1),
                                 grid.columns)
+                        // Modification by Drew Naylor: Update property names.
                         highlightItemWidth = columnSpan * grid.monadicWidth
                                 + (columnSpan - 1) * grid.columnSpacing
                         highlightItemHeight = rowSpan * grid.monadicHeight
