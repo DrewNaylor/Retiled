@@ -154,6 +154,13 @@ ButtonBase {
 	// clicks and stuff to be absorbed by it.
 	MouseArea {
         id: mouseArea
+		// Only allow dragging tiles when in edit mode.
+		// This seems to mostly fix the issue where it steals
+		// focus, though I do need to make sure it doesn't steal
+		// presses to exit edit mode.
+		// Actually I can just send that to the appropriate code from
+		// here.
+		enabled: editMode
         anchors.fill: control
         drag.target: control
         drag.filterChildren: true
