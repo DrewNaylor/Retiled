@@ -233,15 +233,16 @@ ApplicationWindow {
 			var tilesList = [];
 			// Loop through the tiles and add them to the list
 			// if their visible property is set to "true".
-			for (var i = 0; i < tilesContainer.children.length; i++) {
-				if (tilesContainer.children[i].visible == true) {
+			for (var i = 0; i < tileRepeater.count; i++) {
+				if (tileRepeater.itemAt(i).visible == true) {
 					// Get the properties from the tiles
 					// and add them to the list.
 					var tile = {};
-					tile['DotDesktopFilePath'] = tilesContainer.children[i].dotDesktopFilePath;
-					tile['TileWidth'] = tilesContainer.children[i].width;
-					tile['TileHeight'] = tilesContainer.children[i].height;
-					tile['TileSize'] = tilesContainer.children[i].tileSize;
+					tile['DotDesktopFilePath'] = tileRepeater.itemAt(i).dotDesktopFilePath;
+					tile['TileWidth'] = tileRepeater.itemAt(i).width;
+					tile['TileHeight'] = tileRepeater.itemAt(i).height;
+					tile['TileSize'] = tileRepeater.itemAt(i).tileSize;
+					console.log(tileRepeater.itemAt(i).tileSize)
 					// Push the tile to the list.
 					// TODO: Prevent sorting.
 					tilesList.push(tile);
@@ -929,10 +930,6 @@ ApplicationWindow {
 						// Connect decrementing the pinned tiles count signal.
 							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 							
-							// Force the layout of the tiles list:
-							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
-							tilesContainer.forceLayout();
-							
 							// Increment the tile count and go back to the tiles page.
 							checkPinnedTileCount(1, true);
 							//console.log("pinnedTilesCount: " + pinnedTilesCount);
@@ -940,10 +937,6 @@ ApplicationWindow {
 							// to the layout config file.
 							toggleGlobalEditMode(false, true);
 							
-							// Force the layout of the tiles list:
-							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
-							tilesContainer.forceLayout();
-
 							// Force the tile icons to have their size reset.
 							// HACK/TODO: This could be changed to just be done for
 							// newly-pinned tiles.
@@ -1021,11 +1014,11 @@ ApplicationWindow {
 							// Loop through the tiles list and make sure they're
 							// all hidden, because I was having an issue where
 							// one would remain for some reason.
-							for (var i = 0; i < tilesContainer.children.length; i++) {
-								if (tilesContainer.children[i].visible == true) {
+							for (var i = 0; i < tileRepeater.count; i++) {
+								if (tileRepeater.itemAt(i).visible == true) {
 								// Get the properties from the tiles
 								// and add them to the list.
-								tilesContainer.children[i].visible = false;
+								tileRepeater.itemAt(i).visible = false;
 								} // End of If statement checking if the tile is visible.
 							} // End of for loop checking if any tiles are visible when they shouldn't be.
 							// Exit global edit mode.
