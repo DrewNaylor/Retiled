@@ -33,6 +33,8 @@ import QtQuick.Dialogs
 
 // Bring in the custom styles.
 import "../../../RetiledStyles" as RetiledStyles
+// Import the TilesGrid stuff.
+import "../../../RetiledStyles/TilesGrid" as TilesGridStuff
 
 // Bring in the All Apps page.
 import "." as RetiledStartPages
@@ -718,7 +720,7 @@ ApplicationWindow {
 		// https://doc.qt.io/qt-6/qml-qtquick-flow.html
 		// SO example:
 		// https://stackoverflow.com/a/38532138
-		Flow {
+		TilesGridStuff.TilesGrid {
 			id: tilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
