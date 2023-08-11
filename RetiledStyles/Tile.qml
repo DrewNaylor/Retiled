@@ -86,6 +86,22 @@ ButtonBase {
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
 	property bool showContextMenu: false
+
+	// Properties from the TilesGrid version of tiles.
+	// Just merging in what I can from it as some things
+	// will need to be different.
+	// TilesGrid is MIT.
+	// These properties are for columns/rows, tile index,
+	// whether drag is active, and columnspan/rowspan.
+	readonly property int row: parent && parent.row != null ? parent.row : -1
+    readonly property int column: parent
+                                  && parent.column != null ? parent.column : -1
+    readonly property int index: parent
+                                 && parent.modelIndex != null ? parent.modelIndex : -1
+    readonly property bool dragActive: mouseArea.drag.active
+    property int rowSpan: 1
+    property int columnSpan: 1
+
 	// Signal for opening the context menu.
 	// signal pressAndHold(bool showContextMenu);
 	// Signal for decrementing the pinned tiles count.
