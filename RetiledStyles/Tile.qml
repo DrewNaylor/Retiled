@@ -104,12 +104,16 @@ ButtonBase {
 	// Here's the tile implicitHeight and implicitWidth.
 	// Not sure what the height should be, actually I should change it to 70 base
 	// since that's what I already use.
-	implicitHeight: 70 * tile.rowSpan
-    implicitWidth: 70 * tile.columnSpan
+	implicitHeight: 70 * control.rowSpan
+    implicitWidth: 70 * control.columnSpan
 	// TODO: integrate the z-ordering stuff with dragActive.
 	// Actually what could work well is something that can temporarily hide
 	// edit mode controls on a tile that's being dragged while keeping
 	// that tile in edit mode.
+	// May be useful to set the objectName using code from TilesGrid.
+	// Have to change the item's name, though, as we use "control".
+	// Did the same above for the implicitHeight.
+	objectName: "item-(" + control.row + ", " + control.column + ")"
 
 	// Signal for opening the context menu.
 	// signal pressAndHold(bool showContextMenu);
