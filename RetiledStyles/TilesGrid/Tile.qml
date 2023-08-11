@@ -34,8 +34,8 @@ Rectangle {
     border.color: "grey"
     // Change implicitHeight and implicitWidth to match Retiled's tiles.
     // Modification by Drew Naylor.
-    implicitHeight: 70 * tile.rowSpan
-    implicitWidth: 70 * tile.columnSpan
+    implicitHeight: tile.rowSpan === 1 ? 70 * tile.rowSpan : 70 * tile.rowSpan + parent.rowSpacing
+    implicitWidth: tile.columnSpan === 1 ? 70 * tile.columnSpan : 70 * tile.columnSpan + parent.columnSpacing
     z: tile.dragActive ? 1 : 0
 
     objectName: "item-(" + tile.row + ", " + tile.column + ")"
