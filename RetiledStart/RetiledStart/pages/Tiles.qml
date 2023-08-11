@@ -834,58 +834,58 @@ ApplicationWindow {
 					var NewTileObject = TileComponent.createObject(tilesContainer);
 						
 						// Set tile properties.
-							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
-							NewTileObject.tileSize = "medium";
+							var tileText = allAppsListViewModel.GetDesktopEntryNameKey(dotDesktopFilePath);
+							var tileSize = "medium";
 							// 157x157 is what the 720p WP8.1 Update 1 emulator has at 100%
 							// for medium tiles after dividing the size by 2.
 							// It doesn't line up properly on a PinePhone in horizontal, though.
 							// Maybe it needs different values for spacing?
 							// Maybe not though, as 150x150 is the official size, so maybe
 							// it just needs more spacing on the left side.
-							NewTileObject.width = 150;
-							NewTileObject.height = 150;
+							var width = 150;
+							var height = 150;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
-							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
+							var useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 							// TODO: Add another property to tiles so they'll default to
 							// using accent colors unless the boolean to use accent colors
 							// is off, in which case they'll use a specified tile background
 							// color according to the layout config file or the .desktop file.
-							NewTileObject.tileBackgroundColor = Universal.accent;
+							var tileBackgroundColor = Universal.accent;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
 						// For some reason, the entire path isn't being set on Windows.
-							NewTileObject.execKey = dotDesktopFilePath;
+							var execKey = dotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-							NewTileObject.dotDesktopFilePath = dotDesktopFilePath;
+							var dotDesktopFilePath = dotDesktopFilePath;
 
 						// Set the icon path for the new tile.
-							NewTileObject.tileIconPath = getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
+							var tileIconPath = getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
 						
 						// Set tile index for the edit mode.
-							NewTileObject.tileIndex = pinnedTilesCount + 1;
+							var tileIndex = pinnedTilesCount + 1;
 						//console.log("pinnedTilesCount: " + pinnedTilesCount);
 						// Connect clicked signal.
-							NewTileObject.tileClicked.connect(tileClicked);
+							//NewTileObject.tileClicked.connect(tileClicked);
 						
 						// Connect global edit mode toggle.
-							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+							//NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
 						
 						// Connect hideEditModeControlsOnPreviousTile signal.
-							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+							//NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 						
 						// Connect the opacity-setter function.
-							NewTileObject.setTileOpacity.connect(setTileOpacity);
+							//NewTileObject.setTileOpacity.connect(setTileOpacity);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						// Connect decrementing the pinned tiles count signal.
-							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 							
 							// Force the layout of the tiles list:
 							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
@@ -1046,33 +1046,37 @@ ApplicationWindow {
 						// Make sure it's ready first.
 						// TODO: Switch to incubateObject.
 						//if (TileComponent.status == Component.Ready) {
-							//var NewTileObject = TileComponent.createObject(tilesContainer);
+							var NewTileObject = TileComponent;
 							// We need to add the tiles to a ListModel instead of using createObject:
 							// https://stackoverflow.com/a/29935302
-							tilesContainer.add(TileComponent);
+							//tilesContainer.add(TileComponent);
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
-							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
+							var tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
 							
-							NewTileObject.tileBackgroundColor = accentColor;
+							var tileBackgroundColor = accentColor;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
-							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
+							var useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-							NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
+							var execKey = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
+							var dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the icon path for the new tile.
-							NewTileObject.tileIconPath = getAppIcon.getIcon(NewTileObject.dotDesktopFilePath, iconTheme)
+							var tileIconPath = getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
 
-						NewTileObject.tileSize = ParsedTilesList[i].TileSize;
+						// Variable for columnspan and rowspan.
+						var columnSpan = 2;
+						var rowSpan = 2;
+
+						var tileSize = ParsedTilesList[i].TileSize;
 							// Using the tileSize property to set the tile's height and width.
 							// Please note: in the future, we're not going to be setting height
 							// and width, and instead we'll be setting rows and columns
@@ -1086,37 +1090,43 @@ ApplicationWindow {
 							// properly now.
 							// I'm going back to the officially-documented values.
 							// Now we're setting columnSpan and rowSpan for TilesGrid.
-							if (NewTileObject.tileSize == "small") {
-								NewTileObject.columnSpan = 1;
-								NewTileObject.rowSpan = 1;
-							} else if (NewTileObject.tileSize == "wide") {
-								NewTileObject.columnSpan = 4;
-								NewTileObject.rowSpan = 2;
+							if (tileSize == "small") {
+								columnSpan = 1;
+								rowSpan = 1;
+							} else if (tileSize == "wide") {
+								columnSpan = 4;
+								rowSpan = 2;
 							} else {
-								NewTileObject.columnSpan = 2;
-								NewTileObject.rowSpan = 2;
+								columnSpan = 2;
+								rowSpan = 2;
 							}
 
 						// Set tile index for the edit mode.
-							NewTileObject.tileIndex = i
+							var tileIndex = i
 						
 						// Connect clicked signal.
-							NewTileObject.tileClicked.connect(tileClicked);
+							//NewTileObject.tileClicked.connect(tileClicked);
 						
 						// Connect global edit mode toggle.
-							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+							//NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
 						
 						// Connect hideEditModeControlsOnPreviousTile signal.
-							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+							//NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 						
 						// Connect the opacity-setter function.
-							NewTileObject.setTileOpacity.connect(setTileOpacity);
+							//NewTileObject.setTileOpacity.connect(setTileOpacity);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						// Connect decrementing the pinned tiles count signal.
-							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+
+						// Now we can append the new tile to the loaded tiles list.
+						loadedTilesList.append({tileText: tileText, 
+						tileBackgroundColor: tileBackgroundColor, 
+						rowSpan: rowSpan, columnSpan: columnSpan});
+
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.
 						timerForceTileIconReload.restart()
