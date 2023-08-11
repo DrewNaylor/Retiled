@@ -933,6 +933,9 @@ ApplicationWindow {
 							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 
 							// Variable for column and row.
+							// TODO: Figure out how to have the TilesGrid
+							// put tiles in specific rows and columns.
+							// This will be used in the save file.
 							var column = tileIndex
 							var row = tileIndex
 
@@ -1139,6 +1142,9 @@ ApplicationWindow {
 						var rowSpan = 2;
 
 						// Variable for column and row.
+						// TODO: Figure out how to have the TilesGrid
+						// put tiles in specific rows and columns.
+						// This will be used in the save file.
 						var column = i
 						var row = i
 
