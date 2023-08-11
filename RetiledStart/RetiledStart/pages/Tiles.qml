@@ -859,7 +859,7 @@ ApplicationWindow {
 				tileText: qsTr("WP8.1 app with a really long name")
 				width: 70
 				height: 70
-				} */
+				} 
 
 				RetiledStyles.Tile {
 				tileText: qsTr("WP8.1 app with a really long name")
@@ -870,7 +870,7 @@ ApplicationWindow {
 				tileText: qsTr("WP8.1 app with a really long name")
 				columnSpan: 2
 				rowSpan: 2
-				}
+				}*/
 
 				
 				// Set up the tile click signals.
