@@ -1,3 +1,14 @@
+// See LICENSE in this folder for copyright info.
+// Assuming this file falls under the MIT License based
+// on that file, this file's modifications are Copyright (C)
+// 2023 Drew Naylor and are available under the MIT License.
+// See the original repo here:
+// https://github.com/Tereius/TilesGrid
+// My fork here:
+// https://github.com/DrewNaylor/TilesGrid
+
+
+
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQml.Models 2.12
@@ -11,9 +22,12 @@ Control {
     property alias rowSpacing: grid.rowSpacing
     property alias columnSpacing: grid.columnSpacing
     // This is the width of the smallest tile (the tiles columnSpan equals 1)
-    property real atomicWidth: 50
+    // Modification by Drew Naylor: Changed the name to "monadicWidth" and "monadicHeight"
+    // as monads are indivisible but atoms aren't.
+    // Also set size to 70.
+    property real monadicWidth: 70
     // This is the height of the smallest tile (the tiles rowSpan equals 1)
-    property real atomicHeight: 50
+    property real monadicHeight: 70
 
     property int count: {
 
@@ -24,17 +38,18 @@ Control {
         return count
     }
 
-    onAtomicHeightChanged: {
-        grid.atomicHeight = control.atomicHeight
+    // Modification by Drew Naylor: Update event names.
+    onMonadicHeightChanged: {
+        grid.monadicHeight = control.monadicHeight
     }
 
-    onAtomicWidthChanged: {
-        grid.atomicWidth = control.atomicWidth
+    onMonadicWidthChanged: {
+        grid.monadicWidth = control.monadicWidth
     }
 
-    implicitWidth: control.leftPadding + control.rightPadding + control.atomicWidth
+    implicitWidth: control.leftPadding + control.rightPadding + control.monadicWidth
                    * control.columns + (control.columns - 1) * control.columnSpacing
-    implicitHeight: control.topPadding + control.bottomPadding + control.atomicHeight
+    implicitHeight: control.topPadding + control.bottomPadding + control.monadicHeight
                     * control.rows + (control.rows - 1) * control.rowSpacing
 
     focusPolicy: Qt.StrongFocus
@@ -84,8 +99,8 @@ Control {
 
         id: grid
 
-        property real atomicWidth: 50
-        property real atomicHeight: 50
+        property real monadicWidth: 70
+        property real monadicHeight: 70
 
         readonly property int maxIndex: toIndex(rows - 1, columns - 1)
 
@@ -168,7 +183,7 @@ Control {
                                     Math.max(Math.round(this.columnSpan), 1),
                                     grid.columns)
 
-                            return columnSpan * grid.atomicWidth
+                            return columnSpan * grid.monadicWidth
                                     + (columnSpan - 1) * grid.columnSpacing
                         })
 
@@ -178,7 +193,7 @@ Control {
                                                                 this.rowSpan),
                                                             1), grid.rows)
 
-                            return rowSpan * grid.atomicHeight + (rowSpan - 1) * grid.rowSpacing
+                            return rowSpan * grid.monadicHeight + (rowSpan - 1) * grid.rowSpacing
                         })
                     }
                 }
@@ -333,8 +348,8 @@ Control {
                    + (tileHolder.ownsTile && drop.drag.source
                       && drop.drag.source === tileHolder.tiles[0] ? 1 : 0)
 
-                implicitHeight: grid.atomicHeight
-                implicitWidth: grid.atomicWidth
+                implicitHeight: grid.monadicHeight
+                implicitWidth: grid.monadicWidth
 
                 property var highlightItem: null
 
@@ -342,8 +357,8 @@ Control {
                                             && drop.currentTileHolder == tileHolder
 
                 onContainsDragChanged: {
-                    let highlightItemWidth = grid.atomicWidth
-                    let highlightItemHeight = grid.atomicHeight
+                    let highlightItemWidth = grid.monadicWidth
+                    let highlightItemHeight = grid.monadicHeight
                     let tile = drop.drag.source
                     let tileModel = null
 
@@ -359,9 +374,9 @@ Control {
                         let columnSpan = Math.min(
                                 Math.max(Math.round(tile.columnSpan), 1),
                                 grid.columns)
-                        highlightItemWidth = columnSpan * grid.atomicWidth
+                        highlightItemWidth = columnSpan * grid.monadicWidth
                                 + (columnSpan - 1) * grid.columnSpacing
-                        highlightItemHeight = rowSpan * grid.atomicHeight
+                        highlightItemHeight = rowSpan * grid.monadicHeight
                                 + (rowSpan - 1) * grid.rowSpacing
                     }
 
