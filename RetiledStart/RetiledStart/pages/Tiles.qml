@@ -728,7 +728,7 @@ ApplicationWindow {
 		// https://stackoverflow.com/a/38532138
 		TilesGridStuff.TilesGrid {
 			id: tilesContainer
-			spacing: 10
+			spacing: 5
 			// TODO: Add support for more columns.
 			// This will also require allowing monadicWidth
 			// and monadicHeight to be changed.
@@ -753,7 +753,7 @@ ApplicationWindow {
 
 			// This is settings for the repeater for the TilesGrid to load tiles.
 			tilesRepeaterDelegate: RetiledStyles.Tile {
-                text: model.tileText
+                tileText: model.tileText
             	tileBackgroundColor: model.tileBackgroundColor
                 //useTileBackgroundWallpaper: model.useTileBackgroundWallpaper
                 execKey: model.execKey
@@ -762,7 +762,7 @@ ApplicationWindow {
 				// We can just use Component.onCompleted to connect signals:
 				// https://stackoverflow.com/a/36083276
 				Component.onCompleted: {
-					tileClicked.connect(parent.tileClicked);
+					tileClicked.connect(tileClicked);
 					toggleGlobalEditMode.connect(parent.toggleGlobalEditMode);
 					hideEditModeControlsOnPreviousTile.connect(parent.hideEditModeControlsOnPreviousTile);
 					setTileOpacity.connect(parent.setTileOpacity);
@@ -1087,6 +1087,10 @@ ApplicationWindow {
 						var columnSpan = 2;
 						var rowSpan = 2;
 
+						// Variable for column and row.
+						var column = i
+						var row = i
+
 						var tileSize = ParsedTilesList[i].TileSize;
 							// Using the tileSize property to set the tile's height and width.
 							// Please note: in the future, we're not going to be setting height
@@ -1137,7 +1141,8 @@ ApplicationWindow {
 						loadedTilesList.append({tileText: tileText, 
 						tileBackgroundColor: tileBackgroundColor,
 						execKey: execKey, 
-						rowSpan: rowSpan, columnSpan: columnSpan});
+						rowSpan: rowSpan, columnSpan: columnSpan,
+						column: column, row: row});
 
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.

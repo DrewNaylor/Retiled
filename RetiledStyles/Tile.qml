@@ -93,11 +93,9 @@ ButtonBase {
 	// TilesGrid is MIT.
 	// These properties are for columns/rows, tile index,
 	// whether drag is active, and columnspan/rowspan.
-	readonly property int row: parent && parent.row != null ? parent.row : -1
-    readonly property int column: parent
-                                  && parent.column != null ? parent.column : -1
-    readonly property int index: parent
-                                 && parent.modelIndex != null ? parent.modelIndex : -1
+	property int row: parent && parent.row != null ? parent.row : -1
+    property int column: parent && parent.column != null ? parent.column : -1
+    readonly property int index: parent && parent.modelIndex != null ? parent.modelIndex : -1
     readonly property bool dragActive: mouseArea.drag.active
     property int rowSpan: 1
     property int columnSpan: 1
