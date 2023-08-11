@@ -727,7 +727,7 @@ ApplicationWindow {
 		// SO example:
 		// https://stackoverflow.com/a/38532138
 		// Actually now we're using the TilesGrid.
-		TilesGridStuff.TilesGrid {
+		RetiledStyles.TilesGrid {
 			id: tilesContainer
 			rowSpacing: 10
             columnSpacing: 10
@@ -754,6 +754,7 @@ ApplicationWindow {
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 
 			// This is settings for the repeater for the TilesGrid to load tiles.
+			/*
 			tilesRepeaterDelegate: RetiledStyles.Tile {
                 tileText: model.tileText
             	tileBackgroundColor: model.tileBackgroundColor
@@ -788,6 +789,8 @@ ApplicationWindow {
                 }
 
             }
+
+			*/
 
 			
 			
@@ -845,6 +848,18 @@ ApplicationWindow {
 				width: 70
 				height: 70
 				} */
+
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				columnSpan: 2
+				rowSpan: 2
+				}
+				RetiledStyles.Tile {
+				tileText: qsTr("WP8.1 app with a really long name")
+				columnSpan: 2
+				rowSpan: 2
+				}
+
 				
 				// Set up the tile click signals.
 				function tileClicked(execKey) {
