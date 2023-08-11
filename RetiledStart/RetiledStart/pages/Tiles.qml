@@ -888,6 +888,7 @@ ApplicationWindow {
 							// We're using column and row span now.
 							var columnSpan = 2;
 							var rowSpan = 2;
+
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
 							var useTileBackgroundWallpaper = useTileBackgroundWallpaper;
@@ -930,12 +931,25 @@ ApplicationWindow {
 						
 						// Connect decrementing the pinned tiles count signal.
 							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+
+							// Variable for column and row.
+							var column = tileIndex
+							var row = tileIndex
+
+							// Change the column and row if it's too far over.
+							if (column + columnSpan > tilesContainer.columns) {
+								column = 0;
+								row = tileIndex + 1;
+							}
 							
 							// Now append the tile to the list.
+							// TODO: Figure out why none of the things are working
+							// for pinned tiles.
 							loadedTilesList.append({tileText: tileText, 
 							tileBackgroundColor: tileBackgroundColor,
 							execKey: execKey, dotDesktopFilePath: dotDesktopFilePath,
 							rowSpan: rowSpan, columnSpan: columnSpan,
+							column: column, row: row,
 							tileIconPath: tileIconPath, tileIndex: tileIndex,
 							tileSize: tileSize});
 
