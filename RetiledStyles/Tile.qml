@@ -102,8 +102,9 @@ ButtonBase {
 	// Here's the tile implicitHeight and implicitWidth.
 	// Not sure what the height should be, actually I should change it to 70 base
 	// since that's what I already use.
-	implicitHeight: 70 * control.rowSpan
-    implicitWidth: 70 * control.columnSpan
+	// Now they're properly sized by taking into account the spacing.
+	implicitHeight: control.rowSpan === 1 ? 70 * control.rowSpan : 70 * control.rowSpan + parent.rowSpacing
+    implicitWidth: control.columnSpan === 1 ? 70 * control.columnSpan : 70 * control.columnSpan + parent.columnSpacing
 	// TODO: integrate the z-ordering stuff with dragActive.
 	// Actually what could work well is something that can temporarily hide
 	// edit mode controls on a tile that's being dragged while keeping
