@@ -723,6 +723,7 @@ ApplicationWindow {
 		TilesGridStuff.TilesGrid {
 			id: tilesContainer
 			spacing: 10
+			columns: 4
 			// Make sure the buttons stay in the tiles area.
 			// We have to do it like this or else the All Apps
 			// button will shift around horizontally and resizing
