@@ -723,7 +723,13 @@ ApplicationWindow {
 		TilesGridStuff.TilesGrid {
 			id: tilesContainer
 			spacing: 10
+			// TODO: Add support for more columns.
+			// This will also require allowing monadicWidth
+			// and monadicHeight to be changed.
 			columns: 4
+			// TODO: figure out how to do rows dynamically
+			// with TilesGrid.
+			// This is a placeholder.
 			rows: 20
 			// Make sure the buttons stay in the tiles area.
 			// We have to do it like this or else the All Apps
