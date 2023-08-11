@@ -424,6 +424,9 @@ ButtonBase {
 			rotationBehavior.enabled = true;
 			tileResizeHeightBehavior.enabled = true;
 			tileResizeWidthBehavior.enabled = true;
+			// TODO: Have the TilesGrid re-compute tile sizes when resizing them,
+			// or else they'll be able to go off to the right side if they were first
+			// dragged while small.
 			if (tileSize == "medium") {
 				// If button is medium, resize to small.
 				control.columnSpan = 1;
