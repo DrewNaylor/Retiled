@@ -761,6 +761,8 @@ ApplicationWindow {
                 execKey: model.execKey
                 rowSpan: model.rowSpan
                 columnSpan: model.columnSpan
+				column: model.column
+				row: model.row
 				// We can just use Component.onCompleted to connect signals:
 				// https://stackoverflow.com/a/36083276
 				Component.onCompleted: {
@@ -1092,6 +1094,12 @@ ApplicationWindow {
 						// Variable for column and row.
 						var column = i
 						var row = i
+
+						// Change the column and row if it's too far over.
+						if (column + columnSpan > tilesContainer.columns) {
+							column = 0;
+							row = i + 1;
+						}
 
 						var tileSize = ParsedTilesList[i].TileSize;
 							// Using the tileSize property to set the tile's height and width.
