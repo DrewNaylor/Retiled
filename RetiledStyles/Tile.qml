@@ -176,33 +176,20 @@ ButtonBase {
 		// focus, though I do need to make sure it doesn't steal
 		// presses to exit edit mode.
 		// Actually I can just send that to the appropriate code from
-		// here.
+		// here, and that's what I'm doing now.
+		// TODO: Figure out how to have the TilesGrid drag and drop
+		// not be really broken and have collision issues. Maybe I'm
+		// placing the repeater in the wrong spot? In any case,
+		// I may be able to clean up the repeater's code again
+		// and put it in a better spot where it could be better,
+		// as I have the code to connect signals in its own function
+		// and I can just call it from the TilesGrid.
 		enabled: editMode
 		// Force the tile's editMode clicked event to happen
 		// if we click on it.
-		// TODO: Clean this up because the tile's version of this
-		// code is still used. Actually, maybe I should eventually
-		// bring all the onClicked code into here to use the code
-		// that gets the mouse cursor's current position to enhance
-		// tilt.
 		onClicked: {
-			// Turn off edit mode if it's on.
-				editMode = false;
-				// Also turn off global edit mode, because
-				// the current tile has focus and that's how
-				// global edit mode is turned off.
-				toggleGlobalEditMode(false, true);
-				// Set tile opacity, too.
-				setTileOpacity();
-				// Hide the edit mode buttons and reset the tile's
-				// z-index.
-				z = z - 1;
-				// Turn back on tilting.
-				// TODO: Figure out how to turn off tilting when
-				// clicking a tile that's currently in local edit mode
-				// so it goes directly "down", as well as figuring it out for
-				// not tilting the unpin and resize buttons when pressing the tile.
-				tilt = allowTilt;
+			// Just do control.clicked.
+			control.clicked();
 		}
         anchors.fill: control
         drag.target: control
