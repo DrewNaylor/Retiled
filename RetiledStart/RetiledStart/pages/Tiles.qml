@@ -789,22 +789,7 @@ ApplicationWindow {
 				tileRepeater.itemAt(tileIndex).hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 				tileRepeater.itemAt(tileIndex).setTileOpacity.connect(setTileOpacity);
 				tileRepeater.itemAt(tileIndex).decrementPinnedTilesCount.connect(checkPinnedTileCount);
-			}
-
-
-			// Temporarily bringing this in so I can see what's going on.
-			highlightDelegate: Item {
-                //visible: false
-                Rectangle {
-                    id: rec
-                    anchors.fill: parent
-                    color: Qt.darker("#3D5A80", 1.2)
-                    visible: true
-                }
-
-            }
-
-			
+			}			
 			
 			// Add proper transitions when tiles move around based on this example
 			// and also basing the details on the tile resize transition I put into the Tile.qml file:
