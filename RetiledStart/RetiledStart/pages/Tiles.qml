@@ -754,8 +754,9 @@ ApplicationWindow {
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 
 			// This is settings for the repeater for the TilesGrid to load tiles.
-			
-			tilesRepeaterDelegate: RetiledStyles.Tile {
+			Repeater {
+				id: tileRepeater
+			delegate: RetiledStyles.Tile {
                 tileText: model.tileText
             	tileBackgroundColor: model.tileBackgroundColor
                 //useTileBackgroundWallpaper: model.useTileBackgroundWallpaper
@@ -769,19 +770,22 @@ ApplicationWindow {
 				// We can just use Component.onCompleted to connect signals:
 				// https://stackoverflow.com/a/36083276
 				Component.onCompleted: {
-					parent.parent.connectSignals(tileIndex);
+					parent.connectSignals(tileIndex);
 					console.log(tileIndex);
 				}
             }
-			tilesRepeaterModel: loadedTilesList
+				model: loadedTilesList
+			}
 
 			// Connect the signals in the tilesRepeater.
 			function connectSignals(tileIndex) {
-				loadedTilesList.get(tileIndex).tileClicked.connect(tileClicked);
-				loadedTilesList.get(tileIndex).toggleGlobalEditMode.connect(toggleGlobalEditMode);
-				loadedTilesList.get(tileIndex).hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
-				loadedTilesList.get(tileIndex).setTileOpacity.connect(setTileOpacity);
-				loadedTilesList.get(tileIndex).decrementPinnedTilesCount.connect(checkPinnedTileCount);
+				// Access the stuff in the repeater directly:
+				// https://stackoverflow.com/a/13272640
+				tileRepeater.itemAt(tileIndex).tileClicked.connect(tileClicked);
+				tileRepeater.itemAt(tileIndex).toggleGlobalEditMode.connect(toggleGlobalEditMode);
+				tileRepeater.itemAt(tileIndex).hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+				tileRepeater.itemAt(tileIndex).setTileOpacity.connect(setTileOpacity);
+				tileRepeater.itemAt(tileIndex).decrementPinnedTilesCount.connect(checkPinnedTileCount);
 			}
 
 
