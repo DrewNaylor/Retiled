@@ -329,11 +329,13 @@ ApplicationWindow {
 		// https://forum.qt.io/post/234640
 		// Actually we need to do this differently for listmodels:
 		// https://stackoverflow.com/a/63551259
-		for (var i = 0; i < loadedTilesList.rowCount(); i++) {
+		// Now we need to do it for a repeater:
+		// https://doc.qt.io/qt-6/qml-qtquick-repeater.html
+		for (var i = 0; i < tileRepeater.count; i++) {
 			// Loop through the children of the tilesContainer flow.
 			// Set the bool to reset the tile icon size value.
 			// NOTE: newValue MUST be a boolean, either true or false.
-			loadedTilesList.get(i).isTileIconSizeReset = newValue;
+			tileRepeater.itemAt(i).isTileIconSizeReset = newValue;
 		}
 	}
 
