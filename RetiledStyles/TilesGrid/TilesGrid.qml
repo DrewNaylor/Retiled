@@ -155,6 +155,9 @@ Control {
         // Kinda based on this SO answer:
         // https://stackoverflow.com/a/29935302
         // And also my own code in AppBarDrawer.qml for putting stuff in the appbar drawer.
+        // Also I need to do a default alias thing here to allow it to be overridden:
+        // https://stackoverflow.com/a/54471776
+        // I haven't done the default alias thing yet, but it might be important.
         Repeater {
             id: loadedTilesRepeater
             model: loadedTilesModel
