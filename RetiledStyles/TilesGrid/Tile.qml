@@ -1,4 +1,17 @@
-import QtQuick 2.12
+// See LICENSE in this folder for copyright info.
+// Assuming this file falls under the MIT License based
+// on that file, this file's modifications are Copyright (C)
+// 2023 Drew Naylor and are available under the MIT License.
+// See the original repo here:
+// https://github.com/Tereius/TilesGrid
+// My fork here:
+// https://github.com/DrewNaylor/TilesGrid
+
+
+
+// Remove version on the import for Qt6.
+// Modification by Drew Naylor.
+import QtQuick
 
 Rectangle {
 
