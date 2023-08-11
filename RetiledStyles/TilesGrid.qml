@@ -1,4 +1,4 @@
-// See LICENSE in this folder for copyright info.
+// See LICENSE-TilesGrid in this folder for copyright info.
 // Assuming this file falls under the MIT License based
 // on that file, this file's modifications are Copyright (C)
 // 2023 Drew Naylor and are available under the MIT License.
@@ -23,10 +23,10 @@ Control {
     property alias columnSpacing: grid.columnSpacing
     // Modification by Drew Naylor: Add aliases for the repeater's
     // delegates and model so they can be accessed easily.
-    /*
+
     property alias tilesRepeaterDelegate: loadedTilesRepeater.delegate
     property alias tilesRepeaterModel: loadedTilesRepeater.model
-    */
+
     // This is the width of the smallest tile (the tiles columnSpan equals 1)
     // Modification by Drew Naylor: Changed the name to "monadicWidth" and "monadicHeight"
     // as monads are indivisible but atoms aren't.
@@ -160,12 +160,10 @@ Control {
         // Also I need to do a default alias thing here to allow it to be overridden:
         // https://stackoverflow.com/a/54471776
         // I haven't done the default alias thing yet, but it might be important.
-        /*
         Repeater {
             id: loadedTilesRepeater
             model: loadedTilesModel
         }
-        */
 
         QtObject {
             id: d

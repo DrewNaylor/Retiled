@@ -754,7 +754,7 @@ ApplicationWindow {
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 
 			// This is settings for the repeater for the TilesGrid to load tiles.
-			/*
+			
 			tilesRepeaterDelegate: RetiledStyles.Tile {
                 tileText: model.tileText
             	tileBackgroundColor: model.tileBackgroundColor
@@ -764,6 +764,7 @@ ApplicationWindow {
                 columnSpan: model.columnSpan
 				column: model.column
 				row: model.row
+				tileIconPath: model.tileIconPath
 				// We can just use Component.onCompleted to connect signals:
 				// https://stackoverflow.com/a/36083276
 				Component.onCompleted: {
@@ -789,8 +790,6 @@ ApplicationWindow {
                 }
 
             }
-
-			*/
 
 			
 			
@@ -1125,8 +1124,6 @@ ApplicationWindow {
 						var column = i
 						var row = i
 
-						
-
 						// Change the column and row if it's too far over.
 						if (column + columnSpan > tilesContainer.columns) {
 							column = 0;
@@ -1184,7 +1181,8 @@ ApplicationWindow {
 						tileBackgroundColor: tileBackgroundColor,
 						execKey: execKey, 
 						rowSpan: rowSpan, columnSpan: columnSpan,
-						column: column, row: row});
+						column: column, row: row,
+						tileIconPath: tileIconPath});
 
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.
