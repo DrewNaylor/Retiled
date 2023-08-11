@@ -726,9 +726,11 @@ ApplicationWindow {
 		// https://doc.qt.io/qt-6/qml-qtquick-flow.html
 		// SO example:
 		// https://stackoverflow.com/a/38532138
+		// Actually now we're using the TilesGrid.
 		TilesGridStuff.TilesGrid {
 			id: tilesContainer
-			spacing: 5
+			rowSpacing: 10
+            columnSpacing: 10
 			// TODO: Add support for more columns.
 			// This will also require allowing monadicWidth
 			// and monadicHeight to be changed.
