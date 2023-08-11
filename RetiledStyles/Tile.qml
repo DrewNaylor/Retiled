@@ -146,6 +146,27 @@ ButtonBase {
             animY.restart()
         }
     }
+	// Here's the mouse area from TilesGrid.
+	// As of right now, the tiles just go bye-bye
+	// when dragged as not everything is implemented,
+	// especially not the actual grid itself.
+	// The bigger issue is that it forces all other
+	// clicks and stuff to be absorbed by it.
+	MouseArea {
+        id: mouseArea
+        anchors.fill: control
+        drag.target: control
+        drag.filterChildren: true
+        drag.onActiveChanged: {
+            if (!mouseArea.drag.active) {
+                let action = control.Drag.drop()
+                if (action !== Qt.MoveAction) {
+                    control.x = 0
+                    control.y = 0
+                }
+            }
+        }
+    }
 
 
 	// Signal for opening the context menu.
