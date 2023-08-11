@@ -12,6 +12,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQml.Models 2.12
+// Modification by Drew Naylor: Import RetiledStyles to use tiles.
+import ".." as RetiledStyles
 
 Control {
 
@@ -144,6 +146,20 @@ Control {
             return {
                 "row": Math.floor(index / grid.columns),
                 "column": index % grid.columns
+            }
+        }
+
+        // Modification by Drew Naylor: Add a Repeater so we can have the tiles here.
+        // Kinda based on this SO answer:
+        // https://stackoverflow.com/a/29935302
+        // And also my own code in AppBarDrawer.qml for putting stuff in the appbar drawer.
+        Repeater {
+            model: loadedTilesModel
+            delegate: RetiledStyles.Tile {
+                text: model.text
+                color: model.color
+                rowSpan: model.rowSpan
+                columnSpan: model.columnSpan
             }
         }
 

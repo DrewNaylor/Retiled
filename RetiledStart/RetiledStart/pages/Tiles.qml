@@ -1033,7 +1033,7 @@ ApplicationWindow {
 							//var NewTileObject = TileComponent.createObject(tilesContainer);
 							// We need to add the tiles to a ListModel instead of using createObject:
 							// https://stackoverflow.com/a/29935302
-							tilesContainer.grid.repeater.model.append(TileComponent);
+							tilesContainer.add(TileComponent);
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
