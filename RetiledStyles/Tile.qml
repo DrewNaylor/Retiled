@@ -281,7 +281,10 @@ ButtonBase {
 					
 	RoundButton {
 		id: unpinButton
-		visible: editMode
+		// Also hide edit mode controls when dragging.
+		// It'll look nicer, but won't fix the jankiness
+		// of the drag and drop yet.
+		visible: editMode && !mouseArea.drag.active
 		Image {
 			// It's "pressed", not "down", to change images:
 			// https://stackoverflow.com/a/30092412
@@ -350,7 +353,10 @@ ButtonBase {
 	
 	RoundButton {
 		id: resizeButton
-		visible: editMode
+		// Also hide edit mode controls when dragging.
+		// It'll look nicer, but won't fix the jankiness
+		// of the drag and drop yet.
+		visible: editMode && !mouseArea.drag.active
 		text: "<b>\ue021</b>"
 		fontFamily: metroFont.name
 		// Anchor the horizontal and vertical
