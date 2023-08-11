@@ -340,7 +340,8 @@ Control {
                 id: tileHolder
                 //border.width: 1
                 //border.color: "black"
-                color: "transparent"
+                // Temporary modification by Drew Naylor to see what's going on.
+                color: "green"
 
                 property var tiles: {
 
