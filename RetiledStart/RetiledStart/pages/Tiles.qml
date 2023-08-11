@@ -765,18 +765,24 @@ ApplicationWindow {
 				column: model.column
 				row: model.row
 				tileIconPath: model.tileIconPath
+				tileIndex: model.tileIndex
 				// We can just use Component.onCompleted to connect signals:
 				// https://stackoverflow.com/a/36083276
 				Component.onCompleted: {
-					tileClicked.connect(tileClicked);
-					toggleGlobalEditMode.connect(parent.toggleGlobalEditMode);
-					hideEditModeControlsOnPreviousTile.connect(parent.hideEditModeControlsOnPreviousTile);
-					setTileOpacity.connect(parent.setTileOpacity);
-					decrementPinnedTilesCount.connect(parent.checkPinnedTileCount);
-
+					parent.parent.connectSignals(tileIndex);
+					console.log(tileIndex);
 				}
             }
 			tilesRepeaterModel: loadedTilesList
+
+			// Connect the signals in the tilesRepeater.
+			function connectSignals(tileIndex) {
+				loadedTilesList.get(tileIndex).tileClicked.connect(tileClicked);
+				loadedTilesList.get(tileIndex).toggleGlobalEditMode.connect(toggleGlobalEditMode);
+				loadedTilesList.get(tileIndex).hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+				loadedTilesList.get(tileIndex).setTileOpacity.connect(setTileOpacity);
+				loadedTilesList.get(tileIndex).decrementPinnedTilesCount.connect(checkPinnedTileCount);
+			}
 
 
 			// Temporarily bringing this in so I can see what's going on.
@@ -1182,7 +1188,7 @@ ApplicationWindow {
 						execKey: execKey, 
 						rowSpan: rowSpan, columnSpan: columnSpan,
 						column: column, row: row,
-						tileIconPath: tileIconPath});
+						tileIconPath: tileIconPath, tileIndex: tileIndex});
 
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.
