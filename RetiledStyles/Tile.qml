@@ -114,6 +114,39 @@ ButtonBase {
 	// Have to change the item's name, though, as we use "control".
 	// Did the same above for the implicitHeight.
 	objectName: "item-(" + control.row + ", " + control.column + ")"
+	// Now for drag-related stuff from TilesGrid.
+	// This may not work without modification.
+	// I don't know what Drag.keys is.
+	Drag.keys: ["tile"]
+	// I'll need to figure out how to have a mouseArea in here
+	// if I don't have one already.
+	// TODO: As mentioned above, only allow dragging while a tile
+	// is in local edit mode and don't drag if the user wants to scroll.
+    Drag.active: mouseArea.drag.active
+    Drag.dragType: Drag.Internal
+	// Gotta switch to control instead of tile.
+    Drag.hotSpot.x: control.width / control.columnSpan / 2
+    Drag.hotSpot.y: control.height / control.rowSpan / 2
+
+	// I need to figure out why this code involves reparenting.
+	// Actually, wait, this may help with folders.
+	// Still not sure why tiles need to reparent instead
+	// of move to another grid area.
+    function reparent(newParent) {
+        if (newParent && newParent !== control.parent) {
+            let from = control.mapToItem(newParent, 0, 0)
+            control.parent = newParent
+			// I already have animations for x and y, so reuse those
+			// maybe? Unless behaviors won't work.
+            animX.from = from.x
+            animY.from = from.y
+            animX.to = 0
+            animY.to = 0
+            animX.restart()
+            animY.restart()
+        }
+    }
+
 
 	// Signal for opening the context menu.
 	// signal pressAndHold(bool showContextMenu);
