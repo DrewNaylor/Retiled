@@ -426,24 +426,24 @@ ButtonBase {
 			tileResizeWidthBehavior.enabled = true;
 			if (tileSize == "medium") {
 				// If button is medium, resize to small.
-				control.width = 70;
-				control.height = 70;
+				control.columnSpan = 1;
+				control.rowSpan = 1;
 				tileSize = "small";
 				// Change the resize button's rotation for the small tile.
 				// 45 points down-right.
 				resizeButton.rotation = 45;
 			} else if (tileSize == "small") {
 				// If button is small, resize to wide.
-				control.width = 310;
-				control.height = 150;
+				control.columnSpan = 4;
+				control.rowSpan = 2;
 				tileSize = "wide";
 				// Change the resize button's rotation for the wide tile.
 				// -180 points the arrow backward.
 				resizeButton.rotation = -180;
 			} else if (tileSize == "wide") {
 				// If button is wide, resize to medium.
-				control.width = 150;
-				control.height = 150;
+				control.columnSpan = 2;
+				control.rowSpan = 2;
 				tileSize = "medium";
 				// Change the resize button's rotation to match
 				// the medium tile's expected resize button rotation.
@@ -452,8 +452,8 @@ ButtonBase {
 			} else {
 				// If nothing matches, resize to medium, just
 				// in case.
-				control.width = 150;
-				control.height = 150;
+				control.columnSpan = 2;
+				control.rowSpan = 2;
 				tileSize = "medium";
 				// Change the resize button's rotation to match
 				// the medium tile's expected resize button rotation.
