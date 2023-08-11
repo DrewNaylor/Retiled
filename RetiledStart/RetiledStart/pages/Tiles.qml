@@ -242,6 +242,8 @@ ApplicationWindow {
 					tile['TileWidth'] = tileRepeater.itemAt(i).width;
 					tile['TileHeight'] = tileRepeater.itemAt(i).height;
 					tile['TileSize'] = tileRepeater.itemAt(i).tileSize;
+					tile['TileColumn'] = tileRepeater.itemAt(i).column;
+					tile['TileRow'] = tileRepeater.itemAt(i).row;
 					console.log(tileRepeater.itemAt(i).tileSize)
 					// Push the tile to the list.
 					// TODO: Prevent sorting.
@@ -1145,8 +1147,13 @@ ApplicationWindow {
 						// TODO: Figure out how to have the TilesGrid
 						// put tiles in specific rows and columns.
 						// This will be used in the save file.
-						var column = i
-						var row = i
+						// Maybe it'll work now?
+						// Nope, it doesn't work.
+						// TODO: Figure out what's not allowing tiles to
+						// be directly positioned by column and row
+						// in TilesGrid.
+						var column = ParsedTilesList[i].TileColumn
+						var row = ParsedTilesList[i].TileRow
 
 						// Change the column and row if it's too far over.
 						if (column + columnSpan > tilesContainer.columns) {

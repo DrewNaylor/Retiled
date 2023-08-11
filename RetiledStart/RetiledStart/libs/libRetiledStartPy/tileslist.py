@@ -89,7 +89,7 @@ def saveTilesList(tilesList):
 		# Add to the TilesListToSave.
 		# NOTE: QML won't give us integers for tile widths and heights,
 		# so we need to make them into integers in Python.
-		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": i["TileSize"]})
+		TilesListToSave.append({"DotDesktopFilePath": i["DotDesktopFilePath"], "TileSize": i["TileSize"], "TileColumn": i["TileColumn"], "TileRow": i["TileRow"]})
 		# print(i["DotDesktopFilePath"])
 		
 	#print(TilesListToSave)
@@ -100,7 +100,7 @@ def saveTilesList(tilesList):
 		# Append the start layout schema version.
 		# We need to create a new list first, one that
 		# has both the "Tiles:" thing, too.
-		StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.2}
+		StartLayoutConfigFile = {"Tiles": TilesListToSave, "StartLayoutSchemaVersion": 0.3}
 	
 		# Load the tilesList as if it were a yaml file.
 		# Be sure to not have it sort the keys:
@@ -225,9 +225,9 @@ def getTilesList():
 					tempTileSize = i["TileSize"]
 				#print(tempTileSize)
 				if (hasDeprecatedRawWidthAndHeight == True):
-					TilesList.append({"DotDesktopFilePath": tempDotDesktopFilePath, "TileSize": tempTileSize, "hasDeprecatedRawWidthAndHeight" : "True"})
+					TilesList.append({"DotDesktopFilePath": tempDotDesktopFilePath, "TileSize": tempTileSize, "TileColumn": i.get("TileColumn"), "TileRow": i.get("TileRow"), "hasDeprecatedRawWidthAndHeight" : "True"})
 				else:
-					TilesList.append({"DotDesktopFilePath": tempDotDesktopFilePath, "TileSize": tempTileSize})
+					TilesList.append({"DotDesktopFilePath": tempDotDesktopFilePath, "TileSize": tempTileSize, "TileColumn": i.get("TileColumn"), "TileRow": i.get("TileRow")})
 		
 		# Get the stuff under Tiles.
 	
