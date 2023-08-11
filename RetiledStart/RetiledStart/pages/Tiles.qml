@@ -327,12 +327,13 @@ ApplicationWindow {
 		// but first store them in temp variables.
 		// The moderator's answer here should work for looping through items:
 		// https://forum.qt.io/post/234640
-
-		for (var i = 0; i < tilesContainer.children.length; i++) {
+		// Actually we need to do this differently for listmodels:
+		// https://stackoverflow.com/a/63551259
+		for (var i = 0; i < loadedTilesList.rowCount(); i++) {
 			// Loop through the children of the tilesContainer flow.
 			// Set the bool to reset the tile icon size value.
 			// NOTE: newValue MUST be a boolean, either true or false.
-			tilesContainer.children[i].isTileIconSizeReset = newValue;
+			loadedTilesList.get(i).isTileIconSizeReset = newValue;
 		}
 	}
 
@@ -754,7 +755,7 @@ ApplicationWindow {
 			tilesRepeaterDelegate: RetiledStyles.Tile {
                 text: model.tileText
             	tileBackgroundColor: model.tileBackgroundColor
-                useTileBackgroundWallpaper: model.useTileBackgroundWallpaper
+                //useTileBackgroundWallpaper: model.useTileBackgroundWallpaper
                 execKey: model.execKey
                 rowSpan: model.rowSpan
                 columnSpan: model.columnSpan
@@ -1046,7 +1047,7 @@ ApplicationWindow {
 						// Make sure it's ready first.
 						// TODO: Switch to incubateObject.
 						//if (TileComponent.status == Component.Ready) {
-							var NewTileObject = TileComponent;
+							//var NewTileObject = TileComponent;
 							// We need to add the tiles to a ListModel instead of using createObject:
 							// https://stackoverflow.com/a/29935302
 							//tilesContainer.add(TileComponent);
@@ -1124,7 +1125,8 @@ ApplicationWindow {
 
 						// Now we can append the new tile to the loaded tiles list.
 						loadedTilesList.append({tileText: tileText, 
-						tileBackgroundColor: tileBackgroundColor, 
+						tileBackgroundColor: tileBackgroundColor,
+						execKey: execKey, 
 						rowSpan: rowSpan, columnSpan: columnSpan});
 
 						// HACK: Force tile icon sizes to be reset
