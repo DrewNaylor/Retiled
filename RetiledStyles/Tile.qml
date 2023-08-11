@@ -145,6 +145,24 @@ ButtonBase {
             animY.restart()
         }
     }
+	// Might need these animations.
+	NumberAnimation {
+        id: animX
+        target: control
+        duration: 250
+        easing.type: Easing.OutQuad
+        property: "x"
+        running: false
+    }
+
+    NumberAnimation {
+        id: animY
+        target: control
+        duration: 250
+        easing.type: Easing.OutQuad
+        property: "y"
+        running: false
+    }
 	// Here's the mouse area from TilesGrid.
 	// As of right now, the tiles just go bye-bye
 	// when dragged as not everything is implemented,
