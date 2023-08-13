@@ -12,5 +12,5 @@ Also, be sure to check the sticky notes archive, as there are way more applicati
   - Can be used as an example of pinning secondary tiles as shortcuts in addition to the Settings app.
   - Where possible, the secondary tiles will display relevant data, and the items in the list that you tap to go to each page will also display the most-important thing.
   - Note: Each page gets its data from a different command.
-  - The way I'll do it is there will be a main page as just a list of the available pages, and tapping an item gets you a page like the original version's tabs at the bottom. Or maybe I could do a Panorama with tiles for each page. I can't do Pivots because there are too many tabs to go through.
+  - The way I'll do it is there will be a main page as just a list of the available pages, and tapping an item gets you a page like the original version's tabs at the bottom. Or maybe I could do a Panorama with tiles for each page like Hardware Tests. I can't do Pivots because there are too many tabs to go through.
   - I've forked the original repo here for archival and I'll probably add my own files to it so it's all contained: https://github.com/DrewNaylor/inspector
