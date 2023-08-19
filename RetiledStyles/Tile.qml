@@ -86,6 +86,9 @@ ButtonBase {
 	// Store the tile's columnSpan and rowSpan.
 	property int rowSpan: 2
 	property int columnSpan: 2
+	// Properties for tile's column and row.
+	property int tileRow: 0
+	property int tileColumn: 0
 	
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
