@@ -95,14 +95,14 @@ Item {
             // to allow for spacing when not at column 0.
             // Same thing for rows.
             if (c === 0) {
-                obj.x = c * cellWidth;
+                obj.x = 0;
             } else {
-                obj.x = (c * cellWidth) + spacing;
+                obj.x = c * (cellWidth + spacing);
             }
             if (r === 0) {
-                obj.y = r * cellHeight;
+                obj.y = 0;
             } else {
-                obj.y = (r * cellHeight) + spacing;
+                obj.y = r * (cellHeight + spacing);
             }
             obj.height = cs * cellHeight;
             obj.width = rs * cellWidth;
