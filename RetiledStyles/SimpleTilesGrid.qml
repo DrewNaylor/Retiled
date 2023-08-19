@@ -88,6 +88,9 @@ Item {
             var cs = obj.Layout.columnSpan
             var rs = obj.Layout.rowSpan
 
+            console.log(obj.color);
+            console.log(obj.Layout.column);
+
             // Drew Naylor wrapped this code in an If statement
             // to allow for spacing when not at column 0.
             // Same thing for rows.

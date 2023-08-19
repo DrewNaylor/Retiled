@@ -709,7 +709,7 @@ ApplicationWindow {
     }
 
     Rectangle {
-        Layout.column: 0
+        Layout.column: 1
         Layout.row: 1
         Layout.columnSpan: 2
         Layout.rowSpan: 4
