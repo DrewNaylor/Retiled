@@ -711,8 +711,8 @@ ApplicationWindow {
     Rectangle {
         Layout.column: 1
         Layout.row: 2
-        Layout.columnSpan: 2
-        Layout.rowSpan: 4
+        Layout.columnSpan: 4
+        Layout.rowSpan: 2
 
         color: "blue"
     }
