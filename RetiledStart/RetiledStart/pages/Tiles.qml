@@ -240,8 +240,8 @@ ApplicationWindow {
 					tile['TileWidth'] = tilesContainer.children[i].width;
 					tile['TileHeight'] = tilesContainer.children[i].height;
 					tile['TileSize'] = tilesContainer.children[i].tileSize;
-					tile['TileRow'] = tilesContainer.children[i].tileRow;
-					tile['TileColumn'] = tilesContainer.children[i].tileColumn;
+					tile['TileRow'] = tilesContainer.children[i].row;
+					tile['TileColumn'] = tilesContainer.children[i].column;
 					// Push the tile to the list.
 					// TODO: Prevent sorting.
 					tilesList.push(tile);
@@ -736,6 +736,43 @@ ApplicationWindow {
 			Layout.fillWidth: true
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+
+			// This is the repeater to load tiles.
+			Repeater {
+				id: tileRepeater
+			delegate: RetiledStyles.Tile {
+                tileText: model.tileText
+            	tileBackgroundColor: model.tileBackgroundColor
+                //useTileBackgroundWallpaper: model.useTileBackgroundWallpaper
+                execKey: model.execKey
+                rowSpan: model.rowSpan
+                columnSpan: model.columnSpan
+				row: model.column
+				column: model.row
+				tileIconPath: model.tileIconPath
+				tileIndex: model.tileIndex
+				tileSize: model.tileSize
+				dotDesktopFilePath: model.dotDesktopFilePath
+				// We can just use Component.onCompleted to connect signals:
+				// https://stackoverflow.com/a/36083276
+				Component.onCompleted: {
+					parent.connectSignals(tileIndex);
+					console.log(tileIndex);
+				}
+            }
+				model: loadedTilesList
+			}
+
+			// Connect the signals in the tilesRepeater.
+			function connectSignals(tileIndex) {
+				// Access the stuff in the repeater directly:
+				// https://stackoverflow.com/a/13272640
+				tileRepeater.itemAt(tileIndex).tileClicked.connect(tileClicked);
+				tileRepeater.itemAt(tileIndex).toggleGlobalEditMode.connect(toggleGlobalEditMode);
+				tileRepeater.itemAt(tileIndex).hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+				tileRepeater.itemAt(tileIndex).setTileOpacity.connect(setTileOpacity);
+				tileRepeater.itemAt(tileIndex).decrementPinnedTilesCount.connect(checkPinnedTileCount);
+			}	
 			
 			// Add proper transitions when tiles move around based on this example
 			// and also basing the details on the tile resize transition I put into the Tile.qml file:
@@ -1081,8 +1118,8 @@ ApplicationWindow {
 							NewTileObject.tileIndex = i
 
 						// Need to do the tile's column and row.
-						NewTileObject.tileColumn = ParsedTilesList[i].TileColumn;
-						NewTileObject.tileRow = ParsedTilesList[i].TileRow;
+						NewTileObject.column = ParsedTilesList[i].TileColumn;
+						NewTileObject.row = ParsedTilesList[i].TileRow;
 						
 						// Connect clicked signal.
 							NewTileObject.tileClicked.connect(tileClicked);
