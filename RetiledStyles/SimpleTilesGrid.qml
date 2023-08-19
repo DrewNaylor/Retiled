@@ -3,7 +3,7 @@
 // As such, it's under the CC BY-SA 4.0 license.
 // More details on the license:
 // https://creativecommons.org/licenses/by-sa/4.0/
-// Modifications to the original code are Copyright (C) 2023 Drew Naylor,
+// Modifications to the original code are Copyright (C) 2023 Drew Naylor where specified,
 // but still are available under the above license. I'll state where it differs.
 // (Note that the copyright years include the years left out by the hyphen.)
 // 
@@ -44,8 +44,9 @@
 
 
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.3
+// Remove the versions (change by Drew Naylor).
+import QtQuick
+import QtQuick.Layouts
 
 Item {
     id: layout
