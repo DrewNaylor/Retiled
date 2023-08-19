@@ -240,6 +240,8 @@ ApplicationWindow {
 					tile['TileWidth'] = tilesContainer.children[i].width;
 					tile['TileHeight'] = tilesContainer.children[i].height;
 					tile['TileSize'] = tilesContainer.children[i].tileSize;
+					tile['TileRow'] = tilesContainer.children[i].tileRow;
+					tile['TileColumn'] = tilesContainer.children[i].tileColumn;
 					// Push the tile to the list.
 					// TODO: Prevent sorting.
 					tilesList.push(tile);
