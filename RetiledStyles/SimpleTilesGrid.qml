@@ -54,6 +54,9 @@ Item {
     property int columns: 1
     property int rows: 1
 
+    // Spacing property added by Drew Naylor.
+    property int spacing: 10
+
     onChildrenChanged: updatePreferredSizes()
     onWidthChanged: updatePreferredSizes()
     onHeightChanged: updatePreferredSizes()

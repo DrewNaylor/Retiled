@@ -720,7 +720,7 @@ ApplicationWindow {
 		// https://doc.qt.io/qt-6/qml-qtquick-flow.html
 		// SO example:
 		// https://stackoverflow.com/a/38532138
-		Flow {
+		RetiledStyles.SimpleTilesGrid {
 			id: tilesContainer
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
@@ -743,12 +743,12 @@ ApplicationWindow {
 			// Consult this page for easing options:
 			// https://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html
 			// Made the duration longer and used InOutQuart to make it feel better.
-			move: Transition {
+			//move: Transition {
 				// TODO: Use a simultaneous animation or whatever it is to have things
 				// move at the same time for both.
-				PropertyAnimation { property: "x"; duration: 200; easing.type: Easing.InOutQuart }
-				PropertyAnimation { property: "y"; duration: 200; easing.type: Easing.InOutQuart }
-			}
+			//	PropertyAnimation { property: "x"; duration: 200; easing.type: Easing.InOutQuart }
+			//	PropertyAnimation { property: "y"; duration: 200; easing.type: Easing.InOutQuart }
+			//}
 			
 			// Might use this example since it includes adding and removing stuff if I can figure out how to make
 			// a different one work for the All Apps list:
