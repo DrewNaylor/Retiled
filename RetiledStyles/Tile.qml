@@ -82,6 +82,10 @@ ButtonBase {
 
 	// Property for storing the tile's icon path.
 	property string tileIconPath: ""
+
+	// Store the tile's columnSpan and rowSpan.
+	property int rowSpan: 2
+	property int columnSpan: 2
 	
 	// Add signals for the context menu.
 	property string dotDesktopFilePath;
