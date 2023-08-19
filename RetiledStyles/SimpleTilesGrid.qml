@@ -70,6 +70,8 @@ Item {
             return
         }
 
+        // Set cell height and width to 70, which is what I need.
+        // (Change by Drew Naylor)
         var cellWidth = 70;
         var cellHeight = 70;
         for(var i=0;i<layout.children.length;++i)
