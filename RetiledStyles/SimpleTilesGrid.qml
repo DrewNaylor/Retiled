@@ -104,8 +104,15 @@ Item {
             } else {
                 obj.y = (r * cellHeight) + spacing;
             }
-            obj.height = cs * cellHeight;
-            obj.width = rs * cellWidth;
+
+            // Drew Naylor wrapped this code to handle small tiles.
+            // Also height and width were inverted, so it was fixed.
+            if (cs === 1) {
+                obj.width = cs * cellWidth;
+            } else {
+                obj.width = (cs * cellWidth) + spacing;
+            }
+            obj.height = rs * cellHeight;
         }
 
     }
