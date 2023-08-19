@@ -1069,26 +1069,48 @@ ApplicationWindow {
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
-							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
+							var tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
 							
-							NewTileObject.tileBackgroundColor = accentColor;
+							var tileBackgroundColor = accentColor;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
-							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
+							var useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-							NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
+							var execKey = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
+							var dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the icon path for the new tile.
-							NewTileObject.tileIconPath = getAppIcon.getIcon(NewTileObject.dotDesktopFilePath, iconTheme)
+							var tileIconPath = getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
 
-						NewTileObject.tileSize = ParsedTilesList[i].TileSize;
+						// Variable for columnspan and rowspan.
+						var columnSpan = 2;
+						var rowSpan = 2;
+
+						// Variable for column and row.
+						// TODO: Figure out how to have the TilesGrid
+						// put tiles in specific rows and columns.
+						// This will be used in the save file.
+						// Maybe it'll work now?
+						// Nope, it doesn't work.
+						// TODO: Figure out what's not allowing tiles to
+						// be directly positioned by column and row
+						// in TilesGrid.
+						var column = ParsedTilesList[i].TileColumn
+						var row = ParsedTilesList[i].TileRow
+
+						// Change the column and row if it's too far over.
+						if (column + columnSpan > tilesContainer.columns) {
+							column = 0;
+							row = i + 1;
+						}
+
+						var tileSize = ParsedTilesList[i].TileSize;
 							// Using the tileSize property to set the tile's height and width.
 							// Please note: in the future, we're not going to be setting height
 							// and width, and instead we'll be setting rows and columns
@@ -1101,47 +1123,48 @@ ApplicationWindow {
 							// Actually, maybe it's worse because they don't line up
 							// properly now.
 							// I'm going back to the officially-documented values.
-							if (NewTileObject.tileSize == "small") {
-								NewTileObject.width = 70;
-								NewTileObject.height = 70;
-								NewTileObject.columnSpan = 1;
-								NewTileObject.rowSpan = 1;
-							} else if (NewTileObject.tileSize == "wide") {
-								NewTileObject.width = 310;
-								NewTileObject.height = 150;
-								NewTileObject.columnSpan = 4;
-								NewTileObject.rowSpan = 2;
+							// Now we're setting columnSpan and rowSpan for TilesGrid.
+							if (tileSize == "small") {
+								columnSpan = 1;
+								rowSpan = 1;
+							} else if (tileSize == "wide") {
+								columnSpan = 4;
+								rowSpan = 2;
 							} else {
-								NewTileObject.width = 150;
-								NewTileObject.height = 150;
-								NewTileObject.columnSpan = 2;
-								NewTileObject.rowSpan = 2;
+								columnSpan = 2;
+								rowSpan = 2;
 							}
 
 						// Set tile index for the edit mode.
-							NewTileObject.tileIndex = i
-
-						// Need to do the tile's column and row.
-						NewTileObject.column = ParsedTilesList[i].TileColumn;
-						NewTileObject.row = ParsedTilesList[i].TileRow;
+							var tileIndex = i
 						
 						// Connect clicked signal.
-							NewTileObject.tileClicked.connect(tileClicked);
+							//NewTileObject.tileClicked.connect(tileClicked);
 						
 						// Connect global edit mode toggle.
-							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+							//NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
 						
 						// Connect hideEditModeControlsOnPreviousTile signal.
-							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+							//NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 						
 						// Connect the opacity-setter function.
-							NewTileObject.setTileOpacity.connect(setTileOpacity);
+							//NewTileObject.setTileOpacity.connect(setTileOpacity);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						// Connect decrementing the pinned tiles count signal.
-							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
+
+						// Now we can append the new tile to the loaded tiles list.
+						loadedTilesList.append({tileText: tileText, 
+						tileBackgroundColor: tileBackgroundColor,
+						execKey: execKey, dotDesktopFilePath: dotDesktopFilePath,
+						rowSpan: rowSpan, columnSpan: columnSpan,
+						column: column, row: row,
+						tileIconPath: tileIconPath, tileIndex: tileIndex,
+						tileSize: tileSize});
+
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.
 						timerForceTileIconReload.restart()
