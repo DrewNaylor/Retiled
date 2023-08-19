@@ -112,7 +112,11 @@ Item {
             } else {
                 obj.width = (cs * cellWidth) + spacing;
             }
-            obj.height = rs * cellHeight;
+            if (rs === 1) {
+                obj.height = rs * cellHeight;
+            } else {
+                obj.height = (rs * cellHeight) + spacing;
+            }
         }
 
     }
