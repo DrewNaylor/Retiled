@@ -710,7 +710,11 @@ ApplicationWindow {
 			// the tiles works as a scrollable area.
 			id: tilesPageTopSpacer
 			height: 37
-			
+		}
+
+		ListModel {
+			// Store the currently-loaded tiles here.
+			id: loadedTilesList
 		}
 		
 		// We'll use Flow to get the buttons to wrap
