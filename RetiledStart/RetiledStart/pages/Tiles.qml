@@ -693,6 +693,32 @@ ApplicationWindow {
 			//}
 		}
 
+		RetiledStyles.SimpleTilesGrid {
+			// This code was copied from the same page as I got the simple tiles grid code
+			// from, and it's CC BY-SA 4.0 but I modified it a little to
+			// figure out what's going on. Check SimpleTilesGrid for the links.
+			anchors.fill: parent
+
+			Rectangle {
+        Layout.column: 0
+        Layout.row: 0
+        Layout.columnSpan: 2
+        Layout.rowSpan: 2
+
+        color: "red"
+    }
+
+    Rectangle {
+        Layout.column: 0
+        Layout.row: 1
+        Layout.columnSpan: 2
+        Layout.rowSpan: 4
+
+        color: "blue"
+    }
+
+		}
+
 		RowLayout {
 			
 			Item {
@@ -710,11 +736,7 @@ ApplicationWindow {
 			// the tiles works as a scrollable area.
 			id: tilesPageTopSpacer
 			height: 37
-		}
-
-		ListModel {
-			// Store the currently-loaded tiles here.
-			id: loadedTilesList
+			
 		}
 		
 		// We'll use Flow to get the buttons to wrap
@@ -724,8 +746,12 @@ ApplicationWindow {
 		// https://doc.qt.io/qt-6/qml-qtquick-flow.html
 		// SO example:
 		// https://stackoverflow.com/a/38532138
+
+		
+
 		RetiledStyles.SimpleTilesGrid {
 			id: tilesContainer
+			visible: false
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
 			// We have to do it like this or else the All Apps
@@ -741,42 +767,7 @@ ApplicationWindow {
 			// Set layout to the center.
 			Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 
-			// This is the repeater to load tiles.
-			Repeater {
-				id: tileRepeater
-			delegate: RetiledStyles.Tile {
-                tileText: model.tileText
-            	tileBackgroundColor: model.tileBackgroundColor
-                //useTileBackgroundWallpaper: model.useTileBackgroundWallpaper
-                execKey: model.execKey
-                rowSpan: model.rowSpan
-                columnSpan: model.columnSpan
-				row: model.column
-				column: model.row
-				tileIconPath: model.tileIconPath
-				tileIndex: model.tileIndex
-				tileSize: model.tileSize
-				dotDesktopFilePath: model.dotDesktopFilePath
-				// We can just use Component.onCompleted to connect signals:
-				// https://stackoverflow.com/a/36083276
-				Component.onCompleted: {
-					parent.connectSignals(tileIndex);
-					console.log(tileIndex);
-				}
-            }
-				model: loadedTilesList
-			}
-
-			// Connect the signals in the tilesRepeater.
-			function connectSignals(tileIndex) {
-				// Access the stuff in the repeater directly:
-				// https://stackoverflow.com/a/13272640
-				tileRepeater.itemAt(tileIndex).tileClicked.connect(tileClicked);
-				tileRepeater.itemAt(tileIndex).toggleGlobalEditMode.connect(toggleGlobalEditMode);
-				tileRepeater.itemAt(tileIndex).hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
-				tileRepeater.itemAt(tileIndex).setTileOpacity.connect(setTileOpacity);
-				tileRepeater.itemAt(tileIndex).decrementPinnedTilesCount.connect(checkPinnedTileCount);
-			}	
+			
 			
 			// Add proper transitions when tiles move around based on this example
 			// and also basing the details on the tile resize transition I put into the Tile.qml file:
@@ -1069,48 +1060,26 @@ ApplicationWindow {
 						// Increment the tile count.
 							checkPinnedTileCount(1, true);
 						// Set tile properties.
-							var tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
+							NewTileObject.tileText = allAppsListViewModel.GetDesktopEntryNameKey(ParsedTilesList[i].DotDesktopFilePath);
 							
-							var tileBackgroundColor = accentColor;
+							NewTileObject.tileBackgroundColor = accentColor;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
-							var useTileBackgroundWallpaper = useTileBackgroundWallpaper;
+							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
 						// Doesn't quite work on Windows because the hardcoded tile is trying to read
 						// from /usr/share/applications and can't find Firefox.
 						// Turns out it was trying to run Firefox. Not sure how to stop that.
 						// Actually, I think this involves an event handler:
 						// https://stackoverflow.com/a/22605752
-							var execKey = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.execKey = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the .desktop file path for unpinning or resizing.
-							var dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
+							NewTileObject.dotDesktopFilePath = ParsedTilesList[i].DotDesktopFilePath;
 						
 						// Set the icon path for the new tile.
-							var tileIconPath = getAppIcon.getIcon(dotDesktopFilePath, iconTheme)
+							NewTileObject.tileIconPath = getAppIcon.getIcon(NewTileObject.dotDesktopFilePath, iconTheme)
 
-						// Variable for columnspan and rowspan.
-						var columnSpan = 2;
-						var rowSpan = 2;
-
-						// Variable for column and row.
-						// TODO: Figure out how to have the TilesGrid
-						// put tiles in specific rows and columns.
-						// This will be used in the save file.
-						// Maybe it'll work now?
-						// Nope, it doesn't work.
-						// TODO: Figure out what's not allowing tiles to
-						// be directly positioned by column and row
-						// in TilesGrid.
-						var column = ParsedTilesList[i].TileColumn
-						var row = ParsedTilesList[i].TileRow
-
-						// Change the column and row if it's too far over.
-						if (column + columnSpan > tilesContainer.columns) {
-							column = 0;
-							row = i + 1;
-						}
-
-						var tileSize = ParsedTilesList[i].TileSize;
+						NewTileObject.tileSize = ParsedTilesList[i].TileSize;
 							// Using the tileSize property to set the tile's height and width.
 							// Please note: in the future, we're not going to be setting height
 							// and width, and instead we'll be setting rows and columns
@@ -1123,48 +1092,47 @@ ApplicationWindow {
 							// Actually, maybe it's worse because they don't line up
 							// properly now.
 							// I'm going back to the officially-documented values.
-							// Now we're setting columnSpan and rowSpan for TilesGrid.
-							if (tileSize == "small") {
-								columnSpan = 1;
-								rowSpan = 1;
-							} else if (tileSize == "wide") {
-								columnSpan = 4;
-								rowSpan = 2;
+							if (NewTileObject.tileSize == "small") {
+								NewTileObject.width = 70;
+								NewTileObject.height = 70;
+								NewTileObject.columnSpan = 1;
+								NewTileObject.rowSpan = 1;
+							} else if (NewTileObject.tileSize == "wide") {
+								NewTileObject.width = 310;
+								NewTileObject.height = 150;
+								NewTileObject.columnSpan = 4;
+								NewTileObject.rowSpan = 2;
 							} else {
-								columnSpan = 2;
-								rowSpan = 2;
+								NewTileObject.width = 150;
+								NewTileObject.height = 150;
+								NewTileObject.columnSpan = 2;
+								NewTileObject.rowSpan = 2;
 							}
 
 						// Set tile index for the edit mode.
-							var tileIndex = i
+							NewTileObject.tileIndex = i
+
+						// Need to do the tile's column and row.
+						NewTileObject.column = ParsedTilesList[i].TileColumn;
+						NewTileObject.row = ParsedTilesList[i].TileRow;
 						
 						// Connect clicked signal.
-							//NewTileObject.tileClicked.connect(tileClicked);
+							NewTileObject.tileClicked.connect(tileClicked);
 						
 						// Connect global edit mode toggle.
-							//NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
+							NewTileObject.toggleGlobalEditMode.connect(toggleGlobalEditMode);
 						
 						// Connect hideEditModeControlsOnPreviousTile signal.
-							//NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
+							NewTileObject.hideEditModeControlsOnPreviousTile.connect(hideEditModeControlsOnPreviousTile);
 						
 						// Connect the opacity-setter function.
-							//NewTileObject.setTileOpacity.connect(setTileOpacity);
+							NewTileObject.setTileOpacity.connect(setTileOpacity);
 						
 						// Connect long-press signal.
 						// NewTileObject.pressAndHold.connect(tileLongPressed);
 						
 						// Connect decrementing the pinned tiles count signal.
-							//NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
-
-						// Now we can append the new tile to the loaded tiles list.
-						loadedTilesList.append({tileText: tileText, 
-						tileBackgroundColor: tileBackgroundColor,
-						execKey: execKey, dotDesktopFilePath: dotDesktopFilePath,
-						rowSpan: rowSpan, columnSpan: columnSpan,
-						column: column, row: row,
-						tileIconPath: tileIconPath, tileIndex: tileIndex,
-						tileSize: tileSize});
-
+							NewTileObject.decrementPinnedTilesCount.connect(checkPinnedTileCount);
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.
 						timerForceTileIconReload.restart()

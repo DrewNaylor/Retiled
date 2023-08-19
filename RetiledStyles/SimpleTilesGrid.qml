@@ -70,8 +70,8 @@ Item {
             return
         }
 
-        var cellWidth = layout.width / columns;
-        var cellHeight = layout.height / rows;
+        var cellWidth = 70;
+        var cellHeight = 70;
         for(var i=0;i<layout.children.length;++i)
         {
             var obj = layout.children[i]
