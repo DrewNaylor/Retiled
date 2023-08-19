@@ -51,8 +51,8 @@ import QtQuick.Layouts
 Item {
     id: layout
 
-    property int columns: 1
-    property int rows: 1
+    property int columns: 4
+    property int rows: 20
 
     // Spacing property added by Drew Naylor.
     property int spacing: 10

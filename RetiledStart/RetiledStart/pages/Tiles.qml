@@ -1073,6 +1073,10 @@ ApplicationWindow {
 
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = i
+
+						// Need to do the tile's column and row.
+						NewTileObject.tileColumn = ParsedTilesList[i].TileColumn;
+						NewTileObject.tileRow = ParsedTilesList[i].TileRow;
 						
 						// Connect clicked signal.
 							NewTileObject.tileClicked.connect(tileClicked);
