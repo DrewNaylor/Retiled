@@ -865,7 +865,8 @@ ApplicationWindow {
 							
 							// Force the layout of the tiles list:
 							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
-							tilesContainer.forceLayout();
+							// We don't use this anymore due to not using a Flow.
+							//tilesContainer.forceLayout();
 							
 							// Increment the tile count and go back to the tiles page.
 							checkPinnedTileCount(1, true);
@@ -876,7 +877,8 @@ ApplicationWindow {
 							
 							// Force the layout of the tiles list:
 							// https://doc.qt.io/qt-5/qml-qtquick-flow.html#forceLayout-method
-							tilesContainer.forceLayout();
+							// We don't use this anymore due to not using a Flow.
+							//tilesContainer.forceLayout();
 
 							// Force the tile icons to have their size reset.
 							// HACK/TODO: This could be changed to just be done for
