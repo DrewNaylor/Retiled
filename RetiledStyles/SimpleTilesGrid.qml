@@ -51,10 +51,14 @@ import QtQuick.Layouts
 Item {
     id: layout
 
+    // TODO: Allow column and row count to be changeable.
+    // Drew Naylor changed this from 1 for each to make it simpler.
+    // Still need to set rows dynamically.
     property int columns: 4
     property int rows: 20
 
     // Spacing property added by Drew Naylor.
+    // TODO: Allow spacing to be changeable.
     property int spacing: 10
 
     onChildrenChanged: updatePreferredSizes()
@@ -72,6 +76,7 @@ Item {
 
         // Set cell height and width to 70, which is what I need.
         // (Change by Drew Naylor)
+        // TODO: Allow it to be changeable.
         var cellWidth = 70;
         var cellHeight = 70;
         for(var i=0;i<layout.children.length;++i)
@@ -83,8 +88,19 @@ Item {
             var cs = obj.Layout.columnSpan
             var rs = obj.Layout.rowSpan
 
-            obj.x = c * cellWidth;
-            obj.y = r * cellHeight;
+            // Drew Naylor wrapped this code in an If statement
+            // to allow for spacing when not at column 0.
+            // Same thing for rows.
+            if (c === 0) {
+                obj.x = c * cellWidth;
+            } else {
+                obj.x = (c * cellWidth) + spacing;
+            }
+            if (r === 0) {
+                obj.y = r * cellHeight;
+            } else {
+                obj.y = (r * cellHeight) + spacing;
+            }
             obj.height = cs * cellHeight;
             obj.width = rs * cellWidth;
         }
