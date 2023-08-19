@@ -1063,12 +1063,18 @@ ApplicationWindow {
 							if (NewTileObject.tileSize == "small") {
 								NewTileObject.width = 70;
 								NewTileObject.height = 70;
+								NewTileObject.columnSpan = 1;
+								NewTileObject.rowSpan = 1;
 							} else if (NewTileObject.tileSize == "wide") {
 								NewTileObject.width = 310;
 								NewTileObject.height = 150;
+								NewTileObject.columnSpan = 4;
+								NewTileObject.rowSpan = 2;
 							} else {
 								NewTileObject.width = 150;
 								NewTileObject.height = 150;
+								NewTileObject.columnSpan = 2;
+								NewTileObject.rowSpan = 2;
 							}
 
 						// Set tile index for the edit mode.
