@@ -698,7 +698,7 @@ ApplicationWindow {
 			// from, and it's CC BY-SA 4.0 but I modified it a little to
 			// figure out what's going on. Check SimpleTilesGrid for the links.
 			anchors.fill: parent
-
+			visible: false
 			Rectangle {
         Layout.column: 0
         Layout.row: 0
@@ -788,7 +788,7 @@ ApplicationWindow {
 
 		RetiledStyles.SimpleTilesGrid {
 			id: tilesContainer
-			visible: false
+			visible: true
 			spacing: 10
 			// Make sure the buttons stay in the tiles area.
 			// We have to do it like this or else the All Apps
