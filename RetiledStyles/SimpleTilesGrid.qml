@@ -94,12 +94,12 @@ Item {
             if (c === 0) {
                 obj.x = 0;
             } else {
-                obj.x = (c * cellWidth) + spacing;
+                obj.x = (c * cellWidth) + (spacing * (c));
             }
             if (r === 0) {
                 obj.y = 0;
             } else {
-                obj.y = (r * cellHeight) + spacing;
+                obj.y = (r * cellHeight) + (spacing * (r));
             }
 
             // Drew Naylor wrapped this code to handle small tiles.
@@ -117,7 +117,7 @@ Item {
                 obj.height = (rs * cellHeight) + (spacing * (rs - 1));
             }
 
-            console.log(obj.width);
+            console.log(obj.y);
         }
 
     }
