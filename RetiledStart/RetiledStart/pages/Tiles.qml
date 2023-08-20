@@ -1129,6 +1129,8 @@ ApplicationWindow {
 							// Actually, maybe it's worse because they don't line up
 							// properly now.
 							// I'm going back to the officially-documented values.
+							// The simple tiles grid code requires specifying Layout too,
+							// as that's what it uses to put things where they need to go.
 							if (NewTileObject.tileSize == "small") {
 								NewTileObject.width = 70;
 								NewTileObject.height = 70;
@@ -1150,6 +1152,8 @@ ApplicationWindow {
 							NewTileObject.tileIndex = i
 
 						// Need to do the tile's column and row.
+						// The simple tiles grid code requires specifying Layout too,
+						// as that's what it uses to put things where they need to go.
 						NewTileObject.Layout.column = ParsedTilesList[i].TileColumn;
 						NewTileObject.Layout.row = ParsedTilesList[i].TileRow;
 						
