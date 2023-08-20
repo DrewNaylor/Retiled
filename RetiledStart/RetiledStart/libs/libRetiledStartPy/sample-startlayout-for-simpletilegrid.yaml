@@ -1,0 +1,64 @@
+# This is a sample startlayout changed to work with the simpletilesgrid thing.
+# Note that it starts at 0, so the fourth column is "3".
+# Also you'll need to manually ensure tiles don't overlap each other, as avoidance
+# code isn't implemented yet.
+
+Tiles:
+- DotDesktopFilePath: org.kde.phone.dialer.desktop
+  TileSize: medium
+  TileColumn: 0
+  TileRow: 0
+- DotDesktopFilePath: org.kde.spacebar.desktop
+  TileSize: medium
+  TileColumn: 2
+  TileRow: 0
+- DotDesktopFilePath: org.kde.neochat.desktop
+  TileSize: medium
+  TileColumn: 0
+  TileRow: 2
+- DotDesktopFilePath: org.kde.angelfish.desktop
+  TileSize: small
+  TileColumn: 2
+  TileRow: 2
+- DotDesktopFilePath: org.kde.discover.desktop
+  TileSize: small
+  TileColumn: 3
+  TileRow: 2
+- DotDesktopFilePath: org.kde.phonebook.desktop
+  TileSize: small
+  TileColumn: 2
+  TileRow: 3
+- DotDesktopFilePath: org.kde.index.desktop
+  TileSize: small
+  TileColumn: 3
+  TileRow: 3
+- DotDesktopFilePath: org.kde.koko.desktop
+  TileSize: medium
+  TileColumn: 0
+  TileRow: 7
+- DotDesktopFilePath: org.postmarketos.Megapixels.desktop
+  TileSize: medium
+  TileColumn: 0
+  TileRow: 8
+- DotDesktopFilePath: org.kde.kalk.desktop
+  TileSize: small
+  TileColumn: 0
+  TileRow: 9
+- DotDesktopFilePath: org.kde.mobile.qmlkonsole.desktop
+  TileSize: small
+  TileColumn: 0
+  TileRow: 10
+- DotDesktopFilePath: org.kde.kweather.desktop
+  TileSize: wide
+  TileColumn: 0
+  TileRow: 11
+- DotDesktopFilePath: org.kde.calindori.desktop
+  TileSize: medium
+  TileColumn: 0
+  TileRow: 12
+- DotDesktopFilePath: org.kde.mobile.plasmasettings.desktop
+  TileSize: medium
+  TileColumn: 0
+  TileRow: 13
+StartLayoutSchemaVersion: 0.3
+
