@@ -35,30 +35,32 @@ Tiles:
 - DotDesktopFilePath: org.kde.koko.desktop
   TileSize: medium
   TileColumn: 0
-  TileRow: 7
+  TileRow: 4
 - DotDesktopFilePath: org.postmarketos.Megapixels.desktop
   TileSize: medium
-  TileColumn: 0
-  TileRow: 8
+  TileColumn: 2
+  TileRow: 4
 - DotDesktopFilePath: org.kde.kalk.desktop
   TileSize: small
   TileColumn: 0
-  TileRow: 9
+  TileRow: 6
 - DotDesktopFilePath: org.kde.mobile.qmlkonsole.desktop
   TileSize: small
-  TileColumn: 0
-  TileRow: 10
+  TileColumn: 1
+  TileRow: 6
 - DotDesktopFilePath: org.kde.kweather.desktop
   TileSize: wide
   TileColumn: 0
-  TileRow: 11
+  TileRow: 7
 - DotDesktopFilePath: org.kde.calindori.desktop
   TileSize: medium
   TileColumn: 0
-  TileRow: 12
+  TileRow: 9
+# For some reason, this last one doesn't show up until the window is resized.
+# FIXME whatever is causing it.
 - DotDesktopFilePath: org.kde.mobile.plasmasettings.desktop
   TileSize: medium
-  TileColumn: 0
-  TileRow: 13
+  TileColumn: 2
+  TileRow: 9
 StartLayoutSchemaVersion: 0.3
 
