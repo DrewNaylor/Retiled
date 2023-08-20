@@ -705,7 +705,7 @@ ApplicationWindow {
         Layout.columnSpan: 2
         Layout.rowSpan: 2
 		Label {
-			text: width
+			text: parent.width
 		}
         color: "red"
     }
@@ -716,7 +716,7 @@ ApplicationWindow {
         Layout.columnSpan: 4
         Layout.rowSpan: 2
 		Label {
-			text: width
+			text: parent.width
 		}
         color: "blue"
     }
