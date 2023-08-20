@@ -889,6 +889,9 @@ ApplicationWindow {
 							// it just needs more spacing on the left side.
 							NewTileObject.width = 150;
 							NewTileObject.height = 150;
+							// Also do the columnSpan and rowSpan.
+							NewTileObject.Layout.columnSpan = 2;
+							NewTileObject.Layout.rowSpan = 2;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
 							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
