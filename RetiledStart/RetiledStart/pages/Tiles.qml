@@ -1132,26 +1132,26 @@ ApplicationWindow {
 							if (NewTileObject.tileSize == "small") {
 								NewTileObject.width = 70;
 								NewTileObject.height = 70;
-								NewTileObject.columnSpan = 1;
-								NewTileObject.rowSpan = 1;
+								NewTileObject.Layout.columnSpan = 1;
+								NewTileObject.Layout.rowSpan = 1;
 							} else if (NewTileObject.tileSize == "wide") {
 								NewTileObject.width = 310;
 								NewTileObject.height = 150;
-								NewTileObject.columnSpan = 4;
-								NewTileObject.rowSpan = 2;
+								NewTileObject.Layout.columnSpan = 4;
+								NewTileObject.Layout.rowSpan = 2;
 							} else {
 								NewTileObject.width = 150;
 								NewTileObject.height = 150;
-								NewTileObject.columnSpan = 2;
-								NewTileObject.rowSpan = 2;
+								NewTileObject.Layout.columnSpan = 2;
+								NewTileObject.Layout.rowSpan = 2;
 							}
 
 						// Set tile index for the edit mode.
 							NewTileObject.tileIndex = i
 
 						// Need to do the tile's column and row.
-						NewTileObject.column = ParsedTilesList[i].TileColumn;
-						NewTileObject.row = ParsedTilesList[i].TileRow;
+						NewTileObject.Layout.column = ParsedTilesList[i].TileColumn;
+						NewTileObject.Layout.row = ParsedTilesList[i].TileRow;
 						
 						// Connect clicked signal.
 							NewTileObject.tileClicked.connect(tileClicked);

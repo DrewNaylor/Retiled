@@ -43,6 +43,8 @@
 import "."
 import QtQuick
 import QtQuick.Controls
+// We also need QtQuick.Layouts for the simple tiles grid.
+import QtQuick.Layouts
 
 ButtonBase {
 	// We need to change things to make it into a tile.
