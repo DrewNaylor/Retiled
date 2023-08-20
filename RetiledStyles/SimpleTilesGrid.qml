@@ -88,9 +88,6 @@ Item {
             var cs = obj.Layout.columnSpan
             var rs = obj.Layout.rowSpan
 
-            console.log(obj.color);
-            console.log(obj.Layout.column);
-
             // Drew Naylor wrapped this code in an If statement
             // to allow for spacing when not at column 0.
             // Same thing for rows.
@@ -107,16 +104,20 @@ Item {
 
             // Drew Naylor wrapped this code to handle small tiles.
             // Also height and width were inverted, so it was fixed.
+            // Have to also multiply spacing by the after subtracting 1
+            // from the spans so that the tiles end up the right size.
             if (cs === 1) {
                 obj.width = cs * cellWidth;
             } else {
-                obj.width = (cs * cellWidth) + spacing;
+                obj.width = (cs * cellWidth) + (spacing * (cs - 1));
             }
             if (rs === 1) {
                 obj.height = rs * cellHeight;
             } else {
-                obj.height = (rs * cellHeight) + spacing;
+                obj.height = (rs * cellHeight) + (spacing * (rs - 1));
             }
+
+            console.log(obj.width);
         }
 
     }
