@@ -705,7 +705,18 @@ ApplicationWindow {
         Layout.columnSpan: 2
         Layout.rowSpan: 2
 		Label {
-			text: parent.y
+			text: parent.x
+		}
+        color: "red"
+    }
+
+	Rectangle {
+        Layout.column: 2
+        Layout.row: 0
+        Layout.columnSpan: 2
+        Layout.rowSpan: 2
+		Label {
+			text: parent.x
 		}
         color: "red"
     }
@@ -713,6 +724,28 @@ ApplicationWindow {
     Rectangle {
         Layout.column: 0
         Layout.row: 2
+        Layout.columnSpan: 4
+        Layout.rowSpan: 2
+		Label {
+			text: parent.y
+		}
+        color: "blue"
+    }
+
+	Rectangle {
+        Layout.column: 0
+        Layout.row: 4
+        Layout.columnSpan: 4
+        Layout.rowSpan: 2
+		Label {
+			text: parent.y
+		}
+        color: "blue"
+    }
+
+	Rectangle {
+        Layout.column: 0
+        Layout.row: 6
         Layout.columnSpan: 4
         Layout.rowSpan: 2
 		Label {
