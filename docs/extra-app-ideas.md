@@ -14,3 +14,6 @@ Also, be sure to check the sticky notes archive, as there are way more applicati
   - Note: Each page gets its data from a different command.
   - The way I'll do it is there will be a main page as just a list of the available pages, and tapping an item gets you a page like the original version's tabs at the bottom. Or maybe I could do a Panorama with tiles for each page like Hardware Tests. I can't do Pivots because there are too many tabs to go through.
   - I've forked the original repo here for archival and I'll probably add my own files to it so it's all contained: https://github.com/DrewNaylor/inspector
+- Untitled RSS Reader app
+  - The main sources will be like distro update news, so postmarketOS edge breaking changes for example. There will also be other sources by default for distros in general so Linux Mobile users can keep up to date with what's going on in the space, and probably LinMob would be a nice source as well. Different distros will be different sources, and the ones like the pmOS edge breaking changes will hopefully be a separate feed if possible.
+  - There would be a Live Tile so news headlines can be shown without having to open up the app.
