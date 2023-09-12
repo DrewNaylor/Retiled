@@ -10,7 +10,7 @@ An attempt at creating a "desktop" environment mainly for Linux phones and table
 
 Development is mainly being done using the PinePhone, so that'll be the main supported device (with support for other devices planned, but not as the main focus because I want to ensure it runs reasonably well on the PinePhone, thereby ensuring it should run way better on devices with better specs; proper support for other devices like hardware stuff and notch support will be added, though). It's still in early development as I don't really know what I'm doing with Python and Qt/QML/PySide6 which means development goes a little slowly, but I'm learning.
 
-Guess you could say it's "Something to fill the Live Tile-shaped hole in your heart", but it's not anywhere near ready yet.
+Guess you could say it's "Something to fill the Live Tile-shaped hole in your heart", but it's not anywhere near ready yet. Here's a tagline (?) I figured out, in addition to what's in the last sentence: "Together, we resolved to forge a new way of life here on *nix, come what may. This was our beautiful lie to ourselves... (orchestral music goes dooo da dooo in the background)"
 
 > **PSA:** As of April 13, 2023, pyyaml has been **removed** from my distributed files, so if it's not already installed, **you'll have to install it yourself**. Please refer to the **"Required extra packages"** section below to know which package to use depending on your distro. If you're not sure, you should be able to find it by searching for "pyyaml" via your package manager.
 
