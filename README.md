@@ -12,10 +12,6 @@ Development is mainly being done using the PinePhone, so that'll be the main sup
 
 Guess you could say it's "Something to fill the Live Tile-shaped hole in your heart", but it's not anywhere near ready yet. Here's a tagline (?) I figured out, in addition to what's in the last sentence: "Together, we resolved to forge a new way of life here on *nix, come what may. This was our beautiful lie to ourselves... (orchestral music goes dooo da dooo in the background)"
 
-> **PSA:** As of April 13, 2023, pyyaml has been **removed** from my distributed files, so if it's not already installed, **you'll have to install it yourself**. Please refer to the **"Required extra packages"** section below to know which package to use depending on your distro. If you're not sure, you should be able to find it by searching for "pyyaml" via your package manager.
-
-> **Please note:** as of January 18, 2023, I would recommend installing from the `main` branch instead of downloading the v0.1-DP1 release package due to bugs that only appeared well after it was released that I think are a result of changes in Qt. The only drawback to this is that extra, unneeded files may be pulled in that would otherwise be taken care of in a proper release. There are instructions available below, but you'd use the same install script anyway so it's not too bad. Once v0.1 DP2 is released, this message will be removed.
-
 So far, it's been tested on Manjaro Plasma Mobile and postmarketOS (with Plasma Mobile), but I also want to support more distros like NixOS (I like its philosophy), Mobian, and openSUSE, as a few examples (but not limited to these). I'd also like to support operating systems besides Linux such as FreeBSD if possible.
 
 > Note: I'm thinking about just forking Plasma Mobile instead of writing my own compositor, so I will need to relicense the code under the Apache License, 2.0 (except libdotdesktop_py; that'll be MIT Licensed) that is Copyright (C) Drew Naylor, to be under the GPLv3+, or the most compatible license depending on the file. Below is a statement in detail:<br>
