@@ -309,8 +309,9 @@ ButtonBase {
 					// Move the tiles below ours down a row according to our rowSpan.
 					// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
 					// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
-					// We need an Or here so tiles go back up if possible.
-					//tilesContainer.children[i].Layout.row += control.Layout.rowSpan;
+					// We need an if/else here so tiles go back up if possible, but I can't figure out what I need.
+					// TODO: figure out a good if/else here.
+					tilesContainer.children[i].Layout.row += tilesContainer.children[i - 1].Layout.rowSpan;
 				} // End of for loop ensuring we don't overlap any tiles near us.	
 				} // End of if statement checking if we'd overlap tiles.
 			
