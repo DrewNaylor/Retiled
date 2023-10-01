@@ -688,11 +688,11 @@ ApplicationWindow {
 			// This allows the user to tap anywhere inside the tiles
 			// area's background to leave edit mode.
 			width: window.width
-			// HACK: Might be kinda a hack to add the window's height to the tilePageContentHolder's
-			// height, but at least it's a more reliable way to ensure the MouseArea
+			// HACK: Might be kinda a hack to add the window's height to the tilesFlickable's
+			// contentHeight, but at least it's a more reliable way to ensure the MouseArea
 			// to allow exiting edit mode fills the area properly.
 			// TODO: figure out a non-hacky way to do this.
-			height: window.height + tilesFlickable.height
+			height: window.height + tilesFlickable.contentHeight
 			// Rectangle {
 			//  // Rectangle for testing, if you need to uncomment this.
 			// 	color: "green"
