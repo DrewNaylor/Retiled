@@ -973,6 +973,11 @@ ApplicationWindow {
 							// newly-pinned tiles.
 							forceResizeTilesForIcons(false);
 							forceResizeTilesForIcons(true);
+
+							// Ensure the tilesContainer's tiles are all positioned correctly.
+							// This is required to have the last tile in the config file
+							// be in the correct spot without having to resize the window.
+							tilesContainer.updatePreferredSizes();
 							
 				}
 				
@@ -1196,6 +1201,11 @@ ApplicationWindow {
 						// HACK: Force tile icon sizes to be reset
 						// to get QtQuick to reload the icons so they're not blurry.
 						timerForceTileIconReload.restart()
+						
+						// Ensure the tilesContainer's tiles are all positioned correctly.
+						// This is required to have the last tile in the config file
+						// be in the correct spot without having to resize the window.
+						tilesContainer.updatePreferredSizes();
 						//} // End of If statement to ensure things are ready.
 						
 						} // End of For loop that loads the tiles.
