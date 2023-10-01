@@ -298,13 +298,14 @@ ButtonBase {
 				// Move the tiles below ours down a row according to our rowSpan.
 				// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
 				// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
+				// We need an Or here so tiles go back up if possible.
 				if ((tilesContainer.children[i].Layout.column <= tilesContainer.children[i - 1].Layout.column + tilesContainer.children[i - 1].Layout.columnSpan) ||
 				 (tilesContainer.children[i].Layout.row <= tilesContainer.children[i - 1].Layout.row + tilesContainer.children[i - 1].Layout.rowSpan)) {
 					// Add the previous row and rowspan to the current item.
 					tilesContainer.children[i].Layout.row = tilesContainer.children[i - 1].Layout.rowSpan + tilesContainer.children[i - 1].Layout.row;
 
 				} else {
-					//tilesContainer.children[i].Layout.row -= tilesContainer.children[i - 1].Layout.rowSpan;
+					//tilesContainer.children[i].Layout.row = tilesContainer.children[i - 1].Layout.row - tilesContainer.children[i - 1].Layout.rowSpan;
 				}
 			} // End of for loop ensuring we don't overlap any tiles near us.
 			tilesContainer.updatePreferredSizes();
