@@ -653,8 +653,8 @@ ApplicationWindow {
 		// Get the last pinned tile (have to subtract 1 due to how the index counts)
 		// so we can grab its y-value and add its height multiplied by 2 so the
 		// Flickable can be scrolled.
-		// TODO: Fix the last tile being over the first tile when started until
-		// the window is resized and whenever a tile is newly pinned.
+		// TODO: Ensure the flickable can be scrolled properly when tiles are unpinned.
+		// The problem here is that empty rows are not removed/tiles aren't moved up.
 		contentHeight: tilesContainer.children[pinnedTilesCount - 1].y + tilesContainer.children[pinnedTilesCount - 1].height * 2
 		// Very important: Lock the flickable to vertical.
 		// I noticed this when I was just trying to find
