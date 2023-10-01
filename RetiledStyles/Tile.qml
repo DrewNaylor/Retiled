@@ -279,6 +279,23 @@ ButtonBase {
 					// have any way to test it as far as I know.
 					clicked()
     			}
+
+		function overlappingTileRepositioning() {
+			if ((control.Layout.columnSpan + control.Layout.column > tilesContainer.columns - 1)) {
+				console.log("test");
+				// We still need to have code for moving our tile around, so this is commented out for now.
+				//tilesContainer.children[control.tileIndex].Layout.row += 1;
+								// Go through all the pinned tiles after the one we're resizing and check
+								// if they would overlap our tile (still have to see if they'd overlap).
+								for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
+									// Move the tiles below ours down a row according to our rowSpan.
+									console.log(tilesContainer.children[i].tileText);
+									tilesContainer.children[i].Layout.row += control.Layout.rowSpan;
+									
+								} // End of for loop ensuring we don't overlap any tiles near us.
+								tilesContainer.updatePreferredSizes();
+							} // End of if statement checking if we'd overlap tiles.
+		}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
 			// TODO: Figure out how to make it so that tapping any other
@@ -300,6 +317,10 @@ ButtonBase {
 			rotationBehavior.enabled = true;
 			tileResizeHeightBehavior.enabled = true;
 			tileResizeWidthBehavior.enabled = true;
+			// TODO/HACK: Ensure tiles pop in and out of spaces if they have or don't
+			// have enough room when resizing them. Right now what I'm doing
+			// should work, but it's reliant on tilesContainer existing and
+			// currently only works to move tiles after ours.
 			if (tileSize == "medium") {
 				// If button is medium, resize to small.
 				control.width = 70;
@@ -336,6 +357,7 @@ ButtonBase {
 				// in case.
 				control.width = 150;
 				control.height = 150;
+				
 				control.Layout.columnSpan = 2;
 				control.Layout.rowSpan = 2;
 				tileSize = "medium";
@@ -344,6 +366,7 @@ ButtonBase {
 				// We're changing it to -135 so it points in the top-left.
 				resizeButton.rotation = -135;
 			}
+			overlappingTileRepositioning();
 		}
 		
 		// Add behavior for resize button rotation, at least.
