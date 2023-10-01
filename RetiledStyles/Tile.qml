@@ -290,16 +290,24 @@ ButtonBase {
 				control.Layout.row += 1;
 				// We still need to have code for moving our tile around, so this is commented out for now.
 				//tilesContainer.children[control.tileIndex].Layout.row += 1;
-								// Go through all the pinned tiles after the one we're resizing and check
-								// if they would overlap our tile (still have to see if they'd overlap).
-								for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
-									// Move the tiles below ours down a row according to our rowSpan.
-									//console.log(tilesContainer.children[i].tileText);
-									tilesContainer.children[i].Layout.row += control.Layout.rowSpan;
-									
-								} // End of for loop ensuring we don't overlap any tiles near us.
-								tilesContainer.updatePreferredSizes();
-							} // End of if statement checking if we'd overlap tiles.
+								
+			} // End of if statement checking if we'd overlap tiles.
+			// Go through all the pinned tiles after the one we're resizing and check
+			// if they would overlap our tile (still have to see if they'd overlap).
+			for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
+				// Move the tiles below ours down a row according to our rowSpan.
+				// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
+				// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
+				if ((tilesContainer.children[i].Layout.column <= tilesContainer.children[i - 1].Layout.column + tilesContainer.children[i - 1].Layout.columnSpan) ||
+				 (tilesContainer.children[i].Layout.row <= tilesContainer.children[i - 1].Layout.row + tilesContainer.children[i - 1].Layout.rowSpan)) {
+					// Add the previous row and rowspan to the current item.
+					tilesContainer.children[i].Layout.row = tMailesContainer.children[i - 1].Layout.rowSpan + tilesContainer.children[i - 1].Layout.row;
+
+				} else {
+					//tilesContainer.children[i].Layout.row -= tilesContainer.children[i - 1].Layout.rowSpan;
+				}
+			} // End of for loop ensuring we don't overlap any tiles near us.
+			tilesContainer.updatePreferredSizes();
 		}
 		onClicked: {
 			// Reset the z-index for the tile and hide the buttons.
