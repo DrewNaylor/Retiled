@@ -310,11 +310,14 @@ ButtonBase {
 					// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
 					// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
 					// We need an if/else here so tiles go back up if possible, but I can't figure out what I need.
-					// TODO: figure out a good if/else here.
+					// TODO: figure out a good if/else here. I genuinely don't know what
+					// should be used for this, sadly. I had some other code I tried that can be found in the git diffs,
+					// but it never ended up working.
 					tilesContainer.children[i].Layout.row += tilesContainer.children[i - 1].Layout.rowSpan;
 				} // End of for loop ensuring we don't overlap any tiles near us.	
 				} // End of if statement checking if we'd overlap tiles.
 			
+			// Commit the new sizes to the thing.
 			tilesContainer.updatePreferredSizes();
 		}
 		onClicked: {
