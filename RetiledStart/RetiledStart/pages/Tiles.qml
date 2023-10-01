@@ -650,7 +650,12 @@ ApplicationWindow {
 		// Trying to go from this:
 		// https://stackoverflow.com/a/8902014
 		contentWidth: tilePageContentHolder.width
-		contentHeight: tilePageContentHolder.height
+		// Get the last pinned tile (have to subtract 1 due to how the index counts)
+		// so we can grab its y-value and add its height multiplied by 2 so the
+		// Flickable can be scrolled.
+		// TODO: Fix the last tile being over the first tile when started until
+		// the window is resized and whenever a tile is newly pinned.
+		contentHeight: tilesContainer.children[pinnedTilesCount - 1].y + tilesContainer.children[pinnedTilesCount - 1].height * 2
 		// Very important: Lock the flickable to vertical.
 		// I noticed this when I was just trying to find
 		// a way to disengage the flickable if the user

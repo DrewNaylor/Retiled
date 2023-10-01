@@ -55,7 +55,7 @@ Item {
     // Drew Naylor changed this from 1 for each to make it simpler.
     // Still need to set rows dynamically.
     property int columns: 4
-    property int rows: 20
+    property int rows: 10
 
     // Spacing property added by Drew Naylor.
     // TODO: Allow spacing to be changeable.
@@ -117,7 +117,7 @@ Item {
                 obj.height = (rs * cellHeight) + (spacing * (rs - 1));
             }
 
-            console.log(obj.y);
+            console.log("row: " + r + " column: " + c + " dotDesktopFilePath: " + obj.dotDesktopFilePath);
         }
 
     }
