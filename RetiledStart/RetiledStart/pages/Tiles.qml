@@ -921,7 +921,25 @@ ApplicationWindow {
 								NewTileObject.Layout.column = tilesContainer.children[pinnedTilesCount - 1].Layout.column + tilesContainer.children[pinnedTilesCount - 1].Layout.columnSpan;
 								NewTileObject.Layout.row = tilesContainer.children[pinnedTilesCount - 1].Layout.row;
 							}
-							
+
+							if ((NewTileObject.Layout.column === 0 && NewTileObject.Layout.row > 0)) {
+								// Go through all the pinned tiles and make sure their row is the one
+								// above us, then see what the rowSpan is and change ours accordingly
+								// if there is a rowSpan taller than 1.
+								for (var i = 0; i < tilesContainer.children.length; i++) {
+									if ((tilesContainer.children[i].Layout.row === NewTileObject.Layout.row - 1) &&
+									tilesContainer.children[i].Layout.rowSpan > 1) {
+									// Increase our new tile's row accordingly.
+									// Seems to mostly work, sometimes breaks for some reason, though.
+									// If it breaks, it will put the new tile one space down and one
+									// space to the right. Not sure why, but at least it doesn't overlap
+									// when there's a medium tile to the left of a small tile.
+									// TODO: Check if it's supposed to have the next tile go underneath
+									// the small tile or column 0.
+									NewTileObject.Layout.row += 1;
+									} // End of If statement checking if we're looking at the row above us.
+								} // End of for loop ensuring we don't overlap any tiles above us.
+							} // End of if statement checking if we're at column 0 and in a row above 0.
 							
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
