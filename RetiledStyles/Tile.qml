@@ -281,15 +281,20 @@ ButtonBase {
     			}
 
 		function overlappingTileRepositioning() {
-			if ((control.Layout.columnSpan + control.Layout.column > tilesContainer.columns - 1)) {
-				console.log("test");
+			// Subtract 1 from the column because it's zero-indexed.
+			if ((control.Layout.columnSpan + control.Layout.column - 1 > tilesContainer.columns - 1)) {
+				// Move the tile to fit.
+				console.log(control.Layout.columnSpan + control.Layout.column);
+				control.Layout.column = 0;
+				// NOTE: We need to check the row above us here so we're spaced correctly. (TODO)
+				control.Layout.row += 1;
 				// We still need to have code for moving our tile around, so this is commented out for now.
 				//tilesContainer.children[control.tileIndex].Layout.row += 1;
 								// Go through all the pinned tiles after the one we're resizing and check
 								// if they would overlap our tile (still have to see if they'd overlap).
 								for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
 									// Move the tiles below ours down a row according to our rowSpan.
-									console.log(tilesContainer.children[i].tileText);
+									//console.log(tilesContainer.children[i].tileText);
 									tilesContainer.children[i].Layout.row += control.Layout.rowSpan;
 									
 								} // End of for loop ensuring we don't overlap any tiles near us.
