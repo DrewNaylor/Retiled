@@ -301,7 +301,7 @@ ButtonBase {
 				if ((tilesContainer.children[i].Layout.column <= tilesContainer.children[i - 1].Layout.column + tilesContainer.children[i - 1].Layout.columnSpan) ||
 				 (tilesContainer.children[i].Layout.row <= tilesContainer.children[i - 1].Layout.row + tilesContainer.children[i - 1].Layout.rowSpan)) {
 					// Add the previous row and rowspan to the current item.
-					tilesContainer.children[i].Layout.row = tMailesContainer.children[i - 1].Layout.rowSpan + tilesContainer.children[i - 1].Layout.row;
+					tilesContainer.children[i].Layout.row = tilesContainer.children[i - 1].Layout.rowSpan + tilesContainer.children[i - 1].Layout.row;
 
 				} else {
 					//tilesContainer.children[i].Layout.row -= tilesContainer.children[i - 1].Layout.rowSpan;
