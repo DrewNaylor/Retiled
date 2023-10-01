@@ -903,11 +903,21 @@ ApplicationWindow {
 							// We have to use .Layout.row/.Layout.column for this or
 							// it'll return 0 when getting the values from
 							// the currently-pinned tiles.
-							// TODO: Calculate the closest position that doesn't
-							// overlap the last tile without going too far.
-							// Should be easy-ish.
+							// 
+							// Check if the column of the last tile in the list
+							// added to its column span plus 2 for the new tile ends up being greater than the
+							// number of columns in the tilesContainer minus 1 (we're using zero-based indexing)
+							// and if so, set the new tile to column 0.
+							// TODO: We need to check to ensure tiles before the last one aren't
+							// going to overlap the new tile, too. That's for later.
+							if ((tilesContainer.children[pinnedTilesCount - 1].Layout.column + 
+							tilesContainer.children[pinnedTilesCount - 1].Layout.columnSpan + 2) > tilesContainer.columns - 1) {
+								NewTileObject.Layout.column = 0;
+							} else {
+								NewTileObject.Layout.column = tilesContainer.children[pinnedTilesCount - 1].Layout.column + tilesContainer.children[pinnedTilesCount - 1].Layout.columnSpan;
+							}
 							NewTileObject.Layout.row = tilesContainer.children[pinnedTilesCount - 1].Layout.row;
-							NewTileObject.Layout.column = tilesContainer.children[pinnedTilesCount - 1].Layout.column;
+							
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
 							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
