@@ -117,7 +117,7 @@ Item {
                 obj.height = (rs * cellHeight) + (spacing * (rs - 1));
             }
 
-            console.log("row: " + r + " column: " + c + " dotDesktopFilePath: " + obj.dotDesktopFilePath);
+            //console.log("row: " + r + " column: " + c + " dotDesktopFilePath: " + obj.dotDesktopFilePath);
         }
 
     }

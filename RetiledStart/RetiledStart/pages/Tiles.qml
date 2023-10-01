@@ -899,6 +899,15 @@ ApplicationWindow {
 							// Also do the columnSpan and rowSpan.
 							NewTileObject.Layout.columnSpan = 2;
 							NewTileObject.Layout.rowSpan = 2;
+							// Set the tile's column and row.
+							// We have to use .Layout.row/.Layout.column for this or
+							// it'll return 0 when getting the values from
+							// the currently-pinned tiles.
+							// TODO: Calculate the closest position that doesn't
+							// overlap the last tile without going too far.
+							// Should be easy-ish.
+							NewTileObject.Layout.row = tilesContainer.children[pinnedTilesCount - 1].Layout.row;
+							NewTileObject.Layout.column = tilesContainer.children[pinnedTilesCount - 1].Layout.column;
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
 							NewTileObject.useTileBackgroundWallpaper = useTileBackgroundWallpaper;
