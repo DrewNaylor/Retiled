@@ -117,6 +117,7 @@ Item {
                 obj.height = (rs * cellHeight) + (spacing * (rs - 1));
             }
 
+            // Debug line by Drew Naylor.
             //console.log("row: " + r + " column: " + c + " dotDesktopFilePath: " + obj.dotDesktopFilePath);
         }
 
