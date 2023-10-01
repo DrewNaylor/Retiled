@@ -286,28 +286,34 @@ ButtonBase {
 				// Move the tile to fit.
 				console.log(control.Layout.columnSpan + control.Layout.column);
 				control.Layout.column = 0;
-				// NOTE: We need to check the row above us here so we're spaced correctly. (TODO)
 				control.Layout.row += 1;
+				// NOTE: We need to check the row above us here so we're spaced correctly. (TODO)
+				for (var i = 0; i < tilesContainer.children.length; i++) {
+					if ((tilesContainer.children[i].Layout.row === control.Layout.row - 1) &&
+					tilesContainer.children[i].Layout.rowSpan > 1) {
+					// Increase our new tile's row accordingly.
+					// Seems to mostly work, sometimes breaks for some reason, though.
+					// If it breaks, it will put the new tile one space down and one
+					// space to the right. Not sure why, but at least it doesn't overlap
+					// when there's a medium tile to the left of a small tile.
+					// TODO: Check if it's supposed to have the next tile go underneath
+					// the small tile or column 0.
+					control.Layout.row += 1;
+					} // End of If statement checking if we're looking at the row above us.
+				}
 				// We still need to have code for moving our tile around, so this is commented out for now.
 				//tilesContainer.children[control.tileIndex].Layout.row += 1;
-								
-			} // End of if statement checking if we'd overlap tiles.
-			// Go through all the pinned tiles after the one we're resizing and check
-			// if they would overlap our tile (still have to see if they'd overlap).
-			for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
-				// Move the tiles below ours down a row according to our rowSpan.
-				// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
-				// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
-				// We need an Or here so tiles go back up if possible.
-				if ((tilesContainer.children[i].Layout.column <= tilesContainer.children[i - 1].Layout.column + tilesContainer.children[i - 1].Layout.columnSpan) ||
-				 (tilesContainer.children[i].Layout.row <= tilesContainer.children[i - 1].Layout.row + tilesContainer.children[i - 1].Layout.rowSpan)) {
-					// Add the previous row and rowspan to the current item.
-					tilesContainer.children[i].Layout.row = tilesContainer.children[i - 1].Layout.rowSpan + tilesContainer.children[i - 1].Layout.row;
-
-				} else {
-					//tilesContainer.children[i].Layout.row = tilesContainer.children[i - 1].Layout.row - tilesContainer.children[i - 1].Layout.rowSpan;
-				}
-			} // End of for loop ensuring we don't overlap any tiles near us.
+				// Go through all the pinned tiles after the one we're resizing and check
+				// if they would overlap our tile (still have to see if they'd overlap).
+				for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
+					// Move the tiles below ours down a row according to our rowSpan.
+					// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
+					// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
+					// We need an Or here so tiles go back up if possible.
+					//tilesContainer.children[i].Layout.row += control.Layout.rowSpan;
+				} // End of for loop ensuring we don't overlap any tiles near us.	
+				} // End of if statement checking if we'd overlap tiles.
+			
 			tilesContainer.updatePreferredSizes();
 		}
 		onClicked: {
