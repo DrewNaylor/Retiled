@@ -913,8 +913,11 @@ ApplicationWindow {
 							// in the list if it will fit.
 							// TODO: We need to check to ensure tiles before the last one aren't
 							// going to overlap the new tile, too. That's for later.
+							// We also need to ensure that wide tiles don't allow tiles to be pinned
+							// outside the intended area.
 							if ((tilesContainer.children[pinnedTilesCount - 1].Layout.column + 
-							NewTileObject.Layout.columnSpan) > tilesContainer.columns - 1) {
+							NewTileObject.Layout.columnSpan) > tilesContainer.columns - 1 ||
+							(tilesContainer.children[pinnedTilesCount - 1].Layout.columnSpan === tilesContainer.columns)) {
 								NewTileObject.Layout.column = 0;
 								NewTileObject.Layout.row = tilesContainer.children[pinnedTilesCount - 1].Layout.row + tilesContainer.children[pinnedTilesCount - 1].Layout.rowSpan;
 							} else {
