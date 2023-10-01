@@ -692,12 +692,12 @@ ApplicationWindow {
 			// height, but at least it's a more reliable way to ensure the MouseArea
 			// to allow exiting edit mode fills the area properly.
 			// TODO: figure out a non-hacky way to do this.
-			height: window.height + tilePageContentHolder.height
-			//Rectangle {
+			height: window.height + tilesFlickable.height
+			// Rectangle {
 			//  // Rectangle for testing, if you need to uncomment this.
-			//	color: "green"
-			//	anchors.fill: parent
-			//}
+			// 	color: "green"
+			// 	anchors.fill: parent
+			// }
 		}
 
 		RetiledStyles.SimpleTilesGrid {
