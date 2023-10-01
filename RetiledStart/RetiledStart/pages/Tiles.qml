@@ -905,18 +905,23 @@ ApplicationWindow {
 							// the currently-pinned tiles.
 							// 
 							// Check if the column of the last tile in the list
-							// added to its column span plus 2 for the new tile ends up being greater than the
+							// added to the new tile object's column span ends up being greater than the
 							// number of columns in the tilesContainer minus 1 (we're using zero-based indexing)
 							// and if so, set the new tile to column 0.
+							// For rows, we will either use the rowSpan added to the row of the last tile
+							// if the tile won't fit in the column, or we just put it on the same row as the last tile
+							// in the list if it will fit.
 							// TODO: We need to check to ensure tiles before the last one aren't
 							// going to overlap the new tile, too. That's for later.
 							if ((tilesContainer.children[pinnedTilesCount - 1].Layout.column + 
-							tilesContainer.children[pinnedTilesCount - 1].Layout.columnSpan + 2) > tilesContainer.columns - 1) {
+							NewTileObject.Layout.columnSpan) > tilesContainer.columns - 1) {
 								NewTileObject.Layout.column = 0;
+								NewTileObject.Layout.row = tilesContainer.children[pinnedTilesCount - 1].Layout.row + tilesContainer.children[pinnedTilesCount - 1].Layout.rowSpan;
 							} else {
 								NewTileObject.Layout.column = tilesContainer.children[pinnedTilesCount - 1].Layout.column + tilesContainer.children[pinnedTilesCount - 1].Layout.columnSpan;
+								NewTileObject.Layout.row = tilesContainer.children[pinnedTilesCount - 1].Layout.row;
 							}
-							NewTileObject.Layout.row = tilesContainer.children[pinnedTilesCount - 1].Layout.row;
+							
 							
 							// Set the boolean to use the tile background wallpaper on this tile,
 							// according to the user's choices in the config file.
