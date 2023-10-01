@@ -1011,6 +1011,10 @@ ApplicationWindow {
 							// This is required to have the last tile in the config file
 							// be in the correct spot without having to resize the window.
 							tilesContainer.updatePreferredSizes();
+
+							// Go to the bottom of the flickable.
+							tilesFlickable.contentY = tilesContainer.children[pinnedTilesCount - 1].y;
+							tilesFlickable.returnToBounds();
 							
 				}
 				
