@@ -215,6 +215,11 @@ ButtonBase {
 
 	function unpinDefragTiles() {
 		// We can defrag the tiles, so do so.
+		for (var i = control.tileIndex; i < tilesContainer.children.length; i++) {
+			if (tilesContainer.children[i].Layout.row > control.Layout.row) {
+				tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
+			}
+		}
 
 		// Commit the new sizes to the thing.
 		tilesContainer.updatePreferredSizes();
