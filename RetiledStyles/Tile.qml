@@ -169,21 +169,13 @@ ButtonBase {
 	property string unpinIconUnpressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconUnpressed", "unpin_white")
 	
 	function unpinCanDefragTiles() {
-	// 		// Put tiles back together when unpinning them.
+	// Put tiles back together when unpinning them.
 	// TODO: Figure out how to make this work for the case where no tiles are in a row
 	// and we can move them up toward the rest of them.
 	// This would fix the issue where you can't scroll the whole page.
+	// For now this will require manually editing the tile layout config file
+	// as we don't automatically check for gaps.
 		for (var i = 0; i < tilesContainer.children.length; i++) {
-			// Move the tiles below ours down a row according to our rowSpan.
-			// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
-			// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
-			// We need an if/else here so tiles go back up if possible, but I can't figure out what I need.
-			// TODO: figure out a good if/else here. I genuinely don't know what
-			// should be used for this, sadly. I had some other code I tried that can be found in the git diffs,
-			// but it never ended up working.
-			// if (tilesContainer.children[i].Layout.row - 1 != tilesContainer.children[i].Layout.row - 2) {
-			// 	tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
-			// }
 
 			// Loop through all the columns so we can check horizontally.
 			for (var j = 0; j < tilesContainer.columns; j++) {
