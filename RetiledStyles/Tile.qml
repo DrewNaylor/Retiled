@@ -168,28 +168,34 @@ ButtonBase {
 	property string unpinIconPressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconPressed", "unpin")
 	property string unpinIconUnpressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconUnpressed", "unpin_white")
 	
-	// function unpinDefragTiles() {
+	function unpinDefragTiles() {
 	// 		// Put tiles back together when unpinning them.
 	// TODO: Figure out how to make this work for the case where no tiles are in a row
 	// and we can move them up toward the rest of them.
 	// This would fix the issue where you can't scroll the whole page.
-	// 			for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
-	// 				// Move the tiles below ours down a row according to our rowSpan.
-	// 				// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
-	// 				// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
-	// 				// We need an if/else here so tiles go back up if possible, but I can't figure out what I need.
-	// 				// TODO: figure out a good if/else here. I genuinely don't know what
-	// 				// should be used for this, sadly. I had some other code I tried that can be found in the git diffs,
-	// 				// but it never ended up working.
-	// 				if (tilesContainer.children[i].Layout.row - 1 != tilesContainer.children[i].Layout.row - 2) {
-	// 					tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
-	// 				}
-	// 			} // End of for loop ensuring we don't overlap any tiles near us.	
-				
-			
-	// 		// Commit the new sizes to the thing.
-	// 		tilesContainer.updatePreferredSizes();
-	// 	}
+		for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
+			// Move the tiles below ours down a row according to our rowSpan.
+			// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
+			// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
+			// We need an if/else here so tiles go back up if possible, but I can't figure out what I need.
+			// TODO: figure out a good if/else here. I genuinely don't know what
+			// should be used for this, sadly. I had some other code I tried that can be found in the git diffs,
+			// but it never ended up working.
+			// if (tilesContainer.children[i].Layout.row - 1 != tilesContainer.children[i].Layout.row - 2) {
+			// 	tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
+			// }
+			for (var j = 0; j < tilesContainer.columns; j++) {
+				// console.log("column: " + j);
+				if ((tilesContainer.children[i].Layout.row == control.Layout.row) && (tilesContainer.children[i].Layout.column == j)) {
+					console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
+				}
+			}
+		} // End of for loop ensuring we don't overlap any tiles near us.	
+		
+	
+		// Commit the new sizes to the thing.
+		tilesContainer.updatePreferredSizes();
+	}
 		
 
 	RoundButton {
@@ -261,7 +267,7 @@ ButtonBase {
 			// This doesn't work right, sadly.
 			// Tiles will end up going inside each other.
 			// TODO: Have it work.
-			//unpinDefragTiles();
+			unpinDefragTiles();
 		}
 	}
 	
