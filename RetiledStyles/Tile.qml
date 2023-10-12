@@ -168,7 +168,7 @@ ButtonBase {
 	property string unpinIconPressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconPressed", "unpin")
 	property string unpinIconUnpressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconUnpressed", "unpin_white")
 	
-	function unpinDefragTiles() {
+	function unpinCanDefragTiles() {
 	// 		// Put tiles back together when unpinning them.
 	// TODO: Figure out how to make this work for the case where no tiles are in a row
 	// and we can move them up toward the rest of them.
@@ -287,7 +287,9 @@ ButtonBase {
 			// This doesn't work right, sadly.
 			// Tiles will end up going inside each other.
 			// TODO: Have it work.
-			unpinDefragTiles();
+			if (unpinCanDefragTiles() != false) {
+				unpinDefragTiles();
+			}
 		}
 	}
 	
