@@ -168,8 +168,12 @@ ButtonBase {
 	property string unpinIconPressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconPressed", "unpin")
 	property string unpinIconUnpressed: ThemeLoader.getValueFromTheme(themePath, "Tiles", "UnpinButtonIconUnpressed", "unpin_white")
 	
-	function unpinCanDefragTiles() {
-	// Put tiles back together when unpinning them.
+	function checkForOverlappingTiles() {
+	// Check for potentially-overlapping tiles before resizing or unpinning.
+	// This can be used to put tiles back together when unpinning them
+	// or to move tiles out of the way when resizing them.
+	// This was originally used to check only if we could defrag the tiles,
+	// but I realized I could use it for resizing them, too.
 	// TODO: Figure out how to make this work for the case where no tiles are in a row
 	// and we can move them up toward the rest of them.
 	// This would fix the issue where you can't scroll the whole page.
@@ -203,7 +207,7 @@ ButtonBase {
 				} // End of for loop looking through all the rows between and including the unpinned tile's row and its rowSpan.
 			} // End of for loop looking through all the columns.
 		} // End of for loop looking through all the tiles in the tilesContainer.
-	} // End of function checking if we can defrag the tiles.
+	} // End of function checking if there are overlapping tiles.
 
 	function unpinDefragTiles() {
 		// We can defrag the tiles, so do so.
@@ -292,7 +296,7 @@ ButtonBase {
 			// the tiles layout file will be required.
 			// I'll make a tile layout editor before the
 			// next version to make that easier.
-			if (unpinCanDefragTiles() != false) {
+			if (checkForOverlappingTiles() != false) {
 				unpinDefragTiles();
 			}
 		}
