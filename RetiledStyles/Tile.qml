@@ -294,9 +294,12 @@ ButtonBase {
 			// since it's dynamically-created.
 			control.visible = false;
 			// Put the tiles back together.
-			// This doesn't work right, sadly.
-			// Tiles will end up going inside each other.
-			// TODO: Have it work.
+			// This isn't perfect but at least tiles
+			// won't end up going inside each other.
+			// Sometimes gaps will be left, so directly editing
+			// the tiles layout file will be required.
+			// I'll make a tile layout editor before the
+			// next version to make that easier.
 			if (unpinCanDefragTiles() != false) {
 				unpinDefragTiles();
 			}
