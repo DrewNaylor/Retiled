@@ -173,7 +173,7 @@ ButtonBase {
 	// TODO: Figure out how to make this work for the case where no tiles are in a row
 	// and we can move them up toward the rest of them.
 	// This would fix the issue where you can't scroll the whole page.
-		for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
+		for (var i = 0; i < tilesContainer.children.length; i++) {
 			// Move the tiles below ours down a row according to our rowSpan.
 			// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
 			// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
@@ -186,8 +186,15 @@ ButtonBase {
 			// }
 			for (var j = 0; j < tilesContainer.columns; j++) {
 				// console.log("column: " + j);
-				if ((tilesContainer.children[i].Layout.row == control.Layout.row) && (tilesContainer.children[i].Layout.column == j)) {
-					console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
+				for (var k = control.Layout.row; k < control.Layout.row + control.Layout.rowSpan; k++) {
+					//console.log(k);
+					if ((tilesContainer.children[i].Layout.row == k) && (tilesContainer.children[i].Layout.column == j)) {
+						// console.log("control.tileIndex: " + control.tileIndex);
+						//console.log("tilesContainer.children[i].tileIndex: " + tilesContainer.children[i].tileIndex);
+						if (tilesContainer.children[i].tileIndex != control.tileIndex) {
+							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
+						}
+					}
 				}
 			}
 		} // End of for loop ensuring we don't overlap any tiles near us.	
