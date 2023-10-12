@@ -204,7 +204,8 @@ ButtonBase {
 						// Make sure we only look at tiles that aren't the one we unpinned and are still visible.
 						if ((tilesContainer.children[i].tileIndex != control.tileIndex) && (tilesContainer.children[i].visible == true)) {
 							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
-							// Check if there's nothing returned.
+							// Return false since we can't move tiles.
+							return false
 						}
 					}
 				}
