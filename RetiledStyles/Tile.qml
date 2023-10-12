@@ -200,8 +200,14 @@ ButtonBase {
 						// Make sure we only look at tiles that aren't the one we unpinned and are still visible.
 						if ((tilesContainer.children[i].tileIndex != control.tileIndex) && (tilesContainer.children[i].visible == true)) {
 							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
-							// Return true since there are overlapping tiles.
-							return true
+							// Return true since there are overlapping tiles. We do need to check if the tile
+							// we find is the same rowSpan or more than the tile we unpinned or resized, and if it's less,
+							// we'll be fine.
+							if (tilesContainer.children[i].Layout.rowSpan >= control.Layout.rowSpan) {
+								return true
+							} else {
+								return "overlapping-tile-rowspan-less-than-unpinned-or-resized-tile"
+							}
 						} // End of if statement checking if there is a visible tile and making sure it's not an unpinned tile.
 					} // End of complicated if statement checking for tiles nearby.
 				} // End of for loop looking through all the rows between and including the unpinned tile's row and its rowSpan.
@@ -217,11 +223,12 @@ ButtonBase {
 			if (tilesContainer.children[i].Layout.row > control.Layout.row) {
 				// Move the tiles up.
 				// TODO: Have wide tiles properly move everything else up when unpinned.
+				console.log("rowSpan: " + control.Layout.rowSpan);
 				tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
 				// Commit the new sizes to the thing.
 				tilesContainer.updatePreferredSizes();
 				// Make sure we don't have small tiles go into other tiles if a tile with a rowSpan of more than 1 is unpinned.
-				if ((checkForOverlappingTiles() == true) && (control.Layout.rowSpan > 1)) {
+				if ((control.Layout.rowSpan > 1) && (control.Layout.columnSpan < tilesContainer.columns)) {
 					console.log("overlapping tiles detected, moving out of the way.");
 					tilesContainer.children[i].Layout.row += 1;
 				}
@@ -305,7 +312,7 @@ ButtonBase {
 			// the tiles layout file will be required.
 			// I'll make a tile layout editor before the
 			// next version to make that easier.
-			if (checkForOverlappingTiles() == true) {
+			if (checkForOverlappingTiles() != true) {
 				unpinDefragTiles();
 			}
 		}
@@ -387,7 +394,9 @@ ButtonBase {
 				// whether we need to move those other tiles.
 				tilesContainer.updatePreferredSizes();
 
-				if ((checkForOverlappingTiles() == true) && (control.Layout.rowSpan > 1) && (control.Layout.columnSpan > 1)) {
+				// TODO: Improve this code so it's more reliable.
+				// Right now it tends to give too much space.
+				if ((checkForOverlappingTiles() == "overlapping-tile-rowspan-less-than-unpinned-or-resized-tile") && (control.Layout.rowSpan > 1) && (control.Layout.columnSpan > 1)) {
 					for (var i = 0; i < tilesContainer.children.length; i++) {
 						// Move the tiles below ours down a row according to our rowSpan.
 						// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
