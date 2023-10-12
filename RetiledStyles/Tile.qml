@@ -200,7 +200,7 @@ ButtonBase {
 						// Make sure we only look at tiles that aren't the one we unpinned and are still visible.
 						if ((tilesContainer.children[i].tileIndex != control.tileIndex) && (tilesContainer.children[i].visible == true)) {
 							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
-							// Return false since we can't move tiles.
+							// Return true since there are overlapping tiles.
 							return false
 						} // End of if statement checking if there is a visible tile and making sure it's not an unpinned tile.
 					} // End of complicated if statement checking for tiles nearby.
@@ -296,7 +296,7 @@ ButtonBase {
 			// the tiles layout file will be required.
 			// I'll make a tile layout editor before the
 			// next version to make that easier.
-			if (checkForOverlappingTiles() != false) {
+			if (checkForOverlappingTiles() == true) {
 				unpinDefragTiles();
 			}
 		}
@@ -378,10 +378,17 @@ ButtonBase {
 					// TODO: figure out a good if/else here. I genuinely don't know what
 					// should be used for this, sadly. I had some other code I tried that can be found in the git diffs,
 					// but it never ended up working.
-					tilesContainer.children[i].Layout.row += tilesContainer.children[i - 1].Layout.rowSpan;
+					// This code here kinda works, but it's not perfect.
+					// TODO: Get the tile indexes that would be overlapped and return them in
+					// checkForOverlappingTiles(). Right now it only returns true, but
+					// it should have an argument that can switch it to returning the tile indexes
+					// that would be overlapped.
+					// NOTE: I changed the following line from "... += tilesContainer.children[i - 1].Layout.rowSpan;",
+					// so change it back to that if "... += control.Layout.rowSpan;" introduces bugs.
+					tilesContainer.children[i].Layout.row += control.Layout.rowSpan;
 				} // End of for loop ensuring we don't overlap any tiles near us.	
 				} // End of if statement checking if we'd overlap tiles.
-			
+
 			// Commit the new sizes to the thing.
 			tilesContainer.updatePreferredSizes();
 		}
