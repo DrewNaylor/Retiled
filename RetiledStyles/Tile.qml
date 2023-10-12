@@ -201,7 +201,7 @@ ButtonBase {
 						if ((tilesContainer.children[i].tileIndex != control.tileIndex) && (tilesContainer.children[i].visible == true)) {
 							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
 							// Return true since there are overlapping tiles.
-							return false
+							return true
 						} // End of if statement checking if there is a visible tile and making sure it's not an unpinned tile.
 					} // End of complicated if statement checking for tiles nearby.
 				} // End of for loop looking through all the rows between and including the unpinned tile's row and its rowSpan.
@@ -370,25 +370,36 @@ ButtonBase {
 				//tilesContainer.children[control.tileIndex].Layout.row += 1;
 				// Go through all the pinned tiles after the one we're resizing and check
 				// if they would overlap our tile (still have to see if they'd overlap).
-				for (var i = control.tileIndex + 1; i < tilesContainer.children.length; i++) {
-					// Move the tiles below ours down a row according to our rowSpan.
-					// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
-					// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
-					// We need an if/else here so tiles go back up if possible, but I can't figure out what I need.
-					// TODO: figure out a good if/else here. I genuinely don't know what
-					// should be used for this, sadly. I had some other code I tried that can be found in the git diffs,
-					// but it never ended up working.
-					// This code here kinda works, but it's not perfect.
-					// TODO: Get the tile indexes that would be overlapped and return them in
-					// checkForOverlappingTiles(). Right now it only returns true, but
-					// it should have an argument that can switch it to returning the tile indexes
-					// that would be overlapped.
-					// NOTE: I changed the following line from "... += tilesContainer.children[i - 1].Layout.rowSpan;",
-					// so change it back to that if "... += control.Layout.rowSpan;" introduces bugs.
-					tilesContainer.children[i].Layout.row += control.Layout.rowSpan;
-				} // End of for loop ensuring we don't overlap any tiles near us.	
-				} // End of if statement checking if we'd overlap tiles.
+				
+				} // End of if statement checking if we'd be out of bounds.
 
+				// Commit the new sizes to the thing.
+				// This is important for checking if we'd overlap other tiles, and
+				// whether we need to move those other tiles.
+				tilesContainer.updatePreferredSizes();
+
+				if ((checkForOverlappingTiles() == true) && (control.Layout.rowSpan > 1) && (control.Layout.columnSpan > 1)) {
+					for (var i = 0; i < tilesContainer.children.length; i++) {
+						// Move the tiles below ours down a row according to our rowSpan.
+						// console.log("looking at column: " + tilesContainer.children[i].Layout.column);
+						// console.log("control column plus columnSpan: " + control.Layout.column + control.Layout.columnSpan);
+						// We need an if/else here so tiles go back up if possible, but I can't figure out what I need.
+						// TODO: figure out a good if/else here. I genuinely don't know what
+						// should be used for this, sadly. I had some other code I tried that can be found in the git diffs,
+						// but it never ended up working.
+						// This code here kinda works, but it's not perfect.
+						// TODO: Get the tile indexes that would be overlapped and return them in
+						// checkForOverlappingTiles(). Right now it only returns true, but
+						// it should have an argument that can switch it to returning the tile indexes
+						// that would be overlapped.
+						// NOTE: I changed the following line from "... += tilesContainer.children[i - 1].Layout.rowSpan;",
+						// so change it back to that if "... += control.Layout.rowSpan;" introduces bugs.
+						if (tilesContainer.children[i].tileIndex > control.tileIndex) {
+							console.log("need to move: " + tilesContainer.children[i].dotDesktopFilePath);
+							tilesContainer.children[i].Layout.row = tilesContainer.children[i].Layout.row + control.Layout.rowSpan;
+						}
+					} // End of for loop ensuring we don't overlap any tiles near us.
+				}
 			// Commit the new sizes to the thing.
 			tilesContainer.updatePreferredSizes();
 		}
