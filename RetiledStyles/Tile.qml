@@ -188,7 +188,7 @@ ButtonBase {
 			// Loop through all the columns so we can check horizontally.
 			for (var j = 0; j < tilesContainer.columns; j++) {
 				// console.log("column: " + j);
-				// Loop through all the rows at the unpinned tile's row until the row its rowSpan covers.
+				// Loop through all the rows at the unpinned tile's row until and including the row its rowSpan covers.
 				for (var k = control.Layout.row; k < control.Layout.row + control.Layout.rowSpan; k++) {
 					//console.log(k);
 					// Check to see if there's a tile within the same rows the tile covers and in all the columns.
@@ -206,13 +206,16 @@ ButtonBase {
 							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
 							// Return false since we can't move tiles.
 							return false
-						}
-					}
-				}
-			}
-		} // End of for loop ensuring we don't overlap any tiles near us.	
-		
-	
+						} // End of if statement checking if there is a visible tile and making sure it's not an unpinned tile.
+					} // End of complicated if statement checking for tiles nearby.
+				} // End of for loop looking through all the rows between and including the unpinned tile's row and its rowSpan.
+			} // End of for loop looking through all the columns.
+		} // End of for loop looking through all the tiles in the tilesContainer.
+	} // End of function checking if we can defrag the tiles.
+
+	function unpinDefragTiles() {
+		// We can defrag the tiles, so do so.
+
 		// Commit the new sizes to the thing.
 		tilesContainer.updatePreferredSizes();
 	}
