@@ -215,6 +215,8 @@ ButtonBase {
 
 	function unpinDefragTiles() {
 		// We can defrag the tiles, so do so.
+		// This isn't perfect as it doesn't take into account space where there are only two tiles
+		// and a medium tile is unpinned before the smaller ones.
 		for (var i = control.tileIndex; i < tilesContainer.children.length; i++) {
 			if (tilesContainer.children[i].Layout.row > control.Layout.row) {
 				tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
