@@ -184,16 +184,27 @@ ButtonBase {
 			// if (tilesContainer.children[i].Layout.row - 1 != tilesContainer.children[i].Layout.row - 2) {
 			// 	tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
 			// }
+
+			// Loop through all the columns so we can check horizontally.
 			for (var j = 0; j < tilesContainer.columns; j++) {
 				// console.log("column: " + j);
+				// Loop through all the rows at the unpinned tile's row until the row its rowSpan covers.
 				for (var k = control.Layout.row; k < control.Layout.row + control.Layout.rowSpan; k++) {
 					//console.log(k);
+					// Check to see if there's a tile within the same rows the tile covers and in all the columns.
+					// If we don't find anything (that code would work for medium and wide tiles), then
+					// check if the tile is not the same columnSpan as the amount of columns in the tilesContainer and
+					// make sure it's a small tile in height (should work for custom sizes), then check if the tile we're
+					// looking at is on the row above us, then make sure its column is less than the number of
+					// columns in the tilesContainer (not sure if the last one is required).
 					if (((tilesContainer.children[i].Layout.row == k) && (tilesContainer.children[i].Layout.column == j)) ||
 						((control.Layout.columnSpan != tilesContainer.columns) && (control.Layout.rowSpan == 1) && ((tilesContainer.children[i].Layout.row == k - 1) && (tilesContainer.children[i].Layout.column < tilesContainer.columns)))) {
 						// console.log("control.tileIndex: " + control.tileIndex);
 						//console.log("tilesContainer.children[i].tileIndex: " + tilesContainer.children[i].tileIndex);
+						// Make sure we only look at tiles that aren't the one we unpinned and are still visible.
 						if ((tilesContainer.children[i].tileIndex != control.tileIndex) && (tilesContainer.children[i].visible == true)) {
 							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
+							// Check if there's nothing returned.
 						}
 					}
 				}
