@@ -215,7 +215,16 @@ ButtonBase {
 		// and a medium tile is unpinned before the smaller ones.
 		for (var i = control.tileIndex; i < tilesContainer.children.length; i++) {
 			if (tilesContainer.children[i].Layout.row > control.Layout.row) {
+				// Move the tiles up.
+				// TODO: Have wide tiles properly move everything else up when unpinned.
 				tilesContainer.children[i].Layout.row -= control.Layout.rowSpan;
+				// Commit the new sizes to the thing.
+				tilesContainer.updatePreferredSizes();
+				// Make sure we don't have small tiles go into other tiles if a tile with a rowSpan of more than 1 is unpinned.
+				if ((checkForOverlappingTiles() == true) && (control.Layout.rowSpan > 1)) {
+					console.log("overlapping tiles detected, moving out of the way.");
+					tilesContainer.children[i].Layout.row += 1;
+				}
 			}
 		}
 
