@@ -188,10 +188,11 @@ ButtonBase {
 				// console.log("column: " + j);
 				for (var k = control.Layout.row; k < control.Layout.row + control.Layout.rowSpan; k++) {
 					//console.log(k);
-					if ((tilesContainer.children[i].Layout.row == k) && (tilesContainer.children[i].Layout.column == j)) {
+					if (((tilesContainer.children[i].Layout.row == k) && (tilesContainer.children[i].Layout.column == j)) ||
+						((control.Layout.columnSpan != tilesContainer.columns) && (control.Layout.rowSpan == 1) && ((tilesContainer.children[i].Layout.row == k - 1) && (tilesContainer.children[i].Layout.column < tilesContainer.columns)))) {
 						// console.log("control.tileIndex: " + control.tileIndex);
 						//console.log("tilesContainer.children[i].tileIndex: " + tilesContainer.children[i].tileIndex);
-						if (tilesContainer.children[i].tileIndex != control.tileIndex) {
+						if ((tilesContainer.children[i].tileIndex != control.tileIndex) && (tilesContainer.children[i].visible == true)) {
 							console.log("tile detected in same row and column: " + tilesContainer.children[i].dotDesktopFilePath);
 						}
 					}
