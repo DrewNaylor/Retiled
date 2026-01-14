@@ -1,7 +1,9 @@
 # Retiled
 
-> NB: I'm migrating to Codeberg. The canonical repo for Retiled is now here, please update your remotes: https://codeberg.org/DrewNaylor/Retiled
+## Moving to Codeberg
+**Note:** I'm migrating to Codeberg. The canonical repo for Retiled is now here, please update your remotes: https://codeberg.org/DrewNaylor/Retiled
 
+## Rest of the readme
 An attempt at creating a "desktop" environment mainly for Linux phones and tablets that's similar in function to some parts of Microsoft's Windows Phone 8.x, primarily these features and behaviors:
 - Start screen
 - Search app
